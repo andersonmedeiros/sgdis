@@ -25,7 +25,7 @@
     <body>
         <header class="">
             
-            <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top">
                 <a class="navbar-brand" href="../restrito/inicial.jsp">SGDIS</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerSgdis" aria-controls="navbarTogglerSgdis" aria-expanded="false" aria-label="Alterna navegação">
                     <span class="navbar-toggler-icon"></span>
@@ -62,17 +62,17 @@
             </nav>
         </header>
         
-        <section class="container-fluid">
+        <section class="container-fluid area">
             <form action="action">
-                <fieldset class="col-12 shadow-sm p-3 mb-5 bg-warning ">
+                <fieldset class="col-md-10 mr-auto ml-auto shadow-sm p-3 mb-5 bg-warning">
                     <legend class="text-center bg-danger">Fase</legend>
                     <div class="form-row">
-                        <div class="form-group col-8">
+                        <div class="form-group col-md-8">
                             <label for="txtNome">Nome: </label>
                             <input type="text" class="form-control" id="txtNome" placeholder="Nome">
                         </div>
                     
-                        <div class="form-group col-4">
+                        <div class="form-group col-md-4">
                             <label for="txtSigla">Sigla: </label>
                             <input type="text" class="form-control" id="txtNome" placeholder="Sigla">
                         </div>
@@ -83,7 +83,7 @@
                     </div>
                     
                     <div class="form-row">
-                        <div class="form-group col-12">
+                        <div class="form-group col-md-12">
                             <label for="txtDescricao">Descrição: </label>
                             <textarea class="form-control" id="txtDescricao" rows="3" placeholder="Descrição"></textarea>
                         </div>
@@ -94,12 +94,11 @@
             </form>
         </section>
         
-        <footer>
-            <div class="container-fluid bg-success text-center" style="position: absolute; bottom: 0; padding-top: 6px; padding-bottom: 6px;">
-                <b>Anderson de Paula Andrade Medeiros</b><br>
-                <b class="text-center copy">&copy; 2019</b>
-            </div>
+        <footer class="container-fluid bg-success text-center fixed-bottom">
+            <b>Anderson de Paula Andrade Medeiros</b><br>
+            <b class="text-center copy">&copy; 2019</b>
         </footer>
+        
         <script src="../assets/node_modules/jquery/dist/jquery.js"></script>
         <script src="../assets/node_modules/popper.js/dist/popper.js"></script>
         <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>

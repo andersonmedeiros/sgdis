@@ -33,12 +33,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../restrito/cadastroCurso.jsp">Curso <span class="sr-only">(Página atual)</span></a>
                         </li>
-                        <li class="nav-item dropdown active">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Cadastrar
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item active" href="../restrito/cadastroCurso.jsp">Curso</a>
+                                <a class="dropdown-item" href="../restrito/cadastroCurso.jsp">Curso</a>
                                 <a class="dropdown-item" href="../restrito/cadastroFase.jsp">Fase</a>
                                 <a class="dropdown-item" href="../restrito/cadastroDisciplina.jsp">Disciplina</a>
                                 <div class="dropdown-divider"></div>
@@ -63,12 +63,11 @@
             <p>Inicio</p>
         </section>
         
-        <footer>
-            <div class="container-fluid bg-success text-center" style="position: absolute; bottom: 0; padding-top: 6px; padding-bottom: 6px;">
-                <b>Anderson de Paula Andrade Medeiros</b><br>
-                <b class="text-center copy">&copy; 2019</b>
-            </div>
+        <footer class="container-fluid bg-success text-center fixed-bottom">
+            <b>Anderson de Paula Andrade Medeiros</b><br>
+            <b class="text-center copy">&copy; 2019</b>
         </footer>
+        
         <script src="../assets/node_modules/jquery/dist/jquery.js"></script>
         <script src="../assets/node_modules/popper.js/dist/popper.js"></script>
         <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
