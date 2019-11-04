@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cadastroCurso
-    Created on : 31/10/2019, 14:24:52
+    Document   : inicial
+    Created on : 04/11/2019, 11:19:30
     Author     : andersondepaula
 --%>
 
@@ -13,14 +13,11 @@
         <meta name="description" content="">
         <meta name="author" content="Anderson de Paula Andrade Medeiros">
 
-        <title>Cadastro de Curso</title>
+        <title>SGDIS</title>
         
         <link rel="stylesheet" type="text/css" href="assets/node_modules/bootstrap/compiler/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="assets/css/estilo_universal.css">
         <link rel="stylesheet" type="text/css" href="assets/css/estilo_cadastroCurso.css">
-        
-        
-        
     </head>
     <body>
         <header class="">
@@ -64,43 +61,7 @@
         </header>
         
         <section class="container-fluid">
-            <form action="action">
-                <fieldset class="col-12 shadow-sm p-3 mb-5 bg-warning ">
-                    <legend class="text-center bg-danger">Curso</legend>
-                    <div class="form-row">
-                        <div class="form-group col-8">
-                            <label for="txtNome">Nome: </label>
-                            <input type="text" class="form-control" id="txtNome" placeholder="Nome">
-                        </div>
-                    
-                        <div class="form-group col-4">
-                            <label for="txtSigla">Sigla: </label>
-                            <input type="text" class="form-control" id="txtNome" placeholder="Sigla">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="txtCH">Carga Horária: </label>
-                            <input type="text" class="form-control" id="txtCH" placeholder="Carga Horária">
-                        </div>
-                    
-                        <div class="form-group col-6">
-                            <label for="txtPortaria">Portaria: </label>
-                            <input type="text" class="form-control" id="txtNome" placeholder="Portaria">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group col-12">
-                            <label for="txtDescricao">Descrição: </label>
-                            <textarea class="form-control" id="txtDescricao" rows="3" placeholder="Descrição"></textarea>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
-                </fieldset>
-            </form>
+            <p>Inicio</p>
         </section>
         
         <footer>

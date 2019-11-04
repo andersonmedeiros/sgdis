@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cadastroCurso
-    Created on : 31/10/2019, 14:24:52
+    Document   : cadastroDisciplina
+    Created on : 04/11/2019, 11:01:31
     Author     : andersondepaula
 --%>
 
@@ -13,7 +13,7 @@
         <meta name="description" content="">
         <meta name="author" content="Anderson de Paula Andrade Medeiros">
 
-        <title>Cadastro de Curso</title>
+        <title>Cadastro de Disciplina</title>
         
         <link rel="stylesheet" type="text/css" href="assets/node_modules/bootstrap/compiler/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="assets/css/estilo_universal.css">
@@ -41,9 +41,9 @@
                                 Cadastrar
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item active" href="cadastroCurso.jsp">Curso</a>
+                                <a class="dropdown-item" href="cadastroCurso.jsp">Curso</a>
                                 <a class="dropdown-item" href="cadastroFase.jsp">Fase</a>
-                                <a class="dropdown-item" href="cadastroDisciplina.jsp">Disciplina</a>
+                                <a class="dropdown-item active" href="cadastroDisciplina.jsp">Disciplina</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Algo mais aqui</a>
                             </div>
@@ -66,7 +66,7 @@
         <section class="container-fluid">
             <form action="action">
                 <fieldset class="col-12 shadow-sm p-3 mb-5 bg-warning ">
-                    <legend class="text-center bg-danger">Curso</legend>
+                    <legend class="text-center bg-danger">Disciplina</legend>
                     <div class="form-row">
                         <div class="form-group col-8">
                             <label for="txtNome">Nome: </label>
@@ -80,15 +80,7 @@
                     </div>
                     
                     <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="txtCH">Carga Horária: </label>
-                            <input type="text" class="form-control" id="txtCH" placeholder="Carga Horária">
-                        </div>
-                    
-                        <div class="form-group col-6">
-                            <label for="txtPortaria">Portaria: </label>
-                            <input type="text" class="form-control" id="txtNome" placeholder="Portaria">
-                        </div>
+                        
                     </div>
                     
                     <div class="form-row">
