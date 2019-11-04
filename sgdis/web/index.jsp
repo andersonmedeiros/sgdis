@@ -26,18 +26,23 @@
                     int grp_acesso_sgdis = Integer.parseInt(request.getParameter("e"));
 
                     if(grp_acesso_sgdis == 1){
-                        out.println("<div class=\"alert alert-danger text-center\" role=\"alert\">");
-                        out.println("       Identidade Inválida!");
+                        out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                        out.println("       Identidade Inválida!<br>Tente Novamente!");
                         out.println("</div>");
                     }
                     else if(grp_acesso_sgdis == 2){
-                        out.println("<div class=\"alert alert-danger text-center\" role=\"alert\">");
-                        out.println("       Senha Inválida!");
+                        out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                        out.println("       Senha Inválida!<br>Tente Novamente!");
                         out.println("</div>");
                     }
                     else if(grp_acesso_sgdis == 3){
-                        out.println("<div class=\"alert alert-danger text-center\" role=\"alert\">");
-                        out.println("       Identidade e Senha Inválidas!");
+                        out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                        out.println("       Identidade e Senha Inválidas!<br>Tente Novamente!");
+                        out.println("</div>");
+                    }
+                    else if(grp_acesso_sgdis == 4){
+                        out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                        out.println("       Sessão Encerrada!<br>Tente Novamente!");
                         out.println("</div>");
                     }
                 }
@@ -58,7 +63,7 @@
                 <button type="submit" class="btn btn-primary btn-block btn-success">Entrar</button>
                 <p class="mt-5 mb-3 text-center copy">&copy; 2019</p>
             </div>
-            <div class="col-12 text-center frase">
+            <div class="col-12 text-center shadow-sm frase">
                 <h1>"Quem são eles?"</h1>
             </div>
         </form>

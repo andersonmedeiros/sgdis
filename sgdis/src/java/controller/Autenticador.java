@@ -83,7 +83,7 @@ public class Autenticador extends HttpServlet {
         if(identidade.equals("0107912217") && senha.equals("!P4rd4l)")){
             HttpSession sessao = request.getSession();
             sessao.setAttribute("militarAutenticado", "sti");
-            response.sendRedirect("/sgdis/inicial.jsp");
+            response.sendRedirect("/sgdis/restrito/inicial.jsp");
         }else{
             Militar mil = new Militar();
             MilitarDAO milDAO = new MilitarDAO();
@@ -114,7 +114,7 @@ public class Autenticador extends HttpServlet {
                 sessao.setAttribute("militarAutenticado", milAutenticado);
                 
                 if(milAutenticado.getId_grp_acesso_sgdis() == 1){
-                    response.sendRedirect("/sgdis/inicial.jsp?g=1");
+                    response.sendRedirect("/sgdis/restrito/inicial.jsp?g=1");
                 }
             }
         }

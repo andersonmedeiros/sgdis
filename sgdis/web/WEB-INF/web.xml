@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>FiltroPaginas</filter-name>
+        <filter-class>controller.FiltroPaginas</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroPaginas</filter-name>
+        <url-pattern>/restrito/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>Autenticador</servlet-name>
         <servlet-class>controller.Autenticador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Sair</servlet-name>
+        <servlet-class>controller.Sair</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Autenticador</servlet-name>
         <url-pattern>/Autenticador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Sair</servlet-name>
+        <url-pattern>/restrito/Sair</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
