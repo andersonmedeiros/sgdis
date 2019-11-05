@@ -15,6 +15,7 @@
 
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="assets/node_modules/bootstrap/compiler/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/estilo_universal.css">
         <link rel="stylesheet" type="text/css" href="assets/css/estilo_index.css">
         <link rel="stylesheet" type="text/css" href="assets/css/floating_labels.css">
     </head>
@@ -26,28 +27,28 @@
                     int grp_acesso_sgdis = Integer.parseInt(request.getParameter("e"));
 
                     if(grp_acesso_sgdis == 1){
-                        out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                        out.println("<div class=\"alert alert-danger col-md-6 mr-auto ml-auto shadow-sm text-center\" role=\"alert\">");
                         out.println("       Identidade Inválida!<br>Tente Novamente!");
                         out.println("</div>");
                     }
                     else if(grp_acesso_sgdis == 2){
-                        out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                        out.println("<div class=\"alert alert-danger col-md-6 mr-auto ml-auto shadow-sm text-center\" role=\"alert\">");
                         out.println("       Senha Inválida!<br>Tente Novamente!");
                         out.println("</div>");
                     }
                     else if(grp_acesso_sgdis == 3){
-                        out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                        out.println("<div class=\"alert alert-danger col-md-6 mr-auto ml-auto shadow-sm text-center\" role=\"alert\">");
                         out.println("       Identidade e Senha Inválidas!<br>Tente Novamente!");
                         out.println("</div>");
                     }
                     else if(grp_acesso_sgdis == 4){
-                        out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                        out.println("<div class=\"alert alert-danger col-md-6 mr-auto ml-auto shadow-sm text-center\" role=\"alert\">");
                         out.println("       Sessão Encerrada!<br>Tente Novamente!");
                         out.println("</div>");
                     }
                 }
             %>
-            <div class="text-center col-3 form form-signin">
+            <div class="text-center col-md-3 form form-signin">
                 <img class="col-4" src="assets/img/logo_sgdis.png" alt="Sistema de Gerenciamento de Discente" >                                       
 
                 <div class="form-label-group">
