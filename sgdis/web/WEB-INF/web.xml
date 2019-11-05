@@ -16,6 +16,18 @@
         <servlet-name>Sair</servlet-name>
         <servlet-class>controller.Sair</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Cadastrar</servlet-name>
+        <servlet-class>controller.curso.Cadastrar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Atualizar</servlet-name>
+        <servlet-class>controller.curso.Atualizar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Excluir</servlet-name>
+        <servlet-class>controller.curso.Excluir</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Autenticador</servlet-name>
         <url-pattern>/Autenticador</url-pattern>
@@ -23,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>Sair</servlet-name>
         <url-pattern>/restrito/Sair</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cadastrar</servlet-name>
+        <url-pattern>/restrito/controller.curso/Cadastrar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Atualizar</servlet-name>
+        <url-pattern>/restrito/Atualizar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Excluir</servlet-name>
+        <url-pattern>/restrito/Excluir</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
