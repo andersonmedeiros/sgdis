@@ -11,7 +11,7 @@ package bean;
  */
 public class Curso {
     int id, ch;
-    String nome, sigla, portaria, descricao;
+    String nome, sigla, categoria, portaria, descricao;
 
     public int getId() {
         return id;
@@ -28,7 +28,7 @@ public class Curso {
     public void setCh(int ch) {
         this.ch = ch;
     }
-
+    
     public String getNome() {
         return nome;
     }
@@ -40,11 +40,19 @@ public class Curso {
     public String getSigla() {
         return sigla;
     }
-
+    
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    
     public String getPortaria() {
         return portaria;
     }

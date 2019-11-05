@@ -25,17 +25,18 @@ public class CursoDAO {
     String id = "id";
     String nome = "nome";
     String sigla = "sigla";
+    String categoria = "categoria";
     String ch = "ch";
     String portaria = "portaria";
     String descricao = "descricao";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + ch + "," + portaria + "," + descricao +")"
-                                    + " VALUES(?,?,?,?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + categoria + "," + ch + "," + portaria + "," + descricao +")"
+                                    + " VALUES(?,?,?,?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  "SET " + nome + "=?, " + sigla + "=?, " + ch + "=?, " + portaria + "=?, " + descricao + "=? " +
+                                  "SET " + nome + "=?, " + sigla + "=?, " + categoria + "=?, " + ch + "=?, " + portaria + "=?, " + descricao + "=? " +
                                   "WHERE " + id + "=?;";
     
     //Delete SQL
@@ -82,9 +83,10 @@ public class CursoDAO {
                 pstm.setInt(1, curso.getId());
                 pstm.setString(2, curso.getNome());
                 pstm.setString(3, curso.getSigla());
-                pstm.setInt(4, curso.getCh());                
-                pstm.setString(5, curso.getPortaria());
-                pstm.setString(6, curso.getDescricao());
+                pstm.setString(4, curso.getCategoria());
+                pstm.setInt(5, curso.getCh());                
+                pstm.setString(6, curso.getPortaria());
+                pstm.setString(7, curso.getDescricao());
                                               
                 pstm.execute();
                 
@@ -107,10 +109,11 @@ public class CursoDAO {
                 
                 pstm.setString(1, curso.getNome());
                 pstm.setString(2, curso.getSigla());
-                pstm.setInt(3, curso.getCh());
-                pstm.setString(4, curso.getPortaria());
-                pstm.setString(5, curso.getDescricao());
-                pstm.setInt(6, curso.getId());
+                pstm.setString(3, curso.getCategoria());
+                pstm.setInt(4, curso.getCh());
+                pstm.setString(5, curso.getPortaria());
+                pstm.setString(6, curso.getDescricao());
+                pstm.setInt(7, curso.getId());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -136,6 +139,7 @@ public class CursoDAO {
                 curso.setId(rs.getInt(id));
                 curso.setNome(rs.getString(nome));
                 curso.setSigla(rs.getString(sigla));
+                curso.setCategoria(rs.getString(categoria));
                 curso.setCh(rs.getInt(ch));
                 curso.setPortaria(rs.getString(portaria));
                 curso.setDescricao(rs.getString(descricao));
