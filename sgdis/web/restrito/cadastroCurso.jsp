@@ -63,37 +63,64 @@
         </header>
         
         <section class="container-fluid area">
-            <form action="action">
+            <form action="controller.curso/Cadastrar" method="POST" name="formCadastrar">
+                <%
+                    if(request.getParameter("e") != null){
+                        int grp_acesso_sgdis = Integer.parseInt(request.getParameter("e"));
+
+                        if(grp_acesso_sgdis == 1){
+                            out.println("<div class=\"alert alert-success col-md-10 mr-auto ml-auto shadow-sm text-center\" role=\"alert\">");
+                            out.println("       Curso adicionado com sucesso!");
+                            out.println("</div>");
+                        }
+                        else if(grp_acesso_sgdis == 2){
+                            out.println("<div class=\"alert alert-danger col-md-10 mr-auto ml-auto shadow-sm text-center\" role=\"alert\">");
+                            out.println("       Erro durante a realização do cadastro.<br>Tente Novamente!");
+                            out.println("</div>");
+                        }
+                    }
+                %>
+                
                 <fieldset class="col-md-10 mr-auto ml-auto shadow-sm p-3 mb-5 bg-warning">
                     <legend class="text-center bg-danger">Curso</legend>
                     <div class="form-row">
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-7">
                             <label for="txtNome">Nome: </label>
-                            <input type="text" class="form-control" id="txtNome" placeholder="Nome">
+                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
                         </div>
                     
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label for="txtSigla">Sigla: </label>
-                            <input type="text" class="form-control" id="txtNome" placeholder="Sigla">
+                            <input type="text" class="form-control" id="txtSigla" name="txtSigla" placeholder="Sigla">
+                        </div>
+                        
+                        <div class="form-group col-md-2">
+                            <label for="txtCategoria">Categoria: </label>
+                            <select class="form-control" id="txtCategoria" name="txtCategoria">
+                                <option value="0" selected>Categoria </option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="txtCH">Carga Horária: </label>
-                            <input type="text" class="form-control" id="txtCH" placeholder="Carga Horária">
+                            <input type="text" class="form-control" id="txtCH" name="txtCH" placeholder="Carga Horária">
                         </div>
                     
                         <div class="form-group col-md-6">
                             <label for="txtPortaria">Portaria: </label>
-                            <input type="text" class="form-control" id="txtNome" placeholder="Portaria">
+                            <input type="text" class="form-control" id="txtPortaria" name="txtPortaria" placeholder="Portaria">
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="txtDescricao">Descrição: </label>
-                            <textarea class="form-control" id="txtDescricao" rows="3" placeholder="Descrição"></textarea>
+                            <textarea class="form-control" id="txtDescricao" name="txtDescricao" rows="3" placeholder="Descrição"></textarea>
                         </div>
                     </div>
                     
