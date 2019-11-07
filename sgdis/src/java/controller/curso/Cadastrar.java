@@ -86,7 +86,6 @@ public class Cadastrar extends HttpServlet {
             String nome = request.getParameter("txtNome").toUpperCase();
             String sigla = request.getParameter("txtSigla").toUpperCase();
             String categoria = request.getParameter("txtCategoria").toUpperCase();
-            int ch = Integer.parseInt(request.getParameter("txtCH"));
             String portaria = request.getParameter("txtPortaria").toUpperCase();
             String descricao = request.getParameter("txtDescricao").toUpperCase();
 
@@ -95,16 +94,15 @@ public class Cadastrar extends HttpServlet {
             curso.setNome(nome);
             curso.setSigla(sigla);
             curso.setCategoria(categoria);
-            curso.setCh(ch);
             curso.setPortaria(portaria);
             curso.setDescricao(descricao);
             
             cursoDAO.insert(curso);
             }catch(Exception ex){
-                response.sendRedirect("/sgdis/restrito/cadastroCurso.jsp?e=2");
+                response.sendRedirect("/sgdis/restrito/curso.jsp?e=2");
                 throw new ServletException(ex);
             }
-            response.sendRedirect("/sgdis/restrito/cadastroCurso.jsp?e=1");
+            response.sendRedirect("/sgdis/restrito/curso.jsp?e=1");
             /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
             despachante.forward(request, response);*/
         }
