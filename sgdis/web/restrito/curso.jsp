@@ -68,16 +68,26 @@
         <section class="container-fluid col-md-10 mr-auto ml-auto area">
             <%
                 if(request.getParameter("e") != null){
-                    int retorno_cadastro = Integer.parseInt(request.getParameter("e"));
+                    int retorno = Integer.parseInt(request.getParameter("e"));
 
-                    if(retorno_cadastro == 1){
+                    if(retorno == 1){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
                         out.println("       Curso adicionado com sucesso!");
                         out.println("</div>");
                     }
-                    else if(retorno_cadastro == 2){
+                    else if(retorno == 2){
                         out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
                         out.println("       Erro durante a realização do cadastro.<br>Tente Novamente!");
+                        out.println("</div>");
+                    }
+                    else if(retorno == 3){
+                        out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                        out.println("       Erro durante a exclusão do cadastro.<br>Tente Novamente!");
+                        out.println("</div>");
+                    }
+                    else if(retorno == 4){
+                        out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
+                        out.println("       Curso excluído com sucesso!");
                         out.println("</div>");
                     }
                 }
@@ -112,7 +122,22 @@
                                 out.println("   <td>"+ cursos.get(i).getSigla()+"</td>");
                                 out.println("   <td>"+ cursos.get(i).getCategoria()+"</td>");
                                 out.println("   <td>"+ cursos.get(i).getPortaria()+"</td>");
-                                out.println("   <td>A SER DESENVOLVIDA</td>");
+                                out.println("   <td>");
+                                out.println("       <div class=form-row>");
+                                out.println("           <div class=\"form-group mr-2\">");
+                                out.println("               <form name=\"formExcluir\" method=\"POST\" action=\"controller.curso/Excluir\">");
+                                out.println("                   <input type=\"hidden\" class=\"form-control\" name=\"curso_id_excluir\" id=\"curso_id_excluir\" readonly=\"readonly\" value=\""+cursos.get(i).getId()+"\"/>");
+                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnExcluir\" class=\"btn btn-danger\" onclick=\"return confirm('Tem certeza que deseja excluir o registro?');\">Excluir</button>");
+                                out.println("               </form>");
+                                out.println("           </div>");
+                                out.println("           <div class=form-group>");
+                                out.println("               <form name=\"formExcluir\" method=\"POST\" action=\"controller.curso/Excluir\">");
+                                out.println("                   <input type=\"hidden\" class=\"form-control\" name=\"curso_id_excluir\" id=\"curso_id_excluir\" readonly=\"readonly\" value=\""+cursos.get(i).getId()+"\"/>");
+                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnSalvar\" class=\"btn btn-success\">Alterar</button>");
+                                out.println("               </form>");
+                                out.println("           </div>");
+                                out.println("       </div>");
+                                out.println("   </td>");
                                 out.println("</tr>");
                             }
                         }

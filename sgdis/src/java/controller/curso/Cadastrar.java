@@ -99,9 +99,11 @@ public class Cadastrar extends HttpServlet {
             
             cursoDAO.insert(curso);
             }catch(Exception ex){
+                //e=2: erro durante realização do cadastro
                 response.sendRedirect("/sgdis/restrito/curso.jsp?e=2");
                 throw new ServletException(ex);
             }
+            //e=1: cadastro sucesso
             response.sendRedirect("/sgdis/restrito/curso.jsp?e=1");
             /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
             despachante.forward(request, response);*/

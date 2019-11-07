@@ -5,12 +5,15 @@
  */
 package controller.curso;
 
+import dao.CursoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -71,6 +74,25 @@ public class Excluir extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        
+        HttpSession sessao = request.getSession();
+        CursoDAO cursoDAO = new CursoDAO();
+        
+        if(sessao.getAttribute("militarAutenticado") != null){
+            try{
+                int id = Integer.parseInt(request.getParameter("curso_id_excluir"));
+
+                cursoDAO.delete(id);
+            }catch(Exception ex){
+                //e=3: erro durante exclusao
+                response.sendRedirect("/sgdis/restrito/curso.jsp?e=3");
+                throw new ServletException(ex);
+            }
+            //e=4: cadastro excluído
+            response.sendRedirect("/sgdis/restrito/curso.jsp?e=4");
+        }else{
+            response.sendRedirect("/PlanoDeChamda/erro.jsp?x=sessao-encerrada");
+        }
     }
 
     /**

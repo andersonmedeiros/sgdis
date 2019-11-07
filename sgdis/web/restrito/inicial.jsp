@@ -61,7 +61,7 @@
         </header>
         
         <section class="container-fluid">
-            <p>Inicio</p>
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"> sdff</span>
         </section>
         
         <footer class="container-fluid bg-success text-center fixed-bottom">

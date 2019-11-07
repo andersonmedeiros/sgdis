@@ -124,6 +124,25 @@ public class CursoDAO {
         }
     }
     
+    //Delete SQL
+    public void delete(int id) {
+        if (id != 0) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(DELETE);
+                pstm.setInt(1, id);
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
+            throw new RuntimeException();
+        }
+    }
+    
     //Curso by ID
     public Curso getCurso(int id){
         Curso curso = new Curso();
