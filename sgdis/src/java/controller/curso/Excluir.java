@@ -91,7 +91,8 @@ public class Excluir extends HttpServlet {
             //e=4: cadastro excluído
             response.sendRedirect("/sgdis/restrito/curso.jsp?e=4");
         }else{
-            response.sendRedirect("/PlanoDeChamda/erro.jsp?x=sessao-encerrada");
+            //e=4: Sessão Encerrada
+            response.sendRedirect("/sgdis/index.jsp?e=4");
         }
     }
 
