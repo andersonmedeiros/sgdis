@@ -42,11 +42,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Atualizar</servlet-name>
-        <url-pattern>/restrito/Atualizar</url-pattern>
+        <url-pattern>/restrito/controller.curso/Atualizar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Excluir</servlet-name>
-        <url-pattern>/restrito/Excluir</url-pattern>
+        <url-pattern>/restrito/controller.curso/Excluir</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
