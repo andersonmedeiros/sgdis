@@ -5,12 +5,15 @@
  */
 package controller.curso;
 
+import bean.Curso;
+import dao.CursoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -71,6 +74,43 @@ public class Atualizar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        
+        HttpSession sessao = request.getSession();
+        
+        if(sessao.getAttribute("militarAutenticado") != null){
+            try{
+            CursoDAO cursoDAO = new CursoDAO();
+
+            int id = Integer.parseInt(request.getParameter("txtIdAtt").toUpperCase());
+            String nome = request.getParameter("txtNomeAtt").toUpperCase();
+            String sigla = request.getParameter("txtSiglaAtt").toUpperCase();
+            String categoria = request.getParameter("txtCategoriaAtt").toUpperCase();
+            String portaria = request.getParameter("txtPortariaAtt").toUpperCase();
+            String descricao = request.getParameter("txtDescricaoAtt").toUpperCase();
+
+            Curso curso = new Curso();
+            curso.setId(id);
+            curso.setNome(nome);
+            curso.setSigla(sigla);
+            curso.setCategoria(categoria);
+            curso.setPortaria(portaria);
+            curso.setDescricao(descricao);
+            
+            cursoDAO.update(curso);
+            }catch(Exception ex){
+                //e=5: erro durante atualização do cadastro
+                response.sendRedirect("/sgdis/restrito/curso.jsp?e=5");
+                throw new ServletException(ex);
+            }
+            //e=6: atualização sucesso
+            response.sendRedirect("/sgdis/restrito/curso.jsp?e=6");
+            /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
+            despachante.forward(request, response);*/
+        }
+        else{
+            //e=4: Sessão Encerrada
+            response.sendRedirect("/sgdis/index.jsp?e=4");
+        }
     }
 
     /**

@@ -35,7 +35,7 @@ public class CursoDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  "SET " + nome + "=?, " + sigla + "=?, " + categoria + "=?, " + portaria + "=?, " + descricao + "=? " +
+                                  " SET " + nome + "=?, " + sigla + "=?, " + categoria + "=?, " + portaria + "=?, " + descricao + "=? " +
                                   "WHERE " + id + "=?;";
     
     //Delete SQL
