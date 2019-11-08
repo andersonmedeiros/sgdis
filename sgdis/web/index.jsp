@@ -12,8 +12,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="Anderson de Paula Andrade Medeiros">
-
+        
+        <link rel="icon" type="image/x-icon" href="assets/img/logo_sgdis.png" />
         <title>Login</title>
+        
         <link rel="stylesheet" type="text/css" href="assets/node_modules/bootstrap/compiler/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="assets/css/estilo_universal.css">
         <link rel="stylesheet" type="text/css" href="assets/css/estilo_index.css">
