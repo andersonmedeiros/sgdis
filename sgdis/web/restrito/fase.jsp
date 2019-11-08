@@ -66,7 +66,7 @@
 
                     if(retorno == 1){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Fase adicionado com sucesso!");
+                        out.println("       Fase adicionada com sucesso!");
                         out.println("</div>");
                     }
                     else if(retorno == 2){
@@ -81,7 +81,7 @@
                     }
                     else if(retorno == 4){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Fase excluído com sucesso!");
+                        out.println("       Fase excluída com sucesso!");
                         out.println("</div>");
                     }
                     else if(retorno == 5){
@@ -91,7 +91,7 @@
                     }
                     else if(retorno == 6){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Fase atualizado com sucesso!");
+                        out.println("       Fase atualizada com sucesso!");
                         out.println("</div>");
                     }
                 }
