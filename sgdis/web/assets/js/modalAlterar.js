@@ -21,3 +21,10 @@ function alterar_fase(id, nome, sigla, descricao){
     document.getElementById('txtSiglaAtt').value = sigla;
     document.getElementById('txtDescricaoAtt').value = descricao;
 }
+
+//Referente a disciplina
+function alterar_disciplina(id, nome, ch){
+    document.getElementById('txtIdAtt').value = id;
+    document.getElementById('txtNomeAtt').value = nome;
+    document.getElementById('txtCHAtt').value = ch;
+}
