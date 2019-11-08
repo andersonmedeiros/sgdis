@@ -35,21 +35,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarTogglerSgdis">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../restrito/curso.jsp">Curso <span class="sr-only">(Página atual)</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Cadastrar
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="../restrito/cadastroCurso.jsp">Curso</a>
-                                <a class="dropdown-item" href="../restrito/cadastroFase.jsp">Fase</a>
-                                <a class="dropdown-item" href="../restrito/cadastroDisciplina.jsp">Disciplina</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Algo mais aqui</a>
-                            </div>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="#">Aluno</a>
                         </li>
