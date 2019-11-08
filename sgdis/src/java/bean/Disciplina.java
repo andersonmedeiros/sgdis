@@ -10,5 +10,30 @@ package bean;
  * @author andersondepaula
  */
 public class Disciplina {
-    
+    int id, ch;
+    String nome;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCh() {
+        return ch;
+    }
+
+    public void setCh(int ch) {
+        this.ch = ch;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }        
 }
