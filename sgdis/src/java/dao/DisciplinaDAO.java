@@ -32,7 +32,7 @@ public class DisciplinaDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + ch+ "=?, " +
+                                  " SET " + nome + "=?, " + ch+ "=? " +
                                   "WHERE " + id + "=?;";
     
     //Delete SQL
