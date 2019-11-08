@@ -125,7 +125,7 @@
                                 out.println("   <td>");
                                 out.println("       <div class=form-row>");
                                 out.println("           <div class=\"form-group mr-2\">");
-                                out.println("               <form name=\"formExcluir\" method=\"POST\" action=\"controller.fase/Excluir\">");
+                                out.println("               <form name=\"formExcluir\" method=\"POST\" action=\"controller.fase/ExcluirFase\">");
                                 out.println("                   <input type=\"hidden\" class=\"form-control\" name=\"fase_id_excluir\" id=\"fase_id_excluir\" readonly=\"readonly\" value=\""+fases.get(i).getId()+"\"/>");
                                 out.println("                   <button id="+ fases.get(i).getId() +" type=\"submit\" name=\"btnExcluir\" class=\"btn btn-danger\" onclick=\"return confirm('Tem certeza que deseja excluir o registro?');\">Excluir</button>");
                                 out.println("               </form>");
@@ -156,7 +156,7 @@
                             </button>
                         </div>
                         <div class="modal-body">                            
-                            <form class="container-fluid" action="controller.fase/Cadastrar" method="POST" name="formCadastrar">
+                            <form class="container-fluid" action="controller.fase/CadastrarFase" method="POST" name="formCadastrar">
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
                                         <label for="txtNomeCad">Nome: </label>
@@ -197,7 +197,7 @@
                             </button>
                         </div>
                         <div class="modal-body">                            
-                            <form class="container-fluid" action="controller.fase/Atualizar" method="POST" name="formAtualizar">
+                            <form class="container-fluid" action="controller.fase/AtualizarFase" method="POST" name="formAtualizar">
                                 <input type="hidden" class="form-control" id="txtIdAtt" name="txtIdAtt">
                                 <div class="form-row">
                                     <div class="form-group col-md-8">

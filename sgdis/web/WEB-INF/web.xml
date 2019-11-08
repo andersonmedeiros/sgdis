@@ -28,6 +28,18 @@
         <servlet-name>Excluir</servlet-name>
         <servlet-class>controller.curso.Excluir</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarFase</servlet-name>
+        <servlet-class>controller.fase.CadastrarFase</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarFase</servlet-name>
+        <servlet-class>controller.fase.AtualizarFase</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirFase</servlet-name>
+        <servlet-class>controller.fase.ExcluirFase</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Autenticador</servlet-name>
         <url-pattern>/Autenticador</url-pattern>
@@ -47,6 +59,18 @@
     <servlet-mapping>
         <servlet-name>Excluir</servlet-name>
         <url-pattern>/restrito/controller.curso/Excluir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarFase</servlet-name>
+        <url-pattern>/restrito/controller.fase/CadastrarFase</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarFase</servlet-name>
+        <url-pattern>/restrito/controller.fase/AtualizarFase</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirFase</servlet-name>
+        <url-pattern>/restrito/controller.fase/ExcluirFase</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
