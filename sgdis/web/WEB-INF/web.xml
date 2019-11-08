@@ -40,6 +40,18 @@
         <servlet-name>ExcluirFase</servlet-name>
         <servlet-class>controller.fase.ExcluirFase</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarDisciplina</servlet-name>
+        <servlet-class>controller.disciplina.CadastrarDisciplina</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarDisciplina</servlet-name>
+        <servlet-class>controller.disciplina.AtualizarDisciplina</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirDisciplina</servlet-name>
+        <servlet-class>controller.disciplina.ExcluirDisciplina</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Autenticador</servlet-name>
         <url-pattern>/Autenticador</url-pattern>
@@ -71,6 +83,18 @@
     <servlet-mapping>
         <servlet-name>ExcluirFase</servlet-name>
         <url-pattern>/restrito/controller.fase/ExcluirFase</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarDisciplina</servlet-name>
+        <url-pattern>/restrito/controller.disciplina/CadastrarDisciplina</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarDisciplina</servlet-name>
+        <url-pattern>/restrito/controller.disciplina/AtualizarDisciplina</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirDisciplina</servlet-name>
+        <url-pattern>/restrito/controller.disciplina/ExcluirDisciplina</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
