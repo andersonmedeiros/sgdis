@@ -26,7 +26,7 @@ public class ConnectionFactory {
     //LOCALHOST
     private static final String USER="root";
     private static final String SENHA="Am1095253071.";
-    private static final String DATABASE = "cigs";
+    private static final String DATABASE = "cigs_local";
     private static final String DRIVER_CONEXAO = "com.mysql.jdbc.Driver";
     private static final String STR_CONEXAO = "jdbc:mysql://localhost:3306/";
     
