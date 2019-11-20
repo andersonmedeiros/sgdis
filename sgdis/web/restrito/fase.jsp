@@ -4,6 +4,8 @@
     Author     : andersondepaula
 --%>
 
+<%@page import="dao.ModuloDAO"%>
+<%@page import="dao.ModalidadeDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.Fase"%>
 <%@page import="dao.FaseDAO"%>
@@ -48,7 +50,7 @@
                                 <a class="dropdown-item active" href="../restrito/fase.jsp">Fase</a>
                                 <a class="dropdown-item" href="../restrito/disciplina.jsp">Disciplina</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Algo mais aqui</a>
+                                <a class="dropdown-item" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
                             </div>
                         </li>
                     </ul>
@@ -167,6 +169,44 @@
                                         <label for="txtSiglaCad">Sigla: </label>
                                         <input type="text" class="form-control" id="txtSiglaCad" name="txtSiglaCad" placeholder="Sigla">
                                     </div>                                    
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="txtModalidade">Modalidade: </label>
+                                        <select class="form-control" id="txtModalidade" name="txtModalidade">
+                                            <option value="0" selected>Selecione uma Modalidade...</option>
+                                            <%
+                                                ModalidadeDAO modaDAO = new ModalidadeDAO();
+
+                                                int qtdeModalidade =  modaDAO.getModalidades().size();
+
+                                                if(qtdeModalidade != 0){
+                                                    for(int i=0;i<qtdeModalidade;i++){                                                    
+                                                        out.println("<option value='"+modaDAO.getModalidades().get(i).getId()+"'>"+modaDAO.getModalidades().get(i).getNome()+"</option>");
+                                                    }
+                                                }
+                                            %>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="txtModulo">Módulo: </label>
+                                        <select class="form-control" id="txtModulo" name="txtModulo">
+                                            <option value="0" selected>Selecione um Modulo...</option>
+                                            <%
+                                                ModuloDAO modDAO = new ModuloDAO();
+
+                                                int qtdeModulo =  modDAO.getModulos().size();
+                                                
+                                                if(qtdeModulo != 0){
+                                                    for(int i=0;i<qtdeModalidade;i++){
+                                                        out.println("<option value='"+modDAO.getModulos().get(i).getId()+"'>"+modDAO.getModulos().get(i).getNome()+"</option>");
+                                                    } 
+                                                }
+                                            %>
+                                        </select>
+                                    </div>
                                 </div>
                                 
                                 <div class="form-row">
