@@ -5,7 +5,7 @@
  */
 package dao;
 
-import bean.Modalidade;
+import bean.Categoria;
 import connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,21 +17,22 @@ import java.util.ArrayList;
  *
  * @author andersondepaula
  */
-public class ModalidadeDAO {
+public class CategoriaDAO {
     //Tabela
-    String tabela = "Modalidade";
+    String tabela = "Categoria";
     
     //Atributos
     String id = "id";
     String nome = "nome";
+    String descricao = "descricao";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome +")"
-                                    + " VALUES(?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + descricao +")"
+                                    + " VALUES(?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " +
+                                  " SET " + nome + "=?, " + descricao + "=?, " +
                                   "WHERE " + id + "=?;";
     
     //Delete SQL
@@ -39,8 +40,8 @@ public class ModalidadeDAO {
     
     //Consultas SQL
     private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
-    private final String GETModalidadeByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
-    private final String GETMODALIDADES = "SELECT * FROM "+ tabela +";";
+    private final String GETCategoriaByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
+    private final String GETCATEGORIAS = "SELECT * FROM "+ tabela +";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
@@ -68,15 +69,16 @@ public class ModalidadeDAO {
     }
     
     //Insert SQL
-    public void insert(Modalidade modalidade) {
-        if (modalidade != null) {
+    public void insert(Categoria categoria) {
+        if (categoria != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setInt(1, modalidade.getId());
-                pstm.setString(2, modalidade.getNome());
+                pstm.setInt(1, categoria.getId());
+                pstm.setString(2, categoria.getNome());
+                pstm.setString(3, categoria.getDescricao());
                                                               
                 pstm.execute();
                 
@@ -91,14 +93,15 @@ public class ModalidadeDAO {
     }
     
     //Update SQL
-    public void update(Modalidade modalidade) {
-        if (modalidade != null) {
+    public void update(Categoria categoria) {
+        if (categoria != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(UPDATE);
                 
-                pstm.setString(1, modalidade.getNome());
-                pstm.setInt(2, modalidade.getId());
+                pstm.setString(1, categoria.getNome());
+                pstm.setString(2, categoria.getDescricao());
+                pstm.setInt(3, categoria.getId());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -131,49 +134,51 @@ public class ModalidadeDAO {
     }
     
     //Modalidade by ID
-        public Modalidade getModalidade(int id){
-        Modalidade modalidade = new Modalidade();
+        public Categoria getModalidade(int id){
+        Categoria categoria = new Categoria();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETModalidadeByID);
+            pstm = conn.prepareStatement(GETCategoriaByID);
             pstm.setInt(1, id);
             
             rs = pstm.executeQuery();
             while (rs.next()) {
-                modalidade.setId(rs.getInt(id));
-                modalidade.setNome(rs.getString(nome));
+                categoria.setId(rs.getInt(id));
+                categoria.setNome(rs.getString(nome));
+                categoria.setDescricao(rs.getString(descricao));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return modalidade;
+        return categoria;
     }
     
     //Lista com todas as modalidades
-    public ArrayList<Modalidade> getModalidades(){
+    public ArrayList<Categoria> getCategorias(){
         conn = null;
         pstm = null;
         rs = null;
-        ArrayList<Modalidade> modalidades = new ArrayList<>();
+        ArrayList<Categoria> categorias = new ArrayList<>();
         
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETMODALIDADES);
+            pstm = conn.prepareStatement(GETCATEGORIAS);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                Modalidade modalidade = new Modalidade();
+                Categoria categoria = new Categoria();
                 
-                modalidade.setId(rs.getInt(id));
-                modalidade.setNome(rs.getString(nome));
+                categoria.setId(rs.getInt(id));
+                categoria.setNome(rs.getString(nome));
+                categoria.setDescricao(rs.getString(descricao));
                 
-                modalidades.add(modalidade);
+                categorias.add(categoria);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return modalidades;
+        return categorias;
     }
 }

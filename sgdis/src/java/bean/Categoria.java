@@ -9,9 +9,9 @@ package bean;
  *
  * @author andersondepaula
  */
-public class Curso {
-    int id, idCategoria;
-    String nome, sigla, portaria, descricao;
+public class Categoria {
+    int id;
+    String nome, descricao;
 
     public int getId() {
         return id;
@@ -21,14 +21,6 @@ public class Curso {
         this.id = id;
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-            
     public String getNome() {
         return nome;
     }
@@ -37,27 +29,11 @@ public class Curso {
         this.nome = nome;
     }
 
-    public String getSigla() {
-        return sigla;
-    }
-    
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
-    }
-    
-    public String getPortaria() {
-        return portaria;
-    }
-
-    public void setPortaria(String portaria) {
-        this.portaria = portaria;
-    }
-
     public String getDescricao() {
         return descricao;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }   
+    }    
 }

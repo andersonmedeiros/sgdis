@@ -4,6 +4,7 @@
     Author     : andersondepaula
 --%>
 
+<%@page import="dao.CategoriaDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.Curso"%>
 <%@page import="dao.CursoDAO"%>
@@ -49,7 +50,7 @@
                                 <a class="dropdown-item" href="../restrito/fase.jsp">Fase</a>
                                 <a class="dropdown-item" href="../restrito/disciplina.jsp">Disciplina</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Algo mais aqui</a>
+                                <a class="dropdown-item" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
                             </div>
                         </li>
                     </ul>
@@ -125,7 +126,7 @@
                                 out.println("   <th scope=\"row\">"+ cursos.get(i).getId() +"</th>");
                                 out.println("   <td>"+ cursos.get(i).getNome() +"</td>");
                                 out.println("   <td>"+ cursos.get(i).getSigla()+"</td>");
-                                out.println("   <td>"+ cursos.get(i).getCategoria()+"</td>");
+                                out.println("   <td>"+ cursos.get(i).getIdCategoria()+"</td>");
                                 out.println("   <td>"+ cursos.get(i).getPortaria()+"</td>");
                                 out.println("   <td>");
                                 out.println("       <div class=form-row>");
@@ -136,7 +137,7 @@
                                 out.println("               </form>");
                                 out.println("           </div>");
                                 out.println("           <div class=form-group>");                  
-                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Alterar</button>");
+                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Alterar</button>");
                                 out.println("           </div>");
                                 out.println("       </div>");
                                 out.println("   </td>");
@@ -176,17 +177,25 @@
                                 </div>
 
                                 <div class="form-row">
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-4">
                                         <label for="txtCategoria">Categoria: </label>
                                         <select class="form-control" id="txtCategoria" name="txtCategoria">
-                                            <option value="0" selected>Categoria </option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
+                                            <option value="0" selected>Selecione uma Categoria...</option>
+                                            <%
+                                                CategoriaDAO catDAO = new CategoriaDAO();
+
+                                                int qtdeCategoria = catDAO.getCategorias().size();
+                                                
+                                                if(qtdeCategoria != 0){
+                                                    for(int i=0;i<qtdeCategoria;i++){
+                                                        out.println("<option value='"+catDAO.getCategorias().get(i).getId()+"'>"+catDAO.getCategorias().get(i).getNome()+ " - " + catDAO.getCategorias().get(i).getDescricao() +"</option>");
+                                                    } 
+                                                }
+                                            %>
                                         </select>
                                     </div>
                                     
-                                    <div class="form-group col-md-9">
+                                    <div class="form-group col-md-8">
                                         <label for="txtPortaria">Portaria: </label>
                                         <input type="text" class="form-control" id="txtPortaria" name="txtPortaria" placeholder="Portaria">
                                     </div>

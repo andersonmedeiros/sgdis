@@ -83,7 +83,7 @@ public class Cadastrar extends HttpServlet {
             int id = cursoDAO.proxID();
             String nome = request.getParameter("txtNome").toUpperCase();
             String sigla = request.getParameter("txtSigla").toUpperCase();
-            String categoria = request.getParameter("txtCategoria").toUpperCase();
+            int idCategoria = Integer.parseInt(request.getParameter("txtCategoria").toUpperCase());
             String portaria = request.getParameter("txtPortaria").toUpperCase();
             String descricao = request.getParameter("txtDescricao").toUpperCase();
 
@@ -91,7 +91,7 @@ public class Cadastrar extends HttpServlet {
             curso.setId(id);
             curso.setNome(nome);
             curso.setSigla(sigla);
-            curso.setCategoria(categoria);
+            curso.setIdCategoria(idCategoria);
             curso.setPortaria(portaria);
             curso.setDescricao(descricao);
             

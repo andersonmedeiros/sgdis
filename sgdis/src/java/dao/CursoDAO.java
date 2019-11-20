@@ -25,17 +25,17 @@ public class CursoDAO {
     String id = "id";
     String nome = "nome";
     String sigla = "sigla";
-    String categoria = "categoria";
+    String idcategoria = "idCategoria";
     String portaria = "portaria";
     String descricao = "descricao";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + categoria + "," + portaria + "," + descricao +")"
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + idcategoria + "," + portaria + "," + descricao +")"
                                     + " VALUES(?,?,?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + sigla + "=?, " + categoria + "=?, " + portaria + "=?, " + descricao + "=? " +
+                                  " SET " + nome + "=?, " + sigla + "=?, " + idcategoria + "=?, " + portaria + "=?, " + descricao + "=? " +
                                   "WHERE " + id + "=?;";
     
     //Delete SQL
@@ -83,7 +83,7 @@ public class CursoDAO {
                 pstm.setInt(1, curso.getId());
                 pstm.setString(2, curso.getNome());
                 pstm.setString(3, curso.getSigla());
-                pstm.setString(4, curso.getCategoria());             
+                pstm.setInt(4, curso.getIdCategoria());  
                 pstm.setString(5, curso.getPortaria());
                 pstm.setString(6, curso.getDescricao());
                                               
@@ -108,7 +108,7 @@ public class CursoDAO {
                 
                 pstm.setString(1, curso.getNome());
                 pstm.setString(2, curso.getSigla());
-                pstm.setString(3, curso.getCategoria());
+                pstm.setInt(3, curso.getIdCategoria());
                 pstm.setString(4, curso.getPortaria());
                 pstm.setString(5, curso.getDescricao());
                 pstm.setInt(6, curso.getId());
@@ -156,7 +156,7 @@ public class CursoDAO {
                 curso.setId(rs.getInt(id));
                 curso.setNome(rs.getString(nome));
                 curso.setSigla(rs.getString(sigla));
-                curso.setCategoria(rs.getString(categoria));
+                curso.setIdCategoria(rs.getInt(idcategoria));
                 curso.setPortaria(rs.getString(portaria));
                 curso.setDescricao(rs.getString(descricao));
             }
@@ -185,14 +185,14 @@ public class CursoDAO {
                 curso.setId(rs.getInt(id));
                 curso.setNome(rs.getString(nome));
                 curso.setSigla(rs.getString(sigla));
-                curso.setCategoria(rs.getString(categoria));
+                curso.setIdCategoria(rs.getInt(idcategoria));
                 curso.setPortaria(rs.getString(portaria));
                 curso.setDescricao(rs.getString(descricao));
                 
                 cursos.add(curso);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
         return cursos;
