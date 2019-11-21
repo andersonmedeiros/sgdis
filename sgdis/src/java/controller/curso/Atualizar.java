@@ -84,7 +84,7 @@ public class Atualizar extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("txtIdAtt").toUpperCase());
             String nome = request.getParameter("txtNomeAtt").toUpperCase();
             String sigla = request.getParameter("txtSiglaAtt").toUpperCase();
-            String categoria = request.getParameter("txtCategoriaAtt").toUpperCase();
+            int idCategoria = Integer.parseInt(request.getParameter("txtCategoriaAtt").toUpperCase());
             String portaria = request.getParameter("txtPortariaAtt").toUpperCase();
             String descricao = request.getParameter("txtDescricaoAtt").toUpperCase();
 
@@ -92,7 +92,7 @@ public class Atualizar extends HttpServlet {
             curso.setId(id);
             curso.setNome(nome);
             curso.setSigla(sigla);
-            curso.setCategoria(categoria);
+            curso.setIdCategoria(idCategoria);
             curso.setPortaria(portaria);
             curso.setDescricao(descricao);
             

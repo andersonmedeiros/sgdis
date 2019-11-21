@@ -143,7 +143,7 @@ public class DisciplinaDAO {
             
             rs = pstm.executeQuery();
             while (rs.next()) {
-                disciplina.setId(rs.getInt(id));
+                disciplina.setId(rs.getInt("id"));
                 disciplina.setNome(rs.getString(nome));
                 disciplina.setCh(rs.getInt(ch));
             }

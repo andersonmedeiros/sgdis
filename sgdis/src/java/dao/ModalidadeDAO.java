@@ -140,7 +140,7 @@ public class ModalidadeDAO {
             
             rs = pstm.executeQuery();
             while (rs.next()) {
-                modalidade.setId(rs.getInt(id));
+                modalidade.setId(rs.getInt("id"));
                 modalidade.setNome(rs.getString(nome));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);

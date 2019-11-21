@@ -153,7 +153,7 @@ public class CursoDAO {
             
             rs = pstm.executeQuery();
             while (rs.next()) {
-                curso.setId(rs.getInt(id));
+                curso.setId(rs.getInt("id"));
                 curso.setNome(rs.getString(nome));
                 curso.setSigla(rs.getString(sigla));
                 curso.setIdCategoria(rs.getInt(idcategoria));

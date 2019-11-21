@@ -146,7 +146,7 @@ public class FaseDAO {
             
             rs = pstm.executeQuery();
             while (rs.next()) {
-                fase.setId(rs.getInt(id));
+                fase.setId(rs.getInt("id"));
                 fase.setNome(rs.getString(nome));
                 fase.setSigla(rs.getString(sigla));
                 fase.setDescricao(rs.getString(descricao));

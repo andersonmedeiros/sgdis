@@ -133,8 +133,8 @@ public class CategoriaDAO {
         }
     }
     
-    //Modalidade by ID
-        public Categoria getModalidade(int id){
+    //Categoria by ID
+    public Categoria getCategoria(int id){
         Categoria categoria = new Categoria();
         try {
             conn = ConnectionFactory.getConnection();
@@ -143,7 +143,7 @@ public class CategoriaDAO {
             
             rs = pstm.executeQuery();
             while (rs.next()) {
-                categoria.setId(rs.getInt(id));
+                categoria.setId(rs.getInt("id"));
                 categoria.setNome(rs.getString(nome));
                 categoria.setDescricao(rs.getString(descricao));
             }

@@ -140,7 +140,7 @@ public class ModuloDAO {
             
             rs = pstm.executeQuery();
             while (rs.next()) {
-                modulo.setId(rs.getInt(id));
+                modulo.setId(rs.getInt("id"));
                 modulo.setNome(rs.getString(nome));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);

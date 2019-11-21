@@ -248,10 +248,14 @@
                                     <div class="form-group col-md-3">
                                         <label for="txtCategoria">Categoria: </label>
                                         <select class="form-control" id="txtCategoriaAtt" name="txtCategoriaAtt">
-                                            <option value="0" selected>Categoria </option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
+                                            <option value="0" selected>Selecione uma Categoria...</option>
+                                            <%                                                
+                                                if(qtdeCategoria != 0){
+                                                    for(int i=0;i<qtdeCategoria;i++){
+                                                        out.println("<option value='"+catDAO.getCategorias().get(i).getId()+"'>"+catDAO.getCategorias().get(i).getNome()+ " - " + catDAO.getCategorias().get(i).getDescricao() +"</option>");
+                                                    } 
+                                                }
+                                            %>
                                         </select>
                                     </div>
                                     
