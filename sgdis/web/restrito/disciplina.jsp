@@ -49,7 +49,7 @@
                                 <a class="dropdown-item" href="../restrito/fase.jsp">Fase</a>
                                 <a class="dropdown-item active" href="../restrito/disciplina.jsp">Disciplina</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Algo mais aqui</a>
+                                <a class="dropdown-item" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
                             </div>
                         </li>
                     </ul>

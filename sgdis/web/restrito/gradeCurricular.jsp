@@ -1,14 +1,12 @@
 <%-- 
-    Document   : fase
-    Created on : 08/11/2019, 09:05:13
+    Document   : gradeCurricular
+    Created on : 12/11/2019, 09:25:32
     Author     : andersondepaula
 --%>
 
-<%@page import="dao.ModuloDAO"%>
-<%@page import="dao.ModalidadeDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="bean.Fase"%>
-<%@page import="dao.FaseDAO"%>
+<%@page import="bean.Curso"%>
+<%@page import="dao.CursoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,13 +17,14 @@
         <meta name="author" content="Anderson de Paula Andrade Medeiros">
         
         <link rel="icon" type="image/x-icon" href="../assets/img/logo_sgdis.png" />
-        <title>Fase</title>
+        <title>Grade Curricular</title>
         
         <link rel="stylesheet" type="text/css" href="../assets/node_modules/bootstrap/compiler/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/estilo_universal.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/estilo_cadastroCurso.css">
         
-        <script src="../assets/js/modalAlterar.js"></script>        
+        <script src="../assets/js/modalAlterar.js"></script>     
+        
     </head>
     <body>
         <header>
@@ -47,10 +46,10 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="../restrito/curso.jsp">Curso</a>
-                                <a class="dropdown-item active" href="../restrito/fase.jsp">Fase</a>
+                                <a class="dropdown-item" href="../restrito/fase.jsp">Fase</a>
                                 <a class="dropdown-item" href="../restrito/disciplina.jsp">Disciplina</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
+                                <a class="dropdown-item active" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
                             </div>
                         </li>
                     </ul>
@@ -68,7 +67,7 @@
 
                     if(retorno == 1){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Fase adicionada com sucesso!");
+                        out.println("       Curso adicionado com sucesso!");
                         out.println("</div>");
                     }
                     else if(retorno == 2){
@@ -83,7 +82,7 @@
                     }
                     else if(retorno == 4){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Fase excluída com sucesso!");
+                        out.println("       Curso excluído com sucesso!");
                         out.println("</div>");
                     }
                     else if(retorno == 5){
@@ -93,7 +92,7 @@
                     }
                     else if(retorno == 6){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Fase atualizada com sucesso!");
+                        out.println("       Curso atualizado com sucesso!");
                         out.println("</div>");
                     }
                 }
@@ -104,36 +103,36 @@
                         <th scope="col">ID</th>
                         <th scope="col">NOME</th>
                         <th scope="col">SIGLA</th>
+                        <th scope="col">CATEGORIA</th>
+                        <th scope="col">PORTARIA</th>
                         <th scope="col">AÇÃO</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
-                        FaseDAO faseDAO = new FaseDAO();
-                        ArrayList<Fase> fases = new ArrayList<>();
+                        CursoDAO cursoDAO = new CursoDAO();
+                        ArrayList<Curso> cursos = new ArrayList<>();
                         
-                        fases = faseDAO.getFases();
+                        cursos = cursoDAO.getCursos();
                         
-                        if(fases.size() == 0){
+                        if(cursos.size() == 0){
                             out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
-                            out.println("       Nenhuma fase cadastrado.<br>Adicione uma nova fase!");
+                            out.println("       Nenhum curso cadastrado.<br>Adicione um novo curso!");
                             out.println("</div>");
                         }else{
-                            for(int i=0;i<fases.size();i++){
+                            for(int i=0;i<cursos.size();i++){
                                 out.println("<tr>");
-                                out.println("   <th scope=\"row\">"+ fases.get(i).getId() +"</th>");
-                                out.println("   <td>"+ fases.get(i).getNome() +"</td>");
-                                out.println("   <td>"+ fases.get(i).getSigla()+"</td>");
+                                out.println("   <th scope=\"row\">"+ cursos.get(i).getId() +"</th>");
+                                out.println("   <td>"+ cursos.get(i).getNome() +"</td>");
+                                out.println("   <td>"+ cursos.get(i).getSigla()+"</td>");
+                                out.println("   <td>"+ cursos.get(i).getIdCategoria()+"</td>");
+                                out.println("   <td>"+ cursos.get(i).getPortaria()+"</td>");
                                 out.println("   <td>");
                                 out.println("       <div class=form-row>");
-                                out.println("           <div class=\"form-group mr-2\">");
-                                out.println("               <form name=\"formExcluir\" method=\"POST\" action=\"controller.fase/ExcluirFase\">");
-                                out.println("                   <input type=\"hidden\" class=\"form-control\" name=\"fase_id_excluir\" id=\"fase_id_excluir\" readonly=\"readonly\" value=\""+fases.get(i).getId()+"\"/>");
-                                out.println("                   <button id="+ fases.get(i).getId() +" type=\"submit\" name=\"btnExcluir\" class=\"btn btn-danger\" onclick=\"return confirm('Tem certeza que deseja excluir o registro?');\">Excluir</button>");
-                                out.println("               </form>");
-                                out.println("           </div>");
+                                
                                 out.println("           <div class=form-group>");                  
-                                out.println("                   <button id="+ fases.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttFase\" onclick=\"alterar_fase("+"'"+fases.get(i).getId()+"'"+","+"'"+fases.get(i).getNome()+"'"+","+"'"+fases.get(i).getSigla()+"'"+","+"'"+fases.get(i).getDescricao()+"'"+");\">Alterar</button>");
+                                //out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Montar Grade</button>");
+                                out.println("                   <a class=\"btn btn-success\""+ "href=../restrito/montarGradeCurricular.jsp?idCurso="+ cursos.get(i).getId()+">Montar Grade</a>");
                                 out.println("           </div>");
                                 out.println("       </div>");
                                 out.println("   </td>");
@@ -144,75 +143,54 @@
                 </tbody>
             </table>
             
-            <!-- Botão para acionar modal -->
-            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modalFormCadFase">Adicionar nova fase</button>
+            
 
             <!-- Modal Cadastro-->
-            <div class="modal fade" id="modalFormCadFase" tabindex="-1" role="dialog" aria-labelledby="modalFormCadFase" aria-hidden="true">
+            <div class="modal fade" id="modalFormCadCurso" tabindex="-1" role="dialog" aria-labelledby="modalFormCadCurso" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title title" id="modalFormCadFase">Nova Fase</h5>
+                            <h5 class="modal-title title" id="modalFormCadCurso">Novo Curso</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">                            
-                            <form class="container-fluid" action="controller.fase/CadastrarFase" method="POST" name="formCadastrar">
+                        <div class="modal-body">
+                            
+                            <form class="container-fluid" action="controller.curso/Cadastrar" method="POST" name="formCadastrar">
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
-                                        <label for="txtNomeCad">Nome: </label>
-                                        <input type="text" class="form-control" id="txtNomeCad" name="txtNomeCad" placeholder="Nome">
+                                        <label for="txtNome">Nome: </label>
+                                        <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <label for="txtSiglaCad">Sigla: </label>
-                                        <input type="text" class="form-control" id="txtSiglaCad" name="txtSiglaCad" placeholder="Sigla">
+                                        <label for="txtSigla">Sigla: </label>
+                                        <input type="text" class="form-control" id="txtSigla" name="txtSigla" placeholder="Sigla">
                                     </div>                                    
                                 </div>
-                                
+
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="txtModalidade">Modalidade: </label>
-                                        <select class="form-control" id="txtModalidade" name="txtModalidade">
-                                            <option value="0" selected>Selecione uma Modalidade...</option>
-                                            <%
-                                                ModalidadeDAO modaDAO = new ModalidadeDAO();
-
-                                                int qtdeModalidade =  modaDAO.getModalidades().size();
-
-                                                if(qtdeModalidade != 0){
-                                                    for(int i=0;i<qtdeModalidade;i++){                                                    
-                                                        out.println("<option value='"+modaDAO.getModalidades().get(i).getId()+"'>"+modaDAO.getModalidades().get(i).getNome()+"</option>");
-                                                    }
-                                                }
-                                            %>
+                                    <div class="form-group col-md-3">
+                                        <label for="txtCategoria">Categoria: </label>
+                                        <select class="form-control" id="txtCategoria" name="txtCategoria">
+                                            <option value="0" selected>Categoria </option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
                                         </select>
                                     </div>
                                     
-                                    <div class="form-group col-md-6">
-                                        <label for="txtModulo">Módulo: </label>
-                                        <select class="form-control" id="txtModulo" name="txtModulo">
-                                            <option value="0" selected>Selecione um Modulo...</option>
-                                            <%
-                                                ModuloDAO modDAO = new ModuloDAO();
-
-                                                int qtdeModulo =  modDAO.getModulos().size();
-                                                
-                                                if(qtdeModulo != 0){
-                                                    for(int i=0;i<qtdeModalidade;i++){
-                                                        out.println("<option value='"+modDAO.getModulos().get(i).getId()+"'>"+modDAO.getModulos().get(i).getNome()+"</option>");
-                                                    } 
-                                                }
-                                            %>
-                                        </select>
+                                    <div class="form-group col-md-9">
+                                        <label for="txtPortaria">Portaria: </label>
+                                        <input type="text" class="form-control" id="txtPortaria" name="txtPortaria" placeholder="Portaria">
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="txtDescricaoCad">Descrição: </label>
-                                        <textarea class="form-control" id="txtDescricao" name="txtDescricaoCad" rows="3" placeholder="Descrição"></textarea>
+                                        <label for="txtDescricao">Descrição: </label>
+                                        <textarea class="form-control" id="txtDescricao" name="txtDescricao" rows="3" placeholder="Descrição"></textarea>
                                     </div>
                                 </div>
                                 <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
@@ -227,60 +205,48 @@
             </div>
             
             <!-- Modal Atualizar-->
-            <div class="modal fade" id="modalFormAttFase" tabindex="-1" role="dialog" aria-labelledby="modalFormAttFase" aria-hidden="true">
+            <div class="modal fade" id="modalFormAttCurso" tabindex="-1" role="dialog" aria-labelledby="modalFormAttCurso" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title title" id="modalFormAttFase">Novo Fase</h5>
+                            <h5 class="modal-title title" id="modalFormAttCurso">Novo Curso</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">                            
-                            <form class="container-fluid" action="controller.fase/AtualizarFase" method="POST" name="formAtualizar">
+                        <div class="modal-body">
+                            
+                            <form class="container-fluid" action="controller.curso/Atualizar" method="POST" name="formAtualizar">
                                 <input type="hidden" class="form-control" id="txtIdAtt" name="txtIdAtt">
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
-                                        <label for="txtNomeAtt">Nome: </label>
+                                        <label for="txtNome">Nome: </label>
                                         <input type="text" class="form-control" id="txtNomeAtt" name="txtNomeAtt" placeholder="Nome">
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <label for="txtSiglaAtt">Sigla: </label>
+                                        <label for="txtSigla">Sigla: </label>
                                         <input type="text" class="form-control" id="txtSiglaAtt" name="txtSiglaAtt" placeholder="Sigla">
                                     </div>                                    
                                 </div>
-                                
+
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="txtModalidade">Modalidade: </label>
-                                        <select class="form-control" id="txtModalidade" name="txtModalidade">
-                                            <option value="0" selected>Selecione uma Modalidade...</option>
-                                            <%
-                                                if(qtdeModalidade != 0){
-                                                    for(int i=0;i<qtdeModalidade;i++){                                                    
-                                                        out.println("<option value='"+modaDAO.getModalidades().get(i).getId()+"'>"+modaDAO.getModalidades().get(i).getNome()+"</option>");
-                                                    }
-                                                }
-                                            %>
+                                    <div class="form-group col-md-3">
+                                        <label for="txtCategoria">Categoria: </label>
+                                        <select class="form-control" id="txtCategoriaAtt" name="txtCategoriaAtt">
+                                            <option value="0" selected>Categoria </option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
                                         </select>
                                     </div>
                                     
-                                    <div class="form-group col-md-6">
-                                        <label for="txtModulo">Módulo: </label>
-                                        <select class="form-control" id="txtModulo" name="txtModulo">
-                                            <option value="0" selected>Selecione um Modulo...</option>
-                                            <%                                                
-                                                if(qtdeModulo != 0){
-                                                    for(int i=0;i<qtdeModalidade;i++){
-                                                        out.println("<option value='"+modDAO.getModulos().get(i).getId()+"'>"+modDAO.getModulos().get(i).getNome()+"</option>");
-                                                    } 
-                                                }
-                                            %>
-                                        </select>
+                                    <div class="form-group col-md-9">
+                                        <label for="txtPortaria">Portaria: </label>
+                                        <input type="text" class="form-control" id="txtPortariaAtt" name="txtPortariaAtt" placeholder="Portaria">
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="txtDescricaoAtt">Descrição: </label>
