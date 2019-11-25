@@ -10,7 +10,7 @@ package bean;
  * @author andersondepaula
  */
 public class GradeCurricular {
-    String codigo, situacao;
+    String codigo, descricao, situacao;
     int ano, variacao, idCurso;
 
     public String getCodigo() {
@@ -20,6 +20,14 @@ public class GradeCurricular {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }   
 
     public String getSituacao() {
         return situacao;

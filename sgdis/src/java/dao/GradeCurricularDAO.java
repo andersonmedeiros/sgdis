@@ -5,7 +5,6 @@
  */
 package dao;
 
-import bean.Curso;
 import bean.GradeCurricular;
 import connection.ConnectionFactory;
 import java.sql.Connection;
@@ -24,18 +23,19 @@ public class GradeCurricularDAO {
     
     //Atributos
     String codigo = "codigo";
+    String descricao = "descricao";
     String ano = "ano";
     String variacao = "variacao";
     String situacao = "situacao";
     String idCurso = "idCurso";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + codigo + "," + ano + "," + variacao + "," + situacao + "," + idCurso +")"
+    private final String INSERT = "INSERT INTO " + tabela + "(" + codigo + "," + descricao + "," + ano + "," + variacao + "," + situacao + "," + idCurso +")"
                                     + " VALUES(?,?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + ano + "=?, " + variacao + "=?, " + situacao + "=?, " + idCurso + "=? " +
+                                  " SET " + descricao + "=?, " + ano + "=?, " + variacao + "=?, " + situacao + "=?, " + idCurso + "=? " +
                                   "WHERE " + codigo + "=?;";
     
     //Delete SQL
@@ -81,10 +81,11 @@ public class GradeCurricularDAO {
                 pstm = conn.prepareStatement(INSERT);
                 
                 pstm.setString(1, grade.getCodigo());
-                pstm.setInt(2, grade.getAno());
-                pstm.setInt(3, grade.getVariacao());
-                pstm.setString(4, grade.getSituacao());  
-                pstm.setInt(5, grade.getIdCurso());
+                pstm.setString(2, grade.getDescricao());
+                pstm.setInt(3, grade.getAno());
+                pstm.setInt(4, grade.getVariacao());
+                pstm.setString(5, grade.getSituacao());  
+                pstm.setInt(6, grade.getIdCurso());
                                               
                 pstm.execute();
                 
@@ -106,10 +107,11 @@ public class GradeCurricularDAO {
                 pstm = conn.prepareStatement(UPDATE);
                 
                 pstm.setString(1, grade.getCodigo());
-                pstm.setInt(2, grade.getAno());
-                pstm.setInt(3, grade.getVariacao());
-                pstm.setString(4, grade.getSituacao());  
-                pstm.setInt(5, grade.getIdCurso());
+                pstm.setString(2, grade.getDescricao());
+                pstm.setInt(3, grade.getAno());
+                pstm.setInt(4, grade.getVariacao());
+                pstm.setString(5, grade.getSituacao());  
+                pstm.setInt(6, grade.getIdCurso());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -152,6 +154,7 @@ public class GradeCurricularDAO {
             rs = pstm.executeQuery();
             while (rs.next()) {                               
                 grade.setCodigo(rs.getString(codigo));                
+                grade.setDescricao(rs.getString(descricao));                
                 grade.setAno(rs.getInt(ano));
                 grade.setVariacao(rs.getInt(variacao));
                 grade.setSituacao(rs.getString(situacao));
@@ -180,6 +183,7 @@ public class GradeCurricularDAO {
                 GradeCurricular grade = new GradeCurricular();
                 
                 grade.setCodigo(rs.getString(codigo));                
+                grade.setDescricao(rs.getString(descricao));                
                 grade.setAno(rs.getInt(ano));
                 grade.setVariacao(rs.getInt(variacao));
                 grade.setSituacao(rs.getString(situacao));
