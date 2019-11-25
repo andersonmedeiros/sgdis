@@ -71,6 +71,11 @@
                         out.println("       Curso adicionado com sucesso!");
                         out.println("</div>");
                     }
+                    else if(retorno == 11){
+                        out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
+                        out.println("       Grade Curricular adicionada com sucesso! <a href=\"../restrito/visualizarGradeCurricular.jsp\">Clique aqui</a> para montar a Grade Curricular");
+                        out.println("</div>");
+                    }
                     else if(retorno == 2){
                         out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
                         out.println("       Erro durante a realização do cadastro.<br>Tente Novamente!");
@@ -136,8 +141,11 @@
                                 out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnExcluir\" class=\"btn btn-danger\" onclick=\"return confirm('Tem certeza que deseja excluir o registro?');\">Excluir</button>");
                                 out.println("               </form>");
                                 out.println("           </div>");
-                                out.println("           <div class=form-group>");                  
+                                out.println("           <div class=\"form-group mr-2\">");                  
                                 out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Alterar</button>");
+                                out.println("           </div>");
+                                out.println("           <div class=form-group>");                  
+                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnGrade\" class=\"btn btn-warning\" data-toggle=\"modal\" data-target=\"#modalFormGradeCurso\" onclick=\"grade_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+");\">Grade</button>");
                                 out.println("           </div>");
                                 out.println("       </div>");
                                 out.println("   </td>");
@@ -271,6 +279,57 @@
                                         <textarea class="form-control" id="txtDescricaoAtt" name="txtDescricaoAtt" rows="3" placeholder="Descrição"></textarea>
                                     </div>
                                 </div>
+                                <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
+                                <button type="submit" name="btnSalvar" class="btn btn-success">Salvar</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                        
+            <!-- Modal Grade Curso-->
+            <div class="modal fade" id="modalFormGradeCurso" tabindex="-1" role="dialog" aria-labelledby="modalFormGradeCurso" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title title" id="modalFormGradeCurso">Nova Grade</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">                            
+                            <form class="container-fluid" action="controller.gradeCurricular/CadastrarGrade" method="POST" name="formCadastrarGrade">
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="txtIdCursoGrade">Curso: </label>
+                                        <input type="text" class="form-control" id="txtIdCursoGrade" name="txtIdCursoGrade" placeholder="Nome" readonly>
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label for="txtSiglaGrade">Sigla: </label>
+                                        <input type="text" class="form-control" id="txtSiglaGrade" name="txtSiglaGrade" placeholder="Sigla" readonly>
+                                    </div>                                     
+                                
+                                    <div class="form-group col-md-4">
+                                        <label for="txtCategoriaGrade ">Categoria: </label>
+                                        <input type="text" class="form-control" id="txtCategoriaGrade" name="txtCategoriaGrade" placeholder="Grade" readonly>                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group col-md-10">
+                                        <label for="txtDescricaoGrade">Descrição: </label>
+                                        <input type="text" class="form-control" id="txtDescricaoGrade" name="txtDescricaoGrade" placeholder="Descricao">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="txtAnoGrade">Ano: </label>
+                                        <input type="text" class="form-control" id="txtAnoGrade" name="txtAnoGrade" placeholder="Ano">
+                                    </div>
+                                </div>
+                                        
                                 <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
                                 <button type="submit" name="btnSalvar" class="btn btn-success">Salvar</button>
                             </form>

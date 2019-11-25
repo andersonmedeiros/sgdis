@@ -52,6 +52,10 @@
         <servlet-name>ExcluirDisciplina</servlet-name>
         <servlet-class>controller.disciplina.ExcluirDisciplina</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarGrade</servlet-name>
+        <servlet-class>controller.gradeCurricular.CadastrarGrade</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Autenticador</servlet-name>
         <url-pattern>/Autenticador</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirDisciplina</servlet-name>
         <url-pattern>/restrito/controller.disciplina/ExcluirDisciplina</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarGrade</servlet-name>
+        <url-pattern>/restrito/controller.gradeCurricular/CadastrarGrade</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

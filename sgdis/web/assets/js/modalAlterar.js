@@ -28,3 +28,10 @@ function alterar_disciplina(id, nome, ch){
     document.getElementById('txtNomeAtt').value = nome;
     document.getElementById('txtCHAtt').value = ch;
 }
+
+//Referente a grade curricular
+function grade_curso(id, sigla, categoria){
+    document.getElementById('txtIdCursoGrade').value = id;
+    document.getElementById('txtSiglaGrade').value = sigla;
+    document.getElementById('txtCategoriaGrade').value = categoria;
+}

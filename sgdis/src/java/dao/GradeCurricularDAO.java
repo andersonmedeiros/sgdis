@@ -31,7 +31,7 @@ public class GradeCurricularDAO {
     
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + codigo + "," + descricao + "," + ano + "," + variacao + "," + situacao + "," + idCurso +")"
-                                    + " VALUES(?,?,?,?,?);";
+                                    + " VALUES(?,?,?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
@@ -42,7 +42,7 @@ public class GradeCurricularDAO {
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + codigo + "=?;";
     
     //Consultas SQL
-    private final String GETUltimoCODIGOByCurso = "SELECT MAX(" + codigo + ") as ultimo_id FROM " + tabela + " WHERE " + idCurso + "=?;";
+    private final String GETUltimaVariacaoByCursoANDAno = "SELECT MAX(" + variacao + ") as ultima_variacao FROM " + tabela + " WHERE " + idCurso + "=? and " + ano + "=?;";
     private final String GETGradeByCodigo = "SELECT * FROM " + tabela + " WHERE " + codigo + "=?;";
     private final String GETGRADES = "SELECT * FROM "+ tabela +";";
     
@@ -52,25 +52,27 @@ public class GradeCurricularDAO {
     ResultSet rs = null;
     
     //Próximo ID a ser inserido
-    /*public int proxID(){
-        int ultimo_id = 0;
+    public int proxVariacao(int idCurso, int ano){
+        int ultima_variacao = 0;
         
         try{
             conn = ConnectionFactory.getConnection();
             
-            pstm = conn.prepareStatement(GETUltimoCODIGOByCurso);
+            pstm = conn.prepareStatement(GETUltimaVariacaoByCursoANDAno);
+            pstm.setInt(1, idCurso);
+            pstm.setInt(2, ano);
             rs = pstm.executeQuery();
             while (rs.next()) {
                 
-                ultimo_id = rs.getInt("ultimo_id");
+                ultima_variacao = rs.getInt("ultima_variacao");
             }
            
             ConnectionFactory.fechaConexao(conn, pstm);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return (ultimo_id+1);
-    }*/
+        return (ultima_variacao+1);
+    }
     
     //Insert SQL
     public void insert(GradeCurricular grade) {
@@ -168,7 +170,7 @@ public class GradeCurricularDAO {
     }
     
     //Lista com todas as grades curriculares
-    public ArrayList<GradeCurricular> getGradeCurricular(){
+    public ArrayList<GradeCurricular> getGrades(){
         conn = null;
         pstm = null;
         rs = null;

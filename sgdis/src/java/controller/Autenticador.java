@@ -80,7 +80,7 @@ public class Autenticador extends HttpServlet {
         String identidade = request.getParameter("txtIdentidade");
         String senha = request.getParameter("txtSenha");
         
-        if(identidade.equals("0107912217") && senha.equals("!P4rd4l)")){
+        if(identidade.equals("0107912217") && senha.equals("123")){
             HttpSession sessao = request.getSession();
             sessao.setAttribute("militarAutenticado", "sti");
             response.sendRedirect("/sgdis/restrito/inicial.jsp");

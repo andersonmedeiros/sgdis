@@ -1,9 +1,11 @@
 <%-- 
-    Document   : gradeCurricular
-    Created on : 12/11/2019, 09:25:32
+    Document   : visualizarGradeCurricular
+    Created on : 25/11/2019, 09:20:46
     Author     : andersondepaula
 --%>
 
+<%@page import="bean.GradeCurricular"%>
+<%@page import="dao.GradeCurricularDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.Curso"%>
 <%@page import="dao.CursoDAO"%>
@@ -67,7 +69,7 @@
 
                     if(retorno == 1){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Curso adicionado com sucesso!");
+                        out.println("       Grade Curricular adicionada com sucesso!");
                         out.println("</div>");
                     }
                     else if(retorno == 2){
@@ -82,7 +84,7 @@
                     }
                     else if(retorno == 4){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Curso excluído com sucesso!");
+                        out.println("       Grade Curricular excluído com sucesso!");
                         out.println("</div>");
                     }
                     else if(retorno == 5){
@@ -92,7 +94,7 @@
                     }
                     else if(retorno == 6){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Curso atualizado com sucesso!");
+                        out.println("       Grade Curricular atualizada com sucesso!");
                         out.println("</div>");
                     }
                 }
@@ -100,42 +102,42 @@
             <table class="table">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">NOME</th>
-                        <th scope="col">SIGLA</th>
-                        <th scope="col">CATEGORIA</th>
-                        <th scope="col">PORTARIA</th>
+                        <th scope="col">CÓDIGO</th>
+                        <th scope="col">DESCRIÇÃO</th>
+                        <th scope="col">ANO/VARIAÇÃO</th>
+                        <th scope="col">CURSO</th>
+                        <th scope="col">SITUAÇÃO</th>
                         <th scope="col">AÇÃO</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
-                        CursoDAO cursoDAO = new CursoDAO();
-                        ArrayList<Curso> cursos = new ArrayList<>();
+                        GradeCurricularDAO gradeDAO = new GradeCurricularDAO();
+                        ArrayList<GradeCurricular> grades = new ArrayList<>();
                         
-                        cursos = cursoDAO.getCursos();
+                        grades = gradeDAO.getGrades();
                         
-                        if(cursos.size() == 0){
+                        if(grades.size() == 0){
                             out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
-                            out.println("       Nenhum curso cadastrado.<br>Adicione um novo curso!");
+                            out.println("       O curso não possui Grade Curricular cadastrada.<br>");
                             out.println("</div>");
                         }else{
-                            for(int i=0;i<cursos.size();i++){
+                            for(int i=0;i<grades.size();i++){
                                 out.println("<tr>");
-                                out.println("   <th scope=\"row\">"+ cursos.get(i).getId() +"</th>");
-                                out.println("   <td>"+ cursos.get(i).getNome() +"</td>");
-                                out.println("   <td>"+ cursos.get(i).getSigla()+"</td>");
-                                out.println("   <td>"+ cursos.get(i).getIdCategoria()+"</td>");
-                                out.println("   <td>"+ cursos.get(i).getPortaria()+"</td>");
+                                out.println("   <th scope=\"row\">"+ grades.get(i).getCodigo()+"</th>");
+                                out.println("   <td>"+ grades.get(i).getDescricao() +"</td>");
+                                out.println("   <td>"+ grades.get(i).getAno()+"/"+grades.get(i).getVariacao()+"</td>");
+                                out.println("   <td>"+ grades.get(i).getIdCurso()+"</td>");
+                                out.println("   <td>"+ grades.get(i).getSituacao()+"</td>");
                                 out.println("   <td>");
-                                out.println("       <div class=form-row>");
+                                //out.println("       <div class=form-row>");
                                 
-                                out.println("           <div class=form-group>");                  
+                                //out.println("           <div class=form-group>");                  
                                 //out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Montar Grade</button>");
-                                out.println("                   <a class=\"btn btn-success\""+ "href=../restrito/visualizarGradeCurricular.jsp?idCurso="+cursos.get(i).getId()+">Montar Grade</a>");
-                                out.println("           </div>");
-                                out.println("       </div>");
-                                out.println("   </td>");
+                                //out.println("                   <a class=\"btn btn-success\""+ "href=../restrito/montarGradeCurricular.jsp?idCurso="+ cursos.get(i).getId()+">Montar Grade</a>");
+                                //out.println("           </div>");
+                                //out.println("       </div>");
+                                //out.println("   </td>");
                                 out.println("</tr>");
                             }
                         }
@@ -144,53 +146,41 @@
             </table>
             
             <!-- Modal Cadastro-->
-            <div class="modal fade" id="modalFormCadCurso" tabindex="-1" role="dialog" aria-labelledby="modalFormCadCurso" aria-hidden="true">
+            <div class="modal fade" id="modalFormCadGrade" tabindex="-1" role="dialog" aria-labelledby="modalFormCadGrade" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title title" id="modalFormCadCurso">Novo Curso</h5>
+                            <h5 class="modal-title title" id="modalFormCadGrade">Nova Grade</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            
-                            <form class="container-fluid" action="controller.curso/Cadastrar" method="POST" name="formCadastrar">
-                                <div class="form-row">
-                                    <div class="form-group col-md-8">
-                                        <label for="txtNome">Nome: </label>
-                                        <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
-                                    </div>
-
-                                    <div class="form-group col-md-4">
-                                        <label for="txtSigla">Sigla: </label>
-                                        <input type="text" class="form-control" id="txtSigla" name="txtSigla" placeholder="Sigla">
-                                    </div>                                    
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="txtCategoria">Categoria: </label>
-                                        <select class="form-control" id="txtCategoria" name="txtCategoria">
-                                            <option value="0" selected>Categoria </option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-9">
-                                        <label for="txtPortaria">Portaria: </label>
-                                        <input type="text" class="form-control" id="txtPortaria" name="txtPortaria" placeholder="Portaria">
-                                    </div>
-                                </div>
-
+                        <div class="modal-body">                            
+                            <form class="container-fluid" action="controller.gradeCurricular/CadastrarGrade" method="POST" name="formCadastrar">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="txtDescricao">Descrição: </label>
-                                        <textarea class="form-control" id="txtDescricao" name="txtDescricao" rows="3" placeholder="Descrição"></textarea>
+                                        <label for="txtIdCursoCad">Curso: </label>
+                                        <input type="text" class="form-control" id="txtIdCursoCad" name="txtIdCursoCad" placeholder="Curso" value=<%=request.getParameter("idCurso")%> disabled>
                                     </div>
                                 </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="txtDescricaoCad">Descrição: </label>
+                                        <input type="text" class="form-control" id="txtNomeCad" name="txtDescricaoCad" placeholder="Descricao">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="txtAnoCad">Ano: </label>
+                                        <input type="text" class="form-control" id="txtAnoCad" name="txtAnoCad" placeholder="Ano">
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="txtVariacaoCad">Variação: </label>
+                                        <input type="text" class="form-control" id="txtVariacaoCad" name="txtVariacaoCad" placeholder="Variacao">
+                                    </div>
+                                </div>
+                                    
                                 <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
                                 <button type="submit" name="btnSalvar" class="btn btn-success">Salvar</button>
                             </form>
