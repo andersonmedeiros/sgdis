@@ -112,10 +112,11 @@
                 </thead>
                 <tbody>
                     <%
+                        int idCurso = Integer.parseInt(request.getParameter("idCurso"));
                         GradeCurricularDAO gradeDAO = new GradeCurricularDAO();
                         ArrayList<GradeCurricular> grades = new ArrayList<>();
                         
-                        grades = gradeDAO.getGrades();
+                        grades = gradeDAO.getGradesByIdCurso(idCurso);
                         
                         if(grades.size() == 0){
                             out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");

@@ -45,6 +45,7 @@ public class GradeCurricularDAO {
     private final String GETUltimaVariacaoByCursoANDAno = "SELECT MAX(" + variacao + ") as ultima_variacao FROM " + tabela + " WHERE " + idCurso + "=? and " + ano + "=?;";
     private final String GETGradeByCodigo = "SELECT * FROM " + tabela + " WHERE " + codigo + "=?;";
     private final String GETGRADES = "SELECT * FROM "+ tabela +";";
+    private final String GETGradesByIdCurso = "SELECT * FROM "+ tabela +" WHERE "+ idCurso +"=?;";
     
     
     Connection conn = null;
@@ -179,6 +180,38 @@ public class GradeCurricularDAO {
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETGRADES);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                GradeCurricular grade = new GradeCurricular();
+                
+                grade.setCodigo(rs.getString(codigo));                
+                grade.setDescricao(rs.getString(descricao));                
+                grade.setAno(rs.getInt(ano));
+                grade.setVariacao(rs.getInt(variacao));
+                grade.setSituacao(rs.getString(situacao));
+                grade.setIdCurso(rs.getInt(idCurso));
+                
+                grades.add(grade);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return grades;
+    }
+    
+    //Lista com todas as grades curriculares por curso
+    public ArrayList<GradeCurricular> getGradesByIdCurso(int idCursoPesq){
+        conn = null;
+        pstm = null;
+        rs = null;
+        ArrayList<GradeCurricular> grades = new ArrayList<>();
+        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETGradesByIdCurso);
+            pstm.setInt(1, idCursoPesq);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
