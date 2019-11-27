@@ -75,31 +75,46 @@ public class CadastrarFase extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         HttpSession sessao = request.getSession();
-        
+        String codigoGrade = request.getParameter("txtCodGrade");
+        int idCurso = Integer.parseInt(request.getParameter("txtIdCurso").toUpperCase());
         if(sessao.getAttribute("militarAutenticado") != null){
             try{
                 FaseDAO faseDAO = new FaseDAO();
-
-                int id = faseDAO.proxID();
+                                
                 String nome = request.getParameter("txtNomeCad").toUpperCase();
-                String sigla = request.getParameter("txtSiglaCad").toUpperCase();
+                String abreviatura = request.getParameter("txtAbreviaturaCad").toUpperCase();
+                int idModadlidade = Integer.parseInt(request.getParameter("txtModalidadeCad").toUpperCase());
+                int idModulo = Integer.parseInt(request.getParameter("txtModuloCad").toUpperCase());
                 String descricao = request.getParameter("txtDescricaoCad").toUpperCase();
+                
+                //Formulação do código
+                int anoGrade = Integer.parseInt(request.getParameter("txtAnoGrade"));
+                int variacaoGrade = Integer.parseInt(request.getParameter("txtVariacaoGrade"));                
+                String divisor_codigo = "_";
+                
+                String codigo = abreviatura.replaceAll(" ", "") + divisor_codigo + anoGrade + divisor_codigo + variacaoGrade;
+                
 
                 Fase fase = new Fase();
 
-                fase.setId(id);
+                fase.setCodigo(codigo);
                 fase.setNome(nome);
-                fase.setSigla(sigla);
+                fase.setAbreviatura(abreviatura);
                 fase.setDescricao(descricao);
+                fase.setCodigoGrade(codigoGrade);
+                fase.setIdCurso(idCurso);
+                fase.setIdModalidade(idModadlidade);
+                fase.setIdModulo(idModulo);
+                     
 
                 faseDAO.insert(fase);
             }catch(Exception ex){
                 //e=2: erro durante realização do cadastro
-                response.sendRedirect("/sgdis/restrito/fase.jsp?e=2");
+                response.sendRedirect("/sgdis/restrito/montarGradeCurricular.jsp?idCurso="+idCurso+"&codGrade="+codigoGrade+"&e=2");
                 throw new ServletException(ex);
             }
             //e=1: cadastro sucesso
-            response.sendRedirect("/sgdis/restrito/fase.jsp?e=1");
+            response.sendRedirect("/sgdis/restrito/montarGradeCurricular.jsp?idCurso="+idCurso+"&codGrade="+codigoGrade+"&e=1");
             /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
             despachante.forward(request, response);*/
         }

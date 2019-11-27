@@ -22,26 +22,33 @@ public class FaseDAO {
     String tabela = "Fase";
     
     //Atributos
-    String id = "id";
+    String codigo = "codigo";
     String nome = "nome";
-    String sigla = "sigla";
+    String abreviatura = "abreviatura";
     String descricao = "descricao";
+    String idModulo = "idModulo";
+    String idModalidade = "idModalidade";
+    String idCurso = "idCurso";
+    String codigoGrade = "codigoGrade";
+    
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + ","  + descricao +")"
-                                    + " VALUES(?,?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + codigo + "," + nome + "," + abreviatura + ","  + descricao + "," + 
+                                                                  codigoGrade + "," + idCurso + "," + idModulo + ","  + idModalidade +")" +
+                                  " VALUES(?,?,?,?,?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + sigla + "=?, " + descricao + "=? " +
-                                  "WHERE " + id + "=?;";
+                                  " SET " +  nome + "=?, " + abreviatura + "=?, " + descricao + "=? " + 
+                                  "WHERE " + codigo + "=?;";
     
     //Delete SQL
-    private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
+    private final String DELETE = "DELETE FROM " + tabela + " WHERE " + codigo + "=?;";
     
     //Consultas SQL
-    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
-    private final String GETFaseByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
+    private final String GETUltimoCOD = "SELECT MAX(" + codigo + ") as ultimo_id FROM " + tabela + ";";
+    private final String GETFaseByCOD = "SELECT * FROM " + tabela + " WHERE " + codigo + "=?;";
+    private final String GETFasesByCodGradeANDidCurso = "SELECT * FROM " + tabela + " WHERE " + codigoGrade + "=? AND " + idCurso + "=?;";
     private final String GETFASES = "SELECT * FROM "+ tabela +";";
     
     Connection conn = null;
@@ -55,7 +62,7 @@ public class FaseDAO {
         try{
             conn = ConnectionFactory.getConnection();
             
-            pstm = conn.prepareStatement(GETUltimoID);
+            pstm = conn.prepareStatement(GETUltimoCOD);
             rs = pstm.executeQuery();
             while (rs.next()) {
                 
@@ -77,10 +84,14 @@ public class FaseDAO {
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setInt(1, fase.getId());
+                pstm.setString(1, fase.getCodigo());
                 pstm.setString(2, fase.getNome());
-                pstm.setString(3, fase.getSigla());
+                pstm.setString(3, fase.getAbreviatura());
                 pstm.setString(4, fase.getDescricao());
+                pstm.setString(5, fase.getCodigoGrade());
+                pstm.setInt(6, fase.getIdCurso());
+                pstm.setInt(7, fase.getIdModulo());
+                pstm.setInt(8, fase.getIdModalidade());
                                               
                 pstm.execute();
                 
@@ -102,9 +113,9 @@ public class FaseDAO {
                 pstm = conn.prepareStatement(UPDATE);
                 
                 pstm.setString(1, fase.getNome());
-                pstm.setString(2, fase.getSigla());
+                pstm.setString(2, fase.getAbreviatura());
                 pstm.setString(3, fase.getDescricao());
-                pstm.setInt(4, fase.getId());
+                pstm.setString(4, fase.getCodigo());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -118,12 +129,12 @@ public class FaseDAO {
     }
     
     //Delete SQL
-    public void delete(int id) {
-        if (id != 0) {
+    public void delete(String codigo) {
+        if (codigo != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(DELETE);
-                pstm.setInt(1, id);
+                pstm.setString(1, codigo);
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -136,20 +147,24 @@ public class FaseDAO {
         }
     }
     
-    //Fase by ID
-    public Fase getFase(int id){
+    //Fase by Codigo
+    public Fase getFase(String codFase){
         Fase fase = new Fase();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETFaseByID);
-            pstm.setInt(1, id);
+            pstm = conn.prepareStatement(GETFaseByCOD);
+            pstm.setString(1, codFase);
             
             rs = pstm.executeQuery();
             while (rs.next()) {
-                fase.setId(rs.getInt("id"));
+                fase.setCodigo(rs.getString(codigo));
                 fase.setNome(rs.getString(nome));
-                fase.setSigla(rs.getString(sigla));
+                fase.setAbreviatura(rs.getString(abreviatura));
                 fase.setDescricao(rs.getString(descricao));
+                fase.setCodigoGrade(rs.getString(codigoGrade));
+                fase.setIdCurso(rs.getInt(idCurso));
+                fase.setIdModulo(rs.getInt(idModulo));
+                fase.setIdModalidade(rs.getInt(idModalidade));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -173,10 +188,49 @@ public class FaseDAO {
             while (rs.next()) {
                 Fase fase = new Fase();
                 
-                fase.setId(rs.getInt(id));
+                fase.setCodigo(rs.getString(codigo));
                 fase.setNome(rs.getString(nome));
-                fase.setSigla(rs.getString(sigla));
+                fase.setAbreviatura(rs.getString(abreviatura));
                 fase.setDescricao(rs.getString(descricao));
+                fase.setCodigoGrade(rs.getString(codigoGrade));
+                fase.setIdCurso(rs.getInt(idCurso));
+                fase.setIdModulo(rs.getInt(idModulo));
+                fase.setIdModalidade(rs.getInt(idModalidade));
+                
+                fases.add(fase);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return fases;
+    }
+    
+    //Lista com todas as fases By Codigo Grade and ID Curso
+    public ArrayList<Fase> getFasesByCodGradeANDidCurso(String codGrade, int idcurso){
+        conn = null;
+        pstm = null;
+        rs = null;
+        ArrayList<Fase> fases = new ArrayList<>();
+        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETFasesByCodGradeANDidCurso);
+            pstm.setString(1, codGrade);
+            pstm.setInt(2, idcurso);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Fase fase = new Fase();
+                
+                fase.setCodigo(rs.getString(codigo));
+                fase.setNome(rs.getString(nome));
+                fase.setAbreviatura(rs.getString(abreviatura));
+                fase.setDescricao(rs.getString(descricao));
+                fase.setCodigoGrade(rs.getString(codigoGrade));
+                fase.setIdCurso(rs.getInt(idCurso));
+                fase.setIdModulo(rs.getInt(idModulo));
+                fase.setIdModalidade(rs.getInt(idModalidade));
                 
                 fases.add(fase);
             }

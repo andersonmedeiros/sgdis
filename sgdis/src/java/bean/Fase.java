@@ -10,17 +10,17 @@ package bean;
  * @author andersondepaula
  */
 public class Fase {
-        int id;
-        String nome, sigla, descricao;
+        int idCurso, idModulo, idModalidade;
+        String codigo, nome, abreviatura, descricao, codigoGrade;
 
-    public int getId() {
-        return id;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
-
+    
     public String getNome() {
         return nome;
     }
@@ -29,12 +29,12 @@ public class Fase {
         this.nome = nome;
     }
 
-    public String getSigla() {
-        return sigla;
+    public String getAbreviatura() {
+        return abreviatura;
     }
 
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
+    public void setAbreviatura(String abreviatura) {
+        this.abreviatura = abreviatura;
     }
 
     public String getDescricao() {
@@ -44,4 +44,38 @@ public class Fase {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public int getIdCurso() {
+        return idCurso;
+    }
+
+    public void setIdCurso(int idCurso) {
+        this.idCurso = idCurso;
+    }
+
+    public int getIdModulo() {
+        return idModulo;
+    }
+
+    public void setIdModulo(int idModulo) {
+        this.idModulo = idModulo;
+    }
+
+    public int getIdModalidade() {
+        return idModalidade;
+    }
+
+    public void setIdModalidade(int idModalidade) {
+        this.idModalidade = idModalidade;
+    }
+
+    public String getCodigoGrade() {
+        return codigoGrade;
+    }
+
+    public void setCodigoGrade(String codigoGrade) {
+        this.codigoGrade = codigoGrade;
+    }
+    
+    
 }
