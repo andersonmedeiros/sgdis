@@ -131,14 +131,13 @@
                                 out.println("   <td>"+ grades.get(i).getIdCurso()+"</td>");
                                 out.println("   <td>"+ grades.get(i).getSituacao()+"</td>");
                                 out.println("   <td>");
-                                //out.println("       <div class=form-row>");
-                                
-                                //out.println("           <div class=form-group>");                  
+                                out.println("       <div class=form-row>");                                
+                                out.println("           <div class=form-group>");                  
                                 //out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Montar Grade</button>");
-                                //out.println("                   <a class=\"btn btn-success\""+ "href=../restrito/montarGradeCurricular.jsp?idCurso="+ cursos.get(i).getId()+">Montar Grade</a>");
-                                //out.println("           </div>");
-                                //out.println("       </div>");
-                                //out.println("   </td>");
+                                out.println("                   <a class=\"btn btn-dark\""+ "href=../restrito/montarGradeCurricular.jsp?idCurso="+grades.get(i).getIdCurso()+"&codGrade="+grades.get(i).getCodigo()+">Montar Grade</a>");
+                                out.println("           </div>");
+                                out.println("       </div>");
+                                out.println("   </td>");
                                 out.println("</tr>");
                             }
                         }

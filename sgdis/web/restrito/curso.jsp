@@ -145,7 +145,7 @@
                                 out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Alterar</button>");
                                 out.println("           </div>");
                                 out.println("           <div class=form-group>");                  
-                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnGrade\" class=\"btn btn-warning\" data-toggle=\"modal\" data-target=\"#modalFormGradeCurso\" onclick=\"grade_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+");\">Grade</button>");
+                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnGrade\" class=\"btn btn-dark\" data-toggle=\"modal\" data-target=\"#modalFormGradeCurso\" onclick=\"grade_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+");\">Grade</button>");
                                 out.println("           </div>");
                                 out.println("       </div>");
                                 out.println("   </td>");
