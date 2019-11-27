@@ -22,25 +22,31 @@ public class DisciplinaDAO {
     String tabela = "Disciplina";
     
     //Atributos
-    String id = "id";
+    String codigo = "codigo";
     String nome = "nome";
-    String ch = "ch";
+    String abreviatura = "abreviatura";
+    String codigoFase = "codigoFase";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + ch +")"
-                                    + " VALUES(?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + codigo + "," + nome + "," + abreviatura + "," + codigoFase + ")"
+                                    + " VALUES(?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + ch+ "=? " +
-                                  "WHERE " + id + "=?;";
+                                  " SET " + nome + "=?, " + abreviatura+ "=? " +  codigoFase+ "=? " +
+                                  "WHERE " + codigo + "=?;";
     
     //Delete SQL
-    private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
+    private final String DELETE = "DELETE FROM " + tabela + " WHERE " + codigo + "=?;";
     
     //Consultas SQL
-    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
-    private final String GETDisciplinaByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
+    private final String GETUltimoID = "SELECT MAX(" + codigo + ") as ultimo_id FROM " + tabela + ";";
+    private final String GETUltimaVariacaoByCodigoFase = "SELECT MAX(" + codigo + ") as ultima_variacao FROM " + tabela + " WHERE " + codigoFase +"=?;";
+    private final String GETDisciplinaByCOD = "SELECT * FROM " + tabela + " WHERE " + codigo + "=?;";
+    private final String GETDISCIPLINASByCodFase = "SELECT * FROM " + tabela + 
+                                                   " INNER JOIN  Fase AS f ON " + tabela + "." + codigoFase + " = f.codigo AND f.codigoGrade = ? AND f.idCurso = ?;";
+    
+    
     private final String GETDISCIPLINAS = "SELECT * FROM "+ tabela +";";
     
     Connection conn = null;
@@ -48,24 +54,32 @@ public class DisciplinaDAO {
     ResultSet rs = null;
     
     //Próximo ID a ser inserido
-    public int proxID(){
-        int ultimo_id = 0;
-        
+    public int proxVariacao(String codigoFase){
+        String ultima_variacao = "";
+        int proxVariacao = 0;
         try{
             conn = ConnectionFactory.getConnection();
             
-            pstm = conn.prepareStatement(GETUltimoID);
+            pstm = conn.prepareStatement(GETUltimaVariacaoByCodigoFase);
+            pstm.setString(1, codigoFase);
+            
             rs = pstm.executeQuery();
             while (rs.next()) {
+                ultima_variacao = rs.getString("ultima_variacao");
+                if(ultima_variacao == null){
+                    return 1;
+                }else{
+                    proxVariacao = Integer.parseInt(rs.getString("ultima_variacao").replaceAll(codigoFase+"_", ""));
+                }
                 
-                ultimo_id = rs.getInt("ultimo_id");
             }
            
             ConnectionFactory.fechaConexao(conn, pstm);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return (ultimo_id+1);
+        
+        return (proxVariacao + 1);
     }
     
     //Insert SQL
@@ -76,9 +90,10 @@ public class DisciplinaDAO {
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setInt(1, disciplina.getId());
+                pstm.setString(1, disciplina.getCodigo());
                 pstm.setString(2, disciplina.getNome());
-                pstm.setInt(3, disciplina.getCh());
+                pstm.setString(3, disciplina.getAbreviatura());
+                pstm.setString(4, disciplina.getCodigoFase());
                                               
                 pstm.execute();
                 
@@ -99,9 +114,10 @@ public class DisciplinaDAO {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(UPDATE);
                 
-                pstm.setString(1, disciplina.getNome());
-                pstm.setInt(2, disciplina.getCh());
-                pstm.setInt(3, disciplina.getId());
+                pstm.setString(1, disciplina.getCodigo());
+                pstm.setString(2, disciplina.getNome());
+                pstm.setString(3, disciplina.getAbreviatura());
+                pstm.setString(4, disciplina.getCodigoFase());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -115,12 +131,12 @@ public class DisciplinaDAO {
     }
     
     //Delete SQL
-    public void delete(int id) {
-        if (id != 0) {
+    public void delete(String cod) {
+        if (cod != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(DELETE);
-                pstm.setInt(1, id);
+                pstm.setString(1, cod);
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -134,18 +150,19 @@ public class DisciplinaDAO {
     }
     
     //Disciplina by ID
-    public Disciplina getDisciplina(int id){
+    public Disciplina getDisciplina(String codigoDisc){
         Disciplina disciplina = new Disciplina();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETDisciplinaByID);
-            pstm.setInt(1, id);
+            pstm = conn.prepareStatement(GETDisciplinaByCOD);
+            pstm.setString(1, codigoDisc);
             
             rs = pstm.executeQuery();
             while (rs.next()) {
-                disciplina.setId(rs.getInt("id"));
+                disciplina.setCodigo(rs.getString(codigo));
                 disciplina.setNome(rs.getString(nome));
-                disciplina.setCh(rs.getInt(ch));
+                disciplina.setAbreviatura(rs.getString(abreviatura));
+                disciplina.setCodigoFase(rs.getString(codigoFase));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -169,9 +186,41 @@ public class DisciplinaDAO {
             while (rs.next()) {
                 Disciplina disciplina = new Disciplina();
                 
-                disciplina.setId(rs.getInt(id));
+                disciplina.setCodigo(rs.getString(codigo));
                 disciplina.setNome(rs.getString(nome));
-                disciplina.setCh(rs.getInt(ch));
+                disciplina.setAbreviatura(rs.getString(abreviatura));
+                disciplina.setCodigoFase(rs.getString(codigoFase));
+                
+                disciplinas.add(disciplina);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return disciplinas;
+    }
+    
+    //Lista com todas as disciplinas By Codigo Fase
+    public ArrayList<Disciplina> getDisciplinas(String codGrade, int idcurso){
+        conn = null;
+        pstm = null;
+        rs = null;
+        ArrayList<Disciplina> disciplinas = new ArrayList<>();
+        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETDISCIPLINASByCodFase);
+            pstm.setString(1, codGrade);
+            pstm.setInt(2, idcurso);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Disciplina disciplina = new Disciplina();
+                
+                disciplina.setCodigo(rs.getString(codigo));
+                disciplina.setNome(rs.getString(nome));
+                disciplina.setAbreviatura(rs.getString(abreviatura));
+                disciplina.setCodigoFase(rs.getString(codigoFase));
                 
                 disciplinas.add(disciplina);
             }

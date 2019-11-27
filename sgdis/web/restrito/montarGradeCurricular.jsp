@@ -4,6 +4,8 @@
     Author     : andersondepaula
 --%>
 
+<%@page import="bean.Disciplina"%>
+<%@page import="dao.DisciplinaDAO"%>
 <%@page import="bean.Modalidade"%>
 <%@page import="dao.ModalidadeDAO"%>
 <%@page import="bean.Modulo"%>
@@ -180,8 +182,8 @@
                                         ModuloDAO moduloDAO = new ModuloDAO();
                                         ModalidadeDAO modalidadeDAO = new ModalidadeDAO();                                        
                                         
-                                        if(request.getParameter("e") != null){
-                                            int retorno = Integer.parseInt(request.getParameter("e"));
+                                        if(request.getParameter("ef") != null){
+                                            int retorno = Integer.parseInt(request.getParameter("ef"));
 
                                             if(retorno == 1){
                                                 out.println("<div class=\"alert alert-success shadow-sm text-center mt-3\" role=\"alert\">");
@@ -334,7 +336,150 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="nav-disciplina" role="tabpanel" aria-labelledby="nav-profile-tab">..flamengo.</div>
+                    <div class="tab-pane fade" id="nav-disciplina" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="col-md-12 mt-2">
+                            <table class="table">
+                                <div class="text-center thead">
+                                    <b>Disciplinas</b>
+                                </div>
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">FASE</th>
+                                        <th scope="col">CÓDIGO</th>
+                                        <th scope="col">NOME</th>
+                                        <th scope="col">ABREVIATURA</th>
+                                        <th scope="col">AÇÃO</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        if(request.getParameter("ed") != null){
+                                            int retorno = Integer.parseInt(request.getParameter("ed"));
+
+                                            if(retorno == 1){
+                                                out.println("<div class=\"alert alert-success shadow-sm text-center mt-3\" role=\"alert\">");
+                                                out.println("       Disciplina adicionada com sucesso!");
+                                                out.println("</div>");
+                                            }
+                                            else if(retorno == 2){
+                                                out.println("<div class=\"alert alert-danger shadow-sm text-center mt-3\" role=\"alert\">");
+                                                out.println("       Erro durante a realização do cadastro.<br>Tente Novamente!");
+                                                out.println("</div>");
+                                            }
+                                            else if(retorno == 3){
+                                                out.println("<div class=\"alert alert-danger shadow-sm text-center mt-3\" role=\"alert\">");
+                                                out.println("       Erro durante a exclusão do cadastro.<br>Tente Novamente!");
+                                                out.println("</div>");
+                                            }
+                                            else if(retorno == 4){
+                                                out.println("<div class=\"alert alert-success shadow-sm text-center mt-3\" role=\"alert\">");
+                                                out.println("       Disciplina excluída com sucesso!");
+                                                out.println("</div>");
+                                            }
+                                            else if(retorno == 5){
+                                                out.println("<div class=\"alert alert-danger shadow-sm text-center mt-3\" role=\"alert\">");
+                                                out.println("       Erro durante a atualização do cadastro.<br>Tente Novamente!");
+                                                out.println("</div>");
+                                            }
+                                            else if(retorno == 6){
+                                                out.println("<div class=\"alert alert-success shadow-sm text-center mt-3\" role=\"alert\">");
+                                                out.println("       Disciplina atualizada com sucesso!");
+                                                out.println("</div>");
+                                            }
+                }
+                                        DisciplinaDAO discplinaDAO = new DisciplinaDAO();
+                                        ArrayList<Disciplina> disciplinas = discplinaDAO.getDisciplinas(codGrade, idCurso);                                        
+
+                                        if(disciplinas.size() == 0){
+                                            out.println("<div class=\"alert alert-warning shadow-sm text-center mt-3\" role=\"alert\">");
+                                            out.println("       Nenhuma disciplina cadastrada.<br>Adicione uma nova disciplina!");
+                                            out.println("</div>");
+                                        }else{
+                                            for(int i=0;i<disciplinas.size();i++){
+                                                out.println("<tr>");
+                                                out.println("   <th scope=\"row\">"+ faseDAO.getFase(disciplinas.get(i).getCodigoFase()).getNome() +"</th>");
+                                                out.println("   <th scope=\"row\">"+ disciplinas.get(i).getCodigo() +"</th>");
+                                                out.println("   <td>"+ disciplinas.get(i).getNome() +"</td>");
+                                                out.println("   <td>"+ disciplinas.get(i).getAbreviatura()+"</td>");
+                                                out.println("   <td>");
+                                                out.println("       <div class=form-row>");
+                                                out.println("           <div class=\"form-group mr-2\">");
+                                                out.println("               <form name=\"formExcluir\" method=\"POST\" action=\"controller.disciplina/ExcluirDisciplina\">");
+                                                out.println("                   <input type=\"hidden\" class=\"form-control\" name=\"disciplina_id_excluir\" id=\"disciplina_id_excluir\" readonly=\"readonly\" value=\""+disciplinas.get(i).getCodigo()+"\"/>");
+                                                out.println("                   <button id="+ disciplinas.get(i).getCodigo()+" type=\"submit\" name=\"btnExcluir\" class=\"btn btn-danger\" onclick=\"return confirm('Tem certeza que deseja excluir o registro?');\">Excluir</button>");
+                                                out.println("               </form>");
+                                                out.println("           </div>");
+                                                out.println("           <div class=form-group>");                  
+                                                //out.println("                   <button id="+ disciplinas.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttDisciplina\" onclick=\"alterar_disciplina("+"'"+disciplinas.get(i).getId()+"'"+","+"'"+disciplinas.get(i).getNome()+"'"+","+"'"+disciplinas.get(i).getCh()+"'"+");\">Alterar</button>");
+                                                out.println("           </div>");
+                                                out.println("       </div>");
+                                                out.println("   </td>");
+                                                out.println("</tr>");
+                                            }
+                                        }
+                                    %>
+                                </tbody>
+                            </table>
+
+                            <!-- Botão para acionar modal -->
+                            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modalFormCadDisciplina">Adicionar nova disiciplina</button>
+
+                            <!-- Modal Cadastro-->
+                            <div class="modal fade" id="modalFormCadDisciplina" tabindex="-1" role="dialog" aria-labelledby="modalFormCadDisciplina" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title title" id="modalFormCadDisciplina">Nova Disciplina</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">                            
+                                            <form class="container-fluid" action="controller.disciplina/CadastrarDisciplina" method="POST" name="formCadastrar">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="txtFaseCad">Fase: </label>
+                                                        <select class="form-control" id="txtFaseCad" name="txtFaseCad">
+                                                            <option value="0" selected>Selecione uma Fase...</option>
+                                                            <%
+                                                                int qtdeFase =  fases.size();
+
+                                                                if(qtdeFase != 0){
+                                                                    for(int i=0;i<qtdeFase;i++){
+                                                                        out.println("<option value='"+fases.get(i).getCodigo()+"'>"+fases.get(i).getNome()+"</option>");
+                                                                    } 
+                                                                }
+                                                            %>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-8">
+                                                        <label for="txtNomeCad">Nome: </label>
+                                                        <input type="text" class="form-control" id="txtNomeCad" name="txtNomeCad" placeholder="Nome">
+                                                    </div>
+
+                                                    <div class="form-group col-md-4">
+                                                        <label for="txtAbreviaturaCad">Abreviatura: </label>
+                                                        <input type="text" class="form-control" id="txtAbreviaturaCad" name="txtAbreviaturaCad" placeholder="Abreviatura">
+                                                    </div>                                    
+                                                </div>
+                                                        
+                                                <input type="hidden" class="form-control" id="txtCodGrade" name="txtCodGrade" value="<%=grade.getCodigo() %>">
+                                                <input type="hidden" class="form-control" id="txtIdCurso" name="txtIdCurso" value="<%=grade.getIdCurso() %>">
+
+                                                <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
+                                                <button type="submit" name="btnSalvar" class="btn btn-success">Salvar</button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
                     <div class="tab-pane fade" id="nav-assunto" role="tabpanel" aria-labelledby="nav-contact-tab">..campeao.</div>
                 </div>
                         

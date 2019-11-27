@@ -75,29 +75,36 @@ public class CadastrarDisciplina extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         HttpSession sessao = request.getSession();
-        
+        String codigoGrade = request.getParameter("txtCodGrade");
+        int idCurso = Integer.parseInt(request.getParameter("txtIdCurso").toUpperCase());
         if(sessao.getAttribute("militarAutenticado") != null){
             try{
                 DisciplinaDAO disciplinaDAO = new DisciplinaDAO();
 
-                int id = disciplinaDAO.proxID();
                 String nome = request.getParameter("txtNomeCad").toUpperCase();
-                int ch = Integer.parseInt(request.getParameter("txtCHCad").toUpperCase());
+                String abreviatura = request.getParameter("txtAbreviaturaCad").toUpperCase();
+                String codigoFase = request.getParameter("txtFaseCad").toUpperCase();
+                
+                int variacao = disciplinaDAO.proxVariacao(codigoFase);
+                //Formulação do código
+                String divisor_codigo = "_";
+                String codigo = codigoFase + divisor_codigo + variacao;
 
                 Disciplina disciplina = new Disciplina();
 
-                disciplina.setId(id);
+                disciplina.setCodigo(codigo);
                 disciplina.setNome(nome);
-                disciplina.setCh(ch);
+                disciplina.setAbreviatura(abreviatura);
+                disciplina.setCodigoFase(codigoFase);
 
                 disciplinaDAO.insert(disciplina);
             }catch(Exception ex){
                 //e=2: erro durante realização do cadastro
-                response.sendRedirect("/sgdis/restrito/disciplina.jsp?e=2");
+                response.sendRedirect("/sgdis/restrito/montarGradeCurricular.jsp?idCurso="+idCurso+"&codGrade="+codigoGrade+"&ed=2");
                 throw new ServletException(ex);
             }
             //e=1: cadastro sucesso
-            response.sendRedirect("/sgdis/restrito/disciplina.jsp?e=1");
+            response.sendRedirect("/sgdis/restrito/montarGradeCurricular.jsp?idCurso="+idCurso+"&codGrade="+codigoGrade+"&ed=1");
             /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
             despachante.forward(request, response);*/
         }

@@ -10,23 +10,14 @@ package bean;
  * @author andersondepaula
  */
 public class Disciplina {
-    int id, ch;
-    String nome;
+    String codigo, nome, abreviatura, codigoFase;
 
-    public int getId() {
-        return id;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getCh() {
-        return ch;
-    }
-
-    public void setCh(int ch) {
-        this.ch = ch;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getNome() {
@@ -35,5 +26,21 @@ public class Disciplina {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }        
+    }
+
+    public String getAbreviatura() {
+        return abreviatura;
+    }
+
+    public void setAbreviatura(String abreviatura) {
+        this.abreviatura = abreviatura;
+    }
+
+    public String getCodigoFase() {
+        return codigoFase;
+    }
+
+    public void setCodigoFase(String codigoFase) {
+        this.codigoFase = codigoFase;
+    }   
 }
