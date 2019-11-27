@@ -147,12 +147,12 @@ public class GradeCurricularDAO {
     }
     
     //Grade by Codigo
-    public GradeCurricular getGrade(int id){
+    public GradeCurricular getGrade(String cod){
         GradeCurricular grade = new GradeCurricular();
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETGradeByCodigo);
-            pstm.setInt(1, id);
+            pstm.setString(1, cod);
             
             rs = pstm.executeQuery();
             while (rs.next()) {                               
