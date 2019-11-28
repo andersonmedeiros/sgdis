@@ -45,9 +45,9 @@ public class AssuntoDAO {
     private final String GETUltimoID = "SELECT MAX(" + codigo + ") as ultimo_id FROM " + tabela + ";";
     private final String GETUltimaVariacaoByCodigoDisc = "SELECT MAX(" + codigo + ") as ultima_variacao FROM " + tabela + " WHERE " + codigoDisciplina +"=?;";
     private final String GETAssuntoByCOD = "SELECT * FROM " + tabela + " WHERE " + codigo + "=?;";
-    private final String GETAssuntosByCodDiscANDcodGradeANDidCurso = "SELECT * FROM " + tabela + "AS a" + 
-                                                                     "INNER JOIN Disciplina AS d ON a.codigoDisciplina = d.codigo" +
-                                                                     " INNER JOIN Fase AS f ON " + tabela + "." + codigoDisciplina + " = f.codigo AND f.codigoGrade = ? AND f.idCurso = ?;";
+    private final String GETAssuntosByCodDiscANDcodGradeANDidCurso = "SELECT * FROM " + tabela + 
+                                                                     " INNER JOIN Disciplina AS d ON " + tabela + "." + codigoDisciplina + " = d.codigo" +
+                                                                     " INNER JOIN Fase AS f ON d.codigoFase = f.codigo AND f.codigoGrade = ? AND f.idCurso = ?;";
     
     private final String GETASSUNTOS = "SELECT * FROM "+ tabela +";";
     
@@ -208,7 +208,7 @@ public class AssuntoDAO {
     }
     
     //Lista com todas as disciplinas By Codigo Fase
-    public ArrayList<Assunto> getAssuntos(String codGrade, int idcurso){
+    public ArrayList<Assunto> getAssuntosByCodGradeANDidCurso(String codGrade, int idcurso){
         conn = null;
         pstm = null;
         rs = null;
