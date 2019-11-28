@@ -43,8 +43,9 @@ public class DisciplinaDAO {
     private final String GETUltimoID = "SELECT MAX(" + codigo + ") as ultimo_id FROM " + tabela + ";";
     private final String GETUltimaVariacaoByCodigoFase = "SELECT MAX(" + codigo + ") as ultima_variacao FROM " + tabela + " WHERE " + codigoFase +"=?;";
     private final String GETDisciplinaByCOD = "SELECT * FROM " + tabela + " WHERE " + codigo + "=?;";
-    private final String GETDISCIPLINASByCodFase = "SELECT * FROM " + tabela + 
+    private final String GETDISCIPLINASByCodFaseANDcodGradeANDidCurso = "SELECT * FROM " + tabela + 
                                                    " INNER JOIN  Fase AS f ON " + tabela + "." + codigoFase + " = f.codigo AND f.codigoGrade = ? AND f.idCurso = ?;";
+    private final String GETDISCIPLINASByCodFase = "SELECT * FROM " + tabela + " WHERE " + codigoFase + "=?;";
     
     
     private final String GETDISCIPLINAS = "SELECT * FROM "+ tabela +";";
@@ -200,8 +201,8 @@ public class DisciplinaDAO {
         return disciplinas;
     }
     
-    //Lista com todas as disciplinas By Codigo Fase
-    public ArrayList<Disciplina> getDisciplinas(String codGrade, int idcurso){
+    //Lista com todas as disciplinas By CodigoFase
+    public ArrayList<Disciplina> getDisciplinasByCodFase(String codFase){
         conn = null;
         pstm = null;
         rs = null;
@@ -210,6 +211,36 @@ public class DisciplinaDAO {
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETDISCIPLINASByCodFase);
+            pstm.setString(1, codFase);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Disciplina disciplina = new Disciplina();
+                
+                disciplina.setCodigo(rs.getString(codigo));
+                disciplina.setNome(rs.getString(nome));
+                disciplina.setAbreviatura(rs.getString(abreviatura));
+                disciplina.setCodigoFase(rs.getString(codigoFase));
+                
+                disciplinas.add(disciplina);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return disciplinas;
+    }
+    
+    //Lista com todas as disciplinas By CodigoFase and CodigoGrade and idCurso
+    public ArrayList<Disciplina> getDisciplinas(String codGrade, int idcurso){
+        conn = null;
+        pstm = null;
+        rs = null;
+        ArrayList<Disciplina> disciplinas = new ArrayList<>();
+        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETDISCIPLINASByCodFaseANDcodGradeANDidCurso);
             pstm.setString(1, codGrade);
             pstm.setInt(2, idcurso);
            
