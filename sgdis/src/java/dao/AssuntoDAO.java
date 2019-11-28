@@ -31,7 +31,7 @@ public class AssuntoDAO {
     
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + codigo + "," + nome + "," + chDiurna + "," + chNoturna + "," + codigoDisciplina + ")"
-                                    + " VALUES(?,?,?,?);";
+                                    + " VALUES(?,?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
