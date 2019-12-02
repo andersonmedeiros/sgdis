@@ -14,10 +14,19 @@ and open the template in the editor.
     border-color: #dee2e6;
     border-bottom: 2px solid #dee2e6;
     padding: 0.75rem;
+    border-radius: 2px;
 }
 
 .input-grade{
     border: 0px;
+}
+
+.info-curso{
+    background-color: rgba(40,167,69,0.6);
+    border-radius: 2px;
+    padding: 10px;
+    color: black;
+    
 }
 
 
