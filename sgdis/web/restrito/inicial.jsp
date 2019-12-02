@@ -37,14 +37,12 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Configurações
+                                STE
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
                                 <a class="dropdown-item" href="../restrito/curso.jsp">Curso</a>
-                                <a class="dropdown-item" href="../restrito/fase.jsp">Fase</a>
-                                <a class="dropdown-item" href="../restrito/disciplina.jsp">Disciplina</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
+                                <a class="dropdown-item active" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
                             </div>
                         </li>
                     </ul>
