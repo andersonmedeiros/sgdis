@@ -77,12 +77,12 @@ public class CadastrarGrade extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         HttpSession sessao = request.getSession();
-        
+        int idCurso = Integer.parseInt(request.getParameter("txtIdCursoGrade").toUpperCase());
         if(sessao.getAttribute("militarAutenticado") != null){            
             try{
                 GradeCurricularDAO gradeDAO = new GradeCurricularDAO();
                 
-                int idCurso = Integer.parseInt(request.getParameter("txtIdCursoGrade").toUpperCase());
+                
                 String siglaCurso = request.getParameter("txtSiglaGrade").toUpperCase();
                 int idCatCurso = Integer.parseInt(request.getParameter("txtCategoriaGrade").toUpperCase());
                 String descricao = request.getParameter("txtDescricaoGrade").toUpperCase();
@@ -104,17 +104,17 @@ public class CadastrarGrade extends HttpServlet {
                 grade.setDescricao(descricao);
                 grade.setAno(ano);
                 grade.setVariacao(variacao);
-                grade.setSituacao("A");
+                grade.setSituacao("I");
                 grade.setIdCurso(idCurso);
                                 
                 gradeDAO.insert(grade);
             }catch(Exception ex){
                 //e=2: erro durante realização do cadastro
-                response.sendRedirect("/sgdis/restrito/visualizarGradeCurricular.jsp?e=2");
+                response.sendRedirect("/sgdis/restrito/visualizarGradeCurricular.jsp?idCurso="+idCurso+"&e=2");
                 throw new ServletException(ex);
             }
             //e=1: cadastro sucesso
-            response.sendRedirect("/sgdis/restrito/visualizarGradeCurricular.jsp?e=1");
+            response.sendRedirect("/sgdis/restrito/visualizarGradeCurricular.jsp?idCurso="+idCurso+"&e=1");
             /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
             despachante.forward(request, response);*/
         }

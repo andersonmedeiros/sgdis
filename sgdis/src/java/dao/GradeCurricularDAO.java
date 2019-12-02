@@ -46,6 +46,7 @@ public class GradeCurricularDAO {
     private final String GETGradeByCodigo = "SELECT * FROM " + tabela + " WHERE " + codigo + "=?;";
     private final String GETGRADES = "SELECT * FROM "+ tabela +";";
     private final String GETGradesByIdCurso = "SELECT * FROM "+ tabela +" WHERE "+ idCurso +"=?;";
+    private final String GETGradesBySitANDidCurso = "SELECT * FROM "+ tabela +" WHERE "+ situacao +"=? AND "+ idCurso + "=?;";
     
     
     Connection conn = null;
@@ -212,6 +213,39 @@ public class GradeCurricularDAO {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETGradesByIdCurso);
             pstm.setInt(1, idCursoPesq);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                GradeCurricular grade = new GradeCurricular();
+                
+                grade.setCodigo(rs.getString(codigo));                
+                grade.setDescricao(rs.getString(descricao));                
+                grade.setAno(rs.getInt(ano));
+                grade.setVariacao(rs.getInt(variacao));
+                grade.setSituacao(rs.getString(situacao));
+                grade.setIdCurso(rs.getInt(idCurso));
+                
+                grades.add(grade);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return grades;
+    }
+    
+    //Lista com todas as grades curriculares por situacao
+    public ArrayList<GradeCurricular> getGradesBySitANDidCurso(String sit, int idcurso){
+        conn = null;
+        pstm = null;
+        rs = null;
+        ArrayList<GradeCurricular> grades = new ArrayList<>();
+        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETGradesBySitANDidCurso);
+            pstm.setString(1, sit);
+            pstm.setInt(2, idcurso);
            
             rs = pstm.executeQuery();
             while (rs.next()) {

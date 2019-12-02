@@ -24,6 +24,7 @@
         <link rel="stylesheet" type="text/css" href="../assets/node_modules/bootstrap/compiler/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/estilo_universal.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/estilo_cadastroCurso.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/estilo_gradeCurricular.css">
         
         <script src="../assets/js/modalAlterar.js"></script>     
         
@@ -44,12 +45,10 @@
                         </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Configurações
+                                STE
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
                                 <a class="dropdown-item" href="../restrito/curso.jsp">Curso</a>
-                                <a class="dropdown-item" href="../restrito/fase.jsp">Fase</a>
-                                <a class="dropdown-item" href="../restrito/disciplina.jsp">Disciplina</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item active" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
                             </div>
@@ -100,6 +99,9 @@
                 }
             %>
             <table class="table">
+                <div class="text-center thead">
+                    <b style="color: green">GRADES ATIVAS</b>
+                </div>
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">CÓDIGO</th>
@@ -116,11 +118,56 @@
                         GradeCurricularDAO gradeDAO = new GradeCurricularDAO();
                         ArrayList<GradeCurricular> grades = new ArrayList<>();
                         
-                        grades = gradeDAO.getGradesByIdCurso(idCurso);
+                        grades = gradeDAO.getGradesBySitANDidCurso("A", idCurso);
                         
                         if(grades.size() == 0){
-                            out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
-                            out.println("       O curso não possui Grade Curricular cadastrada.<br>");
+                            out.println("<div class=\"alert alert-danger shadow-sm text-center mt-3\" role=\"alert\">");
+                            out.println("       O curso não possui grades curriculares ativas.<br>");
+                            out.println("</div>");
+                        }else{
+                            for(int i=0;i<grades.size();i++){
+                                out.println("<tr>");
+                                out.println("   <th scope=\"row\">"+ grades.get(i).getCodigo()+"</th>");
+                                out.println("   <td>"+ grades.get(i).getDescricao() +"</td>");
+                                out.println("   <td>"+ grades.get(i).getAno()+"/"+grades.get(i).getVariacao()+"</td>");
+                                out.println("   <td>"+ grades.get(i).getIdCurso()+"</td>");
+                                out.println("   <td>"+ grades.get(i).getSituacao()+"</td>");
+                                out.println("   <td>");
+                                out.println("       <div class=form-row>");                                
+                                out.println("           <div class=form-group>");                  
+                                //out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Montar Grade</button>");
+                                out.println("                   <a class=\"btn btn-dark\""+ "href=../restrito/montarGradeCurricular.jsp?idCurso="+grades.get(i).getIdCurso()+"&codGrade="+grades.get(i).getCodigo()+">Montar Grade</a>");
+                                out.println("           </div>");
+                                out.println("       </div>");
+                                out.println("   </td>");
+                                out.println("</tr>");
+                            }
+                        }
+                    %>
+                </tbody>
+            </table>
+                
+            <table class="table">
+                <div class="text-center thead">
+                    <b style="color: red;">GRADES INATIVAS</b>
+                </div>
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">CÓDIGO</th>
+                        <th scope="col">DESCRIÇÃO</th>
+                        <th scope="col">ANO/VARIAÇÃO</th>
+                        <th scope="col">CURSO</th>
+                        <th scope="col">SITUAÇÃO</th>
+                        <th scope="col">AÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%                        
+                        grades = gradeDAO.getGradesBySitANDidCurso("I", idCurso);
+                        
+                        if(grades.size() == 0){
+                            out.println("<div class=\"alert alert-danger shadow-sm text-center mt-3\" role=\"alert\">");
+                            out.println("       O curso não possui grades Curriculares inativas.<br>");
                             out.println("</div>");
                         }else{
                             for(int i=0;i<grades.size();i++){
