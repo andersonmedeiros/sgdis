@@ -38,7 +38,7 @@
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Aluno</a>
+                            <a class="nav-link active" href="../restrito/cursos.jsp">Cursos</a>
                         </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
