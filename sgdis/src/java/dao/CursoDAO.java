@@ -44,6 +44,7 @@ public class CursoDAO {
     //Consultas SQL
     private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     private final String GETCursoByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
+    private final String GETCursosByCAT = "SELECT * FROM " + tabela + " WHERE " + idcategoria + "=?;";
     private final String GETCURSOS = "SELECT * FROM "+ tabela +";";
     
     
@@ -177,6 +178,38 @@ public class CursoDAO {
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETCURSOS);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Curso curso = new Curso();
+                
+                curso.setId(rs.getInt(id));
+                curso.setNome(rs.getString(nome));
+                curso.setSigla(rs.getString(sigla));
+                curso.setIdCategoria(rs.getInt(idcategoria));
+                curso.setPortaria(rs.getString(portaria));
+                curso.setDescricao(rs.getString(descricao));
+                
+                cursos.add(curso);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return cursos;
+    }
+    
+    //Lista com todos os cursos by categoria
+    public ArrayList<Curso> getCursosByCategoria(int idCat){
+        conn = null;
+        pstm = null;
+        ResultSet rs = null;
+        ArrayList<Curso> cursos = new ArrayList<>();
+        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETCursosByCAT);
+            pstm.setInt(1, idCat);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
