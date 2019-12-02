@@ -5,6 +5,7 @@
  */
 package dao;
 
+import bean.Grade;
 import bean.GradeCurricular;
 import connection.ConnectionFactory;
 import java.sql.Connection;
@@ -47,6 +48,10 @@ public class GradeCurricularDAO {
     private final String GETGRADES = "SELECT * FROM "+ tabela +";";
     private final String GETGradesByIdCurso = "SELECT * FROM "+ tabela +" WHERE "+ idCurso +"=?;";
     private final String GETGradesBySitANDidCurso = "SELECT * FROM "+ tabela +" WHERE "+ situacao +"=? AND "+ idCurso + "=?;";
+    
+    private final String GETGradesByidCursoANDcodGrade = "SELECT g.codigo as grade, f.nome as fase, d.nome as disciplina, a.nome as assunto, a.chDiurna as chdiurna, a.chNoturna as chnoturna, (chDiurna + chNoturna) as chassunto" +
+                                      " FROM Curso as c, Grade as g, Fase as f, Disciplina as d, Assunto as a" +
+                                      " WHERE c.id=? and g.idCurso=? and f.codigoGrade=? and g.codigo=?  and f.idCurso=? and d.codigoFase = f.codigo and a.codigoDisciplina = d.codigo";
     
     
     Connection conn = null;
@@ -257,6 +262,43 @@ public class GradeCurricularDAO {
                 grade.setVariacao(rs.getInt(variacao));
                 grade.setSituacao(rs.getString(situacao));
                 grade.setIdCurso(rs.getInt(idCurso));
+                
+                grades.add(grade);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return grades;
+    }
+    
+    //Lista com todas as grades curriculares por situacao
+    public ArrayList<Grade> getGrades(int idcurso, String codGrade){
+        conn = null;
+        pstm = null;
+        rs = null;
+        ArrayList<Grade> grades = new ArrayList<>();
+        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETGradesByidCursoANDcodGrade);
+            pstm.setInt(1, idcurso);
+            pstm.setInt(2, idcurso);
+            pstm.setString(3, codGrade);
+            pstm.setString(4, codGrade);
+            pstm.setInt(5, idcurso);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Grade grade = new Grade();
+                
+                grade.setGrade(rs.getString("grade"));
+                grade.setFase(rs.getString("fase"));
+                grade.setDisciplina(rs.getString("disciplina"));
+                grade.setAssunto(rs.getString("assunto"));
+                grade.setChdiurna(rs.getInt("chdiurna"));
+                grade.setChnoturna(rs.getInt("chnoturna"));
+                
                 
                 grades.add(grade);
             }

@@ -4,6 +4,7 @@
     Author     : andersondepaula
 --%>
 
+<%@page import="bean.Grade"%>
 <%@page import="bean.GradeCurricular"%>
 <%@page import="dao.GradeCurricularDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -47,7 +48,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 STE
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
+                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown">                                
                                 <a class="dropdown-item" href="../restrito/curso.jsp">Curso</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
@@ -68,13 +69,12 @@
             </div>
             
             
-            <div class="accordion" id="accordionCursos">
-                
+            <div class="accordion" id="accordionCursos">                
                     <%
                         int idCurso = Integer.parseInt(request.getParameter("idCurso"));
                         GradeCurricularDAO gradeDAO = new GradeCurricularDAO();
                         ArrayList<GradeCurricular> grades = gradeDAO.getGradesByIdCurso(idCurso);
-                        
+                        CursoDAO cursoDAO = new CursoDAO();
                         int qtdeGrades = grades.size();
                         
                         for(int i=0; i<qtdeGrades; i++){
@@ -90,21 +90,54 @@
                             
                             out.println("   <div id=collapse" + grades.get(i).getCodigo() + " class=\"collapse\" aria-labelledby=heading" + grades.get(i).getCodigo() + " data-parent=\"#accordionCursos\">");
                             out.println("       <div class=\"card-body\">");
-                            out.println(""      + grades.get(i).getDescricao() + "");
+                            out.println("           <div class=\"info-curso row mb-3\" style=\"margin-left: 0; margin-right: 0;\">");
+                            out.println("               <div class=\"col-md-6 text-center\">");
                             
+                            out.println("                   <b>CURSO:</b> " + cursoDAO.getCurso(idCurso).getNome() + " - " + cursoDAO.getCurso(idCurso).getSigla());
                             
+                            out.println("               </div>");
+                            out.println("               <div class=\"col-md-6 text-center\">");
+                            if(gradeDAO.getGrade(grades.get(i).getCodigo()).getSituacao().equals("A")){
+                                out.println("                   <b>SITUAÇÃO DA GRADE CURRICULAR:</b> ATIVA");
+                            }else{
+                                out.println("                   <b>SITUAÇÃO DA GRADE CURRICULAR:</b> INATIVA");
+                            }
                             
+                            out.println("               </div>");
+                            
+                            out.println("           </div>");
+                            
+                            out.println("           <table class=\"table\">");
+                            out.println("               <thead class=\"thead-light\">");
+                            out.println("                   <tr>");
+                            out.println("                       <th scope=\"col\">FASE</th>");
+                            out.println("                       <th scope=\"col\">DISCIPLINA</th>");
+                            out.println("                       <th scope=\"col\">ASSUNTO</th>");
+                            out.println("                       <th scope=\"col\">CH DIURNA</th>");
+                            out.println("                       <th scope=\"col\">CH NOTURNA</th>");
+                            out.println("                   </tr>");
+                            out.println("               </thead>");
+                            out.println("               <tbody>");
+                            int idcurso = grades.get(i).getIdCurso();
+                            String codGrade = grades.get(i).getCodigo();
+                            ArrayList<Grade> gradesCurriculares = gradeDAO.getGrades(idcurso, codGrade);
+                            for(int j=0; j<gradesCurriculares.size(); j++){
+                                out.println("               <tr>");
+                                out.println("                   <td>"+ gradesCurriculares.get(j).getFase() +"</td>");
+                                out.println("                   <td>"+ gradesCurriculares.get(j).getDisciplina() +"</td>");
+                                out.println("                   <td>"+ gradesCurriculares.get(j).getAssunto()+"</td>");
+                                out.println("                   <td>"+ gradesCurriculares.get(j).getChdiurna()+"</td>");
+                                out.println("                   <td>"+ gradesCurriculares.get(j).getChnoturna()+"</td>");
+                                out.println("               </tr>");
+                            }
+                            out.println("               </tbody>");
+                            out.println("           </table>");
                             out.println("       </div>");
                             out.println("   </div>");
                             out.println("</div>");
                         }
-                        
-                        
-                        
                     %>
-
-                    
-            </div>
+            </div>            
         </section>
         
         <footer class="container-fluid bg-success text-center fixed-bottom">
