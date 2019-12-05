@@ -29,7 +29,7 @@
     <body>
         <header class="">
             
-            <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top">
                 <a class="navbar-brand active" href="../restrito/inicial.jsp">SGDIS <span class="sr-only">(Página atual)</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerSgdis" aria-controls="navbarTogglerSgdis" aria-expanded="false" aria-label="Alterna navegação">
                     <span class="navbar-toggler-icon"></span>

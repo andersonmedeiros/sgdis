@@ -39,16 +39,16 @@
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         
                         <li class="nav-item">
-                            <a class="nav-link active" href="../restrito/cursos.jsp">Cursos</a>
+                            <a class="nav-link" href="../restrito/cursos.jsp">Cursos</a>
                         </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 STE
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
-                                <a class="dropdown-item" href="../restrito/curso.jsp">Curso</a>
+                                <a class="dropdown-item active" href="../restrito/curso.jsp">Curso</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item active" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
+                                <a class="dropdown-item" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
                             </div>
                         </li>
                     </ul>

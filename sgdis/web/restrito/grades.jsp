@@ -32,7 +32,7 @@
     <body>
         <header class="">
             
-            <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top">
                 <a class="navbar-brand active" href="../restrito/inicial.jsp">SGDIS <span class="sr-only">(Página atual)</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerSgdis" aria-controls="navbarTogglerSgdis" aria-expanded="false" aria-label="Alterna navegação">
                     <span class="navbar-toggler-icon"></span>
@@ -106,35 +106,40 @@
                             out.println("               </div>");
                             
                             out.println("           </div>");
-                            
-                            out.println("           <table class=\"table\">");
-                            out.println("               <thead class=\"thead-light\">");
-                            out.println("                   <tr>");
-                            out.println("                       <th scope=\"col\">FASE</th>");
-                            out.println("                       <th scope=\"col\">DISCIPLINA</th>");
-                            out.println("                       <th scope=\"col\">ASSUNTO</th>");
-                            out.println("                       <th scope=\"col\">CH DIURNA</th>");
-                            out.println("                       <th scope=\"col\">CH NOTURNA</th>");
-                            out.println("                   </tr>");
-                            out.println("               </thead>");
-                            out.println("               <tbody>");
                             int idcurso = grades.get(i).getIdCurso();
                             String codGrade = grades.get(i).getCodigo();
                             ArrayList<Grade> gradesCurriculares = gradeDAO.getGrades(idcurso, codGrade);
-                            for(int j=0; j<gradesCurriculares.size(); j++){
-                                out.println("               <tr>");
-                                out.println("                   <td>"+ gradesCurriculares.get(j).getFase() +"</td>");
-                                out.println("                   <td>"+ gradesCurriculares.get(j).getDisciplina() +"</td>");
-                                out.println("                   <td>"+ gradesCurriculares.get(j).getAssunto()+"</td>");
-                                out.println("                   <td>"+ gradesCurriculares.get(j).getChdiurna()+"</td>");
-                                out.println("                   <td>"+ gradesCurriculares.get(j).getChnoturna()+"</td>");
-                                out.println("               </tr>");
+                            if(gradesCurriculares.size() == 0){
+                                out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                                out.println("       Grade curricular em branco.");
+                                out.println("</div>");
+                            }else{
+                                out.println("           <table class=\"table\">");
+                                out.println("               <thead class=\"thead-light\">");
+                                out.println("                   <tr>");
+                                out.println("                       <th scope=\"col\">FASE</th>");
+                                out.println("                       <th scope=\"col\">DISCIPLINA</th>");
+                                out.println("                       <th scope=\"col\">ASSUNTO</th>");
+                                out.println("                       <th scope=\"col\">CH DIURNA</th>");
+                                out.println("                       <th scope=\"col\">CH NOTURNA</th>");
+                                out.println("                   </tr>");
+                                out.println("               </thead>");
+                                out.println("               <tbody>");
+                                for(int j=0; j<gradesCurriculares.size(); j++){
+                                    out.println("               <tr>");
+                                    out.println("                   <td>"+ gradesCurriculares.get(j).getFase() +"</td>");
+                                    out.println("                   <td>"+ gradesCurriculares.get(j).getDisciplina() +"</td>");
+                                    out.println("                   <td>"+ gradesCurriculares.get(j).getAssunto()+"</td>");
+                                    out.println("                   <td>"+ gradesCurriculares.get(j).getChdiurna()+"</td>");
+                                    out.println("                   <td>"+ gradesCurriculares.get(j).getChnoturna()+"</td>");
+                                    out.println("               </tr>");
+                                }
+                                out.println("               </tbody>");
+                                out.println("           </table>");
+                                out.println("       </div>");
+                                out.println("   </div>");
+                                out.println("</div>");
                             }
-                            out.println("               </tbody>");
-                            out.println("           </table>");
-                            out.println("       </div>");
-                            out.println("   </div>");
-                            out.println("</div>");
                         }
                     %>
             </div>            
