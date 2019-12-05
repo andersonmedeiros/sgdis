@@ -96,7 +96,7 @@ public class CadastrarAssunto extends HttpServlet {
                 //Formulação do código
                 int variacao = assuntoDAO.proxVariacao(codigoDisciplina);                
                 String divisor_codigo = "_";
-                String codigo = disciplina.getAbreviatura() + divisor_codigo + anoGrade + divisor_codigo + variacaoGrade + divisor_codigo + variacao;
+                String codigo = disciplina.getAbreviatura() + divisor_codigo + codigoGrade + divisor_codigo + variacao;
 
                 Assunto assunto = new Assunto();
 

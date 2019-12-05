@@ -92,7 +92,7 @@ public class CadastrarFase extends HttpServlet {
                 int variacaoGrade = Integer.parseInt(request.getParameter("txtVariacaoGrade"));                
                 String divisor_codigo = "_";
                 
-                String codigo = abreviatura.replaceAll(" ", "") + divisor_codigo + anoGrade + divisor_codigo + variacaoGrade;
+                String codigo = abreviatura.replaceAll(" ", "") + divisor_codigo + codigoGrade;
                 
 
                 Fase fase = new Fase();
