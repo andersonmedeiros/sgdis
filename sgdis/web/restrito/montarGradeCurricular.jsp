@@ -151,9 +151,31 @@
                         
                 <nav class="mr-auto ml-auto">
                     <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-fase-tab" data-toggle="tab" href="#nav-fase" role="tab" aria-controls="nav-fase" aria-selected="true">Fase</a>
-                        <a class="nav-item nav-link" id="nav-disciplina-tab" data-toggle="tab" href="#nav-disciplina" role="tab" aria-controls="nav-disciplina" aria-selected="false">Disciplina</a>
-                        <a class="nav-item nav-link" id="nav-assunto-tab" data-toggle="tab" href="#nav-assunto" role="tab" aria-controls="nav-assunto" aria-selected="false">Assunto</a>
+                        
+                        <%
+                            if(request.getParameter("nav") != null){
+                                String nav_ativo = request.getParameter("nav");
+                                if(nav_ativo.equals("fase")){
+                                    out.println("<a class=\"nav-item nav-link active\" id=\"nav-fase-tab\" data-toggle=\"tab\" href=\"#nav-fase\" role=\"tab\" aria-controls=\"nav-fase\" aria-selected=\"true\">Fase</a>");
+                                    out.println("<a class=\"nav-item nav-link\" id=\"nav-disciplina-tab\" data-toggle=\"tab\" href=\"#nav-disciplina\" role=\"tab\" aria-controls=\"nav-disciplina\" aria-selected=\"false\">Disciplina</a>");
+                                    out.println("<a class=\"nav-item nav-link\" id=\"nav-assunto-tab\" data-toggle=\"tab\" href=\"#nav-assunto\" role=\"tab\" aria-controls=\"nav-assunto\" aria-selected=\"false\">Assunto</a>");
+                                }else if(nav_ativo.equals("disc")){
+                                    out.println("<a class=\"nav-item nav-link\" id=\"nav-fase-tab\" data-toggle=\"tab\" href=\"#nav-fase\" role=\"tab\" aria-controls=\"nav-fase\" aria-selected=\"true\">Fase</a>");
+                                    out.println("<a class=\"nav-item nav-link active\" id=\"nav-disciplina-tab\" data-toggle=\"tab\" href=\"#nav-disciplina\" role=\"tab\" aria-controls=\"nav-disciplina\" aria-selected=\"false\">Disciplina</a>");
+                                    out.println("<a class=\"nav-item nav-link\" id=\"nav-assunto-tab\" data-toggle=\"tab\" href=\"#nav-assunto\" role=\"tab\" aria-controls=\"nav-assunto\" aria-selected=\"false\">Assunto</a>");
+                                }else if(nav_ativo.equals("ass")){
+                                    out.println("<a class=\"nav-item nav-link\" id=\"nav-fase-tab\" data-toggle=\"tab\" href=\"#nav-fase\" role=\"tab\" aria-controls=\"nav-fase\" aria-selected=\"true\">Fase</a>");
+                                    out.println("<a class=\"nav-item nav-link\" id=\"nav-disciplina-tab\" data-toggle=\"tab\" href=\"#nav-disciplina\" role=\"tab\" aria-controls=\"nav-disciplina\" aria-selected=\"false\">Disciplina</a>");
+                                    out.println("<a class=\"nav-item nav-link active\" id=\"nav-assunto-tab\" data-toggle=\"tab\" href=\"#nav-assunto\" role=\"tab\" aria-controls=\"nav-assunto\" aria-selected=\"false\">Assunto</a>");
+                                }
+                            }else{
+                                out.println("<a class=\"nav-item nav-link active\" id=\"nav-fase-tab\" data-toggle=\"tab\" href=\"#nav-fase\" role=\"tab\" aria-controls=\"nav-fase\" aria-selected=\"true\">Fase</a>");
+                                out.println("<a class=\"nav-item nav-link\" id=\"nav-disciplina-tab\" data-toggle=\"tab\" href=\"#nav-disciplina\" role=\"tab\" aria-controls=\"nav-disciplina\" aria-selected=\"false\">Disciplina</a>");
+                                out.println("<a class=\"nav-item nav-link\" id=\"nav-assunto-tab\" data-toggle=\"tab\" href=\"#nav-assunto\" role=\"tab\" aria-controls=\"nav-assunto\" aria-selected=\"false\">Assunto</a>");
+                            }
+                        %> 
+                        
+                        
                     </div>
                 </nav>
                             
@@ -336,6 +358,7 @@
                             </div>
                         </div>
                     </div>
+                                               
                     <div class="tab-pane fade" id="nav-disciplina" role="tabpanel" aria-labelledby="nav-disciplina-tab">
                         <div class="col-md-12 mt-2">
                             <table class="table">

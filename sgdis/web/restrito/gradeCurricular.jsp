@@ -4,6 +4,7 @@
     Author     : andersondepaula
 --%>
 
+<%@page import="dao.CategoriaDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.Curso"%>
 <%@page import="dao.CursoDAO"%>
@@ -111,6 +112,8 @@
                         CursoDAO cursoDAO = new CursoDAO();
                         ArrayList<Curso> cursos = new ArrayList<>();
                         
+                        CategoriaDAO categoriaDAO = new CategoriaDAO();
+                        
                         cursos = cursoDAO.getCursos();
                         
                         if(cursos.size() == 0){
@@ -121,10 +124,10 @@
                             for(int i=0;i<cursos.size();i++){
                                 out.println("<tr>");
                                 out.println("   <th scope=\"row\">"+ cursos.get(i).getId() +"</th>");
-                                out.println("   <td>"+ cursos.get(i).getNome() +"</td>");
-                                out.println("   <td>"+ cursos.get(i).getSigla()+"</td>");
-                                out.println("   <td>"+ cursos.get(i).getIdCategoria()+"</td>");
-                                out.println("   <td>"+ cursos.get(i).getPortaria()+"</td>");
+                                out.println("   <th scope=\"row\">"+ cursos.get(i).getNome() +"</th>");
+                                out.println("   <th scope=\"row\">"+ cursos.get(i).getSigla() +"</th>");
+                                out.println("   <th scope=\"row\">"+ categoriaDAO.getCategoria(cursos.get(i).getIdCategoria()).getNome() +"</th>");
+                                out.println("   <td>"+ cursos.get(i).getPortaria() +"</td>");
                                 out.println("   <td>");
                                 out.println("       <div class=form-row>");
                                 
@@ -139,126 +142,7 @@
                         }
                     %>
                 </tbody>
-            </table>
-            
-            <!-- Modal Cadastro-->
-            <div class="modal fade" id="modalFormCadCurso" tabindex="-1" role="dialog" aria-labelledby="modalFormCadCurso" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title title" id="modalFormCadCurso">Novo Curso</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            
-                            <form class="container-fluid" action="controller.curso/Cadastrar" method="POST" name="formCadastrar">
-                                <div class="form-row">
-                                    <div class="form-group col-md-8">
-                                        <label for="txtNome">Nome: </label>
-                                        <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
-                                    </div>
-
-                                    <div class="form-group col-md-4">
-                                        <label for="txtSigla">Sigla: </label>
-                                        <input type="text" class="form-control" id="txtSigla" name="txtSigla" placeholder="Sigla">
-                                    </div>                                    
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="txtCategoria">Categoria: </label>
-                                        <select class="form-control" id="txtCategoria" name="txtCategoria">
-                                            <option value="0" selected>Categoria </option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-9">
-                                        <label for="txtPortaria">Portaria: </label>
-                                        <input type="text" class="form-control" id="txtPortaria" name="txtPortaria" placeholder="Portaria">
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="txtDescricao">Descrição: </label>
-                                        <textarea class="form-control" id="txtDescricao" name="txtDescricao" rows="3" placeholder="Descrição"></textarea>
-                                    </div>
-                                </div>
-                                <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
-                                <button type="submit" name="btnSalvar" class="btn btn-success">Salvar</button>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Modal Atualizar-->
-            <div class="modal fade" id="modalFormAttCurso" tabindex="-1" role="dialog" aria-labelledby="modalFormAttCurso" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title title" id="modalFormAttCurso">Novo Curso</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            
-                            <form class="container-fluid" action="controller.curso/Atualizar" method="POST" name="formAtualizar">
-                                <input type="hidden" class="form-control" id="txtIdAtt" name="txtIdAtt">
-                                <div class="form-row">
-                                    <div class="form-group col-md-8">
-                                        <label for="txtNome">Nome: </label>
-                                        <input type="text" class="form-control" id="txtNomeAtt" name="txtNomeAtt" placeholder="Nome">
-                                    </div>
-
-                                    <div class="form-group col-md-4">
-                                        <label for="txtSigla">Sigla: </label>
-                                        <input type="text" class="form-control" id="txtSiglaAtt" name="txtSiglaAtt" placeholder="Sigla">
-                                    </div>                                    
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="txtCategoria">Categoria: </label>
-                                        <select class="form-control" id="txtCategoriaAtt" name="txtCategoriaAtt">
-                                            <option value="0" selected>Categoria </option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-9">
-                                        <label for="txtPortaria">Portaria: </label>
-                                        <input type="text" class="form-control" id="txtPortariaAtt" name="txtPortariaAtt" placeholder="Portaria">
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="txtDescricaoAtt">Descrição: </label>
-                                        <textarea class="form-control" id="txtDescricaoAtt" name="txtDescricaoAtt" rows="3" placeholder="Descrição"></textarea>
-                                    </div>
-                                </div>
-                                <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
-                                <button type="submit" name="btnSalvar" class="btn btn-success">Salvar</button>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </table>        
         </section>
         
         <footer class="container-fluid bg-success text-center fixed-bottom">

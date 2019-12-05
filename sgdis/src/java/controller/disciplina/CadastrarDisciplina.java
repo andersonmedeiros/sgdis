@@ -100,11 +100,11 @@ public class CadastrarDisciplina extends HttpServlet {
                 disciplinaDAO.insert(disciplina);
             }catch(Exception ex){
                 //e=2: erro durante realização do cadastro
-                response.sendRedirect("/sgdis/restrito/montarGradeCurricular.jsp?idCurso="+idCurso+"&codGrade="+codigoGrade+"&ed=2");
+                response.sendRedirect("/sgdis/restrito/montarGradeCurricular.jsp?nav=disc&idCurso="+idCurso+"&codGrade="+codigoGrade+"&ed=2");
                 throw new ServletException(ex);
             }
             //e=1: cadastro sucesso
-            response.sendRedirect("/sgdis/restrito/montarGradeCurricular.jsp?idCurso="+idCurso+"&codGrade="+codigoGrade+"&ed=1");
+            response.sendRedirect("/sgdis/restrito/montarGradeCurricular.jsp?nav=disc&idCurso="+idCurso+"&codGrade="+codigoGrade+"&ed=1");
             /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
             despachante.forward(request, response);*/
         }
