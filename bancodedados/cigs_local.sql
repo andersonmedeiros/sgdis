@@ -232,6 +232,16 @@ CREATE TABLE IF NOT EXISTS `cigs_local`.`RegiaoMilitar` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `cigs_local`.`EstadoCivil`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cigs_local`.`EstadoCivil` (
+  `id` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
