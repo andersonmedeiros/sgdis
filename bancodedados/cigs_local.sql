@@ -168,6 +168,70 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
+-- -----------------------------------------------------
+-- Table `cigs_local`.`ForcaArmada`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cigs_local`.`ForcaArmada` (
+  `id` INT(11) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `sigla` VARCHAR(4) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `cigs_local`.`PostoGraduacao`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cigs_local`.`PostoGraduacao` (
+  `id` INT(11) NOT NULL,
+  `nome` VARCHAR(40) NOT NULL,
+  `abreviatura` VARCHAR(8) NOT NULL,
+  `idForcaArmada` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `idForcaArmada`),
+  INDEX `fk_PostoGraduacao_ForcaArmada1_idx` (`idForcaArmada` ASC),
+  CONSTRAINT `fk_PostoGraduacao_ForcaArmada1`
+    FOREIGN KEY (`idForcaArmada`)
+    REFERENCES `cigs_local`.`ForcaArmada` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `cigs_local`.`QasQms`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cigs_local`.`QasQms` (
+  `id` INT(11) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `idForcaArmada` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `idForcaArmada`),
+  INDEX `fk_QasQms_ForcaArmada1_idx` (`idForcaArmada` ASC),
+  CONSTRAINT `fk_QasQms_ForcaArmada1`
+    FOREIGN KEY (`idForcaArmada`)
+    REFERENCES `cigs_local`.`ForcaArmada` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `cigs_local`.`RegiaoMilitar`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cigs_local`.`RegiaoMilitar` (
+  `id` INT(11) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `sigla` VARCHAR(4) NOT NULL,
+  `idForcaArmada` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `idForcaArmada`),
+  INDEX `fk_RegiaoMilitar_ForcaArmada1_idx` (`idForcaArmada` ASC),
+  CONSTRAINT `fk_RegiaoMilitar_ForcaArmada1`
+    FOREIGN KEY (`idForcaArmada`)
+    REFERENCES `cigs_local`.`ForcaArmada` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
