@@ -17,8 +17,9 @@ html{
     height: 100%;
     /*background: linear-gradient(rgba(38, 128, 101, 0.9), rgba(52, 177, 140, 0.9))*/
 }
-
-
+label{
+     font-weight: bold;
+}
 
 #formCadCandidato{    
     margin: 50px auto;
@@ -34,7 +35,6 @@ html{
     -webkit-border-radius: 5px;
     
     box-shadow: 0 0 15px 1px rgba(0,0,0,0.4);
-    padding: 15px 25px;
     
     box-sizing: border-box;
     width: 100%;
@@ -98,4 +98,28 @@ html{
     background: #dc3545;
     color: white;
     text-shadow: 0 1px 0;
+}
+
+
+
+.fieldset-header, .fieldset-footer{
+    text-align: justify;
+    padding: 1rem;
+    background: rgba(40,167,59,0.6)
+}
+
+.fieldset-title{
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.fieldset-body{
+    padding: 1rem;
+}
+
+.btn{
+    margin-left: 15px;
+    margin-bottom: 15px;
+    margin-right: 0;
 }
