@@ -213,7 +213,6 @@
                         <h5 class="fieldset-title">Dados Familiares</h5>
                     </div>
                     <div class="fieldset-body">
-                        <fieldset style="padding: 10px 20px;">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="txtParentesco">Parentesco: </label>
@@ -243,39 +242,6 @@
                                     <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
                                 </div>  
                             </div>
-                        </fieldset>
-                        
-                        <fieldset style="padding: 10px 20px;">
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="txtParentesco">Parentesco: </label>
-                                    <select class="form-control" id="txtParentesco" name="txtParentesco">
-                                        <option value="0" selected>Selecione um Parentesco...</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-md-8">
-                                    <label for="txtNome">Nome: </label>
-                                    <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
-                                </div>               
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-3">
-                                    <label for="txtCpf">CPF: </label>
-                                    <input type="text" class="form-control" id="txtCpf" name="txtCpf" placeholder="CPF">
-                                </div> 
-
-                                <div class="form-group col-md-3">
-                                    <label for="txttxtFone">Fone: </label>
-                                    <input type="text" class="form-control" id="txttxtFone" name="txtFone" placeholder="Fone">
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <label for="txtEmail">Email: </label>
-                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
-                                </div>  
-                            </div>
-                        </fieldset>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
