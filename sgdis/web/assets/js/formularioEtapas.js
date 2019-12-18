@@ -31,3 +31,9 @@ $(function(){
    });
     
 });
+
+$("#txtEnd").change(function() {
+    if($( "#txtEnd" ).val().equals("CIGS")){
+        $("#txtCEPNovo").val("69053000");
+    }
+});
