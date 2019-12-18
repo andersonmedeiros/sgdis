@@ -210,10 +210,13 @@
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">
-                        <h5 class="fieldset-title">Dados Familiares</h5>
+                        <h4 class="fieldset-title">Dados Familiares</h4>
                     </div>
                     <div class="fieldset-body">
-                        <fieldset style="padding: 10px 20px;">
+                        <div class="header-interno">
+                            <h5 class="title-interno">Referência</h5>
+                        </div>
+                        <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="txtParentesco">Parentesco: </label>
@@ -243,16 +246,17 @@
                                     <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
                                 </div>  
                             </div>
-                        </fieldset>
+                        </div>
                         
-                        <fieldset style="padding: 10px 20px;">
+                        <div class="header-interno">
+                            <h5 class="title-interno">Cônjuge</h5>
+                        </div>
+                        <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtParentesco">Parentesco: </label>
-                                    <select class="form-control" id="txtParentesco" name="txtParentesco">
-                                        <option value="0" selected>Selecione um Parentesco...</option>
-                                    </select>
-                                </div>
+                                    <label for="txtCpf">CPF: </label>
+                                    <input type="text" class="form-control" id="txtCpf" name="txtCpf" placeholder="CPF">
+                                </div> 
 
                                 <div class="form-group col-md-8">
                                     <label for="txtNome">Nome: </label>
@@ -260,99 +264,152 @@
                                 </div>               
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-3">
-                                    <label for="txtCpf">CPF: </label>
-                                    <input type="text" class="form-control" id="txtCpf" name="txtCpf" placeholder="CPF">
-                                </div> 
-
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-4">
                                     <label for="txttxtFone">Fone: </label>
                                     <input type="text" class="form-control" id="txttxtFone" name="txtFone" placeholder="Fone">
                                 </div>
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-8">
                                     <label for="txtEmail">Email: </label>
                                     <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
                                 </div>  
                             </div>
-                        </fieldset>
+                        </div>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">
-                        <h5 class="fieldset-title">Uniforme</h5>
+                        <h4 class="fieldset-title">Endereço</h4>
                     </div>
-                    <div class="fieldset-body">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="txtGorro">Número Gorro: </label>
-                                <select class="form-control" id="txtGorro" name="txtGorro">
-                                    <option value="0" selected>Selecione um número Gorro...</option>
-                                    <option value="54" selected>54</option>
-                                    <option value="55" selected>55</option>
-                                    <option value="56" selected>56</option>
-                                    <option value="57" selected>57</option>
-                                    <option value="58" selected>58</option>
-                                    <option value="59" selected>59</option>
-                                    <option value="60" selected>60</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="txtCoturno">Número Coturno: </label>
-                                <select class="form-control" id="txtCoturno" name="txtCoturno">
-                                    <option value="0" selected>Selecione um número Coturno...</option>
-                                    <option value="36" selected>36</option>
-                                    <option value="37" selected>37</option>
-                                    <option value="38" selected>38</option>
-                                    <option value="39" selected>39</option>
-                                    <option value="40" selected>40</option>
-                                    <option value="41" selected>41</option>
-                                    <option value="42" selected>42</option>
-                                    <option value="43" selected>43</option>
-                                    <option value="44" selected>44</option>
-                                    <option value="45" selected>45</option>
-                                    <option value="46" selected>46</option>
-                                    <option value="47" selected>47</option>
-                                </select>
-                            </div>                                    
+                    <div class="fieldset-body">                        
+                        <div class="header-interno">
+                            <h5 class="title-interno">Residência</h5>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="txtGandola">Tamanho Gandola: </label>
-                                <select class="form-control" id="txtGandola" name="txtGandola">
-                                    <option value="0" selected>Selecione um tamanho Gandola...</option>
-                                    <option value="PP" selected>PP</option>
-                                    <option value="P" selected>P</option>
-                                    <option value="M" selected>M</option>
-                                    <option value="G" selected>G</option>
-                                    <option value="GG" selected>GG</option>
-                                </select>
+                        <div class="fieldset-interno">
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="txtCEP">CEP: </label>
+                                    <input type="text" class="form-control" id="txtCEP" name="txtCEP" placeholder="CEP">
+                                </div> 
+                                
+                                <div class="form-group col-md-3">
+                                    <label for="txtLog">Logradouro: </label>
+                                    <select class="form-control" id="txtLog" name="txtLog">
+                                        <option value="0" selected>Selecione um Logradouro...</option>
+                                        <option value="Av">Avenida</option>
+                                        <option value="Rua">Rua</option>                                        
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="txtNome">Nome: </label>
+                                    <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+                                </div>                                    
+                            </div>                        
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="txtPais">País: </label>
+                                    <select class="form-control" id="txtPais" name="txtPais">
+                                        <option value="0" selected>Selecione um País...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="txtEstado">Estado: </label>
+                                    <select class="form-control" id="txtEstado" name="txtEstado">
+                                        <option value="0" selected>Selecione um Estado...</option>
+                                    </select>
+                                </div>                                    
+                                <div class="form-group col-md-3">
+                                    <label for="txtCidade">Cidade: </label>
+                                    <select class="form-control" id="txtCidade" name="txtCidade">
+                                        <option value="0" selected>Selecione uma Cidade...</option>
+                                    </select>
+                                </div>                                    
+                                <div class="form-group col-md-3">
+                                    <label for="txtBairro">Bairro: </label>
+                                    <select class="form-control" id="txtBairo" name="txtBairro">
+                                        <option value="0" selected>Selecione um Bairro...</option>
+                                    </select>
+                                </div>                                    
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="txtCalca">Tamanho Calça: </label>
-                                <select class="form-control" id="txtCalca" name="txtCalca">
-                                    <option value="0" selected>Selecione um tamanho Calça...</option>
-                                    <option value="PP" selected>PP</option>
-                                    <option value="P" selected>P</option>
-                                    <option value="M" selected>M</option>
-                                    <option value="G" selected>G</option>
-                                    <option value="GG" selected>GG</option>
-                                </select>
-                            </div>                                    
-                            <div class="form-group col-md-4">
-                                <label for="txtCamisaCamuflada">Tamanho Camisa Camuflada: </label>
-                                <select class="form-control" id="txtCamisaCamuflada" name="txtCamisaCamuflada">
-                                    <option value="0" selected>Selecione um tamanho Camisa Camuflada...</option>
-                                    <option value="PP" selected>PP</option>
-                                    <option value="P" selected>P</option>
-                                    <option value="M" selected>M</option>
-                                    <option value="G" selected>G</option>
-                                    <option value="GG" selected>GG</option>
-                                </select>
-                            </div>                                    
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="txtPtRef">Ponto de Referência: </label>
+                                    <input type="text" class="form-control" id="txtPtRef" name="txtPtRef" placeholder="Ponto de Referência">
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="header-interno">
+                            <h5 class="title-interno">Endereço residencial durante o curso</h5>
+                        </div>
+                        <div class="fieldset-interno">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="txtEnd">Endereço: </label>
+                                    <select class="form-control" id="txtEnd" name="txtEnd">
+                                        <option value="0" selected>Selecione o endereço...</option>
+                                        <option value="CIGS">CIGS</option>
+                                        <option value="RESID">O mesmo de Residência</option>
+                                        <option value="NOVO">Novo</option>
+                                    </select>
+                                </div>                                                 
+                            </div>
+                            <div class="fieldset-interno">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="txtCEPNovo">CEP: </label>
+                                        <input type="text" class="form-control" id="txtCEPNovo" name="txtCEPNovo" placeholder="CEP">
+                                    </div> 
+
+                                    <div class="form-group col-md-3">
+                                        <label for="txtLog">Logradouro: </label>
+                                        <select class="form-control" id="txtLog" name="txtLog">
+                                            <option value="0" selected>Selecione um Logradouro...</option>
+                                            <option value="Av">Avenida</option>
+                                            <option value="Rua">Rua</option>                                        
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="txtNome">Nome: </label>
+                                        <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+                                    </div>                                    
+                                </div>                        
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="txtPais">País: </label>
+                                        <select class="form-control" id="txtPais" name="txtPais">
+                                            <option value="0" selected>Selecione um País...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="txtEstado">Estado: </label>
+                                        <select class="form-control" id="txtEstado" name="txtEstado">
+                                            <option value="0" selected>Selecione um Estado...</option>
+                                        </select>
+                                    </div>                                    
+                                    <div class="form-group col-md-3">
+                                        <label for="txtCidade">Cidade: </label>
+                                        <select class="form-control" id="txtCidade" name="txtCidade">
+                                            <option value="0" selected>Selecione uma Cidade...</option>
+                                        </select>
+                                    </div>                                    
+                                    <div class="form-group col-md-3">
+                                        <label for="txtBairro">Bairro: </label>
+                                        <select class="form-control" id="txtBairo" name="txtBairro">
+                                            <option value="0" selected>Selecione um Bairro...</option>
+                                        </select>
+                                    </div>                                    
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="txtPtRef">Ponto de Referência: </label>
+                                        <input type="text" class="form-control" id="txtPtRef" name="txtPtRef" placeholder="Ponto de Referência">
+                                    </div> 
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
