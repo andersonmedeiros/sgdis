@@ -32,8 +32,34 @@ $(function(){
     
 });
 
-$("#txtEnd").change(function() {
-    if($( "#txtEnd" ).val().equals("CIGS")){
-        $("#txtCEPNovo").val("69053000");
+$("#txtEndCurso").change(function() {
+    //Endereço do Centro de Instrução de Guerra na Selva
+    if($("#txtEndCurso").val() === "cigs"){
+        $("#txtCepEndCurso").val("69033000");
+        
+        $("#txtLogEndCurso").val("");
+        $("#txtNomeEndCurso").val("São Jorge");
+        $("#txtNumEndCurso").val("750");
+        $("#txtPaisEndCurso").val("0");
+        $("#txtEstadoEndCurso").val("0");
+        $("#txtCidadeEndCurso").val("");
+        $("#txtBairroEndCurso").val("");
+        $("#txtPtRefEndCurso").val("");
+    }
+    //Mesmo endereço de residêcnia
+    else if($("#txtEndCurso").val() === "resid"){
+        $("#txtCepEndCurso").val($("#txtCEP").val());
+    }
+    //Novo
+    else if($("#txtEndCurso").val() === "novo" || $("#txtEndCurso").val() === "0"){
+        $("#txtCepEndCurso").val("");
+        $("#txtLogEndCurso").val("");
+        $("#txtNomeEndCurso").val("");
+        $("#txtNumEndCurso").val("");
+        $("#txtPaisEndCurso").val("0");
+        $("#txtEstadoEndCurso").val("0");
+        $("#txtCidadeEndCurso").val("0");
+        $("#txtBairroEndCurso").val("0");
+        $("#txtPtRefEndCurso").val("0");
     }
 });

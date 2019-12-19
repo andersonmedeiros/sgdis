@@ -289,7 +289,7 @@
                         </div>
                         <div class="fieldset-interno">
                             <div class="form-row">
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label for="txtCEP">CEP: </label>
                                     <input type="text" class="form-control" id="txtCEP" name="txtCEP" placeholder="CEP">
                                 </div> 
@@ -306,7 +306,11 @@
                                 <div class="form-group col-md-6">
                                     <label for="txtNome">Nome: </label>
                                     <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
-                                </div>                                    
+                                </div>
+                                <div class="form-group col-md-1">
+                                    <label for="txtNum">Número: </label>
+                                    <input type="text" class="form-control" id="txtNum" name="txtNum" placeholder="Número">
+                                </div>                                 
                             </div>                        
                             <div class="form-row">
                                 <div class="form-group col-md-3">
@@ -347,25 +351,25 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="txtEnd">Endereço: </label>
-                                    <select class="form-control" id="txtEnd" name="txtEnd">
-                                        <option value="0" selected>Selecione o endereço...</option>
-                                        <option value="CIGS">CIGS</option>
-                                        <option value="RESID">O mesmo de Residência</option>
-                                        <option value="NOVO">Novo</option>
+                                    <label for="txtEndCurso">Endereço: </label>
+                                    <select class="form-control" id="txtEndCurso" name="txtEndCurso">
+                                        <option value="0" selected>Selecione o endereço...</option>                                        
+                                        <option value="resid">O mesmo de Residência</option>
+                                        <option value="cigs">CIGS</option>
+                                        <option value="novo">Novo</option>
                                     </select>
                                 </div>                                                 
                             </div>
                             <div class="fieldset-interno">
                                 <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="txtCEPNovo">CEP: </label>
-                                        <input type="text" class="form-control" id="txtCEPNovo" name="txtCEPNovo" placeholder="CEP">
+                                    <div class="form-group col-md-2">
+                                        <label for="txtCepEndCurso">CEP: </label>
+                                        <input type="text" class="form-control" id="txtCepEndCurso" name="txtCepEndCurso" placeholder="CEP">
                                     </div> 
 
                                     <div class="form-group col-md-3">
-                                        <label for="txtLog">Logradouro: </label>
-                                        <select class="form-control" id="txtLog" name="txtLog">
+                                        <label for="txtLogEndCurso">Logradouro: </label>
+                                        <select class="form-control" id="txtLogEndCurso" name="txtLogEndCurso">
                                             <option value="0" selected>Selecione um Logradouro...</option>
                                             <option value="Av">Avenida</option>
                                             <option value="Rua">Rua</option>                                        
@@ -373,40 +377,44 @@
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="txtNome">Nome: </label>
-                                        <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
-                                    </div>                                    
+                                        <label for="txtNomeEndCurso">Nome: </label>
+                                        <input type="text" class="form-control" id="txtNomeEndCurso" name="txtNomeEndCurso" placeholder="Nome">
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="txtNumEndCurso">Número: </label>
+                                        <input type="text" class="form-control" id="txtNumEndCurso" name="txtNumEndCurso" placeholder="Número">
+                                    </div> 
                                 </div>                        
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
-                                        <label for="txtPais">País: </label>
-                                        <select class="form-control" id="txtPais" name="txtPais">
+                                        <label for="txtPaisEndCurso">País: </label>
+                                        <select class="form-control" id="txtPaisEndCurso" name="txtPaisEndCurso">
                                             <option value="0" selected>Selecione um País...</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="txtEstado">Estado: </label>
-                                        <select class="form-control" id="txtEstado" name="txtEstado">
+                                        <label for="txtEstadoEndCurso">Estado: </label>
+                                        <select class="form-control" id="txtEstadoEndCurso" name="txtEstadoEndCurso">
                                             <option value="0" selected>Selecione um Estado...</option>
                                         </select>
                                     </div>                                    
                                     <div class="form-group col-md-3">
-                                        <label for="txtCidade">Cidade: </label>
-                                        <select class="form-control" id="txtCidade" name="txtCidade">
+                                        <label for="txtCidadeEndCurso">Cidade: </label>
+                                        <select class="form-control" id="txtCidadeEndCurso" name="txtCidadeEndCurso">
                                             <option value="0" selected>Selecione uma Cidade...</option>
                                         </select>
                                     </div>                                    
                                     <div class="form-group col-md-3">
-                                        <label for="txtBairro">Bairro: </label>
-                                        <select class="form-control" id="txtBairo" name="txtBairro">
+                                        <label for="txtBairroEndCurso">Bairro: </label>
+                                        <select class="form-control" id="txtBairo" name="txtBairroEndCurso">
                                             <option value="0" selected>Selecione um Bairro...</option>
                                         </select>
                                     </div>                                    
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="txtPtRef">Ponto de Referência: </label>
-                                        <input type="text" class="form-control" id="txtPtRef" name="txtPtRef" placeholder="Ponto de Referência">
+                                        <label for="txtPtRefEndCurso">Ponto de Referência: </label>
+                                        <input type="text" class="form-control" id="txtPtRef" name="txtPtRefEndCurso" placeholder="Ponto de Referência">
                                     </div> 
                                 </div>
                             </div>
