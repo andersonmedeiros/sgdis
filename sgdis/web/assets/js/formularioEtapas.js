@@ -63,3 +63,12 @@ $("#txtEndCurso").change(function() {
         $("#txtPtRefEndCurso").val("0");
     }
 });
+
+$("#txtQaPromo").change(function() {
+    if($("#txtQaPromo").val() === "s"){
+        $("#divQaQuando").css("display", "block");
+    }
+    else if($("#txtQaPromo").val() === "n" || $("#txtQaPromo").val() === "0"){
+        $("#divQaQuando").css("display", "none");
+    }
+});
