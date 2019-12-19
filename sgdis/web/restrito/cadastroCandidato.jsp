@@ -58,9 +58,11 @@
                 <ul id="progress">
                     <li class="ativo">OM Atual</li>
                     <li>Dados Individuais</li>
+                    <li>Saúde</li>
                     <li>Dados Militares</li>
                     <li>Dados Familiares</li>
                     <li>Dados de Endereço</li>
+                    <li>Cursos/Estágios</li>
                     <li>Preparação</li>
                 </ul>
                 <fieldset>
@@ -347,48 +349,6 @@
                             </div>
                         </div>
                         <div class="header-interno">
-                            <h5 class="title-interno">Cateira Nacional de Habilitação - CNH</h5>
-                        </div>
-                        <div class="fieldset-interno">
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="txtCNHNum">Número: </label>
-                                    <input type="text" class="form-control" id="txtCNHNum" name="txtCNHNum" placeholder="Ex. 00000000000">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="txtCNHCat">Categoria: </label>
-                                    <select class="form-control" id="txtCNHCat" name="txtCNHCat">
-                                        <option value="0" selected>Selecione uma categoria...</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="AB">AB</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="txtCNHDataVal">Data de Validade: </label>
-                                    <input type="text" class="form-control" id="txtCNHDataVal" name="txtCNHDataVal" placeholder="Ex. 00/00/0000">
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="header-interno">
-                            <h5 class="title-interno">Contatos</h5>
-                        </div>
-                        <div class="fieldset-interno">
-                            <div class="form-row">
-                                <div class="form-group col-md-8">
-                                    <label for="txtEmail">Email: </label>
-                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
-                                </div>  
-
-                                <div class="form-group col-md-4">
-                                    <label for="txtFone">Fone: </label>
-                                    <input type="text" class="form-control" id="txtFone" name="txtFone" placeholder="Fone">
-                                </div>                                                     
-                            </div>
-                        </div>
-                        <div class="header-interno">
                             <h5 class="title-interno">Informações Bancárias</h5>
                         </div>
                         <div class="fieldset-interno">
@@ -407,6 +367,23 @@
                                 </div>                                                     
                             </div>
                         </div>                        
+                        <div class="header-interno">
+                            <h5 class="title-interno">Contatos</h5>
+                        </div>
+                        <div class="fieldset-interno">
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="txtEmail">Email: </label>
+                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Ex.: fulanodetal@gmail.com">
+                                </div>  
+
+                                <div class="form-group col-md-4">
+                                    <label for="txtFone">Fone: </label>
+                                    <input type="text" class="form-control" id="txtFone" name="txtFone" placeholder="Ex.: (00) 00000-0000">
+                                </div>                                                     
+                            </div>
+                        </div>                       
+                                                
                         <div class="header-interno">
                             <h5 class="title-interno">Uniforme</h5>
                         </div>
@@ -462,12 +439,133 @@
                                     </select>
                                 </div>                                                     
                             </div>
+                        </div>
+                        <div class="header-interno">
+                            <h5 class="title-interno">Cateira Nacional de Habilitação - CNH</h5>
+                        </div>
+                        <div class="fieldset-interno">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="txtPossuiCNH">Possui CNH?</label>
+                                    <select class="form-control" id="txtPossuiCNH" name="txtPossuiCNH">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="divCNH" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="txtCNHNum">Número: </label>
+                                    <input type="text" class="form-control" id="txtCNHNum" name="txtCNHNum" placeholder="Ex. 00000000000">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="txtCNHCat">Categoria: </label>
+                                    <select class="form-control" id="txtCNHCat" name="txtCNHCat">
+                                        <option value="0" selected>Selecione uma categoria...</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="AB">AB</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="txtCNHDataVal">Data de Validade: </label>
+                                    <input type="text" class="form-control" id="txtCNHDataVal" name="txtCNHDataVal" placeholder="Ex. 00/00/0000">
+                                </div>  
+                            </div>
+                        </div>                        
+                        <div class="header-interno">
+                            <h5 class="title-interno">Veículo</h5>
+                        </div>
+                        <div class="fieldset-interno">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="txtPossuiVeiculo">Possui Veículo?</label>
+                                    <select class="form-control" id="txtPossuiVeiculo" name="txtPossuiVeiculo">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="divVeiculo" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="form-row">                                
+                                <div class="form-group col-md-2">
+                                    <label for="txtTipoVeiculo">Tipo: </label>
+                                    <select class="form-control" id="txtTipoVeiculo" name="txtTipoVeiculo">
+                                        <option value="0" selected>Selecione um tipo...</option>
+                                        <option value="carro">Carro</option>
+                                        <option value="moto">Moto</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="txtMarcaVeiculo">Marca: </label>
+                                    <input type="text" class="form-control" id="txtMarcaVeiculo" name="txtMarcaVeiculo" placeholder="Ex.: Hyundai">
+                                </div>  
+                                <div class="form-group col-md-3">
+                                    <label for="txtModeloVeiculo">Modelo: </label>
+                                    <input type="text" class="form-control" id="txtModeloVeiculo" name="txtModeloVeiculo" placeholder="Ex.: HB20S">
+                                </div>  
+                                <div class="form-group col-md-2">
+                                    <label for="txtCorVeiculo">Cor: </label>
+                                    <input type="text" class="form-control" id="txtCorVeiculo" name="txtCorVeiculo" placeholder="Ex.: Verde">
+                                </div>  
+                                <div class="form-group col-md-2">
+                                    <label for="txtPlacaVeiculo">Placa: </label>
+                                    <input type="text" class="form-control" id="txtPlacaVeiculo" name="txtPlacaVeiculo" placeholder="Ex.: XXX 0X00">
+                                </div>  
+                            </div>
                         </div>                        
                     </div>
                     <button type="button" name="btnVoltar" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
-                
+                <fieldset>
+                    <div class="fieldset-header">
+                        <h5 class="fieldset-title">Saúde</h5>
+                    </div>
+                    <div class="fieldset-body">
+                        <div class="header-interno">
+                            <h5 class="title-interno">Saúde</h5>
+                        </div>
+                        <div class="fieldset-interno">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="txtFumante">Fumante?</label>
+                                    <select class="form-control" id="txtFumante" name="txtFumante">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="txtAlergico">Alérgico?</label>
+                                    <select class="form-control" id="txtAlergico" name="txtAlergico">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="divAlergia" class="fieldset-interno fieldset-dependente" style="display: none;">
+                                <div class="header-interno">
+                                    <h5 class="title-interno">Alergias</h5>
+                                </div>
+                                <div id="fieldsetAlergias" class="fieldset-interno">
+                                    
+                                </div>
+                                <button type="button" id="btnAddAlergia" name="btnAddAlergia" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" name="btnVoltar" class="btn btn-dark anterior acao">Anterior</button>
+                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
+                </fieldset>
                 <fieldset>
                     <div class="fieldset-header">
                         <h5 class="fieldset-title">Dados Militares</h5>
@@ -548,6 +646,26 @@
                                         <option value="E" selected>E</option>
                                     </select>
                                 </div>                                
+                            </div> 
+                            
+                        </div>
+                        <div class="header-interno">
+                            <h5 class="title-interno">últimas três funções</h5>
+                        </div>
+                        <div class="fieldset-interno">                            
+                            <div class="form-row">                                
+                                <div class="form-group col-md-4">
+                                    <label for="txtFunc1">Função 1:</label>
+                                    <input type="text" class="form-control" id="txtFunc1" name="txtFunc1" placeholder="Ex.: Cmt Pel">
+                                </div>                                
+                                <div class="form-group col-md-4">
+                                    <label for="txtFunc2">Função 2:</label>
+                                    <input type="text" class="form-control" id="txtFunc2" name="txtFunc2" placeholder="Ex.: Cmt Cia">
+                                </div>                                
+                                <div class="form-group col-md-4">
+                                    <label for="txtFunc3">Função 3:</label>
+                                    <input type="text" class="form-control" id="txtFunc3" name="txtFunc3" placeholder="Ex.: Enc Mat">
+                                </div>                         
                             </div> 
                             
                         </div>
@@ -770,6 +888,15 @@
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                     
+                </fieldset>
+                <fieldset>
+                    <div class="fieldset-header">
+                        <h5 class="fieldset-title">Cursos/Estágios</h5>
+                    </div>
+                    <div class="fieldset-body">
+                    </div>
+                    <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
+                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">
