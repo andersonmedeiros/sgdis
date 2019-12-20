@@ -54,13 +54,12 @@ label{
 
 #formCadCandidato #progress li{
     list-style-type: none;
-    color: #28a745;
+    color: #125e12;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 12px;
     float: left;
-    
-    width: 20%;
+    width: 12.5%;
     position: relative;
 }
 
@@ -70,7 +69,7 @@ label{
     width: 30px;
     display: block;
     line-height: 30px;
-    background: #28a745;
+    background: #dc0000;
     color: white;
     border-radius: 10px;
     -moz-border-radius: 10px;
@@ -81,7 +80,7 @@ label{
 #formCadCandidato #progress li:after{
     content: '';
     width: 100%;
-    background: #28a745;
+    background: #dc0000;
     height: 2px;
     position: absolute;
     top: 14px;
@@ -95,7 +94,7 @@ label{
 }
 
 #formCadCandidato #progress li.ativo:before,  #formCadCandidato #progress li.ativo:after{
-    background: #dc3545;
+    background: #125e12;
     color: white;
     text-shadow: 0 1px 0;
 }
@@ -105,7 +104,8 @@ label{
 .fieldset-header, .fieldset-footer{
     text-align: justify;
     padding: 1rem;
-    background: rgba(40,167,59,0.6)
+    color: #000000;
+    background: rgba(18,94,18,0.6)
 }
 
 .fieldset-title{
@@ -116,6 +116,35 @@ label{
 
 .fieldset-body{
     padding: 1rem;
+}
+
+.fieldset-interno{
+    border-top: 2px solid #125e12;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.fieldset-dependente{
+    border: none;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.header-interno{
+    background: rgba(18,94,18,0.3);
+}
+
+.title-interno{    
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: justify;
+    font-weight: bold;
+    color: #000000;
 }
 
 .btn{

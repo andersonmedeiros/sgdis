@@ -42,7 +42,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
                                 <a class="dropdown-item" href="../restrito/curso.jsp">Curso</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item active" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
+                                <a class="dropdown-item" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
                             </div>
                         </li>
                     </ul>
