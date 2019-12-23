@@ -493,34 +493,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="divVeiculo" class="fieldset-interno fieldset-dependente" style="display: none;">
-                            <div class="form-row">                                
-                                <div class="form-group col-md-2">
-                                    <label for="txtTipoVeiculo">Tipo: </label>
-                                    <select class="form-control" id="txtTipoVeiculo" name="txtTipoVeiculo">
-                                        <option value="0" selected>Selecione um tipo...</option>
-                                        <option value="carro">Carro</option>
-                                        <option value="moto">Moto</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="txtMarcaVeiculo">Marca: </label>
-                                    <input type="text" class="form-control" id="txtMarcaVeiculo" name="txtMarcaVeiculo" placeholder="Ex.: Hyundai">
-                                </div>  
-                                <div class="form-group col-md-3">
-                                    <label for="txtModeloVeiculo">Modelo: </label>
-                                    <input type="text" class="form-control" id="txtModeloVeiculo" name="txtModeloVeiculo" placeholder="Ex.: HB20S">
-                                </div>  
-                                <div class="form-group col-md-2">
-                                    <label for="txtCorVeiculo">Cor: </label>
-                                    <input type="text" class="form-control" id="txtCorVeiculo" name="txtCorVeiculo" placeholder="Ex.: Verde">
-                                </div>  
-                                <div class="form-group col-md-2">
-                                    <label for="txtPlacaVeiculo">Placa: </label>
-                                    <input type="text" class="form-control" id="txtPlacaVeiculo" name="txtPlacaVeiculo" placeholder="Ex.: XXX 0X00">
-                                </div>  
+                        <div id="divVeiculos" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Veículos</h5>
                             </div>
-                        </div>                        
+                            <div id="fieldsetVeiculos" class="fieldset-interno">
+
+                            </div>
+                            <button type="button" id="btnAddVeiculo" name="btnAddVeiculo" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
+                        </div>                       
                     </div>
                     <button type="button" name="btnVoltar" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
@@ -891,50 +872,127 @@
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">
-                        <h5 class="fieldset-title">Cursos/Estágios</h5>
+                        <h5 class="fieldset-title">Idiomas, Cursos e Estágios</h5>
                     </div>
                     <div class="fieldset-body">
                         <div class="header-interno">
-                            <h5 class="title-interno">Cursos</h5>
+                            <h5 class="title-interno">Idiomas</h5>
                         </div>
                         <div class="fieldset-interno">
-                            <div class="header-interno">
-                                <h5 class="title-interno">Aperfeiçoamento</h5>
-                            </div>
-                            <div class="fieldset-interno">
-
-                            </div>
-                            <div class="header-interno">
-                                <h5 class="title-interno">Altos Estudos</h5>
-                            </div>
-                            <div class="fieldset-interno">
-
-                            </div>
-                            <div class="header-interno">
-                                <h5 class="title-interno">Operacionais de Extensão</h5>
-                            </div>
-                            <div class="fieldset-interno">
-
-                            </div>
-                            <div class="header-interno">
-                                <h5 class="title-interno">Operacionais de Especialização</h5>
-                            </div>
-                            <div class="fieldset-interno">
-
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="txtHabIdiomas">É habilitado em Idiomas?</label>
+                                    <select class="form-control" id="txtHabIdiomas" name="txtHabIdiomas">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
+                        <div id="divIdiomas" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Idiomas</h5>
+                            </div>
+                            <div id="fieldsetIdiomas" class="fieldset-interno">
+
+                            </div>
+                            <button type="button" id="btnAddIdioma" name="btnAddIdioma" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
+                        </div>
+                        
+                        <div class="header-interno">
+                            <h5 class="title-interno">Cursos</h5>
+                        </div>
+                        <div class="fieldset-interno">                            
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="txtPossuiCAperf">Possui curso de aperfeiçoamento?</label>
+                                    <select class="form-control" id="txtPossuiCAperf" name="txtPossuiCAperf">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group col-md-4">
+                                    <label for="txtPossuiCAltEstudos">Possui cursos de altos estudos?</label>
+                                    <select class="form-control" id="txtPossuiCAltEstudos" name="txtPossuiCAltEstudos">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="txtPossuiCExtsEsp">Possui cursos extensão ou especialização?</label>
+                                    <select class="form-control" id="txtPossuiCExtsEsp" name="txtPossuiCExtsEsp">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="divCAperf" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Curso de Aperfeiçoamento</h5>
+                            </div>
+                            <div id="fieldsetCAperf" class="fieldset-interno">
+                                <div class="form-row">
+                                    <div class="form-group col-md-8">
+                                        <label for="txtCAperf">Curso: </label>
+                                        <input type="text" class="form-control" id="txtCAperf" name="txtCAperf" placeholder="Ex.: ESAO">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="txtAnCAperf">Ano de Conclusão: </label>
+                                        <input type="text" class="form-control" id="txtAnoCAperf" name="txtAnoCAperf" placeholder="Ex.: 2018">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="divCAltEstudos" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Cursos de Altos Estudos</h5>
+                            </div>
+                            <div id="fieldsetCAltEstudos" class="fieldset-interno">
+
+                            </div>
+                            <button type="button" id="btnAddCAltEstudos" name="btnAddCAltEstudos" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
+                        </div>
+                        
+                        <div id="divCExtsEsp" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Curso de Extensão ou Especialização</h5>
+                            </div>
+                            <div id="fieldsetCExtsEsp" class="fieldset-interno">
+
+                            </div>
+                            <button type="button" id="btnAddCExtsEsp" name="btnAddCExtsEsp" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
+                        </div>
+                        
                         <div class="header-interno">
                             <h5 class="title-interno">Estágios</h5>
                         </div>
                         <div class="fieldset-interno">
-                            <div class="header-interno">
-                                <h5 class="title-interno">Operacionais</h5>
-                            </div>
-                            <div class="fieldset-interno">
-
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="txtPossuiEstMil">Possui estágios militares operacionais?</label>
+                                    <select class="form-control" id="txtPossuiEstMil" name="txtPossuiEstMil">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        
+                        <div id="divEstagios" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Estágios</h5>
+                            </div>
+                            <div id="fieldsetEstagios" class="fieldset-interno">
+
+                            </div>
+                            <button type="button" id="btnAddEstagio" name="btnAddEstagio" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
+                        </div>                
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>

@@ -82,14 +82,53 @@ $("#txtPossuiCNH").change(function() {
     }
 });
 
-$("#txtPossuiVeiculo").change(function() {
+//Acionamento form Veiculos
+var qtdeVeiculos = document.querySelectorAll('#fieldsetVeiculos .form-row').length + 1;
+
+$("#txtPossuiVeiculo").change(function() {    
     if($("#txtPossuiVeiculo").val() === "s"){
-        $("#divVeiculo").css("display", "block");
+        $("#divVeiculos").css("display", "block");        
     }
     else if($("#txtPossuiVeiculo").val() === "n" || $("#txtPossuiVeiculo").val() === "0"){
-        $("#divVeiculo").css("display", "none");
+        $("#divVeiculos").css("display", "none");
+        $("#fieldsetVeiculos .form-row").remove();
+        qtdeVeiculos = 1;
     }
 });
+
+$("#btnAddVeiculo").click(function(){           
+    $("#linha" + qtdeVeiculos).remove();
+    $("#fieldsetVeiculos").append("<div id=linha"+ qtdeVeiculos +" class=\"form-row\">"+
+                                  "  <div class=\"form-group col-md-2\">"+
+                                  "      <label for=txtTipoVeiculos"+ qtdeVeiculos +">Tipo"+ qtdeVeiculos +": </label>"+
+                                  "      <select class=\"form-control\" id=txtTipoCExtsEsp"+ qtdeCExtsEsp +" name=\"txtTipoCExtsEsp\">"+
+                                  "         <option value=\"0\" selected>Selecione o tipo...</option>"+
+                                  "         <option value=\"carro\">Carro</option>"+
+                                  "         <option value=\"moto\">Moto</option>"+
+                                  "     </select>"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-3\">"+
+                                  "      <label for=txtMarcaVeiculo"+ qtdeVeiculos +">Marca "+ qtdeVeiculos +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtMarcaVeiculo"+ qtdeVeiculos +" name=\"txtMarcaVeiculo\" placeholder=\"Ex.: Hyundai\">"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-3\">"+
+                                  "      <label for=txtModeloVeiculo"+ qtdeVeiculos +">Modelo "+ qtdeVeiculos +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtModeloVeiculo"+ qtdeVeiculos +" name=\"txtModeloVeiculo\" placeholder=\"Ex.: HB20S\">"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-2\">"+
+                                  "      <label for=txtCorVeiculo"+ qtdeVeiculos +">Cor "+ qtdeVeiculos +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtCorVeiculo"+ qtdeVeiculos +" name=\"txtCorVeiculo\" placeholder=\"Ex.: Vermelho\">"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-2\">"+
+                                  "      <label for=txtPlacaVeiculo"+ qtdeVeiculos +">Placa "+ qtdeVeiculos +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtPlacaVeiculo"+ qtdeVeiculos +" name=\"txtPlacaVeiculo\" placeholder=\"Ex.: XXX 0X00\">"+
+                                  "  </div>"+
+                                  "</div>");
+    qtdeVeiculos++;
+});
+
+//Acionamento form Alergias
+var qtdeAlergias = document.querySelectorAll('#fieldsetAlergias .form-row').length + 1;
 
 $("#txtAlergico").change(function() {    
     if($("#txtAlergico").val() === "s"){
@@ -98,18 +137,152 @@ $("#txtAlergico").change(function() {
     else if($("#txtAlergico").val() === "n" || $("#txtAlergico").val() === "0"){
         $("#divAlergia").css("display", "none");
         $("#fieldsetAlergias .form-row").remove();
-        j=1;
+        qtdeAlergias = 1;
     }
 });
 
-var j = document.querySelectorAll('#fd_dados_dependente .form-row').length + 1;
 $("#btnAddAlergia").click(function(){           
-    $("#linha"+j).remove();
-    $("#fieldsetAlergias").append("<div id=linha"+j+" class=\"form-row\">"+
+    $("#linha" + qtdeAlergias).remove();
+    $("#fieldsetAlergias").append("<div id=linha" +qtdeAlergias+ " class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-12\">"+
-                                  "      <label for=txtAlergia"+ j +">Alergia "+j+": </label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtAlergia"+ j +" name=\"txtAlergia\" placeholder=\"Ex.: Rémedio tal\">"+
+                                  "      <label for=txtAlergia"+ qtdeAlergias +">Alergia "+ qtdeAlergias +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtAlergia"+ qtdeAlergias +" name=\"txtAlergia\" placeholder=\"Ex.: Rémedio tal\">"+
                                   "  </div>"+
                                   "</div>");
-    j++;
+    qtdeAlergias++;
+});
+
+//Acionamento form Idiomas
+var qtdeIdiomas = document.querySelectorAll('#fieldsetIdiomas .form-row').length + 1;
+
+$("#txtHabIdiomas").change(function() {    
+    if($("#txtHabIdiomas").val() === "s"){
+        $("#divIdiomas").css("display", "block");        
+    }
+    else if($("#txtHabIdiomas").val() === "n" || $("#txtHabIdiomas").val() === "0"){
+        $("#divIdiomas").css("display", "none");
+        $("#fieldsetIdiomas .form-row").remove();
+        qtdeIdiomas = 1;
+    }
+});
+
+$("#btnAddIdioma").click(function(){           
+    $("#linha" + qtdeIdiomas).remove();
+    $("#fieldsetIdiomas").append("<div id=linha"+ qtdeIdiomas +" class=\"form-row\">"+
+                                  "  <div class=\"form-group col-md-8\">"+
+                                  "      <label for=txtIdioma"+ qtdeIdiomas +">Idioma "+ qtdeIdiomas +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtIdioma"+ qtdeIdiomas +" name=\"txtIdioma\" placeholder=\"Ex.: Espanhol\">"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-4\">"+
+                                  "      <label for=txtAnoIdioma"+ qtdeIdiomas +">Ano de Conclusão "+ qtdeIdiomas +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoIdioma"+ qtdeIdiomas +" name=\"txtAnoIdioma\" placeholder=\"Ex.: 2018\">"+
+                                  "  </div>"+
+                                  "</div>");
+    qtdeIdiomas++;
+});
+
+//Acionamento form Estagios
+var qtdeEstagios = document.querySelectorAll('#fieldsetEstagios .form-row').length + 1;
+
+$("#txtPossuiEstMil").change(function() {    
+    if($("#txtPossuiEstMil").val() === "s"){
+        $("#divEstagios").css("display", "block");        
+    }
+    else if($("#txtPossuiEstMil").val() === "n" || $("#txtPossuiEstMil").val() === "0"){
+        $("#divEstagios").css("display", "none");
+        $("#fieldsetEstagios .form-row").remove();
+        qtdeEstagios = 1;
+    }
+});
+
+$("#btnAddEstagio").click(function(){           
+    $("#linha" + qtdeEstagios).remove();
+    $("#fieldsetEstagios").append("<div id=linha"+ qtdeEstagios +" class=\"form-row\">"+
+                                  "  <div class=\"form-group col-md-8\">"+
+                                  "      <label for=txtEstagio"+ qtdeEstagios +">Estagio "+ qtdeEstagios +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtEstagio"+ qtdeEstagios +" name=\"txtEstagio\" placeholder=\"Ex.: Caatinga\">"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-4\">"+
+                                  "      <label for=txtAnoEstagio"+ qtdeEstagios +">Ano de Conclusão "+ qtdeEstagios +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoEstagio"+ qtdeEstagios +" name=\"txtAnoEstagio\" placeholder=\"Ex.: 2018\">"+
+                                  "  </div>"+  
+                                  "</div>");
+    qtdeEstagios++;
+});
+
+//Acionamento form Curso Aperfeiçoamento
+
+$("#txtPossuiCAperf").change(function() {
+    if($("#txtPossuiCAperf").val() === "s"){
+        $("#divCAperf").css("display", "block");
+    }
+    else if($("#txtPossuiCAperf").val() === "n" || $("#txtPossuiCAperf").val() === "0"){
+        $("#divCAperf").css("display", "none");
+    }
+});
+
+//Acionamento form Curso de Altos Estudos
+var qtdeCAltEstudos = document.querySelectorAll('#fieldsetCAltEstudos .form-row').length + 1;
+
+$("#txtPossuiCAltEstudos").change(function() {    
+    if($("#txtPossuiCAltEstudos").val() === "s"){
+        $("#divCAltEstudos").css("display", "block");        
+    }
+    else if($("#txtPossuiCAltEstudos").val() === "n" || $("#txtPossuiCAltEstudos").val() === "0"){
+        $("#divCAltEstudos").css("display", "none");
+        $("#fieldsetCAltEstudos .form-row").remove();
+        qtdeCAltEstudos = 1;
+    }
+});
+
+$("#btnAddCAltEstudos").click(function(){           
+    $("#linha" + qtdeCAltEstudos).remove();
+    $("#fieldsetCAltEstudos").append("<div id=linha"+ qtdeCAltEstudos +" class=\"form-row\">"+
+                                  "  <div class=\"form-group col-md-8\">"+
+                                  "      <label for=txtCAltEstudos"+ qtdeCAltEstudos +">Curso de Altos Estudos "+ qtdeCAltEstudos +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtCAltEstudos"+ qtdeCAltEstudos +" name=\"txtCAltEstudos\" placeholder=\"Ex.: Caatinga\">"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-4\">"+
+                                  "      <label for=txtAnoCAltEstudos"+ qtdeCAltEstudos +">Ano de Conclusão "+ qtdeCAltEstudos +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoCAltEstudos"+ qtdeCAltEstudos +" name=\"txtAnoCAltEstudos\" placeholder=\"Ex.: 2018\">"+
+                                  "  </div>"+
+                                  "</div>");
+    qtdeCAltEstudos++;
+});
+
+//Acionamento form Curso de Extensão ou Especialização
+var qtdeCExtsEsp = document.querySelectorAll('#fieldsetCExtsEsp .form-row').length + 1;
+
+$("#txtPossuiCExtsEsp").change(function() {    
+    if($("#txtPossuiCExtsEsp").val() === "s"){
+        $("#divCExtsEsp").css("display", "block");        
+    }
+    else if($("#txtPossuiCExtsEsp").val() === "n" || $("#txtPossuiCExtsEsp").val() === "0"){
+        $("#divCExtsEsp").css("display", "none");
+        $("#fieldsetCExtsEsp .form-row").remove();
+        qtdeCExtsEsp = 1;
+    }
+});
+
+$("#btnAddCExtsEsp").click(function(){           
+    $("#linha" + qtdeCExtsEsp).remove();
+    $("#fieldsetCExtsEsp").append("<div id=linha"+ qtdeCExtsEsp +" class=\"form-row\">"+
+                                  "  <div class=\"form-group col-md-3\">"+
+                                  "      <label for=txtTipoCExtsEsp"+ qtdeCExtsEsp +">Tipo"+ qtdeCExtsEsp +": </label>"+
+                                  "      <select class=\"form-control\" id=txtTipoCExtsEsp"+ qtdeCExtsEsp +" name=\"txtTipoCExtsEsp\">"+
+                                  "         <option value=\"0\" selected>Selecione o tipo...</option>"+
+                                  "         <option value=\"Exts\">Extensão</option>"+
+                                  "         <option value=\"Esp\">Especialização</option>"+
+                                  "     </select>"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-6\">"+
+                                  "      <label for=txtCExtsEsp"+ qtdeCExtsEsp +">Curso"+ qtdeCExtsEsp +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtCExtsEsp"+ qtdeCExtsEsp +" name=\"txtCExtsEsp\" placeholder=\"Ex.: Básico Paraquedista\">"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-3\">"+
+                                  "      <label for=txtAnoCExtsEsp"+ qtdeCExtsEsp +">Ano de Conclusão "+ qtdeCExtsEsp +": </label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoCExtsEsp"+ qtdeCExtsEsp +" name=\"txtAnoCExtsEsp\" placeholder=\"Ex.: 2018\">"+
+                                  "  </div>"+
+                                  "</div>");
+    qtdeCExtsEsp++;
 });
