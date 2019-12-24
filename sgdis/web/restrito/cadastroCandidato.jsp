@@ -578,17 +578,17 @@
                             <h5 class="title-interno">Formação</h5>
                         </div>
                         <div class="fieldset-interno">
-                            <div class="form-row">
+                            <div class="form-row">                                
+                                <div class="form-group col-md-7">
+                                    <label for="txtFormEscNome">Escola de Formação: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtFormEscNome" name="txtFormEscNome" placeholder="Ex.: Escola de Sargentos das Armas">
+                                </div>
                                 <div class="form-group col-md-3">
-                                    <label for="txtFormEscAbrev">Escola de Formação: Abreviatura</label>
+                                    <label for="txtFormEscAbrev">Abreviatura: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtFormEscAbrev" name="txtFormEscAbrev" placeholder="Ex.: ESA">
                                 </div>
-                                <div class="form-group col-md-7">
-                                    <label for="txtFormEscNome">Escola de Formação: Nome</label>
-                                    <input type="text" class="form-control" id="txtFormEscNome" name="txtFormEscNome" placeholder="Ex.: Escola de Sargentos das Armas">
-                                </div>  
                                 <div class="form-group col-md-2">
-                                    <label for="txtFormTurma">Turma</label>
+                                    <label for="txtFormTurma">Turma</label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtFormTurma" name="txtFormTurma" placeholder="Ex.: 2018">
                                 </div>  
                             </div>                            
@@ -598,8 +598,8 @@
                         </div>
                         <div class="fieldset-interno">                            
                             <div class="form-row">                                
-                                <div class="form-group col-md-4">
-                                    <label for="txtComportamento">Comportamento:</label>
+                                <div class="form-group col-md-12">
+                                    <label for="txtComportamento">Comportamento:</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtComportamento" name="txtComportamento">
                                         <option value="0" selected>Selecione um comportamento...</option>
                                     </select>
@@ -612,11 +612,11 @@
                         <div class="fieldset-interno">                            
                             <div class="form-row">                            
                             <div class="form-group col-md-4">
-                                <label for="txtDataUltPromo">Data da última promoção: </label>
+                                <label for="txtDataUltPromo">Data da última promoção: </label><spam class="campo-obrigatorio"> *</spam>
                                 <input type="text" class="form-control" id="txtDataUltPromo" name="txtDataUltPromo" placeholder="Ex.: DD/MM/AAAA">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="txtQaPromo">Está no QA para Promoção?</label>
+                                <label for="txtQaPromo">Está no QA para Promoção?</label><spam class="campo-obrigatorio"> *</spam>
                                 <select class="form-control" id="txtQaPromo" name="txtQaPromo">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="s">SIM</option>
@@ -624,7 +624,7 @@
                                 </select>
                             </div>
                                 <div id="divQaQuando" class="form-group col-md-4" style="display: none;">
-                                <label for="txtQaQuanoPromo">Quando?</label>
+                                <label for="txtQaQuanoPromo">Quando?</label><spam class="campo-obrigatorio"> *</spam>
                                 <input type="text" class="form-control" id="txtQaQuanoPromo" name="txtQaQuanoPromo" placeholder="Ex.: DD/MM/AAAA">
                             </div>
                         </div>                            
@@ -635,18 +635,18 @@
                         <div class="fieldset-interno">                            
                             <div class="form-row">                                
                                 <div class="form-group col-md-6">
-                                    <label for="txtDataUltTaf">Data do último TAF:</label>
+                                    <label for="txtDataUltTaf">Data do último TAF:</label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtDataUltTaf" name="txtDataUltTaf" placeholder="Ex.: 00/00/0000">
                                 </div>                                
                                 <div class="form-group col-md-6">
-                                    <label for="txtMencaoTAF">Menção:</label>
+                                    <label for="txtMencaoTAF">Menção:</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtMencaoTAF" name="txtMencaoTAF">
                                         <option value="0" selected>Selecione uma menção...</option>
-                                        <option value="I" selected>I</option>
-                                        <option value="R" selected>R</option>
-                                        <option value="B" selected>B</option>
-                                        <option value="MB" selected>MB</option>
-                                        <option value="E" selected>E</option>
+                                        <option value="I">I</option>
+                                        <option value="R">R</option>
+                                        <option value="B">B</option>
+                                        <option value="MB">MB</option>
+                                        <option value="E">E</option>
                                     </select>
                                 </div>                                
                             </div> 
@@ -658,15 +658,15 @@
                         <div class="fieldset-interno">                            
                             <div class="form-row">                                
                                 <div class="form-group col-md-4">
-                                    <label for="txtFunc1">Função 1:</label>
+                                    <label for="txtFunc1">Função 1:</label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtFunc1" name="txtFunc1" placeholder="Ex.: Cmt Pel">
                                 </div>                                
                                 <div class="form-group col-md-4">
-                                    <label for="txtFunc2">Função 2:</label>
+                                    <label for="txtFunc2">Função 2:</label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtFunc2" name="txtFunc2" placeholder="Ex.: Cmt Cia">
                                 </div>                                
                                 <div class="form-group col-md-4">
-                                    <label for="txtFunc3">Função 3:</label>
+                                    <label for="txtFunc3">Função 3:</label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtFunc3" name="txtFunc3" placeholder="Ex.: Enc Mat">
                                 </div>                         
                             </div> 
