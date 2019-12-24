@@ -19,6 +19,7 @@ html{
 }
 label{
      font-weight: bold;
+     color: #000000;
 }
 
 #formCadCandidato{    
@@ -151,4 +152,9 @@ label{
     margin-left: 15px;
     margin-bottom: 15px;
     margin-right: 0;
+}
+
+.campo-obrigatorio{
+    font-weight: bold;
+    color: #dc0000;
 }

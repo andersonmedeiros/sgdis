@@ -72,18 +72,21 @@
                     <div class="fieldset-body">
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="txtForca">Força: </label>
+                                <label for="txtForca">Força: </label><spam class="campo-obrigatorio"> *</spam>
                                 <select class="form-control" id="txtForca" name="txtForca">
                                     <option value="0" selected>Selecione uma Força...</option>                                  
+                                    <option value="mb">Marinha do Barsil</option>                                  
+                                    <option value="eb">Exército Brasileiro</option>                                  
+                                    <option value="fab">Força Aérea Brasileira</option>                                  
                                     <option value="1000">Outra</option>                                  
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="txtGCmdo">Grande Comando: </label>
+                                <label for="txtGCmdo">Grande Comando: </label><spam class="campo-obrigatorio"> *</spam>
                                 <input type="text" class="form-control" id="txtGCmdo" name="txtGCmdo" placeholder="Ex.: CMA"> 
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="txtEscEnq">Escalão Enquadrante: </label>
+                                <label for="txtEscEnq">Escalão Enquadrante: </label><spam class="campo-obrigatorio"> *</spam>
                                 <input type="text" class="form-control" id="txtEscEnq" name="txtEscEnq" placeholder="Ex.: 12ª RM, 16ª Bda Inf Sl etc."> 
                             </div>
                         </div>
@@ -93,15 +96,15 @@
                         <div class="fieldset-interno">
                             <div class="form-row">                            
                                 <div class="form-group col-md-3">
-                                    <label for="txtAbrevOM">Abreviatura: </label>
+                                    <label for="txtAbrevOM">Abreviatura: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtAbrevOM" name="txtAbrevOM" placeholder="Ex.: CIGS"> 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="txtNomeOM">Nome: </label>
+                                    <label for="txtNomeOM">Nome: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtNomeOM" name="txtNomeOM" placeholder="Ex.: Centro de Instrução de Guerra na Selva"> 
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="txtFoneOM">Fone: </label>
+                                    <label for="txtFoneOM">Fone: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtFoneOM" name="txtFoneOM" placeholder="Ex.: (00) 0000-0000"> 
                                 </div>
                             </div>
@@ -111,17 +114,21 @@
                             <div class="fieldset-interno">
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
-                                        <label for="txtPGradCmtOM">Posto/Graduação: </label>
+                                        <label for="txtPGradCmtOM">Posto/Graduação: </label><spam class="campo-obrigatorio"> *</spam>
                                         <select class="form-control" id="txtPGradCmtOM" name="txtPGradCmtOM">
                                             <option value="0" selected>Selecione um Posto/Graduação...</option>                                     
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="txtNomeCmtOM">Nome Completo: </label>
-                                        <input type="text" class="form-control" id="txtNomeCmtOM" name="txtNomeCmtOM" placeholder="Ex.: Fulano de Tal"> 
+                                    <div class="form-group col-md-2">
+                                        <label for="txtNomeCmtOM">Nome: </label><spam class="campo-obrigatorio"> *</spam>
+                                        <input type="text" class="form-control" id="txtNomeCmtOM" name="txtNomeCmtOM" placeholder="Ex.: Fulano"> 
                                     </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="txtNomeGuerraCmtOM">Nome de Guerra: </label>
+                                    <div class="form-group col-md-5">
+                                        <label for="txtSobrenomeCmtOM">Sobrenome: </label><spam class="campo-obrigatorio"> *</spam>
+                                        <input type="text" class="form-control" id="txtSobrenomeCmtOM" name="txtSobrenomeCmtOM" placeholder="Ex.: de Tal"> 
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="txtNomeGuerraCmtOM">Nome de Guerra: </label><spam class="campo-obrigatorio"> *</spam>
                                         <input type="text" class="form-control" id="txtNomeGuerraCmtOM" name="txtNomeGuerraCmtOM" placeholder="Ex.: De Tal"> 
                                     </div>
                                 </div>
@@ -132,17 +139,21 @@
                             <div class="fieldset-interno">
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
-                                        <label for="txtPGradChImtoOM">Posto/Graduação: </label>
+                                        <label for="txtPGradChImtoOM">Posto/Graduação: </label><spam class="campo-obrigatorio"> *</spam>
                                         <select class="form-control" id="txtPGradChImtoOM" name="txtPGradChImtoOM">
                                             <option value="0" selected>Selecione um Posto/Graduação...</option>                                     
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="txtNomeChImtoOM">Nome Completo: </label>
-                                        <input type="text" class="form-control" id="txtNomeChImtoOM" name="txtNomeChImtoOM" placeholder="Ex.: Fulano de Tal"> 
+                                    <div class="form-group col-md-2">
+                                        <label for="txtNomeChImtoOM">Nome: </label><spam class="campo-obrigatorio"> *</spam>
+                                        <input type="text" class="form-control" id="txtNomeChImtoOM" name="txtNomeChImtoOM" placeholder="Ex.: Fulano"> 
                                     </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="txtNomeGuerraChImtoOM">Nome de Guerra: </label>
+                                    <div class="form-group col-md-5">
+                                        <label for="txtSobrenomeChImtoOM">Sobrenome: </label><spam class="campo-obrigatorio"> *</spam>
+                                        <input type="text" class="form-control" id="txtSobrenomeChImtoOM" name="txtSobrenomeChImtoOM" placeholder="Ex.: de Tal"> 
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="txtNomeGuerraChImtoOM">Nome de Guerra: </label><spam class="campo-obrigatorio"> *</spam>
                                         <input type="text" class="form-control" id="txtNomeGuerraCmtOM" name="txtNomeGuerraChImtoOM" placeholder="Ex.: De Tal"> 
                                     </div>
                                 </div>
@@ -153,58 +164,60 @@
                             <div class="fieldset-interno">
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
-                                        <label for="txtEndCepOM">CEP: </label>
-                                        <input type="text" class="form-control" id="txtEndCepOM" name="txtEndCepOM" placeholder="CEP">
+                                        <label for="txtEndCepOM">CEP: </label><spam class="campo-obrigatorio"> *</spam>
+                                        <input type="text" class="form-control" id="txtEndCepOM" name="txtEndCepOM" placeholder="Ex.: 00000-000">
                                     </div> 
 
                                     <div class="form-group col-md-3">
-                                        <label for="txtEndLogOM">Logradouro: </label>
+                                        <label for="txtEndLogOM">Logradouro: </label><spam class="campo-obrigatorio"> *</spam>
                                         <select class="form-control" id="txtEndLogOM" name="txtEndLogOM">
-                                            <option value="0" selected>Selecione um Logradouro...</option>
-                                            <option value="Av">Avenida</option>
-                                            <option value="Rua">Rua</option>                                        
+                                            <option value="0" selected>Selecione um Logradouro...</option>                                      
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-md-6">
-                                        <label for="txtEndNomeOM">Nome: </label>
-                                        <input type="text" class="form-control" id="txtEndNomeOM" name="txtEndNomeOM" placeholder="Nome">
+                                    <div class="form-group col-md-5">
+                                        <label for="txtEndNomeOM">Nome: </label><spam class="campo-obrigatorio"> *</spam>
+                                        <input type="text" class="form-control" id="txtEndNomeOM" name="txtEndNomeOM" placeholder="Ex.: Constantino Nery">
                                     </div>
-                                    <div class="form-group col-md-1">
-                                        <label for="txtEndNumOM">Número: </label>
-                                        <input type="text" class="form-control" id="txtEndNumOM" name="txtEndNumOM" placeholder="Número">
+                                    <div class="form-group col-md-2">
+                                        <label for="txtEndNumOM">Número: </label><spam class="campo-obrigatorio"> *</spam>
+                                        <input type="text" class="form-control" id="txtEndNumOM" name="txtEndNumOM" placeholder="Ex.: 1000">
                                     </div>                                 
                                 </div>                        
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
-                                        <label for="txtEndPaisOM">País: </label>
+                                        <label for="txtEndPaisOM">País: </label><spam class="campo-obrigatorio"> *</spam>
                                         <select class="form-control" id="txtEndPaisOM" name="txtEndPaisOM">
                                             <option value="0" selected>Selecione um País...</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="txtEndEstadoOM">Estado: </label>
+                                        <label for="txtEndEstadoOM">Estado: </label><spam class="campo-obrigatorio"> *</spam>
                                         <select class="form-control" id="txtEndEstadoOM" name="txtEndEstadoOM">
                                             <option value="0" selected>Selecione um Estado...</option>
                                         </select>
                                     </div>                                    
                                     <div class="form-group col-md-3">
-                                        <label for="txtEndCidadeOM">Cidade: </label>
+                                        <label for="txtEndCidadeOM">Cidade: </label><spam class="campo-obrigatorio"> *</spam>
                                         <select class="form-control" id="txtEndCidadeOM" name="txtEndCidadeOM">
                                             <option value="0" selected>Selecione uma Cidade...</option>
                                         </select>
                                     </div>                                    
                                     <div class="form-group col-md-3">
-                                        <label for="txtEndBairroOM">Bairro: </label>
+                                        <label for="txtEndBairroOM">Bairro: </label><spam class="campo-obrigatorio"> *</spam>
                                         <select class="form-control" id="txtEndBairoOM" name="txtEndBairroOM">
                                             <option value="0" selected>Selecione um Bairro...</option>
                                         </select>
                                     </div>                                    
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-6">
+                                        <label for="txtEndCompOM">Complemento: </label>
+                                        <input type="text" class="form-control" id="txtEndCompOM" name="txtCompOM" placeholder="Ex.: Quadra, Apartamento etc.">
+                                    </div> 
+                                    <div class="form-group col-md-6">
                                         <label for="txtEndPtRefom">Ponto de Referência: </label>
-                                        <input type="text" class="form-control" id="txtEndPtRefOM" name="txtEndPtRefOM" placeholder="Ponto de Referência">
+                                        <input type="text" class="form-control" id="txtEndPtRefOM" name="txtEndPtRefOM" placeholder="Ex.: Próximo a Arena da Amazônia">
                                     </div> 
                                 </div>
                             </div>
@@ -219,104 +232,112 @@
                     </div>
                     <div class="fieldset-body">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="txtPGrad">Posto/Graduação: </label>
-                                <select class="form-control" id="txtPGrad" name="txtPGrad">
+                            <div class="form-group col-md-4">
+                                <label for="txtPGradAl">Posto/Graduação: </label><spam class="campo-obrigatorio"> *</spam>
+                                <select class="form-control" id="txtPGradAl" name="txtPGradAl">
                                     <option value="0" selected>Selecione um Posto/Graduação...</option>                                     
                                 </select>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="txtDataPraca">Última Data de Praça: </label>
-                                <input type="text" class="form-control" id="txtDataPraca" name="txtDataPraca" placeholder="Ex.: DD/MM/AAAA">
+                            <div class="form-group col-md-4">
+                                <label for="txtArmaAl">Arma: </label><spam class="campo-obrigatorio"> *</spam>
+                                <select class="form-control" id="txtArmaAl" name="txtArmaAl">
+                                    <option value="0" selected>Selecione uma Arma...</option>                                     
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="txtDataPracaAl">Última Data de Praça: </label><spam class="campo-obrigatorio"> *</spam>
+                                <input type="text" class="form-control" id="txtDataPracaAl" name="txtDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label for="txtNome">Nome: </label>
-                                <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+                            <div class="form-group col-md-3">
+                                <label for="txtNomeAl">Nome: </label><spam class="campo-obrigatorio"> *</spam>
+                                <input type="text" class="form-control" id="txtNomeAl" name="txtNomeAl" placeholder="Ex.: Fulano">
                             </div>
-
-                            <div class="form-group col-md-4">
-                                <label for="txtNomeGuerra">Nome Guerra: </label>
-                                <input type="text" class="form-control" id="txtNomeGuerra" name="txtNomeGuerra" placeholder="Nome de Guerra">
+                            <div class="form-group col-md-6">
+                                <label for="txtSobrenomeAl">Sobrenome: </label><spam class="campo-obrigatorio"> *</spam>
+                                <input type="text" class="form-control" id="txtSobrenomeAl" name="txtSobrenomeAl" placeholder="Ex.: de Tal">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="txtNomeGuerraAl">Nome Guerra: </label><spam class="campo-obrigatorio"> *</spam>
+                                <input type="text" class="form-control" id="txtNomeGuerraAl" name="txtNomeGuerraAl" placeholder="Ex.: De Tal">
                             </div>                
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-3">
-                                <label for="txtIdtMil">Identidade Militar: </label>
-                                <input type="text" class="form-control" id="txtIdtMil" name="txtIdtMil" placeholder="Ex. 000000000-0">
-                            </div>                           
-
-                            <div class="form-group col-md-3">
-                                <label for="txtPreccp">Prec-CP: </label>
-                                <input type="text" class="form-control" id="txtPreccp" name="txtPreccp" placeholder="Ex.: 000000000">
+                                <label for="txtIdtMilAl">Identidade Militar: </label><spam class="campo-obrigatorio"> *</spam>
+                                <input type="text" class="form-control" id="txtIdtMilAl" name="txtIdtMilAl" placeholder="Ex. 000000000-0">
                             </div>
-                            
                             <div class="form-group col-md-3">
-                                <label for="txtCP">CP: </label>
-                                <input type="text" class="form-control" id="txtCP" name="txtCP" placeholder="Ex.: 000000">
+                                <label for="txtPreccpAl">Prec-CP: </label>
+                                <input type="text" class="form-control" id="txtPreccpAl" name="txtPreccpAl" placeholder="Ex.: 000000000">
                             </div>
-                            
                             <div class="form-group col-md-3">
-                                <label for="txtCpf">CPF: </label>
-                                <input type="text" class="form-control" id="txtCpf" name="txtCpf" placeholder="Ex.: 000.000.000-00">
+                                <label for="txtCPAl">CP: </label>
+                                <input type="text" class="form-control" id="txtCPAl" name="txtCPAl" placeholder="Ex.: 000000">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="txtCpfAl">CPF: </label><spam class="campo-obrigatorio"> *</spam>
+                                <input type="text" class="form-control" id="txtCpfAl" name="txtCpfAl" placeholder="Ex.: 000.000.000-00">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="txtDataNasc">Data de Nascimento: </label>
-                                <input type="text" class="form-control" id="txtDataNasc" name="txtDataNasc" placeholder="Ex.: DD/MM/AAAA">
+                                <label for="txtDataNascAl">Data de Nascimento: </label><spam class="campo-obrigatorio"> *</spam>
+                                <input type="text" class="form-control" id="txtDataNascAl" name="txtDataNascAl" placeholder="Ex.: DD/MM/AAAA">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="txtNatEst">Naturalidade (Estado): </label>
-                                <input type="text" class="form-control" id="txtNatEst" name="txtNatEst" placeholder="Estado">
+                                <label for="txtNatEstAl">Naturalidade (Estado): </label><spam class="campo-obrigatorio"> *</spam>
+                                <input type="text" class="form-control" id="txtNatEstAl" name="txtNatEstAl" placeholder="Ex.: Amazonas">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="txtNatCid">Naturalidade (Cidade): </label>
-                                <input type="text" class="form-control" id="txtNatCid" name="txtNatCid" placeholder="Cidade">
+                                <label for="txtNatCidAl">Naturalidade (Cidade): </label><spam class="campo-obrigatorio"> *</spam>
+                                <input type="text" class="form-control" id="txtNatCidAl" name="txtNatCidAl" placeholder="Ex.: Manaus">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="txtEstCivil">Estado Civil: </label>
-                                <select class="form-control" id="txtEstCivil" name="txtEstCivil">
+                                <label for="txtEstCivilAl">Estado Civil: </label><spam class="campo-obrigatorio"> *</spam>
+                                <select class="form-control" id="txtEstCivilAl" name="txtEstCivilAl">
                                     <option value="0" selected>Selecione um estado civil...</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="txtSexo">Sexo: </label>
-                                <select class="form-control" id="txtSexo" name="txtSexo">
+                                <label for="txtSexoAl">Sexo: </label><spam class="campo-obrigatorio"> *</spam>
+                                <select class="form-control" id="txtSexoAl" name="txtSexoAl">
                                     <option value="0" selected>Selecione um sexo...</option>
-                                    <option value="M">Masculino</option>
-                                    <option value="F">Feminino</option>
+                                    <option value="m">Masculino</option>
+                                    <option value="f">Feminino</option>
                                 </select>
                             </div>
                         </div>   
                         <div class="form-row">
                             <div class="form-group col-md-2">
-                                <label for="txtSexo">Tipo Sanguíneo: </label>
-                                <select class="form-control" id="txtSexo" name="txtSexo">
+                                <label for="txtTSAl">Tipo Sanguíneo: </label><spam class="campo-obrigatorio"> *</spam>
+                                <select class="form-control" id="txtTSAl" name="txtTSAl">
                                     <option value="0" selected>Selecione um tipo sanguíneo...</option>
-                                    <option value="M">O</option>
-                                    <option value="F">A</option>
+                                    <option value="a">A</option>
+                                    <option value="b">B</option>
+                                    <option value="ab">AB</option>
+                                    <option value="o">O</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
-                                <label for="txtSexo">Fator RH: </label>
-                                <select class="form-control" id="txtSexo" name="txtSexo">
+                                <label for="txtFatorRHAl">Fator RH: </label><spam class="campo-obrigatorio"> *</spam>
+                                <select class="form-control" id="txtFatorRHAl" name="txtFatorRHAl">
                                     <option value="0" selected>Selecione um fator RH...</option>
-                                    <option value="M">+</option>
-                                    <option value="F">-</option>
+                                    <option value="pos">+</option>
+                                    <option value="neg">-</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="txtPai">Pai: </label>
-                                <input type="text" class="form-control" id="txtPai" name="txtPai" placeholder="Pai">
+                                <label for="txtPaiAl">Pai: </label>
+                                <input type="text" class="form-control" id="txtPaiAl" name="txtPaiAl" placeholder="Ex.: Fulano de Tal">
                             </div>  
 
                             <div class="form-group col-md-4">
-                                <label for="txtMae">Mãe: </label>
-                                <input type="text" class="form-control" id="txtMae" name="txtMae" placeholder="Mãe">
+                                <label for="txtMaeAl">Mãe: </label>
+                                <input type="text" class="form-control" id="txtMaeAl" name="txtMaeAl" placeholder="Ex.: Fulana de Tal">
                             </div>                                                    
                         </div>
                                                
@@ -326,26 +347,26 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label for="txtTituloEleitor">Título Eleitoral: </label>
-                                    <input type="text" class="form-control" id="txtTituloEleitor" name="txtTituloEleitor" placeholder="Titulo Eleitor">
+                                    <label for="txtTitEleitorNumAl">Título Eleitoral: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtTitEleitorNumAl" name="txtTitEleitorNumAl" placeholder="Ex.: 0000 0000 0000">
                                 </div>  
 
                                 <div class="form-group col-md-2">
-                                    <label for="txtZona">Zona Eleitoral: </label>
-                                    <input type="text" class="form-control" id="txtZona" name="txtZona" placeholder="Zona">
+                                    <label for="txtTitEleitorZonaAl">Zona Eleitoral: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtTitEleitorZonaAl" name="txtTitEleitorZonaAl" placeholder="Ex.: 000">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="txtSecao">Seção Eleitoral: </label>
-                                    <input type="text" class="form-control" id="txtSecao" name="txtSecao" placeholder="Seção">
-                                </div>                              
+                                    <label for="txtTitEleitorSecaoAl">Seção Eleitoral: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtTitEleitorSecaoAl" name="txtTitEleitorSecaoAl" placeholder="Ex.: 0000">
+                                </div>
                                 <div class="form-group col-md-2">
-                                    <label for="txtCidade">Cidade: </label>
-                                    <input type="text" class="form-control" id="txtCidade" name="txtCidade" placeholder="Cidade">
-                                </div>                              
+                                    <label for="txtTitEleitorEstAl">Estado: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtTitEleitorEstAl" name="txtTitEleitorAl" placeholder="Ex.: Amazonas">
+                                </div>
                                 <div class="form-group col-md-2">
-                                    <label for="txtEstado">Estado: </label>
-                                    <input type="text" class="form-control" id="txtEstado" name="txtEstado" placeholder="Estado">
-                                </div>                              
+                                    <label for="txtTitEleitorCidAl">Cidade: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtTitEleitorCidAl" name="txtTitEleitorCidAl" placeholder="Ex.: Manaus">
+                                </div>                                                      
                             </div>
                         </div>
                         <div class="header-interno">
@@ -354,16 +375,16 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtBanco">Banco: </label>
-                                    <input type="text" class="form-control" id="txtBanco" name="txtBanco" placeholder="Banco">
+                                    <label for="txtBancoAl">Banco: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtBancoAl" name="txtBancoAl" placeholder="Ex.: Banco do Brasil">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="txtAgencia">Agência: </label>
-                                    <input type="text" class="form-control" id="txtAgencia" name="txtAgencia" placeholder="Agência">
+                                    <label for="txtAgenciaAl">Agência: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtAgenciaAl" name="txtAgenciaAl" placeholder="Ex.: 0000-0">
                                 </div>                                                     
                                 <div class="form-group col-md-4">
-                                    <label for="txtConta">Conta: </label>
-                                    <input type="text" class="form-control" id="txtConta" name="txtConta" placeholder="Conta">
+                                    <label for="txtContaAl">Conta: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtContaAl" name="txtContaAl" placeholder="Ex.: 00000000000-0">
                                 </div>                                                     
                             </div>
                         </div>                        
@@ -373,13 +394,13 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-8">
-                                    <label for="txtEmail">Email: </label>
-                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Ex.: fulanodetal@gmail.com">
+                                    <label for="txtEmailAl">Email: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtEmailAl" name="txtEmailAl" placeholder="Ex.: fulanodetal@gmail.com">
                                 </div>  
 
                                 <div class="form-group col-md-4">
-                                    <label for="txtFone">Fone: </label>
-                                    <input type="text" class="form-control" id="txtFone" name="txtFone" placeholder="Ex.: (00) 00000-0000">
+                                    <label for="txtFoneAl">Fone: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtFoneAl" name="txtFoneAl" placeholder="Ex.: (00) 00000-0000">
                                 </div>                                                     
                             </div>
                         </div>                       
@@ -390,8 +411,8 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label for="txtNumCoturno">Número Coturno: </label>
-                                    <select class="form-control" id="txtTamCoturno" name="txtTamCoturno">
+                                    <label for="txtNumCoturnoAl">Número Coturno: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <select class="form-control" id="txtTamCoturnoAl" name="txtTamCoturnoAl">
                                         <option value="0" selected>Selecione um tamanho...</option>
                                         <option value="37">37</option>
                                         <option value="38">38</option>
@@ -406,8 +427,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="txtTamGand">Tamanho Gandola: </label>
-                                    <select class="form-control" id="txtTamGand" name="txtTamGand">
+                                    <label for="txtTamGandAl">Tamanho Gandola: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <select class="form-control" id="txtTamGandAl" name="txtTamGandAl">
                                         <option value="0" selected>Selecione um tamanho...</option>
                                         <option value="pp">PP</option>
                                         <option value="p">P</option>
@@ -417,8 +438,8 @@
                                     </select>
                                 </div>                                                     
                                 <div class="form-group col-md-3">
-                                    <label for="txtTamCalca">Tamanho Calça: </label>
-                                    <select class="form-control" id="txtTamCalca" name="txtTamCalca">
+                                    <label for="txtTamCalcaAl">Tamanho Calça: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <select class="form-control" id="txtTamCalcaAl" name="txtTamCalcaAl">
                                         <option value="0" selected>Selecione um tamanho...</option>
                                         <option value="pp">PP</option>
                                         <option value="p">P</option>
@@ -428,8 +449,8 @@
                                     </select>
                                 </div>                                                     
                                 <div class="form-group col-md-3">
-                                    <label for="txtTamCamisaCamuflada">Tamanho Camisa Camfuflada: </label>
-                                    <select class="form-control" id="txtTamCamisaCamuflada" name="txtTamCamisaCamuflada">
+                                    <label for="txtTamCamisaCamufladaAl">Tamanho Camisa Camfuflada: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <select class="form-control" id="txtTamCamisaCamufladaAl" name="txtTamCamisaCamufladaAl">
                                         <option value="0" selected>Selecione um tamanho...</option>
                                         <option value="pp">PP</option>
                                         <option value="p">P</option>
@@ -446,7 +467,7 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtPossuiCNH">Possui CNH?</label>
+                                    <label for="txtPossuiCNH">Possui CNH?</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtPossuiCNH" name="txtPossuiCNH">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
@@ -458,23 +479,24 @@
                         <div id="divCNH" class="fieldset-interno fieldset-dependente" style="display: none;">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtCNHNum">Número: </label>
-                                    <input type="text" class="form-control" id="txtCNHNum" name="txtCNHNum" placeholder="Ex. 00000000000">
+                                    <label for="txtCNHNumAl">Número: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtCNHNumAl" name="txtCNHNumAl" placeholder="Ex. 00000000000">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="txtCNHCat">Categoria: </label>
-                                    <select class="form-control" id="txtCNHCat" name="txtCNHCat">
+                                    <label for="txtCNHCatAl">Categoria: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <select class="form-control" id="txtCNHCatAl" name="txtCNHCatAl">
                                         <option value="0" selected>Selecione uma categoria...</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="AB">AB</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="ab">AB</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="txtCNHDataVal">Data de Validade: </label>
-                                    <input type="text" class="form-control" id="txtCNHDataVal" name="txtCNHDataVal" placeholder="Ex. 00/00/0000">
+                                    <label for="txtCNHDataValAl">Data de Validade: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <input type="text" class="form-control" id="txtCNHDataValAl" name="txtCNHDataValAl" placeholder="Ex. 00/00/0000">
                                 </div>  
                             </div>
                         </div>                        
@@ -484,7 +506,7 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtPossuiVeiculo">Possui Veículo?</label>
+                                    <label for="txtPossuiVeiculo">Possui Veículo?</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtPossuiVeiculo" name="txtPossuiVeiculo">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
@@ -517,7 +539,7 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="txtFumante">Fumante?</label>
+                                    <label for="txtFumante">Fumante?</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtFumante" name="txtFumante">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
@@ -525,7 +547,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="txtAlergico">Alérgico?</label>
+                                    <label for="txtAlergico">Alérgico?</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtAlergico" name="txtAlergico">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>

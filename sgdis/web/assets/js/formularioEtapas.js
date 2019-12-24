@@ -100,28 +100,30 @@ $("#btnAddVeiculo").click(function(){
     $("#linha" + qtdeVeiculos).remove();
     $("#fieldsetVeiculos").append("<div id=linha"+ qtdeVeiculos +" class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-2\">"+
-                                  "      <label for=txtTipoVeiculos"+ qtdeVeiculos +">Tipo"+ qtdeVeiculos +": </label>"+
-                                  "      <select class=\"form-control\" id=txtTipoCExtsEsp"+ qtdeCExtsEsp +" name=\"txtTipoCExtsEsp\">"+
+                                  "      <label for=txtTipoVeiculoAl"+ qtdeVeiculos +">Tipo: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <select class=\"form-control\" id=txtTipoVeiculoAl"+ qtdeVeiculos +" name=\"txtTipoVeiculoAl\">"+
                                   "         <option value=\"0\" selected>Selecione o tipo...</option>"+
-                                  "         <option value=\"carro\">Carro</option>"+
-                                  "         <option value=\"moto\">Moto</option>"+
+                                  "         <option value=\"motocicleta\">Motocicleta</option>"+
+                                  "         <option value=\"automovel\">Automóvel</option>"+
+                                  "         <option value=\"microonibus\">Microônibus</option>"+
+                                  "         <option value=\"onibus\">Ônibus</option>"+
                                   "     </select>"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-3\">"+
-                                  "      <label for=txtMarcaVeiculo"+ qtdeVeiculos +">Marca "+ qtdeVeiculos +": </label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtMarcaVeiculo"+ qtdeVeiculos +" name=\"txtMarcaVeiculo\" placeholder=\"Ex.: Hyundai\">"+
+                                  "      <label for=txtMarcaVeiculoAl"+ qtdeVeiculos +">Marca: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtMarcaVeiculoAl"+ qtdeVeiculos +" name=\"txtMarcaVeiculoAl\" placeholder=\"Ex.: Hyundai\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-3\">"+
-                                  "      <label for=txtModeloVeiculo"+ qtdeVeiculos +">Modelo "+ qtdeVeiculos +": </label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtModeloVeiculo"+ qtdeVeiculos +" name=\"txtModeloVeiculo\" placeholder=\"Ex.: HB20S\">"+
+                                  "      <label for=txtModeloVeiculoAl"+ qtdeVeiculos +">Modelo: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtModeloVeiculoAl"+ qtdeVeiculos +" name=\"txtModeloVeiculoAl\" placeholder=\"Ex.: HB20S\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-2\">"+
-                                  "      <label for=txtCorVeiculo"+ qtdeVeiculos +">Cor "+ qtdeVeiculos +": </label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtCorVeiculo"+ qtdeVeiculos +" name=\"txtCorVeiculo\" placeholder=\"Ex.: Vermelho\">"+
+                                  "      <label for=txtCorVeiculoAl"+ qtdeVeiculos +">Cor: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtCorVeiculoAl"+ qtdeVeiculos +" name=\"txtCorVeiculoAl\" placeholder=\"Ex.: Vermelho\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-2\">"+
-                                  "      <label for=txtPlacaVeiculo"+ qtdeVeiculos +">Placa "+ qtdeVeiculos +": </label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtPlacaVeiculo"+ qtdeVeiculos +" name=\"txtPlacaVeiculo\" placeholder=\"Ex.: XXX 0X00\">"+
+                                  "      <label for=txtPlacaVeiculoAl"+ qtdeVeiculos +">Placa: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtPlacaVeiculoAl"+ qtdeVeiculos +" name=\"txtPlacaVeiculoAl\" placeholder=\"Ex.: XXX 0X00\">"+
                                   "  </div>"+
                                   "</div>");
     qtdeVeiculos++;
@@ -145,7 +147,7 @@ $("#btnAddAlergia").click(function(){
     $("#linha" + qtdeAlergias).remove();
     $("#fieldsetAlergias").append("<div id=linha" +qtdeAlergias+ " class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-12\">"+
-                                  "      <label for=txtAlergia"+ qtdeAlergias +">Alergia "+ qtdeAlergias +": </label>"+
+                                  "      <label for=txtAlergia"+ qtdeAlergias +">Alergia: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtAlergia"+ qtdeAlergias +" name=\"txtAlergia\" placeholder=\"Ex.: Rémedio tal\">"+
                                   "  </div>"+
                                   "</div>");
