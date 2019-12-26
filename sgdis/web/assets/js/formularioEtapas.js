@@ -85,11 +85,11 @@ $("#txtPossuiCNH").change(function() {
 //Acionamento form Veiculos
 var qtdeVeiculos = document.querySelectorAll('#fieldsetVeiculos .form-row').length + 1;
 
-$("#txtPossuiVeiculo").change(function() {    
-    if($("#txtPossuiVeiculo").val() === "s"){
+$("#txtTraraVeiculo").change(function() {    
+    if($("#txtTraraVeiculo").val() === "s"){
         $("#divVeiculos").css("display", "block");        
     }
-    else if($("#txtPossuiVeiculo").val() === "n" || $("#txtPossuiVeiculo").val() === "0"){
+    else if($("#txtTraraVeiculo").val() === "n" || $("#txtTraraVeiculo").val() === "0"){
         $("#divVeiculos").css("display", "none");
         $("#fieldsetVeiculos .form-row").remove();
         qtdeVeiculos = 1;
@@ -154,6 +154,46 @@ $("#btnAddAlergia").click(function(){
     qtdeAlergias++;
 });
 
+//Acionamento form Medicamento Controlado
+var qtdeMtoCt = document.querySelectorAll('#fieldsetMtoCt .form-row').length + 1;
+
+$("#txtUsoMtoCt").change(function() {    
+    if($("#txtUsoMtoCt").val() === "s"){
+        $("#divMtoCt").css("display", "block");        
+    }
+    else if($("#txtUsoMtoCt").val() === "n" || $("#txtUsoMtoCt").val() === "0"){
+        $("#divMtoCt").css("display", "none");
+        $("#fieldsetMtoCt .form-row").remove();
+        qtdeMtoCt = 1;
+    }
+});
+
+$("#btnAddMtoCt").click(function(){           
+    $("#linha" + qtdeMtoCt).remove();
+    $("#fieldsetMtoCt").append("<div id=linha" + qtdeMtoCt + " class=\"form-row\">"+
+                                  "  <div class=\"form-group col-md-8\">"+
+                                  "      <label for=txtNomeMtoCt"+ qtdeMtoCt +">Nome: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtNomeMtoCt"+ qtdeMtoCt +" name=\"txtNomeMtoCt\" placeholder=\"Ex.: Rémedio tal\">"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-2\">"+
+                                  "      <label for=txtFrqMtoCt"+ qtdeMtoCt +">Frequência: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtFrqMtoCt"+ qtdeMtoCt +" name=\"txtFrqMtoCt\" placeholder=\"Ex.: vezes\">"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-2\">"+
+                                  "      <label for=txtFrqMtoCt"+ qtdeMtoCt +">Por: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <select class=\"form-control\" id=txtTpMtoCt"+ qtdeMtoCt +" name=\"txtTpMtoCt\">"+
+                                  "         <option value=\"0\" selected>Selecione o tipo...</option>"+
+                                  "         <option value=\"hr\">Hora</option>"+
+                                  "         <option value=\"dia\">Dia</option>"+
+                                  "         <option value=\"sem\">Semana</option>"+
+                                  "         <option value=\"mes\">Mês</option>"+
+                                  "         <option value=\"ano\">Ano</option>"+
+                                  "     </select>"+
+                                  "  </div>"+
+                                  "</div>");
+    qtdeMtoCt++;
+});
+
 //Acionamento form Idiomas
 var qtdeIdiomas = document.querySelectorAll('#fieldsetIdiomas .form-row').length + 1;
 
@@ -172,12 +212,12 @@ $("#btnAddIdioma").click(function(){
     $("#linha" + qtdeIdiomas).remove();
     $("#fieldsetIdiomas").append("<div id=linha"+ qtdeIdiomas +" class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-8\">"+
-                                  "      <label for=txtIdioma"+ qtdeIdiomas +">Idioma "+ qtdeIdiomas +": </label>"+
+                                  "      <label for=txtIdioma"+ qtdeIdiomas +">Idioma: </label>"+"<spam class=\"campo-obrigatorio\"> *</spam>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtIdioma"+ qtdeIdiomas +" name=\"txtIdioma\" placeholder=\"Ex.: Espanhol\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-4\">"+
-                                  "      <label for=txtAnoIdioma"+ qtdeIdiomas +">Ano de Conclusão "+ qtdeIdiomas +": </label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoIdioma"+ qtdeIdiomas +" name=\"txtAnoIdioma\" placeholder=\"Ex.: 2018\">"+
+                                  "      <label for=txtIplIdioma"+ qtdeIdiomas +">IPL: </label>"+"<spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtIplIdioma"+ qtdeIdiomas +" name=\"txtIplIdioma\" placeholder=\"Ex.: \">"+
                                   "  </div>"+
                                   "</div>");
     qtdeIdiomas++;

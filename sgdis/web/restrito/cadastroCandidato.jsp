@@ -506,8 +506,8 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtPossuiVeiculo">Possui Veículo?</label><spam class="campo-obrigatorio"> *</spam>
-                                    <select class="form-control" id="txtPossuiVeiculo" name="txtPossuiVeiculo">
+                                    <label for="txtTraraVeiculo">Durante o curso trará veículo para o CIGS?</label><spam class="campo-obrigatorio"> *</spam>
+                                    <select class="form-control" id="txtTraraVeiculo" name="txtTraraVeiculo">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
@@ -564,6 +564,30 @@
                                 </div>
                                 <button type="button" id="btnAddAlergia" name="btnAddAlergia" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                             </div>
+                        </div>
+                        <div class="header-interno">
+                            <h5 class="title-interno">Medicação</h5>
+                        </div>
+                        <div class="fieldset-interno">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="txtUsoMtoCt">Faz uso de medicamentos controlados?</label><spam class="campo-obrigatorio"> *</spam>
+                                    <select class="form-control" id="txtUsoMtoCt" name="txtUsoMtoCt">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="divMtoCt" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Medicamento Controlado</h5>
+                            </div>
+                            <div id="fieldsetMtoCt" class="fieldset-interno">
+
+                            </div>
+                            <button type="button" id="btnAddMtoCt" name="btnAddMtoCt" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                         </div>
                     </div>
                     <button type="button" name="btnVoltar" class="btn btn-dark anterior acao">Anterior</button>
@@ -687,30 +711,30 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtParentesco">Parentesco: </label>
+                                    <label for="txtParentesco">Parentesco: </label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtParentesco" name="txtParentesco">
                                         <option value="0" selected>Selecione um Parentesco...</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group col-md-8">
-                                    <label for="txtNome">Nome: </label>
+                                    <label for="txtNome">Nome: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
                                 </div>               
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label for="txtCpf">CPF: </label>
+                                    <label for="txtCpf">CPF: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtCpf" name="txtCpf" placeholder="CPF">
                                 </div> 
 
                                 <div class="form-group col-md-3">
-                                    <label for="txttxtFone">Fone: </label>
+                                    <label for="txttxtFone">Fone: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txttxtFone" name="txtFone" placeholder="Fone">
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label for="txtEmail">Email: </label>
+                                    <label for="txtEmail">Email: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
                                 </div>  
                             </div>
@@ -722,23 +746,23 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtCpf">CPF: </label>
+                                    <label for="txtCpf">CPF: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtCpf" name="txtCpf" placeholder="CPF">
                                 </div> 
 
                                 <div class="form-group col-md-8">
-                                    <label for="txtNome">Nome: </label>
+                                    <label for="txtNome">Nome: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
                                 </div>               
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txttxtFone">Fone: </label>
+                                    <label for="txttxtFone">Fone: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txttxtFone" name="txtFone" placeholder="Fone">
                                 </div>
 
                                 <div class="form-group col-md-8">
-                                    <label for="txtEmail">Email: </label>
+                                    <label for="txtEmail">Email: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
                                 </div>  
                             </div>
@@ -758,12 +782,12 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-2">
-                                    <label for="txtCEP">CEP: </label>
+                                    <label for="txtCEP">CEP: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtCEP" name="txtCEP" placeholder="CEP">
                                 </div> 
                                 
                                 <div class="form-group col-md-3">
-                                    <label for="txtLog">Logradouro: </label>
+                                    <label for="txtLog">Logradouro: </label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtLog" name="txtLog">
                                         <option value="0" selected>Selecione um Logradouro...</option>
                                         <option value="Av">Avenida</option>
@@ -772,44 +796,48 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label for="txtNome">Nome: </label>
+                                    <label for="txtNome">Nome: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
                                 </div>
                                 <div class="form-group col-md-1">
-                                    <label for="txtNum">Número: </label>
+                                    <label for="txtNum">Número: </label><spam class="campo-obrigatorio"> *</spam>
                                     <input type="text" class="form-control" id="txtNum" name="txtNum" placeholder="Número">
                                 </div>                                 
                             </div>                        
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label for="txtPais">País: </label>
+                                    <label for="txtPais">País: </label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtPais" name="txtPais">
                                         <option value="0" selected>Selecione um País...</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="txtEstado">Estado: </label>
+                                    <label for="txtEstado">Estado: </label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtEstado" name="txtEstado">
                                         <option value="0" selected>Selecione um Estado...</option>
                                     </select>
                                 </div>                                    
                                 <div class="form-group col-md-3">
-                                    <label for="txtCidade">Cidade: </label>
+                                    <label for="txtCidade">Cidade: </label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtCidade" name="txtCidade">
                                         <option value="0" selected>Selecione uma Cidade...</option>
                                     </select>
                                 </div>                                    
                                 <div class="form-group col-md-3">
-                                    <label for="txtBairro">Bairro: </label>
+                                    <label for="txtBairro">Bairro: </label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtBairo" name="txtBairro">
                                         <option value="0" selected>Selecione um Bairro...</option>
                                     </select>
                                 </div>                                    
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="txtPtRef">Ponto de Referência: </label>
-                                    <input type="text" class="form-control" id="txtPtRef" name="txtPtRef" placeholder="Ponto de Referência">
+                                <div class="form-group col-md-6">
+                                    <label for="txtEndCompOM">Complemento: </label>
+                                    <input type="text" class="form-control" id="txtEndCompOM" name="txtCompOM" placeholder="Ex.: Quadra, Apartamento etc.">
+                                </div> 
+                                <div class="form-group col-md-6">
+                                    <label for="txtEndPtRefom">Ponto de Referência: </label>
+                                    <input type="text" class="form-control" id="txtEndPtRefOM" name="txtEndPtRefOM" placeholder="Ex.: Próximo a Arena da Amazônia">
                                 </div> 
                             </div>
                         </div>
@@ -819,7 +847,7 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="txtEndCurso">Endereço: </label>
+                                    <label for="txtEndCurso">Endereço: </label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtEndCurso" name="txtEndCurso">
                                         <option value="0" selected>Selecione o endereço...</option>                                        
                                         <option value="resid">O mesmo de Residência</option>
@@ -880,17 +908,20 @@
                                     </div>                                    
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="txtPtRefEndCurso">Ponto de Referência: </label>
-                                        <input type="text" class="form-control" id="txtPtRef" name="txtPtRefEndCurso" placeholder="Ponto de Referência">
+                                    <div class="form-group col-md-6">
+                                        <label for="txtEndCompOM">Complemento: </label>
+                                        <input type="text" class="form-control" id="txtEndCompOM" name="txtCompOM" placeholder="Ex.: Quadra, Apartamento etc.">
+                                    </div> 
+                                    <div class="form-group col-md-6">
+                                        <label for="txtEndPtRefom">Ponto de Referência: </label>
+                                        <input type="text" class="form-control" id="txtEndPtRefOM" name="txtEndPtRefOM" placeholder="Ex.: Próximo a Arena da Amazônia">
                                     </div> 
                                 </div>
                             </div>
                         </div>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
-                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
-                    
+                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>                    
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">
@@ -903,7 +934,7 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtHabIdiomas">É habilitado em Idiomas?</label>
+                                    <label for="txtHabIdiomas">É habilitado em Idiomas?</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtHabIdiomas" name="txtHabIdiomas">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
@@ -928,7 +959,7 @@
                         <div class="fieldset-interno">                            
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtPossuiCAperf">Possui curso de aperfeiçoamento?</label>
+                                    <label for="txtPossuiCAperf">Possui curso de aperfeiçoamento?</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtPossuiCAperf" name="txtPossuiCAperf">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
@@ -937,7 +968,7 @@
                                 </div>
                                 
                                 <div class="form-group col-md-4">
-                                    <label for="txtPossuiCAltEstudos">Possui cursos de altos estudos?</label>
+                                    <label for="txtPossuiCAltEstudos">Possui cursos de altos estudos?</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtPossuiCAltEstudos" name="txtPossuiCAltEstudos">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
@@ -945,7 +976,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="txtPossuiCExtsEsp">Possui cursos extensão ou especialização?</label>
+                                    <label for="txtPossuiCExtsEsp">Possui cursos extensão ou especialização?</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtPossuiCExtsEsp" name="txtPossuiCExtsEsp">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
@@ -961,11 +992,11 @@
                             <div id="fieldsetCAperf" class="fieldset-interno">
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
-                                        <label for="txtCAperf">Curso: </label>
+                                        <label for="txtCAperf">Curso: </label><spam class="campo-obrigatorio"> *</spam>
                                         <input type="text" class="form-control" id="txtCAperf" name="txtCAperf" placeholder="Ex.: ESAO">
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="txtAnCAperf">Ano de Conclusão: </label>
+                                        <label for="txtAnCAperf">Ano de Conclusão: </label><spam class="campo-obrigatorio"> *</spam>
                                         <input type="text" class="form-control" id="txtAnoCAperf" name="txtAnoCAperf" placeholder="Ex.: 2018">
                                     </div>
                                 </div>
@@ -997,7 +1028,7 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtPossuiEstMil">Possui estágios militares operacionais?</label>
+                                    <label for="txtPossuiEstMil">Possui estágios militares operacionais?</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtPossuiEstMil" name="txtPossuiEstMil">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
@@ -1026,7 +1057,7 @@
                     <div class="fieldset-body">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="txtPrepFisica">Sua preparação física foi? </label>
+                                <label for="txtPrepFisica">Sua preparação física foi? </label><spam class="campo-obrigatorio"> *</spam>
                                 <select class="form-control" id="txtPrepFisica" name="txtPrepFisica">
                                     <option value="0" selected>Selecione sua preparação física...</option>
                                     <option value="I">I</option>
@@ -1037,7 +1068,7 @@
                                 </select>
                             </div>                              
                             <div class="form-group col-md-6">
-                                <label for="txtApoioFam">Obteve apoio de sua família para realização do curso? </label>
+                                <label for="txtApoioFam">Obteve apoio de sua família para realização do curso? </label><spam class="campo-obrigatorio"> *</spam>
                                 <select class="form-control" id="txtApoioFam" name="txtApoioFam">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
@@ -1047,7 +1078,7 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="txtApoioOM">Obteve apoio de sua OM durante o período de preparação para COS? </label>
+                                <label for="txtApoioOM">Obteve apoio de sua OM durante o período de preparação para COS? </label><spam class="campo-obrigatorio"> *</spam>
                                 <select class="form-control" id="txtApoioOM" name="txtApoioOM">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
@@ -1055,7 +1086,7 @@
                                 </select>
                             </div>                              
                             <div class="form-group col-md-6">
-                                <label for="txtCPrepCOS">Sua OM proporcionou um Curso de Preparação para o COS? </label>
+                                <label for="txtCPrepCOS">Sua OM proporcionou um Curso de Preparação para o COS? </label><spam class="campo-obrigatorio"> *</spam>
                                 <select class="form-control" id="txtCPrepCOS" name="txtCPrepCOS">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
@@ -1065,7 +1096,7 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="txtProbRend">Há problemas que possam vir a comprometer seu rendimento no COS? </label>
+                                <label for="txtProbRend">Há problemas que possam vir a comprometer seu rendimento no COS? </label><spam class="campo-obrigatorio"> *</spam>
                                 <select class="form-control" id="txtProbRend" name="txtProbRend">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
@@ -1073,7 +1104,7 @@
                                 </select>
                             </div>                              
                             <div class="form-group col-md-6">
-                                <label for="txtTempoPrep">O tempo de sua preparação foi suficiente? </label>
+                                <label for="txtTempoPrep">O tempo de sua preparação foi suficiente? </label><spam class="campo-obrigatorio"> *</spam>
                                 <select class="form-control" id="txtTempoPrep" name="txtTempoPrep">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
@@ -1083,7 +1114,7 @@
                         </div>
                         <div class="form-row">                                                        
                             <div class="form-group col-md-6">
-                                <label for="txtConsultaSite">Consultou o site do CIGS? </label>
+                                <label for="txtConsultaSite">Consultou o site do CIGS? </label><spam class="campo-obrigatorio"> *</spam>
                                 <select class="form-control" id="txtConsultaSite" name="txtConsultaSite">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
@@ -1091,13 +1122,13 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="txtFatorMotivacao">Qual o fator que o motivou a realizar o COS? </label>
+                                <label for="txtFatorMotivacao">Qual o fator que o motivou a realizar o COS? </label><spam class="campo-obrigatorio"> *</spam>
                                 <input type="text" class="form-control" id="txtFatorMotivacao" name="txtFatorMotivacao" placeholder="Apenas um fator">
                             </div>                                                           
                         </div>
                         <div class="form-row">     
                             <div class="form-group col-md-12">
-                                <label for="txtDedicacaoDoutOPS">Dedicou tempo suficiente para seu preparo intelectual no assunto de Doutrina de Operações na Selva? </label>
+                                <label for="txtDedicacaoDoutOPS">Dedicou tempo suficiente para seu preparo intelectual no assunto de Doutrina de Operações na Selva? </label><spam class="campo-obrigatorio"> *</spam>
                                 <select class="form-control" id="txtDedicacaoDoutOPS" name="txtDedicacaoDoutOPS">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
