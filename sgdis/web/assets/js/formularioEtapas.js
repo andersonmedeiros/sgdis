@@ -100,7 +100,7 @@ $("#btnAddVeiculo").click(function(){
     $("#linha" + qtdeVeiculos).remove();
     $("#fieldsetVeiculos").append("<div id=linha"+ qtdeVeiculos +" class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-2\">"+
-                                  "      <label for=txtTipoVeiculoAl"+ qtdeVeiculos +">Tipo: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtTipoVeiculoAl"+ qtdeVeiculos +">Tipo: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <select class=\"form-control\" id=txtTipoVeiculoAl"+ qtdeVeiculos +" name=\"txtTipoVeiculoAl\">"+
                                   "         <option value=\"0\" selected>Selecione o tipo...</option>"+
                                   "         <option value=\"motocicleta\">Motocicleta</option>"+
@@ -110,19 +110,19 @@ $("#btnAddVeiculo").click(function(){
                                   "     </select>"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-3\">"+
-                                  "      <label for=txtMarcaVeiculoAl"+ qtdeVeiculos +">Marca: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtMarcaVeiculoAl"+ qtdeVeiculos +">Marca: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtMarcaVeiculoAl"+ qtdeVeiculos +" name=\"txtMarcaVeiculoAl\" placeholder=\"Ex.: Hyundai\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-3\">"+
-                                  "      <label for=txtModeloVeiculoAl"+ qtdeVeiculos +">Modelo: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtModeloVeiculoAl"+ qtdeVeiculos +">Modelo: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtModeloVeiculoAl"+ qtdeVeiculos +" name=\"txtModeloVeiculoAl\" placeholder=\"Ex.: HB20S\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-2\">"+
-                                  "      <label for=txtCorVeiculoAl"+ qtdeVeiculos +">Cor: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtCorVeiculoAl"+ qtdeVeiculos +">Cor: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtCorVeiculoAl"+ qtdeVeiculos +" name=\"txtCorVeiculoAl\" placeholder=\"Ex.: Vermelho\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-2\">"+
-                                  "      <label for=txtPlacaVeiculoAl"+ qtdeVeiculos +">Placa: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtPlacaVeiculoAl"+ qtdeVeiculos +">Placa: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtPlacaVeiculoAl"+ qtdeVeiculos +" name=\"txtPlacaVeiculoAl\" placeholder=\"Ex.: XXX 0X00\">"+
                                   "  </div>"+
                                   "</div>");
@@ -134,20 +134,19 @@ var qtdeAlergias = document.querySelectorAll('#fieldsetAlergias .form-row').leng
 
 $("#txtAlergico").change(function() {    
     if($("#txtAlergico").val() === "s"){
-        $("#divAlergia").css("display", "block");        
+        $("#divAlergias").css("display", "block");        
     }
     else if($("#txtAlergico").val() === "n" || $("#txtAlergico").val() === "0"){
-        $("#divAlergia").css("display", "none");
+        $("#divAlergias").css("display", "none");
         $("#fieldsetAlergias .form-row").remove();
         qtdeAlergias = 1;
     }
 });
 
-$("#btnAddAlergia").click(function(){           
-    $("#linha" + qtdeAlergias).remove();
+$("#btnAddAlergia").click(function(){
     $("#fieldsetAlergias").append("<div id=linha" +qtdeAlergias+ " class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-12\">"+
-                                  "      <label for=txtAlergia"+ qtdeAlergias +">Alergia: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtAlergia"+ qtdeAlergias +">Alergia: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtAlergia"+ qtdeAlergias +" name=\"txtAlergia\" placeholder=\"Ex.: Rémedio tal\">"+
                                   "  </div>"+
                                   "</div>");
@@ -168,19 +167,18 @@ $("#txtUsoMtoCt").change(function() {
     }
 });
 
-$("#btnAddMtoCt").click(function(){           
-    $("#linha" + qtdeMtoCt).remove();
+$("#btnAddMtoCt").click(function(){
     $("#fieldsetMtoCt").append("<div id=linha" + qtdeMtoCt + " class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-8\">"+
-                                  "      <label for=txtNomeMtoCt"+ qtdeMtoCt +">Nome: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtNomeMtoCt"+ qtdeMtoCt +">Nome: <span class=\"campo-obrigatorio\"> *</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtNomeMtoCt"+ qtdeMtoCt +" name=\"txtNomeMtoCt\" placeholder=\"Ex.: Rémedio tal\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-2\">"+
-                                  "      <label for=txtFrqMtoCt"+ qtdeMtoCt +">Frequência: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtFrqMtoCt"+ qtdeMtoCt +">Frequência: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtFrqMtoCt"+ qtdeMtoCt +" name=\"txtFrqMtoCt\" placeholder=\"Ex.: vezes\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-2\">"+
-                                  "      <label for=txtFrqMtoCt"+ qtdeMtoCt +">Por: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtFrqMtoCt"+ qtdeMtoCt +">Por: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <select class=\"form-control\" id=txtTpMtoCt"+ qtdeMtoCt +" name=\"txtTpMtoCt\">"+
                                   "         <option value=\"0\" selected>Selecione o tipo...</option>"+
                                   "         <option value=\"hr\">Hora</option>"+
@@ -192,6 +190,30 @@ $("#btnAddMtoCt").click(function(){
                                   "  </div>"+
                                   "</div>");
     qtdeMtoCt++;
+});
+
+//Acionamento form Termogênicos, Ergonênicos e Suplementos Alimentares
+var qtdeTermErgSupAli = document.querySelectorAll('#fieldsetTermErgSupAli .form-row').length + 1;
+
+$("#txtUsoTermErgSupAli").change(function() {    
+    if($("#txtUsoTermErgSupAli").val() === "s"){
+        $("#divTermErgSupAli").css("display", "block");        
+    }
+    else if($("#txtUsoTermErgSupAli").val() === "n" || $("#txtUsoTermErgSupAli").val() === "0"){
+        $("#divTermErgSupAli").css("display", "none");
+        $("#fieldsetTermErgSupAli .form-row").remove();
+        qtdeTermErgSupAli = 1;
+    }
+});
+
+$("#btnAddTermErgSupAli").click(function(){
+    $("#fieldsetTermErgSupAli").append("<div id=linha" + qtdeTermErgSupAli + " class=\"form-row\">"+
+                                  "  <div class=\"form-group col-md-12\">"+
+                                  "      <label for=txtNomeTermErgSupAli"+ qtdeTermErgSupAli +">Nome: <spam class=\"campo-obrigatorio\">*</span></label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtNomeTermErgSupAli"+ qtdeTermErgSupAli +" name=\"txtNomeTermErgSupAli\" placeholder=\"Ex.: Rémedio tal\">"+
+                                  "  </div>"+
+                                  "</div>");
+    qtdeTermErgSupAli++;
 });
 
 //Acionamento form Idiomas
