@@ -632,15 +632,15 @@
                         <div class="fieldset-interno">
                             <div class="form-row">                                
                                 <div class="form-group col-md-7">
-                                    <label for="txtFormEscNome">Escola de Formação: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <label for="txtFormEscNome">Escola de Formação: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtFormEscNome" name="txtFormEscNome" placeholder="Ex.: Escola de Sargentos das Armas">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="txtFormEscAbrev">Abreviatura: </label><spam class="campo-obrigatorio"> *</spam>
+                                    <label for="txtFormEscAbrev">Abreviatura: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtFormEscAbrev" name="txtFormEscAbrev" placeholder="Ex.: ESA">
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <label for="txtFormTurma">Turma</label><spam class="campo-obrigatorio"> *</spam>
+                                    <label for="txtFormTurma">Turma: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtFormTurma" name="txtFormTurma" placeholder="Ex.: 2018">
                                 </div>  
                             </div>                            
@@ -651,8 +651,8 @@
                         <div class="fieldset-interno">                            
                             <div class="form-row">                                
                                 <div class="form-group col-md-12">
-                                    <label for="txtComportamento">Comportamento:</label><spam class="campo-obrigatorio"> *</spam>
-                                    <select class="form-control" id="txtComportamento" name="txtComportamento">
+                                    <label for="txtCptmAl">Comportamento: <span class="campo-obrigatorio">*</span></label>
+                                    <select class="form-control" id="txtCptmAl" name="txtCptmAl">
                                         <option value="0" selected>Selecione um comportamento...</option>
                                     </select>
                                 </div>                                
@@ -664,20 +664,20 @@
                         <div class="fieldset-interno">                            
                             <div class="form-row">                            
                             <div class="form-group col-md-4">
-                                <label for="txtDataUltPromo">Data da última promoção: </label><spam class="campo-obrigatorio"> *</spam>
-                                <input type="text" class="form-control" id="txtDataUltPromo" name="txtDataUltPromo" placeholder="Ex.: DD/MM/AAAA">
+                                <label for="txtDataUltProm">Data da última promoção: <span class="campo-obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="txtDataUltProm" name="txtDataUltProm" placeholder="Ex.: DD/MM/AAAA">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="txtQaPromo">Está no QA para Promoção?</label><spam class="campo-obrigatorio"> *</spam>
-                                <select class="form-control" id="txtQaPromo" name="txtQaPromo">
+                                <label for="txtQaProm">Está no QA para Promoção?<span class="campo-obrigatorio"> *</span></label>
+                                <select class="form-control" id="txtQaProm" name="txtQaProm">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="s">SIM</option>
                                     <option value="n">NÃO</option>
                                 </select>
                             </div>
                                 <div id="divQaQuando" class="form-group col-md-4" style="display: none;">
-                                <label for="txtQaQuanoPromo">Quando?</label><spam class="campo-obrigatorio"> *</spam>
-                                <input type="text" class="form-control" id="txtQaQuanoPromo" name="txtQaQuanoPromo" placeholder="Ex.: DD/MM/AAAA">
+                                <label for="txtQaQuanoProm">Quando?<span class="campo-obrigatorio"> *</span></label>
+                                <input type="text" class="form-control" id="txtQaQuanoProm" name="txtQaQuanoProm" placeholder="Ex.: DD/MM/AAAA">
                             </div>
                         </div>                            
                         </div>
@@ -687,11 +687,11 @@
                         <div class="fieldset-interno">                            
                             <div class="form-row">                                
                                 <div class="form-group col-md-6">
-                                    <label for="txtDataUltTaf">Data do último TAF:</label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txtDataUltTaf" name="txtDataUltTaf" placeholder="Ex.: 00/00/0000">
+                                    <label for="txtDataUltTAF">Data do último TAF: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtDataUltTAF" name="txtDataUltTAF" placeholder="Ex.: 00/00/0000">
                                 </div>                                
                                 <div class="form-group col-md-6">
-                                    <label for="txtMencaoTAF">Menção:</label><spam class="campo-obrigatorio"> *</spam>
+                                    <label for="txtMencaoTAF">Menção: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtMencaoTAF" name="txtMencaoTAF">
                                         <option value="0" selected>Selecione uma menção...</option>
                                         <option value="I">I</option>
@@ -705,20 +705,20 @@
                             
                         </div>
                         <div class="header-interno">
-                            <h5 class="title-interno">Últimas três funções</h5>
+                            <h5 class="title-interno">Últimas Três Funções</h5>
                         </div>
                         <div class="fieldset-interno">                            
                             <div class="form-row">                                
                                 <div class="form-group col-md-4">
-                                    <label for="txtFunc1">Função 1:</label><spam class="campo-obrigatorio"> *</spam>
+                                    <label for="txtFunc1">Função 1: <span class="campo-obrigatorio"> *</span></label>
                                     <input type="text" class="form-control" id="txtFunc1" name="txtFunc1" placeholder="Ex.: Cmt Pel">
                                 </div>                                
                                 <div class="form-group col-md-4">
-                                    <label for="txtFunc2">Função 2:</label><spam class="campo-obrigatorio"> *</spam>
+                                    <label for="txtFunc2">Função 2: <span class="campo-obrigatorio"> *</span></label>
                                     <input type="text" class="form-control" id="txtFunc2" name="txtFunc2" placeholder="Ex.: Cmt Cia">
                                 </div>                                
                                 <div class="form-group col-md-4">
-                                    <label for="txtFunc3">Função 3:</label><spam class="campo-obrigatorio"> *</spam>
+                                    <label for="txtFunc3">Função 3: <span class="campo-obrigatorio"> *</span></label>
                                     <input type="text" class="form-control" id="txtFunc3" name="txtFunc3" placeholder="Ex.: Enc Mat">
                                 </div>                         
                             </div> 
@@ -734,65 +734,123 @@
                     </div>
                     <div class="fieldset-body">
                         <div class="header-interno">
+                            <h5 class="title-interno">Cônjuge</h5>
+                        </div>
+                        <div class="fieldset-interno">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="txtPossuiConjuge">Possui Cônjuge?<span class="campo-obrigatorio"> *</span></label>
+                                    <select class="form-control" id="txtPossuiConjuge" name="txtPossuiConjuge">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="divConjuge" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="txtCpfConjuge">CPF: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtCpfConjuge" name="txtCpfConjuge" placeholder="Ex.: 000.000.000-00">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="txtNomeConjuge">Nome: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtNomeConjuge" name="txtNomeConjuge" placeholder="Ex.: Fulano">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="txtSobrenomeConjuge">Sobrenome: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtSobrenomeConjuge" name="txtSobrenomeConjuge" placeholder="Ex.: de Tal">
+                                </div>               
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="txtEmailConjuge">Email: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtEmailConjuge" name="txtEmailConjuge" placeholder="Ex.: fulanodetal@gmail.com">
+                                </div>                                  
+                                <div class="form-group col-md-4">
+                                    <label for="txtFoneConjuge">Fone: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtFoneConjuge" name="txtFoneConjuge" placeholder="Ex.: (00) 00000-0000">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-interno">
                             <h5 class="title-interno">Referência</h5>
                         </div>
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtParentesco">Parentesco: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <select class="form-control" id="txtParentesco" name="txtParentesco">
+                                    <label for="txtParentescoRef">Parentesco: <span class="campo-obrigatorio">*</span></label>
+                                    <select class="form-control" id="txtParentescoRef" name="txtParentescoRef">
                                         <option value="0" selected>Selecione um Parentesco...</option>
                                     </select>
                                 </div>
-
-                                <div class="form-group col-md-8">
-                                    <label for="txtNome">Nome: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+                                <div class="form-group col-md-3">
+                                    <label for="txtNomeRef">Nome: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtNomeRef" name="txtNomeRef" placeholder="Ex.: Fulano">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="txtSobrenomeRef">Sobrenome: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtSobrenomeRef" name="txtSobrenomeRef" placeholder="Ex.: de Tal">
                                 </div>               
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label for="txtCpf">CPF: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txtCpf" name="txtCpf" placeholder="CPF">
-                                </div> 
-
-                                <div class="form-group col-md-3">
-                                    <label for="txttxtFone">Fone: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txttxtFone" name="txtFone" placeholder="Fone">
+                                    <label for="txtCpfRef">CPF: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtCpfRef" name="txtCpfRef" placeholder="Ex.: 000.000.000-00">
                                 </div>
-
                                 <div class="form-group col-md-6">
-                                    <label for="txtEmail">Email: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
-                                </div>  
+                                    <label for="txtEmailRef">Email: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtEmailRef" name="txtEmailRef" placeholder="Ex.: fulanodetal@gmail.com">
+                                </div> 
+                                <div class="form-group col-md-3">
+                                    <label for="txtFoneRef">Fone: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtFoneRef" name="txtFoneRef" placeholder="Ex.: (00) 00000-0000">
+                                </div>                                 
                             </div>
-                        </div>
-                        
-                        <div class="header-interno">
-                            <h5 class="title-interno">Cônjuge</h5>
                         </div>
                         <div class="fieldset-interno">
                             <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="txtAddRefConclusao">Deseja adicionar um contato como referência em caso de conclusão do curso e demais informações?<span class="campo-obrigatorio"> *</span></label>
+                                    <select class="form-control" id="txtAddRefConclusao" name="txtAddRefConclusao">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="divRefConclusao" class="fieldset-interno fieldset-dependente" style="display: none;">
+                            <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtCpf">CPF: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txtCpf" name="txtCpf" placeholder="CPF">
-                                </div> 
-
-                                <div class="form-group col-md-8">
-                                    <label for="txtNome">Nome: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+                                    <label for="txtParentescoRefConclusao">Parentesco: <span class="campo-obrigatorio">*</span></label>
+                                    <select class="form-control" id="txtParentescoRefConclusao" name="txtParentescoRefConclusao">
+                                        <option value="0" selected>Selecione um Parentesco...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="txtNomeRefConclusao">Nome: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtNomeRefConclusao" name="txtNomeRefConclusao" placeholder="Ex.: Fulano">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="txtSobrenomeRefConclusao">Sobrenome: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtSobrenomeRefConclusao" name="txtSobrenomeRefConclusao" placeholder="Ex.: de Tal">
                                 </div>               
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="txttxtFone">Fone: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txttxtFone" name="txtFone" placeholder="Fone">
+                                <div class="form-group col-md-3">
+                                    <label for="txtCpfRefConclusao">CPF: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtCpfRefConclusao" name="txtCpfRefConclusao" placeholder="Ex.: 000.000.000-00">
                                 </div>
-
-                                <div class="form-group col-md-8">
-                                    <label for="txtEmail">Email: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
-                                </div>  
+                                <div class="form-group col-md-6">
+                                    <label for="txtEmailRefConclusao">Email: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtEmailRefConclusao" name="txtEmailRefConclusao" placeholder="Ex.: fulanodetal@gmail.com">
+                                </div> 
+                                <div class="form-group col-md-3">
+                                    <label for="txtFoneRefConclusao">Fone: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtFoneRefConclusao" name="txtFoneRefConclusao" placeholder="Ex.: (00) 00000-0000">
+                                </div>                                 
                             </div>
                         </div>
                     </div>
@@ -810,62 +868,60 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-2">
-                                    <label for="txtCEP">CEP: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txtCEP" name="txtCEP" placeholder="CEP">
+                                    <label for="txtCepEndResid">CEP: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtCepEndResid" name="txtCepEndResid" placeholder="Ex.: 00000-000">
                                 </div> 
-                                
+
                                 <div class="form-group col-md-3">
-                                    <label for="txtLog">Logradouro: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <select class="form-control" id="txtLog" name="txtLog">
-                                        <option value="0" selected>Selecione um Logradouro...</option>
-                                        <option value="Av">Avenida</option>
-                                        <option value="Rua">Rua</option>                                        
+                                    <label for="txtLogEndResid">Logradouro: <span class="campo-obrigatorio">*</span></label>
+                                    <select class="form-control" id="txtLogEndResid" name="txtLogEndResid">
+                                        <option value="0" selected>Selecione um Logradouro...</option>                                      
                                     </select>
                                 </div>
 
-                                <div class="form-group col-md-6">
-                                    <label for="txtNome">Nome: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+                                <div class="form-group col-md-5">
+                                    <label for="txtNomeEndResid">Nome: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtNomeEndResid" name="txtNomeEndResid" placeholder="Ex.: Constantino Nery">
                                 </div>
-                                <div class="form-group col-md-1">
-                                    <label for="txtNum">Número: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <input type="text" class="form-control" id="txtNum" name="txtNum" placeholder="Número">
+                                <div class="form-group col-md-2">
+                                    <label for="txtNumEndResid">Número: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtNumEndResid" name="txtNumEndResid" placeholder="Ex.: 1000">
                                 </div>                                 
                             </div>                        
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label for="txtPais">País: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <select class="form-control" id="txtPais" name="txtPais">
+                                    <label for="txtPaisEndResid">País: <span class="campo-obrigatorio">*</span></label>
+                                    <select class="form-control" id="txtPaisEndResid" name="txtPaisEndResid">
                                         <option value="0" selected>Selecione um País...</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="txtEstado">Estado: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <select class="form-control" id="txtEstado" name="txtEstado">
+                                    <label for="txtEstadoEndResid">Estado: <span class="campo-obrigatorio">*</span></label>
+                                    <select class="form-control" id="txtEstadoEndResid" name="txtEstadoEndResid">
                                         <option value="0" selected>Selecione um Estado...</option>
                                     </select>
                                 </div>                                    
                                 <div class="form-group col-md-3">
-                                    <label for="txtCidade">Cidade: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <select class="form-control" id="txtCidade" name="txtCidade">
+                                    <label for="txtCidadeEndResid">Cidade: <span class="campo-obrigatorio">*</span></label>
+                                    <select class="form-control" id="txtCidadeEndResid" name="txtCidadeEndResid">
                                         <option value="0" selected>Selecione uma Cidade...</option>
                                     </select>
                                 </div>                                    
                                 <div class="form-group col-md-3">
-                                    <label for="txtBairro">Bairro: </label><spam class="campo-obrigatorio"> *</spam>
-                                    <select class="form-control" id="txtBairo" name="txtBairro">
+                                    <label for="txtBairroEndResid">Bairro: <span class="campo-obrigatorio">*</span></label>
+                                    <select class="form-control" id="txtBairoEndResid" name="txtBairroEndResid">
                                         <option value="0" selected>Selecione um Bairro...</option>
                                     </select>
                                 </div>                                    
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="txtEndCompOM">Complemento: </label>
-                                    <input type="text" class="form-control" id="txtEndCompOM" name="txtCompOM" placeholder="Ex.: Quadra, Apartamento etc.">
+                                    <label for="txtCompEndResid">Complemento: </label>
+                                    <input type="text" class="form-control" id="txtCompEndResid" name="txtCompEndResid" placeholder="Ex.: Quadra, Apartamento etc.">
                                 </div> 
                                 <div class="form-group col-md-6">
-                                    <label for="txtEndPtRefom">Ponto de Referência: </label>
-                                    <input type="text" class="form-control" id="txtEndPtRefOM" name="txtEndPtRefOM" placeholder="Ex.: Próximo a Arena da Amazônia">
+                                    <label for="txtPtRefEndResid">Ponto de Referência: </label>
+                                    <input type="text" class="form-control" id="txtPtRefEndResid" name="txtPtRefEndResid" placeholder="Ex.: Próximo a Arena da Amazônia">
                                 </div> 
                             </div>
                         </div>
@@ -887,62 +943,60 @@
                             <div class="fieldset-interno">
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
-                                        <label for="txtCepEndCurso">CEP: </label>
-                                        <input type="text" class="form-control" id="txtCepEndCurso" name="txtCepEndCurso" placeholder="CEP">
+                                        <label for="txtCepEndCurso">CEP: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="text" class="form-control" id="txtCepEndCurso" name="txtCepEndCurso" placeholder="Ex.: 00000-000">
                                     </div> 
 
                                     <div class="form-group col-md-3">
-                                        <label for="txtLogEndCurso">Logradouro: </label>
+                                        <label for="txtLogEndCurso">Logradouro: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtLogEndCurso" name="txtLogEndCurso">
-                                            <option value="0" selected>Selecione um Logradouro...</option>
-                                            <option value="Av">Avenida</option>
-                                            <option value="Rua">Rua</option>                                        
+                                            <option value="0" selected>Selecione um Logradouro...</option>                                      
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-md-6">
-                                        <label for="txtNomeEndCurso">Nome: </label>
-                                        <input type="text" class="form-control" id="txtNomeEndCurso" name="txtNomeEndCurso" placeholder="Nome">
+                                    <div class="form-group col-md-5">
+                                        <label for="txtNomeEndCurso">Nome: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="text" class="form-control" id="txtNomeEndCurso" name="txtNomeEndCurso" placeholder="Ex.: Constantino Nery">
                                     </div>
-                                    <div class="form-group col-md-1">
-                                        <label for="txtNumEndCurso">Número: </label>
-                                        <input type="text" class="form-control" id="txtNumEndCurso" name="txtNumEndCurso" placeholder="Número">
-                                    </div> 
+                                    <div class="form-group col-md-2">
+                                        <label for="txtNumEndCurso">Número: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="text" class="form-control" id="txtNumEndCurso" name="txtNumEndCurso" placeholder="Ex.: 1000">
+                                    </div>                                 
                                 </div>                        
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
-                                        <label for="txtPaisEndCurso">País: </label>
+                                        <label for="txtPaisEndCurso">País: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtPaisEndCurso" name="txtPaisEndCurso">
                                             <option value="0" selected>Selecione um País...</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="txtEstadoEndCurso">Estado: </label>
+                                        <label for="txtEstadoEndCurso">Estado: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtEstadoEndCurso" name="txtEstadoEndCurso">
                                             <option value="0" selected>Selecione um Estado...</option>
                                         </select>
                                     </div>                                    
                                     <div class="form-group col-md-3">
-                                        <label for="txtCidadeEndCurso">Cidade: </label>
+                                        <label for="txtCidadeEndCurso">Cidade: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtCidadeEndCurso" name="txtCidadeEndCurso">
                                             <option value="0" selected>Selecione uma Cidade...</option>
                                         </select>
                                     </div>                                    
                                     <div class="form-group col-md-3">
-                                        <label for="txtBairroEndCurso">Bairro: </label>
-                                        <select class="form-control" id="txtBairo" name="txtBairroEndCurso">
+                                        <label for="txtBairroEndCurso">Bairro: <span class="campo-obrigatorio">*</span></label>
+                                        <select class="form-control" id="txtBairroEndCurso" name="txtBairroEndCurso">
                                             <option value="0" selected>Selecione um Bairro...</option>
                                         </select>
                                     </div>                                    
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="txtEndCompOM">Complemento: </label>
-                                        <input type="text" class="form-control" id="txtEndCompOM" name="txtCompOM" placeholder="Ex.: Quadra, Apartamento etc.">
+                                        <label for="txtCompEndCurso">Complemento: </label>
+                                        <input type="text" class="form-control" id="txtCompEndCurso" name="txtCompEndCurso" placeholder="Ex.: Quadra, Apartamento etc.">
                                     </div> 
                                     <div class="form-group col-md-6">
-                                        <label for="txtEndPtRefom">Ponto de Referência: </label>
-                                        <input type="text" class="form-control" id="txtEndPtRefOM" name="txtEndPtRefOM" placeholder="Ex.: Próximo a Arena da Amazônia">
+                                        <label for="txtPtRefEndCurso">Ponto de Referência: </label>
+                                        <input type="text" class="form-control" id="txtPtRefEndCurso" name="txtPtRefEndCurso" placeholder="Ex.: Próximo a Arena da Amazônia">
                                     </div> 
                                 </div>
                             </div>
@@ -1180,6 +1234,10 @@
         <script src="../assets/node_modules/popper.js/dist/popper.js"></script>
         <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
         <script src="../assets/js/formularioEtapas.js"></script>
-        
+        <script src="../assets/js/bootstrap-validate.js"></script>
+        <script>
+            
+                bootstrapValidate("#txtNomeOM", "min:5:Minimo 5 porra, caralho");
+        </script>
     </body>
 </html>

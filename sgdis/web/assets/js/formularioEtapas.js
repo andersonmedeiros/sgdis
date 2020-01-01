@@ -64,15 +64,7 @@ $("#txtEndCurso").change(function() {
     }
 });
 
-$("#txtQaPromo").change(function() {
-    if($("#txtQaPromo").val() === "s"){
-        $("#divQaQuando").css("display", "block");
-    }
-    else if($("#txtQaPromo").val() === "n" || $("#txtQaPromo").val() === "0"){
-        $("#divQaQuando").css("display", "none");
-    }
-});
-
+//Acionamento form CNH
 $("#txtPossuiCNH").change(function() {
     if($("#txtPossuiCNH").val() === "s"){
         $("#divCNH").css("display", "block");
@@ -214,6 +206,36 @@ $("#btnAddTermErgSupAli").click(function(){
                                   "  </div>"+
                                   "</div>");
     qtdeTermErgSupAli++;
+});
+
+//Acionamento form Data do QA de Promoção
+$("#txtQaProm").change(function() {
+    if($("#txtQaProm").val() === "s"){
+        $("#divQaQuando").css("display", "block");
+    }
+    else if($("#txtQaProm").val() === "n" || $("#txtQaProm").val() === "0"){
+        $("#divQaQuando").css("display", "none");
+    }
+});
+
+//Acionamento form Cônjuge
+$("#txtPossuiConjuge").change(function() {
+    if($("#txtPossuiConjuge").val() === "s"){
+        $("#divConjuge").css("display", "block");
+    }
+    else if($("#txtPossuiConjuge").val() === "n" || $("#txtPossuiConjuge").val() === "0"){
+        $("#divConjuge").css("display", "none");
+    }
+});
+
+//Acionamento form Referência Conclusão de Curso
+$("#txtAddRefConclusao").change(function() {
+    if($("#txtAddRefConclusao").val() === "s"){
+        $("#divRefConclusao").css("display", "block");
+    }
+    else if($("#txtAddRefConclusao").val() === "n" || $("#txtAddRefConclusao").val() === "0"){
+        $("#divRefConclusao").css("display", "none");
+    }
 });
 
 //Acionamento form Idiomas
