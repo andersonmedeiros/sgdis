@@ -42,8 +42,8 @@ $("#txtEndCurso").change(function() {
         $("#txtNumEndCurso").val("750");
         $("#txtPaisEndCurso").val("0");
         $("#txtEstadoEndCurso").val("0");
-        $("#txtCidadeEndCurso").val("");
-        $("#txtBairroEndCurso").val("");
+        $("#txtCidadeEndCurso").val("0");
+        $("#txtBairroEndCurso").val("0");
         $("#txtPtRefEndCurso").val("");
     }
     //Mesmo endereço de residêcnia
@@ -60,7 +60,7 @@ $("#txtEndCurso").change(function() {
         $("#txtEstadoEndCurso").val("0");
         $("#txtCidadeEndCurso").val("0");
         $("#txtBairroEndCurso").val("0");
-        $("#txtPtRefEndCurso").val("0");
+        $("#txtPtRefEndCurso").val("");
     }
 });
 
@@ -201,7 +201,7 @@ $("#txtUsoTermErgSupAli").change(function() {
 $("#btnAddTermErgSupAli").click(function(){
     $("#fieldsetTermErgSupAli").append("<div id=linha" + qtdeTermErgSupAli + " class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-12\">"+
-                                  "      <label for=txtNomeTermErgSupAli"+ qtdeTermErgSupAli +">Nome: <spam class=\"campo-obrigatorio\">*</span></label>"+
+                                  "      <label for=txtNomeTermErgSupAli"+ qtdeTermErgSupAli +">Nome: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtNomeTermErgSupAli"+ qtdeTermErgSupAli +" name=\"txtNomeTermErgSupAli\" placeholder=\"Ex.: Rémedio tal\">"+
                                   "  </div>"+
                                   "</div>");
@@ -256,48 +256,18 @@ $("#btnAddIdioma").click(function(){
     $("#linha" + qtdeIdiomas).remove();
     $("#fieldsetIdiomas").append("<div id=linha"+ qtdeIdiomas +" class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-8\">"+
-                                  "      <label for=txtIdioma"+ qtdeIdiomas +">Idioma: </label>"+"<spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtIdioma"+ qtdeIdiomas +">Idioma: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtIdioma"+ qtdeIdiomas +" name=\"txtIdioma\" placeholder=\"Ex.: Espanhol\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-4\">"+
-                                  "      <label for=txtIplIdioma"+ qtdeIdiomas +">IPL: </label>"+"<spam class=\"campo-obrigatorio\"> *</spam>"+
+                                  "      <label for=txtIplIdioma"+ qtdeIdiomas +">IPL: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtIplIdioma"+ qtdeIdiomas +" name=\"txtIplIdioma\" placeholder=\"Ex.: \">"+
                                   "  </div>"+
                                   "</div>");
     qtdeIdiomas++;
 });
 
-//Acionamento form Estagios
-var qtdeEstagios = document.querySelectorAll('#fieldsetEstagios .form-row').length + 1;
-
-$("#txtPossuiEstMil").change(function() {    
-    if($("#txtPossuiEstMil").val() === "s"){
-        $("#divEstagios").css("display", "block");        
-    }
-    else if($("#txtPossuiEstMil").val() === "n" || $("#txtPossuiEstMil").val() === "0"){
-        $("#divEstagios").css("display", "none");
-        $("#fieldsetEstagios .form-row").remove();
-        qtdeEstagios = 1;
-    }
-});
-
-$("#btnAddEstagio").click(function(){           
-    $("#linha" + qtdeEstagios).remove();
-    $("#fieldsetEstagios").append("<div id=linha"+ qtdeEstagios +" class=\"form-row\">"+
-                                  "  <div class=\"form-group col-md-8\">"+
-                                  "      <label for=txtEstagio"+ qtdeEstagios +">Estagio "+ qtdeEstagios +": </label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtEstagio"+ qtdeEstagios +" name=\"txtEstagio\" placeholder=\"Ex.: Caatinga\">"+
-                                  "  </div>"+
-                                  "  <div class=\"form-group col-md-4\">"+
-                                  "      <label for=txtAnoEstagio"+ qtdeEstagios +">Ano de Conclusão "+ qtdeEstagios +": </label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoEstagio"+ qtdeEstagios +" name=\"txtAnoEstagio\" placeholder=\"Ex.: 2018\">"+
-                                  "  </div>"+  
-                                  "</div>");
-    qtdeEstagios++;
-});
-
-//Acionamento form Curso Aperfeiçoamento
-
+//Acionamento form Curso de Aperfeiçoamento
 $("#txtPossuiCAperf").change(function() {
     if($("#txtPossuiCAperf").val() === "s"){
         $("#divCAperf").css("display", "block");
@@ -308,32 +278,13 @@ $("#txtPossuiCAperf").change(function() {
 });
 
 //Acionamento form Curso de Altos Estudos
-var qtdeCAltEstudos = document.querySelectorAll('#fieldsetCAltEstudos .form-row').length + 1;
-
-$("#txtPossuiCAltEstudos").change(function() {    
+$("#txtPossuiCAltEstudos").change(function() {
     if($("#txtPossuiCAltEstudos").val() === "s"){
-        $("#divCAltEstudos").css("display", "block");        
+        $("#divCAltEstudos").css("display", "block");
     }
     else if($("#txtPossuiCAltEstudos").val() === "n" || $("#txtPossuiCAltEstudos").val() === "0"){
         $("#divCAltEstudos").css("display", "none");
-        $("#fieldsetCAltEstudos .form-row").remove();
-        qtdeCAltEstudos = 1;
     }
-});
-
-$("#btnAddCAltEstudos").click(function(){           
-    $("#linha" + qtdeCAltEstudos).remove();
-    $("#fieldsetCAltEstudos").append("<div id=linha"+ qtdeCAltEstudos +" class=\"form-row\">"+
-                                  "  <div class=\"form-group col-md-8\">"+
-                                  "      <label for=txtCAltEstudos"+ qtdeCAltEstudos +">Curso de Altos Estudos "+ qtdeCAltEstudos +": </label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtCAltEstudos"+ qtdeCAltEstudos +" name=\"txtCAltEstudos\" placeholder=\"Ex.: Caatinga\">"+
-                                  "  </div>"+
-                                  "  <div class=\"form-group col-md-4\">"+
-                                  "      <label for=txtAnoCAltEstudos"+ qtdeCAltEstudos +">Ano de Conclusão "+ qtdeCAltEstudos +": </label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoCAltEstudos"+ qtdeCAltEstudos +" name=\"txtAnoCAltEstudos\" placeholder=\"Ex.: 2018\">"+
-                                  "  </div>"+
-                                  "</div>");
-    qtdeCAltEstudos++;
 });
 
 //Acionamento form Curso de Extensão ou Especialização
@@ -351,24 +302,51 @@ $("#txtPossuiCExtsEsp").change(function() {
 });
 
 $("#btnAddCExtsEsp").click(function(){           
-    $("#linha" + qtdeCExtsEsp).remove();
     $("#fieldsetCExtsEsp").append("<div id=linha"+ qtdeCExtsEsp +" class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-3\">"+
-                                  "      <label for=txtTipoCExtsEsp"+ qtdeCExtsEsp +">Tipo"+ qtdeCExtsEsp +": </label>"+
+                                  "      <label for=txtTipoCExtsEsp"+ qtdeCExtsEsp +">Tipo: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <select class=\"form-control\" id=txtTipoCExtsEsp"+ qtdeCExtsEsp +" name=\"txtTipoCExtsEsp\">"+
                                   "         <option value=\"0\" selected>Selecione o tipo...</option>"+
-                                  "         <option value=\"Exts\">Extensão</option>"+
-                                  "         <option value=\"Esp\">Especialização</option>"+
+                                  "         <option value=\"exts\">Extensão</option>"+
+                                  "         <option value=\"esp\">Especialização</option>"+
                                   "     </select>"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-6\">"+
-                                  "      <label for=txtCExtsEsp"+ qtdeCExtsEsp +">Curso"+ qtdeCExtsEsp +": </label>"+
+                                  "      <label for=txtCExtsEsp"+ qtdeCExtsEsp +">Curso: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtCExtsEsp"+ qtdeCExtsEsp +" name=\"txtCExtsEsp\" placeholder=\"Ex.: Básico Paraquedista\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-3\">"+
-                                  "      <label for=txtAnoCExtsEsp"+ qtdeCExtsEsp +">Ano de Conclusão "+ qtdeCExtsEsp +": </label>"+
+                                  "      <label for=txtAnoCExtsEsp"+ qtdeCExtsEsp +">Ano de Conclusão: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtAnoCExtsEsp"+ qtdeCExtsEsp +" name=\"txtAnoCExtsEsp\" placeholder=\"Ex.: 2018\">"+
                                   "  </div>"+
                                   "</div>");
     qtdeCExtsEsp++;
+});
+
+//Acionamento form Estagios
+var qtdeEstagios = document.querySelectorAll('#fieldsetEstagios .form-row').length + 1;
+
+$("#txtPossuiEstMil").change(function() {    
+    if($("#txtPossuiEstMil").val() === "s"){
+        $("#divEstagios").css("display", "block");        
+    }
+    else if($("#txtPossuiEstMil").val() === "n" || $("#txtPossuiEstMil").val() === "0"){
+        $("#divEstagios").css("display", "none");
+        $("#fieldsetEstagios .form-row").remove();
+        qtdeEstagios = 1;
+    }
+});
+
+$("#btnAddEstagio").click(function(){      
+    $("#fieldsetEstagios").append("<div id=linha"+ qtdeEstagios +" class=\"form-row\">"+
+                                  "  <div class=\"form-group col-md-8\">"+
+                                  "      <label for=txtEstagio"+ qtdeEstagios +">Estagio: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtEstagio"+ qtdeEstagios +" name=\"txtEstagio\" placeholder=\"Ex.: Caatinga\">"+
+                                  "  </div>"+
+                                  "  <div class=\"form-group col-md-4\">"+
+                                  "      <label for=txtAnoEstagio"+ qtdeEstagios +">Ano de Conclusão: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoEstagio"+ qtdeEstagios +" name=\"txtAnoEstagio\" placeholder=\"Ex.: 2018\">"+
+                                  "  </div>"+  
+                                  "</div>");
+    qtdeEstagios++;
 });

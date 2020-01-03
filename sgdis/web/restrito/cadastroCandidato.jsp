@@ -1015,8 +1015,8 @@
                         </div>
                         <div class="fieldset-interno">
                             <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="txtHabIdiomas">É habilitado em Idiomas?</label><spam class="campo-obrigatorio"> *</spam>
+                                <div class="form-group col-md-12">
+                                    <label for="txtHabIdiomas">É habilitado em Idiomas?<span class="campo-obrigatorio"> *</span></label>
                                     <select class="form-control" id="txtHabIdiomas" name="txtHabIdiomas">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
@@ -1027,39 +1027,21 @@
                         </div>
                         <div id="divIdiomas" class="fieldset-interno fieldset-dependente" style="display: none;">
                             <div class="header-interno">
-                                <h5 class="title-interno">Idiomas</h5>
+                                <h5 class="title-interno">Quais?</h5>
                             </div>
                             <div id="fieldsetIdiomas" class="fieldset-interno">
 
                             </div>
                             <button type="button" id="btnAddIdioma" name="btnAddIdioma" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                         </div>
-                        
                         <div class="header-interno">
-                            <h5 class="title-interno">Cursos</h5>
+                            <h5 class="title-interno">Curso de Aperferiçoamento</h5>
                         </div>
-                        <div class="fieldset-interno">                            
+                        <div class="fieldset-interno">
                             <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="txtPossuiCAperf">Possui curso de aperfeiçoamento?</label><spam class="campo-obrigatorio"> *</spam>
+                                <div class="form-group col-md-12">
+                                    <label for="txtPossuiCAperf">Possui curso de aperfeiçoamento?<span class="campo-obrigatorio"> *</span></label>
                                     <select class="form-control" id="txtPossuiCAperf" name="txtPossuiCAperf">
-                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
-                                        <option value="s">SIM</option>
-                                        <option value="n">NÃO</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group col-md-4">
-                                    <label for="txtPossuiCAltEstudos">Possui cursos de altos estudos?</label><spam class="campo-obrigatorio"> *</spam>
-                                    <select class="form-control" id="txtPossuiCAltEstudos" name="txtPossuiCAltEstudos">
-                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
-                                        <option value="s">SIM</option>
-                                        <option value="n">NÃO</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="txtPossuiCExtsEsp">Possui cursos extensão ou especialização?</label><spam class="campo-obrigatorio"> *</spam>
-                                    <select class="form-control" id="txtPossuiCExtsEsp" name="txtPossuiCExtsEsp">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
@@ -1068,38 +1050,73 @@
                             </div>
                         </div>
                         <div id="divCAperf" class="fieldset-interno fieldset-dependente" style="display: none;">
-                            <div class="header-interno">
-                                <h5 class="title-interno">Curso de Aperfeiçoamento</h5>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="txtCAperf">Curso: <span class="campo-obrigatorio">*</span></label>
+                                    <select class="form-control" id="txtCAperf" name="txtCAperf">
+                                        <option value="0" selected>Selecione o curso...</option>
+                                        <option value="esao">ESAO</option>
+                                        <option value="easa">EASA</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="txtAnoCAperf">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtAnoCAperf" name="txtAnoCAperf" placeholder="Ex.: 2018">
+                                </div>
                             </div>
-                            <div id="fieldsetCAperf" class="fieldset-interno">
-                                <div class="form-row">
-                                    <div class="form-group col-md-8">
-                                        <label for="txtCAperf">Curso: </label><spam class="campo-obrigatorio"> *</spam>
-                                        <input type="text" class="form-control" id="txtCAperf" name="txtCAperf" placeholder="Ex.: ESAO">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="txtAnCAperf">Ano de Conclusão: </label><spam class="campo-obrigatorio"> *</spam>
-                                        <input type="text" class="form-control" id="txtAnoCAperf" name="txtAnoCAperf" placeholder="Ex.: 2018">
-                                    </div>
+                        </div>
+                        <div class="header-interno">
+                            <h5 class="title-interno">Curso de Altos Estudos</h5>
+                        </div>
+                        <div class="fieldset-interno">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="txtPossuiCAltEstudos">Possui cursos de altos estudos?<span class="campo-obrigatorio"> *</span></label>
+                                    <select class="form-control" id="txtPossuiCAltEstudos" name="txtPossuiCAltEstudos">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <div id="divCAltEstudos" class="fieldset-interno fieldset-dependente" style="display: none;">
-                            <div class="header-interno">
-                                <h5 class="title-interno">Cursos de Altos Estudos</h5>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="txtCAltEstudos">Curso: <span class="campo-obrigatorio">*</span></label>
+                                    <select class="form-control" id="txtCAltEstudos" name="txtCAltEstudos">
+                                        <option value="0" selected>Selecione o curso...</option>
+                                        <option value="eceme">ECEME</option>
+                                        <option value="cgaem">CGAEM</option>
+                                        <option value="chqao">CHQAO</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="txtAnoCAltEstudos">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtAnoCAltEstudos" name="txtAnoCAltEstudos" placeholder="Ex.: 2018">
+                                </div>
                             </div>
-                            <div id="fieldsetCAltEstudos" class="fieldset-interno">
-
-                            </div>
-                            <button type="button" id="btnAddCAltEstudos" name="btnAddCAltEstudos" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                         </div>
-                        
-                        <div id="divCExtsEsp" class="fieldset-interno fieldset-dependente" style="display: none;">
+                        <div class="header-interno">
+                            <h5 class="title-interno">Curso de Extensão ou Especialização</h5>
+                        </div>
+                        <div class="fieldset-interno">                            
+                            <div class="form-row">                       
+                                <div class="form-group col-md-12">
+                                    <label for="txtPossuiCExtsEsp">Possui cursos extensão ou especialização?<span class="campo-obrigatorio"> *</span></label>
+                                    <select class="form-control" id="txtPossuiCExtsEsp" name="txtPossuiCExtsEsp">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>                
+                        <div id="divCExtsEsp" class="fieldset-interno fieldset-dependente" style="display: none;">                            
                             <div class="header-interno">
-                                <h5 class="title-interno">Curso de Extensão ou Especialização</h5>
+                                <h5 class="title-interno">Quais?</h5>
                             </div>
                             <div id="fieldsetCExtsEsp" class="fieldset-interno">
-
                             </div>
                             <button type="button" id="btnAddCExtsEsp" name="btnAddCExtsEsp" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                         </div>
@@ -1109,7 +1126,7 @@
                         </div>
                         <div class="fieldset-interno">
                             <div class="form-row">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-12">
                                     <label for="txtPossuiEstMil">Possui estágios militares operacionais?</label><spam class="campo-obrigatorio"> *</spam>
                                     <select class="form-control" id="txtPossuiEstMil" name="txtPossuiEstMil">
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
@@ -1121,10 +1138,9 @@
                         </div>
                         <div id="divEstagios" class="fieldset-interno fieldset-dependente" style="display: none;">
                             <div class="header-interno">
-                                <h5 class="title-interno">Estágios</h5>
+                                <h5 class="title-interno">Quais?</h5>
                             </div>
                             <div id="fieldsetEstagios" class="fieldset-interno">
-
                             </div>
                             <button type="button" id="btnAddEstagio" name="btnAddEstagio" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                         </div>                
@@ -1138,8 +1154,8 @@
                     </div>
                     <div class="fieldset-body">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="txtPrepFisica">Sua preparação física foi? </label><spam class="campo-obrigatorio"> *</spam>
+                            <div class="form-group col-md-12">
+                                <label for="txtPrepFisica">Sua preparação física foi?<span class="campo-obrigatorio"> *</span></label>
                                 <select class="form-control" id="txtPrepFisica" name="txtPrepFisica">
                                     <option value="0" selected>Selecione sua preparação física...</option>
                                     <option value="I">I</option>
@@ -1149,8 +1165,8 @@
                                     <option value="E">E</option>
                                 </select>
                             </div>                              
-                            <div class="form-group col-md-6">
-                                <label for="txtApoioFam">Obteve apoio de sua família para realização do curso? </label><spam class="campo-obrigatorio"> *</spam>
+                            <div class="form-group col-md-12">
+                                <label for="txtApoioFam">Obteve apoio de sua família para realização do curso?<span class="campo-obrigatorio"> *</span></label>
                                 <select class="form-control" id="txtApoioFam" name="txtApoioFam">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
@@ -1159,16 +1175,16 @@
                             </div>                              
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="txtApoioOM">Obteve apoio de sua OM durante o período de preparação para COS? </label><spam class="campo-obrigatorio"> *</spam>
+                            <div class="form-group col-md-12">
+                                <label for="txtApoioOM">Obteve apoio de sua OM durante o período de preparação para COS?<span class="campo-obrigatorio"> *</span></label>
                                 <select class="form-control" id="txtApoioOM" name="txtApoioOM">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
                             </div>                              
-                            <div class="form-group col-md-6">
-                                <label for="txtCPrepCOS">Sua OM proporcionou um Curso de Preparação para o COS? </label><spam class="campo-obrigatorio"> *</spam>
+                            <div class="form-group col-md-12">
+                                <label for="txtCPrepCOS">Sua OM proporcionou um Curso de Preparação para o COS?<span class="campo-obrigatorio"> *</span></label>
                                 <select class="form-control" id="txtCPrepCOS" name="txtCPrepCOS">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
@@ -1177,16 +1193,16 @@
                             </div>                              
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="txtProbRend">Há problemas que possam vir a comprometer seu rendimento no COS? </label><spam class="campo-obrigatorio"> *</spam>
+                            <div class="form-group col-md-12">
+                                <label for="txtProbRend">Há problemas que possam vir a comprometer seu rendimento no COS?<span class="campo-obrigatorio"> *</span></label>
                                 <select class="form-control" id="txtProbRend" name="txtProbRend">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
                             </div>                              
-                            <div class="form-group col-md-6">
-                                <label for="txtTempoPrep">O tempo de sua preparação foi suficiente? </label><spam class="campo-obrigatorio"> *</spam>
+                            <div class="form-group col-md-12">
+                                <label for="txtTempoPrep">O tempo de sua preparação foi suficiente?<span class="campo-obrigatorio"> *</span></label>
                                 <select class="form-control" id="txtTempoPrep" name="txtTempoPrep">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
@@ -1195,28 +1211,36 @@
                             </div>                              
                         </div>
                         <div class="form-row">                                                        
-                            <div class="form-group col-md-6">
-                                <label for="txtConsultaSite">Consultou o site do CIGS? </label><spam class="campo-obrigatorio"> *</spam>
-                                <select class="form-control" id="txtConsultaSite" name="txtConsultaSite">
-                                    <option value="0" selected>Selecione SIM ou NÃO...</option>
-                                    <option value="S">SIM</option>
-                                    <option value="N">NÃO</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="txtFatorMotivacao">Qual o fator que o motivou a realizar o COS? </label><spam class="campo-obrigatorio"> *</spam>
-                                <input type="text" class="form-control" id="txtFatorMotivacao" name="txtFatorMotivacao" placeholder="Apenas um fator">
-                            </div>                                                           
-                        </div>
-                        <div class="form-row">     
                             <div class="form-group col-md-12">
-                                <label for="txtDedicacaoDoutOPS">Dedicou tempo suficiente para seu preparo intelectual no assunto de Doutrina de Operações na Selva? </label><spam class="campo-obrigatorio"> *</spam>
+                                <label for="txtDedicacaoDoutOPS">Dedicou tempo suficiente para seu preparo intelectual no assunto de Doutrina de Operações na Selva?<span class="campo-obrigatorio"> *</span></label>
                                 <select class="form-control" id="txtDedicacaoDoutOPS" name="txtDedicacaoDoutOPS">
                                     <option value="0" selected>Selecione SIM ou NÃO...</option>
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
-                            </div>                  
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="txtFatorMotivacao">Qual o fator que o motivou a realizar o COS?<span class="campo-obrigatorio"> *</span></label>
+                                <input type="text" class="form-control" id="txtFatorMotivacao" name="txtFatorMotivacao" placeholder="Apenas um fator">
+                            </div>                                                           
+                        </div>
+                        <div class="form-row">                            
+                            <div class="form-group col-md-12">
+                                <label for="txtCsltSite">Consultou o site do CIGS?<span class="campo-obrigatorio"> *</span></label>
+                                <select class="form-control" id="txtCsltSite" name="txtCsltSite">
+                                    <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                    <option value="S">SIM</option>
+                                    <option value="N">NÃO</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="txtCsltAmbVirtAl">Consultou o ambiente virtual do aluno?<span class="campo-obrigatorio"> *</span></label>
+                                <select class="form-control" id="txtCsltAmbVirtAl" name="txtCsltAmbVirtAl">
+                                    <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                    <option value="S">SIM</option>
+                                    <option value="N">NÃO</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
