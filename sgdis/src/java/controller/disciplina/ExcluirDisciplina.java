@@ -74,7 +74,7 @@ public class ExcluirDisciplina extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
-        HttpSession sessao = request.getSession();
+        /*HttpSession sessao = request.getSession();
         DisciplinaDAO disciplinaDAO = new DisciplinaDAO();
         
         if(sessao.getAttribute("militarAutenticado") != null){
@@ -92,7 +92,7 @@ public class ExcluirDisciplina extends HttpServlet {
         }else{
             //e=4: Sessão Encerrada
             response.sendRedirect("/sgdis/index.jsp?e=4");
-        }
+        }*/
     }
 
     /**

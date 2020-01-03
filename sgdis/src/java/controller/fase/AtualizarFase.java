@@ -75,7 +75,7 @@ public class AtualizarFase extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
-        HttpSession sessao = request.getSession();
+        /*HttpSession sessao = request.getSession();
         
         if(sessao.getAttribute("militarAutenticado") != null){
             try{
@@ -101,13 +101,13 @@ public class AtualizarFase extends HttpServlet {
             }
             //e=6: atualização sucesso
             response.sendRedirect("/sgdis/restrito/fase.jsp?e=6");
-            /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
-            despachante.forward(request, response);*/
+            RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
+            despachante.forward(request, response);
         }
         else{
             //e=4: Sessão Encerrada
             response.sendRedirect("/sgdis/index.jsp?e=4");
-        }
+        }*/
     }
 
     /**
