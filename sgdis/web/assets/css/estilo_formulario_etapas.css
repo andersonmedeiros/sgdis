@@ -60,7 +60,7 @@ label{
     text-transform: uppercase;
     font-size: 12px;
     float: left;
-    width: 12.5%;
+    width: 11.11%;
     position: relative;
 }
 
@@ -157,4 +157,9 @@ label{
 .campo-obrigatorio{
     font-weight: bold;
     color: #dc0000;
+}
+
+.colTentC{
+    padding-left: 10px;
+    padding-right: 10px;
 }

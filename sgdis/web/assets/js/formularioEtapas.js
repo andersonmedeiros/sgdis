@@ -350,3 +350,125 @@ $("#btnAddEstagio").click(function(){
                                   "</div>");
     qtdeEstagios++;
 });
+
+//Acionamento form Serviços na Amazônia
+$("#txtSvAmz").change(function() {    
+    if($("#txtSvAmz").val() === "s"){
+        $("#divSvAmz").css("display", "block");        
+    }
+    else if($("#txtSvAmz").val() === "n" || $("#txtSvAmz").val() === "0"){
+        $("#divSvAmz").css("display", "none");
+        $("#fieldsetSvAmz .form-row").remove();
+    }
+});
+
+$("#txtQntSvAmz").change(function(){
+    $("#fieldsetSvAmz div").remove(".linha");
+    var qntSvAmz = $("#txtQntSvAmz").val();
+    for(var i=1; i<=qntSvAmz; i++){
+        $("#fieldsetSvAmz").append("<div id=linha"+ i +" class=\"linha fieldset-interno\">"+
+                                   "    <div class=form-row>"+
+                                   "        <div class=\"form-group col-md-8\">"+
+                                   "            <label for=txtOMNomeSvAmz"+ i +">OM: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "            <input type=\"text\" class=\"form-control\" id=txtOMNomeSvAmz"+ i +" name=\"txtOMNomeSvAmz\" placeholder=\"Ex.: Centro de Instrução de Guerra na Selva\">"+
+                                   "        </div>"+
+                                   "        <div class=\"form-group col-md-4\">"+
+                                   "            <label for=txtOMAbrevSvAmz"+ i +">Abreviatura: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "            <input type=\"text\" class=\"form-control\" id=txtOMAbrevSvAmz"+ i +" name=\"txtOMAbrevSvAmz\" placeholder=\"Ex.: CIGS\">"+
+                                   "        </div>"+  
+                                   "    </div>"+  
+                                   "    <div class=form-row>"+
+                                   "        <div class=\"form-group col-md-6\">"+
+                                   "            <label for=txtDInOMSvAmz"+ i +">De: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "            <input type=\"date\" class=\"form-control\" id=txtDInOMSvAmz"+ i +" name=\"txtDInOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
+                                   "        </div>"+
+                                   "        <div class=\"form-group col-md-6\">"+
+                                   "            <label for=txtDFimOMSvAmz"+ i +">Até: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "            <input type=\"date\" class=\"form-control\" id=txtDFimOMSvAmz"+ i +" name=\"txtDFimSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
+                                   "        </div>"+  
+                                   "    </div>"+  
+                                   "    <div class=form-row>"+
+                                   "        <div class=\"form-group col-md-4\">"+
+                                   "            <label for=txtFunc1OMSvAmz"+ i +">Função 1: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "            <input type=\"text\" class=\"form-control\" id=txtFunc1OMSvAmz"+ i +" name=\"txtFunc1OMSvAmz\" placeholder=\"Ex.: Cmt Pel\">"+
+                                   "        </div>"+
+                                   "        <div class=\"form-group col-md-4\">"+
+                                   "            <label for=txtFunc3OMSvAmz"+ i +">Função 2: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "            <input type=\"text\" class=\"form-control\" id=txtFunc2OMSvAmz"+ i +" name=\"txtFunc2SvAmz\" placeholder=\"Ex.: Cmt Cia\">"+
+                                   "        </div>"+  
+                                   "        <div class=\"form-group col-md-4\">"+
+                                   "            <label for=txtFunc3OMSvAmz"+ i +">Função 3: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "            <input type=\"text\" class=\"form-control\" id=txtFunc3OMSvAmz"+ i +" name=\"txtFunc3SvAmz\" placeholder=\"Ex.: Enc Mat\">"+
+                                   "        </div>"+  
+                                   "    </div>"+  
+                                   "</div>");
+                      }
+});
+
+//Acionamento form Tentativas em realizar o curso
+$("#txtTentC").change(function() {    
+    if($("#txtTentC").val() === "s"){
+        $("#divTentC").css("display", "block");        
+    }
+    else if($("#txtTentC").val() === "n" || $("#txtTentC").val() === "0"){
+        $("#divTentC").css("display", "none");
+        $("#fieldsetTentC .form-row").remove();
+    }
+});
+
+$("#txtQntTentC").change(function(){
+    $("#fieldsetTentC div").remove(".tent");
+    var qntTentC = $("#txtQntTentC").val();
+    for(var i=1; i<=qntTentC; i++){
+        $("#fieldsetTentC").append("<div class=\"tent col-md-4\">"+
+                                   "    <div class=\"header-interno\">"+
+                                   "        <h5 class=title-interno>" + i + "ª Tentativa" + "</h5>"+
+                                   "    </div>"+
+                                   "    <div id=linha"+ i +" class=\"colTentC linha fieldset-interno \">"+
+                                   "        <div class=form-row>"+
+                                   "            <div class=\"form-group col-md-12\">"+
+                                   "                <label for=txtAnoTentC"+ i +">Ano: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "                <input type=\"text\" class=\"form-control\" id=txtAnoTentC"+ i +" name=\"txtAnoTentC\" placeholder=\"Ex.: 2018\">"+
+                                   "            </div>"+ 
+                                   "        </div>"+  
+                                   "        <div class=form-row>"+
+                                   "            <div class=\"form-group col-md-12\">"+
+                                   "                <label for=txtOMNomeTentC"+ i +">OM que servia: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "                <input type=\"text\" class=\"form-control\" id=txtOMNomeTentC"+ i +" name=\"txtOMNomeTentC\" placeholder=\"Ex.: Centro de Instrução de Guerra na Selva\">"+
+                                   "            </div>"+
+                                   "        </div>"+
+                                   "        <div class=form-row>"+
+                                   "            <div class=\"form-group col-md-12\">"+
+                                   "                <label for=txtOMAbrevTentC"+ i +">Abreviatura: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "                <input type=\"text\" class=\"form-control\" id=txtOMAbrevTentC"+ i +" name=\"txtOMAbrevTentC\" placeholder=\"Ex.: CIGS\">"+
+                                   "            </div>"+  
+                                   "        </div>"+  
+                                   "        <div class=form-row>"+
+                                   "            <div class=\"form-group col-md-12\">"+
+                                   "                <label for=txtMtvDeslTentC"+ i +">Motivo de Desligamento: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "                <select class=\"form-control\" id=txtMtvDeslTentC"+ i +" name=\"txtMtvDeslTentC\">"+
+                                   "                    <option value=\"0\" selected>Selecione o tipo...</option>"+
+                                   "                    <option value=\"solvol\">Solicitação Voluntária</option>"+
+                                   "                    <option value=\"saude\">Saúde</option>"+
+                                   "                    <option value=\"insftec\">Insuficiência Técnica</option>"+
+                                   "                </select>"+ 
+                                   "            </div>"+  
+                                   "        </div>"+  
+                                   "        <div class=form-row>"+
+                                   "            <div class=\"form-group col-md-12\">"+
+                                   "                <label for=txtFaseDeslTentC"+ i +">Fase na qual foi desligado: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "                <select class=\"form-control\" id=txtFaseDeslTentC"+ i +" name=\"txtFaseDeslTentC\">"+
+                                   "                    <option value=\"0\" selected>Selecione o tipo...</option>"+
+                                   "                    <option value=\"eafprel\">EAF Preliminar</option>"+
+                                   "                    <option value=\"eafdef\">EAF Definitivo</option>"+
+                                   "                    <option value=\"testeconhecimento\">Teste de Conhecimento</option>"+
+                                   "                    <option value=\"vs\">Vida na Selva</option>"+
+                                   "                    <option value=\"tecesp\">Técnicas Especiais</option>"+
+                                   "                    <option value=\"op\">Operações</option>"+
+                                   "                </select>"+ 
+                                   "            </div>"+  
+                                   "        </div>"+  
+                                   "    </div>"+
+                                   "</div>");
+                      }
+});

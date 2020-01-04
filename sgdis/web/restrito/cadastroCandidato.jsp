@@ -62,8 +62,9 @@
                     <li>Dados Militares</li>
                     <li>Dados Familiares</li>
                     <li>Dados de Endereço</li>
-                    <li>Cursos/Estágios</li>
+                    <li>Cursos Estágios</li>
                     <li>Preparação</li>
+                    <li>Vivência na Amazônia</li>
                 </ul>
                 <fieldset>
                     <div class="fieldset-header">
@@ -1240,6 +1241,69 @@
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
+                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
+                </fieldset>
+                <fieldset>
+                    <div class="fieldset-header">
+                        <h5 class="fieldset-title">Vivência na Amazônia</h5>
+                    </div>
+                    <div class="fieldset-body">
+                        <div class="header-interno">
+                            <h5 class="title-interno">Unidades servidas na Amazônia</h5>
+                        </div>
+                        <div class="fieldset-interno">                            
+                            <div class="form-row">                       
+                                <div class="form-group col-md-12">
+                                    <label for="txtSvAmz">Já serviu na Amazônia?<span class="campo-obrigatorio"> *</span></label>
+                                    <select class="form-control" id="txtSvAmz" name="txtSvAmz">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>                
+                        <div id="divSvAmz" class="fieldset-interno fieldset-dependente" style="display: none;">                     
+                            <div class="fieldset-interno">
+                                <div class="form-row">                       
+                                <div class="form-group col-md-12">
+                                    <label for="txtQntSvAmz">Quantas vezes serviu na Amazônia?<span class="campo-obrigatorio"> *</span></label>
+                                    <input type="number" class="form-control" id="txtQntSvAmz" name="txtQntSvAmz" min="1">
+                                </div>
+                            </div>
+                            </div>
+                            <div id="fieldsetSvAmz">
+                            </div>
+                        </div>
+                        <div class="header-interno">
+                            <h5 class="title-interno">Tentativas</h5>
+                        </div>
+                        <div class="fieldset-interno">                            
+                            <div class="form-row">                       
+                                <div class="form-group col-md-12">
+                                    <label for="txtTentC">Já tentou o curso outras vezes?<span class="campo-obrigatorio"> *</span></label>
+                                    <select class="form-control" id="txtTentC" name="txtTentC">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>                
+                        <div id="divTentC" class="fieldset-interno fieldset-dependente" style="display: none;">                     
+                            <div class="fieldset-interno">
+                                <div class="form-row">                       
+                                <div class="form-group col-md-12">
+                                    <label for="txtQntTentC">Quantas vezes tentou realizar o curso?<span class="campo-obrigatorio"> *</span></label>
+                                    <input type="number" class="form-control" id="txtQntTentC" name="txtQntTentC" min="1" max="3">
+                                </div>
+                            </div>
+                            </div>
+                            <div id="fieldsetTentC" class="form-row">
                             </div>
                         </div>
                     </div>
