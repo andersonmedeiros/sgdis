@@ -167,7 +167,7 @@ $("#btnAddMtoCt").click(function(){
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-2\">"+
                                   "      <label for=txtFrqMtoCt"+ qtdeMtoCt +">Frequência: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtFrqMtoCt"+ qtdeMtoCt +" name=\"txtFrqMtoCt\" placeholder=\"Ex.: vezes\">"+
+                                  "      <input type=\"number\" class=\"form-control\" id=txtFrqMtoCt"+ qtdeMtoCt +" name=\"txtFrqMtoCt\" placeholder=\"Ex.: vezes\">"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-2\">"+
                                   "      <label for=txtFrqMtoCt"+ qtdeMtoCt +">Por: <span class=\"campo-obrigatorio\">*</span></label>"+
@@ -317,7 +317,7 @@ $("#btnAddCExtsEsp").click(function(){
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-3\">"+
                                   "      <label for=txtAnoCExtsEsp"+ qtdeCExtsEsp +">Ano de Conclusão: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoCExtsEsp"+ qtdeCExtsEsp +" name=\"txtAnoCExtsEsp\" placeholder=\"Ex.: 2018\">"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoCExtsEsp"+ qtdeCExtsEsp +" name=\"txtAnoCExtsEsp\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
                                   "  </div>"+
                                   "</div>");
     qtdeCExtsEsp++;
@@ -345,7 +345,7 @@ $("#btnAddEstagio").click(function(){
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-4\">"+
                                   "      <label for=txtAnoEstagio"+ qtdeEstagios +">Ano de Conclusão: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoEstagio"+ qtdeEstagios +" name=\"txtAnoEstagio\" placeholder=\"Ex.: 2018\">"+
+                                  "      <input type=\"text\" class=\"form-control\" id=txtAnoEstagio"+ qtdeEstagios +" name=\"txtAnoEstagio\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
                                   "  </div>"+  
                                   "</div>");
     qtdeEstagios++;
@@ -428,7 +428,7 @@ $("#txtQntTentC").change(function(){
                                    "        <div class=form-row>"+
                                    "            <div class=\"form-group col-md-12\">"+
                                    "                <label for=txtAnoTentC"+ i +">Ano: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                   "                <input type=\"text\" class=\"form-control\" id=txtAnoTentC"+ i +" name=\"txtAnoTentC\" placeholder=\"Ex.: 2018\">"+
+                                   "                <input type=\"text\" class=\"form-control\" id=txtAnoTentC"+ i +" name=\"txtAnoTentC\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
                                    "            </div>"+ 
                                    "        </div>"+  
                                    "        <div class=form-row>"+
@@ -470,5 +470,5 @@ $("#txtQntTentC").change(function(){
                                    "        </div>"+  
                                    "    </div>"+
                                    "</div>");
-                      }
+    }
 });

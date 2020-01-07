@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtFoneOM">Fone: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtFoneOM" name="txtFoneOM" placeholder="Ex.: (00) 0000-0000"> 
+                                    <input type="text" class="form-control foneOM" id="txtFoneOM" name="txtFoneOM" placeholder="Ex.: (00) 0000-0000" maxlength=""> 
                                 </div>
                             </div>
                             <div class="header-interno">
@@ -166,7 +166,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
                                         <label for="txtEndCepOM">CEP: <span class="campo-obrigatorio">*</span></label>
-                                        <input type="text" class="form-control" id="txtEndCepOM" name="txtEndCepOM" placeholder="Ex.: 00000-000">
+                                        <input type="text" class="form-control cep" id="txtEndCepOM" name="txtEndCepOM" placeholder="Ex.: 00000-000">
                                     </div> 
 
                                     <div class="form-group col-md-3">
@@ -247,7 +247,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="txtDataPracaAl">Última Data de Praça: <span class="campo-obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="txtDataPracaAl" name="txtDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
+                                <input type="date" class="form-control" id="txtDataPracaAl" name="txtDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
                             </div>
                         </div>
                         <div class="form-row">
@@ -267,7 +267,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="txtIdtMilAl">Identidade Militar: <span class="campo-obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="txtIdtMilAl" name="txtIdtMilAl" placeholder="Ex. 000000000-0">
+                                <input type="text" class="form-control idt-mil" id="txtIdtMilAl" name="txtIdtMilAl" placeholder="Ex. 000000000-0">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="txtPreccpAl">Prec-CP: </label>
@@ -279,13 +279,13 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="txtCpfAl">CPF: <span class="campo-obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="txtCpfAl" name="txtCpfAl" placeholder="Ex.: 000.000.000-00">
+                                <input type="text" class="form-control cpf" id="txtCpfAl" name="txtCpfAl" placeholder="Ex.: 000.000.000-00">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="txtDataNascAl">Data de Nascimento: <span class="campo-obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="txtDataNascAl" name="txtDataNascAl" placeholder="Ex.: DD/MM/AAAA">
+                                <input type="date" class="form-control" id="txtDataNascAl" name="txtDataNascAl" placeholder="Ex.: DD/MM/AAAA">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="txtNatEstAl">Naturalidade (Estado): <span class="campo-obrigatorio">*</span></label>
@@ -349,16 +349,16 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label for="txtTitEleitorNumAl">Título Eleitoral: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtTitEleitorNumAl" name="txtTitEleitorNumAl" placeholder="Ex.: 0000 0000 0000">
+                                    <input type="text" class="form-control titulo-eleitor" id="txtTitEleitorNumAl" name="txtTitEleitorNumAl" placeholder="Ex.: 0000 0000 0000">
                                 </div>  
 
                                 <div class="form-group col-md-2">
                                     <label for="txtTitEleitorZonaAl">Zona Eleitoral: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtTitEleitorZonaAl" name="txtTitEleitorZonaAl" placeholder="Ex.: 000">
+                                    <input type="text" class="form-control" id="txtTitEleitorZonaAl" name="txtTitEleitorZonaAl" placeholder="Ex.: 000" maxlength="3">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtTitEleitorSecaoAl">Seção Eleitoral: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtTitEleitorSecaoAl" name="txtTitEleitorSecaoAl" placeholder="Ex.: 0000">
+                                    <input type="text" class="form-control" id="txtTitEleitorSecaoAl" name="txtTitEleitorSecaoAl" placeholder="Ex.: 0000" maxlength="4">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="txtTitEleitorEstAl">Estado: <span class="campo-obrigatorio"> *</span></label>
@@ -381,11 +381,11 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtAgenciaAl">Agência: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtAgenciaAl" name="txtAgenciaAl" placeholder="Ex.: 0000-0">
+                                    <input type="text" class="form-control agencia-banco" id="txtAgenciaAl" name="txtAgenciaAl" placeholder="Ex.: 0000-0">
                                 </div>                                                     
                                 <div class="form-group col-md-4">
                                     <label for="txtContaAl">Conta: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtContaAl" name="txtContaAl" placeholder="Ex.: 00000000000-0">
+                                    <input type="text" class="form-control conta-banco" id="txtContaAl" name="txtContaAl" placeholder="Ex.: 00000000000-0">
                                 </div>                                                     
                             </div>
                         </div>                        
@@ -396,12 +396,12 @@
                             <div class="form-row">
                                 <div class="form-group col-md-8">
                                     <label for="txtEmailAl">Email: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtEmailAl" name="txtEmailAl" placeholder="Ex.: fulanodetal@gmail.com">
+                                    <input type="email" class="form-control" id="txtEmailAl" name="txtEmailAl" placeholder="Ex.: fulanodetal@gmail.com">
                                 </div>  
 
                                 <div class="form-group col-md-4">
                                     <label for="txtFoneAl">Fone: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtFoneAl" name="txtFoneAl" placeholder="Ex.: (00) 00000-0000">
+                                    <input type="text" class="form-control fone" id="txtFoneAl" name="txtFoneAl" placeholder="Ex.: (00) 00000-0000">
                                 </div>                                                     
                             </div>
                         </div>                       
@@ -481,7 +481,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="txtCNHNumAl">Número: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtCNHNumAl" name="txtCNHNumAl" placeholder="Ex. 00000000000">
+                                    <input type="text" class="form-control" id="txtCNHNumAl" name="txtCNHNumAl" placeholder="Ex. 00000000000" maxlength="11">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtCNHCatgAl">Categoria: <span class="campo-obrigatorio">*</span></label>
@@ -497,7 +497,7 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtCNHDataValAl">Data de Validade: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtCNHDataValAl" name="txtCNHDataValAl" placeholder="Ex. 00/00/0000">
+                                    <input type="date" class="form-control" id="txtCNHDataValAl" name="txtCNHDataValAl" placeholder="Ex. 00/00/0000">
                                 </div>  
                             </div>
                         </div>                        
@@ -642,7 +642,7 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="txtFormTurma">Turma: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtFormTurma" name="txtFormTurma" placeholder="Ex.: 2018">
+                                    <input type="text" class="form-control" id="txtFormTurma" name="txtFormTurma" placeholder="Ex.: 2018" maxlength="4">
                                 </div>  
                             </div>                            
                         </div>
@@ -666,7 +666,7 @@
                             <div class="form-row">                            
                             <div class="form-group col-md-4">
                                 <label for="txtDataUltProm">Data da última promoção: <span class="campo-obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="txtDataUltProm" name="txtDataUltProm" placeholder="Ex.: DD/MM/AAAA">
+                                <input type="date" class="form-control" id="txtDataUltProm" name="txtDataUltProm" placeholder="Ex.: DD/MM/AAAA">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="txtQaProm">Está no QA para Promoção?<span class="campo-obrigatorio"> *</span></label>
@@ -678,7 +678,7 @@
                             </div>
                                 <div id="divQaQuando" class="form-group col-md-4" style="display: none;">
                                 <label for="txtQaQuanoProm">Quando?<span class="campo-obrigatorio"> *</span></label>
-                                <input type="text" class="form-control" id="txtQaQuanoProm" name="txtQaQuanoProm" placeholder="Ex.: DD/MM/AAAA">
+                                <input type="date" class="form-control" id="txtQaQuanoProm" name="txtQaQuanoProm" placeholder="Ex.: DD/MM/AAAA">
                             </div>
                         </div>                            
                         </div>
@@ -689,7 +689,7 @@
                             <div class="form-row">                                
                                 <div class="form-group col-md-6">
                                     <label for="txtDataUltTAF">Data do último TAF: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtDataUltTAF" name="txtDataUltTAF" placeholder="Ex.: 00/00/0000">
+                                    <input type="date" class="form-control" id="txtDataUltTAF" name="txtDataUltTAF" placeholder="Ex.: 00/00/0000">
                                 </div>                                
                                 <div class="form-group col-md-6">
                                     <label for="txtMencaoTAF">Menção: <span class="campo-obrigatorio">*</span></label>
@@ -753,7 +753,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="txtCpfConjuge">CPF: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtCpfConjuge" name="txtCpfConjuge" placeholder="Ex.: 000.000.000-00">
+                                    <input type="text" class="form-control cpf" id="txtCpfConjuge" name="txtCpfConjuge" placeholder="Ex.: 000.000.000-00">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtNomeConjuge">Nome: <span class="campo-obrigatorio">*</span></label>
@@ -767,11 +767,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-8">
                                     <label for="txtEmailConjuge">Email: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtEmailConjuge" name="txtEmailConjuge" placeholder="Ex.: fulanodetal@gmail.com">
+                                    <input type="email" class="form-control" id="txtEmailConjuge" name="txtEmailConjuge" placeholder="Ex.: fulanodetal@gmail.com">
                                 </div>                                  
                                 <div class="form-group col-md-4">
                                     <label for="txtFoneConjuge">Fone: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtFoneConjuge" name="txtFoneConjuge" placeholder="Ex.: (00) 00000-0000">
+                                    <input type="text" class="form-control fone" id="txtFoneConjuge" name="txtFoneConjuge" placeholder="Ex.: (00) 00000-0000">
                                 </div>
                             </div>
                         </div>
@@ -798,15 +798,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label for="txtCpfRef">CPF: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtCpfRef" name="txtCpfRef" placeholder="Ex.: 000.000.000-00">
+                                    <input type="text" class="form-control cpf" id="txtCpfRef" name="txtCpfRef" placeholder="Ex.: 000.000.000-00">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtEmailRef">Email: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtEmailRef" name="txtEmailRef" placeholder="Ex.: fulanodetal@gmail.com">
+                                    <input type="email" class="form-control" id="txtEmailRef" name="txtEmailRef" placeholder="Ex.: fulanodetal@gmail.com">
                                 </div> 
                                 <div class="form-group col-md-3">
                                     <label for="txtFoneRef">Fone: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtFoneRef" name="txtFoneRef" placeholder="Ex.: (00) 00000-0000">
+                                    <input type="text" class="form-control fone" id="txtFoneRef" name="txtFoneRef" placeholder="Ex.: (00) 00000-0000">
                                 </div>                                 
                             </div>
                         </div>
@@ -842,15 +842,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label for="txtCpfRefConclusao">CPF: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtCpfRefConclusao" name="txtCpfRefConclusao" placeholder="Ex.: 000.000.000-00">
+                                    <input type="text" class="form-control cpf" id="txtCpfRefConclusao" name="txtCpfRefConclusao" placeholder="Ex.: 000.000.000-00">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtEmailRefConclusao">Email: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtEmailRefConclusao" name="txtEmailRefConclusao" placeholder="Ex.: fulanodetal@gmail.com">
+                                    <input type="email" class="form-control" id="txtEmailRefConclusao" name="txtEmailRefConclusao" placeholder="Ex.: fulanodetal@gmail.com">
                                 </div> 
                                 <div class="form-group col-md-3">
                                     <label for="txtFoneRefConclusao">Fone: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtFoneRefConclusao" name="txtFoneRefConclusao" placeholder="Ex.: (00) 00000-0000">
+                                    <input type="text" class="form-control fone" id="txtFoneRefConclusao" name="txtFoneRefConclusao" placeholder="Ex.: (00) 00000-0000">
                                 </div>                                 
                             </div>
                         </div>
@@ -870,7 +870,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-2">
                                     <label for="txtCepEndResid">CEP: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtCepEndResid" name="txtCepEndResid" placeholder="Ex.: 00000-000">
+                                    <input type="text" class="form-control cep" id="txtCepEndResid" name="txtCepEndResid" placeholder="Ex.: 00000-000">
                                 </div> 
 
                                 <div class="form-group col-md-3">
@@ -945,7 +945,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
                                         <label for="txtCepEndCurso">CEP: <span class="campo-obrigatorio">*</span></label>
-                                        <input type="text" class="form-control" id="txtCepEndCurso" name="txtCepEndCurso" placeholder="Ex.: 00000-000">
+                                        <input type="text" class="form-control cep" id="txtCepEndCurso" name="txtCepEndCurso" placeholder="Ex.: 00000-000">
                                     </div> 
 
                                     <div class="form-group col-md-3">
@@ -1062,7 +1062,7 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtAnoCAperf">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtAnoCAperf" name="txtAnoCAperf" placeholder="Ex.: 2018">
+                                    <input type="text" class="form-control" id="txtAnoCAperf" name="txtAnoCAperf" placeholder="Ex.: 2018" maxlength="4">
                                 </div>
                             </div>
                         </div>
@@ -1094,7 +1094,7 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtAnoCAltEstudos">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtAnoCAltEstudos" name="txtAnoCAltEstudos" placeholder="Ex.: 2018">
+                                    <input type="text" class="form-control" id="txtAnoCAltEstudos" name="txtAnoCAltEstudos" placeholder="Ex.: 2018" maxlength="4">
                                 </div>
                             </div>
                         </div>
@@ -1322,6 +1322,8 @@
         <script src="../assets/node_modules/popper.js/dist/popper.js"></script>
         <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
         <script src="../assets/js/formularioEtapas.js"></script>
+        <script src="../assets/js/formulario/mascaras.js"></script>
+        
         <script src="../assets/js/bootstrap-validate.js"></script>
         <script>
             
