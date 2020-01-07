@@ -48,7 +48,7 @@ $("#txtEndCurso").change(function() {
     }
     //Mesmo endereço de residêcnia
     else if($("#txtEndCurso").val() === "resid"){
-        $("#txtCepEndCurso").val($("#txtCEP").val());
+        $("#txtCepEndCurso").val($("#txtCepEndResid").val());
     }
     //Novo
     else if($("#txtEndCurso").val() === "novo" || $("#txtEndCurso").val() === "0"){

@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtFoneOM">Fone: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control foneOM" id="txtFoneOM" name="txtFoneOM" placeholder="Ex.: (00) 0000-0000" maxlength=""> 
+                                    <input type="text" class="form-control foneOM" id="txtFoneOM" name="txtFoneOM" placeholder="Ex.: (00) 0000-0000"> 
                                 </div>
                             </div>
                             <div class="header-interno">
@@ -271,11 +271,11 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="txtPreccpAl">Prec-CP: </label>
-                                <input type="text" class="form-control" id="txtPreccpAl" name="txtPreccpAl" placeholder="Ex.: 000000000">
+                                <input type="text" class="form-control" id="txtPreccpAl" name="txtPreccpAl" placeholder="Ex.: 000000000" maxlength="9">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="txtCPAl">CP: </label>
-                                <input type="text" class="form-control" id="txtCPAl" name="txtCPAl" placeholder="Ex.: 000000">
+                                <input type="text" class="form-control" id="txtCPAl" name="txtCPAl" placeholder="Ex.: 000000" maxlength="6">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="txtCpfAl">CPF: <span class="campo-obrigatorio">*</span></label>
@@ -1326,8 +1326,9 @@
         
         <script src="../assets/js/bootstrap-validate.js"></script>
         <script>
-            
-                bootstrapValidate("#txtNomeOM", "min:5:Minimo 5 porra, caralho");
+                bootstrapValidate('#txtAbrevOM', 'required:Campo Obrigatótio!');
+                bootstrapValidate('#txtNomeOM', 'required:Campo Obrigatótio!');
+                bootstrapValidate("#txtFoneOM", 'required:Campo Obrigatótio!');
         </script>
     </body>
 </html>

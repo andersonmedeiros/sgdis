@@ -16,7 +16,6 @@ $(document).ready(function(){
         $(".titulo-eleitor").mask("9999 9999 9999");
         $(".agencia-banco").mask("9999-9");
         $(".conta-banco").mask("99999999999-9");
-        /*$(".data").mask("99/99/9999");
-        $(".cep").mask("99999-999");
+        /*$(".cep").mask("99999-999");
         */
 });
