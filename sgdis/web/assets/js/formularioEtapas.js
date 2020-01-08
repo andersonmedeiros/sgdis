@@ -5,7 +5,7 @@
  */
 
 
-$(function(){
+/*$(function(){
    var atual_fs, prox_fs, anterior_fs;
    
    $('.prox').click(function(){
@@ -30,7 +30,7 @@ $(function(){
       return false; 
    });
     
-});
+});*/
 
 $("#txtEndCurso").change(function() {
     //Endereço do Centro de Instrução de Guerra na Selva

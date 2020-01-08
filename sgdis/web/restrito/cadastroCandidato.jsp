@@ -81,32 +81,44 @@
                                     <option value="fab">Força Aérea Brasileira</option>                                  
                                     <option value="1000">Outra</option>                                  
                                 </select>
-                            </div>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                            </div>                            
                             <div class="form-group col-md-4">
                                 <label for="txtGCmdo">Grande Comando: <span class="campo-obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="txtGCmdo" name="txtGCmdo" placeholder="Ex.: CMA"> 
+                                <input type="text" class="form-control" id="txtGCmdo" name="txtGCmdo" placeholder="Ex.: CMA">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="txtEscEnq">Escalão Enquadrante: <span class="campo-obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="txtEscEnq" name="txtEscEnq" placeholder="Ex.: 12ª RM, 16ª Bda Inf Sl etc."> 
+                                <input type="text" class="form-control" id="txtEscEnq" name="txtEscEnq" placeholder="Ex.: 12ª RM, 16ª Bda Inf Sl etc.">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                         </div>
                         <div class="header-interno">
                             <h5 class="title-interno">Organização Militar - OM</h5>
                         </div>
                         <div class="fieldset-interno">
-                            <div class="form-row">                            
-                                <div class="form-group col-md-3">
-                                    <label for="txtAbrevOM">Abreviatura: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtAbrevOM" name="txtAbrevOM" placeholder="Ex.: CIGS"> 
-                                </div>
+                            <div class="form-row">                          
                                 <div class="form-group col-md-6">
                                     <label for="txtNomeOM">Nome: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtNomeOM" name="txtNomeOM" placeholder="Ex.: Centro de Instrução de Guerra na Selva"> 
+                                    <input type="text" class="form-control" id="txtNomeOM" name="txtNomeOM" placeholder="Ex.: Centro de Instrução de Guerra na Selva">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="txtAbrevOM">Abreviatura: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtAbrevOM" name="txtAbrevOM" placeholder="Ex.: CIGS">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtFoneOM">Fone: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control foneOM" id="txtFoneOM" name="txtFoneOM" placeholder="Ex.: (00) 0000-0000"> 
+                                    <input type="text" class="form-control foneOM" id="txtFoneOM" name="txtFoneOM" placeholder="Ex.: (00) 0000-0000">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                             <div class="header-interno">
@@ -118,19 +130,28 @@
                                         <label for="txtPGradCmtOM">Posto/Graduação: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtPGradCmtOM" name="txtPGradCmtOM">
                                             <option value="0" selected>Selecione um Posto/Graduação...</option>                                     
+                                            <option value="t">Teste</option>                                     
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="txtNomeCmtOM">Nome: <span class="campo-obrigatorio">*</span></label>
-                                        <input type="text" class="form-control" id="txtNomeCmtOM" name="txtNomeCmtOM" placeholder="Ex.: Fulano"> 
+                                        <input type="text" class="form-control" id="txtNomeCmtOM" name="txtNomeCmtOM" placeholder="Ex.: Fulano">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-5">
                                         <label for="txtSobrenomeCmtOM">Sobrenome: <span class="campo-obrigatorio">*</span></label>
-                                        <input type="text" class="form-control" id="txtSobrenomeCmtOM" name="txtSobrenomeCmtOM" placeholder="Ex.: de Tal"> 
+                                        <input type="text" class="form-control" id="txtSobrenomeCmtOM" name="txtSobrenomeCmtOM" placeholder="Ex.: de Tal">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="txtNomeGuerraCmtOM">Nome de Guerra: <span class="campo-obrigatorio">*</span></label>
-                                        <input type="text" class="form-control" id="txtNomeGuerraCmtOM" name="txtNomeGuerraCmtOM" placeholder="Ex.: De Tal"> 
+                                        <input type="text" class="form-control" id="txtNomeGuerraCmtOM" name="txtNomeGuerraCmtOM" placeholder="Ex.: De Tal">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                 </div>
                             </div>
@@ -142,20 +163,30 @@
                                     <div class="form-group col-md-3">
                                         <label for="txtPGradChImtoOM">Posto/Graduação: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtPGradChImtoOM" name="txtPGradChImtoOM">
-                                            <option value="0" selected>Selecione um Posto/Graduação...</option>                                     
+                                            <option value="0" selected>Selecione um Posto/Graduação...</option>
+                                            <option value="t">Teste</option>  
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="txtNomeChImtoOM">Nome: <span class="campo-obrigatorio">*</span></label>
-                                        <input type="text" class="form-control" id="txtNomeChImtoOM" name="txtNomeChImtoOM" placeholder="Ex.: Fulano"> 
+                                        <input type="text" class="form-control" id="txtNomeChImtoOM" name="txtNomeChImtoOM" placeholder="Ex.: Fulano">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-5">
                                         <label for="txtSobrenomeChImtoOM">Sobrenome: <span class="campo-obrigatorio">*</span></label>
-                                        <input type="text" class="form-control" id="txtSobrenomeChImtoOM" name="txtSobrenomeChImtoOM" placeholder="Ex.: de Tal"> 
+                                        <input type="text" class="form-control" id="txtSobrenomeChImtoOM" name="txtSobrenomeChImtoOM" placeholder="Ex.: de Tal">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="txtNomeGuerraChImtoOM">Nome de Guerra: <span class="campo-obrigatorio">*</span></label>
-                                        <input type="text" class="form-control" id="txtNomeGuerraCmtOM" name="txtNomeGuerraChImtoOM" placeholder="Ex.: De Tal"> 
+                                        <input type="text" class="form-control" id="txtNomeGuerraCmtOM" name="txtNomeGuerraChImtoOM" placeholder="Ex.: De Tal">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -167,48 +198,67 @@
                                     <div class="form-group col-md-2">
                                         <label for="txtEndCepOM">CEP: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control cep" id="txtEndCepOM" name="txtEndCepOM" placeholder="Ex.: 00000-000">
-                                    </div> 
-
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>
                                     <div class="form-group col-md-3">
                                         <label for="txtEndLogOM">Logradouro: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtEndLogOM" name="txtEndLogOM">
-                                            <option value="0" selected>Selecione um Logradouro...</option>                                      
+                                            <option value="0" selected>Selecione um Logradouro...</option> 
+                                            <option value="t">Teste</option>  
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
-
                                     <div class="form-group col-md-5">
-                                        <label for="txtEndNomeOM">Nome: <span class="campo-obrigatorio">*</span></label>
+                                        <label for="txtEndNomeOM">Endereço: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtEndNomeOM" name="txtEndNomeOM" placeholder="Ex.: Constantino Nery">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="txtEndNumOM">Número: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtEndNumOM" name="txtEndNumOM" placeholder="Ex.: 1000">
-                                    </div>                                 
-                                </div>                        
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>                                 
+                                    </div>
+                                </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <label for="txtEndPaisOM">País: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtEndPaisOM" name="txtEndPaisOM">
                                             <option value="0" selected>Selecione um País...</option>
+                                            <option value="t">Teste</option>  
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="txtEndEstadoOM">Estado: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtEndEstadoOM" name="txtEndEstadoOM">
                                             <option value="0" selected>Selecione um Estado...</option>
+                                            <option value="t">Teste</option>  
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                    
                                     <div class="form-group col-md-3">
                                         <label for="txtEndCidadeOM">Cidade: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtEndCidadeOM" name="txtEndCidadeOM">
                                             <option value="0" selected>Selecione uma Cidade...</option>
+                                            <option value="t">Teste</option>  
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                    
                                     <div class="form-group col-md-3">
                                         <label for="txtEndBairroOM">Bairro: <span class="campo-obrigatorio">*</span></label>
-                                        <select class="form-control" id="txtEndBairoOM" name="txtEndBairroOM">
+                                        <select class="form-control" id="txtEndBairroOM" name="txtEndBairroOM">
                                             <option value="0" selected>Selecione um Bairro...</option>
+                                            <option value="t">Teste</option>  
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                    
                                 </div>
                                 <div class="form-row">
@@ -225,7 +275,7 @@
                         </div>
                     </div>
                     
-                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
+                    <button type="button" id="btnProximo2" name="btnProximo2" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">
@@ -1323,12 +1373,13 @@
         <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
         <script src="../assets/js/formularioEtapas.js"></script>
         <script src="../assets/js/formulario/mascaras.js"></script>
+        <script src="../assets/js/formulario/validacao.js"></script>
         
         <script src="../assets/js/bootstrap-validate.js"></script>
-        <script>
+        <!--<script>
                 bootstrapValidate('#txtAbrevOM', 'required:Campo Obrigatótio!');
                 bootstrapValidate('#txtNomeOM', 'required:Campo Obrigatótio!');
                 bootstrapValidate("#txtFoneOM", 'required:Campo Obrigatótio!');
-        </script>
+        </script>-->
     </body>
 </html>
