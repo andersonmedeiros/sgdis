@@ -66,9 +66,9 @@
                 <button type="submit" class="btn btn-primary btn-block btn-success">Entrar</button>
                 <p class="mt-5 mb-3 text-center copy">&copy; 2019</p>
             </div>
-            <div class="col-12 text-center shadow-sm frase">
+            <!--<div class="col-12 text-center shadow-sm frase">
                 <h1>"Quem são eles?"</h1>
-            </div>
+            </div>-->
         </form>
     </body>
 </html>
