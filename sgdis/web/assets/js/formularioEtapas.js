@@ -89,15 +89,31 @@ $("#txtTraraVeiculo").change(function() {
         qtdeVeiculos = 1;
     }
 });
-var functionValidObg = function(campo){
-    alert("quase crl");
-    /*if($(campo).val() != '0'){
-        $(campo).removeClass("is-invalid");
-        $(campo).addClass("is-valid");
-    }else{
-        $(campo).removeClass("is-valid");
-        $(campo).addClass("is-invalid");*/
-}
+
+var functionValidSelectObg = function(campo){
+    $(campo).blur(function(){
+        if($(campo).val() != '0'){
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }else{
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+        }
+    });
+};
+
+var functionValidInputObg = function(campo){
+    $(campo).blur(function(){
+        if($(campo).val() != ''){
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }else{
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+        }
+    });
+};
+
 $("#btnAddVeiculo").click(function(){     
     $("#fieldsetVeiculos").append("<div id=linha"+ qtdeVeiculos +" class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-2\">"+
@@ -137,16 +153,13 @@ $("#btnAddVeiculo").click(function(){
                                   "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "</div>");
-                          $("#txtTipoVeiculoAl"+qtdeVeiculos).blur(
-                          
-                            /*if($("#txtTipoVeiculoAl"+qtdeVeiculos).val() != '0'){
-                                $("#txtTipoVeiculoAl"+qtdeVeiculos).removeClass("is-invalid");
-                                $("#txtTipoVeiculoAl"+qtdeVeiculos).addClass("is-valid");
-                            }else{
-                                $("#txtTipoVeiculoAl"+qtdeVeiculos).removeClass("is-valid");
-                                $("#txtTipoVeiculoAl"+qtdeVeiculos).addClass("is-invalid");
-                            }*/
-                        );
+                         
+    functionValidSelectObg("#txtTipoVeiculoAl"+qtdeVeiculos);
+    functionValidInputObg("#txtMarcaVeiculoAl"+qtdeVeiculos);
+    functionValidInputObg("#txtModeloVeiculoAl"+qtdeVeiculos);
+    functionValidInputObg("#txtCorVeiculoAl"+qtdeVeiculos);
+    functionValidInputObg("#txtPlacaVeiculoAl"+qtdeVeiculos);
+    
     qtdeVeiculos++;
 });
 
