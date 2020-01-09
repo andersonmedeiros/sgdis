@@ -286,38 +286,54 @@
                             <div class="form-group col-md-4">
                                 <label for="txtPGradAl">Posto/Graduação: <span class="campo-obrigatorio">*</span></label>
                                 <select class="form-control" id="txtPGradAl" name="txtPGradAl">
-                                    <option value="0" selected>Selecione um Posto/Graduação...</option>                                     
+                                    <option value="0" selected>Selecione um Posto/Graduação...</option>
+                                    <option value="t">Teste</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="txtArmaAl">Arma: <span class="campo-obrigatorio">*</span></label>
                                 <select class="form-control" id="txtArmaAl" name="txtArmaAl">
-                                    <option value="0" selected>Selecione uma Arma...</option>                                     
+                                    <option value="0" selected>Selecione uma Arma...</option>
+                                    <option value="t">Teste</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="txtDataPracaAl">Última Data de Praça: <span class="campo-obrigatorio">*</span></label>
-                                <input type="date" class="form-control" id="txtDataPracaAl" name="txtDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
+                                <label for="txtUltDataPracaAl">Última Data de Praça: <span class="campo-obrigatorio">*</span></label>
+                                <input type="date" class="form-control" id="txtUltDataPracaAl" name="txtUltDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
                             </div>
+                            <div class="valid-feedback">Selva!</div>
+                            <div class="invalid-feedback">Campo Obrigatório!</div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="txtNomeAl">Nome: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="txtNomeAl" name="txtNomeAl" placeholder="Ex.: Fulano">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="txtSobrenomeAl">Sobrenome: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="txtSobrenomeAl" name="txtSobrenomeAl" placeholder="Ex.: de Tal">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="txtNomeGuerraAl">Nome Guerra: <span class="campo-obrigatorio">*</span></label>
+                                <label for="txtNomeGuerraAl">Nome de Guerra: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="txtNomeGuerraAl" name="txtNomeGuerraAl" placeholder="Ex.: De Tal">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="txtIdtMilAl">Identidade Militar: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control idt-mil" id="txtIdtMilAl" name="txtIdtMilAl" placeholder="Ex. 000000000-0">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="txtPreccpAl">Prec-CP: </label>
@@ -330,20 +346,28 @@
                             <div class="form-group col-md-3">
                                 <label for="txtCpfAl">CPF: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control cpf" id="txtCpfAl" name="txtCpfAl" placeholder="Ex.: 000.000.000-00">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="txtDataNascAl">Data de Nascimento: <span class="campo-obrigatorio">*</span></label>
                                 <input type="date" class="form-control" id="txtDataNascAl" name="txtDataNascAl" placeholder="Ex.: DD/MM/AAAA">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="txtNatEstAl">Naturalidade (Estado): <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="txtNatEstAl" name="txtNatEstAl" placeholder="Ex.: Amazonas">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="txtNatCidAl">Naturalidade (Cidade): <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="txtNatCidAl" name="txtNatCidAl" placeholder="Ex.: Manaus">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -352,6 +376,8 @@
                                 <select class="form-control" id="txtEstCivilAl" name="txtEstCivilAl">
                                     <option value="0" selected>Selecione um estado civil...</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="txtSexoAl">Sexo: <span class="campo-obrigatorio">*</span></label>
@@ -360,6 +386,8 @@
                                     <option value="m">Masculino</option>
                                     <option value="f">Feminino</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                         </div>   
                         <div class="form-row">
@@ -372,6 +400,8 @@
                                     <option value="ab">AB</option>
                                     <option value="o">O</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="txtFatorRHAl">Fator RH: <span class="campo-obrigatorio">*</span></label>
@@ -380,6 +410,8 @@
                                     <option value="pos">+</option>
                                     <option value="neg">-</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="txtPaiAl">Pai: </label>
@@ -400,23 +432,33 @@
                                 <div class="form-group col-md-3">
                                     <label for="txtTitEleitorNumAl">Título Eleitoral: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control titulo-eleitor" id="txtTitEleitorNumAl" name="txtTitEleitorNumAl" placeholder="Ex.: 0000 0000 0000">
-                                </div>  
+                                    <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                                </div> 
 
                                 <div class="form-group col-md-2">
                                     <label for="txtTitEleitorZonaAl">Zona Eleitoral: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtTitEleitorZonaAl" name="txtTitEleitorZonaAl" placeholder="Ex.: 000" maxlength="3">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtTitEleitorSecaoAl">Seção Eleitoral: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtTitEleitorSecaoAl" name="txtTitEleitorSecaoAl" placeholder="Ex.: 0000" maxlength="4">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="txtTitEleitorEstAl">Estado: <span class="campo-obrigatorio"> *</span></label>
-                                    <input type="text" class="form-control" id="txtTitEleitorEstAl" name="txtTitEleitorAl" placeholder="Ex.: Amazonas">
+                                    <input type="text" class="form-control" id="txtTitEleitorEstAl" name="txtTitEleitorEstAl" placeholder="Ex.: Amazonas">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="txtTitEleitorCidAl">Cidade: <span class="campo-obrigatorio"> *</span></label>
                                     <input type="text" class="form-control" id="txtTitEleitorCidAl" name="txtTitEleitorCidAl" placeholder="Ex.: Manaus">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                                      
                             </div>
                         </div>
@@ -428,14 +470,20 @@
                                 <div class="form-group col-md-4">
                                     <label for="txtBancoAl">Banco: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtBancoAl" name="txtBancoAl" placeholder="Ex.: Banco do Brasil">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtAgenciaAl">Agência: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control agencia-banco" id="txtAgenciaAl" name="txtAgenciaAl" placeholder="Ex.: 0000-0">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                                     
                                 <div class="form-group col-md-4">
                                     <label for="txtContaAl">Conta: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control conta-banco" id="txtContaAl" name="txtContaAl" placeholder="Ex.: 00000000000-0">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                                     
                             </div>
                         </div>                        
@@ -447,11 +495,15 @@
                                 <div class="form-group col-md-8">
                                     <label for="txtEmailAl">Email: <span class="campo-obrigatorio">*</span></label>
                                     <input type="email" class="form-control" id="txtEmailAl" name="txtEmailAl" placeholder="Ex.: fulanodetal@gmail.com">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>  
 
                                 <div class="form-group col-md-4">
                                     <label for="txtFoneAl">Fone: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control fone" id="txtFoneAl" name="txtFoneAl" placeholder="Ex.: (00) 00000-0000">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                                     
                             </div>
                         </div>                       
@@ -476,6 +528,8 @@
                                         <option value="45">45</option>
                                         <option value="46">46</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtTamGandAl">Tamanho Gandola: <span class="campo-obrigatorio">*</span></label>
@@ -487,6 +541,8 @@
                                         <option value="g">G</option>
                                         <option value="gg">GG</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                                     
                                 <div class="form-group col-md-3">
                                     <label for="txtTamCalcaAl">Tamanho Calça: <span class="campo-obrigatorio">*</span></label>
@@ -498,6 +554,8 @@
                                         <option value="g">G</option>
                                         <option value="gg">GG</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                                     
                                 <div class="form-group col-md-3">
                                     <label for="txtTamCamCmfAl">Tamanho Camisa Camfuflada: <span class="campo-obrigatorio">*</span></label>
@@ -509,6 +567,8 @@
                                         <option value="g">G</option>
                                         <option value="gg">GG</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                                     
                             </div>
                         </div>
@@ -524,6 +584,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -532,6 +594,8 @@
                                 <div class="form-group col-md-4">
                                     <label for="txtCNHNumAl">Número: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtCNHNumAl" name="txtCNHNumAl" placeholder="Ex. 00000000000" maxlength="11">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtCNHCatgAl">Categoria: <span class="campo-obrigatorio">*</span></label>
@@ -544,10 +608,14 @@
                                         <option value="d">D</option>
                                         <option value="e">E</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtCNHDataValAl">Data de Validade: <span class="campo-obrigatorio">*</span></label>
                                     <input type="date" class="form-control" id="txtCNHDataValAl" name="txtCNHDataValAl" placeholder="Ex. 00/00/0000">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>  
                             </div>
                         </div>                        
@@ -563,6 +631,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -577,7 +647,7 @@
                         </div>                       
                     </div>
                     <button type="button" name="btnVoltar" class="btn btn-dark anterior acao">Anterior</button>
-                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
+                    <button type="button" id="btnProximo3" name="btnProximo3" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">
@@ -1374,6 +1444,7 @@
         <script src="../assets/js/formularioEtapas.js"></script>
         <script src="../assets/js/formulario/mascaras.js"></script>
         <script src="../assets/js/formulario/validacao.js"></script>
+        <script src="../assets/js/formulario/validacao/tempo-real.js"></script>
         
         <script src="../assets/js/bootstrap-validate.js"></script>
         <!--<script>
