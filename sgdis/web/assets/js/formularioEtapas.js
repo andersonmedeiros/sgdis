@@ -139,13 +139,13 @@ $("#btnAddVeiculo").click(function(){
                                   "</div>");
                           $("#txtTipoVeiculoAl"+qtdeVeiculos).blur(
                           
-                            if($("#txtTipoVeiculoAl"+qtdeVeiculos).val() != '0'){
+                            /*if($("#txtTipoVeiculoAl"+qtdeVeiculos).val() != '0'){
                                 $("#txtTipoVeiculoAl"+qtdeVeiculos).removeClass("is-invalid");
                                 $("#txtTipoVeiculoAl"+qtdeVeiculos).addClass("is-valid");
                             }else{
                                 $("#txtTipoVeiculoAl"+qtdeVeiculos).removeClass("is-valid");
                                 $("#txtTipoVeiculoAl"+qtdeVeiculos).addClass("is-invalid");
-                            }
+                            }*/
                         );
     qtdeVeiculos++;
 });

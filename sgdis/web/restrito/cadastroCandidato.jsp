@@ -1442,8 +1442,8 @@
         <script src="../assets/node_modules/popper.js/dist/popper.js"></script>
         <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
         <script src="../assets/js/formularioEtapas.js"></script>
-        <script src="../assets/js/formulario/mascaras.js"></script>
-        <script src="../assets/js/formulario/validacao.js"></script>
+        <script src="../assets/js/formulario/validacao/mascaras.js"></script>
+        <script src="../assets/js/formulario/validacao/obrigatoriedade.js"></script>
         <script src="../assets/js/formulario/validacao/tempo-real.js"></script>
         
         <script src="../assets/js/bootstrap-validate.js"></script>
