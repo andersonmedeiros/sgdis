@@ -304,9 +304,9 @@
                             <div class="form-group col-md-4">
                                 <label for="txtUltDataPracaAl">Última Data de Praça: <span class="campo-obrigatorio">*</span></label>
                                 <input type="date" class="form-control" id="txtUltDataPracaAl" name="txtUltDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
-                            </div>
-                            <div class="valid-feedback">Selva!</div>
-                            <div class="invalid-feedback">Campo Obrigatório!</div>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                            </div>                            
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-3">
@@ -375,6 +375,7 @@
                                 <label for="txtEstCivilAl">Estado Civil: <span class="campo-obrigatorio">*</span></label>
                                 <select class="form-control" id="txtEstCivilAl" name="txtEstCivilAl">
                                     <option value="0" selected>Selecione um estado civil...</option>
+                                    <option value="t">Teste</option>
                                 </select>
                                 <div class="valid-feedback">Selva!</div>
                                 <div class="invalid-feedback">Campo Obrigatório!</div>
@@ -630,6 +631,7 @@
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
+                                        <option value="t">TESTE</option>
                                     </select>
                                     <div class="valid-feedback">Selva!</div>
                                     <div class="invalid-feedback">Campo Obrigatório!</div>
