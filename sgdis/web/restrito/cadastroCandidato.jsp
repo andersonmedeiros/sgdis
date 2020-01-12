@@ -765,14 +765,20 @@
                                 <div class="form-group col-md-7">
                                     <label for="txtFormEscNome">Escola de Formação: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtFormEscNome" name="txtFormEscNome" placeholder="Ex.: Escola de Sargentos das Armas">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtFormEscAbrev">Abreviatura: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtFormEscAbrev" name="txtFormEscAbrev" placeholder="Ex.: ESA">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="txtFormTurma">Turma: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtFormTurma" name="txtFormTurma" placeholder="Ex.: 2018" maxlength="4">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>  
                             </div>                            
                         </div>
@@ -785,7 +791,10 @@
                                     <label for="txtCptmAl">Comportamento: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtCptmAl" name="txtCptmAl">
                                         <option value="0" selected>Selecione um comportamento...</option>
+                                        <option value="t">Teste</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                
                             </div>                            
                         </div>
@@ -797,6 +806,8 @@
                             <div class="form-group col-md-4">
                                 <label for="txtDataUltProm">Data da última promoção: <span class="campo-obrigatorio">*</span></label>
                                 <input type="date" class="form-control" id="txtDataUltProm" name="txtDataUltProm" placeholder="Ex.: DD/MM/AAAA">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="txtQaProm">Está no QA para Promoção?<span class="campo-obrigatorio"> *</span></label>
@@ -805,10 +816,14 @@
                                     <option value="s">SIM</option>
                                     <option value="n">NÃO</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                                 <div id="divQaQuando" class="form-group col-md-4" style="display: none;">
                                 <label for="txtQaQuanoProm">Quando?<span class="campo-obrigatorio"> *</span></label>
                                 <input type="date" class="form-control" id="txtQaQuanoProm" name="txtQaQuanoProm" placeholder="Ex.: DD/MM/AAAA">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                         </div>                            
                         </div>
@@ -820,6 +835,8 @@
                                 <div class="form-group col-md-6">
                                     <label for="txtDataUltTAF">Data do último TAF: <span class="campo-obrigatorio">*</span></label>
                                     <input type="date" class="form-control" id="txtDataUltTAF" name="txtDataUltTAF" placeholder="Ex.: 00/00/0000">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                
                                 <div class="form-group col-md-6">
                                     <label for="txtMencaoTAF">Menção: <span class="campo-obrigatorio">*</span></label>
@@ -831,6 +848,8 @@
                                         <option value="MB">MB</option>
                                         <option value="E">E</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                
                             </div> 
                             
@@ -843,21 +862,27 @@
                                 <div class="form-group col-md-4">
                                     <label for="txtFunc1">Função 1: <span class="campo-obrigatorio"> *</span></label>
                                     <input type="text" class="form-control" id="txtFunc1" name="txtFunc1" placeholder="Ex.: Cmt Pel">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                
                                 <div class="form-group col-md-4">
                                     <label for="txtFunc2">Função 2: <span class="campo-obrigatorio"> *</span></label>
                                     <input type="text" class="form-control" id="txtFunc2" name="txtFunc2" placeholder="Ex.: Cmt Cia">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                
                                 <div class="form-group col-md-4">
                                     <label for="txtFunc3">Função 3: <span class="campo-obrigatorio"> *</span></label>
                                     <input type="text" class="form-control" id="txtFunc3" name="txtFunc3" placeholder="Ex.: Enc Mat">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                         
                             </div> 
                             
                         </div>
                     </div>
                     <button type="button" name="btnVoltar" class="btn btn-dark anterior acao">Anterior</button>
-                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
+                    <button type="button" name="btnProximo5" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">

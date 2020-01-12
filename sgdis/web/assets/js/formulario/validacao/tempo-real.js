@@ -738,4 +738,47 @@ $(function(){
         }
     });
     
+    //Validação ao mudar o valor dos campos
+    //Etapa 4: DADOS MILITARES
+    //Campo Input Escola de Formação
+    $("input[name=txtFormEscNome]").change(function(){
+         if($("input[name=txtFormEscNome]").val() != ''){
+             $("input[name=txtFormEscNome]").removeClass("is-invalid");
+             $("input[name=txtFormEscNome]").addClass("is-valid");
+         }else{
+             $("input[name=txtFormEscNome]").removeClass("is-valid");
+             $("input[name=txtFormEscNome]").addClass("is-invalid");
+         }
+    });
+    //Campo Input Abreviatura
+    $("input[name=txtFormEscAbrev]").change(function(){
+         if($("input[name=txtFormEscAbrev]").val() != ''){
+             $("input[name=txtFormEscAbrev]").removeClass("is-invalid");
+             $("input[name=txtFormEscAbrev]").addClass("is-valid");
+         }else{
+             $("input[name=txtFormEscAbrev]").removeClass("is-valid");
+             $("input[name=txtFormEscAbrev]").addClass("is-invalid");
+         }
+    });
+    //Campo Input Turma
+    $("input[name=txtFormTurma]").change(function(){
+         if($("input[name=txtFormTurma]").val() != ''){
+             $("input[name=txtFormTurma]").removeClass("is-invalid");
+             $("input[name=txtFormTurma]").addClass("is-valid");
+         }else{
+             $("input[name=txtFormTurma]").removeClass("is-valid");
+             $("input[name=txtFormTurma]").addClass("is-invalid");
+         }
+    });
+    //Campo Select Comportamento
+    $("select[name=txtCptmAl]").change(function(){
+         if($("select[name=txtCptmAl]").val() != '0'){
+             $("select[name=txtCptmAl]").removeClass("is-invalid");
+             $("select[name=txtCptmAl]").addClass("is-valid");
+         }else{
+             $("select[name=txtCptmAl]").removeClass("is-valid");
+             $("select[name=txtCptmAl]").addClass("is-invalid");
+         }
+    });
+    
 });
