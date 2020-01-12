@@ -81,7 +81,7 @@ $("#txtPossuiCNH").change(function() {
 
 //Acionamento form Veiculos
 var functionValidSelectTReal = function(campo){
-    $(campo).blur(function(){
+    $(campo).change(function(){
         if($(campo).val() != '0'){
             $(campo).removeClass("is-invalid");
             $(campo).addClass("is-valid");
@@ -93,7 +93,7 @@ var functionValidSelectTReal = function(campo){
 };
 
 var functionValidInputTReal = function(campo){
-    $(campo).blur(function(){
+    $(campo).change(function(){
         if($(campo).val() != ''){
             $(campo).removeClass("is-invalid");
             $(campo).addClass("is-valid");
@@ -157,14 +157,10 @@ $("#btnAddVeiculo").click(function(){
                                   "  </div>"+
                                   "</div>");
                          
-    functionValidSelectTReal("#txtTipoVeiculoAl"+qtdeVeiculos);
-    
-    functionValidInputTReal("#txtMarcaVeiculoAl"+qtdeVeiculos);
-    
-    functionValidInputTReal("#txtModeloVeiculoAl"+qtdeVeiculos);
-    
-    functionValidInputTReal("#txtCorVeiculoAl"+qtdeVeiculos);
-    
+    functionValidSelectTReal("#txtTipoVeiculoAl"+qtdeVeiculos);    
+    functionValidInputTReal("#txtMarcaVeiculoAl"+qtdeVeiculos);    
+    functionValidInputTReal("#txtModeloVeiculoAl"+qtdeVeiculos);    
+    functionValidInputTReal("#txtCorVeiculoAl"+qtdeVeiculos);    
     functionValidInputTReal("#txtPlacaVeiculoAl"+qtdeVeiculos);
     
     qtdeVeiculos++;
@@ -191,8 +187,12 @@ $("#btnAddAlergia").click(function(){
                                   "  <div class=\"form-group col-md-12\">"+
                                   "      <label for=txtAlergia"+ qtdeAlergias +">Alergia: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtAlergia"+ qtdeAlergias +" name=\"txtAlergia\" placeholder=\"Ex.: Rémedio tal\">"+
+                                  "      <div class=\"valid-feedback\">Selva!</div>"+
+                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "</div>");
+                          
+    functionValidInputTReal("#txtAlergia"+qtdeAlergias);
     qtdeAlergias++;
 });
 
@@ -215,13 +215,17 @@ $("#btnAddMtoCt").click(function(){
                                   "  <div class=\"form-group col-md-8\">"+
                                   "      <label for=txtNomeMtoCt"+ qtdeMtoCt +">Nome: <span class=\"campo-obrigatorio\"> *</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtNomeMtoCt"+ qtdeMtoCt +" name=\"txtNomeMtoCt\" placeholder=\"Ex.: Rémedio tal\">"+
+                                  "      <div class=\"valid-feedback\">Selva!</div>"+
+                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-2\">"+
                                   "      <label for=txtFrqMtoCt"+ qtdeMtoCt +">Frequência: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"number\" class=\"form-control\" id=txtFrqMtoCt"+ qtdeMtoCt +" name=\"txtFrqMtoCt\" placeholder=\"Ex.: vezes\">"+
+                                  "      <div class=\"valid-feedback\">Selva!</div>"+
+                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-2\">"+
-                                  "      <label for=txtFrqMtoCt"+ qtdeMtoCt +">Por: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                  "      <label for=txtTpMtoCt"+ qtdeMtoCt +">Por: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <select class=\"form-control\" id=txtTpMtoCt"+ qtdeMtoCt +" name=\"txtTpMtoCt\">"+
                                   "         <option value=\"0\" selected>Selecione o tipo...</option>"+
                                   "         <option value=\"hr\">Hora</option>"+
@@ -230,8 +234,15 @@ $("#btnAddMtoCt").click(function(){
                                   "         <option value=\"mes\">Mês</option>"+
                                   "         <option value=\"ano\">Ano</option>"+
                                   "     </select>"+
+                                  "     <div class=\"valid-feedback\">Selva!</div>"+
+                                  "     <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "</div>");
+        
+    functionValidInputTReal("#txtNomeMtoCt"+qtdeMtoCt);    
+    functionValidInputTReal("#txtFrqMtoCt"+qtdeMtoCt);
+    functionValidSelectTReal("#txtTpMtoCt"+qtdeMtoCt);
+                          
     qtdeMtoCt++;
 });
 
@@ -254,8 +265,13 @@ $("#btnAddTermErgSupAli").click(function(){
                                   "  <div class=\"form-group col-md-12\">"+
                                   "      <label for=txtNomeTermErgSupAli"+ qtdeTermErgSupAli +">Nome: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtNomeTermErgSupAli"+ qtdeTermErgSupAli +" name=\"txtNomeTermErgSupAli\" placeholder=\"Ex.: Rémedio tal\">"+
+                                  "     <div class=\"valid-feedback\">Selva!</div>"+
+                                  "     <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "</div>");
+                          
+    functionValidInputTReal("#txtNomeTermErgSupAli"+qtdeTermErgSupAli);
+    
     qtdeTermErgSupAli++;
 });
 

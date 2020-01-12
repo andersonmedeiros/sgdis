@@ -668,6 +668,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -683,6 +685,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -707,6 +711,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -728,6 +734,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -742,7 +750,7 @@
                         </div>
                     </div>
                     <button type="button" name="btnVoltar" class="btn btn-dark anterior acao">Anterior</button>
-                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
+                    <button type="button" name="btnProximo4" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">
