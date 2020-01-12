@@ -307,30 +307,58 @@ $(function(){
             $("select[name=txtPossuiCNH]").addClass("is-invalid");
             $("select[name=txtPossuiCNH]").focus();
         }
-        //Não possui CNH e não possui Veiculo
-        else if($("select[name=txtPossuiCNH]").val() == 'n'){
-            if($("select[name=txtTraraVeiculo]").val() == '0'){
-                $("select[name=txtTraraVeiculo]").removeClass("is-valid");
-                $("select[name=txtTraraVeiculo]").addClass("is-invalid");
-                $("select[name=txtTraraVeiculo]").focus();
-            }
-            else if($("select[name=txtTraraVeiculo]").val() == 'n'){
+        else if($("select[name=txtTraraVeiculo]").val() == '0'){
+            $("select[name=txtTraraVeiculo]").removeClass("is-valid");
+            $("select[name=txtTraraVeiculo]").addClass("is-invalid");
+            $("select[name=txtTraraVeiculo]").focus();
+        } 
+        //Não possui CNH
+        else if($("select[name=txtPossuiCNH]").val() == 'n'){                       
+            //Não possui Veículo
+            if($("select[name=txtTraraVeiculo]").val() == 'n'){
                 prox($(this));
             }
-        }
-        //Não possui CNH, porém possui Veiculo
-        else if($("select[name=txtPossuiCNH]").val() == 'n'){
-            if($("select[name=txtTraraVeiculo]").val() == '0'){
-                $("select[name=txtTraraVeiculo]").removeClass("is-valid");
-                $("select[name=txtTraraVeiculo]").addClass("is-invalid");
-                $("select[name=txtTraraVeiculo]").focus();
+            //Possui Veículo
+            else if($("select[name=txtTraraVeiculo]").val() == 's'){
+                for(var i=0;i<($("input[name=txtPlacaVeiculoAl").length);i++){
+                    if($("select[name=txtTipoVeiculoAl]").eq(i).val() == '0' ){
+                        $("select[name=txtTipoVeiculoAl]").eq(i).removeClass("is-valid");
+                        $("select[name=txtTipoVeiculoAl]").eq(i).addClass("is-invalid");
+                        $("select[name=txtTipoVeiculoAl]").eq(i).focus();
+                        break;
+                    }                    
+                    else if($("input[name=txtMarcaVeiculoAl]").eq(i).val() == ''){
+                        $("input[name=txtMarcaVeiculoAl]").eq(i).removeClass("is-valid");
+                        $("input[name=txtMarcaVeiculoAl]").eq(i).addClass("is-invalid");
+                        $("input[name=txtMarcaVeiculoAl]").eq(i).focus();
+                        break;
+                    }
+                    else if($("input[name=txtModeloVeiculoAl]").eq(i).val() == ''){
+                        $("input[name=txtModeloVeiculoAl]").eq(i).removeClass("is-valid");
+                        $("input[name=txtModeloVeiculoAl]").eq(i).addClass("is-invalid");
+                        $("input[name=txtModeloVeiculoAl]").eq(i).focus();
+                        break;
+                    }
+                    else if($("input[name=txtCorVeiculoAl]").eq(i).val() == ''){
+                        $("input[name=txtCorVeiculoAl]").eq(i).removeClass("is-valid");
+                        $("input[name=txtCorVeiculoAl]").eq(i).addClass("is-invalid");
+                        $("input[name=txtCorVeiculoAl]").eq(i).focus();
+                        break;
+                    }
+                    else if($("input[name=txtPlacaVeiculoAl]").eq(i).val() == ''){
+                        $("input[name=txtPlacaVeiculoAl]").eq(i).removeClass("is-valid");
+                        $("input[name=txtPlacaVeiculoAl]").eq(i).addClass("is-invalid");
+                        $("input[name=txtPlacaVeiculoAl]").eq(i).focus();
+                        break;
+                    }
+                    else if(($("input[name=txtPlacaVeiculoAl]").eq($("input[name=txtPlacaVeiculoAl]").length-1).val()) != ''){
+                        prox($(this));
+                    }
+                }                       
             }
-            else if($("select[name=txtTraraVeiculo]").val() == 't'){
-                prox($(this));
-            }
-        }
-        //Possui CNH e não possui Veiculo
-        else if($("select[name=txtPossuiCNH]").val() == 's'){
+        }        
+        //Possui CNH
+       else if($("select[name=txtPossuiCNH]").val() == 's'){
             if($("input[name=txtCNHNumAl]").val() == ''){
                 $("input[name=txtCNHNumAl]").removeClass("is-valid");
                 $("input[name=txtCNHNumAl]").addClass("is-invalid");
@@ -345,17 +373,50 @@ $(function(){
                 $("input[name=txtCNHDataValAl]").removeClass("is-valid");
                 $("input[name=txtCNHDataValAl]").addClass("is-invalid");
                 $("input[name=txtCNHDataValAl]").focus();
-            }
-            else if($("select[name=txtTraraVeiculo]").val() == '0'){
-                $("select[name=txtTraraVeiculo]").removeClass("is-valid");
-                $("select[name=txtTraraVeiculo]").addClass("is-invalid");
-                $("select[name=txtTraraVeiculo]").focus();
-            }
+            }            
+            //Não possui Veículo
             else if($("select[name=txtTraraVeiculo]").val() == 'n'){
                 prox($(this));
             }
-        }
-        
+            //Possui Veículo
+            else if($("select[name=txtTraraVeiculo]").val() == 's'){
+                for(var i=0;i<($("input[name=txtPlacaVeiculoAl").length);i++){
+                    if($("select[name=txtTipoVeiculoAl]").eq(i).val() == '0' ){
+                        $("select[name=txtTipoVeiculoAl]").eq(i).removeClass("is-valid");
+                        $("select[name=txtTipoVeiculoAl]").eq(i).addClass("is-invalid");
+                        $("select[name=txtTipoVeiculoAl]").eq(i).focus();
+                        break;
+                    }                    
+                    else if($("input[name=txtMarcaVeiculoAl]").eq(i).val() == ''){
+                        $("input[name=txtMarcaVeiculoAl]").eq(i).removeClass("is-valid");
+                        $("input[name=txtMarcaVeiculoAl]").eq(i).addClass("is-invalid");
+                        $("input[name=txtMarcaVeiculoAl]").eq(i).focus();
+                        break;
+                    }
+                    else if($("input[name=txtModeloVeiculoAl]").eq(i).val() == ''){
+                        $("input[name=txtModeloVeiculoAl]").eq(i).removeClass("is-valid");
+                        $("input[name=txtModeloVeiculoAl]").eq(i).addClass("is-invalid");
+                        $("input[name=txtModeloVeiculoAl]").eq(i).focus();
+                        break;
+                    }
+                    else if($("input[name=txtCorVeiculoAl]").eq(i).val() == ''){
+                        $("input[name=txtCorVeiculoAl]").eq(i).removeClass("is-valid");
+                        $("input[name=txtCorVeiculoAl]").eq(i).addClass("is-invalid");
+                        $("input[name=txtCorVeiculoAl]").eq(i).focus();
+                        break;
+                    }
+                    else if($("input[name=txtPlacaVeiculoAl]").eq(i).val() == ''){
+                        $("input[name=txtPlacaVeiculoAl]").eq(i).removeClass("is-valid");
+                        $("input[name=txtPlacaVeiculoAl]").eq(i).addClass("is-invalid");
+                        $("input[name=txtPlacaVeiculoAl]").eq(i).focus();
+                        break;
+                    }
+                    else if(($("input[name=txtPlacaVeiculoAl]").eq($("input[name=txtPlacaVeiculoAl]").length-1).val()) != ''){
+                        prox($(this));
+                    }
+                }
+            }
+        }   
         //Próxima Etapa
         else{
             prox($(this));

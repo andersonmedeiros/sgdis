@@ -5,17 +5,20 @@
  */
 
 
-/*$(function(){
+$(function(){
    var atual_fs, prox_fs, anterior_fs;
+   var form = $("#formCadCandidato");
    
-   $('.prox').click(function(){
-       atual_fs = $(this).parent();
-       prox_fs = $(this).parent().next();
+   
+   function prox(elemento){
+       atual_fs = $(elemento).parent();
+       prox_fs = $(elemento).parent().next();
+       
        $('#progress li').eq($('fieldset').index(prox_fs)).addClass('ativo');
        atual_fs.hide(800);
        prox_fs.show(800);
         
-   });
+   }
    
    $('.anterior').click(function(){
        atual_fs = $(this).parent();
@@ -30,7 +33,7 @@
       return false; 
    });
     
-});*/
+});
 
 
 
@@ -77,6 +80,30 @@ $("#txtPossuiCNH").change(function() {
 });
 
 //Acionamento form Veiculos
+var functionValidSelectTReal = function(campo){
+    $(campo).blur(function(){
+        if($(campo).val() != '0'){
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }else{
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+        }
+    });
+};
+
+var functionValidInputTReal = function(campo){
+    $(campo).blur(function(){
+        if($(campo).val() != ''){
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }else{
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+        }
+    });
+};
+
 var qtdeVeiculos = document.querySelectorAll('#fieldsetVeiculos .form-row').length + 1;
 
 $("#txtTraraVeiculo").change(function() {    
@@ -89,30 +116,6 @@ $("#txtTraraVeiculo").change(function() {
         qtdeVeiculos = 1;
     }
 });
-
-var functionValidSelectObg = function(campo){
-    $(campo).blur(function(){
-        if($(campo).val() != '0'){
-            $(campo).removeClass("is-invalid");
-            $(campo).addClass("is-valid");
-        }else{
-            $(campo).removeClass("is-valid");
-            $(campo).addClass("is-invalid");
-        }
-    });
-};
-
-var functionValidInputObg = function(campo){
-    $(campo).blur(function(){
-        if($(campo).val() != ''){
-            $(campo).removeClass("is-invalid");
-            $(campo).addClass("is-valid");
-        }else{
-            $(campo).removeClass("is-valid");
-            $(campo).addClass("is-invalid");
-        }
-    });
-};
 
 $("#btnAddVeiculo").click(function(){     
     $("#fieldsetVeiculos").append("<div id=linha"+ qtdeVeiculos +" class=\"form-row\">"+
@@ -154,14 +157,20 @@ $("#btnAddVeiculo").click(function(){
                                   "  </div>"+
                                   "</div>");
                          
-    functionValidSelectObg("#txtTipoVeiculoAl"+qtdeVeiculos);
-    functionValidInputObg("#txtMarcaVeiculoAl"+qtdeVeiculos);
-    functionValidInputObg("#txtModeloVeiculoAl"+qtdeVeiculos);
-    functionValidInputObg("#txtCorVeiculoAl"+qtdeVeiculos);
-    functionValidInputObg("#txtPlacaVeiculoAl"+qtdeVeiculos);
+    functionValidSelectTReal("#txtTipoVeiculoAl"+qtdeVeiculos);
+    
+    functionValidInputTReal("#txtMarcaVeiculoAl"+qtdeVeiculos);
+    
+    functionValidInputTReal("#txtModeloVeiculoAl"+qtdeVeiculos);
+    
+    functionValidInputTReal("#txtCorVeiculoAl"+qtdeVeiculos);
+    
+    functionValidInputTReal("#txtPlacaVeiculoAl"+qtdeVeiculos);
     
     qtdeVeiculos++;
 });
+
+
 
 //Acionamento form Alergias
 var qtdeAlergias = document.querySelectorAll('#fieldsetAlergias .form-row').length + 1;

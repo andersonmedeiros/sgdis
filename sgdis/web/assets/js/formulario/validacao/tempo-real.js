@@ -571,11 +571,14 @@ $(function(){
     });
     
     //Campo Select Possui CNH
-    $("select[name=txtPossuiCNH]").blur(function(){
-        if($("select[name=txtPossuiCNH]").val() != '0'){
+    $("select[name=txtPossuiCNH]").change(function(){
+        if($("select[name=txtPossuiCNH]").val() == '0'){            
+           $("select[name=txtPossuiCNH]").removeClass("is-valid");
+           $("select[name=txtPossuiCNH]").addClass("is-invalid");
+        }
+        else if($("select[name=txtPossuiCNH]").val() == 's'){
             $("select[name=txtPossuiCNH]").removeClass("is-invalid");
             $("select[name=txtPossuiCNH]").addClass("is-valid");
-             
             //Campo Input CNH Num
             $("input[name=txtCNHNumAl]").blur(function(){
                 if($("input[name=txtCNHNumAl]").val() != ''){
@@ -608,14 +611,26 @@ $(function(){
                     $("input[name=txtCNHDataValAl]").addClass("is-invalid");
                 }
             });
-        }else{
-           $("select[name=txtPossuiCNH]").removeClass("is-valid");
-           $("select[name=txtPossuiCNH]").addClass("is-invalid");
+        }else if($("select[name=txtPossuiCNH]").val() == 'n'){
+            $("select[name=txtPossuiCNH]").removeClass("is-invalid");
+            $("select[name=txtPossuiCNH]").addClass("is-valid");
+            
+            $("input[name=txtCNHNumAl]").val('');
+            $("input[name=txtCNHNumAl]").removeClass("is-invalid");
+            $("input[name=txtCNHNumAl]").removeClass("is-valid");
+            
+            $("select[name=txtCNHCatgAl]").val('0');
+            $("select[name=txtCNHCatgAl]").removeClass("is-invalid");
+            $("select[name=txtCNHCatgAl]").removeClass("is-valid");
+            
+            $("input[name=txtCNHDataValAl]").val('');            
+            $("input[name=txtCNHDataValAl]").removeClass("is-invalid");
+            $("input[name=txtCNHDataValAl]").removeClass("is-valid");
         }
     });
     
     //Campo Select Trará veículo para o CIGS
-    $("select[name=txtTraraVeiculo]").blur(function(){
+    $("select[name=txtTraraVeiculo]").change(function(){
         if($("select[name=txtTraraVeiculo]").val() != '0'){
             $("select[name=txtTraraVeiculo]").removeClass("is-invalid");
             $("select[name=txtTraraVeiculo]").addClass("is-valid");
