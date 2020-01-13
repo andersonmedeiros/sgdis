@@ -816,6 +816,8 @@ $(function(){
             $("select[name=txtQaProm]").addClass("is-valid");
             
             $("input[name=txtQaQuandoProm]").val('');
+            $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+            $("input[name=txtQaQuandoProm]").removeClass("is-invalid");
         }
     });
     //Campo Input Data Último TAF
@@ -866,6 +868,255 @@ $(function(){
         }else{
             $("input[name=txtFunc3]").removeClass("is-valid");
             $("input[name=txtFunc3]").addClass("is-invalid");
+        }
+    });
+    
+    //Validação ao mudar o valor dos campos
+    //Etapa 4: DADOS MILITARES
+    //Campo Select Possui Cônjuge
+    $("select[name=txtPossuiConjuge]").change(function(){
+        if($("select[name=txtPossuiConjuge]").val() == '0'){
+            $("select[name=txtPossuiConjuge]").removeClass("is-valid");
+            $("select[name=txtPossuiConjuge]").addClass("is-invalid");
+        }
+        else if($("select[name=txtPossuiConjuge]").val() == 's'){
+            $("select[name=txtPossuiConjuge]").removeClass("is-invalid");
+            $("select[name=txtPossuiConjuge]").addClass("is-valid");
+            
+            //Campo Input CPF Cônjuge
+            $("input[name=txtCpfConjuge]").change(function(){
+                if($("input[name=txtCpfConjuge]").val() != ''){
+                    $("input[name=txtCpfConjuge]").removeClass("is-invalid");
+                    $("input[name=txtCpfConjuge]").addClass("is-valid");
+                }else{
+                    $("input[name=txtCpfConjuge]").removeClass("is-valid");
+                    $("input[name=txtCpfConjuge]").addClass("is-invalid");
+                }
+            });
+            //Campo Input Nome Cônjuge
+            $("input[name=txtNomeConjuge]").change(function(){
+                if($("input[name=txtNomeConjuge]").val() != ''){
+                    $("input[name=txtNomeConjuge]").removeClass("is-invalid");
+                    $("input[name=txtNomeConjuge]").addClass("is-valid");
+                }else{
+                    $("input[name=txtNomeConjuge]").removeClass("is-valid");
+                    $("input[name=txtNomeConjuge]").addClass("is-invalid");
+                }
+            });
+            //Campo Input Sobrenome Cônjuge
+            $("input[name=txtSobrenomeConjuge]").change(function(){
+                if($("input[name=txtSobrenomeConjuge]").val() != ''){
+                    $("input[name=txtSobrenomeConjuge]").removeClass("is-invalid");
+                    $("input[name=txtSobrenomeConjuge]").addClass("is-valid");
+                }else{
+                    $("input[name=txtSobrenomeConjuge]").removeClass("is-valid");
+                    $("input[name=txtSobrenomeConjuge]").addClass("is-invalid");
+                }
+            });
+            //Campo Input Email Cônjuge
+            $("input[name=txtEmailConjuge]").change(function(){
+                if($("input[name=txtEmailConjuge]").val() != ''){
+                    $("input[name=txtEmailConjuge]").removeClass("is-invalid");
+                    $("input[name=txtEmailConjuge]").addClass("is-valid");
+                }else{
+                    $("input[name=txtEmailConjuge]").removeClass("is-valid");
+                    $("input[name=txtEmailConjuge]").addClass("is-invalid");
+                }
+            });
+            //Campo Input Fone Cônjuge
+            $("input[name=txtFoneConjuge]").change(function(){
+                if($("input[name=txtFoneConjuge]").val() != ''){
+                    $("input[name=txtFoneConjuge]").removeClass("is-invalid");
+                    $("input[name=txtFoneConjuge]").addClass("is-valid");
+                }else{
+                    $("input[name=txtFoneConjuge]").removeClass("is-valid");
+                    $("input[name=txtFoneConjuge]").addClass("is-invalid");
+                }
+            });
+        }
+        else if($("select[name=txtPossuiConjuge]").val() == 'n'){
+            $("select[name=txtPossuiConjuge]").removeClass("is-invalid");
+            $("select[name=txtPossuiConjuge]").addClass("is-valid");
+            
+            $("input[name=txtCpfConjuge]").val('');
+            $("input[name=txtCpfConjuge]").removeClass("is-valid");
+            $("input[name=txtCpfConjuge]").removeClass("is-invalid");
+            
+            $("input[name=txtNomeConjuge]").val('');
+            $("input[name=txtNomeConjuge]").removeClass("is-valid");
+            $("input[name=txtNomeConjuge]").removeClass("is-invalid");
+            
+            $("input[name=txtSobrenomeConjuge]").val('');
+            $("input[name=txtSobrenomeConjuge]").removeClass("is-valid");
+            $("input[name=txtSobrenomeConjuge]").removeClass("is-invalid");
+            
+            $("input[name=txtEmailConjuge]").val('');
+            $("input[name=txtEmailConjuge]").removeClass("is-valid");
+            $("input[name=txtEmailConjuge]").removeClass("is-invalid");
+            
+            $("input[name=txtFoneConjuge]").val('');
+            $("input[name=txtFoneConjuge]").removeClass("is-valid");
+            $("input[name=txtFoneConjuge]").removeClass("is-invalid");
+        }
+    });
+    //Campo Select Parentesco Referência
+    $("select[name=txtParentescoRef]").change(function(){
+         if($("select[name=txtParentescoRef]").val() != '0'){
+             $("select[name=txtParentescoRef]").removeClass("is-invalid");
+             $("select[name=txtParentescoRef]").addClass("is-valid");
+         }else{
+             $("select[name=txtParentescoRef]").removeClass("is-valid");
+             $("select[name=txtParentescoRef]").addClass("is-invalid");
+         }
+    });
+    //Campo Input Nome Referência
+    $("input[name=txtNomeRef]").change(function(){
+        if($("input[name=txtNomeRef]").val() != ''){
+            $("input[name=txtNomeRef]").removeClass("is-invalid");
+            $("input[name=txtNomeRef]").addClass("is-valid");
+        }else{
+            $("input[name=txtNomeRef]").removeClass("is-valid");
+            $("input[name=txtNomeRef]").addClass("is-invalid");
+        }
+    });
+    //Campo Input Sobrenome Referência
+    $("input[name=txtSobrenomeRef]").change(function(){
+        if($("input[name=txtSobrenomeRef]").val() != ''){
+            $("input[name=txtSobrenomeRef]").removeClass("is-invalid");
+            $("input[name=txtSobrenomeRef]").addClass("is-valid");
+        }else{
+            $("input[name=txtSobrenomeRef]").removeClass("is-valid");
+            $("input[name=txtSobrenomeRef]").addClass("is-invalid");
+        }
+    });
+    //Campo Input CPF Referência
+    $("input[name=txtCpfRef]").change(function(){
+        if($("input[name=txtCpfRef]").val() != ''){
+            $("input[name=txtCpfRef]").removeClass("is-invalid");
+            $("input[name=txtCpfRef]").addClass("is-valid");
+        }else{
+            $("input[name=txtCpfRef]").removeClass("is-valid");
+            $("input[name=txtCpfRef]").addClass("is-invalid");
+        }
+    });
+    //Campo Input Email Referência
+    $("input[name=txtEmailRef]").change(function(){
+        if($("input[name=txtEmailRef]").val() != ''){
+            $("input[name=txtEmailRef]").removeClass("is-invalid");
+            $("input[name=txtEmailRef]").addClass("is-valid");
+        }else{
+            $("input[name=txtEmailRef]").removeClass("is-valid");
+            $("input[name=txtEmailRef]").addClass("is-invalid");
+        }
+    });
+    //Campo Input Fone Referência
+    $("input[name=txtFoneRef]").change(function(){
+        if($("input[name=txtFoneRef]").val() != ''){
+            $("input[name=txtFoneRef]").removeClass("is-invalid");
+            $("input[name=txtFoneRef]").addClass("is-valid");
+        }else{
+            $("input[name=txtFoneRef]").removeClass("is-valid");
+            $("input[name=txtFoneRef]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Referência Conclusão
+    $("select[name=txtAddRefConclusao]").change(function(){
+        if($("select[name=txtAddRefConclusao]").val() == '0'){
+            $("select[name=txtAddRefConclusao]").removeClass("is-valid");
+            $("select[name=txtAddRefConclusao]").addClass("is-invalid");
+        }
+        else if($("select[name=txtAddRefConclusao]").val() == 's'){
+            $("select[name=txtAddRefConclusao]").removeClass("is-invalid");
+            $("select[name=txtAddRefConclusao]").addClass("is-valid");
+            
+            //Campo Select Parentesco Referência Conclusão
+            $("select[name=txtParentescoRefConclusao]").change(function(){
+                 if($("select[name=txtParentescoRefConclusao]").val() != '0'){
+                     $("select[name=txtParentescoRefConclusao]").removeClass("is-invalid");
+                     $("select[name=txtParentescoRefConclusao]").addClass("is-valid");
+                 }else{
+                     $("select[name=txtParentescoRefConclusao]").removeClass("is-valid");
+                     $("select[name=txtParentescoRefConclusao]").addClass("is-invalid");
+                 }
+            });
+            //Campo Input Nome Referência Conclusão
+            $("input[name=txtNomeRefConclusao]").change(function(){
+                if($("input[name=txtNomeRefConclusao]").val() != ''){
+                    $("input[name=txtNomeRefConclusao]").removeClass("is-invalid");
+                    $("input[name=txtNomeRefConclusao]").addClass("is-valid");
+                }else{
+                    $("input[name=txtNomeRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtNomeRefConclusao]").addClass("is-invalid");
+                }
+            });
+            //Campo Input Sobrenome Referência Conclusão
+            $("input[name=txtSobrenomeRefConclusao]").change(function(){
+                if($("input[name=txtSobrenomeRefConclusao]").val() != ''){
+                    $("input[name=txtSobrenomeRefConclusao]").removeClass("is-invalid");
+                    $("input[name=txtSobrenomeRefConclusao]").addClass("is-valid");
+                }else{
+                    $("input[name=txtSobrenomeRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtSobrenomeRefConclusao]").addClass("is-invalid");
+                }
+            });
+            //Campo Input CPF Referência Conclusão
+            $("input[name=txtCpfRefConclusao]").change(function(){
+                if($("input[name=txtCpfRefConclusao]").val() != ''){
+                    $("input[name=txtCpfRefConclusao]").removeClass("is-invalid");
+                    $("input[name=txtCpfRefConclusao]").addClass("is-valid");
+                }else{
+                    $("input[name=txtCpfRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtCpfRefConclusao]").addClass("is-invalid");
+                }
+            });
+            //Campo Input Email Referência Conclusão
+            $("input[name=txtEmailRefConclusao]").change(function(){
+                if($("input[name=txtEmailRefConclusao]").val() != ''){
+                    $("input[name=txtEmailRefConclusao]").removeClass("is-invalid");
+                    $("input[name=txtEmailRefConclusao]").addClass("is-valid");
+                }else{
+                    $("input[name=txtEmailRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtEmailRefConclusao]").addClass("is-invalid");
+                }
+            });
+            //Campo Input Nome Referência Conclusão
+            $("input[name=txtFoneRefConclusao]").change(function(){
+                if($("input[name=txtFoneRefConclusao]").val() != ''){
+                    $("input[name=txtFoneRefConclusao]").removeClass("is-invalid");
+                    $("input[name=txtFoneRefConclusao]").addClass("is-valid");
+                }else{
+                    $("input[name=txtFoneRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtFoneRefConclusao]").addClass("is-invalid");
+                }
+            });
+        }
+        else if($("select[name=txtAddRefConclusao]").val() == 'n'){
+            $("select[name=txtAddRefConclusao]").removeClass("is-invalid");
+            $("select[name=txtAddRefConclusao]").addClass("is-valid");
+            
+            $("select[name=txtParentescoRefConclusao]").val('0');
+            $("select[name=txtParentescoRefConclusao]").removeClass("is-valid");
+            $("select[name=txtParentescoRefConclusao]").removeClass("is-invalid");
+            
+            $("input[name=txtCpfRefConclusao]").val('');
+            $("input[name=txtCpfRefConclusao]").removeClass("is-valid");
+            $("input[name=txtCpfRefConclusao]").removeClass("is-invalid");
+            
+            $("input[name=txtNomeRefConclusao]").val('');
+            $("input[name=txtNomeRefConclusao]").removeClass("is-valid");
+            $("input[name=txtNomeRefConclusao]").removeClass("is-invalid");
+            
+            $("input[name=txtSobrenomeRefConclusao]").val('');
+            $("input[name=txtSobrenomeRefConclusao]").removeClass("is-valid");
+            $("input[name=txtSobrenomeRefConclusao]").removeClass("is-invalid");
+            
+            $("input[name=txtEmailRefConclusao]").val('');
+            $("input[name=txtEmailRefConclusao]").removeClass("is-valid");
+            $("input[name=txtEmailRefConclusao]").removeClass("is-invalid");
+            
+            $("input[name=txtFoneRefConclusao]").val('');
+            $("input[name=txtFoneRefConclusao]").removeClass("is-valid");
+            $("input[name=txtFoneRefConclusao]").removeClass("is-invalid");
         }
     });
 });

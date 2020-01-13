@@ -766,6 +766,193 @@ $(function(){
             else{
                 prox($(this));
             }
+        }        
+    });
+    
+    //Etapa 4: DADOS MILITARES
+    $("button[name=btnProximo6]").click(function(){
+        if($("select[name=txtPossuiConjuge]").val() == '0'){
+            $("select[name=txtPossuiConjuge]").removeClass("is-valid");
+            $("select[name=txtPossuiConjuge]").addClass("is-invalid");
+            $("select[name=txtPossuiConjuge]").focus();
+        }
+        else if($("select[name=txtAddRefConclusao]").val() == '0'){
+            $("select[name=txtAddRefConclusao]").removeClass("is-valid");
+            $("select[name=txtAddRefConclusao]").addClass("is-invalid");
+            $("select[name=txtAddRefConclusao]").focus();
+        }
+        else if($("select[name=txtPossuiConjuge]").val() == 'n'){
+            //Referência
+            if($("select[name=txtParentescoRef]").val() == '0'){
+                $("select[name=txtParentescoRef]").removeClass("is-valid");
+                $("select[name=txtParentescoRef]").addClass("is-invalid");
+                $("select[name=txtParentescoRef]").focus();
+            }
+            else if($("input[name=txtNomeRef]").val() == ''){
+                $("input[name=txtNomeRef]").removeClass("is-valid");
+                $("input[name=txtNomeRef]").addClass("is-invalid");
+                $("input[name=txtNomeRef]").focus();                
+            }
+            else if($("input[name=txtSobrenomeRef]").val() == ''){
+                $("input[name=txtSobrenomeRef]").removeClass("is-valid");
+                $("input[name=txtSobrenomeRef]").addClass("is-invalid");
+                $("input[name=txtSobrenomeRef]").focus();                
+            }
+            else if($("input[name=txtCpfRef]").val() == ''){
+                $("input[name=txtCpfRef]").removeClass("is-valid");
+                $("input[name=txtCpfRef]").addClass("is-invalid");
+                $("input[name=txtCpfRef]").focus();                
+            }
+            else if($("input[name=txtEmailRef]").val() == ''){
+                $("input[name=txtEmailRef]").removeClass("is-valid");
+                $("input[name=txtEmailRef]").addClass("is-invalid");
+                $("input[name=txtEmailRef]").focus();                
+            }
+            else if($("input[name=txtFoneRef]").val() == ''){
+                $("input[name=txtFoneRef]").removeClass("is-valid");
+                $("input[name=txtFoneRef]").addClass("is-invalid");
+                $("input[name=txtFoneRef]").focus();                
+            }
+            
+            //Referência Conclusão
+            else if($("select[name=txtAddRefConclusao]").val() == 'n'){
+                prox($(this));
+            }            
+            else if($("select[name=txtAddRefConclusao]").val() == 's'){
+                if($("select[name=txtParentescoRefConclusao]").val() == '0'){
+                    $("select[name=txtParentescoRefConclusao]").removeClass("is-valid");
+                    $("select[name=txtParentescoRefConclusao]").addClass("is-invalid");
+                    $("select[name=txtParentescoRefConclusao]").focus();
+                }
+                else if($("input[name=txtNomeRefConclusao]").val() == ''){
+                    $("input[name=txtNomeRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtNomeRefConclusao]").addClass("is-invalid");
+                    $("input[name=txtNomeRefConclusao]").focus();                
+                }
+                else if($("input[name=txtSobrenomeRefConclusao]").val() == ''){
+                    $("input[name=txtSobrenomeRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtSobrenomeRefConclusao]").addClass("is-invalid");
+                    $("input[name=txtSobrenomeRefConclusao]").focus();                
+                }
+                else if($("input[name=txtCpfRefConclusao]").val() == ''){
+                    $("input[name=txtCpfRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtCpfRefConclusao]").addClass("is-invalid");
+                    $("input[name=txtCpfRefConclusao]").focus();                
+                }
+                else if($("input[name=txtEmailRefConclusao]").val() == ''){
+                    $("input[name=txtEmailRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtEmailRefConclusao]").addClass("is-invalid");
+                    $("input[name=txtEmailRefConclusao]").focus();                
+                }
+                else if($("input[name=txtFoneRefConclusao]").val() == ''){
+                    $("input[name=txtFoneRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtFoneRefConclusao]").addClass("is-invalid");
+                    $("input[name=txtFoneRefConclusao]").focus();                
+                }
+                else{
+                    prox($(this));
+                }
+            }
+        }
+        else if($("select[name=txtPossuiConjuge]").val() == 's'){
+            //Cônjuge
+            if($("input[name=txtCpfConjuge]").val() == ''){
+                $("input[name=txtCpfConjuge]").removeClass("is-valid");
+                $("input[name=txtCpfConjuge]").addClass("is-invalid");
+                $("input[name=txtCpfConjuge]").focus();                
+            }
+            else if($("input[name=txtNomeConjuge]").val() == ''){
+                $("input[name=txtNomeConjuge]").removeClass("is-valid");
+                $("input[name=txtNomeConjuge]").addClass("is-invalid");
+                $("input[name=txtNomeConjuge]").focus();                
+            }
+            else if($("input[name=txtSobrenomeConjuge]").val() == ''){
+                $("input[name=txtSobrenomeConjuge]").removeClass("is-valid");
+                $("input[name=txtSobrenomeConjuge]").addClass("is-invalid");
+                $("input[name=txtSobrenomeConjuge]").focus();                
+            }
+            else if($("input[name=txtEmailConjuge]").val() == ''){
+                $("input[name=txtEmailConjuge]").removeClass("is-valid");
+                $("input[name=txtEmailConjuge]").addClass("is-invalid");
+                $("input[name=txtEmailConjuge]").focus();                
+            }
+            else if($("input[name=txtFoneConjuge]").val() == ''){
+                $("input[name=txtFoneConjuge]").removeClass("is-valid");
+                $("input[name=txtFoneConjuge]").addClass("is-invalid");
+                $("input[name=txtFoneConjuge]").focus();                
+            }
+            
+            //Referência
+            else if($("select[name=txtParentescoRef]").val() == '0'){
+                $("select[name=txtParentescoRef]").removeClass("is-valid");
+                $("select[name=txtParentescoRef]").addClass("is-invalid");
+                $("select[name=txtParentescoRef]").focus();
+            }
+            else if($("input[name=txtNomeRef]").val() == ''){
+                $("input[name=txtNomeRef]").removeClass("is-valid");
+                $("input[name=txtNomeRef]").addClass("is-invalid");
+                $("input[name=txtNomeRef]").focus();                
+            }
+            else if($("input[name=txtSobrenomeRef]").val() == ''){
+                $("input[name=txtSobrenomeRef]").removeClass("is-valid");
+                $("input[name=txtSobrenomeRef]").addClass("is-invalid");
+                $("input[name=txtSobrenomeRef]").focus();                
+            }
+            else if($("input[name=txtCpfRef]").val() == ''){
+                $("input[name=txtCpfRef]").removeClass("is-valid");
+                $("input[name=txtCpfRef]").addClass("is-invalid");
+                $("input[name=txtCpfRef]").focus();                
+            }
+            else if($("input[name=txtEmailRef]").val() == ''){
+                $("input[name=txtEmailRef]").removeClass("is-valid");
+                $("input[name=txtEmailRef]").addClass("is-invalid");
+                $("input[name=txtEmailRef]").focus();                
+            }
+            else if($("input[name=txtFoneRef]").val() == ''){
+                $("input[name=txtFoneRef]").removeClass("is-valid");
+                $("input[name=txtFoneRef]").addClass("is-invalid");
+                $("input[name=txtFoneRef]").focus();                
+            }
+            
+            //Referência Conclusão
+            else if($("select[name=txtAddRefConclusao]").val() == 'n'){
+                prox($(this));
+            }
+            else if($("select[name=txtAddRefConclusao]").val() == 's'){
+                if($("select[name=txtParentescoRefConclusao]").val() == '0'){
+                    $("select[name=txtParentescoRefConclusao]").removeClass("is-valid");
+                    $("select[name=txtParentescoRefConclusao]").addClass("is-invalid");
+                    $("select[name=txtParentescoRefConclusao]").focus();
+                }
+                else if($("input[name=txtNomeRefConclusao]").val() == ''){
+                    $("input[name=txtNomeRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtNomeRefConclusao]").addClass("is-invalid");
+                    $("input[name=txtNomeRefConclusao]").focus();                
+                }
+                else if($("input[name=txtSobrenomeRefConclusao]").val() == ''){
+                    $("input[name=txtSobrenomeRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtSobrenomeRefConclusao]").addClass("is-invalid");
+                    $("input[name=txtSobrenomeRefConclusao]").focus();                
+                }
+                else if($("input[name=txtCpfRefConclusao]").val() == ''){
+                    $("input[name=txtCpfRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtCpfRefConclusao]").addClass("is-invalid");
+                    $("input[name=txtCpfRefConclusao]").focus();                
+                }
+                else if($("input[name=txtEmailRefConclusao]").val() == ''){
+                    $("input[name=txtEmailRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtEmailRefConclusao]").addClass("is-invalid");
+                    $("input[name=txtEmailRefConclusao]").focus();                
+                }
+                else if($("input[name=txtFoneRefConclusao]").val() == ''){
+                    $("input[name=txtFoneRefConclusao]").removeClass("is-valid");
+                    $("input[name=txtFoneRefConclusao]").addClass("is-invalid");
+                    $("input[name=txtFoneRefConclusao]").focus();                
+                }
+                else{
+                    prox($(this));
+                }
+            }
         }
         
     });

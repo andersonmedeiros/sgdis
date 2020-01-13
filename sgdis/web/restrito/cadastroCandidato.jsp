@@ -901,6 +901,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -909,24 +911,34 @@
                                 <div class="form-group col-md-4">
                                     <label for="txtCpfConjuge">CPF: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control cpf" id="txtCpfConjuge" name="txtCpfConjuge" placeholder="Ex.: 000.000.000-00">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtNomeConjuge">Nome: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtNomeConjuge" name="txtNomeConjuge" placeholder="Ex.: Fulano">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label for="txtSobrenomeConjuge">Sobrenome: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtSobrenomeConjuge" name="txtSobrenomeConjuge" placeholder="Ex.: de Tal">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>               
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-8">
                                     <label for="txtEmailConjuge">Email: <span class="campo-obrigatorio">*</span></label>
                                     <input type="email" class="form-control" id="txtEmailConjuge" name="txtEmailConjuge" placeholder="Ex.: fulanodetal@gmail.com">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                  
                                 <div class="form-group col-md-4">
                                     <label for="txtFoneConjuge">Fone: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control fone" id="txtFoneConjuge" name="txtFoneConjuge" placeholder="Ex.: (00) 00000-0000">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -939,29 +951,42 @@
                                     <label for="txtParentescoRef">Parentesco: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtParentescoRef" name="txtParentescoRef">
                                         <option value="0" selected>Selecione um Parentesco...</option>
+                                        <option value="t">Tetse</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtNomeRef">Nome: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtNomeRef" name="txtNomeRef" placeholder="Ex.: Fulano">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label for="txtSobrenomeRef">Sobrenome: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtSobrenomeRef" name="txtSobrenomeRef" placeholder="Ex.: de Tal">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>               
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label for="txtCpfRef">CPF: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control cpf" id="txtCpfRef" name="txtCpfRef" placeholder="Ex.: 000.000.000-00">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtEmailRef">Email: <span class="campo-obrigatorio">*</span></label>
                                     <input type="email" class="form-control" id="txtEmailRef" name="txtEmailRef" placeholder="Ex.: fulanodetal@gmail.com">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div> 
                                 <div class="form-group col-md-3">
                                     <label for="txtFoneRef">Fone: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control fone" id="txtFoneRef" name="txtFoneRef" placeholder="Ex.: (00) 00000-0000">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                 
                             </div>
                         </div>
@@ -974,6 +999,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -983,35 +1010,48 @@
                                     <label for="txtParentescoRefConclusao">Parentesco: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtParentescoRefConclusao" name="txtParentescoRefConclusao">
                                         <option value="0" selected>Selecione um Parentesco...</option>
+                                        <option value="t">Teste</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtNomeRefConclusao">Nome: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtNomeRefConclusao" name="txtNomeRefConclusao" placeholder="Ex.: Fulano">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label for="txtSobrenomeRefConclusao">Sobrenome: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtSobrenomeRefConclusao" name="txtSobrenomeRefConclusao" placeholder="Ex.: de Tal">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>               
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label for="txtCpfRefConclusao">CPF: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control cpf" id="txtCpfRefConclusao" name="txtCpfRefConclusao" placeholder="Ex.: 000.000.000-00">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtEmailRefConclusao">Email: <span class="campo-obrigatorio">*</span></label>
                                     <input type="email" class="form-control" id="txtEmailRefConclusao" name="txtEmailRefConclusao" placeholder="Ex.: fulanodetal@gmail.com">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div> 
                                 <div class="form-group col-md-3">
                                     <label for="txtFoneRefConclusao">Fone: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control fone" id="txtFoneRefConclusao" name="txtFoneRefConclusao" placeholder="Ex.: (00) 00000-0000">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                 
                             </div>
                         </div>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
-                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
+                    <button type="button" name="btnProximo6" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">
