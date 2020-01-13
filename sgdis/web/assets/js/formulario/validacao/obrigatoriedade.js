@@ -769,7 +769,7 @@ $(function(){
         }        
     });
     
-    //Etapa 4: DADOS MILITARES
+    //Etapa 5: DADOS FAMILIARES
     $("button[name=btnProximo6]").click(function(){
         if($("select[name=txtPossuiConjuge]").val() == '0'){
             $("select[name=txtPossuiConjuge]").removeClass("is-valid");

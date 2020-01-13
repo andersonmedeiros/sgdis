@@ -872,7 +872,7 @@ $(function(){
     });
     
     //Validação ao mudar o valor dos campos
-    //Etapa 4: DADOS MILITARES
+    //Etapa 5: DADOS FAMILIARES
     //Campo Select Possui Cônjuge
     $("select[name=txtPossuiConjuge]").change(function(){
         if($("select[name=txtPossuiConjuge]").val() == '0'){
