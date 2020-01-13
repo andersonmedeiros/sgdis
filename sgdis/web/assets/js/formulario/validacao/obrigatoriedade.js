@@ -498,8 +498,7 @@ $(function(){
                     prox($(this));
                 }
             }
-        }
-        
+        }        
         else if(($("select[name=txtAlergico]").val() == 'n') && ($("select[name=txtUsoMtoCt]").val() == 's') && ($("select[name=txtUsoTermErgSupAli]").val() == 's')){
             var prontoMtoCt = 0;
             var prontoTermErgSupAli = 0;
@@ -526,8 +525,7 @@ $(function(){
                 else if(($("select[name=txtTpMtoCt]").eq($("select[name=txtTpMtoCt]").length-1).val()) != '0'){
                     prontoMtoCt=1;
                 }
-            }
-             
+            }             
             for(var i=0;i<($("input[name=txtNomeTermErgSupAli").length);i++){
                 if($("input[name=txtNomeTermErgSupAli]").eq(i).val() == '' ){
                     $("input[name=txtNomeTermErgSupAli]").eq(i).removeClass("is-valid");
@@ -538,8 +536,7 @@ $(function(){
                 else if(($("input[name=txtNomeTermErgSupAli]").eq($("input[name=txtNomeTermErgSupAli]").length-1).val()) != ''){
                     prontoTermErgSupAli = 1;
                 }
-            }
-            
+            }            
             if((prontoMtoCt == 1) && (prontoTermErgSupAli == 1)){
                 prox($(this));
             }
@@ -558,8 +555,7 @@ $(function(){
                 else if(($("input[name=txtAlergia]").eq($("input[name=txtAlergia]").length-1).val()) != ''){
                     prontoAlergico = 1;
                 }
-            }
-             
+            }             
             for(var i=0;i<($("input[name=txtNomeTermErgSupAli").length);i++){
                 if($("input[name=txtNomeTermErgSupAli]").eq(i).val() == '' ){
                     $("input[name=txtNomeTermErgSupAli]").eq(i).removeClass("is-valid");
@@ -570,8 +566,7 @@ $(function(){
                 else if(($("input[name=txtNomeTermErgSupAli]").eq($("input[name=txtNomeTermErgSupAli]").length-1).val()) != ''){
                     prontoTermErgSupAli = 1;
                 }
-            }
-            
+            }            
             if((prontoAlergico == 1) && (prontoTermErgSupAli == 1)){
                 prox($(this));
             }
@@ -590,8 +585,7 @@ $(function(){
                 else if(($("input[name=txtAlergia]").eq($("input[name=txtAlergia]").length-1).val()) != ''){
                     prontoAlergico = 1;
                 }
-            }
-             
+            }             
             for(var i=0;i<($("select[name=txtTpMtoCt").length);i++){
                 if($("input[name=txtNomeMtoCt]").eq(i).val() == '' ){
                     $("input[name=txtNomeMtoCt]").eq(i).removeClass("is-valid");
@@ -614,8 +608,7 @@ $(function(){
                 else if(($("select[name=txtTpMtoCt]").eq($("select[name=txtTpMtoCt]").length-1).val()) != '0'){
                     prontoMtoCt=1;
                 }
-            }
-            
+            }            
             if((prontoAlergico == 1) && (prontoMtoCt == 1)){
                 prox($(this));
             }
@@ -636,8 +629,7 @@ $(function(){
                 else if(($("input[name=txtAlergia]").eq($("input[name=txtAlergia]").length-1).val()) != ''){
                     prontoAlergico = 1;
                 }
-            }
-             
+            }             
             for(var i=0;i<($("select[name=txtTpMtoCt").length);i++){
                 if($("input[name=txtNomeMtoCt]").eq(i).val() == '' ){
                     $("input[name=txtNomeMtoCt]").eq(i).removeClass("is-valid");
@@ -660,8 +652,7 @@ $(function(){
                 else if(($("select[name=txtTpMtoCt]").eq($("select[name=txtTpMtoCt]").length-1).val()) != '0'){
                     prontoMtoCt=1;
                 }
-            }
-            
+            }            
             for(var i=0;i<($("input[name=txtNomeTermErgSupAli").length);i++){
                 if($("input[name=txtNomeTermErgSupAli]").eq(i).val() == '' ){
                     $("input[name=txtNomeTermErgSupAli]").eq(i).removeClass("is-valid");
@@ -672,9 +663,107 @@ $(function(){
                 else if(($("input[name=txtNomeTermErgSupAli]").eq($("input[name=txtNomeTermErgSupAli]").length-1).val()) != ''){
                     prontoTermErgSupAli = 1;
                 }
-            }
-            
+            }            
             if((prontoAlergico == 1) && (prontoMtoCt == 1) && (prontoTermErgSupAli == 1)){
+                prox($(this));
+            }
+        }        
+    });
+    
+    //Etapa 4: DADOS MILITARES
+    $("button[name=btnProximo5]").click(function(){
+        if($("input[name=txtFormEscNome]").val() == ''){
+            $("input[name=txtFormEscNome]").removeClass("is-valid");
+            $("input[name=txtFormEscNome]").addClass("is-invalid");
+            $("input[name=txtFormEscNome]").focus();
+        }
+        else if($("input[name=txtFormEscAbrev]").val() == ''){
+            $("input[name=txtFormEscAbrev]").removeClass("is-valid");
+            $("input[name=txtFormEscAbrev]").addClass("is-invalid");
+            $("input[name=txtFormEscAbrev]").focus();
+        }
+        else if($("input[name=txtFormTurma]").val() == ''){
+            $("input[name=txtFormTurma]").removeClass("is-valid");
+            $("input[name=txtFormTurma]").addClass("is-invalid");
+            $("input[name=txtFormTurma]").focus();
+        }
+        else if($("select[name=txtCptmAl]").val() == '0'){
+            $("select[name=txtCptmAl]").removeClass("is-valid");
+            $("select[name=txtCptmAl]").addClass("is-invalid");
+            $("select[name=txtCptmAl]").focus();
+        }
+        else if($("input[name=txtDataUltProm]").val() == ''){
+            $("input[name=txtDataUltProm]").removeClass("is-valid");
+            $("input[name=txtDataUltProm]").addClass("is-invalid");
+            $("input[name=txtDataUltProm]").focus();
+        }
+        else if($("select[name=txtQaProm]").val() == '0'){
+            $("select[name=txtQaProm]").removeClass("is-valid");
+            $("select[name=txtQaProm]").addClass("is-invalid");
+            $("select[name=txtQaProm]").focus();
+        }
+        else if($("select[name=txtQaProm]").val() == 's'){
+            if($("input[name=txtQaQuandoProm]").val() == ''){
+                $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                $("input[name=txtQaQuandoProm]").focus();                
+            }
+            else if($("input[name=txtDataUltTAF]").val() == ''){
+                $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                $("input[name=txtDataUltTAF]").focus();                
+            }
+            else if($("select[name=txtMencaoTAF]").val() == '0'){
+                $("select[name=txtMencaoTAF]").removeClass("is-valid");
+                $("select[name=txtMencaoTAF]").addClass("is-invalid");
+                $("select[name=txtMencaoTAF]").focus();
+            }
+            else if($("input[name=txtFunc1]").val() == ''){
+                $("input[name=txtFunc1]").removeClass("is-valid");
+                $("input[name=txtFunc1]").addClass("is-invalid");
+                $("input[name=txtFunc1]").focus();                
+            }
+            else if($("input[name=txtFunc2]").val() == ''){
+                $("input[name=txtFunc2]").removeClass("is-valid");
+                $("input[name=txtFunc2]").addClass("is-invalid");
+                $("input[name=txtFunc2]").focus();                
+            }
+            else if($("input[name=txtFunc3]").val() == ''){
+                $("input[name=txtFunc3]").removeClass("is-valid");
+                $("input[name=txtFunc3]").addClass("is-invalid");
+                $("input[name=txtFunc3]").focus();                
+            }
+            else{
+                prox($(this));
+            }
+        }
+        else if($("select[name=txtQaProm]").val() == 'n'){            
+            if($("input[name=txtDataUltTAF]").val() == ''){
+                $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                $("input[name=txtDataUltTAF]").focus();                
+            }
+            else if($("select[name=txtMencaoTAF]").val() == '0'){
+                $("select[name=txtMencaoTAF]").removeClass("is-valid");
+                $("select[name=txtMencaoTAF]").addClass("is-invalid");
+                $("select[name=txtMencaoTAF]").focus();
+            }
+            else if($("input[name=txtFunc1]").val() == ''){
+                $("input[name=txtFunc1]").removeClass("is-valid");
+                $("input[name=txtFunc1]").addClass("is-invalid");
+                $("input[name=txtFunc1]").focus();                
+            }
+            else if($("input[name=txtFunc2]").val() == ''){
+                $("input[name=txtFunc2]").removeClass("is-valid");
+                $("input[name=txtFunc2]").addClass("is-invalid");
+                $("input[name=txtFunc2]").focus();                
+            }
+            else if($("input[name=txtFunc3]").val() == ''){
+                $("input[name=txtFunc3]").removeClass("is-valid");
+                $("input[name=txtFunc3]").addClass("is-invalid");
+                $("input[name=txtFunc3]").focus();                
+            }
+            else{
                 prox($(this));
             }
         }

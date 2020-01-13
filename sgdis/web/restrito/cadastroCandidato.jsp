@@ -820,8 +820,8 @@
                                 <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                                 <div id="divQaQuando" class="form-group col-md-4" style="display: none;">
-                                <label for="txtQaQuanoProm">Quando?<span class="campo-obrigatorio"> *</span></label>
-                                <input type="date" class="form-control" id="txtQaQuanoProm" name="txtQaQuanoProm" placeholder="Ex.: DD/MM/AAAA">
+                                <label for="txtQaQuandoProm">Quando?<span class="campo-obrigatorio"> *</span></label>
+                                <input type="date" class="form-control" id="txtQaQuandoProm" name="txtQaQuandoProm" placeholder="Ex.: DD/MM/AAAA">
                                 <div class="valid-feedback">Selva!</div>
                                 <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>

@@ -780,5 +780,92 @@ $(function(){
              $("select[name=txtCptmAl]").addClass("is-invalid");
          }
     });
-    
+    //Campo Input Última Promoção
+    $("input[name=txtDataUltProm]").change(function(){
+         if($("input[name=txtDataUltProm]").val() != ''){
+             $("input[name=txtDataUltProm]").removeClass("is-invalid");
+             $("input[name=txtDataUltProm]").addClass("is-valid");
+         }else{
+             $("input[name=txtDataUltProm]").removeClass("is-valid");
+             $("input[name=txtDataUltProm]").addClass("is-invalid");
+         }
+    });
+    //Campo Select QA para Promoção
+    $("select[name=txtQaProm]").change(function(){
+        if($("select[name=txtQaProm]").val() == '0'){
+            $("select[name=txtQaProm]").removeClass("is-valid");
+            $("select[name=txtQaProm]").addClass("is-invalid");
+        }
+        else if($("select[name=txtQaProm]").val() == 's'){
+            $("select[name=txtQaProm]").removeClass("is-invalid");
+            $("select[name=txtQaProm]").addClass("is-valid");
+            
+            //Campo Input QA Quando
+            $("input[name=txtQaQuandoProm]").change(function(){
+                if($("input[name=txtQaQuandoProm]").val() != ''){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-valid");
+                }else{
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                }
+            });
+        }
+        else if($("select[name=txtQaProm]").val() == 'n'){
+            $("select[name=txtQaProm]").removeClass("is-invalid");
+            $("select[name=txtQaProm]").addClass("is-valid");
+            
+            $("input[name=txtQaQuandoProm]").val('');
+        }
+    });
+    //Campo Input Data Último TAF
+    $("input[name=txtDataUltTAF]").change(function(){
+        if($("input[name=txtDataUltTAF]").val() != ''){
+            $("input[name=txtDataUltTAF]").removeClass("is-invalid");
+            $("input[name=txtDataUltTAF]").addClass("is-valid");
+        }else{
+            $("input[name=txtDataUltTAF]").removeClass("is-valid");
+            $("input[name=txtDataUltTAF]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Menção
+    $("select[name=txtMencaoTAF]").change(function(){
+         if($("select[name=txtMencaoTAF]").val() != '0'){
+             $("select[name=txtMencaoTAF]").removeClass("is-invalid");
+             $("select[name=txtMencaoTAF]").addClass("is-valid");
+         }else{
+             $("select[name=txtMencaoTAF]").removeClass("is-valid");
+             $("select[name=txtMencaoTAF]").addClass("is-invalid");
+         }
+    });
+    //Campo Input Função 1
+    $("input[name=txtFunc1]").change(function(){
+        if($("input[name=txtFunc1]").val() != ''){
+            $("input[name=txtFunc1]").removeClass("is-invalid");
+            $("input[name=txtFunc1]").addClass("is-valid");
+        }else{
+            $("input[name=txtFunc1]").removeClass("is-valid");
+            $("input[name=txtFunc1]").addClass("is-invalid");
+        }
+    });
+    //Campo Input Função 2
+    $("input[name=txtFunc2]").change(function(){
+        if($("input[name=txtFunc2]").val() != ''){
+            $("input[name=txtFunc2]").removeClass("is-invalid");
+            $("input[name=txtFunc2]").addClass("is-valid");
+        }else{
+            $("input[name=txtFunc2]").removeClass("is-valid");
+            $("input[name=txtFunc2]").addClass("is-invalid");
+        }
+    });
+    //Campo Input Função 3
+    $("input[name=txtFunc3]").change(function(){
+        if($("input[name=txtFunc3]").val() != ''){
+            $("input[name=txtFunc3]").removeClass("is-invalid");
+            $("input[name=txtFunc3]").addClass("is-valid");
+        }else{
+            $("input[name=txtFunc3]").removeClass("is-valid");
+            $("input[name=txtFunc3]").addClass("is-invalid");
+        }
+    });
 });
