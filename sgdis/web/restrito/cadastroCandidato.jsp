@@ -1262,6 +1262,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -1286,6 +1288,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -1298,10 +1302,14 @@
                                         <option value="esao">ESAO</option>
                                         <option value="easa">EASA</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtAnoCAperf">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtAnoCAperf" name="txtAnoCAperf" placeholder="Ex.: 2018" maxlength="4">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -1317,6 +1325,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -1330,10 +1340,14 @@
                                         <option value="cgaem">CGAEM</option>
                                         <option value="chqao">CHQAO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtAnoCAltEstudos">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtAnoCAltEstudos" name="txtAnoCAltEstudos" placeholder="Ex.: 2018" maxlength="4">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -1349,6 +1363,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>                
@@ -1373,6 +1389,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -1386,7 +1404,7 @@
                         </div>                
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
-                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
+                    <button type="button" name="btnProximo8" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">

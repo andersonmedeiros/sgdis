@@ -1049,5 +1049,510 @@ $(function(){
             prox($(this));
         }
     });
+    //Etapa 7: CURSOS/ESTÁGIOS
+    $("button[name=btnProximo8]").click(function(){  
+        /*var prontoIdiomas = 0;
+        var prontoCAperf = 0;
+        var prontoCAltEstudos = 0;
+        var prontoCExtsEsp = 0;
+        var prontoEstMil = 0;
+        if($("select[name=txtHabIdiomas]").val() == '0'){
+            $("select[name=txtHabIdiomas]").removeClass("is-valid");
+            $("select[name=txtHabIdiomas]").addClass("is-invalid");
+            $("select[name=txtHabIdiomas]").focus();
+        }
+        //Idiomas
+        else if($("select[name=txtHabIdiomas]").val() == 's'){            
+            for(var i=0;i<($("input[name=txtIdioma").length);i++){
+                if($("input[name=txtIdioma]").eq(i).val() == '' ){
+                    $("input[name=txtIdioma]").eq(i).removeClass("is-valid");
+                    $("input[name=txtIdioma]").eq(i).addClass("is-invalid");
+                    $("input[name=txtIdioma]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtIplIdioma]").eq(i).val() == '' ){
+                    $("input[name=txtIplIdioma]").eq(i).removeClass("is-valid");
+                    $("input[name=txtIplIdioma]").eq(i).addClass("is-invalid");
+                    $("input[name=txtIplIdioma]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtIplIdioma]").eq($("input[name=txtIplIdioma]").length-1).val()) != ''){
+                    prontoIdiomas = 1;
+                }
+            }
+        
+            if($("select[name=txtPossuiCAperf]").val() == '0'){
+                $("select[name=txtPossuiCAperf]").removeClass("is-valid");
+                $("select[name=txtPossuiCAperf]").addClass("is-invalid");
+                $("select[name=txtPossuiCAperf]").focus();
+            }
+            //Curso de Aperfeiçamento
+            else if($("select[name=txtPossuiCAperf]").val() == 's'){
+                if($("select[name=txtCAperf]").val() == '0' ){
+                    $("select[name=txtCAperf]").removeClass("is-valid");
+                    $("select[name=txtCAperf]").addClass("is-invalid");
+                    $("select[name=txtCAperf]").focus();
+                }
+                else if($("input[name=txtAnoCAperf]").val() == '' ){
+                    $("input[name=txtAnoCAperf]").removeClass("is-valid");
+                    $("input[name=txtAnoCAperf]").addClass("is-invalid");
+                    $("input[name=txtAnoCAperf]").focus();
+                }
+                else if($("input[name=txtAnoCAperf]").val() != '' ){
+                    prontoCAperf = 1;
+                }            
+            }
+    }
+        else if($("select[name=txtPossuiCAltEstudos]").val() == '0'){
+            $("select[name=txtPossuiCAltEstudos]").removeClass("is-valid");
+            $("select[name=txtPossuiCAltEstudos]").addClass("is-invalid");
+            $("select[name=txtPossuiCAltEstudos]").focus();
+        }
+        //Curso de Altos Estudos
+        else if($("select[name=txtPossuiCAltEstudos]").val() == 's'){                                
+            if($("select[name=txtCAltEstudos]").val() == '0' ){
+                $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                $("select[name=txtCAltEstudos]").focus();
+            }
+            else if($("input[name=txtAnoCAltEstudos]").val() == '' ){
+                $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                $("input[name=txtAnoCAltEstudos]").focus();
+            }
+            else if($("input[name=txtAnoCAltEstudos]").val() != '' ){
+                prontoCAltEstudos = 1;
+            }
+                                    
+            else if($("select[name=txtPossuiCExtsEsp]").val() == '0'){
+                $("select[name=txtPossuiCExtsEsp]").removeClass("is-valid");
+                $("select[name=txtPossuiCExtsEsp]").addClass("is-invalid");
+                $("select[name=txtPossuiCExtsEsp]").focus();
+            }
+            //Curso de Extensão ou Especialização
+            else if($("select[name=txtPossuiCExtsEsp]").val() == 's'){
+                for(var i=0;i<($("select[name=txtTipoCExtsEsp").length);i++){
+                    if($("select[name=txtTipoCExtsEsp]").eq(i).val() == '0' ){
+                        $("select[name=txtTipoCExtsEsp]").eq(i).removeClass("is-valid");
+                        $("select[name=txtTipoCExtsEsp]").eq(i).addClass("is-invalid");
+                        $("select[name=txtTipoCExtsEsp]").eq(i).focus();
+                        break;
+                    }
+                    else if($("input[name=txtCExtsEsp]").eq(i).val() == '' ){
+                        $("input[name=txtCExtsEsp]").eq(i).removeClass("is-valid");
+                        $("input[name=txtCExtsEsp]").eq(i).addClass("is-invalid");
+                        $("input[name=txtCExtsEsp]").eq(i).focus();
+                        break;
+                    }
+                    else if($("input[name=txtAnoCExtsEsp]").eq(i).val() == '' ){
+                        $("input[name=txtAnoCExtsEsp]").eq(i).removeClass("is-valid");
+                        $("input[name=txtAnoCExtsEsp]").eq(i).addClass("is-invalid");
+                        $("input[name=txtAnoCExtsEsp]").eq(i).focus();
+                        break;
+                    }
+                    else if(($("input[name=txtAnoCExtsEsp]").eq($("input[name=txtAnoCExtsEsp]").length-1).val()) != ''){
+                        prontoCExtsEsp = 1;
+                    }
+                    alert(prontoIdiomas + " " + prontoCAperf + " " + prontoCAltEstudos + " " + prontoCExtsEsp);
+                }
+            }
+                                
+                                
+                            
+                                             
+                   
+                
+            
+            /**/
+        
+                /*else if($("select[name=txtPossuiCAltEstudos]").val() == 's')){                    
+                    if($("select[name=txtCAltEstudos]").val() == '0' ){
+                        $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                        $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                        $("select[name=txtCAltEstudos]").focus();
+                    }
+                    else if($("input[name=txtAnoCAltEstudos]").val() == '' ){
+                        $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                        $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                        $("input[name=txtAnoCAltEstudos]").focus();
+                    }
+                    else if($("input[name=txtAnoCAltEstudos]").val() != '' ){
+                        prontoCAltEstudos = 1;
+                    }
+                    else if($("select[name=txtPossuiCExtsEsp]").val() == 's')){
+                        for(var i=0;i<($("select[name=txtTipoCExtsEsp").length);i++){
+                            if($("select[name=txtTipoCExtsEsp]").eq(i).val() == '0' ){
+                                $("select[name=txtTipoCExtsEsp]").eq(i).removeClass("is-valid");
+                                $("select[name=txtTipoCExtsEsp]").eq(i).addClass("is-invalid");
+                                $("select[name=txtTipoCExtsEsp]").eq(i).focus();
+                                break;
+                            }
+                            else if($("input[name=txtCExtsEsp]").eq(i).val() == '' ){
+                                $("input[name=txtCExtsEsp]").eq(i).removeClass("is-valid");
+                                $("input[name=txtCExtsEsp]").eq(i).addClass("is-invalid");
+                                $("input[name=txtCExtsEsp]").eq(i).focus();
+                                break;
+                            }
+                            else if($("input[name=txtAnoCExtsEsp]").eq(i).val() == '' ){
+                                $("input[name=txtAnoCExtsEsp]").eq(i).removeClass("is-valid");
+                                $("input[name=txtAnoCExtsEsp]").eq(i).addClass("is-invalid");
+                                $("input[name=txtAnoCExtsEsp]").eq(i).focus();
+                                break;
+                            }
+                            else if(($("input[name=txtAnoCExtsEsp]").eq($("input[name=txtAnoCExtsEsp]").length-1).val()) != ''){
+                                prontoCExtsEsp = 1;
+                            }
+                            else if($("select[name=txtPossuiEstMil]").val() == 's')){
+                                for(var i=0;i<($("input[name=txtEstagio").length);i++){
+                                    if($("input[name=txtEstagio]").eq(i).val() == '' ){
+                                        $("input[name=txtEstagio]").eq(i).removeClass("is-valid");
+                                        $("input[name=txtEstagio]").eq(i).addClass("is-invalid");
+                                        $("input[name=txtEstagio]").eq(i).focus();
+                                        break;
+                                    }
+                                    else if($("input[name=txtAnoEstagio]").eq(i).val() == '' ){
+                                        $("input[name=txtAnoEstagio]").eq(i).removeClass("is-valid");
+                                        $("input[name=txtAnoEstagio]").eq(i).addClass("is-invalid");
+                                        $("input[name=txtAnoEstagio]").eq(i).focus();
+                                        break;
+                                    }
+                                    else if(($("input[name=txtAnoEstagio]").eq($("input[name=txtAnoEstagio]").length-1).val()) != ''){
+                                        prontoEstMil = 1;
+                                    }
+                                }
+                                
+                                if((prontoIdiomas = 1) && (prontoCAperf = 1) && (prontoCAltEstudos = 1) && (prontoCExtsEsp = 1) && (prontoEstMil = 1)){
+                                    prox($(this));
+                                }
+                            }
+                        }
+                    }
+                }
+            }         
+        }*/
+        if($("select[name=txtHabIdiomas]").val() == '0'){
+            $("select[name=txtHabIdiomas]").removeClass("is-valid");
+            $("select[name=txtHabIdiomas]").addClass("is-invalid");
+            $("select[name=txtHabIdiomas]").focus();
+        }
+        else if($("select[name=txtPossuiCAperf]").val() == '0'){
+            $("select[name=txtPossuiCAperf]").removeClass("is-valid");
+            $("select[name=txtPossuiCAperf]").addClass("is-invalid");
+            $("select[name=txtPossuiCAperf]").focus();
+        }
+        else if($("select[name=txtPossuiCAltEstudos]").val() == '0'){
+            $("select[name=txtPossuiCAltEstudos]").removeClass("is-valid");
+            $("select[name=txtPossuiCAltEstudos]").addClass("is-invalid");
+            $("select[name=txtPossuiCAltEstudos]").focus();
+        }
+        else if($("select[name=txtPossuiCExtsEsp]").val() == '0'){
+            $("select[name=txtPossuiCExtsEsp]").removeClass("is-valid");
+            $("select[name=txtPossuiCExtsEsp]").addClass("is-invalid");
+            $("select[name=txtPossuiCExtsEsp]").focus();
+        }        
+        else if($("select[name=txtPossuiEstMil]").val() == '0'){
+            $("select[name=txtPossuiEstMil]").removeClass("is-valid");
+            $("select[name=txtPossuiEstMil]").addClass("is-invalid");
+            $("select[name=txtPossuiEstMil]").focus();
+        }
+        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
+                && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
+            prox($(this));
+        }
+        else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
+                && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
+            for(var i=0;i<($("input[name=txtIdioma").length);i++){
+                if($("input[name=txtIdioma]").eq(i).val() == '' ){
+                    $("input[name=txtIdioma]").eq(i).removeClass("is-valid");
+                    $("input[name=txtIdioma]").eq(i).addClass("is-invalid");
+                    $("input[name=txtIdioma]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtIplIdioma]").eq(i).val() == '' ){
+                    $("input[name=txtIplIdioma]").eq(i).removeClass("is-valid");
+                    $("input[name=txtIplIdioma]").eq(i).addClass("is-invalid");
+                    $("input[name=txtIplIdioma]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtIplIdioma]").eq($("input[name=txtIplIdioma]").length-1).val()) != ''){
+                    prox($(this));
+                }
+            }
+        }
+        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
+                && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
+            if($("select[name=txtCAperf]").val() == '0' ){
+                $("select[name=txtCAperf]").removeClass("is-valid");
+                $("select[name=txtCAperf]").addClass("is-invalid");
+                $("select[name=txtCAperf]").focus();
+            }
+            else if($("input[name=txtAnoCAperf]").val() == '' ){
+                $("input[name=txtAnoCAperf]").removeClass("is-valid");
+                $("input[name=txtAnoCAperf]").addClass("is-invalid");
+                $("input[name=txtAnoCAperf]").focus();
+            }
+            else{
+                prox($(this));
+            }
+        }
+        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
+                && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
+            if($("select[name=txtCAltEstudos]").val() == '0' ){
+                $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                $("select[name=txtCAltEstudos]").focus();
+            }
+            else if($("input[name=txtAnoCAltEstudos]").val() == '' ){
+                $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                $("input[name=txtAnoCAltEstudos]").focus();
+            }
+            else{
+                prox($(this));
+            }
+        }
+        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
+                && ($("select[name=txtPossuiCExtsEsp]").val() == 's') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
+            for(var i=0;i<($("select[name=txtTipoCExtsEsp").length);i++){
+                if($("select[name=txtTipoCExtsEsp]").eq(i).val() == '0' ){
+                    $("select[name=txtTipoCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("select[name=txtTipoCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("select[name=txtTipoCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtCExtsEsp]").eq(i).val() == '' ){
+                    $("input[name=txtCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("input[name=txtCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("input[name=txtCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtAnoCExtsEsp]").eq(i).val() == '' ){
+                    $("input[name=txtAnoCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAnoCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAnoCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAnoCExtsEsp]").eq($("input[name=txtAnoCExtsEsp]").length-1).val()) != ''){
+                    prox($(this));
+                }
+            }
+        }
+        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
+                && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 's')){
+            for(var i=0;i<($("input[name=txtEstagio").length);i++){
+                if($("input[name=txtEstagio]").eq(i).val() == '' ){
+                    $("input[name=txtEstagio]").eq(i).removeClass("is-valid");
+                    $("input[name=txtEstagio]").eq(i).addClass("is-invalid");
+                    $("input[name=txtEstagio]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtAnoEstagio]").eq(i).val() == '' ){
+                    $("input[name=txtAnoEstagio]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAnoEstagio]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAnoEstagio]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAnoEstagio]").eq($("input[name=txtAnoEstagio]").length-1).val()) != ''){
+                    prox($(this));
+                }
+            }
+        }
+        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
+                && ($("select[name=txtPossuiCExtsEsp]").val() == 's') && ($("select[name=txtPossuiEstMil]").val() == 's')){
+            var prontoCExtsEsp = 0;
+            var prontoEstMil = 0;
+            
+            for(var i=0;i<($("select[name=txtTipoCExtsEsp").length);i++){
+                if($("select[name=txtTipoCExtsEsp]").eq(i).val() == '0' ){
+                    $("select[name=txtTipoCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("select[name=txtTipoCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("select[name=txtTipoCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtCExtsEsp]").eq(i).val() == '' ){
+                    $("input[name=txtCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("input[name=txtCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("input[name=txtCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtAnoCExtsEsp]").eq(i).val() == '' ){
+                    $("input[name=txtAnoCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAnoCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAnoCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAnoCExtsEsp]").eq($("input[name=txtAnoCExtsEsp]").length-1).val()) != ''){
+                    prontoCExtsEsp = 1;
+                }
+            }
+            for(var i=0;i<($("input[name=txtEstagio").length);i++){
+                if($("input[name=txtEstagio]").eq(i).val() == '' ){
+                    $("input[name=txtEstagio]").eq(i).removeClass("is-valid");
+                    $("input[name=txtEstagio]").eq(i).addClass("is-invalid");
+                    $("input[name=txtEstagio]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtAnoEstagio]").eq(i).val() == '' ){
+                    $("input[name=txtAnoEstagio]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAnoEstagio]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAnoEstagio]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAnoEstagio]").eq($("input[name=txtAnoEstagio]").length-1).val()) != ''){
+                    prontoEstMil = 1;
+                }        
+            }
+            if((prontoCExtsEsp == 1) && (prontoEstMil == 1)){
+                prox($(this));
+            }
+        }
+        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
+                && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 's')){
+            var prontoCAltEstudos = 0;
+            var prontoEstMil = 0;
+            
+            if($("select[name=txtCAltEstudos]").val() == '0' ){
+                $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                $("select[name=txtCAltEstudos]").focus();
+            }
+            else if($("input[name=txtAnoCAltEstudos]").val() == '' ){
+                $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                $("input[name=txtAnoCAltEstudos]").focus();
+            }
+            else{
+                prontoCAltEstudos = 1;
+            }
+            for(var i=0;i<($("input[name=txtEstagio").length);i++){
+                if($("input[name=txtEstagio]").eq(i).val() == '' ){
+                    $("input[name=txtEstagio]").eq(i).removeClass("is-valid");
+                    $("input[name=txtEstagio]").eq(i).addClass("is-invalid");
+                    $("input[name=txtEstagio]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtAnoEstagio]").eq(i).val() == '' ){
+                    $("input[name=txtAnoEstagio]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAnoEstagio]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAnoEstagio]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAnoEstagio]").eq($("input[name=txtAnoEstagio]").length-1).val()) != ''){
+                    prontoEstMil = 1;
+                }        
+            }
+            if((prontoCAltEstudos == 1) && (prontoEstMil == 1)){
+                prox($(this));
+            }
+        }
+        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
+                && ($("select[name=txtPossuiCExtsEsp]").val() == 's') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
+            var prontoCAltEstudos = 0;
+            var prontoCExtsEsp = 0;
+            
+            if($("select[name=txtCAltEstudos]").val() == '0' ){
+                $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                $("select[name=txtCAltEstudos]").focus();
+            }
+            else if($("input[name=txtAnoCAltEstudos]").val() == '' ){
+                $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                $("input[name=txtAnoCAltEstudos]").focus();
+            }
+            else{
+                prontoCAltEstudos = 1;
+            }
+            for(var i=0;i<($("select[name=txtTipoCExtsEsp").length);i++){
+                if($("select[name=txtTipoCExtsEsp]").eq(i).val() == '0' ){
+                    $("select[name=txtTipoCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("select[name=txtTipoCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("select[name=txtTipoCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtCExtsEsp]").eq(i).val() == '' ){
+                    $("input[name=txtCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("input[name=txtCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("input[name=txtCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtAnoCExtsEsp]").eq(i).val() == '' ){
+                    $("input[name=txtAnoCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAnoCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAnoCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAnoCExtsEsp]").eq($("input[name=txtAnoCExtsEsp]").length-1).val()) != ''){
+                    prontoCExtsEsp = 1;
+                }
+            }
+            if((prontoCAltEstudos == 1) && (prontoCExtsEsp == 1)){
+                prox($(this));
+            }
+        }
+        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
+                && ($("select[name=txtPossuiCExtsEsp]").val() == 's') && ($("select[name=txtPossuiEstMil]").val() == 's')){
+            var prontoCAltEstudos = 0;
+            var prontoCExtsEsp = 0;
+            var prontoEstMil = 0;
+            
+            if($("select[name=txtCAltEstudos]").val() == '0' ){
+                $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                $("select[name=txtCAltEstudos]").focus();
+            }
+            else if($("input[name=txtAnoCAltEstudos]").val() == '' ){
+                $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                $("input[name=txtAnoCAltEstudos]").focus();
+            }
+            else{
+                prontoCAltEstudos = 1;
+            }
+            for(var i=0;i<($("select[name=txtTipoCExtsEsp").length);i++){
+                if($("select[name=txtTipoCExtsEsp]").eq(i).val() == '0' ){
+                    $("select[name=txtTipoCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("select[name=txtTipoCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("select[name=txtTipoCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtCExtsEsp]").eq(i).val() == '' ){
+                    $("input[name=txtCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("input[name=txtCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("input[name=txtCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtAnoCExtsEsp]").eq(i).val() == '' ){
+                    $("input[name=txtAnoCExtsEsp]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAnoCExtsEsp]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAnoCExtsEsp]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAnoCExtsEsp]").eq($("input[name=txtAnoCExtsEsp]").length-1).val()) != ''){
+                    prontoCExtsEsp = 1;
+                }
+            }
+            for(var i=0;i<($("input[name=txtEstagio").length);i++){
+                if($("input[name=txtEstagio]").eq(i).val() == '' ){
+                    $("input[name=txtEstagio]").eq(i).removeClass("is-valid");
+                    $("input[name=txtEstagio]").eq(i).addClass("is-invalid");
+                    $("input[name=txtEstagio]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtAnoEstagio]").eq(i).val() == '' ){
+                    $("input[name=txtAnoEstagio]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAnoEstagio]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAnoEstagio]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAnoEstagio]").eq($("input[name=txtAnoEstagio]").length-1).val()) != ''){
+                    prontoEstMil = 1;
+                }        
+            }
+            if((prontoCAltEstudos == 1) && (prontoCExtsEsp == 1) && (prontoEstMil == 1)){
+                prox($(this));
+            }
+        }
+    });
 });
 

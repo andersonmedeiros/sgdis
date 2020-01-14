@@ -335,12 +335,20 @@ $("#btnAddIdioma").click(function(){
                                   "  <div class=\"form-group col-md-8\">"+
                                   "      <label for=txtIdioma"+ qtdeIdiomas +">Idioma: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtIdioma"+ qtdeIdiomas +" name=\"txtIdioma\" placeholder=\"Ex.: Espanhol\">"+
+                                  "      <div class=\"valid-feedback\">Selva!</div>"+
+                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-4\">"+
                                   "      <label for=txtIplIdioma"+ qtdeIdiomas +">IPL: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtIplIdioma"+ qtdeIdiomas +" name=\"txtIplIdioma\" placeholder=\"Ex.: \">"+
+                                  "      <div class=\"valid-feedback\">Selva!</div>"+
+                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "</div>");
+    
+    functionValidInputTReal("#txtIdioma"+qtdeIdiomas);
+    functionValidInputTReal("#txtIplIdioma"+qtdeIdiomas);
+    
     qtdeIdiomas++;
 });
 
@@ -387,16 +395,27 @@ $("#btnAddCExtsEsp").click(function(){
                                   "         <option value=\"exts\">Extensão</option>"+
                                   "         <option value=\"esp\">Especialização</option>"+
                                   "     </select>"+
+                                  "     <div class=\"valid-feedback\">Selva!</div>"+
+                                  "     <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-6\">"+
                                   "      <label for=txtCExtsEsp"+ qtdeCExtsEsp +">Curso: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtCExtsEsp"+ qtdeCExtsEsp +" name=\"txtCExtsEsp\" placeholder=\"Ex.: Básico Paraquedista\">"+
+                                  "      <div class=\"valid-feedback\">Selva!</div>"+
+                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-3\">"+
                                   "      <label for=txtAnoCExtsEsp"+ qtdeCExtsEsp +">Ano de Conclusão: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtAnoCExtsEsp"+ qtdeCExtsEsp +" name=\"txtAnoCExtsEsp\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
+                                  "      <div class=\"valid-feedback\">Selva!</div>"+
+                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "</div>");
+                          
+    functionValidSelectTReal("#txtTipoCExtsEsp"+ qtdeCExtsEsp);
+    functionValidInputTReal("#txtCExtsEsp"+ qtdeCExtsEsp);
+    functionValidInputTReal("#txtAnoCExtsEsp"+ qtdeCExtsEsp);
+                          
     qtdeCExtsEsp++;
 });
 
@@ -419,12 +438,20 @@ $("#btnAddEstagio").click(function(){
                                   "  <div class=\"form-group col-md-8\">"+
                                   "      <label for=txtEstagio"+ qtdeEstagios +">Estagio: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtEstagio"+ qtdeEstagios +" name=\"txtEstagio\" placeholder=\"Ex.: Caatinga\">"+
+                                  "      <div class=\"valid-feedback\">Selva!</div>"+
+                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "  <div class=\"form-group col-md-4\">"+
                                   "      <label for=txtAnoEstagio"+ qtdeEstagios +">Ano de Conclusão: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtAnoEstagio"+ qtdeEstagios +" name=\"txtAnoEstagio\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
+                                  "      <div class=\"valid-feedback\">Selva!</div>"+
+                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+  
                                   "</div>");
+                          
+    functionValidInputTReal("#txtEstagio"+qtdeEstagios);
+    functionValidInputTReal("#txtAnoEstagio"+qtdeEstagios);
+    
     qtdeEstagios++;
 });
 

@@ -5,6 +5,10 @@
  */
 
 $(function(){
+    if($("select[name=txtForca]").val() != '0'){
+        $("select[name=txtForca]").removeClass("is-invalid");
+        $("select[name=txtForca]").addClass("is-valid");
+    }
     //Validação ao mudar o valor dos campos
     //Etapa 1: OM ATUAL
     //Campo Select Força
@@ -1356,4 +1360,125 @@ $(function(){
             $("select[name=txtBairroEndCurso]").addClass("is-invalid");
         }
    });
+   
+   //Validação ao mudar o valor dos campos
+    //Etapa 7: CURSOS/ESTÁGIOS
+    //Campo Select Idiomas
+    $("select[name=txtHabIdiomas]").change(function(){
+        if($("select[name=txtHabIdiomas]").val() != '0'){
+            $("select[name=txtHabIdiomas]").removeClass("is-invalid");
+            $("select[name=txtHabIdiomas]").addClass("is-valid");
+        }else{
+            $("select[name=txtHabIdiomas]").removeClass("is-valid");
+            $("select[name=txtHabIdiomas]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Curso Aperfiçoamento
+    $("select[name=txtPossuiCAperf]").change(function(){
+        if($("select[name=txtPossuiCAperf]").val() == '0'){
+            $("select[name=txtPossuiCAperf]").removeClass("is-valid");
+            $("select[name=txtPossuiCAperf]").addClass("is-invalid");
+        }
+        else if($("select[name=txtPossuiCAperf]").val() == 's'){
+            $("select[name=txtPossuiCAperf]").removeClass("is-invalid");
+            $("select[name=txtPossuiCAperf]").addClass("is-valid");
+            
+            //Campo Input Select Curso
+            $("select[name=txtCAperf]").change(function(){
+                if($("select[name=txtCAperf]").val() != '0'){
+                    $("select[name=txtCAperf]").removeClass("is-invalid");
+                    $("select[name=txtCAperf]").addClass("is-valid");
+                }else{
+                    $("select[name=txtCAperf]").removeClass("is-valid");
+                    $("select[name=txtCAperf]").addClass("is-invalid");
+                }
+            });
+            //Campo Input Ano Conclusão Curso de Aperfeiçoamento
+            $("input[name=txtAnoCAperf").change(function(){
+                if($("input[name=txtAnoCAperf").val() != ''){
+                    $("input[name=txtAnoCAperf").removeClass("is-invalid");
+                    $("input[name=txtAnoCAperf").addClass("is-valid");
+                }else{
+                    $("input[name=txtAnoCAperf").removeClass("is-valid");
+                    $("input[name=txtAnoCAperf").addClass("is-invalid");
+                }
+            });    
+        }
+        else if($("select[name=txtPossuiCAperf]").val() == 'n'){
+            $("select[name=txtPossuiCAperf]").removeClass("is-invalid");
+            $("select[name=txtPossuiCAperf]").addClass("is-valid");
+            
+            $("select[name=txtCAperf]").val('0');
+            $("select[name=txtCAperf]").removeClass("is-invalid");
+            $("select[name=txtCAperf]").removeClass("is-valid");
+            
+            $("input[name=txtAnoCAperf").val('');
+            $("input[name=txtAnoCAperf").removeClass("is-valid");
+            $("input[name=txtAnoCAperf").removeClass("is-invalid");            
+        }
+    });
+    //Campo Select Curso Altos Estudos
+    $("select[name=txtPossuiCAltEstudos]").change(function(){
+        if($("select[name=txtPossuiCAltEstudos]").val() == '0'){
+            $("select[name=txtPossuiCAltEstudos]").removeClass("is-valid");
+            $("select[name=txtPossuiCAltEstudos]").addClass("is-invalid");
+        }
+        else if($("select[name=txtPossuiCAltEstudos]").val() == 's'){
+            $("select[name=txtPossuiCAltEstudos]").removeClass("is-invalid");
+            $("select[name=txtPossuiCAltEstudos]").addClass("is-valid");
+            
+            //Campo Input Select Curso
+            $("select[name=txtCAltEstudos]").change(function(){
+                if($("select[name=txtCAltEstudos]").val() != '0'){
+                    $("select[name=txtCAltEstudos]").removeClass("is-invalid");
+                    $("select[name=txtCAltEstudos]").addClass("is-valid");
+                }else{
+                    $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                    $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                }
+            });
+            //Campo Input Ano Conclusão Curso de Aperfeiçoamento
+            $("input[name=txtAnoCAltEstudos").change(function(){
+                if($("input[name=txtAnoCAltEstudos").val() != ''){
+                    $("input[name=txtAnoCAltEstudos").removeClass("is-invalid");
+                    $("input[name=txtAnoCAltEstudos").addClass("is-valid");
+                }else{
+                    $("input[name=txtAnoCAltEstudos").removeClass("is-valid");
+                    $("input[name=txtAnoCAltEstudos").addClass("is-invalid");
+                }
+            });    
+        }
+        else if($("select[name=txtPossuiCAltEstudos]").val() == 'n'){
+            $("select[name=txtPossuiCAltEstudos]").removeClass("is-invalid");
+            $("select[name=txtPossuiCAltEstudos]").addClass("is-valid");
+            
+            $("select[name=txtCAltEstudos]").val('0');
+            $("select[name=txtCAltEstudos]").removeClass("is-invalid");
+            $("select[name=txtCAltEstudos]").removeClass("is-valid");
+            
+            $("input[name=txtAnoCAltEstudos").val('');
+            $("input[name=txtAnoCAltEstudos").removeClass("is-valid");
+            $("input[name=txtAnoCAltEstudos").removeClass("is-invalid");            
+        }
+    });
+    //Campo Select Cursos Extensão ou Especialização
+    $("select[name=txtPossuiCExtsEsp]").change(function(){
+        if($("select[name=txtPossuiCExtsEsp]").val() != '0'){
+            $("select[name=txtPossuiCExtsEsp]").removeClass("is-invalid");
+            $("select[name=txtPossuiCExtsEsp]").addClass("is-valid");
+        }else{
+            $("select[name=txtPossuiCExtsEsp]").removeClass("is-valid");
+            $("select[name=txtPossuiCExtsEsp]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Estágios Militares Operacionais
+    $("select[name=txtPossuiEstMil]").change(function(){
+        if($("select[name=txtPossuiEstMil]").val() != '0'){
+            $("select[name=txtPossuiEstMil]").removeClass("is-invalid");
+            $("select[name=txtPossuiEstMil]").addClass("is-valid");
+        }else{
+            $("select[name=txtPossuiEstMil]").removeClass("is-valid");
+            $("select[name=txtPossuiEstMil]").addClass("is-invalid");
+        }
+    });
 });
