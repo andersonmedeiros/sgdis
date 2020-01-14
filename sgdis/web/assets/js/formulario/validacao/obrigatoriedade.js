@@ -953,8 +953,101 @@ $(function(){
                     prox($(this));
                 }
             }
+        }        
+    });
+    
+    //Etapa 6: DADOS DE ENDEREÇO
+    $("button[name=btnProximo7]").click(function(){
+        //Residência
+        if($("input[name=txtCepEndResid]").val() == ''){
+            $("input[name=txtCepEndResid]").removeClass("is-valid");
+            $("input[name=txtCepEndResid]").addClass("is-invalid");
+            $("input[name=txtCepEndResid]").focus();                
         }
-        
+        else if($("select[name=txtLogEndResid]").val() == '0'){
+            $("select[name=txtLogEndResid]").removeClass("is-valid");
+            $("select[name=txtLogEndResid]").addClass("is-invalid");
+            $("select[name=txtLogEndResid]").focus();
+        }
+        else if($("input[name=txtNomeEndResid]").val() == ''){
+            $("input[name=txtNomeEndResid]").removeClass("is-valid");
+            $("input[name=txtNomeEndResid]").addClass("is-invalid");
+            $("input[name=txtNomeEndResid]").focus();                
+        }
+        else if($("input[name=txtNumEndResid]").val() == ''){
+            $("input[name=txtNumEndResid]").removeClass("is-valid");
+            $("input[name=txtNumEndResid]").addClass("is-invalid");
+            $("input[name=txtNumEndResid]").focus();                
+        }
+        else if($("select[name=txtPaisEndResid]").val() == '0'){
+            $("select[name=txtPaisEndResid]").removeClass("is-valid");
+            $("select[name=txtPaisEndResid]").addClass("is-invalid");
+            $("select[name=txtPaisEndResid]").focus();
+        }
+        else if($("select[name=txtEstadoEndResid]").val() == '0'){
+            $("select[name=txtEstadoEndResid]").removeClass("is-valid");
+            $("select[name=txtEstadoEndResid]").addClass("is-invalid");
+            $("select[name=txtEstadoEndResid]").focus();
+        }
+        else if($("select[name=txtCidadeEndResid]").val() == '0'){
+            $("select[name=txtCidadeEndResid]").removeClass("is-valid");
+            $("select[name=txtCidadeEndResid]").addClass("is-invalid");
+            $("select[name=txtCidadeEndResid]").focus();
+        }
+        else if($("select[name=txtBairroEndResid]").val() == '0'){
+            $("select[name=txtBairroEndResid]").removeClass("is-valid");
+            $("select[name=txtBairroEndResid]").addClass("is-invalid");
+            $("select[name=txtBairroEndResid]").focus();
+        }
+        //Enderço durante curso
+        else if($("select[name=txtEndCurso]").val() == '0'){
+            $("select[name=txtEndCurso]").removeClass("is-valid");
+            $("select[name=txtEndCurso]").addClass("is-invalid");
+            $("select[name=txtEndCurso]").focus();
+        }
+        else if($("input[name=txtCepEndCurso]").val() == ''){
+            $("input[name=txtCepEndCurso]").removeClass("is-valid");
+            $("input[name=txtCepEndCurso]").addClass("is-invalid");
+            $("input[name=txtCepEndCurso]").focus();                
+        }
+        else if($("select[name=txtLogEndCurso]").val() == '0'){
+            $("select[name=txtLogEndCurso]").removeClass("is-valid");
+            $("select[name=txtLogEndCurso]").addClass("is-invalid");
+            $("select[name=txtLogEndCurso]").focus();
+        }
+        else if($("input[name=txtNomeEndCurso]").val() == ''){
+            $("input[name=txtNomeEndCurso]").removeClass("is-valid");
+            $("input[name=txtNomeEndCurso]").addClass("is-invalid");
+            $("input[name=txtNomeEndCurso]").focus();                
+        }
+        else if($("input[name=txtNumEndCurso]").val() == ''){
+            $("input[name=txtNumEndCurso]").removeClass("is-valid");
+            $("input[name=txtNumEndCurso]").addClass("is-invalid");
+            $("input[name=txtNumEndCurso]").focus();                
+        }
+        else if($("select[name=txtPaisEndCurso]").val() == '0'){
+            $("select[name=txtPaisEndCurso]").removeClass("is-valid");
+            $("select[name=txtPaisEndCurso]").addClass("is-invalid");
+            $("select[name=txtPaisEndCurso]").focus();
+        }
+        else if($("select[name=txtEstadoEndCurso]").val() == '0'){
+            $("select[name=txtEstadoEndCurso]").removeClass("is-valid");
+            $("select[name=txtEstadoEndCurso]").addClass("is-invalid");
+            $("select[name=txtEstadoEndCurso]").focus();
+        }
+        else if($("select[name=txtCidadeEndCurso]").val() == '0'){
+            $("select[name=txtCidadeEndCurso]").removeClass("is-valid");
+            $("select[name=txtCidadeEndCurso]").addClass("is-invalid");
+            $("select[name=txtCidadeEndCurso]").focus();
+        }
+        else if($("select[name=txtBairroEndCurso]").val() == '0'){
+            $("select[name=txtBairroEndCurso]").removeClass("is-valid");
+            $("select[name=txtBairroEndCurso]").addClass("is-invalid");
+            $("select[name=txtBairroEndCurso]").focus();
+        }
+        else{
+            prox($(this));
+        }
     });
 });
 

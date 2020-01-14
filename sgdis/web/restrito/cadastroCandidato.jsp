@@ -1066,22 +1066,31 @@
                                 <div class="form-group col-md-2">
                                     <label for="txtCepEndResid">CEP: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control cep" id="txtCepEndResid" name="txtCepEndResid" placeholder="Ex.: 00000-000">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div> 
 
                                 <div class="form-group col-md-3">
                                     <label for="txtLogEndResid">Logradouro: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtLogEndResid" name="txtLogEndResid">
                                         <option value="0" selected>Selecione um Logradouro...</option>                                      
+                                        <option value="t">Teste</option>                                      
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
 
                                 <div class="form-group col-md-5">
-                                    <label for="txtNomeEndResid">Nome: <span class="campo-obrigatorio">*</span></label>
+                                    <label for="txtNomeEndResid">Endereço: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtNomeEndResid" name="txtNomeEndResid" placeholder="Ex.: Constantino Nery">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="txtNumEndResid">Número: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtNumEndResid" name="txtNumEndResid" placeholder="Ex.: 1000">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                 
                             </div>                        
                             <div class="form-row">
@@ -1089,25 +1098,37 @@
                                     <label for="txtPaisEndResid">País: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtPaisEndResid" name="txtPaisEndResid">
                                         <option value="0" selected>Selecione um País...</option>
+                                        <option value="t">Teste</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtEstadoEndResid">Estado: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtEstadoEndResid" name="txtEstadoEndResid">
                                         <option value="0" selected>Selecione um Estado...</option>
+                                        <option value="t">Teste</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                    
                                 <div class="form-group col-md-3">
                                     <label for="txtCidadeEndResid">Cidade: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtCidadeEndResid" name="txtCidadeEndResid">
                                         <option value="0" selected>Selecione uma Cidade...</option>
+                                        <option value="t">Teste</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                    
                                 <div class="form-group col-md-3">
                                     <label for="txtBairroEndResid">Bairro: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtBairoEndResid" name="txtBairroEndResid">
                                         <option value="0" selected>Selecione um Bairro...</option>
+                                        <option value="t">Teste</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                    
                             </div>
                             <div class="form-row">
@@ -1134,6 +1155,8 @@
                                         <option value="cigs">CIGS</option>
                                         <option value="novo">Novo</option>
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>                                                 
                             </div>
                             <div class="fieldset-interno">
@@ -1141,22 +1164,31 @@
                                     <div class="form-group col-md-2">
                                         <label for="txtCepEndCurso">CEP: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control cep" id="txtCepEndCurso" name="txtCepEndCurso" placeholder="Ex.: 00000-000">
-                                    </div> 
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>
 
                                     <div class="form-group col-md-3">
                                         <label for="txtLogEndCurso">Logradouro: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtLogEndCurso" name="txtLogEndCurso">
                                             <option value="0" selected>Selecione um Logradouro...</option>                                      
+                                            <option value="t">Teste</option>                                      
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
 
                                     <div class="form-group col-md-5">
                                         <label for="txtNomeEndCurso">Nome: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtNomeEndCurso" name="txtNomeEndCurso" placeholder="Ex.: Constantino Nery">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="txtNumEndCurso">Número: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtNumEndCurso" name="txtNumEndCurso" placeholder="Ex.: 1000">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                 
                                 </div>                        
                                 <div class="form-row">
@@ -1164,25 +1196,37 @@
                                         <label for="txtPaisEndCurso">País: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtPaisEndCurso" name="txtPaisEndCurso">
                                             <option value="0" selected>Selecione um País...</option>
+                                            <option value="t">Teste</option>  
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="txtEstadoEndCurso">Estado: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtEstadoEndCurso" name="txtEstadoEndCurso">
                                             <option value="0" selected>Selecione um Estado...</option>
+                                            <option value="t">Teste</option>  
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                    
                                     <div class="form-group col-md-3">
                                         <label for="txtCidadeEndCurso">Cidade: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtCidadeEndCurso" name="txtCidadeEndCurso">
                                             <option value="0" selected>Selecione uma Cidade...</option>
+                                            <option value="t">Teste</option>  
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                    
                                     <div class="form-group col-md-3">
                                         <label for="txtBairroEndCurso">Bairro: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtBairroEndCurso" name="txtBairroEndCurso">
                                             <option value="0" selected>Selecione um Bairro...</option>
+                                            <option value="t">Teste</option>  
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                    
                                 </div>
                                 <div class="form-row">
@@ -1199,7 +1243,7 @@
                         </div>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
-                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>                    
+                    <button type="button" name="btnProximo7" class="btn btn-danger prox acao" value="Proximo">Próximo</button>                    
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">

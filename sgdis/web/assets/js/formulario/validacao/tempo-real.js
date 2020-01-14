@@ -1119,4 +1119,241 @@ $(function(){
             $("input[name=txtFoneRefConclusao]").removeClass("is-invalid");
         }
     });
+    
+    //Validação ao mudar o valor dos campos
+    //Etapa 6: DADOS DE ENDEREÇO
+    //Campo Input CEP Residência
+    $("input[name=txtCepEndResid]").change(function(){
+        if($("input[name=txtCepEndResid]").val() != ''){
+            $("input[name=txtCepEndResid]").removeClass("is-invalid");
+            $("input[name=txtCepEndResid]").addClass("is-valid");
+        }else{
+            $("input[name=txtCepEndResid]").removeClass("is-valid");
+            $("input[name=txtCepEndResid]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Logradouro Residência
+    $("select[name=txtLogEndResid]").change(function(){
+        if($("select[name=txtLogEndResid]").val() != '0'){
+            $("select[name=txtLogEndResid]").removeClass("is-invalid");
+            $("select[name=txtLogEndResid]").addClass("is-valid");
+        }else{
+            $("select[name=txtLogEndResid]").removeClass("is-valid");
+            $("select[name=txtLogEndResid]").addClass("is-invalid");
+        }
+   });    
+    //Campo Input Endereço Residência
+    $("input[name=txtNomeEndResid]").change(function(){
+        if($("input[name=txtNomeEndResid]").val() != ''){
+            $("input[name=txtNomeEndResid]").removeClass("is-invalid");
+            $("input[name=txtNomeEndResid]").addClass("is-valid");
+        }else{
+            $("input[name=txtNomeEndResid]").removeClass("is-valid");
+            $("input[name=txtNomeEndResid]").addClass("is-invalid");
+        }
+    });
+    //Campo Input Número Residência
+    $("input[name=txtNumEndResid]").change(function(){
+        if($("input[name=txtNumEndResid]").val() != ''){
+            $("input[name=txtNumEndResid]").removeClass("is-invalid");
+            $("input[name=txtNumEndResid]").addClass("is-valid");
+        }else{
+            $("input[name=txtNumEndResid]").removeClass("is-valid");
+            $("input[name=txtNumEndResid]").addClass("is-invalid");
+        }
+    });
+    //Campo Select País Residência
+    $("select[name=txtPaisEndResid]").change(function(){
+        if($("select[name=txtPaisEndResid]").val() != '0'){
+            $("select[name=txtPaisEndResid]").removeClass("is-invalid");
+            $("select[name=txtPaisEndResid]").addClass("is-valid");
+        }else{
+            $("select[name=txtPaisEndResid]").removeClass("is-valid");
+            $("select[name=txtPaisEndResid]").addClass("is-invalid");
+        }
+   });
+    //Campo Select Estado Residência
+    $("select[name=txtEstadoEndResid]").change(function(){
+        if($("select[name=txtEstadoEndResid]").val() != '0'){
+            $("select[name=txtEstadoEndResid]").removeClass("is-invalid");
+            $("select[name=txtEstadoEndResid]").addClass("is-valid");
+        }else{
+            $("select[name=txtEstadoEndResid]").removeClass("is-valid");
+            $("select[name=txtEstadoEndResid]").addClass("is-invalid");
+        }
+   });
+    //Campo Select Cidade Residência
+    $("select[name=txtCidadeEndResid]").change(function(){
+        if($("select[name=txtCidadeEndResid]").val() != '0'){
+            $("select[name=txtCidadeEndResid]").removeClass("is-invalid");
+            $("select[name=txtCidadeEndResid]").addClass("is-valid");
+        }else{
+            $("select[name=txtCidadeEndResid]").removeClass("is-valid");
+            $("select[name=txtCidadeEndResid]").addClass("is-invalid");
+        }
+   });
+    //Campo Select Bairro Residência
+    $("select[name=txtBairroEndResid]").change(function(){
+        if($("select[name=txtBairroEndResid]").val() != '0'){
+            $("select[name=txtBairroEndResid]").removeClass("is-invalid");
+            $("select[name=txtBairroEndResid]").addClass("is-valid");
+        }else{
+            $("select[name=txtBairroEndResid]").removeClass("is-valid");
+            $("select[name=txtBairroEndResid]").addClass("is-invalid");
+        }
+   });
+    //Campo Select Endereço durante Curso
+    $("select[name=txtEndCurso]").change(function(){
+        if(($("select[name=txtEndCurso]").val() == '0') || ($("select[name=txtEndCurso]").val() == 'novo')){
+            if(($("select[name=txtEndCurso]").val() == '0')){
+                $("select[name=txtEndCurso]").removeClass("is-valid");
+                $("select[name=txtEndCurso]").addClass("is-invalid");
+            }
+            else if(($("select[name=txtEndCurso]").val() == 'novo')){
+                $("select[name=txtEndCurso]").removeClass("is-invalid");
+                $("select[name=txtEndCurso]").addClass("is-valid");
+            }
+            
+            $("input[name=txtCepEndCurso]").removeClass("is-invalid");
+            $("input[name=txtCepEndCurso]").removeClass("is-valid");
+
+            $("select[name=txtLogEndCurso]").removeClass("is-invalid");
+            $("select[name=txtLogEndCurso]").removeClass("is-valid");
+
+            $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
+            $("input[name=txtNomeEndCurso]").removeClass("is-valid");
+
+            $("input[name=txtNumEndCurso]").removeClass("is-invalid");
+            $("input[name=txtNumEndCurso]").removeClass("is-valid");
+            
+            $("select[name=txtPaisEndCurso]").removeClass("is-invalid");
+            $("select[name=txtPaisEndCurso]").removeClass("is-valid");
+            
+            $("select[name=txtEstadoEndCurso]").removeClass("is-invalid");
+            $("select[name=txtEstadoEndCurso]").removeClass("is-valid");
+
+            $("select[name=txtCidadeEndCurso]").removeClass("is-invalid");
+            $("select[name=txtCidadeEndCurso]").removeClass("is-valid");
+
+            $("select[name=txtBairroEndCurso]").removeClass("is-invalid");
+            $("select[name=txtBairroEndCurso]").removeClass("is-valid");            
+        }else if(($("select[name=txtEndCurso]").val() == 'resid') || ($("select[name=txtEndCurso]").val() == 'cigs'))  {
+            $("select[name=txtEndCurso]").removeClass("is-invalid");
+            $("select[name=txtEndCurso]").addClass("is-valid");
+            
+            if($("input[name=txtCepEndCurso]").val() != ''){
+                $("input[name=txtCepEndCurso]").removeClass("is-invalid");
+                $("input[name=txtCepEndCurso]").addClass("is-valid");
+            }
+            if($("select[name=txtLogEndCurso]").val() != '0'){
+                $("select[name=txtLogEndCurso]").removeClass("is-invalid");
+                $("select[name=txtLogEndCurso]").addClass("is-valid");
+            }
+            if($("input[name=txtNomeEndCurso]").val() != ''){
+                $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
+                $("input[name=txtNomeEndCurso]").addClass("is-valid");
+            }
+            if($("input[name=txtNumEndCurso]").val() != ''){
+                $("input[name=txtNumEndCurso]").removeClass("is-invalid");
+                $("input[name=txtNumEndCurso]").addClass("is-valid");
+            }
+            if($("select[name=txtPaisEndCurso]").val() != '0'){
+                $("select[name=txtPaisEndCurso]").removeClass("is-invalid");
+                $("select[name=txtPaisEndCurso]").addClass("is-valid");
+            }
+            if($("select[name=txtEstadoEndCurso]").val() != '0'){
+                $("select[name=txtEstadoEndCurso]").removeClass("is-invalid");
+                $("select[name=txtEstadoEndCurso]").addClass("is-valid");
+            }
+            if($("select[name=txtCidadeEndCurso]").val() != '0'){
+                $("select[name=txtCidadeEndCurso]").removeClass("is-invalid");
+                $("select[name=txtCidadeEndCurso]").addClass("is-valid");
+            }
+            if($("select[name=txtBairroEndCurso]").val() != '0'){
+                $("select[name=txtBairroEndCurso]").removeClass("is-invalid");
+                $("select[name=txtBairroEndCurso]").addClass("is-valid");
+            }
+        }            
+    });
+   
+   //Campo Input CEP durante Curso
+    $("input[name=txtCepEndCurso]").change(function(){
+        if($("input[name=txtCepEndCurso]").val() != ''){
+            $("input[name=txtCepEndCurso]").removeClass("is-invalid");
+            $("input[name=txtCepEndCurso]").addClass("is-valid");
+        }else{
+            $("input[name=txtCepEndCurso]").removeClass("is-valid");
+            $("input[name=txtCepEndCurso]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Logradouro durante Curso
+    $("select[name=txtLogEndCurso]").change(function(){
+        if($("select[name=txtLogEndCurso]").val() != '0'){
+            $("select[name=txtLogEndCurso]").removeClass("is-invalid");
+            $("select[name=txtLogEndCurso]").addClass("is-valid");
+        }else{
+            $("select[name=txtLogEndCurso]").removeClass("is-valid");
+            $("select[name=txtLogEndCurso]").addClass("is-invalid");
+        }
+   });    
+    //Campo Input Endereço durante Curso
+    $("input[name=txtNomeEndCurso]").change(function(){
+        if($("input[name=txtNomeEndCurso]").val() != ''){
+            $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
+            $("input[name=txtNomeEndCurso]").addClass("is-valid");
+        }else{
+            $("input[name=txtNomeEndCurso]").removeClass("is-valid");
+            $("input[name=txtNomeEndCurso]").addClass("is-invalid");
+        }
+    });
+    //Campo Input Número durante Curso
+    $("input[name=txtNumEndCurso]").change(function(){
+        if($("input[name=txtNumEndCurso]").val() != ''){
+            $("input[name=txtNumEndCurso]").removeClass("is-invalid");
+            $("input[name=txtNumEndCurso]").addClass("is-valid");
+        }else{
+            $("input[name=txtNumEndCurso]").removeClass("is-valid");
+            $("input[name=txtNumEndCurso]").addClass("is-invalid");
+        }
+    });
+    //Campo Select País durante Curso
+    $("select[name=txtPaisEndCurso]").change(function(){
+        if($("select[name=txtPaisEndCurso]").val() != '0'){
+            $("select[name=txtPaisEndCurso]").removeClass("is-invalid");
+            $("select[name=txtPaisEndCurso]").addClass("is-valid");
+        }else{
+            $("select[name=txtPaisEndCurso]").removeClass("is-valid");
+            $("select[name=txtPaisEndCurso]").addClass("is-invalid");
+        }
+   });
+    //Campo Select Estado durante Curso
+    $("select[name=txtEstadoEndCurso]").change(function(){
+        if($("select[name=txtEstadoEndCurso]").val() != '0'){
+            $("select[name=txtEstadoEndCurso]").removeClass("is-invalid");
+            $("select[name=txtEstadoEndCurso]").addClass("is-valid");
+        }else{
+            $("select[name=txtEstadoEndCurso]").removeClass("is-valid");
+            $("select[name=txtEstadoEndCurso]").addClass("is-invalid");
+        }
+   });
+    //Campo Select Cidade durante Curso
+    $("select[name=txtCidadeEndCurso]").change(function(){
+        if($("select[name=txtCidadeEndCurso]").val() != '0'){
+            $("select[name=txtCidadeEndCurso]").removeClass("is-invalid");
+            $("select[name=txtCidadeEndCurso]").addClass("is-valid");
+        }else{
+            $("select[name=txtCidadeEndCurso]").removeClass("is-valid");
+            $("select[name=txtCidadeEndCurso]").addClass("is-invalid");
+        }
+   });
+    //Campo Select Bairro durante Curso
+    $("select[name=txtBairroEndCurso]").change(function(){
+        if($("select[name=txtBairroEndCurso]").val() != '0'){
+            $("select[name=txtBairroEndCurso]").removeClass("is-invalid");
+            $("select[name=txtBairroEndCurso]").addClass("is-valid");
+        }else{
+            $("select[name=txtBairroEndCurso]").removeClass("is-valid");
+            $("select[name=txtBairroEndCurso]").addClass("is-invalid");
+        }
+   });
 });
