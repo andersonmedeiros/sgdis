@@ -1179,7 +1179,7 @@
                                     </div>
 
                                     <div class="form-group col-md-5">
-                                        <label for="txtNomeEndCurso">Nome: <span class="campo-obrigatorio">*</span></label>
+                                        <label for="txtNomeEndCurso">Endereço: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtNomeEndCurso" name="txtNomeEndCurso" placeholder="Ex.: Constantino Nery">
                                         <div class="valid-feedback">Selva!</div>
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
