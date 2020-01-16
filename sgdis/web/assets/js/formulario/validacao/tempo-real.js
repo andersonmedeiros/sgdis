@@ -1481,4 +1481,107 @@ $(function(){
             $("select[name=txtPossuiEstMil]").addClass("is-invalid");
         }
     });
+    
+    //Validação ao mudar o valor dos campos
+    //Etapa 8: PREPARAÇÃO
+    //Campo Select Preparação Física
+    $("select[name=txtPrepFisica]").change(function(){
+        if($("select[name=txtPrepFisica]").val() != '0'){
+            $("select[name=txtPrepFisica]").removeClass("is-invalid");
+            $("select[name=txtPrepFisica]").addClass("is-valid");
+        }else{
+            $("select[name=txtPrepFisica]").removeClass("is-valid");
+            $("select[name=txtPrepFisica]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Apoio Familiar
+    $("select[name=txtApoioFam]").change(function(){
+        if($("select[name=txtApoioFam]").val() != '0'){
+            $("select[name=txtApoioFam]").removeClass("is-invalid");
+            $("select[name=txtApoioFam]").addClass("is-valid");
+        }else{
+            $("select[name=txtApoioFam]").removeClass("is-valid");
+            $("select[name=txtApoioFam]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Apoio de sua OM
+    $("select[name=txtApoioOM]").change(function(){
+        if($("select[name=txtApoioOM]").val() != '0'){
+            $("select[name=txtApoioOM]").removeClass("is-invalid");
+            $("select[name=txtApoioOM]").addClass("is-valid");
+        }else{
+            $("select[name=txtApoioOM]").removeClass("is-valid");
+            $("select[name=txtApoioOM]").addClass("is-invalid");
+        }
+    });
+    //Campo Select OM Curso de preparação
+    $("select[name=txtCPrepCOS]").change(function(){
+        if($("select[name=txtCPrepCOS]").val() != '0'){
+            $("select[name=txtCPrepCOS]").removeClass("is-invalid");
+            $("select[name=txtCPrepCOS]").addClass("is-valid");
+        }else{
+            $("select[name=txtCPrepCOS]").removeClass("is-valid");
+            $("select[name=txtCPrepCOS]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Problemas comprometer seu rendimento
+    $("select[name=txtProbRend]").change(function(){
+        if($("select[name=txtProbRend]").val() != '0'){
+            $("select[name=txtProbRend]").removeClass("is-invalid");
+            $("select[name=txtProbRend]").addClass("is-valid");
+        }else{
+            $("select[name=txtProbRend]").removeClass("is-valid");
+            $("select[name=txtProbRend]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Tempo de Preparação
+    $("select[name=txtTempoPrep]").change(function(){
+        if($("select[name=txtTempoPrep]").val() != '0'){
+            $("select[name=txtTempoPrep]").removeClass("is-invalid");
+            $("select[name=txtTempoPrep]").addClass("is-valid");
+        }else{
+            $("select[name=txtTempoPrep]").removeClass("is-valid");
+            $("select[name=txtTempoPrep]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Preparo intelectual no assunto de Doutrina de Operações na Selva
+    $("select[name=txtDedicacaoDoutOPS]").change(function(){
+        if($("select[name=txtDedicacaoDoutOPS]").val() != '0'){
+            $("select[name=txtDedicacaoDoutOPS]").removeClass("is-invalid");
+            $("select[name=txtDedicacaoDoutOPS]").addClass("is-valid");
+        }else{
+            $("select[name=txtDedicacaoDoutOPS]").removeClass("is-valid");
+            $("select[name=txtDedicacaoDoutOPS]").addClass("is-invalid");
+        }
+    });
+    //Campo Input Fator Motivação
+    $("input[name=txtFatorMotivacao]").change(function(){
+        if($("input[name=txtFatorMotivacao]").val() != ''){
+            $("input[name=txtFatorMotivacao]").removeClass("is-invalid");
+            $("input[name=txtFatorMotivacao]").addClass("is-valid");
+        }else{
+            $("input[name=txtFatorMotivacao]").removeClass("is-valid");
+            $("input[name=txtFatorMotivacao]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Consultou Site
+    $("select[name=txtCsltSite]").change(function(){
+        if($("select[name=txtCsltSite]").val() != '0'){
+            $("select[name=txtCsltSite]").removeClass("is-invalid");
+            $("select[name=txtCsltSite]").addClass("is-valid");
+        }else{
+            $("select[name=txtCsltSite]").removeClass("is-valid");
+            $("select[name=txtCsltSite]").addClass("is-invalid");
+        }
+    });
+    //Campo Select Consultou Ambiente Virtual do Aluno
+    $("select[name=txtCsltAmbVirtAl]").change(function(){
+        if($("select[name=txtCsltAmbVirtAl]").val() != '0'){
+            $("select[name=txtCsltAmbVirtAl]").removeClass("is-invalid");
+            $("select[name=txtCsltAmbVirtAl]").addClass("is-valid");
+        }else{
+            $("select[name=txtCsltAmbVirtAl]").removeClass("is-valid");
+            $("select[name=txtCsltAmbVirtAl]").addClass("is-invalid");
+        }
+    });
 });

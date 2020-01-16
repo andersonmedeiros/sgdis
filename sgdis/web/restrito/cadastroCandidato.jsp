@@ -1422,6 +1422,8 @@
                                     <option value="MB">MB</option>
                                     <option value="E">E</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                              
                             <div class="form-group col-md-12">
                                 <label for="txtApoioFam">Obteve apoio de sua família para realização do curso?<span class="campo-obrigatorio"> *</span></label>
@@ -1430,6 +1432,8 @@
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                              
                         </div>
                         <div class="form-row">
@@ -1440,6 +1444,8 @@
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                              
                             <div class="form-group col-md-12">
                                 <label for="txtCPrepCOS">Sua OM proporcionou um Curso de Preparação para o COS?<span class="campo-obrigatorio"> *</span></label>
@@ -1448,6 +1454,8 @@
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                              
                         </div>
                         <div class="form-row">
@@ -1458,6 +1466,8 @@
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                              
                             <div class="form-group col-md-12">
                                 <label for="txtTempoPrep">O tempo de sua preparação foi suficiente?<span class="campo-obrigatorio"> *</span></label>
@@ -1466,6 +1476,8 @@
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                              
                         </div>
                         <div class="form-row">                                                        
@@ -1476,11 +1488,17 @@
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="txtFatorMotivacao">Qual o fator que o motivou a realizar o COS?<span class="campo-obrigatorio"> *</span></label>
                                 <input type="text" class="form-control" id="txtFatorMotivacao" name="txtFatorMotivacao" placeholder="Apenas um fator">
-                            </div>                                                           
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                            </div>                           
+                            <div class="valid-feedback">Selva!</div>
+                            <div class="invalid-feedback">Campo Obrigatório!</div>
                         </div>
                         <div class="form-row">                            
                             <div class="form-group col-md-12">
@@ -1490,6 +1508,8 @@
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="txtCsltAmbVirtAl">Consultou o ambiente virtual do aluno?<span class="campo-obrigatorio"> *</span></label>
@@ -1498,11 +1518,13 @@
                                     <option value="S">SIM</option>
                                     <option value="N">NÃO</option>
                                 </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                         </div>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
-                    <button type="button" name="btnProximo" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
+                    <button type="button" name="btnProximo9" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
                 <fieldset>
                     <div class="fieldset-header">

@@ -2771,5 +2771,66 @@ $(function(){
             }
         }
     });
+    
+    //Etapa 8: PREPARAÇÃO 
+    $("button[name=btnProximo9]").click(function(){
+        if($("select[name=txtPrepFisica]").val() == '0'){
+            $("select[name=txtPrepFisica]").removeClass("is-valid");
+            $("select[name=txtPrepFisica]").addClass("is-invalid");
+            $("select[name=txtPrepFisica]").focus();
+        }
+        else if($("select[name=txtApoioFam]").val() == '0'){
+            $("select[name=txtApoioFam]").removeClass("is-valid");
+            $("select[name=txtApoioFam]").addClass("is-invalid");
+            $("select[name=txtApoioFam]").focus();
+        }
+        else if($("select[name=txtApoioOM]").val() == '0'){
+            $("select[name=txtApoioOM]").removeClass("is-valid");
+            $("select[name=txtApoioOM]").addClass("is-invalid");
+            $("select[name=txtApoioOM]").focus();
+        }
+        else if($("select[name=txtCPrepCOS]").val() == '0'){
+            $("select[name=txtCPrepCOS]").removeClass("is-valid");
+            $("select[name=txtCPrepCOS]").addClass("is-invalid");
+            $("select[name=txtCPrepCOS]").focus();
+        }
+        else if($("select[name=txtCPrepCOS]").val() == '0'){
+            $("select[name=txtCPrepCOS]").removeClass("is-valid");
+            $("select[name=txtCPrepCOS]").addClass("is-invalid");
+            $("select[name=txtCPrepCOS]").focus();
+        }
+        else if($("select[name=txtProbRend]").val() == '0'){
+            $("select[name=txtProbRend]").removeClass("is-valid");
+            $("select[name=txtProbRend]").addClass("is-invalid");
+            $("select[name=txtProbRend]").focus();
+        }
+        else if($("select[name=txtTempoPrep]").val() == '0'){
+            $("select[name=txtTempoPrep]").removeClass("is-valid");
+            $("select[name=txtTempoPrep]").addClass("is-invalid");
+            $("select[name=txtTempoPrep]").focus();
+        }
+        else if($("select[name=txtDedicacaoDoutOPS]").val() == '0'){
+            $("select[name=txtDedicacaoDoutOPS]").removeClass("is-valid");
+            $("select[name=txtDedicacaoDoutOPS]").addClass("is-invalid");
+            $("select[name=txtDedicacaoDoutOPS]").focus();
+        }
+        else if($("input[name=txtFatorMotivacao]").val() == ''){
+            $("input[name=txtFatorMotivacao]").removeClass("is-valid");
+            $("input[name=txtFatorMotivacao]").addClass("is-invalid");
+            $("input[name=txtFatorMotivacao]").focus();
+        }
+        else if($("select[name=txtCsltSite]").val() == '0'){
+            $("select[name=txtCsltSite]").removeClass("is-valid");
+            $("select[name=txtCsltSite]").addClass("is-invalid");
+            $("select[name=txtCsltSite]").focus();
+        }
+        else if($("select[name=txtCsltAmbVirtAl]").val() == '0'){
+            $("select[name=txtCsltAmbVirtAl]").removeClass("is-valid");
+            $("select[name=txtCsltAmbVirtAl]").addClass("is-invalid");
+            $("select[name=txtCsltAmbVirtAl]").focus();
+        }else{
+            prox($(this));
+        }
+    });
 });
 
