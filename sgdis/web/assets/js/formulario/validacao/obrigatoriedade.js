@@ -2832,5 +2832,21 @@ $(function(){
             prox($(this));
         }
     });
+    
+    //Etapa 9: VIVÊNCIA NA AMAZÔNIA
+    $("button[name=btnSalvar]").click(function(){
+        if($("select[name=txtSvAmz]").val() == '0'){
+            $("select[name=txtSvAmz]").removeClass("is-valid");
+            $("select[name=txtSvAmz]").addClass("is-invalid");
+            $("select[name=txtSvAmz]").focus();
+            return false;
+        }
+        else if($("select[name=txtTentC]").val() == '0'){
+            $("select[name=txtTentC]").removeClass("is-valid");
+            $("select[name=txtTentC]").addClass("is-invalid");
+            $("select[name=txtTentC]").focus();
+            return false;
+        }
+    });
 });
 

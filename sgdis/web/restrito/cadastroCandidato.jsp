@@ -1543,6 +1543,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>                                        
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>                
@@ -1551,7 +1553,9 @@
                                 <div class="form-row">                       
                                 <div class="form-group col-md-12">
                                     <label for="txtQntSvAmz">Quantas vezes serviu na Amazônia?<span class="campo-obrigatorio"> *</span></label>
-                                    <input type="number" class="form-control" id="txtQntSvAmz" name="txtQntSvAmz" min="1">
+                                    <input type="number" class="form-control" id="txtQntSvAmz" name="txtQntSvAmz" min="1" value="1">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                             </div>
@@ -1570,6 +1574,8 @@
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>                                        
                                     </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>                
@@ -1578,8 +1584,11 @@
                                 <div class="form-row">                       
                                 <div class="form-group col-md-12">
                                     <label for="txtQntTentC">Quantas vezes tentou realizar o curso?<span class="campo-obrigatorio"> *</span></label>
-                                    <input type="number" class="form-control" id="txtQntTentC" name="txtQntTentC" min="1" max="3">
+                                    <input type="number" class="form-control" id="txtQntTentC" name="txtQntTentC" min="1" max="3" value="1">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
+                                
                             </div>
                             </div>
                             <div id="fieldsetTentC" class="form-row">

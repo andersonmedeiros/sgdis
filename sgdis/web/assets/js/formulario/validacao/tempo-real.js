@@ -1584,4 +1584,67 @@ $(function(){
             $("select[name=txtCsltAmbVirtAl]").addClass("is-invalid");
         }
     });
+    
+    //Validação ao mudar o valor dos campos
+    //Etapa 9: VIVÊNCIA NA AMAZÔNIA
+    //Campo Select Já serviu na Amazônia
+    $("select[name=txtSvAmz]").change(function(){
+        if($("select[name=txtSvAmz]").val() == '0'){
+            $("select[name=txtSvAmz]").removeClass("is-valid");
+            $("select[name=txtSvAmz]").addClass("is-invalid");
+        }
+        else if($("select[name=txtSvAmz]").val() == 's'){
+            $("select[name=txtSvAmz]").removeClass("is-invalid");
+            $("select[name=txtSvAmz]").addClass("is-valid");
+            
+            //Campo Input Quantas vezes serviu na Amazônia
+            $("input[name=txtQntSvAmz]").change(function(){
+                if($("input[name=txtQntSvAmz]").val() != ''){
+                    $("input[name=txtQntSvAmz]").removeClass("is-invalid");
+                    $("input[name=txtQntSvAmz]").addClass("is-valid");
+                }else{
+                    $("input[name=txtQntSvAmz]").removeClass("is-valid");
+                    $("input[name=txtQntSvAmz]").addClass("is-invalid");
+                }
+            });
+        }            
+        else if($("select[name=txtSvAmz]").val() == 'n'){
+            $("select[name=txtSvAmz]").removeClass("is-invalid");
+            $("select[name=txtSvAmz]").addClass("is-valid");
+            
+            $("input[name=txtQntSvAmz]").val('1');
+            $("input[name=txtQntSvAmz]").removeClass("is-invalid");
+            $("input[name=txtQntSvAmz]").addClass("is-valid");
+        }
+    });
+    //Campo Select Tentou cos outras vezes
+    $("select[name=txtTentC]").change(function(){
+        if($("select[name=txtTentC]").val() == '0'){
+            $("select[name=txtTentC]").removeClass("is-valid");
+            $("select[name=txtTentC]").addClass("is-invalid");
+        }
+        else if($("select[name=txtTentC]").val() == 's'){
+            $("select[name=txtTentC]").removeClass("is-invalid");
+            $("select[name=txtTentC]").addClass("is-valid");
+            
+            //Campo Input Quantas vezes serviu na Amazônia
+            $("input[name=txtQntTentC]").change(function(){
+                if($("input[name=txtQntTentC]").val() != ''){
+                    $("input[name=txtQntTentC]").removeClass("is-invalid");
+                    $("input[name=txtQntTentC]").addClass("is-valid");
+                }else{
+                    $("input[name=txtQntTentC]").removeClass("is-valid");
+                    $("input[name=txtQntTentC]").addClass("is-invalid");
+                }
+            });
+        }            
+        else if($("select[name=txtTentC]").val() == 'n'){
+            $("select[name=txtTentC]").removeClass("is-invalid");
+            $("select[name=txtTentC]").addClass("is-valid");
+            
+            $("input[name=txtQntTentC]").val('1');
+            $("input[name=txtQntTentC]").removeClass("is-invalid");
+            $("input[name=txtQntTentC]").addClass("is-valid");
+        }
+    });
 });
