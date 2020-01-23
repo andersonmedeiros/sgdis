@@ -51,6 +51,14 @@
                                 <a class="dropdown-item active" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                DivAl
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
+                                <a class="dropdown-item" href="../restrito/cadastroCandidato.jsp">Cadastrar Candidato</a>
+                            </div>
+                        </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0" name="formSair" action="Sair" method="POST">                        
                         <button class="btn btn-danger my-2 my-sm-0" type="submit">Sair</button>
