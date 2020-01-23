@@ -5,10 +5,13 @@
  */
 
 $(function(){
+    //Validação ao recarregar a página
     if($("select[name=txtForca]").val() != '0'){
         $("select[name=txtForca]").removeClass("is-invalid");
         $("select[name=txtForca]").addClass("is-valid");
     }
+    
+    
     //Validação ao mudar o valor dos campos
     //Etapa 1: OM ATUAL
     //Campo Select Força
@@ -1607,6 +1610,8 @@ $(function(){
                     $("input[name=txtQntSvAmz]").addClass("is-invalid");
                 }
             });
+            
+            
         }            
         else if($("select[name=txtSvAmz]").val() == 'n'){
             $("select[name=txtSvAmz]").removeClass("is-invalid");

@@ -475,38 +475,59 @@ $("#txtQntSvAmz").change(function(){
                                    "        <div class=\"form-group col-md-8\">"+
                                    "            <label for=txtOMNomeSvAmz"+ i +">OM: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "            <input type=\"text\" class=\"form-control\" id=txtOMNomeSvAmz"+ i +" name=\"txtOMNomeSvAmz\" placeholder=\"Ex.: Centro de Instrução de Guerra na Selva\">"+
+                                   "            <div class=\"valid-feedback\">Selva!</div>"+
+                                   "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "        </div>"+
                                    "        <div class=\"form-group col-md-4\">"+
                                    "            <label for=txtOMAbrevSvAmz"+ i +">Abreviatura: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "            <input type=\"text\" class=\"form-control\" id=txtOMAbrevSvAmz"+ i +" name=\"txtOMAbrevSvAmz\" placeholder=\"Ex.: CIGS\">"+
+                                   "            <div class=\"valid-feedback\">Selva!</div>"+
+                                   "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "        </div>"+  
                                    "    </div>"+  
                                    "    <div class=form-row>"+
                                    "        <div class=\"form-group col-md-6\">"+
                                    "            <label for=txtDInOMSvAmz"+ i +">De: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "            <input type=\"date\" class=\"form-control\" id=txtDInOMSvAmz"+ i +" name=\"txtDInOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
+                                   "            <div class=\"valid-feedback\">Selva!</div>"+
+                                   "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "        </div>"+
                                    "        <div class=\"form-group col-md-6\">"+
                                    "            <label for=txtDFimOMSvAmz"+ i +">Até: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "            <input type=\"date\" class=\"form-control\" id=txtDFimOMSvAmz"+ i +" name=\"txtDFimSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
+                                   "            <div class=\"valid-feedback\">Selva!</div>"+
+                                   "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "        </div>"+  
                                    "    </div>"+  
                                    "    <div class=form-row>"+
                                    "        <div class=\"form-group col-md-4\">"+
                                    "            <label for=txtFunc1OMSvAmz"+ i +">Função 1: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "            <input type=\"text\" class=\"form-control\" id=txtFunc1OMSvAmz"+ i +" name=\"txtFunc1OMSvAmz\" placeholder=\"Ex.: Cmt Pel\">"+
+                                   "            <div class=\"valid-feedback\">Selva!</div>"+
+                                   "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "        </div>"+
                                    "        <div class=\"form-group col-md-4\">"+
-                                   "            <label for=txtFunc3OMSvAmz"+ i +">Função 2: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "            <label for=txtFunc2OMSvAmz"+ i +">Função 2: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "            <input type=\"text\" class=\"form-control\" id=txtFunc2OMSvAmz"+ i +" name=\"txtFunc2SvAmz\" placeholder=\"Ex.: Cmt Cia\">"+
+                                   "            <div class=\"valid-feedback\">Selva!</div>"+
+                                   "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "        </div>"+  
                                    "        <div class=\"form-group col-md-4\">"+
                                    "            <label for=txtFunc3OMSvAmz"+ i +">Função 3: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "            <input type=\"text\" class=\"form-control\" id=txtFunc3OMSvAmz"+ i +" name=\"txtFunc3SvAmz\" placeholder=\"Ex.: Enc Mat\">"+
+                                   "            <div class=\"valid-feedback\">Selva!</div>"+
+                                   "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "        </div>"+  
                                    "    </div>"+  
                                    "</div>");
-                      }
+        functionValidInputTReal("#txtOMNomeSvAmz"+ i);
+        functionValidInputTReal("#txtOMAbrevSvAmz"+ i);
+        functionValidInputTReal("#txtDInOMSvAmz"+ i);
+        functionValidInputTReal("#txtDFimOMSvAmz"+ i);
+        functionValidInputTReal("#txtFunc1OMSvAmz"+ i);
+        functionValidInputTReal("#txtFunc2OMSvAmz"+ i);
+        functionValidInputTReal("#txtFunc3OMSvAmz"+ i);
+    }
 });
 
 //Acionamento form Tentativas em realizar o curso
@@ -533,18 +554,24 @@ $("#txtQntTentC").change(function(){
                                    "            <div class=\"form-group col-md-12\">"+
                                    "                <label for=txtAnoTentC"+ i +">Ano: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "                <input type=\"text\" class=\"form-control\" id=txtAnoTentC"+ i +" name=\"txtAnoTentC\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
+                                   "                <div class=\"valid-feedback\">Selva!</div>"+
+                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "            </div>"+ 
                                    "        </div>"+  
                                    "        <div class=form-row>"+
                                    "            <div class=\"form-group col-md-12\">"+
                                    "                <label for=txtOMNomeTentC"+ i +">OM que servia: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "                <input type=\"text\" class=\"form-control\" id=txtOMNomeTentC"+ i +" name=\"txtOMNomeTentC\" placeholder=\"Ex.: Centro de Instrução de Guerra na Selva\">"+
+                                   "                <div class=\"valid-feedback\">Selva!</div>"+
+                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "            </div>"+
                                    "        </div>"+
                                    "        <div class=form-row>"+
                                    "            <div class=\"form-group col-md-12\">"+
                                    "                <label for=txtOMAbrevTentC"+ i +">Abreviatura: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "                <input type=\"text\" class=\"form-control\" id=txtOMAbrevTentC"+ i +" name=\"txtOMAbrevTentC\" placeholder=\"Ex.: CIGS\">"+
+                                   "                <div class=\"valid-feedback\">Selva!</div>"+
+                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "            </div>"+  
                                    "        </div>"+  
                                    "        <div class=form-row>"+
@@ -556,6 +583,8 @@ $("#txtQntTentC").change(function(){
                                    "                    <option value=\"saude\">Saúde</option>"+
                                    "                    <option value=\"insftec\">Insuficiência Técnica</option>"+
                                    "                </select>"+ 
+                                   "                <div class=\"valid-feedback\">Selva!</div>"+
+                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "            </div>"+  
                                    "        </div>"+  
                                    "        <div class=form-row>"+
@@ -570,9 +599,16 @@ $("#txtQntTentC").change(function(){
                                    "                    <option value=\"tecesp\">Técnicas Especiais</option>"+
                                    "                    <option value=\"op\">Operações</option>"+
                                    "                </select>"+ 
+                                   "                <div class=\"valid-feedback\">Selva!</div>"+
+                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                    "            </div>"+  
                                    "        </div>"+  
                                    "    </div>"+
                                    "</div>");
+        functionValidInputTReal("#txtAnoTentC"+ i);
+        functionValidInputTReal("#txtOmNomeTentC"+ i);
+        functionValidInputTReal("#txtOmAbrevTentC"+ i);
+        functionValidSelectTReal("#txtMtvDeslTentC"+ i);
+        functionValidSelectTReal("#txtFaseDeslTentC"+ i);
     }
 });
