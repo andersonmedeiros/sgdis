@@ -1556,19 +1556,12 @@
                                 </div>
                             </div>
                         </div>                
-                        <div id="divSvAmz" class="fieldset-interno fieldset-dependente" style="display: none;">                     
-                            <div class="fieldset-interno">
-                                <div class="form-row">                       
-                                <div class="form-group col-md-12">
-                                    <label for="txtQntSvAmz">Quantas vezes serviu na Amazônia?<span class="campo-obrigatorio"> *</span></label>
-                                    <input type="number" class="form-control" id="txtQntSvAmz" name="txtQntSvAmz" min="1" value="1">
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
-                                </div>
+                        <div id="divSvAmz" class="fieldset-interno fieldset-dependente" style="display: none;">    
+                            <div class="header-interno">
+                                <h5 class="title-interno">Quais OMs?</h5>
                             </div>
-                            </div>
-                            <div id="fieldsetSvAmz">
-                            </div>
+                            <div id="fieldsetSvAmz" class="fieldset-interno"></div>
+                            <button type="button" id="btnAddSvAmz" name="btnAddSvAmz" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                         </div>
                         <div class="header-interno">
                             <h5 class="title-interno">Tentativas</h5>
@@ -1592,7 +1585,7 @@
                                 <div class="form-row">                       
                                 <div class="form-group col-md-12">
                                     <label for="txtQntTentC">Quantas vezes tentou realizar o curso?<span class="campo-obrigatorio"> *</span></label>
-                                    <input type="number" class="form-control" id="txtQntTentC" name="txtQntTentC" min="1" max="3" value="1">
+                                    <input type="number" class="form-control" id="txtQntTentC" name="txtQntTentC" value="1">
                                     <div class="valid-feedback">Selva!</div>
                                     <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>

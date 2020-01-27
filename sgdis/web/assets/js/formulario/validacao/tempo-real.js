@@ -1609,17 +1609,11 @@ $(function(){
                     $("input[name=txtQntSvAmz]").removeClass("is-valid");
                     $("input[name=txtQntSvAmz]").addClass("is-invalid");
                 }
-            });
-            
-            
+            });        
         }            
         else if($("select[name=txtSvAmz]").val() == 'n'){
             $("select[name=txtSvAmz]").removeClass("is-invalid");
-            $("select[name=txtSvAmz]").addClass("is-valid");
-            
-            $("input[name=txtQntSvAmz]").val('1');
-            $("input[name=txtQntSvAmz]").removeClass("is-invalid");
-            $("input[name=txtQntSvAmz]").addClass("is-valid");
+            $("select[name=txtSvAmz]").addClass("is-valid");;
         }
     });
     //Campo Select Tentou cos outras vezes
