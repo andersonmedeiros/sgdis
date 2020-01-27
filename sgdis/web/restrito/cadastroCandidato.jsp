@@ -639,7 +639,6 @@
                                         <option value="0" selected>Selecione SIM ou NÃO...</option>
                                         <option value="s">SIM</option>
                                         <option value="n">NÃO</option>
-                                        <option value="t">TESTE</option>
                                     </select>
                                     <div class="valid-feedback">Selva!</div>
                                     <div class="invalid-feedback">Campo Obrigatório!</div>
@@ -1617,6 +1616,7 @@
         <script src="../assets/js/formulario/validacao/mascaras.js"></script>
         <script src="../assets/js/formulario/validacao/obrigatoriedade.js"></script>
         <script src="../assets/js/formulario/validacao/tempo-real.js"></script>
+        <script src="../assets/js/formulario/validacao/ao-carregar-pagina.js"></script>
         
         <script src="../assets/js/bootstrap-validate.js"></script>
         <!--<script>

@@ -89,7 +89,6 @@ $("#txtPossuiCNH").change(function() {
     }
 });
 
-//Acionamento form Veiculos
 var functionValidSelectTReal = function(campo){
     $(campo).change(function(){
         if($(campo).val() != '0'){
@@ -100,6 +99,13 @@ var functionValidSelectTReal = function(campo){
             $(campo).addClass("is-invalid");
         }
     });
+};
+
+var functionValidSelectOCP = function(campo){
+    if($(campo).val() != '0'){
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
 };
 
 var functionValidInputTReal = function(campo){
@@ -114,6 +120,14 @@ var functionValidInputTReal = function(campo){
     });
 };
 
+var functionValidInputOCP = function(campo){
+    if($(campo).val() != ''){
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+
+//Acionamento form Veiculos
 var qtdeVeiculos = document.querySelectorAll('#fieldsetVeiculos .form-row').length + 1;
 
 $("#txtTraraVeiculo").change(function() {    
@@ -168,10 +182,15 @@ $("#btnAddVeiculo").click(function(){
                                   "</div>");
                          
     functionValidSelectTReal("#txtTipoVeiculoAl"+qtdeVeiculos);    
+    functionValidSelectOCP("#txtTipoVeiculoAl"+qtdeVeiculos);    
     functionValidInputTReal("#txtMarcaVeiculoAl"+qtdeVeiculos);    
+    functionValidInputOCP("#txtMarcaVeiculoAl"+qtdeVeiculos);    
     functionValidInputTReal("#txtModeloVeiculoAl"+qtdeVeiculos);    
+    functionValidInputOCP("#txtModeloVeiculoAl"+qtdeVeiculos);    
     functionValidInputTReal("#txtCorVeiculoAl"+qtdeVeiculos);    
+    functionValidInputOCP("#txtCorVeiculoAl"+qtdeVeiculos);    
     functionValidInputTReal("#txtPlacaVeiculoAl"+qtdeVeiculos);
+    functionValidInputOCP("#txtPlacaVeiculoAl"+qtdeVeiculos);
     
     qtdeVeiculos++;
 });
