@@ -494,7 +494,7 @@ $("#btnAddSvAmz").click(function(){
                                 "        </div>"+
                                 "        <div class=\"form-group col-md-6\">"+
                                 "            <label for=txtDFimOMSvAmz"+qtdeSvAmz+">Até: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                "            <input type=\"date\" class=\"form-control\" id=txtDFimOMSvAmz"+qtdeSvAmz+" name=\"txtDFimSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
+                                "            <input type=\"date\" class=\"form-control\" id=txtDFimOMSvAmz"+qtdeSvAmz+" name=\"txtDFimOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
                                 "            <div class=\"valid-feedback\">Selva!</div>"+
                                 "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                 "        </div>"+  
@@ -508,13 +508,13 @@ $("#btnAddSvAmz").click(function(){
                                 "        </div>"+
                                 "        <div class=\"form-group col-md-4\">"+
                                 "            <label for=txtFunc2OMSvAmz"+qtdeSvAmz+">Função 2: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                "            <input type=\"text\" class=\"form-control\" id=txtFunc2OMSvAmz"+qtdeSvAmz+" name=\"txtFunc2SvAmz\" placeholder=\"Ex.: Cmt Cia\">"+
+                                "            <input type=\"text\" class=\"form-control\" id=txtFunc2OMSvAmz"+qtdeSvAmz+" name=\"txtFunc2OMSvAmz\" placeholder=\"Ex.: Cmt Cia\">"+
                                 "            <div class=\"valid-feedback\">Selva!</div>"+
                                 "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                 "        </div>"+  
                                 "        <div class=\"form-group col-md-4\">"+
                                 "            <label for=txtFunc3OMSvAmz"+qtdeSvAmz+">Função 3: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                "            <input type=\"text\" class=\"form-control\" id=txtFunc3OMSvAmz"+qtdeSvAmz+" name=\"txtFunc3SvAmz\" placeholder=\"Ex.: Enc Mat\">"+
+                                "            <input type=\"text\" class=\"form-control\" id=txtFunc3OMSvAmz"+qtdeSvAmz+" name=\"txtFunc3OMSvAmz\" placeholder=\"Ex.: Enc Mat\">"+
                                 "            <div class=\"valid-feedback\">Selva!</div>"+
                                 "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                 "        </div>"+  
@@ -539,85 +539,78 @@ $("#txtTentC").change(function() {
     else if($("#txtTentC").val() === "n" || $("#txtTentC").val() === "0"){
         $("#divTentC").css("display", "none");
         $("#fieldsetTentC .form-row").remove();
+        $("#fieldsetTentC div").remove(".tent");
     }
 });
 
-$("#txtQntTentC").change(function(){
-    return false;
+$("#txtQntTentC").change(function(){    
     $("#fieldsetTentC div").remove(".tent");
     var qntTentC = $("#txtQntTentC").val();
-    if((qntTentC >= 1) && (qntTentC <= 3)){
-        for(var i=1; i<=qntTentC; i++){
-            $("#fieldsetTentC").append("<div class=\"tent col-md-4\">"+
-                                       "    <div class=\"header-interno\">"+
-                                       "        <h5 class=title-interno>" + i + "ª Tentativa" + "</h5>"+
-                                       "    </div>"+
-                                       "    <div id=linha"+ i +" class=\"colTentC linha fieldset-interno \">"+
-                                       "        <div class=form-row>"+
-                                       "            <div class=\"form-group col-md-12\">"+
-                                       "                <label for=txtAnoTentC"+ i +">Ano: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                       "                <input type=\"text\" class=\"form-control\" id=txtAnoTentC"+ i +" name=\"txtAnoTentC\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
-                                       "                <div class=\"valid-feedback\">Selva!</div>"+
-                                       "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                       "            </div>"+ 
-                                       "        </div>"+  
-                                       "        <div class=form-row>"+
-                                       "            <div class=\"form-group col-md-12\">"+
-                                       "                <label for=txtOMNomeTentC"+ i +">OM que servia: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                       "                <input type=\"text\" class=\"form-control\" id=txtOMNomeTentC"+ i +" name=\"txtOMNomeTentC\" placeholder=\"Ex.: Centro de Instrução de Guerra na Selva\">"+
-                                       "                <div class=\"valid-feedback\">Selva!</div>"+
-                                       "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                       "            </div>"+
-                                       "        </div>"+
-                                       "        <div class=form-row>"+
-                                       "            <div class=\"form-group col-md-12\">"+
-                                       "                <label for=txtOMAbrevTentC"+ i +">Abreviatura: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                       "                <input type=\"text\" class=\"form-control\" id=txtOMAbrevTentC"+ i +" name=\"txtOMAbrevTentC\" placeholder=\"Ex.: CIGS\">"+
-                                       "                <div class=\"valid-feedback\">Selva!</div>"+
-                                       "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                       "            </div>"+  
-                                       "        </div>"+  
-                                       "        <div class=form-row>"+
-                                       "            <div class=\"form-group col-md-12\">"+
-                                       "                <label for=txtMtvDeslTentC"+ i +">Motivo de Desligamento: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                       "                <select class=\"form-control\" id=txtMtvDeslTentC"+ i +" name=\"txtMtvDeslTentC\">"+
-                                       "                    <option value=\"0\" selected>Selecione o tipo...</option>"+
-                                       "                    <option value=\"solvol\">Solicitação Voluntária</option>"+
-                                       "                    <option value=\"saude\">Saúde</option>"+
-                                       "                    <option value=\"insftec\">Insuficiência Técnica</option>"+
-                                       "                </select>"+ 
-                                       "                <div class=\"valid-feedback\">Selva!</div>"+
-                                       "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                       "            </div>"+  
-                                       "        </div>"+  
-                                       "        <div class=form-row>"+
-                                       "            <div class=\"form-group col-md-12\">"+
-                                       "                <label for=txtFaseDeslTentC"+ i +">Fase na qual foi desligado: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                       "                <select class=\"form-control\" id=txtFaseDeslTentC"+ i +" name=\"txtFaseDeslTentC\">"+
-                                       "                    <option value=\"0\" selected>Selecione o tipo...</option>"+
-                                       "                    <option value=\"eafprel\">EAF Preliminar</option>"+
-                                       "                    <option value=\"eafdef\">EAF Definitivo</option>"+
-                                       "                    <option value=\"testeconhecimento\">Teste de Conhecimento</option>"+
-                                       "                    <option value=\"vs\">Vida na Selva</option>"+
-                                       "                    <option value=\"tecesp\">Técnicas Especiais</option>"+
-                                       "                    <option value=\"op\">Operações</option>"+
-                                       "                </select>"+ 
-                                       "                <div class=\"valid-feedback\">Selva!</div>"+
-                                       "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                       "            </div>"+  
-                                       "        </div>"+  
-                                       "    </div>"+
-                                       "</div>");
-            functionValidInputTReal("#txtAnoTentC"+ i);
-            functionValidInputTReal("#txtOmNomeTentC"+ i);
-            functionValidInputTReal("#txtOmAbrevTentC"+ i);
-            functionValidSelectTReal("#txtMtvDeslTentC"+ i);
-            functionValidSelectTReal("#txtFaseDeslTentC"+ i);
-        }
-    }else if(qntTentC > 3){
-        $("input[name=txtQntTentC]").removeClass("is-valid");
-        $("input[name=txtQntTentC]").addClass("is-invalid");
-        $("input[name=txtQntTentC]").focus();
-        return false;
+    for(var i=1; i<=qntTentC; i++){
+        $("#fieldsetTentC").append("<div class=\"tent col\">"+
+                                   "    <div class=\"header-interno\">"+
+                                   "        <h5 class=title-interno>" + i + "ª Tentativa" + "</h5>"+
+                                   "    </div>"+
+                                   "    <div id=linha"+ i +" class=\"colTentC linha fieldset-interno \">"+
+                                   "        <div class=form-row>"+
+                                   "            <div class=\"form-group col-md-12\">"+
+                                   "                <label for=txtAnoTentC"+ i +">Ano: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "                <input type=\"text\" class=\"form-control\" id=txtAnoTentC"+ i +" name=\"txtAnoTentC\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
+                                   "                <div class=\"valid-feedback\">Selva!</div>"+
+                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                   "            </div>"+ 
+                                   "        </div>"+  
+                                   "        <div class=form-row>"+
+                                   "            <div class=\"form-group col-md-12\">"+
+                                   "                <label for=txtOMNomeTentC"+ i +">OM que servia: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "                <input type=\"text\" class=\"form-control\" id=txtOMNomeTentC"+ i +" name=\"txtOMNomeTentC\" placeholder=\"Ex.: Centro de Instrução de Guerra na Selva\">"+
+                                   "                <div class=\"valid-feedback\">Selva!</div>"+
+                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                   "            </div>"+
+                                   "        </div>"+
+                                   "        <div class=form-row>"+
+                                   "            <div class=\"form-group col-md-12\">"+
+                                   "                <label for=txtOMAbrevTentC"+ i +">Abreviatura: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "                <input type=\"text\" class=\"form-control\" id=txtOMAbrevTentC"+ i +" name=\"txtOMAbrevTentC\" placeholder=\"Ex.: CIGS\">"+
+                                   "                <div class=\"valid-feedback\">Selva!</div>"+
+                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                   "            </div>"+  
+                                   "        </div>"+  
+                                   "        <div class=form-row>"+
+                                   "            <div class=\"form-group col-md-12\">"+
+                                   "                <label for=txtMtvDeslTentC"+ i +">Motivo de Desligamento: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "                <select class=\"form-control\" id=txtMtvDeslTentC"+ i +" name=\"txtMtvDeslTentC\">"+
+                                   "                    <option value=\"0\" selected>Selecione o tipo...</option>"+
+                                   "                    <option value=\"solvol\">Solicitação Voluntária</option>"+
+                                   "                    <option value=\"saude\">Saúde</option>"+
+                                   "                    <option value=\"insftec\">Insuficiência Técnica</option>"+
+                                   "                </select>"+ 
+                                   "                <div class=\"valid-feedback\">Selva!</div>"+
+                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                   "            </div>"+  
+                                   "        </div>"+  
+                                   "        <div class=form-row>"+
+                                   "            <div class=\"form-group col-md-12\">"+
+                                   "                <label for=txtFaseDeslTentC"+ i +">Fase na qual foi desligado: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                   "                <select class=\"form-control\" id=txtFaseDeslTentC"+ i +" name=\"txtFaseDeslTentC\">"+
+                                   "                    <option value=\"0\" selected>Selecione o tipo...</option>"+
+                                   "                    <option value=\"eafprel\">EAF Preliminar</option>"+
+                                   "                    <option value=\"eafdef\">EAF Definitivo</option>"+
+                                   "                    <option value=\"testeconhecimento\">Teste de Conhecimento</option>"+
+                                   "                    <option value=\"vs\">Vida na Selva</option>"+
+                                   "                    <option value=\"tecesp\">Técnicas Especiais</option>"+
+                                   "                    <option value=\"op\">Operações</option>"+
+                                   "                </select>"+ 
+                                   "                <div class=\"valid-feedback\">Selva!</div>"+
+                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                   "            </div>"+  
+                                   "        </div>"+  
+                                   "    </div>"+
+                                   "</div>");
+        functionValidInputTReal("#txtAnoTentC"+i);
+        functionValidInputTReal("#txtOMNomeTentC"+i);
+        functionValidInputTReal("#txtOMAbrevTentC"+i);
+        functionValidSelectTReal("#txtMtvDeslTentC"+i);
+        functionValidSelectTReal("#txtFaseDeslTentC"+i);
     }
 });

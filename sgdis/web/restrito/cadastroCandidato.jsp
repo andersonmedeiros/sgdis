@@ -1583,17 +1583,20 @@
                         <div id="divTentC" class="fieldset-interno fieldset-dependente" style="display: none;">                     
                             <div class="fieldset-interno">
                                 <div class="form-row">                       
-                                <div class="form-group col-md-12">
-                                    <label for="txtQntTentC">Quantas vezes tentou realizar o curso?<span class="campo-obrigatorio"> *</span></label>
-                                    <input type="number" class="form-control" id="txtQntTentC" name="txtQntTentC" value="1">
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="form-group col-md-12">
+                                        <label for="txtQntTentC">Quantas vezes tentou realizar o curso?<span class="campo-obrigatorio"> *</span></label>
+                                        <select class="form-control" id="txtQntTentC" name="txtQntTentC">
+                                            <option value="0" selected>Selecione a quantidade...</option>
+                                            <option value="1">Uma vez</option>
+                                            <option value="2">Duas vezes</option>
+                                            <option value="3">Três vezes</option>
+                                        </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>
+                                    <div id="fieldsetTentC" class="form-row col-md-12"></div>                            
                                 </div>
-                                
-                            </div>
-                            </div>
-                            <div id="fieldsetTentC" class="form-row">
-                            </div>
+                            </div>                            
                         </div>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>

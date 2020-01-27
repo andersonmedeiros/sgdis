@@ -1627,13 +1627,13 @@ $(function(){
             $("select[name=txtTentC]").addClass("is-valid");
             
             //Campo Input Quantas vezes serviu na Amazônia
-            $("input[name=txtQntTentC]").change(function(){
-                if($("input[name=txtQntTentC]").val() != ''){
-                    $("input[name=txtQntTentC]").removeClass("is-invalid");
-                    $("input[name=txtQntTentC]").addClass("is-valid");
+            $("select[name=txtQntTentC]").change(function(){
+                if($("select[name=txtQntTentC]").val() != '0'){
+                    $("select[name=txtQntTentC]").removeClass("is-invalid");
+                    $("select[name=txtQntTentC]").addClass("is-valid");
                 }else{
-                    $("input[name=txtQntTentC]").removeClass("is-valid");
-                    $("input[name=txtQntTentC]").addClass("is-invalid");
+                    $("select[name=txtQntTentC]").removeClass("is-valid");
+                    $("select[name=txtQntTentC]").addClass("is-invalid");
                 }
             });
         }            
@@ -1641,9 +1641,9 @@ $(function(){
             $("select[name=txtTentC]").removeClass("is-invalid");
             $("select[name=txtTentC]").addClass("is-valid");
             
-            $("input[name=txtQntTentC]").val('1');
-            $("input[name=txtQntTentC]").removeClass("is-invalid");
-            $("input[name=txtQntTentC]").addClass("is-valid");
+            $("select[name=txtQntTentC]").val('0');
+            $("select[name=txtQntTentC]").removeClass("is-invalid");
+            $("select[name=txtQntTentC]").removeClass("is-valid");
         }
     });
 });

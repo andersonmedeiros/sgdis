@@ -2847,6 +2847,201 @@ $(function(){
             $("select[name=txtTentC]").focus();
             return false;
         }
+        else if($("select[name=txtSvAmz]").val() == 'n'){
+            $("select[name=txtSvAmz]").removeClass("is-invalid");
+            $("select[name=txtSvAmz]").addClass("is-valid");
+            
+            if($("select[name=txtTentC]").val() == 'n'){
+                $("select[name=txtTentC]").removeClass("is-invalid");
+                $("select[name=txtTentC]").addClass("is-valid");
+            }
+            else if($("select[name=txtTentC]").val() == 's'){
+                $("select[name=txtTentC]").removeClass("is-invalid");
+                $("select[name=txtTentC]").addClass("is-valid");
+                
+                if($("select[name=txtQntTentC]").val() == '0'){
+                    $("select[name=txtQntTentC]").removeClass("is-valid");
+                    $("select[name=txtQntTentC]").addClass("is-invalid");
+                    $("select[name=txtQntTentC]").focus();
+                    return false;
+                }
+                else{
+                    $("select[name=txtQntTentC]").removeClass("is-invalid");
+                    $("select[name=txtQntTentC]").addClass("is-valid");
+                    
+                    if(($("input[name=txtAnoTentC").length) == 0){
+                        return false;
+                    }                    
+
+                    for(var i=0;i<($("input[name=txtAnoTentC").length);i++){
+                        if($("input[name=txtAnoTentC]").eq(i).val() == '' ){
+                            $("input[name=txtAnoTentC]").eq(i).removeClass("is-valid");
+                            $("input[name=txtAnoTentC]").eq(i).addClass("is-invalid");
+                            $("input[name=txtAnoTentC]").eq(i).focus();
+                            return false;
+                            break;
+                        }
+                        else if($("input[name=txtOMNomeTentC]").eq(i).val() == '' ){
+                            $("input[name=txtOMNomeTentC]").eq(i).removeClass("is-valid");
+                            $("input[name=txtOMNomeTentC]").eq(i).addClass("is-invalid");
+                            $("input[name=txtOMNomeTentC]").eq(i).focus();
+                            return false;
+                            break;
+                        }
+                        else if($("input[name=txtOMAbrevTentC]").eq(i).val() == '' ){
+                            $("input[name=txtOMAbrevTentC]").eq(i).removeClass("is-valid");
+                            $("input[name=txtOMAbrevTentC]").eq(i).addClass("is-invalid");
+                            $("input[name=txtOMAbrevTentC]").eq(i).focus();
+                            return false;
+                            break;
+                        }
+                        else if($("select[name=txtMtvDeslTentC]").eq(i).val() == '0' ){
+                            $("select[name=txtMtvDeslTentC]").eq(i).removeClass("is-valid");
+                            $("select[name=txtMtvDeslTentC]").eq(i).addClass("is-invalid");
+                            $("select[name=txtMtvDeslTentC]").eq(i).focus();
+                            return false;
+                            break;
+                        }
+                        else if($("select[name=txtFaseDeslTentC]").eq(i).val() == '0' ){
+                            $("select[name=txtFaseDeslTentC]").eq(i).removeClass("is-valid");
+                            $("select[name=txtFaseDeslTentC]").eq(i).addClass("is-invalid");
+                            $("select[name=txtFaseDeslTentC]").eq(i).focus();
+                            return false;
+                            break;
+                        }                        
+                        else if(($("select[name=txtFaseDeslTentC]").eq($("select[name=txtFaseDeslTentC]").length-1).val()) != '0'){
+                            return true;
+                        }
+                    }
+                }
+            }   
+        }   
+        else if($("select[name=txtSvAmz]").val() == 's'){
+            $("select[name=txtSvAmz]").removeClass("is-invalid");
+            $("select[name=txtSvAmz]").addClass("is-valid");
+            
+            if(($("input[name=txtOMNomeSvAmz").length) == 0){
+                return false;
+            }
+            
+            for(var i=0;i<($("input[name=txtOMNomeSvAmz").length);i++){
+                if($("input[name=txtOMNomeSvAmz]").eq(i).val() == '' ){
+                    $("input[name=txtOMNomeSvAmz]").eq(i).removeClass("is-valid");
+                    $("input[name=txtOMNomeSvAmz]").eq(i).addClass("is-invalid");
+                    $("input[name=txtOMNomeSvAmz]").eq(i).focus();
+                    return false;
+                    break;
+                }
+                else if($("input[name=txtOMAbrevSvAmz]").eq(i).val() == '' ){
+                    $("input[name=txtOMAbrevSvAmz]").eq(i).removeClass("is-valid");
+                    $("input[name=txtOMAbrevSvAmz]").eq(i).addClass("is-invalid");
+                    $("input[name=txtOMAbrevSvAmz]").eq(i).focus();
+                    return false;
+                    break;
+                }
+                else if($("input[name=txtDInOMSvAmz]").eq(i).val() == '' ){
+                    $("input[name=txtDInOMSvAmz]").eq(i).removeClass("is-valid");
+                    $("input[name=txtDInOMSvAmz]").eq(i).addClass("is-invalid");
+                    $("input[name=txtDInOMSvAmz]").eq(i).focus();
+                    return false;
+                    break;
+                }
+                else if($("input[name=txtDFimOMSvAmz]").eq(i).val() == '' ){
+                    $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                    $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                    $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                    return false;
+                    break;
+                }
+                else if($("input[name=txtFunc1OMSvAmz]").eq(i).val() == '' ){
+                    $("input[name=txtFunc1OMSvAmz]").eq(i).removeClass("is-valid");
+                    $("input[name=txtFunc1OMSvAmz]").eq(i).addClass("is-invalid");
+                    $("input[name=txtFunc1OMSvAmz]").eq(i).focus();
+                    return false;
+                    break;
+                }
+                else if($("input[name=txtFunc2OMSvAmz]").eq(i).val() == '' ){
+                    $("input[name=txtFunc2OMSvAmz]").eq(i).removeClass("is-valid");
+                    $("input[name=txtFunc2OMSvAmz]").eq(i).addClass("is-invalid");
+                    $("input[name=txtFunc2OMSvAmz]").eq(i).focus();
+                    return false;
+                    break;
+                }
+                else if($("input[name=txtFunc3OMSvAmz]").eq(i).val() == '' ){
+                    $("input[name=txtFunc3OMSvAmz]").eq(i).removeClass("is-valid");
+                    $("input[name=txtFunc3OMSvAmz]").eq(i).addClass("is-invalid");
+                    $("input[name=txtFunc3OMSvAmz]").eq(i).focus();
+                    return false;
+                    break;
+                }
+            }            
+            if($("select[name=txtTentC]").val() == 'n'){
+                $("select[name=txtTentC]").removeClass("is-invalid");
+                $("select[name=txtTentC]").addClass("is-valid");
+            }
+            else if($("select[name=txtTentC]").val() == 's'){
+                $("select[name=txtTentC]").removeClass("is-invalid");
+                $("select[name=txtTentC]").addClass("is-valid");
+                
+                if($("select[name=txtQntTentC]").val() == '0'){
+                    $("select[name=txtQntTentC]").removeClass("is-valid");
+                    $("select[name=txtQntTentC]").addClass("is-invalid");
+                    $("select[name=txtQntTentC]").focus();
+                    return false;
+                }
+                else{
+                    $("select[name=txtQntTentC]").removeClass("is-invalid");
+                    $("select[name=txtQntTentC]").addClass("is-valid");
+                    
+                    if(($("input[name=txtAnoTentC").length) == 0){
+                        return false;
+                    }                    
+
+                    for(var i=0;i<($("input[name=txtAnoTentC").length);i++){
+                        if($("input[name=txtAnoTentC]").eq(i).val() == '' ){
+                            $("input[name=txtAnoTentC]").eq(i).removeClass("is-valid");
+                            $("input[name=txtAnoTentC]").eq(i).addClass("is-invalid");
+                            $("input[name=txtAnoTentC]").eq(i).focus();
+                            return false;
+                            break;
+                        }
+                        else if($("input[name=txtOMNomeTentC]").eq(i).val() == '' ){
+                            $("input[name=txtOMNomeTentC]").eq(i).removeClass("is-valid");
+                            $("input[name=txtOMNomeTentC]").eq(i).addClass("is-invalid");
+                            $("input[name=txtOMNomeTentC]").eq(i).focus();
+                            return false;
+                            break;
+                        }
+                        else if($("input[name=txtOMAbrevTentC]").eq(i).val() == '' ){
+                            $("input[name=txtOMAbrevTentC]").eq(i).removeClass("is-valid");
+                            $("input[name=txtOMAbrevTentC]").eq(i).addClass("is-invalid");
+                            $("input[name=txtOMAbrevTentC]").eq(i).focus();
+                            return false;
+                            break;
+                        }
+                        else if($("select[name=txtMtvDeslTentC]").eq(i).val() == '0' ){
+                            $("select[name=txtMtvDeslTentC]").eq(i).removeClass("is-valid");
+                            $("select[name=txtMtvDeslTentC]").eq(i).addClass("is-invalid");
+                            $("select[name=txtMtvDeslTentC]").eq(i).focus();
+                            return false;
+                            break;
+                        }
+                        else if($("select[name=txtFaseDeslTentC]").eq(i).val() == '0' ){
+                            $("select[name=txtFaseDeslTentC]").eq(i).removeClass("is-valid");
+                            $("select[name=txtFaseDeslTentC]").eq(i).addClass("is-invalid");
+                            $("select[name=txtFaseDeslTentC]").eq(i).focus();
+                            return false;
+                            break;
+                        }                        
+                        else if(($("select[name=txtFaseDeslTentC]").eq($("select[name=txtFaseDeslTentC]").length-1).val()) != '0'){
+                            return true;
+                        }
+                    }
+                }
+            }
+        }   
+        
+        
     });
 });
 
