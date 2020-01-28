@@ -4,7 +4,53 @@
  * and open the template in the editor.
  */
 
-$(document).ready(function(){   
+function validFone(campo){  
+    $(campo).change(function(){
+        var foneOM = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+        if(foneOM == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-fone").html("Campo Obrigatório!");
+        }
+        else if(foneOM == '0000000000' || foneOM == '1111111111' || foneOM == '2222222222' || foneOM == '3333333333' ||                 
+                foneOM == '4444444444' || foneOM == '5555555555' || foneOM == '6666666666' || foneOM == '7777777777' ||                 
+                foneOM == '8888888888' || foneOM == '9999999999'){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-fone").html("Fone Inválido!");            
+        }
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });
+};
+
+function validCEP(campo){  
+    $(campo).change(function(){
+        var endCepOM = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+        if(endCepOM == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cep").html("Campo Obrigatório!");
+        }
+        else if(endCepOM == '00000000' || endCepOM == '11111111' || endCepOM == '22222222' || endCepOM == '33333333' ||                 
+                endCepOM == '44444444' || endCepOM == '55555555' || endCepOM == '66666666' || endCepOM == '77777777' ||                 
+                endCepOM == '88888888' || endCepOM == '99999999'){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cep").html("CEP Inválido!");            
+        }
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });
+};
+
+
+
+$(function(){   
     //Validação ao mudar o valor dos campos
     //Etapa 1: OM ATUAL
     //Campo Select Força
@@ -63,15 +109,7 @@ $(document).ready(function(){
     }); 
 
     //Campo Input Fone
-    $("input[name=txtFoneOM]").change(function(){
-        if($("input[name=txtFoneOM]").val() != ''){
-            $("input[name=txtFoneOM]").removeClass("is-invalid");
-            $("input[name=txtFoneOM]").addClass("is-valid");
-        }else{
-            $("input[name=txtFoneOM]").removeClass("is-valid");
-            $("input[name=txtFoneOM]").addClass("is-invalid");
-        }
-    }); 
+    //validFone("input[name=txtFoneOM]");
 
     //Campo Select Posto/Graduação Cmt OM
     $("select[name=txtPGradCmtOM]").change(function(){
@@ -162,15 +200,7 @@ $(document).ready(function(){
     });   
 
     //Campo Input CEP
-    $("input[name=txtEndCepOM]").change(function(){
-        if($("input[name=txtEndCepOM]").val() != ''){
-            $("input[name=txtEndCepOM]").removeClass("is-invalid");
-            $("input[name=txtEndCepOM]").addClass("is-valid");
-        }else{
-            $("input[name=txtEndCepOM]").removeClass("is-valid");
-            $("input[name=txtEndCepOM]").addClass("is-invalid");
-        }
-    });   
+    validCEP("input[name=txtEndCepOM]");   
 
     //Campo Select Logradouro
     $("select[name=txtEndLogOM]").change(function(){

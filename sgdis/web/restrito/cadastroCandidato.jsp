@@ -126,7 +126,7 @@
                                     <label for="txtFoneOM">Fone: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control foneOM" id="txtFoneOM" name="txtFoneOM" placeholder="Ex.: (00) 0000-0000">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-fone">Campo Obrigatório!</div>
                                 </div>
                             </div>
                             <div class="header-interno">
@@ -207,7 +207,7 @@
                                         <label for="txtEndCepOM">CEP: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control cep" id="txtEndCepOM" name="txtEndCepOM" placeholder="Ex.: 00000-000">
                                         <div class="valid-feedback">Selva!</div>
-                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                        <div class="invalid-feedback invalid-cep">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="txtEndLogOM">Logradouro: <span class="campo-obrigatorio">*</span></label>
@@ -310,11 +310,12 @@
                                 <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="txtUltDataPracaAl">Última Data de Praça: <span class="campo-obrigatorio">*</span></label>
-                                <input type="date" class="form-control" id="txtUltDataPracaAl" name="txtUltDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
+                                <label for="txtDataNascAl">Data de Nascimento: <span class="campo-obrigatorio">*</span></label>
+                                <input type="date" class="form-control" id="txtDataNascAl" name="txtDataNascAl" placeholder="Ex.: DD/MM/AAAA">
                                 <div class="valid-feedback">Selva!</div>
-                                <div class="invalid-feedback">Campo Obrigatório!</div>
-                            </div>                            
+                                <div class="invalid-feedback invalid-dataNascAl">Campo Obrigatório!</div>
+                            </div>
+                                                       
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-3">
@@ -341,7 +342,7 @@
                                 <label for="txtIdtMilAl">Identidade Militar: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control idt-mil" id="txtIdtMilAl" name="txtIdtMilAl" placeholder="Ex. 000000000-0">
                                 <div class="valid-feedback">Selva!</div>
-                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                                <div class="invalid-feedback invalid-idtMilAl">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="txtPreccpAl">Prec-CP: </label>
@@ -355,16 +356,16 @@
                                 <label for="txtCpfAl">CPF: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control cpf" id="txtCpfAl" name="txtCpfAl" placeholder="Ex.: 000.000.000-00">
                                 <div class="valid-feedback">Selva!</div>
-                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                                <div class="invalid-feedback invalid-cpfAl">Campo Obrigatório!</div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="txtDataNascAl">Data de Nascimento: <span class="campo-obrigatorio">*</span></label>
-                                <input type="date" class="form-control" id="txtDataNascAl" name="txtDataNascAl" placeholder="Ex.: DD/MM/AAAA">
+                                <label for="txtUltDataPracaAl">Última Data de Praça: <span class="campo-obrigatorio">*</span></label>
+                                <input type="date" class="form-control" id="txtUltDataPracaAl" name="txtUltDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
                                 <div class="valid-feedback">Selva!</div>
                                 <div class="invalid-feedback">Campo Obrigatório!</div>
-                            </div>
+                            </div> 
                             <div class="form-group col-md-4">
                                 <label for="txtNatEstAl">Naturalidade (Estado): <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="txtNatEstAl" name="txtNatEstAl" placeholder="Ex.: Amazonas">
@@ -1617,6 +1618,7 @@
         <script src="../assets/js/formulario/validacao/obrigatoriedade.js"></script>
         <script src="../assets/js/formulario/validacao/tempo-real.js"></script>
         <script src="../assets/js/formulario/validacao/ao-carregar-pagina.js"></script>
+        <script src="../assets/js/formulario/validacao/campos-especificos.js"></script>
         
         <script src="../assets/js/bootstrap-validate.js"></script>
         <!--<script>

@@ -1,3 +1,294 @@
+//Valida ao carregar página
+function validFone(campo){  
+    var foneOM = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+    if(foneOM == ''){
+    }
+    else if(foneOM == '0000000000' || foneOM == '1111111111' || foneOM == '2222222222' || foneOM == '3333333333' ||                 
+            foneOM == '4444444444' || foneOM == '5555555555' || foneOM == '6666666666' || foneOM == '7777777777' ||                 
+            foneOM == '8888888888' || foneOM == '9999999999'){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-fone").html("Fone Inválido!");            
+    }
+    else{
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+function validCEP(campo){  
+    var endCepOM = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+    if(endCepOM == ''){
+    }
+    else if(endCepOM == '00000000' || endCepOM == '11111111' || endCepOM == '22222222' || endCepOM == '33333333' ||                 
+            endCepOM == '44444444' || endCepOM == '55555555' || endCepOM == '66666666' || endCepOM == '77777777' ||                 
+            endCepOM == '88888888' || endCepOM == '99999999'){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-cep").html("CEP Inválido!");            
+    }
+    else{
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+function validDataNascAl(campo){  
+    var dataNascAl = $(campo).val();
+    var dataNascAlSplit = dataNascAl.split('-');        
+    var diaNascAl = dataNascAlSplit[2];
+    var mesNascAl = dataNascAlSplit[1];
+    var anoNascAl = dataNascAlSplit[0];
+
+    var dataAtual = new Date();
+    var diaAtual = dataAtual.getDate();
+    var mesAtual = (dataAtual.getMonth() + 1);
+    var anoAtual = dataAtual.getFullYear();
+
+    if(dataNascAl == ''){
+    }       
+    else if((anoNascAl == anoAtual) && (mesNascAl == mesAtual) && (diaNascAl > diaAtual)){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-dataNascAl").html("Data Inválida!");
+    }       
+    else if((anoNascAl == anoAtual) && (mesNascAl > mesAtual)){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-dataNascAl").html("Data Inválida!");
+    }       
+    else if((anoNascAl > anoAtual)){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-dataNascAl").html("Data Inválida!");
+    }       
+    else if((anoAtual - anoNascAl) < 18){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-dataNascAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+    }       
+    else{
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+function validIdtMilAl(campo){  
+    var idtMilAl = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+    if(idtMilAl == ''){
+    }
+    else if(idtMilAl == '0000000000' || idtMilAl == '1111111111' || idtMilAl == '2222222222' || idtMilAl == '3333333333' ||                 
+            idtMilAl == '4444444444' || idtMilAl == '5555555555' || idtMilAl == '6666666666' || idtMilAl == '7777777777' ||                 
+            idtMilAl == '8888888888' || idtMilAl == '9999999999'){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-idtMilAl").html("Identidade Militar Inválida!");             
+    }
+    else{
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+function validCPFAl(campo){
+    var cpfAl = $(campo).val().replace(".","").replace(".","").replace("-","");
+    if(cpfAl == ''){
+    }
+    else if(cpfAl == '00000000000' || cpfAl == '11111111111' || cpfAl == '22222222222' || cpfAl == '33333333333' ||                 
+            cpfAl == '44444444444' || cpfAl == '55555555555' || cpfAl == '66666666666' || cpfAl == '77777777777' ||                 
+            cpfAl == '88888888888' || cpfAl == '99999999999'){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-cpfAl").html("CPF Inválido!");            
+    }else{
+        // Valida 1o digito	
+        var add = 0;	
+        for (var i=0; i < 9; i ++)		
+            add += parseInt(cpfAl.charAt(i)) * (10 - i);	
+            var rev = 11 - (add % 11);	
+            if (rev == 10 || rev == 11)		
+                rev = 0;	
+            if (rev != parseInt(cpfAl.charAt(9))){
+                $(campo).removeClass("is-valid");
+                $(campo).addClass("is-invalid");
+                $(".invalid-cpfAl").html("CPF Inválido!");
+            }else{
+                $(campo).removeClass("is-invalid");
+                $(campo).addClass("is-valid");
+            }
+        // Valida 2o digito	
+        add = 0;	
+        for (var i = 0; i < 10; i ++)		
+            add += parseInt(cpfAl.charAt(i)) * (11 - i);	
+        rev = 11 - (add % 11);	
+        if (rev == 10 || rev == 11)	
+            rev = 0;	
+        if (rev != parseInt(cpfAl.charAt(10))){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cpfAl").html("CPF Inválido!");
+        }else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }    
+    } 
+};
+//Valida ao mudar o valor em tempo real
+function validFoneTReal(campo){  
+    $(campo).change(function(){
+        var foneOM = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+        if(foneOM == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-fone").html("Campo Obrigatório!");
+        }
+        else if(foneOM == '0000000000' || foneOM == '1111111111' || foneOM == '2222222222' || foneOM == '3333333333' ||                 
+                foneOM == '4444444444' || foneOM == '5555555555' || foneOM == '6666666666' || foneOM == '7777777777' ||                 
+                foneOM == '8888888888' || foneOM == '9999999999'){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-fone").html("Fone Inválido!");            
+        }
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });
+};
+function validCEPTReal(campo){  
+    $(campo).change(function(){
+        var endCepOM = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+        if(endCepOM == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cep").html("Campo Obrigatório!");
+        }
+        else if(endCepOM == '00000000' || endCepOM == '11111111' || endCepOM == '22222222' || endCepOM == '33333333' ||                 
+                endCepOM == '44444444' || endCepOM == '55555555' || endCepOM == '66666666' || endCepOM == '77777777' ||                 
+                endCepOM == '88888888' || endCepOM == '99999999'){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cep").html("CEP Inválido!");            
+        }
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });
+};
+function validDataNascAlTReal(campo){  
+    $(campo).change(function(){
+        var dataNascAl = $(campo).val();
+        var dataNascAlSplit = dataNascAl.split('-');        
+        var diaNascAl = dataNascAlSplit[2];
+        var mesNascAl = dataNascAlSplit[1];
+        var anoNascAl = dataNascAlSplit[0];
+        
+        var dataAtual = new Date();
+        var diaAtual = dataAtual.getDate();
+        var mesAtual = (dataAtual.getMonth() + 1);
+        var anoAtual = dataAtual.getFullYear();
+        
+        if(dataNascAl == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataNascAl").html("Campo Obrigatório!");
+        }       
+        else if((anoNascAl == anoAtual) && (mesNascAl == mesAtual) && (diaNascAl > diaAtual)){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataNascAl").html("Data Inválida!");
+        }       
+        else if((anoNascAl == anoAtual) && (mesNascAl > mesAtual)){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataNascAl").html("Data Inválida!");
+        }       
+        else if((anoNascAl > anoAtual)){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataNascAl").html("Data Inválida!");
+        }       
+        else if((anoAtual - anoNascAl) < 18){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataNascAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+        }       
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });    
+};
+
+function validIdtMilAlTReal(campo){  
+    $(campo).change(function(){
+        var idtMilAl = $(campo).val().replace("-","").replace(" ","");
+        if(idtMilAl == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-idtMilAl").html("Campo Obrigatório!");
+        }
+        else if(idtMilAl == '0000000000' || idtMilAl == '1111111111' || idtMilAl == '2222222222' || idtMilAl == '3333333333' ||                 
+                idtMilAl == '4444444444' || idtMilAl == '5555555555' || idtMilAl == '6666666666' || idtMilAl == '7777777777' ||                 
+                idtMilAl == '8888888888' || idtMilAl == '9999999999'){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-idtMilAl").html("Identidade Militar Inválida!");            
+        }
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });
+};
+function validCPFAlTReal(campo){  
+    $(campo).change(function(){
+        var cpfAl = $(campo).val().replace(".","").replace(".","").replace("-","");
+        if(cpfAl == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cpfAl").html("Campo Obrigatório!");
+        }
+        else if(cpfAl == '00000000000' || cpfAl == '11111111111' || cpfAl == '22222222222' || cpfAl == '33333333333' ||                 
+                cpfAl == '44444444444' || cpfAl == '55555555555' || cpfAl == '66666666666' || cpfAl == '77777777777' ||                 
+                cpfAl == '88888888888' || cpfAl == '99999999999'){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cpfAl").html("CPF Inválido!");            
+        }else{
+            // Valida 1o digito	
+            var add = 0;	
+            for (var i=0; i < 9; i ++)		
+                add += parseInt(cpfAl.charAt(i)) * (10 - i);	
+                var rev = 11 - (add % 11);	
+                if (rev == 10 || rev == 11)		
+                    rev = 0;	
+                if (rev != parseInt(cpfAl.charAt(9))){
+                    $(campo).removeClass("is-valid");
+                    $(campo).addClass("is-invalid");
+                    $(".invalid-cpfAl").html("CPF Inválido!");
+                }else{
+                    $(campo).removeClass("is-invalid");
+                    $(campo).addClass("is-valid");
+                }
+            // Valida 2o digito	
+            add = 0;	
+            for (var i = 0; i < 10; i ++)		
+                add += parseInt(cpfAl.charAt(i)) * (11 - i);	
+            rev = 11 - (add % 11);	
+            if (rev == 10 || rev == 11)	
+                rev = 0;	
+            if (rev != parseInt(cpfAl.charAt(10))){
+                $(campo).removeClass("is-valid");
+                $(campo).addClass("is-invalid");
+                $(".invalid-cpfAl").html("CPF Inválido!");
+            }else{
+                $(campo).removeClass("is-invalid");
+                $(campo).addClass("is-valid");
+            }    
+        }        
+    });
+};
+
+
+
 //Validação ao recarregar a página
 $(document).ready(function(){
     //Etapa 1: OM ATUAL
@@ -26,11 +317,10 @@ $(document).ready(function(){
         $("input[name=txtAbrevOM]").removeClass("is-invalid");
         $("input[name=txtAbrevOM]").addClass("is-valid");
     }
-    //Campo Input Fone
-    if($("input[name=txtFoneOM]").val() != ''){
-        $("input[name=txtFoneOM]").removeClass("is-invalid");
-        $("input[name=txtFoneOM]").addClass("is-valid");
-    }
+    //Campo Input Fone    
+    validFone("input[name=txtFoneOM]");
+    validFoneTReal("input[name=txtFoneOM]");
+    
     //Campo Select Posto/Graduação Cmt OM
     if($("select[name=txtPGradCmtOM]").val() != '0'){
         $("select[name=txtPGradCmtOM]").removeClass("is-invalid");
@@ -72,10 +362,10 @@ $(document).ready(function(){
         $("input[name=txtNomeGuerraChImtoOM]").addClass("is-valid");
     }
     //Campo Input CEP
-    if($("input[name=txtEndCepOM]").val() != ''){
-        $("input[name=txtEndCepOM]").removeClass("is-invalid");
-        $("input[name=txtEndCepOM]").addClass("is-valid");
-    }
+    validCEP("input[name=txtEndCepOM]");
+    validCEPTReal("input[name=txtEndCepOM]");
+    
+    
     //Campo Select Logradouro
     if($("select[name=txtEndLogOM]").val() != '0'){
         $("select[name=txtEndLogOM]").removeClass("is-invalid");
@@ -123,11 +413,10 @@ $(document).ready(function(){
         $("select[name=txtArmaAl]").removeClass("is-invalid");
         $("select[name=txtArmaAl]").addClass("is-valid");
     }
-    //Campo Input Última Data de Praça
-    if($("input[name=txtUltDataPracaAl]").val() != ''){
-        $("input[name=txtUltDataPracaAl]").removeClass("is-invalid");
-        $("input[name=txtUltDataPracaAl]").addClass("is-valid");
-    }
+    //Campo Input Data de Nascimento
+    validDataNascAl("input[name=txtDataNascAl]");
+    validDataNascAlTReal("input[name=txtDataNascAl]");
+    
     //Campo Input Nome
     if($("input[name=txtNomeAl]").val() != ''){
         $("input[name=txtNomeAl]").removeClass("is-invalid");
@@ -144,20 +433,18 @@ $(document).ready(function(){
         $("input[name=txtNomeGuerraAl]").addClass("is-valid");
     }
     //Campo Input Identidade Militar
-    if($("input[name=txtIdtMilAl]").val() != ''){
-        $("input[name=txtIdtMilAl]").removeClass("is-invalid");
-        $("input[name=txtIdtMilAl]").addClass("is-valid");
-    }
+    validIdtMilAl("input[name=txtIdtMilAl]");
+    validIdtMilAlTReal("input[name=txtIdtMilAl]");
+    
     //Campo Input CPF
-    if($("input[name=txtCpfAl]").val() != ''){
-        $("input[name=txtCpfAl]").removeClass("is-invalid");
-        $("input[name=txtCpfAl]").addClass("is-valid");
+    validCPFAl("input[name=txtCpfAl]");
+    validCPFAlTReal("input[name=txtCpfAl]");
+    
+    //Campo Input Última Data de Praça
+    if($("input[name=txtUltDataPracaAl]").val() != ''){
+        $("input[name=txtUltDataPracaAl]").removeClass("is-invalid");
+        $("input[name=txtUltDataPracaAl]").addClass("is-valid");
     }
-    //Campo Input Data de Nascimento
-    if($("input[name=txtDataNascAl]").val() != ''){
-        $("input[name=txtDataNascAl]").removeClass("is-invalid");
-        $("input[name=txtDataNascAl]").addClass("is-valid");
-    }    
     //Campo Input Naturalidade (Estado)
     if($("input[name=txtNatEstAl]").val() != ''){
         $("input[name=txtNatEstAl]").removeClass("is-invalid");

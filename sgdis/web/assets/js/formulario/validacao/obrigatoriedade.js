@@ -32,8 +32,11 @@ $(function(){
       return false; 
    });
    
+   
    //Etapa 1: OM ATUAL
-   $("button[name=btnProximo2]").click(function(){       
+   $("button[name=btnProximo2]").click(function(){
+        var foneOM = $("input[name=txtFoneOM]").val().replace("-","").replace("(","").replace(")","").replace(" ","");
+        var endCepOM = $("input[name=txtEndCepOM]").val().replace("-","").replace("(","").replace(")","").replace(" ","");
         if($("select[name=txtForca]").val() == '0'){
             $("select[name=txtForca]").removeClass("is-valid");
             $("select[name=txtForca]").addClass("is-invalid");
@@ -59,11 +62,20 @@ $(function(){
             $("input[name=txtAbrevOM]").removeClass("is-valid");
             $("input[name=txtAbrevOM]").addClass("is-invalid");
             $("input[name=txtAbrevOM]").focus();
-        }
-        else if($("input[name=txtFoneOM]").val() == ''){
+        }                
+        else if(foneOM == ''){
             $("input[name=txtFoneOM]").removeClass("is-valid");
             $("input[name=txtFoneOM]").addClass("is-invalid");
             $("input[name=txtFoneOM]").focus();
+            $(".invalid-fone").html("Campo Obrigatório!");            
+        }
+        else if(foneOM == '0000000000' || foneOM == '1111111111' || foneOM == '2222222222' || foneOM == '3333333333' ||                 
+                 foneOM == '4444444444' || foneOM == '5555555555' || foneOM == '6666666666' || foneOM == '7777777777' ||                 
+                 foneOM == '8888888888' || foneOM == '9999999999'){             
+            $("input[name=txtFoneOM]").removeClass("is-valid");
+            $("input[name=txtFoneOM]").addClass("is-invalid");
+            $("input[name=txtFoneOM]").focus();
+            $(".invalid-fone").html("Fone Inválido!");            
         }
         //Comandante
         else if($("select[name=txtPGradCmtOM]").val() == '0'){
@@ -108,10 +120,19 @@ $(function(){
             $("input[name=txtNomeGuerraChImtoOM]").focus();
         }
         //Endereço da OM
-        else if($("input[name=txtEndCepOM]").val() == ''){
+        else if(endCepOM == ''){
             $("input[name=txtEndCepOM]").removeClass("is-valid");
             $("input[name=txtEndCepOM]").addClass("is-invalid");
             $("input[name=txtEndCepOM]").focus();
+            $(".invalid-cep").html("Campo Obrigatório!");
+        }
+        else if(endCepOM == '00000000' || endCepOM == '11111111' || endCepOM == '22222222' || endCepOM == '33333333' ||                 
+                endCepOM == '44444444' || endCepOM == '55555555' || endCepOM == '66666666' || endCepOM == '77777777' ||                 
+                endCepOM == '88888888' || endCepOM == '99999999'){
+            $("input[name=txtEndCepOM]").removeClass("is-valid");
+            $("input[name=txtEndCepOM]").addClass("is-invalid");
+            $("input[name=txtEndCepOM]").focus();
+            $(".invalid-cep").html("CEP Inválido!");            
         }
         else if($("select[name=txtEndLogOM]").val() == '0'){
             $("select[name=txtEndLogOM]").removeClass("is-valid");
@@ -153,9 +174,23 @@ $(function(){
             prox($(this));
         }
     });
-    
+    var cpfOk = 0;
     //Etapa 2: DADOS INDIVIDUAIS
     $("button[name=btnProximo3]").click(function(){
+        var dataNascAl = $("input[name=txtDataNascAl]").val();
+        var dataNascAlSplit = dataNascAl.split('-');        
+        var diaNascAl = dataNascAlSplit[2];
+        var mesNascAl = dataNascAlSplit[1];
+        var anoNascAl = dataNascAlSplit[0];
+        
+        var dataAtual = new Date();
+        var diaAtual = dataAtual.getDate();
+        var mesAtual = (dataAtual.getMonth() + 1);
+        var anoAtual = dataAtual.getFullYear();
+        
+        var idtMilAl = $("input[name=txtIdtMilAl]").val().replace("-","").replace(" ","");
+        var cpfAl = $("input[name=txtCpfAl]").val().replace(".","").replace(".","").replace("-","");
+        
         //Dados Individuais
         if($("select[name=txtPGradAl]").val() == '0'){
             $("select[name=txtPGradAl]").removeClass("is-valid");
@@ -167,10 +202,35 @@ $(function(){
             $("select[name=txtArmaAl]").addClass("is-invalid");
             $("select[name=txtArmaAl]").focus();
         }
-        else if($("input[name=txtUltDataPracaAl]").val() == ''){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
+        else if(dataNascAl == ''){
+            $("input[name=txtDataNascAl]").removeClass("is-valid");
+            $("input[name=txtDataNascAl]").addClass("is-invalid");
+            $("input[name=txtDataNascAl]").focus();
+            $(".invalid-dataNascAl").html("Campo Obrigatório!");
+        }       
+        else if((anoNascAl == anoAtual) && (mesNascAl == mesAtual) && (diaNascAl > diaAtual)){
+            $("input[name=txtDataNascAl]").removeClass("is-valid");
+            $("input[name=txtDataNascAl]").addClass("is-invalid");
+            $("input[name=txtDataNascAl]").focus();
+            $(".invalid-dataNascAl").html("Data Inválida!");
+        }       
+        else if((anoNascAl == anoAtual) && (mesNascAl > mesAtual)){
+            $("input[name=txtDataNascAl]").removeClass("is-valid");
+            $("input[name=txtDataNascAl]").addClass("is-invalid");
+            $("input[name=txtDataNascAl]").focus();
+            $(".invalid-dataNascAl").html("Data Inválida!");
+        }       
+        else if((anoNascAl > anoAtual)){
+            $("input[name=txtDataNascAl]").removeClass("is-valid");
+            $("input[name=txtDataNascAl]").addClass("is-invalid");
+            $("input[name=txtDataNascAl]").focus();
+            $(".invalid-dataNascAl").html("Data Inválida!");
+        }       
+        else if((anoAtual - anoNascAl) < 18){
+            $("input[name=txtDataNascAl]").removeClass("is-valid");
+            $("input[name=txtDataNascAl]").addClass("is-invalid");
+            $("input[name=txtDataNascAl]").focus();
+            $(".invalid-dataNascAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
         }
         else if($("input[name=txtNomeAl]").val() == ''){
             $("input[name=txtNomeAl]").removeClass("is-valid");
@@ -187,20 +247,74 @@ $(function(){
             $("input[name=txtNomeGuerraAl]").addClass("is-invalid");
             $("input[name=txtNomeGuerraAl]").focus();
         }
-        else if($("input[name=txtIdtMilAl]").val() == ''){
+        else if(idtMilAl == ''){
             $("input[name=txtIdtMilAl]").removeClass("is-valid");
             $("input[name=txtIdtMilAl]").addClass("is-invalid");
             $("input[name=txtIdtMilAl]").focus();
+            $(".invalid-idtMilAl").html("Campo Obrigatório!");
         }
-        else if($("input[name=txtCpfAl]").val() == ''){
+        else if(idtMilAl == '0000000000' || idtMilAl == '1111111111' || idtMilAl == '2222222222' || idtMilAl == '3333333333' ||                 
+                idtMilAl == '4444444444' || idtMilAl == '5555555555' || idtMilAl == '6666666666' || idtMilAl == '7777777777' ||                 
+                idtMilAl == '8888888888' || idtMilAl == '9999999999'){
+            $("input[name=txtIdtMilAl]").removeClass("is-valid");
+            $("input[name=txtIdtMilAl]").addClass("is-invalid");
+            $("input[name=txtIdtMilAl]").focus();
+            $(".invalid-idtMilAl").html("Identidade Militar Inválida!");            
+        }
+        else if(cpfAl == ''){
             $("input[name=txtCpfAl]").removeClass("is-valid");
             $("input[name=txtCpfAl]").addClass("is-invalid");
             $("input[name=txtCpfAl]").focus();
+            $(".invalid-cpfAl").html("Campo Obrigatório!");
+        }        
+        else if(cpfAl == '00000000000' || cpfAl == '11111111111' || cpfAl == '22222222222' || cpfAl == '33333333333' ||                 
+                cpfAl == '44444444444' || cpfAl == '55555555555' || cpfAl == '66666666666' || cpfAl == '77777777777' ||                 
+                cpfAl == '88888888888' || cpfAl == '99999999999'){            
+            $("input[name=txtCpfAl]").removeClass("is-valid");
+            $("input[name=txtCpfAl]").addClass("is-invalid");
+            $("input[name=txtCpfAl]").focus();
+            $(".invalid-cpfAl").html("CPF Inválido!");            
         }
-        else if($("input[name=txtDataNascAl]").val() == ''){
-            $("input[name=txtDataNascAl]").removeClass("is-valid");
-            $("input[name=txtDataNascAl]").addClass("is-invalid");
-            $("input[name=txtDataNascAl]").focus();
+        else if(cpfOk == 0){
+            // Valida 1o digito	
+            var add = 0;	
+            for (var i=0; i < 9; i ++)		
+                add += parseInt(cpfAl.charAt(i)) * (10 - i);	
+                var rev = 11 - (add % 11);	
+                if (rev == 10 || rev == 11)		
+                    rev = 0;	
+                if (rev != parseInt(cpfAl.charAt(9))){
+                    $("input[name=txtCpfAl]").removeClass("is-valid");
+                    $("input[name=txtCpfAl]").addClass("is-invalid");
+                    $("input[name=txtCpfAl]").focus();
+                    $(".invalid-cpfAl").html("CPF Inválido!");
+                }else{
+                    $("input[name=txtCpfAl]").removeClass("is-invalid");
+                    $("input[name=txtCpfAl]").addClass("is-valid");
+                    cpfOk = 1;
+                }
+            // Valida 2o digito	
+            add = 0;	
+            for (var i = 0; i < 10; i ++)		
+                add += parseInt(cpfAl.charAt(i)) * (11 - i);	
+            rev = 11 - (add % 11);	
+            if (rev == 10 || rev == 11)	
+                rev = 0;	
+            if (rev != parseInt(cpfAl.charAt(10))){
+                $("input[name=txtCpfAl]").removeClass("is-valid");
+                $("input[name=txtCpfAl]").addClass("is-invalid");
+                $("input[name=txtCpfAl]").focus();
+                $(".invalid-cpfAl").html("CPF Inválido!");
+            }else{
+                $("input[name=txtCpfAl]").removeClass("is-invalid");
+                $("input[name=txtCpfAl]").addClass("is-valid");
+                cpfOk = 1;
+            }    
+        }
+        else if($("input[name=txtUltDataPracaAl]").val() == ''){
+            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+            $("input[name=txtUltDataPracaAl]").focus();
         }
         else if($("input[name=txtNatEstAl]").val() == ''){
             $("input[name=txtNatEstAl]").removeClass("is-valid");
