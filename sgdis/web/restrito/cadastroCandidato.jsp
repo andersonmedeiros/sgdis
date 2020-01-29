@@ -1615,10 +1615,12 @@
         <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
         <script src="../assets/js/formularioEtapas.js"></script>
         <script src="../assets/js/formulario/validacao/mascaras.js"></script>
-        <script src="../assets/js/formulario/validacao/obrigatoriedade.js"></script>
+        <!--<script src="../assets/js/formulario/validacao/obrigatoriedade.js"></script>
         <script src="../assets/js/formulario/validacao/tempo-real.js"></script>
         <script src="../assets/js/formulario/validacao/ao-carregar-pagina.js"></script>
-        <script src="../assets/js/formulario/validacao/campos-especificos.js"></script>
+        <script src="../assets/js/formulario/validacao/campos-especificos.js"></script>-->
+        <script src="../assets/js/formulario/validacao/funcoes-form-cadastroCandidato-cos.js"></script>
+        <script src="../assets/js/formulario/validacao/form-casdatroCandidato-cos.js"></script>
         
         <script src="../assets/js/bootstrap-validate.js"></script>
         <!--<script>

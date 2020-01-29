@@ -438,7 +438,7 @@ $(document).ready(function(){
     
     //Campo Input CPF
     validCPFAl("input[name=txtCpfAl]");
-    validCPFAlTReal("input[name=txtCpfAl]");
+    //validCPFAlTReal("input[name=txtCpfAl]");
     
     //Campo Input Última Data de Praça
     if($("input[name=txtUltDataPracaAl]").val() != ''){

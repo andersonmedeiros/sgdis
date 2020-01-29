@@ -359,7 +359,7 @@ $(function(){
     });
     
     //Campo Input CPF
-    $("input[name=txtCpfAl]").change(function(){
+    /*$("input[name=txtCpfAl]").change(function(){
         if($("input[name=txtCpfAl]").val() != ''){
             $("input[name=txtCpfAl]").removeClass("is-invalid");
             $("input[name=txtCpfAl]").addClass("is-valid");
@@ -367,7 +367,7 @@ $(function(){
             $("input[name=txtCpfAl]").removeClass("is-valid");
             $("input[name=txtCpfAl]").addClass("is-invalid");
         }
-    });
+    });*/
     
     //Campo Input Data de Nascimento
     $("input[name=txtDataNascAl]").change(function(){
