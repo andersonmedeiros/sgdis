@@ -3,7 +3,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var functionValidSelectTReal = function(campo){
+    $(campo).change(function(){
+        if($(campo).val() != '0'){
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }else{
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+        }
+    });
+};
 
+var functionValidSelectOCP = function(campo){
+    if($(campo).val() != '0'){
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+
+var functionValidInputTReal = function(campo){
+    $(campo).change(function(){
+        if($(campo).val() != ''){
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }else{
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+        }
+    });
+};
+
+var functionValidInputOCP = function(campo){
+    if($(campo).val() != ''){
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
 
 $(function(){
    var atual_fs, prox_fs, anterior_fs;
@@ -79,57 +115,33 @@ $("select[name=txtEndCurso]").change(function() {
     }
 });
 
+
 //Acionamento form CNH
+functionValidSelectTReal("#txtPossuiCNH");
 $("#txtPossuiCNH").change(function() {
     if($("#txtPossuiCNH").val() === "s"){
-        $("#divCNH").css("display", "block");
+        $("#divCNH").css("display", "block");        
     }
     else if($("#txtPossuiCNH").val() === "n" || $("#txtPossuiCNH").val() === "0"){
         $("#divCNH").css("display", "none");
+        
+        $("input[name=txtCNHNumAl]").val('');
+        $("input[name=txtCNHNumAl]").removeClass("is-invalid");
+        $("input[name=txtCNHNumAl]").removeClass("is-valid");
+
+        $("select[name=txtCNHCatgAl]").val('0');
+        $("select[name=txtCNHCatgAl]").removeClass("is-invalid");
+        $("select[name=txtCNHCatgAl]").removeClass("is-valid");
+
+        $("input[name=txtCNHDataValAl]").val('');            
+        $("input[name=txtCNHDataValAl]").removeClass("is-invalid");
+        $("input[name=txtCNHDataValAl]").removeClass("is-valid");
     }
 });
 
-var functionValidSelectTReal = function(campo){
-    $(campo).change(function(){
-        if($(campo).val() != '0'){
-            $(campo).removeClass("is-invalid");
-            $(campo).addClass("is-valid");
-        }else{
-            $(campo).removeClass("is-valid");
-            $(campo).addClass("is-invalid");
-        }
-    });
-};
-
-var functionValidSelectOCP = function(campo){
-    if($(campo).val() != '0'){
-        $(campo).removeClass("is-invalid");
-        $(campo).addClass("is-valid");
-    }
-};
-
-var functionValidInputTReal = function(campo){
-    $(campo).change(function(){
-        if($(campo).val() != ''){
-            $(campo).removeClass("is-invalid");
-            $(campo).addClass("is-valid");
-        }else{
-            $(campo).removeClass("is-valid");
-            $(campo).addClass("is-invalid");
-        }
-    });
-};
-
-var functionValidInputOCP = function(campo){
-    if($(campo).val() != ''){
-        $(campo).removeClass("is-invalid");
-        $(campo).addClass("is-valid");
-    }
-};
-
 //Acionamento form Veiculos
 var qtdeVeiculos = document.querySelectorAll('#fieldsetVeiculos .form-row').length + 1;
-
+functionValidSelectTReal("#txtTraraVeiculo");
 $("#txtTraraVeiculo").change(function() {    
     if($("#txtTraraVeiculo").val() === "s"){
         $("#divVeiculos").css("display", "block");        

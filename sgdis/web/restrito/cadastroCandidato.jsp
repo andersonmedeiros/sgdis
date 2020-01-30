@@ -364,7 +364,7 @@
                                 <label for="txtUltDataPracaAl">Última Data de Praça: <span class="campo-obrigatorio">*</span></label>
                                 <input type="date" class="form-control" id="txtUltDataPracaAl" name="txtUltDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
                                 <div class="valid-feedback">Selva!</div>
-                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                                <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
                             </div> 
                             <div class="form-group col-md-4">
                                 <label for="txtNatEstAl">Naturalidade (Estado): <span class="campo-obrigatorio">*</span></label>
@@ -443,20 +443,20 @@
                                     <label for="txtTitEleitorNumAl">Título Eleitoral: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control titulo-eleitor" id="txtTitEleitorNumAl" name="txtTitEleitorNumAl" placeholder="Ex.: 0000 0000 0000">
                                     <div class="valid-feedback">Selva!</div>
-                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                                <div class="invalid-feedback invalid-titEleitorNumAl">Campo Obrigatório!</div>
                                 </div> 
 
                                 <div class="form-group col-md-2">
                                     <label for="txtTitEleitorZonaAl">Zona Eleitoral: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtTitEleitorZonaAl" name="txtTitEleitorZonaAl" placeholder="Ex.: 000" maxlength="3">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-titEleitorZonaAl">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="txtTitEleitorSecaoAl">Seção Eleitoral: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtTitEleitorSecaoAl" name="txtTitEleitorSecaoAl" placeholder="Ex.: 0000" maxlength="4">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-titEleitorSecaoAl">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="txtTitEleitorEstAl">Estado: <span class="campo-obrigatorio"> *</span></label>
@@ -504,16 +504,16 @@
                             <div class="form-row">
                                 <div class="form-group col-md-8">
                                     <label for="txtEmailAl">Email: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="email" class="form-control" id="txtEmailAl" name="txtEmailAl" placeholder="Ex.: fulanodetal@gmail.com">
+                                    <input type="text" class="form-control" id="txtEmailAl" name="txtEmailAl" placeholder="Ex.: fulanodetal@gmail.com">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-emailAl">Campo Obrigatório!</div>
                                 </div>  
 
                                 <div class="form-group col-md-4">
                                     <label for="txtFoneAl">Fone: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control fone" id="txtFoneAl" name="txtFoneAl" placeholder="Ex.: (00) 00000-0000">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-foneCel">Campo Obrigatório!</div>
                                 </div>                                                     
                             </div>
                         </div>                       
@@ -605,7 +605,7 @@
                                     <label for="txtCNHNumAl">Número: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtCNHNumAl" name="txtCNHNumAl" placeholder="Ex. 00000000000" maxlength="11">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-numCNH">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="txtCNHCatgAl">Categoria: <span class="campo-obrigatorio">*</span></label>
@@ -625,7 +625,7 @@
                                     <label for="txtCNHDataValAl">Data de Validade: <span class="campo-obrigatorio">*</span></label>
                                     <input type="date" class="form-control" id="txtCNHDataValAl" name="txtCNHDataValAl" placeholder="Ex. 00/00/0000">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-dataValCNH">Campo Obrigatório!</div>
                                 </div>  
                             </div>
                         </div>                        
