@@ -834,9 +834,9 @@ function validDataValidadeCNHTReal(campo){
 };
 
 //FORM CNH
-function validFormCNH(pCNH){
-    if($(pCNH).val() == 's'){
-        $("#divCNH").css("display", "block");  
+function validAcionamentoForm(select, div){
+    if($(select).val() == 's'){
+        $(div).css("display", "block");  
     }
 };
 
@@ -1057,9 +1057,9 @@ $(document).ready(function(){
     
     //Campo Select Possui CNH
     validSelect("select[name=txtPossuiCNH]");
-    validSelectTReal("select[name=txtPossuiCNH]");
+    validSelectTReal("select[name=txtPossuiCNH]");    
+    validAcionamentoForm("select[name=txtPossuiCNH]", "#divCNH");  
     
-    validFormCNH("select[name=txtPossuiCNH]");    
     validNumCNH("input[name=txtCNHNumAl]");
     validNumCNHTReal("input[name=txtCNHNumAl]");
     
@@ -1068,29 +1068,31 @@ $(document).ready(function(){
     
     validDataValidadeCNH("input[name=txtCNHDataValAl]");
     validDataValidadeCNHTReal("input[name=txtCNHDataValAl]");
-    //Campo Select Possui CNH
-    /*if($("select[name=txtPossuiCNH]").val() == 's'){
-        $("#divCNH").css("display", "block");
-       
-        //Campo Input Numero CNH
-        validNumCNH("input[name=txtCNHNumAl]").val();
-        validNumCNHTReal("input[name=txtCNHNumAl]").val();
-
-        //Campo Select Categoria CNH
-        validSelect("select[name=txtCNHCatgAl]").val();
-        validSelectTReal("select[name=txtCNHCatgAl]").val();
-
-        //Campo Input Data de Validade CNH
-        validDataValidadeCNH("input[name=txtCNHDataValAl]").val();
-        validDataValidadeCNHTReal("input[name=txtCNHDataValAl]").val();
-    }*/
-    
-    
     
     //Campo Select Trará veículo para o CIGS
     validSelect("select[name=txtTraraVeiculo]");
     validSelectTReal("select[name=txtTraraVeiculo]");   
     validSelectVeiculos("select[name=txtTraraVeiculo]");   
+    
+    //Etapa 2: DADOS INDIVIDUAIS
+    //Campo Select Fumante
+    validSelect("select[name=txtFumante]");
+    validSelectTReal("select[name=txtFumante]");
+    
+    //Campo Select Alergico
+    validSelect("select[name=txtAlergico]");
+    validSelectTReal("select[name=txtAlergico]");
+    validAcionamentoForm("select[name=txtAlergico]", "#divAlergias");
+    
+    //Campo Select Medicamentos Controlados
+    validSelect("select[name=txtUsoMtoCt]");
+    validSelectTReal("select[name=txtUsoMtoCt]");
+    validAcionamentoForm("select[name=txtUsoMtoCt]", "#divMtoCt");
+    
+    //Campo Select Termogênicos, Ergogênicos ou Suplementos Alimentares
+    validSelect("select[name=txtUsoTermErgSupAli]");
+    validSelectTReal("select[name=txtUsoTermErgSupAli]");
+    validAcionamentoForm("select[name=txtUsoTermErgSupAli]", "#divTermErgSupAli");
 });
 
 //AO CLICAR NO BOTÃO PRÓXIMO OU SALVAR (OBRIGATORIEDADE)
@@ -1815,5 +1817,252 @@ $(function(){
         else{
             proximo($(this));
         }
+    });
+    
+    //Etapa 3: SAÚDE
+    $("button[name=btnProximo4]").click(function(){
+        if($("select[name=txtFumante]").val() == '0'){
+            $("select[name=txtFumante]").removeClass("is-valid");
+            $("select[name=txtFumante]").addClass("is-invalid");
+            $("select[name=txtFumante]").focus();
+        }
+        else if($("select[name=txtAlergico]").val() == '0'){
+            $("select[name=txtAlergico]").removeClass("is-valid");
+            $("select[name=txtAlergico]").addClass("is-invalid");
+            $("select[name=txtAlergico]").focus();
+        }
+        else if($("select[name=txtUsoMtoCt]").val() == '0'){
+            $("select[name=txtUsoMtoCt]").removeClass("is-valid");
+            $("select[name=txtUsoMtoCt]").addClass("is-invalid");
+            $("select[name=txtUsoMtoCt]").focus();
+        }
+        else if($("select[name=txtUsoTermErgSupAli]").val() == '0'){
+            $("select[name=txtUsoTermErgSupAli]").removeClass("is-valid");
+            $("select[name=txtUsoTermErgSupAli]").addClass("is-invalid");
+            $("select[name=txtUsoTermErgSupAli]").focus();
+        }        
+        else if(($("select[name=txtAlergico]").val() == 'n') && ($("select[name=txtUsoMtoCt]").val() == 'n') && ($("select[name=txtUsoTermErgSupAli]").val() == 'n')){
+            proximo($(this));
+        }
+        else if(($("select[name=txtAlergico]").val() == 's') && ($("select[name=txtUsoMtoCt]").val() == 'n') && ($("select[name=txtUsoTermErgSupAli]").val() == 'n')){
+            for(var i=0;i<($("input[name=txtAlergia").length);i++){
+                if($("input[name=txtAlergia]").eq(i).val() == '' ){
+                    $("input[name=txtAlergia]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAlergia]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAlergia]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAlergia]").eq($("input[name=txtAlergia]").length-1).val()) != ''){
+                    proximo($(this));
+                }
+            }
+        }
+        else if(($("select[name=txtAlergico]").val() == 'n') && ($("select[name=txtUsoMtoCt]").val() == 's') && ($("select[name=txtUsoTermErgSupAli]").val() == 'n')){
+            for(var i=0;i<($("select[name=txtTpMtoCt").length);i++){
+                if($("input[name=txtNomeMtoCt]").eq(i).val() == '' ){
+                    $("input[name=txtNomeMtoCt]").eq(i).removeClass("is-valid");
+                    $("input[name=txtNomeMtoCt]").eq(i).addClass("is-invalid");
+                    $("input[name=txtNomeMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtFrqMtoCt]").eq(i).val() == '' ){
+                    $("input[name=txtFrqMtoCt]").eq(i).removeClass("is-valid");
+                    $("input[name=txtFrqMtoCt]").eq(i).addClass("is-invalid");
+                    $("input[name=txtFrqMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if($("select[name=txtTpMtoCt]").eq(i).val() == '0' ){
+                    $("select[name=txtTpMtoCt]").eq(i).removeClass("is-valid");
+                    $("select[name=txtTpMtoCt]").eq(i).addClass("is-invalid");
+                    $("select[name=txtTpMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if(($("select[name=txtTpMtoCt]").eq($("select[name=txtTpMtoCt]").length-1).val()) != '0'){
+                    proximo($(this));
+                }
+            }
+        }
+        else if(($("select[name=txtAlergico]").val() == 'n') && ($("select[name=txtUsoMtoCt]").val() == 'n') && ($("select[name=txtUsoTermErgSupAli]").val() == 's')){
+            for(var i=0;i<($("input[name=txtNomeTermErgSupAli").length);i++){
+                if($("input[name=txtNomeTermErgSupAli]").eq(i).val() == '' ){
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).removeClass("is-valid");
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).addClass("is-invalid");
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtNomeTermErgSupAli]").eq($("input[name=txtNomeTermErgSupAli]").length-1).val()) != ''){
+                    proximo($(this));
+                }
+            }
+        }        
+        else if(($("select[name=txtAlergico]").val() == 'n') && ($("select[name=txtUsoMtoCt]").val() == 's') && ($("select[name=txtUsoTermErgSupAli]").val() == 's')){
+            var prontoMtoCt = 0;
+            var prontoTermErgSupAli = 0;
+            
+            for(var i=0;i<($("select[name=txtTpMtoCt").length);i++){
+                if($("input[name=txtNomeMtoCt]").eq(i).val() == '' ){
+                    $("input[name=txtNomeMtoCt]").eq(i).removeClass("is-valid");
+                    $("input[name=txtNomeMtoCt]").eq(i).addClass("is-invalid");
+                    $("input[name=txtNomeMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtFrqMtoCt]").eq(i).val() == '' ){
+                    $("input[name=txtFrqMtoCt]").eq(i).removeClass("is-valid");
+                    $("input[name=txtFrqMtoCt]").eq(i).addClass("is-invalid");
+                    $("input[name=txtFrqMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if($("select[name=txtTpMtoCt]").eq(i).val() == '0' ){
+                    $("select[name=txtTpMtoCt]").eq(i).removeClass("is-valid");
+                    $("select[name=txtTpMtoCt]").eq(i).addClass("is-invalid");
+                    $("select[name=txtTpMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if(($("select[name=txtTpMtoCt]").eq($("select[name=txtTpMtoCt]").length-1).val()) != '0'){
+                    prontoMtoCt=1;
+                }
+            }             
+            for(var i=0;i<($("input[name=txtNomeTermErgSupAli").length);i++){
+                if($("input[name=txtNomeTermErgSupAli]").eq(i).val() == '' ){
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).removeClass("is-valid");
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).addClass("is-invalid");
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtNomeTermErgSupAli]").eq($("input[name=txtNomeTermErgSupAli]").length-1).val()) != ''){
+                    prontoTermErgSupAli = 1;
+                }
+            }            
+            if((prontoMtoCt == 1) && (prontoTermErgSupAli == 1)){
+                proximo($(this));
+            }
+        }
+        else if(($("select[name=txtAlergico]").val() == 's') && ($("select[name=txtUsoMtoCt]").val() == 'n') && ($("select[name=txtUsoTermErgSupAli]").val() == 's')){
+            var prontoAlergico = 0;
+            var prontoTermErgSupAli = 0;
+            
+            for(var i=0;i<($("input[name=txtAlergia").length);i++){
+                if($("input[name=txtAlergia]").eq(i).val() == '' ){
+                    $("input[name=txtAlergia]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAlergia]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAlergia]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAlergia]").eq($("input[name=txtAlergia]").length-1).val()) != ''){
+                    prontoAlergico = 1;
+                }
+            }             
+            for(var i=0;i<($("input[name=txtNomeTermErgSupAli").length);i++){
+                if($("input[name=txtNomeTermErgSupAli]").eq(i).val() == '' ){
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).removeClass("is-valid");
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).addClass("is-invalid");
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtNomeTermErgSupAli]").eq($("input[name=txtNomeTermErgSupAli]").length-1).val()) != ''){
+                    prontoTermErgSupAli = 1;
+                }
+            }            
+            if((prontoAlergico == 1) && (prontoTermErgSupAli == 1)){
+                proximo($(this));
+            }
+        }
+        else if(($("select[name=txtAlergico]").val() == 's') && ($("select[name=txtUsoMtoCt]").val() == 's') && ($("select[name=txtUsoTermErgSupAli]").val() == 'n')){
+            var prontoAlergico = 0;
+            var prontoMtoCt = 0;
+            
+            for(var i=0;i<($("input[name=txtAlergia").length);i++){
+                if($("input[name=txtAlergia]").eq(i).val() == '' ){
+                    $("input[name=txtAlergia]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAlergia]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAlergia]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAlergia]").eq($("input[name=txtAlergia]").length-1).val()) != ''){
+                    prontoAlergico = 1;
+                }
+            }             
+            for(var i=0;i<($("select[name=txtTpMtoCt").length);i++){
+                if($("input[name=txtNomeMtoCt]").eq(i).val() == '' ){
+                    $("input[name=txtNomeMtoCt]").eq(i).removeClass("is-valid");
+                    $("input[name=txtNomeMtoCt]").eq(i).addClass("is-invalid");
+                    $("input[name=txtNomeMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtFrqMtoCt]").eq(i).val() == '' ){
+                    $("input[name=txtFrqMtoCt]").eq(i).removeClass("is-valid");
+                    $("input[name=txtFrqMtoCt]").eq(i).addClass("is-invalid");
+                    $("input[name=txtFrqMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if($("select[name=txtTpMtoCt]").eq(i).val() == '0' ){
+                    $("select[name=txtTpMtoCt]").eq(i).removeClass("is-valid");
+                    $("select[name=txtTpMtoCt]").eq(i).addClass("is-invalid");
+                    $("select[name=txtTpMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if(($("select[name=txtTpMtoCt]").eq($("select[name=txtTpMtoCt]").length-1).val()) != '0'){
+                    prontoMtoCt=1;
+                }
+            }            
+            if((prontoAlergico == 1) && (prontoMtoCt == 1)){
+                proximo($(this));
+            }
+        }
+        
+        else if(($("select[name=txtAlergico]").val() == 's') && ($("select[name=txtUsoMtoCt]").val() == 's') && ($("select[name=txtUsoTermErgSupAli]").val() == 's')){
+            var prontoAlergico = 0;
+            var prontoMtoCt = 0;
+            var prontoTermErgSupAli =0;
+            
+            for(var i=0;i<($("input[name=txtAlergia").length);i++){
+                if($("input[name=txtAlergia]").eq(i).val() == '' ){
+                    $("input[name=txtAlergia]").eq(i).removeClass("is-valid");
+                    $("input[name=txtAlergia]").eq(i).addClass("is-invalid");
+                    $("input[name=txtAlergia]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtAlergia]").eq($("input[name=txtAlergia]").length-1).val()) != ''){
+                    prontoAlergico = 1;
+                }
+            }             
+            for(var i=0;i<($("select[name=txtTpMtoCt").length);i++){
+                if($("input[name=txtNomeMtoCt]").eq(i).val() == '' ){
+                    $("input[name=txtNomeMtoCt]").eq(i).removeClass("is-valid");
+                    $("input[name=txtNomeMtoCt]").eq(i).addClass("is-invalid");
+                    $("input[name=txtNomeMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if($("input[name=txtFrqMtoCt]").eq(i).val() == '' ){
+                    $("input[name=txtFrqMtoCt]").eq(i).removeClass("is-valid");
+                    $("input[name=txtFrqMtoCt]").eq(i).addClass("is-invalid");
+                    $("input[name=txtFrqMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if($("select[name=txtTpMtoCt]").eq(i).val() == '0' ){
+                    $("select[name=txtTpMtoCt]").eq(i).removeClass("is-valid");
+                    $("select[name=txtTpMtoCt]").eq(i).addClass("is-invalid");
+                    $("select[name=txtTpMtoCt]").eq(i).focus();
+                    break;
+                }
+                else if(($("select[name=txtTpMtoCt]").eq($("select[name=txtTpMtoCt]").length-1).val()) != '0'){
+                    prontoMtoCt=1;
+                }
+            }            
+            for(var i=0;i<($("input[name=txtNomeTermErgSupAli").length);i++){
+                if($("input[name=txtNomeTermErgSupAli]").eq(i).val() == '' ){
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).removeClass("is-valid");
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).addClass("is-invalid");
+                    $("input[name=txtNomeTermErgSupAli]").eq(i).focus();
+                    break;
+                }
+                else if(($("input[name=txtNomeTermErgSupAli]").eq($("input[name=txtNomeTermErgSupAli]").length-1).val()) != ''){
+                    prontoTermErgSupAli = 1;
+                }
+            }            
+            if((prontoAlergico == 1) && (prontoMtoCt == 1) && (prontoTermErgSupAli == 1)){
+                proximo($(this));
+            }
+        }        
     });
 });
