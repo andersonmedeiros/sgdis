@@ -786,7 +786,7 @@
                                     <label for="txtFormTurma">Turma: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtFormTurma" name="txtFormTurma" placeholder="Ex.: 2018" maxlength="4">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-ano">Campo Obrigatório!</div>
                                 </div>  
                             </div>                            
                         </div>
@@ -815,7 +815,7 @@
                                 <label for="txtDataUltProm">Data da última promoção: <span class="campo-obrigatorio">*</span></label>
                                 <input type="date" class="form-control" id="txtDataUltProm" name="txtDataUltProm" placeholder="Ex.: DD/MM/AAAA">
                                 <div class="valid-feedback">Selva!</div>
-                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                                <div class="invalid-feedback invalid-dataUltProm">Campo Obrigatório!</div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="txtQaProm">Está no QA para Promoção?<span class="campo-obrigatorio"> *</span></label>
@@ -831,7 +831,7 @@
                                 <label for="txtQaQuandoProm">Quando?<span class="campo-obrigatorio"> *</span></label>
                                 <input type="date" class="form-control" id="txtQaQuandoProm" name="txtQaQuandoProm" placeholder="Ex.: DD/MM/AAAA">
                                 <div class="valid-feedback">Selva!</div>
-                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                                <div class="invalid-feedback invalid-dataQaQuando">Campo Obrigatório!</div>
                             </div>
                         </div>                            
                         </div>
@@ -844,7 +844,7 @@
                                     <label for="txtDataUltTAF">Data do último TAF: <span class="campo-obrigatorio">*</span></label>
                                     <input type="date" class="form-control" id="txtDataUltTAF" name="txtDataUltTAF" placeholder="Ex.: 00/00/0000">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-dataUltTAF">Campo Obrigatório!</div>
                                 </div>                                
                                 <div class="form-group col-md-6">
                                     <label for="txtMencaoTAF">Menção: <span class="campo-obrigatorio">*</span></label>

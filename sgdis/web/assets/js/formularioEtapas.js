@@ -323,6 +323,10 @@ $("#txtQaProm").change(function() {
     }
     else if($("#txtQaProm").val() === "n" || $("#txtQaProm").val() === "0"){
         $("#divQaQuando").css("display", "none");
+        
+        $("input[name=txtQaQuandoProm]").val('');            
+        $("input[name=txtQaQuandoProm]").removeClass("is-invalid");
+        $("input[name=txtQaQuandoProm]").removeClass("is-valid");
     }
 });
 
