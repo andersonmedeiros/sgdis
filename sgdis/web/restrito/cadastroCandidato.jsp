@@ -915,13 +915,7 @@
                             </div>
                         </div>
                         <div id="divConjuge" class="fieldset-interno fieldset-dependente" style="display: none;">
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="txtCpfConjuge">CPF: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control cpf" id="txtCpfConjuge" name="txtCpfConjuge" placeholder="Ex.: 000.000.000-00">
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
-                                </div>
+                            <div class="form-row">                                
                                 <div class="form-group col-md-3">
                                     <label for="txtNomeConjuge">Nome: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtNomeConjuge" name="txtNomeConjuge" placeholder="Ex.: Fulano">
@@ -933,7 +927,13 @@
                                     <input type="text" class="form-control" id="txtSobrenomeConjuge" name="txtSobrenomeConjuge" placeholder="Ex.: de Tal">
                                     <div class="valid-feedback">Selva!</div>
                                     <div class="invalid-feedback">Campo Obrigatório!</div>
-                                </div>               
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="txtCpfConjuge">CPF: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control cpf" id="txtCpfConjuge" name="txtCpfConjuge" placeholder="Ex.: 000.000.000-00">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback invalid-cpf">Campo Obrigatório!</div>
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-8">
@@ -946,7 +946,7 @@
                                     <label for="txtFoneConjuge">Fone: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control fone" id="txtFoneConjuge" name="txtFoneConjuge" placeholder="Ex.: (00) 00000-0000">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-foneCel">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -982,7 +982,7 @@
                                     <label for="txtCpfRef">CPF: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control cpf" id="txtCpfRef" name="txtCpfRef" placeholder="Ex.: 000.000.000-00">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-cpf">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtEmailRef">Email: <span class="campo-obrigatorio">*</span></label>
@@ -994,7 +994,7 @@
                                     <label for="txtFoneRef">Fone: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control fone" id="txtFoneRef" name="txtFoneRef" placeholder="Ex.: (00) 00000-0000">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-foneCel">Campo Obrigatório!</div>
                                 </div>                                 
                             </div>
                         </div>
@@ -1041,7 +1041,7 @@
                                     <label for="txtCpfRefConclusao">CPF: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control cpf" id="txtCpfRefConclusao" name="txtCpfRefConclusao" placeholder="Ex.: 000.000.000-00">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-cpf">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="txtEmailRefConclusao">Email: <span class="campo-obrigatorio">*</span></label>
@@ -1053,7 +1053,7 @@
                                     <label for="txtFoneRefConclusao">Fone: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control fone" id="txtFoneRefConclusao" name="txtFoneRefConclusao" placeholder="Ex.: (00) 00000-0000">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-foneCel">Campo Obrigatório!</div>
                                 </div>                                 
                             </div>
                         </div>

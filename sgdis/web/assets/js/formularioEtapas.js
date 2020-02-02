@@ -337,6 +337,26 @@ $("#txtPossuiConjuge").change(function() {
     }
     else if($("#txtPossuiConjuge").val() === "n" || $("#txtPossuiConjuge").val() === "0"){
         $("#divConjuge").css("display", "none");
+        
+        $("input[name=txtCpfConjuge]").val('');
+        $("input[name=txtCpfConjuge]").removeClass("is-valid");
+        $("input[name=txtCpfConjuge]").removeClass("is-invalid");
+
+        $("input[name=txtNomeConjuge]").val('');
+        $("input[name=txtNomeConjuge]").removeClass("is-valid");
+        $("input[name=txtNomeConjuge]").removeClass("is-invalid");
+
+        $("input[name=txtSobrenomeConjuge]").val('');
+        $("input[name=txtSobrenomeConjuge]").removeClass("is-valid");
+        $("input[name=txtSobrenomeConjuge]").removeClass("is-invalid");
+
+        $("input[name=txtEmailConjuge]").val('');
+        $("input[name=txtEmailConjuge]").removeClass("is-valid");
+        $("input[name=txtEmailConjuge]").removeClass("is-invalid");
+
+        $("input[name=txtFoneConjuge]").val('');
+        $("input[name=txtFoneConjuge]").removeClass("is-valid");
+        $("input[name=txtFoneConjuge]").removeClass("is-invalid");
     }
 });
 
