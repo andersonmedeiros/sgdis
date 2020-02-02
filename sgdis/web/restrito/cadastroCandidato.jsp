@@ -356,7 +356,7 @@
                                 <label for="txtCpfAl">CPF: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control cpf" id="txtCpfAl" name="txtCpfAl" placeholder="Ex.: 000.000.000-00">
                                 <div class="valid-feedback">Selva!</div>
-                                <div class="invalid-feedback invalid-cpfAl">Campo Obrigatório!</div>
+                                <div class="invalid-feedback invalid-cpf">Campo Obrigatório!</div>
                             </div>
                         </div>
                         <div class="form-row">

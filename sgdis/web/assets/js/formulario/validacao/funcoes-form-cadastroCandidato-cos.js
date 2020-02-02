@@ -153,31 +153,31 @@ function validIdtMilAl(campo){
 };
 
 //CPF
-function validCPFAl(campo){
-    var cpfAl = $(campo).val().replace(".","").replace(".","").replace("-","");
+function validCPF(campo){
+    var cpf = $(campo).val().replace(".","").replace(".","").replace("-","");
     
-    if(cpfAl == ''){
+    if(cpf == ''){
         cpfOk = 0;
     }
-    else if(cpfAl == '00000000000' || cpfAl == '11111111111' || cpfAl == '22222222222' || cpfAl == '33333333333' ||                 
-            cpfAl == '44444444444' || cpfAl == '55555555555' || cpfAl == '66666666666' || cpfAl == '77777777777' ||                 
-            cpfAl == '88888888888' || cpfAl == '99999999999'){
+    else if(cpf == '00000000000' || cpf == '11111111111' || cpf == '22222222222' || cpf == '33333333333' ||                 
+            cpf == '44444444444' || cpf == '55555555555' || cpf == '66666666666' || cpf == '77777777777' ||                 
+            cpf == '88888888888' || cpf == '99999999999'){
         $(campo).removeClass("is-valid");
         $(campo).addClass("is-invalid");
-        $(".invalid-cpfAl").html("CPF Inválido!");
+        $(".invalid-cpf").html("CPF Inválido!");
         cpfOk = 0;
     }else{
         // Valida 1o digito	
         var add = 0;	
         for (var i=0; i < 9; i ++)		
-            add += parseInt(cpfAl.charAt(i)) * (10 - i);	
+            add += parseInt(cpf.charAt(i)) * (10 - i);	
             var rev = 11 - (add % 11);	
             if (rev == 10 || rev == 11)		
                 rev = 0;	
-            if (rev != parseInt(cpfAl.charAt(9))){
+            if (rev != parseInt(cpf.charAt(9))){
                 $(campo).removeClass("is-valid");
                 $(campo).addClass("is-invalid");
-                $(".invalid-cpfAl").html("CPF Inválido!");
+                $(".invalid-cpf").html("CPF Inválido!");
                 cpfOk = 0;
             }else{
                 $(campo).removeClass("is-invalid");
@@ -187,14 +187,14 @@ function validCPFAl(campo){
         // Valida 2o digito	
         add = 0;	
         for (var i = 0; i < 10; i ++)		
-            add += parseInt(cpfAl.charAt(i)) * (11 - i);	
+            add += parseInt(cpf.charAt(i)) * (11 - i);	
         rev = 11 - (add % 11);	
         if (rev == 10 || rev == 11)	
             rev = 0;	
-        if (rev != parseInt(cpfAl.charAt(10))){
+        if (rev != parseInt(cpf.charAt(10))){
             $(campo).removeClass("is-valid");
             $(campo).addClass("is-invalid");
-            $(".invalid-cpfAl").html("CPF Inválido!");
+            $(".invalid-cpf").html("CPF Inválido!");
             cpfOk = 0;
         }else{
             $(campo).removeClass("is-invalid");
@@ -765,34 +765,34 @@ function validIdtMilAlTReal(campo){
 };
 
 //CPF
-function validCPFAlTReal(campo){
+function validCPFTReal(campo){
     $(campo).change(function(){
-        var cpfAl = $(campo).val().replace(".","").replace(".","").replace("-","");
-        if(cpfAl == ''){
+        var cpf = $(campo).val().replace(".","").replace(".","").replace("-","");
+        if(cpf == ''){
             $(campo).removeClass("is-valid");
             $(campo).addClass("is-invalid");
-            $(".invalid-cpfAl").html("Campo Obrigatório!");
+            $(".invalid-cpf").html("Campo Obrigatório!");
             cpfOk = 0;
         }
-        else if(cpfAl == '00000000000' || cpfAl == '11111111111' || cpfAl == '22222222222' || cpfAl == '33333333333' ||                 
-                cpfAl == '44444444444' || cpfAl == '55555555555' || cpfAl == '66666666666' || cpfAl == '77777777777' ||                 
-                cpfAl == '88888888888' || cpfAl == '99999999999'){
+        else if(cpf == '00000000000' || cpf == '11111111111' || cpf == '22222222222' || cpf == '33333333333' ||                 
+                cpf == '44444444444' || cpf == '55555555555' || cpf == '66666666666' || cpf == '77777777777' ||                 
+                cpf == '88888888888' || cpf == '99999999999'){
             $(campo).removeClass("is-valid");
             $(campo).addClass("is-invalid");
-            $(".invalid-cpfAl").html("CPF Inválido!");
+            $(".invalid-cpf").html("CPF Inválido!");
             cpfOk = 0;
         }else{
             // Valida 1o digito	
             var add = 0;	
             for (var i=0; i < 9; i ++)		
-                add += parseInt(cpfAl.charAt(i)) * (10 - i);	
+                add += parseInt(cpf.charAt(i)) * (10 - i);	
                 var rev = 11 - (add % 11);	
                 if (rev == 10 || rev == 11)		
                     rev = 0;	
-                if (rev != parseInt(cpfAl.charAt(9))){
+                if (rev != parseInt(cpf.charAt(9))){
                     $(campo).removeClass("is-valid");
                     $(campo).addClass("is-invalid");
-                    $(".invalid-cpfAl").html("CPF Inválido!");
+                    $(".invalid-cpf").html("CPF Inválido!");
                     cpfOk = 0;
                 }else{
                     $(campo).removeClass("is-invalid");
@@ -802,14 +802,14 @@ function validCPFAlTReal(campo){
             // Valida 2o digito	
             add = 0;	
             for (var i = 0; i < 10; i ++)		
-                add += parseInt(cpfAl.charAt(i)) * (11 - i);	
+                add += parseInt(cpf.charAt(i)) * (11 - i);	
             rev = 11 - (add % 11);	
             if (rev == 10 || rev == 11)	
                 rev = 0;	
-            if (rev != parseInt(cpfAl.charAt(10))){
+            if (rev != parseInt(cpf.charAt(10))){
                 $(campo).removeClass("is-valid");
                 $(campo).addClass("is-invalid");
-                $(".invalid-cpfAl").html("CPF Inválido!");
+                $(".invalid-cpf").html("CPF Inválido!");
                 cpfOk = 0;
             }else{
                 $(campo).removeClass("is-invalid");
@@ -1405,8 +1405,8 @@ $(document).ready(function(){
     validIdtMilAlTReal("input[name=txtIdtMilAl]");
     
     //Campo Input CPF
-    validCPFAl("input[name=txtCpfAl]");
-    validCPFAlTReal("input[name=txtCpfAl]");
+    validCPF("input[name=txtCpfAl]");
+    validCPFTReal("input[name=txtCpfAl]");
     
     //Campo Input Última Data de Praça
     validDataPracaAl("input[name=txtUltDataPracaAl]", "input[name=txtDataNascAl]");
