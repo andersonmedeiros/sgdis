@@ -114,7 +114,17 @@ function validDataNascAl(campo){
         $(campo).removeClass("is-valid");
         $(campo).addClass("is-invalid");
         $(".invalid-dataNascAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
-    }       
+    }   
+    else if(((anoAtual - anoNascAl) === 18) && (mesNascAl < mesAtual)){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-dataNascAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+    }   
+    else if(((anoAtual - anoNascAl) === 18) && (mesNascAl === mesAtual) && (diaNascAl < diaAtual)){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-dataNascAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+    }   
     else{
         $(campo).removeClass("is-invalid");
         $(campo).addClass("is-valid");
@@ -244,44 +254,25 @@ function validDataPracaAl(campoDataPraca, campoDataNasc){
         $(campoDataPraca).removeClass("is-valid");
         $(campoDataPraca).addClass("is-invalid");
         $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
-    }      
+    }
+    else if((anoPracaAl - anoNascAl) < 18){
+        $(campoDataPraca).removeClass("is-valid");
+        $(campoDataPraca).addClass("is-invalid");
+        $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+    }   
+    else if(((anoPracaAl - anoNascAl) === 18) && (mesPracaAl < mesNascAl)){
+        $(campoDataPraca).removeClass("is-valid");
+        $(campoDataPraca).addClass("is-invalid");
+        $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+    }   
+    else if(((anoPracaAl - anoNascAl) === 18) && (mesPracaAl === mesNascAl) && (diaPracaAl < diaNascAl)){
+        $(campoDataPraca).removeClass("is-valid");
+        $(campoDataPraca).addClass("is-invalid");
+        $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+    }
     else{
         $(campoDataPraca).removeClass("is-invalid");
         $(campoDataPraca).addClass("is-valid");
-    }
-};
-
-//TITULO ELEITOR
-function validTituloEleitorAl(campo){
-    var titEleitorNumAl = $(campo).val().replace(" ","").replace(" ","").replace(" ","");
-    if(titEleitorNumAl == ''){
-    }
-    else if(titEleitorNumAl == '000000000000' || titEleitorNumAl == '111111111111' || titEleitorNumAl == '222222222222' || titEleitorNumAl == '333333333333' ||                 
-            titEleitorNumAl == '444444444444' || titEleitorNumAl == '555555555555' || titEleitorNumAl == '666666666666' || titEleitorNumAl == '777777777777' ||                 
-            titEleitorNumAl == '888888888888' || titEleitorNumAl == '999999999999'){
-        $(campo).removeClass("is-valid");
-        $(campo).addClass("is-invalid");
-        $(".invalid-titEleitorNumAl").html("Título de Eleitor Inválido!");   
-    }
-    else{
-        $(campo).removeClass("is-invalid");
-        $(campo).addClass("is-valid");
-    }
-};
-
-//TITULO ELEITOR - ZONA
-function validTitEleitorZonaAl(campo){
-    var titEleitorZonaAl = $(campo).val().replace(" ","").replace(" ","").replace(" ","");
-    if(titEleitorZonaAl == ''){
-    }
-    else if((titEleitorZonaAl != '') && (titEleitorZonaAl.length < 3)){
-        $(campo).removeClass("is-valid");
-        $(campo).addClass("is-invalid");
-        $(".invalid-titEleitorZonaAl").html("A Zona é formada por 3 caracteres!");   
-    }
-    else{
-        $(campo).removeClass("is-invalid");
-        $(campo).addClass("is-valid");
     }
 };
 
@@ -488,7 +479,7 @@ function validDataNascAlTReal(campo){
         var dataAtual = new Date();
         var diaAtual = dataAtual.getDate();
         var mesAtual = (dataAtual.getMonth() + 1);
-        var anoAtual = dataAtual.getFullYear();
+        var anoAtual = dataAtual.getFullYear();        
         
         if(dataNascAl == ''){
             $(campo).removeClass("is-valid");
@@ -514,7 +505,17 @@ function validDataNascAlTReal(campo){
             $(campo).removeClass("is-valid");
             $(campo).addClass("is-invalid");
             $(".invalid-dataNascAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
-        }       
+        }   
+        else if(((anoAtual - anoNascAl) === 18) && (mesNascAl < mesAtual)){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataNascAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+        }   
+        else if(((anoAtual - anoNascAl) === 18) && (mesNascAl === mesAtual) && (diaNascAl < diaAtual)){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataNascAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+        }   
         else{
             $(campo).removeClass("is-invalid");
             $(campo).addClass("is-valid");
@@ -655,7 +656,22 @@ function validDataPracaAlTReal(campoDataPraca, campoDataNasc){
             $(campoDataPraca).removeClass("is-valid");
             $(campoDataPraca).addClass("is-invalid");
             $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
-        }       
+        }
+        else if((anoPracaAl - anoNascAl) < 18){
+            $(campoDataPraca).removeClass("is-valid");
+            $(campoDataPraca).addClass("is-invalid");
+            $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+        }   
+        else if(((anoPracaAl - anoNascAl) === 18) && (mesPracaAl < mesNascAl)){
+            $(campoDataPraca).removeClass("is-valid");
+            $(campoDataPraca).addClass("is-invalid");
+            $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+        }   
+        else if(((anoPracaAl - anoNascAl) === 18) && (mesPracaAl === mesNascAl) && (diaPracaAl < diaNascAl)){
+            $(campoDataPraca).removeClass("is-valid");
+            $(campoDataPraca).addClass("is-invalid");
+            $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+        }
         else{
             $(campoDataPraca).removeClass("is-invalid");
             $(campoDataPraca).addClass("is-valid");
