@@ -538,7 +538,7 @@ $("#btnAddCExtsEsp").click(function(){
                                   "      <label for=txtAnoCExtsEsp"+ qtdeCExtsEsp +">Ano de Conclusão: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtAnoCExtsEsp"+ qtdeCExtsEsp +" name=\"txtAnoCExtsEsp\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
                                   "      <div class=\"valid-feedback\">Selva!</div>"+
-                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                  "      <div class=\"invalid-feedback invalid-ano\">Campo Obrigatório!</div>"+
                                   "  </div>"+
                                   "</div>");
                           
@@ -575,7 +575,7 @@ $("#btnAddEstagio").click(function(){
                                   "      <label for=txtAnoEstagio"+ qtdeEstagios +">Ano de Conclusão: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtAnoEstagio"+ qtdeEstagios +" name=\"txtAnoEstagio\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
                                   "      <div class=\"valid-feedback\">Selva!</div>"+
-                                  "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                  "      <div class=\"invalid-feedback invalid-ano\">Campo Obrigatório!</div>"+
                                   "  </div>"+  
                                   "</div>");
                           

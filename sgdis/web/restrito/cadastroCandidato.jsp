@@ -1317,7 +1317,7 @@
                                     <label for="txtAnoCAperf">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtAnoCAperf" name="txtAnoCAperf" placeholder="Ex.: 2018" maxlength="4">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-ano">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
@@ -1355,7 +1355,7 @@
                                     <label for="txtAnoCAltEstudos">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtAnoCAltEstudos" name="txtAnoCAltEstudos" placeholder="Ex.: 2018" maxlength="4">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-ano">Campo Obrigatório!</div>
                                 </div>
                             </div>
                         </div>
