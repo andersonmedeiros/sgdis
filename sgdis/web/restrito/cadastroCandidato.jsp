@@ -1075,7 +1075,7 @@
                                     <label for="txtCepEndResid">CEP: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control cep" id="txtCepEndResid" name="txtCepEndResid" placeholder="Ex.: 00000-000">
                                     <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    <div class="invalid-feedback invalid-cep">Campo Obrigatório!</div>
                                 </div> 
 
                                 <div class="form-group col-md-3">
@@ -1173,7 +1173,7 @@
                                         <label for="txtCepEndCurso">CEP: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control cep" id="txtCepEndCurso" name="txtCepEndCurso" placeholder="Ex.: 00000-000">
                                         <div class="valid-feedback">Selva!</div>
-                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                        <div class="invalid-feedback invalid-cep">Campo Obrigatório!</div>
                                     </div>
 
                                     <div class="form-group col-md-3">
