@@ -41,6 +41,238 @@ var functionValidInputOCP = function(campo){
     }
 };
 
+var functionValidDInOMSvAmz = function(campo){
+    var dataInicio = $(campo).val();
+    var dataInicioSplit = dataInicio.split('-');        
+    var diaInicio = dataInicioSplit[2];
+    var mesInicio = dataInicioSplit[1];
+    var anoInicio = dataInicioSplit[0];
+
+    var dataAtual = new Date();
+    var diaAtual = dataAtual.getDate();
+    var mesAtual = (dataAtual.getMonth() + 1);
+    var anoAtual = dataAtual.getFullYear();        
+
+    if(dataInicio == ''){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-dataInicio").html("Campo Obrigatório!");
+    }       
+    else if((anoInicio == anoAtual) && (mesInicio == mesAtual) && (diaInicio > diaAtual)){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+    }       
+    else if((anoInicio == anoAtual) && (mesInicio > mesAtual)){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+    }       
+    else if((anoInicio > anoAtual)){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+    }         
+    else{
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+var functionValidDInOMSvAmzTReal = function(campo){ 
+    $(campo).change(function(){
+        var dataInicio = $(campo).val();
+        var dataInicioSplit = dataInicio.split('-');        
+        var diaInicio = dataInicioSplit[2];
+        var mesInicio = dataInicioSplit[1];
+        var anoInicio = dataInicioSplit[0];
+        
+        var dataAtual = new Date();
+        var diaAtual = dataAtual.getDate();
+        var mesAtual = (dataAtual.getMonth() + 1);
+        var anoAtual = dataAtual.getFullYear();        
+        
+        if(dataInicio == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataInicio").html("Campo Obrigatório!");
+        }       
+        else if((anoInicio == anoAtual) && (mesInicio == mesAtual) && (diaInicio > diaAtual)){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+        }       
+        else if((anoInicio == anoAtual) && (mesInicio > mesAtual)){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+        }       
+        else if((anoInicio > anoAtual)){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+        }         
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });    
+};
+var functionValidDFimOMSvAmz = function(campoDataInicio, campoDataFim){
+    var dataInicio = $(campoDataInicio).val();
+    var dataInicioSplit = dataInicio.split('-');        
+    var diaInicio = dataInicioSplit[2];
+    var mesInicio = dataInicioSplit[1];
+    var anoInicio = dataInicioSplit[0];
+
+    var dataFim = $(campoDataFim).val();
+    var dataFimSplit = dataFim.split('-');        
+    var diaFim = dataFimSplit[2];
+    var mesFim = dataFimSplit[1];
+    var anoFim = dataFimSplit[0];
+
+    var dataAtual = new Date();
+    var diaAtual = dataAtual.getDate();
+    var mesAtual = (dataAtual.getMonth() + 1);
+    var anoAtual = dataAtual.getFullYear();        
+
+    if(dataFim == ''){
+        $(campoDataFim).removeClass("is-valid");
+        $(campoDataFim).addClass("is-invalid");
+        $(".invalid-dataFim").html("Campo Obrigatório!");
+    }       
+    else if((anoFim == anoAtual) && (mesFim == mesAtual) && (diaFim > diaAtual)){
+        $(campoDataFim).removeClass("is-valid");
+        $(campoDataFim).addClass("is-invalid");
+        $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+    }       
+    else if((anoFim == anoAtual) && (mesFim > mesAtual)){
+        $(campoDataFim).removeClass("is-valid");
+        $(campoDataFim).addClass("is-invalid");
+        $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+    }       
+    else if((anoFim > anoAtual)){
+        $(campoDataFim).removeClass("is-valid");
+        $(campoDataFim).addClass("is-invalid");
+        $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+    }         
+    else if((anoFim == anoInicio) && (mesFim == mesInicio) && (diaFim < diaInicio)){
+        $(campoDataFim).removeClass("is-valid");
+        $(campoDataFim).addClass("is-invalid");
+        $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+    }       
+    else if((anoFim == anoInicio) && (mesFim < mesInicio)){
+        $(campoDataFim).removeClass("is-valid");
+        $(campoDataFim).addClass("is-invalid");
+        $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+    }       
+    else if((anoFim < anoInicio)){
+        $(campoDataFim).removeClass("is-valid");
+        $(campoDataFim).addClass("is-invalid");
+        $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+    }         
+    else{
+        $(campoDataFim).removeClass("is-invalid");
+        $(campoDataFim).addClass("is-valid");
+    }
+};
+var functionValidDFimOMSvAmzTReal = function(campoDataInicio, campoDataFim){ 
+    $(campoDataFim).change(function(){
+        var dataInicio = $(campoDataInicio).val();
+        var dataInicioSplit = dataInicio.split('-');        
+        var diaInicio = dataInicioSplit[2];
+        var mesInicio = dataInicioSplit[1];
+        var anoInicio = dataInicioSplit[0];
+        
+        var dataFim = $(campoDataFim).val();
+        var dataFimSplit = dataFim.split('-');        
+        var diaFim = dataFimSplit[2];
+        var mesFim = dataFimSplit[1];
+        var anoFim = dataFimSplit[0];
+        
+        var dataAtual = new Date();
+        var diaAtual = dataAtual.getDate();
+        var mesAtual = (dataAtual.getMonth() + 1);
+        var anoAtual = dataAtual.getFullYear();        
+        
+        if(dataFim == ''){
+            $(campoDataFim).removeClass("is-valid");
+            $(campoDataFim).addClass("is-invalid");
+            $(".invalid-dataFim").html("Campo Obrigatório!");
+        }       
+        else if((anoFim == anoAtual) && (mesFim == mesAtual) && (diaFim > diaAtual)){
+            $(campoDataFim).removeClass("is-valid");
+            $(campoDataFim).addClass("is-invalid");
+            $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+        }       
+        else if((anoFim == anoAtual) && (mesFim > mesAtual)){
+            $(campoDataFim).removeClass("is-valid");
+            $(campoDataFim).addClass("is-invalid");
+            $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+        }       
+        else if((anoFim > anoAtual)){
+            $(campoDataFim).removeClass("is-valid");
+            $(campoDataFim).addClass("is-invalid");
+            $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+        }         
+        else if((anoFim == anoInicio) && (mesFim == mesInicio) && (diaFim < diaInicio)){
+            $(campoDataFim).removeClass("is-valid");
+            $(campoDataFim).addClass("is-invalid");
+            $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+        }       
+        else if((anoFim == anoInicio) && (mesFim < mesInicio)){
+            $(campoDataFim).removeClass("is-valid");
+            $(campoDataFim).addClass("is-invalid");
+            $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+        }       
+        else if((anoFim < anoInicio)){
+            $(campoDataFim).removeClass("is-valid");
+            $(campoDataFim).addClass("is-invalid");
+            $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+        }         
+        else{
+            $(campoDataFim).removeClass("is-invalid");
+            $(campoDataFim).addClass("is-valid");
+        }
+    });    
+};
+
+var functionvalidAno = function(campo){
+    var ano = $(campo).val();
+    if(ano == ''){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-ano").html("Campo Obrigatório!");
+    }
+    else if((ano != '') && (ano.length < 4)){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+    }
+    else{
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+var functionvalidAnoTReal = function(campo){
+    $(campo).change(function(){
+        var ano = $(campo).val();
+        if(ano == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-ano").html("Campo Obrigatório!");
+        }
+        else if((ano != '') && (ano.length < 4)){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+        }
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });
+};
+
 $(function(){
    var atual_fs, prox_fs, anterior_fs;
    var form = $("#formCadCandidato");
@@ -489,6 +721,14 @@ $("#txtPossuiCAperf").change(function() {
     }
     else if($("#txtPossuiCAperf").val() === "n" || $("#txtPossuiCAperf").val() === "0"){
         $("#divCAperf").css("display", "none");
+        
+        $("select[name=txtCAperf]").val('0');
+        $("select[name=txtCAperf]").removeClass("is-invalid");
+        $("select[name=txtCAperf]").removeClass("is-valid");
+        
+        $("input[name=txtAnoCAperf]").val('');
+        $("input[name=txtAnoCAperf]").removeClass("is-invalid");
+        $("input[name=txtAnoCAperf]").removeClass("is-valid");
     }
 });
 
@@ -499,6 +739,14 @@ $("#txtPossuiCAltEstudos").change(function() {
     }
     else if($("#txtPossuiCAltEstudos").val() === "n" || $("#txtPossuiCAltEstudos").val() === "0"){
         $("#divCAltEstudos").css("display", "none");
+        
+        $("select[name=txtCAltEstudos]").val('0');
+        $("select[name=txtCAltEstudos]").removeClass("is-invalid");
+        $("select[name=txtCAltEstudos]").removeClass("is-valid");
+        
+        $("input[name=txtAnoCAltEstudos]").val('');
+        $("input[name=txtAnoCAltEstudos]").removeClass("is-invalid");
+        $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
     }
 });
 
@@ -620,13 +868,13 @@ $("#btnAddSvAmz").click(function(){
                                 "            <label for=txtDInOMSvAmz"+qtdeSvAmz+">De: <span class=\"campo-obrigatorio\">*</span></label>"+
                                 "            <input type=\"date\" class=\"form-control\" id=txtDInOMSvAmz"+qtdeSvAmz+" name=\"txtDInOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
                                 "            <div class=\"valid-feedback\">Selva!</div>"+
-                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "            <div class=\"invalid-feedback invalid-dataInicio\">Campo Obrigatório!</div>"+
                                 "        </div>"+
                                 "        <div class=\"form-group col-md-6\">"+
                                 "            <label for=txtDFimOMSvAmz"+qtdeSvAmz+">Até: <span class=\"campo-obrigatorio\">*</span></label>"+
                                 "            <input type=\"date\" class=\"form-control\" id=txtDFimOMSvAmz"+qtdeSvAmz+" name=\"txtDFimOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
                                 "            <div class=\"valid-feedback\">Selva!</div>"+
-                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "            <div class=\"invalid-feedback invalid-dataFim\">Campo Obrigatório!</div>"+
                                 "        </div>"+  
                                 "    </div>"+  
                                 "    <div class=form-row>"+
@@ -652,8 +900,8 @@ $("#btnAddSvAmz").click(function(){
                                 "</div>");
     functionValidInputTReal("#txtOMNomeSvAmz"+qtdeSvAmz);
     functionValidInputTReal("#txtOMAbrevSvAmz"+qtdeSvAmz);
-    functionValidInputTReal("#txtDInOMSvAmz"+qtdeSvAmz);
-    functionValidInputTReal("#txtDFimOMSvAmz"+qtdeSvAmz);
+    functionValidDInOMSvAmzTReal("#txtDInOMSvAmz"+qtdeSvAmz);
+    functionValidDFimOMSvAmzTReal("#txtDInOMSvAmz"+qtdeSvAmz, "#txtDFimOMSvAmz"+qtdeSvAmz);
     functionValidInputTReal("#txtFunc1OMSvAmz"+qtdeSvAmz);
     functionValidInputTReal("#txtFunc2OMSvAmz"+qtdeSvAmz);
     functionValidInputTReal("#txtFunc3OMSvAmz"+qtdeSvAmz);
@@ -670,6 +918,10 @@ $("#txtTentC").change(function() {
         $("#divTentC").css("display", "none");
         $("#fieldsetTentC .form-row").remove();
         $("#fieldsetTentC div").remove(".tent");
+        
+        $("select[name=txtQntTentC]").val('0');
+        $("select[name=txtQntTentC]").removeClass("is-invalid");
+        $("select[name=txtQntTentC]").removeClass("is-valid");
     }
 });
 
@@ -687,7 +939,7 @@ $("#txtQntTentC").change(function(){
                                    "                <label for=txtAnoTentC"+ i +">Ano: <span class=\"campo-obrigatorio\">*</span></label>"+
                                    "                <input type=\"text\" class=\"form-control\" id=txtAnoTentC"+ i +" name=\"txtAnoTentC\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
                                    "                <div class=\"valid-feedback\">Selva!</div>"+
-                                   "                <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                   "                <div class=\"invalid-feedback invalid-ano\">Campo Obrigatório!</div>"+
                                    "            </div>"+ 
                                    "        </div>"+  
                                    "        <div class=form-row>"+
@@ -737,7 +989,7 @@ $("#txtQntTentC").change(function(){
                                    "        </div>"+  
                                    "    </div>"+
                                    "</div>");
-        functionValidInputTReal("#txtAnoTentC"+i);
+        functionvalidAnoTReal("#txtAnoTentC"+i);
         functionValidInputTReal("#txtOMNomeTentC"+i);
         functionValidInputTReal("#txtOMAbrevTentC"+i);
         functionValidSelectTReal("#txtMtvDeslTentC"+i);
