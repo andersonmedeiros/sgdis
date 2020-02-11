@@ -1619,7 +1619,8 @@
         <script src="../assets/js/formulario/validacao/tempo-real.js"></script>
         <script src="../assets/js/formulario/validacao/ao-carregar-pagina.js"></script>
         <script src="../assets/js/formulario/validacao/campos-especificos.js"></script>-->
-        <script src="../assets/js/formulario/validacao/funcoes-form-cadastroCandidato-cos.js"></script>
+        <script src="../assets/js/formulario/validacao/funcoes-form-cadastroCandidato-cos.js"></script>        
+        <script src="../assets/js/formulario/validacao/teste.json"></script>
         <script src="../assets/js/formulario/validacao/form-casdatroCandidato-cos.js"></script>
         
         <script src="../assets/js/bootstrap-validate.js"></script>
