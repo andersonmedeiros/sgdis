@@ -82,13 +82,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="txtForca">Força: <span class="campo-obrigatorio">*</span></label>
-                                <select class="form-control" id="txtForca" name="txtForca">
-                                    <option value="0" selected>Selecione uma Força...</option>                                  
-                                    <option value="mb">Marinha do Barsil</option>                                  
-                                    <option value="eb">Exército Brasileiro</option>                                  
-                                    <option value="fab">Força Aérea Brasileira</option>                                  
-                                    <option value="1000">Outra</option>                                  
-                                </select>
+                                <select class="form-control" id="txtForca" name="txtForca"></select>
                                 <div class="valid-feedback">Selva!</div>
                                 <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                            
