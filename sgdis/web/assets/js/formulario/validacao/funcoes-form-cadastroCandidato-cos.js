@@ -234,7 +234,6 @@ function validCPFAl(campo){
                 $(campo).removeClass("is-invalid");
                 $(campo).addClass("is-valid");
                 cpfOk = 1;
-                alert(cpfOk);
             }
         // Valida 2o digito	
         add = 0;	
@@ -252,7 +251,6 @@ function validCPFAl(campo){
             $(campo).removeClass("is-invalid");
             $(campo).addClass("is-valid");
             cpfOk = 1;
-            alert(cpfOk);
         }    
     } 
 };
@@ -1969,10 +1967,6 @@ $(document).ready(function(){
     validCEP("input[name=txtCepEndResid]");
     validCEPTReal("input[name=txtCepEndResid]");
     
-    //Campo Select Logradouro Residência    
-    validSelect("select[name=txtLogEndResid]");
-    validSelectTReal("select[name=txtLogEndResid]");
-    
     //Campo Input Endereço Residência
     validInput("input[name=txtNomeEndResid]");
     validInputTReal("input[name=txtNomeEndResid]");
@@ -1981,21 +1975,17 @@ $(document).ready(function(){
     validInput("input[name=txtNumEndResid]");
     validInputTReal("input[name=txtNumEndResid]");
     
-    //Campo Select País Residência    
-    validSelect("select[name=txtPaisEndResid]");
-    validSelectTReal("select[name=txtPaisEndResid]");
+    //Campo Input Estado Residência
+    validInput("input[name=txtEstadoEndResid]");
+    validInputTReal("input[name=txtEstadoEndResid]");
     
-    //Campo Select Estado Residência
-    validSelect("select[name=txtEstadoEndResid]");
-    validSelectTReal("select[name=txtEstadoEndResid]");
+    //Campo Input Cidade Residência
+    validInput("input[name=txtCidadeEndResid]");
+    validInputTReal("input[name=txtCidadeEndResid]");
     
-    //Campo Select Cidade Residência
-    validSelect("select[name=txtCidadeEndResid]");
-    validSelectTReal("select[name=txtCidadeEndResid]");
-    
-    //Campo Select Bairro Residência
-    validSelect("select[name=txtBairroEndResid]");
-    validSelectTReal("select[name=txtBairroEndResid]");
+    //Campo Input Bairro Residência
+    validInput("input[name=txtBairroEndResid]");
+    validInputTReal("input[name=txtBairroEndResid]");
     
     //Campo Select Endereço durante Curso
     validSelect("select[name=txtEndCurso]");
@@ -2005,10 +1995,6 @@ $(document).ready(function(){
     validCEP("input[name=txtCepEndCurso]");
     validCEPTReal("input[name=txtCepEndCurso]");
     
-    //Campo Select Logradouro durante Curso
-    validSelect("select[name=txtLogEndCurso]");
-    validSelectTReal("select[name=txtLogEndCurso]");
-    
     //Campo Input Endereço durante Curso
     validInput("input[name=txtNomeEndCurso]");
     validInputTReal("input[name=txtNomeEndCurso]");
@@ -2017,21 +2003,17 @@ $(document).ready(function(){
     validInput("input[name=txtNumEndCurso]");
     validInputTReal("input[name=txtNumEndCurso]");
     
-    //Campo Select País durante Curso
-    validSelect("select[name=txtPaisEndCurso]");
-    validSelectTReal("select[name=txtPaisEndCurso]");
+    //Campo Input Estado durante Curso
+    validInput("input[name=txtEstadoEndCurso]");
+    validInputTReal("input[name=txtEstadoEndCurso]");
     
-    //Campo Select Estado durante Curso
-    validSelect("select[name=txtEstadoEndCurso]");
-    validSelectTReal("select[name=txtEstadoEndCurso]");
+    //Campo Input Cidade durante Curso
+    validInput("input[name=txtCidadeEndCurso]");
+    validInputTReal("input[name=txtCidadeEndCurso]");
     
-    //Campo Select Cidade durante Curso
-    validSelect("select[name=txtCidadeEndCurso]");
-    validSelectTReal("select[name=txtCidadeEndCurso]");
-    
-    //Campo Select Bairro durante Curso
-    validSelect("select[name=txtBairroEndCurso]");
-    validSelectTReal("select[name=txtBairroEndCurso]");
+    //Campo Input Bairro durante Curso
+    validInput("input[name=txtBairroEndCurso]");
+    validInputTReal("input[name=txtBairroEndCurso]");
     
     //Etapa 7: CURSOS/ESTÁGIOS
     //Campo Select Idiomas    
@@ -3912,11 +3894,6 @@ $(function(){
             $("input[name=txtCepEndResid]").focus();
             $(".invalid-cep").html("CEP Inválido!");       
         }
-        else if($("select[name=txtLogEndResid]").val() == '0'){
-            $("select[name=txtLogEndResid]").removeClass("is-valid");
-            $("select[name=txtLogEndResid]").addClass("is-invalid");
-            $("select[name=txtLogEndResid]").focus();
-        }
         else if($("input[name=txtNomeEndResid]").val() == ''){
             $("input[name=txtNomeEndResid]").removeClass("is-valid");
             $("input[name=txtNomeEndResid]").addClass("is-invalid");
@@ -3927,25 +3904,20 @@ $(function(){
             $("input[name=txtNumEndResid]").addClass("is-invalid");
             $("input[name=txtNumEndResid]").focus();                
         }
-        else if($("select[name=txtPaisEndResid]").val() == '0'){
-            $("select[name=txtPaisEndResid]").removeClass("is-valid");
-            $("select[name=txtPaisEndResid]").addClass("is-invalid");
-            $("select[name=txtPaisEndResid]").focus();
+        else if($("input[name=txtEstadoEndResid]").val() == ''){
+            $("input[name=txtEstadoEndResid]").removeClass("is-valid");
+            $("input[name=txtEstadoEndResid]").addClass("is-invalid");
+            $("input[name=txtEstadoEndResid]").focus();
         }
-        else if($("select[name=txtEstadoEndResid]").val() == '0'){
-            $("select[name=txtEstadoEndResid]").removeClass("is-valid");
-            $("select[name=txtEstadoEndResid]").addClass("is-invalid");
-            $("select[name=txtEstadoEndResid]").focus();
+        else if($("input[name=txtCidadeEndResid]").val() == ''){
+            $("input[name=txtCidadeEndResid]").removeClass("is-valid");
+            $("input[name=txtCidadeEndResid]").addClass("is-invalid");
+            $("input[name=txtCidadeEndResid]").focus();
         }
-        else if($("select[name=txtCidadeEndResid]").val() == '0'){
-            $("select[name=txtCidadeEndResid]").removeClass("is-valid");
-            $("select[name=txtCidadeEndResid]").addClass("is-invalid");
-            $("select[name=txtCidadeEndResid]").focus();
-        }
-        else if($("select[name=txtBairroEndResid]").val() == '0'){
-            $("select[name=txtBairroEndResid]").removeClass("is-valid");
-            $("select[name=txtBairroEndResid]").addClass("is-invalid");
-            $("select[name=txtBairroEndResid]").focus();
+        else if($("input[name=txtBairroEndResid]").val() == ''){
+            $("input[name=txtBairroEndResid]").removeClass("is-valid");
+            $("input[name=txtBairroEndResid]").addClass("is-invalid");
+            $("input[name=txtBairroEndResid]").focus();
         }
         //Enderço durante curso
         else if($("select[name=txtEndCurso]").val() == '0'){
@@ -3967,11 +3939,6 @@ $(function(){
             $("input[name=txtCepEndCurso]").focus();
             $(".invalid-cep").html("CEP Inválido!");       
         }
-        else if($("select[name=txtLogEndCurso]").val() == '0'){
-            $("select[name=txtLogEndCurso]").removeClass("is-valid");
-            $("select[name=txtLogEndCurso]").addClass("is-invalid");
-            $("select[name=txtLogEndCurso]").focus();
-        }
         else if($("input[name=txtNomeEndCurso]").val() == ''){
             $("input[name=txtNomeEndCurso]").removeClass("is-valid");
             $("input[name=txtNomeEndCurso]").addClass("is-invalid");
@@ -3982,25 +3949,20 @@ $(function(){
             $("input[name=txtNumEndCurso]").addClass("is-invalid");
             $("input[name=txtNumEndCurso]").focus();                
         }
-        else if($("select[name=txtPaisEndCurso]").val() == '0'){
-            $("select[name=txtPaisEndCurso]").removeClass("is-valid");
-            $("select[name=txtPaisEndCurso]").addClass("is-invalid");
-            $("select[name=txtPaisEndCurso]").focus();
+        else if($("input[name=txtEstadoEndCurso]").val() == ''){
+            $("input[name=txtEstadoEndCurso]").removeClass("is-valid");
+            $("input[name=txtEstadoEndCurso]").addClass("is-invalid");
+            $("input[name=txtEstadoEndCurso]").focus();
         }
-        else if($("select[name=txtEstadoEndCurso]").val() == '0'){
-            $("select[name=txtEstadoEndCurso]").removeClass("is-valid");
-            $("select[name=txtEstadoEndCurso]").addClass("is-invalid");
-            $("select[name=txtEstadoEndCurso]").focus();
+        else if($("input[name=txtCidadeEndCurso]").val() == ''){
+            $("input[name=txtCidadeEndCurso]").removeClass("is-valid");
+            $("input[name=txtCidadeEndCurso]").addClass("is-invalid");
+            $("input[name=txtCidadeEndCurso]").focus();
         }
-        else if($("select[name=txtCidadeEndCurso]").val() == '0'){
-            $("select[name=txtCidadeEndCurso]").removeClass("is-valid");
-            $("select[name=txtCidadeEndCurso]").addClass("is-invalid");
-            $("select[name=txtCidadeEndCurso]").focus();
-        }
-        else if($("select[name=txtBairroEndCurso]").val() == '0'){
-            $("select[name=txtBairroEndCurso]").removeClass("is-valid");
-            $("select[name=txtBairroEndCurso]").addClass("is-invalid");
-            $("select[name=txtBairroEndCurso]").focus();
+        else if($("input[name=txtBairroEndCurso]").val() == ''){
+            $("input[name=txtBairroEndCurso]").removeClass("is-valid");
+            $("input[name=txtBairroEndCurso]").addClass("is-invalid");
+            $("input[name=txtBairroEndCurso]").focus();
         }
         else{
             proximo($(this));

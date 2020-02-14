@@ -310,11 +310,7 @@ $("select[name=txtEndCurso]").change(function() {
         $("input[name=txtCepEndCurso]").removeClass("is-invalid");
         $("input[name=txtCepEndCurso]").addClass("is-valid");
         
-        $("select[name=txtLogEndCurso]").val("t");
-        $("select[name=txtLogEndCurso]").removeClass("is-invalid");
-        $("select[name=txtLogEndCurso]").addClass("is-valid");
-        
-        $("input[name=txtNomeEndCurso]").val("São Jorge");
+        $("input[name=txtNomeEndCurso]").val("Avenida São Jorge");
         $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
         $("input[name=txtNomeEndCurso]").addClass("is-valid");
         
@@ -322,72 +318,90 @@ $("select[name=txtEndCurso]").change(function() {
         $("input[name=txtNumEndCurso]").removeClass("is-invalid");
         $("input[name=txtNumEndCurso]").addClass("is-valid");
         
-        $("select[name=txtPaisEndCurso]").val("t");
-        $("select[name=txtPaisEndCurso]").removeClass("is-invalid");
-        $("select[name=txtPaisEndCurso]").addClass("is-valid");
+        $("input[name=txtEstadoEndCurso]").val("Amazonas");
+        $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
+        $("input[name=txtEstadoEndCurso]").addClass("is-valid");
         
-        $("select[name=txtEstadoEndCurso]").val("t");
-        $("select[name=txtEstadoEndCurso]").removeClass("is-invalid");
-        $("select[name=txtEstadoEndCurso]").addClass("is-valid");
+        $("input[name=txtCidadeEndCurso]").val("Manaus");
+        $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
+        $("input[name=txtCidadeEndCurso]").addClass("is-valid");
         
-        $("select[name=txtCidadeEndCurso]").val("t");
-        $("select[name=txtCidadeEndCurso]").removeClass("is-invalid");
-        $("select[name=txtCidadeEndCurso]").addClass("is-valid");
-        
-        $("select[name=txtBairroEndCurso]").val("t");
-        $("select[name=txtBairroEndCurso]").removeClass("is-invalid");
-        $("select[name=txtBairroEndCurso]").addClass("is-valid");
+        $("input[name=txtBairroEndCurso]").val("São Jorge");
+        $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
+        $("input[name=txtBairroEndCurso]").addClass("is-valid");
         
         $("input[name=txtCompEndCurso]").val("");
         $("input[name=txtPtRefEndCurso]").val("");
     }
     //Mesmo endereço de residêcnia
     else if($("select[name=txtEndCurso]").val() === "resid"){
-        $("input[name=txtCepEndCurso]").val($("input[name=txtCepEndResid]").val());
-        $("input[name=txtCepEndCurso]").removeClass("is-invalid");
-        $("input[name=txtCepEndCurso]").addClass("is-valid");
-        
-        $("select[name=txtLogEndCurso]").val($("select[name=txtLogEndResid]").val());
-        $("select[name=txtLogEndCurso]").removeClass("is-invalid");
-        $("select[name=txtLogEndCurso]").addClass("is-valid");
-        
-        $("input[name=txtNomeEndCurso]").val($("input[name=txtNomeEndResid]").val());
-        $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
-        $("input[name=txtNomeEndCurso]").addClass("is-valid");
-        
-        $("input[name=txtNumEndCurso]").val($("input[name=txtNumEndResid]").val());
-        $("input[name=txtNumEndCurso]").removeClass("is-invalid");
-        $("input[name=txtNumEndCurso]").addClass("is-valid");
-        
-        $("select[name=txtPaisEndCurso]").val($("select[name=txtPaisEndResid]").val());
-        $("select[name=txtPaisEndCurso]").removeClass("is-invalid");
-        $("select[name=txtPaisEndCurso]").addClass("is-valid");
-        
-        $("select[name=txtEstadoEndCurso]").val($("select[name=txtEstadoEndResid]").val());
-        $("select[name=txtEstadoEndCurso]").removeClass("is-invalid");
-        $("select[name=txtEstadoEndCurso]").addClass("is-valid");
-        
-        $("select[name=txtCidadeEndCurso]").val($("select[name=txtCidadeEndResid]").val());
-        $("select[name=txtCidadeEndCurso]").removeClass("is-invalid");
-        $("select[name=txtCidadeEndCurso]").addClass("is-valid");
-        
-        $("select[name=txtBairroEndCurso]").val($("select[name=txtBairroEndResid]").val());
-        $("select[name=txtBairroEndCurso]").removeClass("is-invalid");
-        $("select[name=txtBairroEndCurso]").addClass("is-valid");
-        
-        $("input[name=txtCompEndCurso]").val($("input[name=txtCompEndResid]").val());        
-        $("input[name=txtPtRefEndCurso]").val($("input[name=txtPtRefEndResid]").val());
-        
+        if($("input[name=txtCepEndResid]").val() != ""){
+            $("input[name=txtCepEndCurso]").val($("input[name=txtCepEndResid]").val());
+            $("input[name=txtCepEndCurso]").removeClass("is-invalid");
+            $("input[name=txtCepEndCurso]").addClass("is-valid");
+
+            $("input[name=txtNomeEndCurso]").val($("input[name=txtNomeEndResid]").val());
+            $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
+            $("input[name=txtNomeEndCurso]").addClass("is-valid");
+
+            $("input[name=txtNumEndCurso]").val($("input[name=txtNumEndResid]").val());
+            $("input[name=txtNumEndCurso]").removeClass("is-invalid");
+            $("input[name=txtNumEndCurso]").addClass("is-valid");
+
+            $("input[name=txtEstadoEndCurso]").val($("input[name=txtEstadoEndResid]").val());
+            $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
+            $("input[name=txtEstadoEndCurso]").addClass("is-valid");
+
+            $("input[name=txtCidadeEndCurso]").val($("input[name=txtCidadeEndResid]").val());
+            $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
+            $("input[name=txtCidadeEndCurso]").addClass("is-valid");
+
+            $("input[name=txtBairroEndCurso]").val($("input[name=txtBairroEndResid]").val());
+            $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
+            $("input[name=txtBairroEndCurso]").addClass("is-valid");
+
+            $("input[name=txtCompEndCurso]").val($("input[name=txtCompEndResid]").val());        
+            $("input[name=txtPtRefEndCurso]").val($("input[name=txtPtRefEndResid]").val());     
+        }
+        else{
+            $("input[name=txtCepEndCurso]").val("");
+            $("input[name=txtCepEndCurso]").removeClass("is-invalid");
+            $("input[name=txtCepEndCurso]").removeClass("is-valid");
+
+            $("input[name=txtNomeEndCurso]").val("");
+            $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
+            $("input[name=txtNomeEndCurso]").removeClass("is-valid");
+
+            $("input[name=txtNumEndCurso]").val("");
+            $("input[name=txtNumEndCurso]").removeClass("is-invalid");
+            $("input[name=txtNumEndCurso]").removeClass("is-valid");
+
+            $("input[name=txtEstadoEndCurso]").val("");
+            $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
+            $("input[name=txtEstadoEndCurso]").removeClass("is-valid");
+
+            $("input[name=txtCidadeEndCurso]").val("");
+            $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
+            $("input[name=txtCidadeEndCurso]").removeClass("is-valid");
+
+            $("input[name=txtBairroEndCurso]").val("");
+            $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
+            $("input[name=txtBairroEndCurso]").removeClass("is-valid");
+
+            $("input[name=txtCompEndCurso]").val("");
+            $("input[name=txtCompEndCurso]").removeClass("is-invalid");
+            $("input[name=txtCompEndCurso]").removeClass("is-valid");
+
+            $("input[name=txtPtRefEndCurso]").val("");
+            $("input[name=txtPtRefEndCurso]").removeClass("is-invalid");
+            $("input[name=txtPtRefEndCurso]").removeClass("is-valid");
+        }
     }
     //Novo
     else if($("select[name=txtEndCurso]").val() === "novo" || $("select[name=txtEndCurso]").val() === "0"){
         $("input[name=txtCepEndCurso]").val("");
         $("input[name=txtCepEndCurso]").removeClass("is-invalid");
         $("input[name=txtCepEndCurso]").removeClass("is-valid");
-        
-        $("select[name=txtLogEndCurso]").val("0");
-        $("select[name=txtLogEndCurso]").removeClass("is-invalid");
-        $("select[name=txtLogEndCurso]").removeClass("is-valid");
                 
         $("input[name=txtNomeEndCurso]").val("");
         $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
@@ -396,22 +410,18 @@ $("select[name=txtEndCurso]").change(function() {
         $("input[name=txtNumEndCurso]").val("");
         $("input[name=txtNumEndCurso]").removeClass("is-invalid");
         $("input[name=txtNumEndCurso]").removeClass("is-valid");
-                
-        $("select[name=txtPaisEndCurso]").val("0");
-        $("select[name=txtPaisEndCurso]").removeClass("is-invalid");
-        $("select[name=txtPaisEndCurso]").removeClass("is-valid");
                         
-        $("select[name=txtEstadoEndCurso]").val("0");
-        $("select[name=txtEstadoEndCurso]").removeClass("is-invalid");
-        $("select[name=txtEstadoEndCurso]").removeClass("is-valid");
+        $("input[name=txtEstadoEndCurso]").val("");
+        $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
+        $("input[name=txtEstadoEndCurso]").removeClass("is-valid");
         
-        $("select[name=txtCidadeEndCurso]").val("0");
-        $("select[name=txtCidadeEndCurso]").removeClass("is-invalid");
-        $("select[name=txtCidadeEndCurso]").removeClass("is-valid");
+        $("input[name=txtCidadeEndCurso]").val("");
+        $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
+        $("input[name=txtCidadeEndCurso]").removeClass("is-valid");
         
-        $("select[name=txtBairroEndCurso]").val("0");
-        $("select[name=txtBairroEndCurso]").removeClass("is-invalid");
-        $("select[name=txtBairroEndCurso]").removeClass("is-valid");
+        $("input[name=txtBairroEndCurso]").val("");
+        $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
+        $("input[name=txtBairroEndCurso]").removeClass("is-valid");
         
         $("input[name=txtCompEndCurso]").val("");
         $("input[name=txtCompEndCurso]").removeClass("is-invalid");
