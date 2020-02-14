@@ -87,12 +87,18 @@
                                 <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                            
                             <div class="form-group col-md-4">
+                                <label for="txtEstadoForca">Estado: <span class="campo-obrigatorio">*</span></label>
+                                <select class="form-control" id="txtEstadoForca" name="txtEstadoForca"></select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                            </div>                            
+                            <div class="form-group col-md-2">
                                 <label for="txtGCmdo">Grande Comando: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="txtGCmdo" name="txtGCmdo" placeholder="Ex.: CMA">
                                 <div class="valid-feedback">Selva!</div>
                                 <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-2">
                                 <label for="txtEscEnq">Escalão Enquadrante: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="txtEscEnq" name="txtEscEnq" placeholder="Ex.: 12ª RM, 16ª Bda Inf Sl etc.">
                                 <div class="valid-feedback">Selva!</div>
@@ -106,10 +112,16 @@
                             <div class="form-row">                          
                                 <div class="form-group col-md-6">
                                     <label for="txtNomeOM">Nome: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtNomeOM" name="txtNomeOM" placeholder="Ex.: Centro de Instrução de Guerra na Selva">
+                                    <select class="form-control" id="txtNomeOM" name="txtNomeOM"></select>
                                     <div class="valid-feedback">Selva!</div>
                                     <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
+                                <!--<div class="form-group col-md-6">
+                                    <label for="txtNomeOM">Nome: <span class="campo-obrigatorio">*</span></label>
+                                    <input type="text" class="form-control" id="txtNomeOM" name="txtNomeOM" placeholder="Ex.: Centro de Instrução de Guerra na Selva">
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                </div>-->
                                 <div class="form-group col-md-3">
                                     <label for="txtAbrevOM">Abreviatura: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtAbrevOM" name="txtAbrevOM" placeholder="Ex.: CIGS">
@@ -1580,6 +1592,7 @@
         <script src="../assets/js/formulario/validacao/form-casdatroCandidato-cos.js"></script>
         <script src="../assets/js/formulario/camposdinamico/estados-cidades.js"></script>
         <script src="../assets/js/formulario/camposdinamico/enderecodinamico.js"></script>
+        <script src="../assets/js/formulario/camposdinamico/forca.js"></script>
         
         <script src="../assets/js/bootstrap-validate.js"></script>
         <!--<script>
