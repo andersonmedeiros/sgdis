@@ -60,6 +60,10 @@
         <servlet-name>CadastrarAssunto</servlet-name>
         <servlet-class>controller.assunto.CadastrarAssunto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InicioCadastro</servlet-name>
+        <servlet-class>controller.candidato.InicioCadastro</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Autenticador</servlet-name>
         <url-pattern>/Autenticador</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarAssunto</servlet-name>
         <url-pattern>/restrito/controller.assunto/CadastrarAssunto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InicioCadastro</servlet-name>
+        <url-pattern>/restrito/candidato/controller.candidato/InicioCadastro</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

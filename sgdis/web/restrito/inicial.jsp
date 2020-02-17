@@ -50,7 +50,7 @@
                                 DivAl
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
-                                <a class="dropdown-item" href="../restrito/cadastroCandidato.jsp">Cadastrar Candidato</a>
+                                <a class="dropdown-item" href="../restrito/candidato/inicio.jsp">Cadastrar Candidato</a>
                             </div>
                         </li>
                     </ul>

@@ -142,7 +142,7 @@ function carregar_forca(id, pgId){
                 $("#txtPGradCmtOM").removeClass("is-invalid");
                 $("#txtPGradCmtOM").removeClass("is-valid");
                 
-                $("#txtPGradChImtoOM").html("");
+                /*$("#txtPGradChImtoOM").html("");
                 $("#txtPGradChImtoOM").append("<option value=0>Selecione um Posto/Graduação...</option>");
                 $("#txtPGradChImtoOM").removeClass("is-invalid");
                 $("#txtPGradChImtoOM").removeClass("is-valid");
@@ -150,17 +150,17 @@ function carregar_forca(id, pgId){
                 $("#txtPGradAl").html("");
                 $("#txtPGradAl").append("<option value=0>Selecione um Posto/Graduação...</option>");
                 $("#txtPGradAl").removeClass("is-invalid");
-                $("#txtPGradAl").removeClass("is-valid");
+                $("#txtPGradAl").removeClass("is-valid");*/
                 for(var j=0; j<forca.forca[i].postoGraduacao.length; j++){
                     if((forca.forca[i].postoGraduacao[j].categoria == "ofgen") || (forca.forca[i].postoGraduacao[j].categoria == "ofsup")){
-                        $("#txtPGradCmtOM").append("<option value="+forca.forca[i].sigla+">"+forca.forca[i].postoGraduacao[j].nome+"</option>");
+                        $("#txtPGradCmtOMcatB").append("<option value="+forca.forca[i].sigla+">"+forca.forca[i].postoGraduacao[j].nome+"</option>");
                     }
-                    if((forca.forca[i].postoGraduacao[j].categoria == "ofgen") || (forca.forca[i].postoGraduacao[j].categoria == "ofsup") || (forca.forca[i].postoGraduacao[j].categoria == "ofinter") || (forca.forca[i].postoGraduacao[j].categoria == "ofsubalt")){
+                    /*if((forca.forca[i].postoGraduacao[j].categoria == "ofgen") || (forca.forca[i].postoGraduacao[j].categoria == "ofsup") || (forca.forca[i].postoGraduacao[j].categoria == "ofinter") || (forca.forca[i].postoGraduacao[j].categoria == "ofsubalt")){
                         $("#txtPGradChImtoOM").append("<option value="+forca.forca[i].sigla+">"+forca.forca[i].postoGraduacao[j].nome+"</option>");
                     }
                     if((forca.forca[i].postoGraduacao[j].categoria == "ofinter") || (forca.forca[i].postoGraduacao[j].categoria == "ofsubalt") || (forca.forca[i].postoGraduacao[j].categoria == "praca")){
                         $("#txtPGradAl").append("<option value="+forca.forca[i].sigla+">"+forca.forca[i].postoGraduacao[j].nome+"</option>");
-                    }
+                    }*/
                 }
             }            
         }
@@ -178,7 +178,7 @@ $(function(){
             $("#txtPGradCmtOM").removeClass("is-invalid");
             $("#txtPGradCmtOM").removeClass("is-valid");
 
-            $("#txtPGradChImtoOM").html("");
+            /*$("#txtPGradChImtoOM").html("");
             $("#txtPGradChImtoOM").append("<option value=0>Selecione um Posto/Graduação...</option>");
             $("#txtPGradChImtoOM").removeClass("is-invalid");
             $("#txtPGradChImtoOM").removeClass("is-valid");
@@ -186,7 +186,7 @@ $(function(){
             $("#txtPGradAl").html("");
             $("#txtPGradAl").append("<option value=0>Selecione um Posto/Graduação...</option>");
             $("#txtPGradAl").removeClass("is-invalid");
-            $("#txtPGradAl").removeClass("is-valid");
+            $("#txtPGradAl").removeClass("is-valid");*/
         }
         else if(pgId != null){
             carregar_forca("#txtPGradCmtOM", pgId);            

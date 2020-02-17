@@ -36,3 +36,21 @@ section{
 .modal-header, .modal-footer{
     background-color: rgba(40,167,59,0.6);
 }
+
+.formCad{    
+    margin: 50px auto;
+    position: relative;
+}
+
+.formCad fieldset{
+    background: white;
+    border: 0 none;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    
+    box-shadow: 0 0 15px 1px rgba(0,0,0,0.4);
+    
+    box-sizing: border-box;
+    width: 100%;
+}
