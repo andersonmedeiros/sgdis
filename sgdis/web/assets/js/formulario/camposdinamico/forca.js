@@ -34,71 +34,17 @@ var dados_forca = {
             "estados": [
                 {
                     "sigla": "AC",
-                    "nome": "56546fdgyh",
+                    "nome": "Acre",
                     "om": [
-                        {
-                            "sigla": "4ª DSM/31º CSM",
-                            "nome": "4ª Delegacia do Serviço Militar da 31ª C S M"
-                        },
-                        {
-                            "sigla": "61º BIS",
-                            "nome": "61º Batalhão de Infantaria de Selva"
-                        },
-                        {
-                            "sigla": "7º BEC",
-                            "nome": "7º Batalhão de Engenharia de Construção"
-                        },
-                        {
-                            "sigla": "CFAC/4º BIS",
-                            "nome": "Comando de Fronteira Acre e 4º Batalhão de Infantaria de Selva"
-                        }
+                        
                         
                     ]
                 },
                 {
                     "sigla": "AL",
-                    "nome": "rgtfdfdg5445",
+                    "nome": "Alagoas",
                     "om": [
-                        {
-                            "sigla": "20ª CSM",
-                            "nome": "20ª Circunscrição de Serviço Militar"
-                        },
-                        {
-                            "sigla": "1ª DSM/20º CSM",
-                            "nome": "1ª Delegacia do Serviço Militar da 20ª C S M"
-                        },
-                        {
-                            "sigla": "4º DSM/20º CSM",
-                            "nome": "4ª Delegacia do Serviço Militar da 20ª C S M"
-                        },
-                        {
-                            "sigla": "5º DSM/20º CSM",
-                            "nome": "5ª Delegacia do Serviço Militar da 20ª C S M"
-                        },
-                        {
-                            "sigla": "6º DSM/20º CSM",
-                            "nome": "6ª Delegacia do Serviço Militar da 20ª C S M"
-                        },
-                        {
-                            "sigla": "TG 07/015",
-                            "nome": "Tiro de Guerra de Arapiraca"
-                        },
-                        {
-                            "sigla": "TG 07/007",
-                            "nome": "Tiro de Guerra de Palmeira dos Índios"
-                        },
-                        {
-                            "sigla": "TG 07/008",
-                            "nome": "Tiro de Guerra de São José da Laje"
-                        },
-                        {
-                            "sigla": "TG 07/022",
-                            "nome": "Tiro de Guerra de Teotônio Vilela"
-                        },
-                        {
-                            "sigla": "59º BIMTZ",
-                            "nome": "59º Batalhão de Infantaria Motorizado"
-                        }
+                        
                     ]
                 }
             ]
@@ -150,7 +96,6 @@ var dados_forca = {
                             "sigla": "CFAC/4º BIS",
                             "nome": "Comando de Fronteira Acre e 4º Batalhão de Infantaria de Selva"
                         }
-                        
                     ]
                 },
                 {
@@ -231,7 +176,7 @@ var dados_forca = {
             "estados": [
                 {
                     "sigla": "AC",
-                    "nome": "Aasdnfh",
+                    "nome": "Acrefab",
                     "om": [
                         {
                             "sigla": "4ª DSM/31º CSM",
@@ -254,7 +199,7 @@ var dados_forca = {
                 },
                 {
                     "sigla": "AL",
-                    "nome": "Adsfdsfdsfsdf2",
+                    "nome": "Alagoasfab",
                     "om": [
                         {
                             "sigla": "20ª CSM",
@@ -303,19 +248,18 @@ var dados_forca = {
     ]
 };
 
-function carregar_forca(id, estadoForca){
-    if((id == "txtForca") && (estadoForca == null)){
+function carregar_forca(id, sigla_forca){
+    if((id == "txtForca") && (sigla_forca == null)){
         $("#txtForca").html("");
         $("#txtForca").append("<option value=0>Selecione uma Força...</option>");
         $("#txtForca").removeClass("is-invalid");
-        $("#txtForca").removeClass("is-valid");
-        
+        $("#txtForca").removeClass("is-valid");        
         for(var i=0; i<dados_forca.forca.length; i++){
             $("#txtForca").append("<option value="+"'"+dados_forca.forca[i].sigla+"'"+">"+dados_forca.forca[i].nome+"</option>");
         }
     }else{
         for(var i=0; dados_forca.forca.length; i++){
-            if(dados_forca.forca[i].sigla == estadoForca){
+            if(dados_forca.forca[i].sigla == sigla_forca){
                 $("#txtEstadoForca").html("");
                 $("#txtEstadoForca").append("<option value=0>Selecione um Estado...</option>");
                 $("#txtEstadoForca").removeClass("is-invalid");
@@ -324,7 +268,6 @@ function carregar_forca(id, estadoForca){
                     $("#txtEstadoForca").append("<option value="+"'"+dados_forca.forca[i].estados[j].sigla+"'"+">"+dados_forca.forca[i].estados[j].nome+"</option>");
                 }
             }
-            break;
         }
     }
 };
@@ -342,7 +285,6 @@ function carregar_estado_om(id, sigla_forca, estado_om){
                         $("#txtNomeOM").append("<option value="+"'"+dados_forca.forca[i].estados[j].om[k].sigla+"'"+">"+dados_forca.forca[i].estados[j].om[k].nome+"</option>");
                     }
                 }
-
             }
         }            
     }
@@ -365,25 +307,35 @@ function carregar_estado(id, sigla_forca){
 function carregar_pg(id, sigla_forca){    
     for(var i=0; dados_forca.forca.length; i++){
         if(dados_forca.forca[i].sigla == sigla_forca){
+                $("#txtPGradCmtOMcatA").html("");
                 $("#txtPGradCmtOMcatB").html("");
+                $("#txtPGradCmtOMcatC").html("");
+                $("#txtPGradCmtOMcatU").html("");
+                $("#txtPGradCmtOMcatA").append("<option value=0>Selecione um Posto/Graduação...</option>");
                 $("#txtPGradCmtOMcatB").append("<option value=0>Selecione um Posto/Graduação...</option>");
-                $("#txtPGradCmtOM").removeClass("is-invalid");
-                $("#txtPGradCmtOM").removeClass("is-valid");
+                $("#txtPGradCmtOMcatC").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradCmtOMcatU").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradCmtOMcatA").removeClass("is-invalid");
+                $("#txtPGradCmtOMcatB").removeClass("is-invalid");
+                $("#txtPGradCmtOMcatC").removeClass("is-invalid");
+                $("#txtPGradCmtOMcatU").removeClass("is-invalid");
+                $("#txtPGradCmtOMcatA").removeClass("is-valid");
+                $("#txtPGradCmtOMcatB").removeClass("is-valid");
+                $("#txtPGradCmtOMcatC").removeClass("is-valid");
+                $("#txtPGradCmtOMcatU").removeClass("is-valid");
             for(var j=0; j<dados_forca.forca[i].postoGraduacao.length; j++){
-                if((dados_forca.forca[i].postoGraduacao[j].categoria == "ofsubalt") /*|| (dados_forca.forca[i].postoGraduacao[j].categoria == "ofsup")*/){
-                    $("#txtPGradCmtOMcatB").append("<option value="+dados_forca.forca[i].sigla+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                if((dados_forca.forca[i].postoGraduacao[j].categoria == "ofsubalt") || (dados_forca.forca[i].postoGraduacao[j].categoria == "ofinter")){
+                    $("#txtPGradCmtOMcatB").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
                 }
                 if((dados_forca.forca[i].postoGraduacao[j].categoria == "ofsup") /*|| (dados_forca.forca[i].postoGraduacao[j].categoria == "ofsup")*/){
-                    $("#txtPGradCmtOMcatA").append("<option value="+dados_forca.forca[i].sigla+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                    $("#txtPGradCmtOMcatA").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
                 }
                 if((dados_forca.forca[i].postoGraduacao[j].categoria == "praca") /*|| (dados_forca.forca[i].postoGraduacao[j].categoria == "ofsup")*/){
-                    $("#txtPGradCmtOMcatC").append("<option value="+dados_forca.forca[i].sigla+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                    $("#txtPGradCmtOMcatC").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
                 }
-                
-                    $("#txtPGradCmtOMcatU").append("<option value="+dados_forca.forca[i].sigla+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
-                
+                $("#txtPGradCmtOMcatU").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
             }
-                
+            break;     
         }            
     }
 };
@@ -405,7 +357,8 @@ function carregar_sigla_om(id, sigla_forca, estado_om, sigla_om){
     }
 };
 
-function limpa_form_om(){
+//Função para limpar os campos dependentes ao mudar o valor da força
+function limpa_form_estado_forca(){
     $("#txtEstadoForca").html("");
     $("#txtEstadoForca").append("<option value=0>Selecione um Estado...</option>");
     $("#txtEstadoForca").removeClass("is-invalid");
@@ -421,33 +374,58 @@ function limpa_form_om(){
     $("#txtAbrevOM").removeClass("is-valid");
 }
 
+//Função para limpar os campos dependentes ao mudar o valor do estado da força
+function limpa_form_om(){
+    $("#txtNomeOM").html("");
+    $("#txtNomeOM").append("<option value=0>Selecione uma Organização Militar...</option>");
+    $("#txtNomeOM").removeClass("is-invalid");
+    $("#txtNomeOM").removeClass("is-valid");
+
+    $("#txtAbrevOM").val('');
+    $("#txtAbrevOM").removeClass("is-invalid");
+    $("#txtAbrevOM").removeClass("is-valid");
+}
+
+//Função para limpar o campo específico
+function limpa_campo(campo, msg){
+    $(campo).html("");
+    $(campo).append("<option value=0>Selecione "+ msg +"...</option>");
+    $(campo).removeClass("is-invalid");
+    $(campo).removeClass("is-valid");
+}
+
 $(function(){
     carregar_forca("txtForca"); 
     
     if($("#txtForca").val() == "0"){
-        limpa_form_om();
+        limpa_form_estado_forca();
+        limpa_campo("#txtPGradCmtOMcatA", "um Posto/Graduação");
+        limpa_campo("#txtPGradCmtOMcatB", "um Posto/Graduação");
+        limpa_campo("#txtPGradCmtOMcatC", "um Posto/Graduação");
+        limpa_campo("#txtPGradCmtOMcatU", "um Posto/Graduação");
     }
     $("#txtForca").change(function(){
-        var estForca = $(this).val();
-        var siglaForca = $(this).val();
-        if($("#txtForca").val() == "0"){
-            limpa_form_om();
-        }
-        if(estForca != null){
-            carregar_forca("#txtEstadoForca", estForca);            
+        var sigla_forca = $(this).val();
         
-            carregar_pg("#txtPG", siglaForca);            
+        if($("#txtForca").val() == "0"){
+            limpa_form_estado_forca();
+            limpa_campo("#txtPGradCmtOMcatA", "um Posto/Graduação");
+            limpa_campo("#txtPGradCmtOMcatB", "um Posto/Graduação");
+            limpa_campo("#txtPGradCmtOMcatC", "um Posto/Graduação");
+            limpa_campo("#txtPGradCmtOMcatU", "um Posto/Graduação");
+        }
+        if(sigla_forca != null){
+            carregar_pg("#txtPG", sigla_forca);
+            carregar_forca("#txtEstadoForca", sigla_forca);                
         }
     });
     
     $("#txtEstadoForca").change(function(){
+        limpa_form_om();
         var estado_om = $(this).val();
         var sigla_forca = $("#txtForca").val();
         if($("#txtEstadoForca").val() == "0"){
-            $("#txtNomeOM").html("");
-            $("#txtNomeOM").append("<option value=0>Selecione uma Organização Militar...</option>");
-            $("#txtNomeOM").removeClass("is-invalid");
-            $("#txtNomeOM").removeClass("is-valid");
+            limpa_form_om();
         }
         else if($("#txtEstadoForca").val() != null){
             carregar_estado_om("#txtNomeOM", sigla_forca, estado_om);            
@@ -459,10 +437,6 @@ $(function(){
         var sigla_forca = $("#txtForca").val();
         var estado_om = $("#txtEstadoForca").val();
         
-        carregar_sigla_om("#txtAbrevOM", sigla_forca, estado_om, sigla_om);            
-        
+        carregar_sigla_om("#txtAbrevOM", sigla_forca, estado_om, sigla_om);
     });
-    
-    
-    
 });

@@ -130,6 +130,24 @@
                                                             "<div class=\"valid-feedback\">Selva!</div>"+
                                                             "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                                         "</div>"+
+                                                        "<div class=\"form-group col-md-2\">"+
+                                                            "<label for=\"txtNomeCmtOM\">Nome: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                            "<input type=\"text\" class=\"form-control\" id=\"txtNomeCmtOM\" name=\"txtNomeCmtOM\" placeholder=\"Ex.: Fulano\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                        "</div>"+
+                                                        "<div class=\"form-group col-md-5\">"+
+                                                            "<label for=\"txtSobrenomeCmtOM\">Sobrenome: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                            "<input type=\"text\" class=\"form-control\" id=\"txtSobrenomeCmtOM\" name=\"txtSobrenomeCmtOM\" placeholder=\"Ex.: de Tal\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                        "</div>"+
+                                                        "<div class=\"form-group col-md-2\">"+
+                                                            "<label for=\"txtNomeGuerraCmtOM\">Nome de Guerra: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                            "<input type=\"text\" class=\"form-control\" id=\"txtNomeGuerraCmtOM\" name=\"txtNomeGuerraCmtOM\" placeholder=\"Ex.: De Tal\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                        "</div>"+
                                                     "</div>"+
                                                 "</div> "+
                                         "</div>"+
