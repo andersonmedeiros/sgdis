@@ -1987,6 +1987,14 @@ $(document).ready(function(){
     validInput("input[name=txtBairroEndResid]");
     validInputTReal("input[name=txtBairroEndResid]");
     
+    //Campo Input Complemento Residência
+    validInput("input[name=txtCompEndResid]");
+    validInputTReal("input[name=txtCompEndResid]");
+    
+    //Campo Input Ponto de Referencia Residência
+    validInput("input[name=txtPtRefEndResid]");
+    validInputTReal("input[name=txtPtRefEndResid]");
+    
     //Campo Select Endereço durante Curso
     validSelect("select[name=txtEndCurso]");
     validSelectTReal("select[name=txtEndCurso]");
@@ -2014,6 +2022,14 @@ $(document).ready(function(){
     //Campo Input Bairro durante Curso
     validInput("input[name=txtBairroEndCurso]");
     validInputTReal("input[name=txtBairroEndCurso]");
+    
+    //Campo Input Complemento durante Curso
+    validInput("input[name=txtCompEndCurso]");
+    validInputTReal("input[name=txtCompEndCurso]");
+    
+    //Campo Input Ponto de Referencia durante Curso
+    validInput("input[name=txtPtRefEndCurso]");
+    validInputTReal("input[name=txtPtRefEndCurso]");
     
     //Etapa 7: CURSOS/ESTÁGIOS
     //Campo Select Idiomas    

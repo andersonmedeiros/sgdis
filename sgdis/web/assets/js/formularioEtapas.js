@@ -309,10 +309,12 @@ $("select[name=txtEndCurso]").change(function() {
         $("input[name=txtCepEndCurso]").val("69033-000");
         $("input[name=txtCepEndCurso]").removeClass("is-invalid");
         $("input[name=txtCepEndCurso]").addClass("is-valid");
+        $("input[name=txtCepEndCurso]").prop("readonly", true);
         
         $("input[name=txtNomeEndCurso]").val("Avenida São Jorge");
         $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
         $("input[name=txtNomeEndCurso]").addClass("is-valid");
+        $("input[name=txtNomeEndCurso]").prop("readonly", true);
         
         $("input[name=txtNumEndCurso]").val("750");
         $("input[name=txtNumEndCurso]").removeClass("is-invalid");
@@ -321,14 +323,17 @@ $("select[name=txtEndCurso]").change(function() {
         $("input[name=txtEstadoEndCurso]").val("Amazonas");
         $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
         $("input[name=txtEstadoEndCurso]").addClass("is-valid");
+        $("input[name=txtEstadoEndCurso]").prop("readonly", true);
         
         $("input[name=txtCidadeEndCurso]").val("Manaus");
         $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
         $("input[name=txtCidadeEndCurso]").addClass("is-valid");
+        $("input[name=txtCidadeEndCurso]").prop("readonly", true);
         
         $("input[name=txtBairroEndCurso]").val("São Jorge");
         $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
         $("input[name=txtBairroEndCurso]").addClass("is-valid");
+        $("input[name=txtBairroEndCurso]").prop("readonly", true);
         
         $("input[name=txtCompEndCurso]").val("");
         $("input[name=txtPtRefEndCurso]").val("");
@@ -336,65 +341,148 @@ $("select[name=txtEndCurso]").change(function() {
     //Mesmo endereço de residêcnia
     else if($("select[name=txtEndCurso]").val() === "resid"){
         if($("input[name=txtCepEndResid]").val() != ""){
-            $("input[name=txtCepEndCurso]").val($("input[name=txtCepEndResid]").val());
-            $("input[name=txtCepEndCurso]").removeClass("is-invalid");
-            $("input[name=txtCepEndCurso]").addClass("is-valid");
-
-            $("input[name=txtNomeEndCurso]").val($("input[name=txtNomeEndResid]").val());
-            $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
-            $("input[name=txtNomeEndCurso]").addClass("is-valid");
-
-            $("input[name=txtNumEndCurso]").val($("input[name=txtNumEndResid]").val());
-            $("input[name=txtNumEndCurso]").removeClass("is-invalid");
-            $("input[name=txtNumEndCurso]").addClass("is-valid");
-
-            $("input[name=txtEstadoEndCurso]").val($("input[name=txtEstadoEndResid]").val());
-            $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
-            $("input[name=txtEstadoEndCurso]").addClass("is-valid");
-
-            $("input[name=txtCidadeEndCurso]").val($("input[name=txtCidadeEndResid]").val());
-            $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
-            $("input[name=txtCidadeEndCurso]").addClass("is-valid");
-
-            $("input[name=txtBairroEndCurso]").val($("input[name=txtBairroEndResid]").val());
-            $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
-            $("input[name=txtBairroEndCurso]").addClass("is-valid");
-
-            $("input[name=txtCompEndCurso]").val($("input[name=txtCompEndResid]").val());        
-            $("input[name=txtPtRefEndCurso]").val($("input[name=txtPtRefEndResid]").val());     
+            if($("input[name=txtCepEndResid]").val() != ""){
+                $("input[name=txtCepEndCurso]").val($("input[name=txtCepEndResid]").val());
+                $("input[name=txtCepEndCurso]").removeClass("is-invalid");
+                $("input[name=txtCepEndCurso]").addClass("is-valid");
+                $("input[name=txtCepEndCurso]").prop("readonly", true);
+            }
+            else{
+                $("input[name=txtCepEndCurso]").val();
+                $("input[name=txtCepEndCurso]").removeClass("is-invalid");
+                $("input[name=txtCepEndCurso]").removeClass("is-valid");
+                $("input[name=txtCepEndCurso]").prop("readonly", false);
+            }
+            
+            if($("input[name=txtNomeEndResid]").val() != ""){
+                $("input[name=txtNomeEndCurso]").val($("input[name=txtNomeEndResid]").val());
+                $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
+                $("input[name=txtNomeEndCurso]").addClass("is-valid");
+                $("input[name=txtNomeEndCurso]").prop("readonly", true);
+            }
+            else{
+                $("input[name=txtNomeEndCurso]").val("");
+                $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
+                $("input[name=txtNomeEndCurso]").removeClass("is-valid");
+                $("input[name=txtNomeEndCurso]").prop("readonly", false);
+            }
+            
+            if($("input[name=txtNumEndResid]").val() != ""){
+                $("input[name=txtNumEndCurso]").val($("input[name=txtNumEndResid]").val());
+                $("input[name=txtNumEndCurso]").removeClass("is-invalid");
+                $("input[name=txtNumEndCurso]").addClass("is-valid");
+                $("input[name=txtNumEndCurso]").prop("readonly", true);
+            }
+            else{
+                $("input[name=txtNumEndCurso]").val("");
+                $("input[name=txtNumEndCurso]").removeClass("is-invalid");
+                $("input[name=txtNumEndCurso]").removeClass("is-valid");
+                $("input[name=txtNumEndCurso]").prop("readonly", false);
+            }
+            
+            if($("input[name=txtEstadoEndResid]").val() != ""){
+                $("input[name=txtEstadoEndCurso]").val($("input[name=txtEstadoEndResid]").val());
+                $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
+                $("input[name=txtEstadoEndCurso]").addClass("is-valid");
+                $("input[name=txtEstadoEndCurso]").prop("readonly", true);
+            }
+            else{
+                $("input[name=txtEstadoEndCurso]").val("");
+                $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
+                $("input[name=txtEstadoEndCurso]").removeClass("is-valid");
+                $("input[name=txtEstadoEndCurso]").prop("readonly", false);
+            }
+            
+            if($("input[name=txtCidadeEndResid]").val() != ""){
+                $("input[name=txtCidadeEndCurso]").val($("input[name=txtCidadeEndResid]").val());
+                $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
+                $("input[name=txtCidadeEndCurso]").addClass("is-valid");
+                $("input[name=txtCidadeEndCurso]").prop("readonly", true);
+            }
+            else{
+                $("input[name=txtCidadeEndCurso]").val("");
+                $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
+                $("input[name=txtCidadeEndCurso]").removeClass("is-valid");
+                $("input[name=txtCidadeEndCurso]").prop("readonly", false);
+            }
+            
+            if($("input[name=txtBairroEndResid]").val() != ""){
+                $("input[name=txtBairroEndCurso]").val($("input[name=txtBairroEndResid]").val());
+                $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
+                $("input[name=txtBairroEndCurso]").addClass("is-valid");
+                $("input[name=txtBairroEndCurso]").prop("readonly", true);
+            }
+            else{
+                $("input[name=txtBairroEndCurso]").val("");
+                $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
+                $("input[name=txtBairroEndCurso]").removeClass("is-valid");
+                $("input[name=txtBairroEndCurso]").prop("readonly",false);
+            }
+            if($("input[name=txtCompEndResid]").val() != ""){
+                $("input[name=txtCompEndCurso]").val($("input[name=txtCompEndResid]").val());
+                $("input[name=txtCompEndCurso]").removeClass("is-invalid");
+                $("input[name=txtCompEndCurso]").addClass("is-valid");
+                $("input[name=txtCompEndCurso]").prop("readonly", true);
+            }
+            else{
+                $("input[name=txtCompEndCurso]").val("");
+                $("input[name=txtCompEndCurso]").removeClass("is-invalid");
+                $("input[name=txtCompEndCurso]").removeClass("is-valid");
+                $("input[name=txtCompEndCurso]").prop("readonly", false);
+            }
+            if($("input[name=txtPtRefEndResid]").val() != ""){
+                $("input[name=txtPtRefEndCurso]").val($("input[name=txtPtRefEndResid]").val());
+                $("input[name=txtPtRefEndCurso]").removeClass("is-invalid");
+                $("input[name=txtPtRefEndCurso]").addClass("is-valid");
+                $("input[name=txtPtRefEndCurso]").prop("readonly", true);
+            }
+            else{
+                $("input[name=txtPtRefEndCurso]").val("");
+                $("input[name=txtPtRefEndCurso]").removeClass("is-invalid");
+                $("input[name=txtPtRefEndCurso]").removeClass("is-valid");
+                $("input[name=txtPtRefEndCurso]").prop("readonly", false);
+            }
         }
         else{
             $("input[name=txtCepEndCurso]").val("");
             $("input[name=txtCepEndCurso]").removeClass("is-invalid");
             $("input[name=txtCepEndCurso]").removeClass("is-valid");
+            $("input[name=txtCepEndCurso]").prop("readonly", false);
 
             $("input[name=txtNomeEndCurso]").val("");
             $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
             $("input[name=txtNomeEndCurso]").removeClass("is-valid");
+            $("input[name=txtNomeEndCurso]").prop("readonly", false);
 
             $("input[name=txtNumEndCurso]").val("");
             $("input[name=txtNumEndCurso]").removeClass("is-invalid");
             $("input[name=txtNumEndCurso]").removeClass("is-valid");
+            $("input[name=txtNumEndCurso]").prop("readonly", false);
 
             $("input[name=txtEstadoEndCurso]").val("");
             $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
             $("input[name=txtEstadoEndCurso]").removeClass("is-valid");
+            $("input[name=txtEstadoEndCurso]").prop("readonly", false);
 
             $("input[name=txtCidadeEndCurso]").val("");
             $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
             $("input[name=txtCidadeEndCurso]").removeClass("is-valid");
+            $("input[name=txtCidadeEndCurso]").prop("readonly", false);
 
             $("input[name=txtBairroEndCurso]").val("");
             $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
             $("input[name=txtBairroEndCurso]").removeClass("is-valid");
+            $("input[name=txtBairroEndCurso]").prop("readonly", false);
 
             $("input[name=txtCompEndCurso]").val("");
             $("input[name=txtCompEndCurso]").removeClass("is-invalid");
             $("input[name=txtCompEndCurso]").removeClass("is-valid");
+            $("input[name=txtCompEndCurso]").prop("readonly", false);
 
             $("input[name=txtPtRefEndCurso]").val("");
             $("input[name=txtPtRefEndCurso]").removeClass("is-invalid");
             $("input[name=txtPtRefEndCurso]").removeClass("is-valid");
+            $("input[name=txtPtRefEndCurso]").prop("readonly", false);
         }
     }
     //Novo
@@ -402,34 +490,42 @@ $("select[name=txtEndCurso]").change(function() {
         $("input[name=txtCepEndCurso]").val("");
         $("input[name=txtCepEndCurso]").removeClass("is-invalid");
         $("input[name=txtCepEndCurso]").removeClass("is-valid");
+        $("input[name=txtCepEndCurso]").prop("readonly", false);
                 
         $("input[name=txtNomeEndCurso]").val("");
         $("input[name=txtNomeEndCurso]").removeClass("is-invalid");
         $("input[name=txtNomeEndCurso]").removeClass("is-valid");
+        $("input[name=txtNomeEndCurso]").prop("readonly", false);
                 
         $("input[name=txtNumEndCurso]").val("");
         $("input[name=txtNumEndCurso]").removeClass("is-invalid");
         $("input[name=txtNumEndCurso]").removeClass("is-valid");
+        $("input[name=txtNumEndCurso]").prop("readonly", false);
                         
         $("input[name=txtEstadoEndCurso]").val("");
         $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
         $("input[name=txtEstadoEndCurso]").removeClass("is-valid");
+        $("input[name=txtEstadoEndCurso]").prop("readonly", false);
         
         $("input[name=txtCidadeEndCurso]").val("");
         $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
         $("input[name=txtCidadeEndCurso]").removeClass("is-valid");
+        $("input[name=txtCidadeEndCurso]").prop("readonly", false);
         
         $("input[name=txtBairroEndCurso]").val("");
         $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
         $("input[name=txtBairroEndCurso]").removeClass("is-valid");
+        $("input[name=txtBairroEndCurso]").prop("readonly", false);
         
         $("input[name=txtCompEndCurso]").val("");
         $("input[name=txtCompEndCurso]").removeClass("is-invalid");
         $("input[name=txtCompEndCurso]").removeClass("is-valid");
+        $("input[name=txtCompEndCurso]").prop("readonly", false);
         
         $("input[name=txtPtRefEndCurso]").val("");
         $("input[name=txtPtRefEndCurso]").removeClass("is-invalid");
         $("input[name=txtPtRefEndCurso]").removeClass("is-valid");
+        $("input[name=txtPtRefEndCurso]").prop("readonly", false);
     }
 });
 

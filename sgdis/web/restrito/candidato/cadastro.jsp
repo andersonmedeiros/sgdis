@@ -620,6 +620,545 @@
                                         "<button type=\"button\" name=\"btnVoltar\" class=\"btn btn-dark anterior acao\">Anterior</button>"+
                                         "<button type=\"button\" id=\"btnProximo3\" name=\"btnProximo3\" class=\"btn btn-danger prox acao\" value=\"Proximo\">Próximo</button>"+
                                     "</fieldset>"+
+                                    "<fieldset>"+
+                                        "<div class=\"fieldset-header\">"+
+                                            "<h5 class=\"fieldset-title\">Saúde</h5>"+
+                                        "</div>"+
+                                        "<div class=\"fieldset-body\">"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Saúde</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-12\">"+
+                                                        "<label for=\"txtFumante\">Fumante?<span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtFumante\" name=\"txtFumante\">"+
+                                                            "<option value=\"0\" selected>Selecione SIM ou NÃO...</option>"+
+                                                            "<option value=\"s\">SIM</option>"+
+                                                            "<option value=\"n\">NÃO</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Alergia</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-12\">"+
+                                                        "<label for=\"txtAlergico\">Alérgico?<span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtAlergico\" name=\"txtAlergico\">"+
+                                                            "<option value=\"0\" selected>Selecione SIM ou NÃO...</option>"+
+                                                            "<option value=\"s\">SIM</option>"+
+                                                            "<option value=\"n\">NÃO</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>"+
+                                            "<div id=\"divAlergias\" class=\"fieldset-interno fieldset-dependente\" style=\"display: none;\">"+
+                                                "<div class=\"header-interno\">"+
+                                                    "<h5 class=\"title-interno\">Quais?</h5>"+
+                                                "</div>"+
+                                                "<div id=\"fieldsetAlergias\" class=\"fieldset-interno\">"+
+
+                                                "</div>"+
+                                                "<button type=\"button\" id=\"btnAddAlergia\" name=\"btnAddAlergia\" class=\"btn btn-success\" style=\"margin-left: 0; font-weight: bold; \">+</button>"+
+                                            "</div>"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Medicação</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-12\">"+
+                                                        "<label for=\"txtUsoMtoCt\">Faz uso de medicamentos controlados?<span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtUsoMtoCt\" name=\"txtUsoMtoCt\">"+
+                                                            "<option value=\"0\" selected>Selecione SIM ou NÃO...</option>"+
+                                                            "<option value=\"s\">SIM</option>"+
+                                                            "<option value=\"n\">NÃO</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>"+
+                                            "<div id=\"divMtoCt\" class=\"fieldset-interno fieldset-dependente\" style=\"display: none;\">"+
+                                                "<div class=\"header-interno\">"+
+                                                    "<h5 class=\"title-interno\">Quais?</h5>"+
+                                                "</div>"+
+                                                "<div id=\"fieldsetMtoCt\" class=\"fieldset-interno\">"+
+                                                "</div>"+
+                                                "<button type=\"button\" id=\"btnAddMtoCt\" name=\"btnAddMtoCt\" class=\"btn btn-success\" style=\"margin-left: 0; font-weight: bold; \">+</button>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-12\">"+
+                                                        "<label for=\"txtUsoTermErgSupAli\">Fez uso de Termogênicos, Ergogênicos ou Suplementos Alimentares a menos de 3 meses?<span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtUsoTermErgSupAli\" name=\"txtUsoTermErgSupAli\">"+
+                                                            "<option value=\"0\" selected>Selecione SIM ou NÃO...</option>"+
+                                                            "<option value=\"s\">SIM</option>"+
+                                                            "<option value=\"n\">NÃO</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>"+
+                                            "<div id=\"divTermErgSupAli\" class=\"fieldset-interno fieldset-dependente\" style=\"display: none;\">"+
+                                                "<div class=\"header-interno\">"+
+                                                    "<h5 class=\"title-interno\">Quais?</h5>"+
+                                                "</div>"+
+                                                "<div id=\"fieldsetTermErgSupAli\" class=\"fieldset-interno\">"+"</div>"+
+                                                "<button type=\"button\" id=\"btnAddTermErgSupAli\" name=\"btnAddTermErgSupAli\" class=\"btn btn-success\" style=\"margin-left: 0; font-weight: bold; \">+</button>"+
+                                            "</div>"+
+                                        "</div>"+
+                                        "<button type=\"button\" name=\"btnVoltar\" class=\"btn btn-dark anterior acao\">Anterior</button>"+
+                                        "<button type=\"button\" name=\"btnProximo4\" class=\"btn btn-danger prox acao\" value=\"Proximo\">Próximo</button>"+
+                                    "</fieldset>"+
+                                    "<fieldset>"+
+                                        "<div class=\"fieldset-header\">"+
+                                            "<h5 class=\"fieldset-title\">Dados Militares</h5>"+
+                                        "</div>"+
+                                        "<div class=\"fieldset-body\">"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Formação</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+
+                                                "<div class=\"form-row\">"+                                
+                                                    "<div class=\"form-group col-md-7\">"+
+                                                        "<label for=\"txtFormEscNome\">Escola de Formação: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtFormEscNome\" name=\"txtFormEscNome\" placeholder=\"Ex.: Escola de Sargentos das Armas\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-3\">"+
+                                                        "<label for=\"txtFormEscAbrev\">Abreviatura: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtFormEscAbrev\" name=\"txtFormEscAbrev\" placeholder=\"Ex.: ESA\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-2\">"+
+                                                        "<label for=\"txtFormTurma\">Turma: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtFormTurma\" name=\"txtFormTurma\" placeholder=\"Ex.: 2018\" maxlength=\"4\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-ano\">Campo Obrigatório!</div>"+
+                                                    "</div>"+ 
+                                                "</div>"+                          
+                                            "</div>"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Comportamento</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+                            
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-12\">"+
+                                                        "<label for=\"txtCptmAl\">Comportamento: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtCptmAl\" name=\"txtCptmAl\">"+
+                                                            "<option value=\"0\" selected>Selecione um comportamento...</option>"+
+                                                            "<option value=\"t\">Teste</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                            
+                                                "</div>"+                            
+                                            "</div>"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Promoção</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+                         
+                                                "<div class=\"form-row\">"+                  
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtDataUltProm\">Data da última promoção: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"date\" class=\"form-control\" id=\"txtDataUltProm\" name=\"txtDataUltProm\" placeholder=\"Ex.: DD/MM/AAAA\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-dataUltProm\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtQaProm\">Está no QA para Promoção?<span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtQaProm\" name=\"txtQaProm\">"+
+                                                            "<option value=\"0\" selected>Selecione SIM ou NÃO...</option>"+
+                                                            "<option value=\"s\">SIM</option>"+
+                                                            "<option value=\"n\">NÃO</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                        "<div id=\"divQaQuando\" class=\"form-group col-md-4\" style=\"display: none;\">"+
+                                                        "<label for=\"txtQaQuandoProm\">Quando?<span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<input type=\"date\" class=\"form-control\" id=\"txtQaQuandoProm\" name=\"txtQaQuandoProm\" placeholder=\"Ex.: DD/MM/AAAA\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-dataQaQuando\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+                         
+                                            "</div>"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Teste de Aptidão Física - TAF</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+                            
+                                                "<div class=\"form-row\">"+                                
+                                                    "<div class=\"form-group col-md-6\">"+
+                                                        "<label for=\"txtDataUltTAF\">Data do último TAF: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"date\" class=\"form-control\" id=\"txtDataUltTAF\" name=\"txtDataUltTAF\" placeholder=\"Ex.: 00/00/0000\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-dataUltTAF\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                                
+                                                    "<div class=\"form-group col-md-6\">"+
+                                                        "<label for=\"txtMencaoTAF\">Menção: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtMencaoTAF\" name=\"txtMencaoTAF\">"+
+                                                            "<option value=\"0\" selected>Selecione uma menção...</option>"+
+                                                            "option value=\"I\">I</option>"+
+                                                            "<option value=\"R\">R</option>"+
+                                                            "<option value=\"B\">B</option>"+
+                                                            "<option value=\"MB\">MB</option>"+
+                                                            "<option value=\"E\">E</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                                
+                                                "</div>"+ 
+                                            "</div>"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Últimas Três Funções</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+                    
+                                                "<div class=\"form-row\">"+                          
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtFunc1\">Função 1: <span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtFunc1\" name=\"txtFunc1\" placeholder=\"Ex.: Cmt Pel\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtFunc2\">Função 2: <span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtFunc2\" name=\"txtFunc2\" placeholder=\"Ex.: Cmt Cia\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                               
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtFunc3\">Função 3: <span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtFunc3\" name=\"txtFunc3\" placeholder=\"Ex.: Enc Mat\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+             
+                                                "</div>"+
+                                            "</div>"+
+                                        "</div>"+
+                                        "<button type=\"button\" name=\"btnVoltar\" class=\"btn btn-dark anterior acao\">Anterior</button>"+
+                                        "<button type=\"button\" name=\"btnProximo5\" class=\"btn btn-danger prox acao\" value=\"Proximo\">Próximo</button>"+
+                                    "</fieldset>"+
+                                    "<fieldset>"+
+                                        "<div class=\"fieldset-header\">"+
+                                            "<h4 class=\"fieldset-title\">Dados Familiares</h4>"+
+                                        "</div>"+
+                                        "<div class=\"fieldset-body\">"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Cônjuge</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+
+                                               "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-12\">"+
+                                                        "<label for=\"txtPossuiConjuge\">Possui Cônjuge?<span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtPossuiConjuge\" name=\"txtPossuiConjuge\">"+
+                                                            "<option value=\"0\" selected>Selecione SIM ou NÃO...</option>"+
+                                                            "<option value=\"s\">SIM</option>"+
+                                                            "<option value=\"n\">NÃO</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>"+
+                                            "<div id=\"divConjuge\" class=\"fieldset-interno fieldset-dependente\" style=\"display: none;\">"+
+                                                "<div class=\"form-row\">"+                                
+                                                    "<div class=\"form-group col-md-3\">"+
+                                                        "<label for=\"txtNomeConjuge\">Nome: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtNomeConjuge\" name=\"txtNomeConjuge\" placeholder=\"Ex.: Fulano\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-5\">"+
+                                                        "<label for=\"txtSobrenomeConjuge\">Sobrenome: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtSobrenomeConjuge\" name=\"txtSobrenomeConjuge\" placeholder=\"Ex.: de Tal\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtCpfConjuge\">CPF: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control cpf\" id=\"txtCpfConjuge\" name=\"txtCpfConjuge\" placeholder=\"Ex.: 000.000.000-00\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-cpf\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-8\">"+
+                                                        "<label for=\"txtEmailConjuge\">Email: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"email\" class=\"form-control\" id=\"txtEmailConjuge\" name=\"txtEmailConjuge\" placeholder=\"Ex.: fulanodetal@gmail.com\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                                  
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtFoneConjuge\">Fone: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control fone\" id=\"txtFoneConjuge\" name=\"txtFoneConjuge\" placeholder=\"Ex.: (00) 00000-0000\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-foneCel\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Referência</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtParentescoRef\">Parentesco: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtParentescoRef\" name=\"txtParentescoRef\">"+
+                                                            "<option value=\"0\" selected>Selecione um Parentesco...</option>"+
+                                                            "<option value=\"t\">Tetse</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-3\">"+
+                                                        "<label for=\"txtNomeRef\">Nome: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtNomeRef\" name=\"txtNomeRef\" placeholder=\"Ex.: Fulano\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-5\">"+
+                                                        "<label for=\"txtSobrenomeRef\">Sobrenome: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtSobrenomeRef\" name=\"txtSobrenomeRef\" placeholder=\"Ex.: de Tal\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+               
+                                                "</div>"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-3\">"+
+                                                        "<label for=\"txtCpfRef\">CPF: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control cpf\" id=\"txtCpfRef\" name=\"txtCpfRef\" placeholder=\"Ex.: 000.000.000-00\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-cpf\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-6\">"+
+                                                        "<label for=\"txtEmailRef\">Email: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"email\" class=\"form-control\" id=\"txtEmailRef\" name=\"txtEmailRef\" placeholder=\"Ex.: fulanodetal@gmail.com\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+ 
+                                                    "<div class=\"form-group col-md-3\">"+
+                                                        "<label for=\"txtFoneRef\">Fone: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control fone\" id=\"txtFoneRef\" name=\"txtFoneRef\" placeholder=\"Ex.: (00) 00000-0000\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-foneCel\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                                
+                                                "</div>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-12\">"+
+                                                        "<label for=\"txtAddRefConclusao\">Deseja adicionar um contato como referência em caso de conclusão do curso e demais informações?<span class=\"campo-obrigatorio\"> *</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtAddRefConclusao\" name=\"txtAddRefConclusao\">"+
+                                                            "<option value=\"0\" selected>Selecione SIM ou NÃO...</option>"+
+                                                            "<option value=\"s\">SIM</option>"+
+                                                            "<option value=\"n\">NÃO</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>"+
+                                            "<div id=\"divRefConclusao\" class=\"fieldset-interno fieldset-dependente\" style=\"display: none;\">"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtParentescoRefConclusao\">Parentesco: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<select class=\"form-control\" id=\"txtParentescoRefConclusao\" name=\"txtParentescoRefConclusao\">"+
+                                                            "<option value=\"0\" selected>Selecione um Parentesco...</option>"+
+                                                            "<option value=\"t\">Teste</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-3\">"+
+                                                        "<label for=\"txtNomeRefConclusao\">Nome: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtNomeRefConclusao\" name=\"txtNomeRefConclusao\" placeholder=\"Ex.: Fulano\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-5\">"+
+                                                        "<label for=\"txtSobrenomeRefConclusao\">Sobrenome: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtSobrenomeRefConclusao\" name=\"txtSobrenomeRefConclusao\" placeholder=\"Ex.: de Tal\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+               
+                                                "</div>"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-3\">"+
+                                                        "<label for=\"txtCpfRefConclusao\">CPF: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control cpf\" id=\"txtCpfRefConclusao\" name=\"txtCpfRefConclusao\" placeholder=\"Ex.: 000.000.000-00\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-cpf\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-6\">"+
+                                                        "<label for=\"txtEmailRefConclusao\">Email: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"email\" class=\"form-control\" id=\"txtEmailRefConclusao\" name=\"txtEmailRefConclusao\" placeholder=\"Ex.: fulanodetal@gmail.com\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+ 
+                                                    "<div class=\"form-group col-md-3\">"+
+                                                        "<label for=\"txtFoneRefConclusao\">Fone: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control fone\" id=\"txtFoneRefConclusao\" name=\"txtFoneRefConclusao\" placeholder=\"Ex.: (00) 00000-0000\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-foneCel\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                               
+                                                "</div>"+
+                                            "</div>"+
+                                        "</div>"+
+                                        "<button type=\"button\" name=\"btnAnterior\" class=\"btn btn-dark anterior acao\">Anterior</button>"+
+                                        "<button type=\"button\" name=\"btnProximo6\" class=\"btn btn-danger prox acao\" value=\"Proximo\">Próximo</button>"+
+                                    "</fieldset>"+
+                                    "<fieldset>"+
+                                        "<div class=\"fieldset-header\">"+
+                                            "<h4 class=\"fieldset-title\">Endereço</h4>"+
+                                        "</div>"+
+                                        "<div class=\"fieldset-body\">"+                        
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Residência</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-3\">"+
+                                                        "<label for=\"txtCepEndResid\">CEP: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control cep\" id=\"txtCepEndResid\" name=\"txtCepEndResid\" placeholder=\"Ex.: 00000-000\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback invalid-cep\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-6\">"+
+                                                        "<label for=\"txtNomeEndResid\">Endereço: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtNomeEndResid\" name=\"txtNomeEndResid\" placeholder=\"Ex.: Constantino Nery\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                    "<div class=\"form-group col-md-3\">"+
+                                                        "<label for=\"txtNumEndResid\">Número: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtNumEndResid\" name=\"txtNumEndResid\" placeholder=\"Ex.: 1000\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+                       
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtEstadoEndResid\">Estado: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtEstadoEndResid\" name=\"txtEstadoEndResid\" placeholder=\"Ex.: Amazonas\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                                   
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtCidadeEndResid\">Cidade: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtCidadeEndResid\" name=\"txtCidadeEndResid\" placeholder=\"Ex.: Manaus\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                                    
+                                                    "<div class=\"form-group col-md-4\">"+
+                                                        "<label for=\"txtBairroEndResid\">Bairro: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtBairroEndResid\" name=\"txtBairroEndResid\" placeholder=\"Ex.: Centro\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                                  
+                                                "</div>"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-6\">"+
+                                                        "<label for=\"txtCompEndResid\">Complemento: </label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtCompEndResid\" name=\"txtCompEndResid\" placeholder=\"Ex.: Quadra, Apartamento etc.\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div> "+
+                                                    "<div class=\"form-group col-md-6\">"+
+                                                        "<label for=\"txtPtRefEndResid\">Ponto de Referência: </label>"+
+                                                        "<input type=\"text\" class=\"form-control\" id=\"txtPtRefEndResid\" name=\"txtPtRefEndResid\" placeholder=\"Ex.: Próximo a Arena da Amazônia\">"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>"+
+                                            "<div class=\"header-interno\">"+
+                                                "<h5 class=\"title-interno\">Endereço residencial durante o curso</h5>"+
+                                            "</div>"+
+                                            "<div class=\"fieldset-interno\">"+
+                                                "<div class=\"form-row\">"+
+                                                    "<div class=\"form-group col-md-6\">"+
+                                                        "<label for=\"txtEndCurso\">Endereço: </label><spam class=\"campo-obrigatorio\"> *</spam>"+
+                                                        "<select class=\"form-control\" id=\"txtEndCurso\" name=\"txtEndCurso\">"+
+                                                            "<option value=\"0\" selected>Selecione o endereço...</option>"+                  
+                                                            "<option value=\"resid\">O mesmo de Residência</option>"+
+                                                            "<option value=\"cigs\">CIGS</option>"+
+                                                            "<option value=\"novo\">Novo</option>"+
+                                                        "</select>"+
+                                                        "<div class=\"valid-feedback\">Selva!</div>"+
+                                                        "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                    "</div>"+                                                 
+                                                "</div>"+
+                                                "<div class=\"fieldset-interno\">"+
+                                                    "<div class=\"form-row\">"+
+                                                        "<div class=\"form-group col-md-3\">"+
+                                                            "<label for=\"txtCepEndCurso\">CEP: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                            "<input type=\"text\" class=\"form-control cep\" id=\"txtCepEndCurso\" name=\"txtCepEndCurso\" placeholder=\"Ex.: 00000-000\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback invalid-cep\">Campo Obrigatório!</div>"+
+                                                        "</div>"+
+                                                        "<div class=\"form-group col-md-6\">"+
+                                                            "<label for=\"txtNomeEndCurso\">Endereço: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                            "<input type=\"text\" class=\"form-control\" id=\"txtNomeEndCurso\" name=\"txtNomeEndCurso\" placeholder=\"Ex.: Constantino Nery\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                        "</div>"+
+                                                        "<div class=\"form-group col-md-3\">"+
+                                                            "<label for=\"txtNumEndCurso\">Número: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                            "<input type=\"text\" class=\"form-control\" id=\"txtNumEndCurso\" name=\"txtNumEndCurso\" placeholder=\"Ex.: 1000\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                        "</div>"+                                 
+                                                    "</div>"+                        
+                                                    "<div class=\"form-row\">"+
+                                                        "<div class=\"form-group col-md-4\">"+
+                                                            "<label for=\"txtEstadoEndCurso\">Estado: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                            "<input type=\"text\" class=\"form-control\" id=\"txtEstadoEndCurso\" name=\"txtEstadoEndCurso\" placeholder=\"Ex.: Amazonas\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                        "</div>"+                                    
+                                                        "<div class=\"form-group col-md-4\">"+
+                                                            "<label for=\"txtCidadeEndCurso\">Cidade: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                            "<input type=\"text\" class=\"form-control\" id=\"txtCidadeEndCurso\" name=\"txtCidadeEndCurso\" placeholder=\"Ex.: Manaus\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                        "</div>"+                                    
+                                                        "<div class=\"form-group col-md-4\">"+
+                                                            "<label for=\"txtBairroEndCurso\">Bairro: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                                            "<input type=\"text\" class=\"form-control\" id=\"txtBairroEndCurso\" name=\"txtBairroEndCurso\" placeholder=\"Ex.: Centro\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                        "</div>"+                                  
+                                                    "</div>"+
+                                                    "<div class=\"form-row\">"+
+                                                        "<div class=\"form-group col-md-6\">"+
+                                                            "<label for=\"txtCompEndCurso\">Complemento: </label>"+
+                                                            "<input type=\"text\" class=\"form-control\" id=\"txtCompEndCurso\" name=\"txtCompEndCurso\" placeholder=\"Ex.: Quadra, Apartamento etc.\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                        "</div> "+
+                                                        "<div class=\"form-group col-md-6\">"+
+                                                            "<label for=\"txtPtRefEndCurso\">Ponto de Referência: </label>"+
+                                                            "<input type=\"text\" class=\"form-control\" id=\"txtPtRefEndCurso\" name=\"txtPtRefEndCurso\" placeholder=\"Ex.: Próximo a Arena da Amazônia\">"+
+                                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                                        "</div>"+
+                                                    "</div>"+
+                                                "</div>"+
+                                            "</div>"+
+                                        "</div>"+
+                                        "<button type=\"button\" name=\"btnAnterior\" class=\"btn btn-dark anterior acao\">Anterior</button>"+
+                                        "<button type=\"button\" name=\"btnProximo7\" class=\"btn btn-danger prox acao\" value=\"Proximo\">Próximo</button>"+                   
+                                    "</fieldset>"+
                                 "</form>");
                 }
                 else if(curso.equals("CIOS")){
