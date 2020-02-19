@@ -27,9 +27,9 @@ var dados_forca = {
                 {"nome":"1º Sargento", "sigla":"1º SG", "categoria":"praca"},
                 {"nome":"2º Sargento", "sigla":"2º SG", "categoria":"praca"},
                 {"nome":"3º Sargento", "sigla":"3º SG", "categoria":"praca"},                                
-                {"nome":"Cabo", "sigla":"CB", "categoria":"praca"},
-                {"nome":"Soldado (CFN)", "sigla":"Sd", "categoria":"praca"},
-                {"nome":"Marinheiro", "sigla":"MN", "categoria":"praca"}
+                {"nome":"Cabo", "sigla":"CB", "categoria":"praca1"},
+                {"nome":"Soldado (CFN)", "sigla":"Sd", "categoria":"praca1"},
+                {"nome":"Marinheiro", "sigla":"MN", "categoria":"praca1"}
             ],
             "estados": [
                 {
@@ -69,11 +69,11 @@ var dados_forca = {
                                 {"nome":"1º Sargento", "sigla":"1º Sgt", "categoria":"praca"},
                                 {"nome":"2º Sargento", "sigla":"2º Sgt", "categoria":"praca"},
                                 {"nome":"3º Sargento", "sigla":"3º Sgt", "categoria":"praca"},                                
-                                {"nome":"Cabo", "sigla":"Cb", "categoria":"praca"},
-                                {"nome":"Soldado", "sigla":"Sd", "categoria":"praca"},
-                                {"nome":"Taifeiro-Mor", "sigla":"TM", "categoria":"praca"},
-                                {"nome":"Taifeiro de 1ª Classe", "sigla":"T1", "categoria":"praca"},
-                                {"nome":"Taifeiro de 2ª Classe", "sigla":"T2", "categoria":"praca"}
+                                {"nome":"Cabo", "sigla":"Cb", "categoria":"praca1"},
+                                {"nome":"Soldado", "sigla":"Sd", "categoria":"praca1"},
+                                {"nome":"Taifeiro-Mor", "sigla":"TM", "categoria":"praca1"},
+                                {"nome":"Taifeiro de 1ª Classe", "sigla":"T1", "categoria":"praca1"},
+                                {"nome":"Taifeiro de 2ª Classe", "sigla":"T2", "categoria":"praca1"}
                             ],
             "estados": [
                 {
@@ -82,18 +82,19 @@ var dados_forca = {
                     "om": [
                         {
                             "sigla": "4ª DSM/31º CSM",
-                            "nome": "4ª Delegacia do Serviço Militar da 31ª C S M"
+                            "nome": "4ª Delegacia do Serviço Militar da 31ª C S M",
+                            "cep": "69073-570"
                         },
                         {
-                            "sigla": "61º BIS",
-                            "nome": "61º Batalhão de Infantaria de Selva"
+                            "sigla": "",
+                            "nome": "61º Batalhão de Infantaria de Selva",
+                            "cep": "69033-000"
                         },
                         {
                             "sigla": "7º BEC",
                             "nome": "7º Batalhão de Engenharia de Construção"
                         },
                         {
-                            "sigla": "CFAC/4º BIS",
                             "nome": "Comando de Fronteira Acre e 4º Batalhão de Infantaria de Selva"
                         }
                     ]
@@ -161,22 +162,22 @@ var dados_forca = {
                     {"nome":"1º Tenente", "sigla":"1º Ten", "categoria":"ofsubalt"},
                     {"nome":"2º Tenente", "sigla":"2º Ten", "categoria":"ofsubalt"},
                     {"nome":"Aspirante a Oficial", "sigla":"Asp", "categoria":"ofsubalt"},
-                    {"nome":"Cadetegfh", "sigla":"Cad", "categoria":"ofsubalt"},
+                    {"nome":"Cadete", "sigla":"Cad", "categoria":"ofsubalt"},
                     {"nome":"Suboficial", "sigla":"SO", "categoria":"praca"},
                     {"nome":"1º Sargento", "sigla":"1S", "categoria":"praca"},
                     {"nome":"2º Sargento", "sigla":"2S", "categoria":"praca"},
                     {"nome":"3º Sargento", "sigla":"3S", "categoria":"praca"},                                
-                    {"nome":"Cabo", "sigla":"Cb", "categoria":"praca"},
-                    {"nome":"Soldado de 1ª Classe", "sigla":"S1", "categoria":"praca"},
-                    {"nome":"Soldado de 2ª Classe", "sigla":"S2", "categoria":"praca"},
-                    {"nome":"Taifeiro-Mor", "sigla":"TM", "categoria":"praca"},
-                    {"nome":"Taifeiro de 1ª Classe", "sigla":"T1", "categoria":"praca"},
-                    {"nome":"Taifeiro de 2ª Classe", "sigla":"T2", "categoria":"praca"}
+                    {"nome":"Cabo", "sigla":"Cb", "categoria":"praca1"},
+                    {"nome":"Soldado de 1ª Classe", "sigla":"S1", "categoria":"praca1"},
+                    {"nome":"Soldado de 2ª Classe", "sigla":"S2", "categoria":"praca1"},
+                    {"nome":"Taifeiro-Mor", "sigla":"TM", "categoria":"praca1"},
+                    {"nome":"Taifeiro de 1ª Classe", "sigla":"T1", "categoria":"praca1"},
+                    {"nome":"Taifeiro de 2ª Classe", "sigla":"T2", "categoria":"praca1"}
                 ],
             "estados": [
                 {
                     "sigla": "AC",
-                    "nome": "Acrefab",
+                    "nome": "Acre",
                     "om": [
                         {
                             "sigla": "4ª DSM/31º CSM",
@@ -199,7 +200,7 @@ var dados_forca = {
                 },
                 {
                     "sigla": "AL",
-                    "nome": "Alagoasfab",
+                    "nome": "Alagoas",
                     "om": [
                         {
                             "sigla": "20ª CSM",
@@ -248,6 +249,95 @@ var dados_forca = {
     ]
 };
 
+function limpa_form_end_om(readonly, campo_cep, campo_end, campo_num, campo_est, campo_cid, campo_bairro, campo_comp){
+    $(campo_cep).val("");
+    $(campo_cep).removeClass("is-invalid");
+    $(campo_cep).removeClass("is-valid");
+    $(campo_cep).prop("readonly", readonly);
+    
+    $(campo_end).val("");
+    $(campo_end).removeClass("is-invalid");
+    $(campo_end).removeClass("is-valid");
+    $(campo_end).prop("readonly", readonly);
+
+    $(campo_num).val("");
+    $(campo_num).removeClass("is-invalid");
+    $(campo_num).removeClass("is-valid");
+    $(campo_num).prop("readonly", readonly);
+
+    $(campo_est).val("");
+    $(campo_est).removeClass("is-invalid");
+    $(campo_est).removeClass("is-valid");
+    $(campo_est).prop("readonly", readonly);
+
+    $(campo_cid).val("");
+    $(campo_cid).removeClass("is-invalid");
+    $(campo_cid).removeClass("is-valid");
+    $(campo_cid).prop("readonly", readonly);
+
+    $(campo_bairro).val("");
+    $(campo_bairro).removeClass("is-invalid");
+    $(campo_bairro).removeClass("is-valid");
+    $(campo_bairro).prop("readonly", readonly);
+
+    $(campo_comp).val("");
+    $(campo_comp).removeClass("is-invalid");
+    $(campo_comp).removeClass("is-valid");
+    $(campo_comp).prop("readonly", readonly);
+}
+
+//Função para limpar os campos dependentes ao mudar o valor da força
+function limpa_form_estado_forca(){
+    $("#txtEstadoForca").html("");
+    $("#txtEstadoForca").append("<option value=0>Selecione um Estado...</option>");
+    $("#txtEstadoForca").removeClass("is-invalid");
+    $("#txtEstadoForca").removeClass("is-valid");
+
+    $("#txtNomeOM").html("");
+    $("#txtNomeOM").append("<option value=0>Selecione uma Organização Militar...</option>");
+    $("#txtNomeOM").removeClass("is-invalid");
+    $("#txtNomeOM").removeClass("is-valid");
+
+    $("#txtAbrevOM").val('');
+    $("#txtAbrevOM").removeClass("is-invalid");
+    $("#txtAbrevOM").removeClass("is-valid");
+    
+    limpa_form_end_om(true, "#txtEndCepOM", "#txtEndNomeOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txtEndBairroOM", "#txtEndCompOM");
+}
+
+//Função para limpar os campos dependentes ao mudar o valor do estado da força
+function limpa_form_om(){
+    $("#txtNomeOM").html("");
+    $("#txtNomeOM").append("<option value=0>Selecione uma Organização Militar...</option>");
+    $("#txtNomeOM").removeClass("is-invalid");
+    $("#txtNomeOM").removeClass("is-valid");
+
+    $("#txtAbrevOM").val('');
+    $("#txtAbrevOM").removeClass("is-invalid");
+    $("#txtAbrevOM").removeClass("is-valid");
+    
+    limpa_form_end_om(true, "#txtEndCepOM", "#txtEndNomeOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txtEndBairroOM", "#txtEndCompOM");
+}
+
+//Função para limpar os campos dependentes ao mudar o valor da om
+function limpa_form_abrev_end_om(){
+    $("#txtAbrevOM").val('');
+    $("#txtAbrevOM").removeClass("is-invalid");
+    $("#txtAbrevOM").removeClass("is-valid");
+    
+    limpa_form_end_om(true, "#txtEndCepOM", "#txtEndNomeOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txtEndBairroOM", "#txtEndCompOM");
+}
+
+
+//Função para limpar o select específico
+function limpa_select(select, msg){
+    $(select).html("");
+    $(select).append("<option value=0>Selecione "+ msg +"...</option>");
+    $(select).removeClass("is-invalid");
+    $(select).removeClass("is-valid");
+}
+
+//Função para carregar dinamicamente as forças e os respectivos estados
 function carregar_forca(id, sigla_forca){
     if((id == "txtForca") && (sigla_forca == null)){
         $("#txtForca").html("");
@@ -272,6 +362,7 @@ function carregar_forca(id, sigla_forca){
     }
 };
 
+//Função para carregar dinamicamente om referente ao estado
 function carregar_estado_om(id, sigla_forca, estado_om){    
     for(var i=0; dados_forca.forca.length; i++){
         if(dados_forca.forca[i].sigla == sigla_forca){  
@@ -290,6 +381,7 @@ function carregar_estado_om(id, sigla_forca, estado_om){
     }
 };
 
+//Função para carregar dinamicamente estados referente a força
 function carregar_estado(id, sigla_forca){    
     for(var i=0; dados_forca.forca.length; i++){
         if(dados_forca.forca[i].sigla == sigla_forca){
@@ -304,115 +396,198 @@ function carregar_estado(id, sigla_forca){
     }
 };
 
+
+//Função para carregar dinamicamente postos/graduações
 function carregar_pg(id, sigla_forca){    
     for(var i=0; dados_forca.forca.length; i++){
         if(dados_forca.forca[i].sigla == sigla_forca){
                 $("#txtPGradCmtOMcatA").html("");
-                $("#txtPGradCmtOMcatB").html("");
-                $("#txtPGradCmtOMcatC").html("");
-                $("#txtPGradCmtOMcatU").html("");
                 $("#txtPGradCmtOMcatA").append("<option value=0>Selecione um Posto/Graduação...</option>");
-                $("#txtPGradCmtOMcatB").append("<option value=0>Selecione um Posto/Graduação...</option>");
-                $("#txtPGradCmtOMcatC").append("<option value=0>Selecione um Posto/Graduação...</option>");
-                $("#txtPGradCmtOMcatU").append("<option value=0>Selecione um Posto/Graduação...</option>");
                 $("#txtPGradCmtOMcatA").removeClass("is-invalid");
-                $("#txtPGradCmtOMcatB").removeClass("is-invalid");
-                $("#txtPGradCmtOMcatC").removeClass("is-invalid");
-                $("#txtPGradCmtOMcatU").removeClass("is-invalid");
                 $("#txtPGradCmtOMcatA").removeClass("is-valid");
+                
+                $("#txtPGradCmtOMcatB").html("");
+                $("#txtPGradCmtOMcatB").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradCmtOMcatB").removeClass("is-invalid");
                 $("#txtPGradCmtOMcatB").removeClass("is-valid");
+                
+                $("#txtPGradCmtOMcatC").html("");
+                $("#txtPGradCmtOMcatC").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradCmtOMcatC").removeClass("is-invalid");
                 $("#txtPGradCmtOMcatC").removeClass("is-valid");
+                
+                $("#txtPGradCmtOMcatU").html("");
+                $("#txtPGradCmtOMcatU").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradCmtOMcatU").removeClass("is-invalid");
                 $("#txtPGradCmtOMcatU").removeClass("is-valid");
+                
+                $("#txtPGradChImtoOMcatA").html("");
+                $("#txtPGradChImtoOMcatA").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradChImtoOMcatA").removeClass("is-invalid");
+                $("#txtPGradChImtoOMcatA").removeClass("is-valid");
+                
+                $("#txtPGradChImtoOMcatB").html("");
+                $("#txtPGradChImtoOMcatB").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradChImtoOMcatB").removeClass("is-invalid");
+                $("#txtPGradChImtoOMcatB").removeClass("is-valid");
+                
+                $("#txtPGradChImtoOMcatC").html("");
+                $("#txtPGradChImtoOMcatC").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradChImtoOMcatC").removeClass("is-invalid");
+                $("#txtPGradChImtoOMcatC").removeClass("is-valid");
+                
+                $("#txtPGradChImtoOMcatU").html("");
+                $("#txtPGradChImtoOMcatU").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradChImtoOMcatU").removeClass("is-invalid");
+                $("#txtPGradChImtoOMcatU").removeClass("is-valid");
+                
+                $("#txtPGradAlcatA").html("");
+                $("#txtPGradAlcatA").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradAlcatA").removeClass("is-invalid");
+                $("#txtPGradAlcatA").removeClass("is-valid");
+                
+                $("#txtPGradAlcatB").html("");
+                $("#txtPGradAlcatB").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradAlcatB").removeClass("is-invalid");
+                $("#txtPGradAlcatB").removeClass("is-valid");
+                
+                $("#txtPGradAlcatC").html("");
+                $("#txtPGradAlcatC").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradAlcatC").removeClass("is-invalid");
+                $("#txtPGradAlcatC").removeClass("is-valid");
+                
+                $("#txtPGradAlcatU").html("");
+                $("#txtPGradAlcatU").append("<option value=0>Selecione um Posto/Graduação...</option>");
+                $("#txtPGradAlcatU").removeClass("is-invalid");
+                $("#txtPGradAlcatU").removeClass("is-valid");
+                
             for(var j=0; j<dados_forca.forca[i].postoGraduacao.length; j++){
-                if((dados_forca.forca[i].postoGraduacao[j].categoria == "ofsubalt") || (dados_forca.forca[i].postoGraduacao[j].categoria == "ofinter")){
-                    $("#txtPGradCmtOMcatB").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
-                }
-                if((dados_forca.forca[i].postoGraduacao[j].categoria == "ofsup") /*|| (dados_forca.forca[i].postoGraduacao[j].categoria == "ofsup")*/){
+                if((dados_forca.forca[i].postoGraduacao[j].categoria == "ofgen") || (dados_forca.forca[i].postoGraduacao[j].categoria == "ofsup")){
                     $("#txtPGradCmtOMcatA").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
-                }
-                if((dados_forca.forca[i].postoGraduacao[j].categoria == "praca") /*|| (dados_forca.forca[i].postoGraduacao[j].categoria == "ofsup")*/){
+                    $("#txtPGradCmtOMcatB").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
                     $("#txtPGradCmtOMcatC").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                    $("#txtPGradCmtOMcatU").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                    
+                    $("#txtPGradChImtoOMcatA").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
                 }
-                $("#txtPGradCmtOMcatU").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                if((dados_forca.forca[i].postoGraduacao[j].categoria == "ofgen") || (dados_forca.forca[i].postoGraduacao[j].categoria == "ofsup") || (dados_forca.forca[i].postoGraduacao[j].categoria == "ofinter") || (dados_forca.forca[i].postoGraduacao[j].categoria == "ofsubalt")){
+                    $("#txtPGradChImtoOMcatB").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                }
+                if(dados_forca.forca[i].postoGraduacao[j].categoria != "praca1"){
+                    $("#txtPGradChImtoOMcatC").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                    $("#txtPGradChImtoOMcatU").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                }
+                if(dados_forca.forca[i].postoGraduacao[j].categoria == "ofsup"){
+                    $("#txtPGradAlcatA").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                }
+                if((dados_forca.forca[i].postoGraduacao[j].categoria == "ofinter") || (dados_forca.forca[i].postoGraduacao[j].categoria == "ofsubalt")){
+                    $("#txtPGradAlcatB").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                }
+                if((dados_forca.forca[i].postoGraduacao[j].categoria == "praca")){
+                    $("#txtPGradAlcatC").append("<option value="+"'"+dados_forca.forca[i].postoGraduacao[j].sigla+"'"+">"+dados_forca.forca[i].postoGraduacao[j].nome+"</option>");
+                }
+                
             }
             break;     
         }            
     }
 };
 
+//Função para carregar dinamicamente a abreviatura da om e o respectivo endereço
 function carregar_sigla_om(id, sigla_forca, estado_om, sigla_om){    
     for(var i=0; dados_forca.forca.length; i++){
         if(dados_forca.forca[i].sigla == sigla_forca){  
             for(var j=0; j<dados_forca.forca[i].estados.length; j++){
                 if(dados_forca.forca[i].estados[j].sigla == estado_om){
-                    for(var k=0; k<dados_forca.forca[i].estados[j].om.length;k++){
+                    for(var k=0; k<dados_forca.forca[i].estados[j].om.length; k++){
                         if(dados_forca.forca[i].estados[j].om[k].sigla == sigla_om){
-                            $("#txtAbrevOM").val(dados_forca.forca[i].estados[j].om[k].sigla);
+                            if((dados_forca.forca[i].estados[j].om[k].sigla != "") && (dados_forca.forca[i].estados[j].om[k].sigla != null)){
+                                $("#txtAbrevOM").val(dados_forca.forca[i].estados[j].om[k].sigla);
+                                $("#txtAbrevOM").prop("readonly", true);
+                            }
+                            if((dados_forca.forca[i].estados[j].om[k].cep == "") || (dados_forca.forca[i].estados[j].om[k].cep == null)){
+                                limpa_form_end_om(false, "#txtEndCepOM", "#txtEndNomeOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txtEndBairroOM", "#txtEndCompOM");                                
+                            }
+                            if((dados_forca.forca[i].estados[j].om[k].cep != "") && (dados_forca.forca[i].estados[j].om[k].cep != null)){
+                                $("#txtEndCepOM").val(dados_forca.forca[i].estados[j].om[k].cep);
+                                $("#txtEndCepOM").trigger('change');
+                                $("#txtEndCepOM").prop("readonly", true);
+                                $("#txtEndNomeOM").prop("readonly", true);
+                                $("#txtEndEstadoOM").prop("readonly", true);
+                                $("#txtEndCidadeOM").prop("readonly", true);
+                                $("#txtEndBairroOM").prop("readonly", true);
+                                $("#txtEndCompOM").prop("readonly", true);   
+                            }
+                            break;
+                        }else{
+                            $("#txtAbrevOM").val('');
+                            $("#txtAbrevOM").prop("readonly", false);
                         }
                     }
                 }
-
             }
-        }            
+            break;
+        }           
     }
 };
 
-//Função para limpar os campos dependentes ao mudar o valor da força
-function limpa_form_estado_forca(){
-    $("#txtEstadoForca").html("");
-    $("#txtEstadoForca").append("<option value=0>Selecione um Estado...</option>");
-    $("#txtEstadoForca").removeClass("is-invalid");
-    $("#txtEstadoForca").removeClass("is-valid");
-
-    $("#txtNomeOM").html("");
-    $("#txtNomeOM").append("<option value=0>Selecione uma Organização Militar...</option>");
-    $("#txtNomeOM").removeClass("is-invalid");
-    $("#txtNomeOM").removeClass("is-valid");
-
-    $("#txtAbrevOM").val('');
-    $("#txtAbrevOM").removeClass("is-invalid");
-    $("#txtAbrevOM").removeClass("is-valid");
-}
-
-//Função para limpar os campos dependentes ao mudar o valor do estado da força
-function limpa_form_om(){
-    $("#txtNomeOM").html("");
-    $("#txtNomeOM").append("<option value=0>Selecione uma Organização Militar...</option>");
-    $("#txtNomeOM").removeClass("is-invalid");
-    $("#txtNomeOM").removeClass("is-valid");
-
-    $("#txtAbrevOM").val('');
-    $("#txtAbrevOM").removeClass("is-invalid");
-    $("#txtAbrevOM").removeClass("is-valid");
-}
-
-//Função para limpar o campo específico
-function limpa_campo(campo, msg){
-    $(campo).html("");
-    $(campo).append("<option value=0>Selecione "+ msg +"...</option>");
-    $(campo).removeClass("is-invalid");
-    $(campo).removeClass("is-valid");
-}
-
 $(function(){
-    carregar_forca("txtForca"); 
+    carregar_forca("txtForca");
+    $("#txtAbrevOM").prop("readonly", true);
     
     if($("#txtForca").val() == "0"){
         limpa_form_estado_forca();
-        limpa_campo("#txtPGradCmtOMcatA", "um Posto/Graduação");
-        limpa_campo("#txtPGradCmtOMcatB", "um Posto/Graduação");
-        limpa_campo("#txtPGradCmtOMcatC", "um Posto/Graduação");
-        limpa_campo("#txtPGradCmtOMcatU", "um Posto/Graduação");
+        limpa_select("#txtPGradCmtOMcatA", "um Posto/Graduação");
+        limpa_select("#txtPGradCmtOMcatB", "um Posto/Graduação");
+        limpa_select("#txtPGradCmtOMcatC", "um Posto/Graduação");
+        limpa_select("#txtPGradCmtOMcatU", "um Posto/Graduação");
+        
+        limpa_select("#txtPGradChImtoOMcatA", "um Posto/Graduação");
+        limpa_select("#txtPGradChImtoOMcatB", "um Posto/Graduação");
+        limpa_select("#txtPGradChImtoOMcatC", "um Posto/Graduação");
+        limpa_select("#txtPGradChImtoOMcatU", "um Posto/Graduação");
+        
+        limpa_select("#txtPGradAlcatA", "um Posto/Graduação");
+        limpa_select("#txtPGradAlcatB", "um Posto/Graduação");
+        limpa_select("#txtPGradAlcatC", "um Posto/Graduação");
+        limpa_select("#txtPGradAlcatU", "um Posto/Graduação");
     }
+    
     $("#txtForca").change(function(){
+        limpa_form_estado_forca();
+        limpa_select("#txtPGradCmtOMcatA", "um Posto/Graduação");
+        limpa_select("#txtPGradCmtOMcatB", "um Posto/Graduação");
+        limpa_select("#txtPGradCmtOMcatC", "um Posto/Graduação");
+        limpa_select("#txtPGradCmtOMcatU", "um Posto/Graduação");
+        
+        limpa_select("#txtPGradChImtoOMcatA", "um Posto/Graduação");
+        limpa_select("#txtPGradChImtoOMcatB", "um Posto/Graduação");
+        limpa_select("#txtPGradChImtoOMcatC", "um Posto/Graduação");
+        limpa_select("#txtPGradChImtoOMcatU", "um Posto/Graduação");
+        
+        limpa_select("#txtPGradAlcatA", "um Posto/Graduação");
+        limpa_select("#txtPGradAlcatB", "um Posto/Graduação");
+        limpa_select("#txtPGradAlcatC", "um Posto/Graduação");
+        limpa_select("#txtPGradAlcatU", "um Posto/Graduação");
+        
         var sigla_forca = $(this).val();
         
         if($("#txtForca").val() == "0"){
             limpa_form_estado_forca();
-            limpa_campo("#txtPGradCmtOMcatA", "um Posto/Graduação");
-            limpa_campo("#txtPGradCmtOMcatB", "um Posto/Graduação");
-            limpa_campo("#txtPGradCmtOMcatC", "um Posto/Graduação");
-            limpa_campo("#txtPGradCmtOMcatU", "um Posto/Graduação");
+            limpa_select("#txtPGradCmtOMcatA", "um Posto/Graduação");
+            limpa_select("#txtPGradCmtOMcatB", "um Posto/Graduação");
+            limpa_select("#txtPGradCmtOMcatC", "um Posto/Graduação");
+            limpa_select("#txtPGradCmtOMcatU", "um Posto/Graduação");
+            
+            limpa_select("#txtPGradChImtoOMcatA", "um Posto/Graduação");
+            limpa_select("#txtPGradChImtoOMcatB", "um Posto/Graduação");
+            limpa_select("#txtPGradChImtoOMcatC", "um Posto/Graduação");
+            limpa_select("#txtPGradChImtoOMcatU", "um Posto/Graduação");
+            
+            limpa_select("#txtPGradAlcatA", "um Posto/Graduação");
+            limpa_select("#txtPGradAlcatB", "um Posto/Graduação");
+            limpa_select("#txtPGradAlcatC", "um Posto/Graduação");
+            limpa_select("#txtPGradAlcatU", "um Posto/Graduação");
         }
         if(sigla_forca != null){
             carregar_pg("#txtPG", sigla_forca);
@@ -422,8 +597,10 @@ $(function(){
     
     $("#txtEstadoForca").change(function(){
         limpa_form_om();
+        
         var estado_om = $(this).val();
         var sigla_forca = $("#txtForca").val();
+        
         if($("#txtEstadoForca").val() == "0"){
             limpa_form_om();
         }
@@ -436,7 +613,11 @@ $(function(){
         var sigla_om = $(this).val();
         var sigla_forca = $("#txtForca").val();
         var estado_om = $("#txtEstadoForca").val();
-        
-        carregar_sigla_om("#txtAbrevOM", sigla_forca, estado_om, sigla_om);
+        if($("#txtNomeOM").val() == "0"){
+            limpa_form_abrev_end_om();
+        }
+        else if($("#txtNomeOM").val() != null){
+            carregar_sigla_om("#txtAbrevOM", sigla_forca, estado_om, sigla_om);
+        }
     });
 });

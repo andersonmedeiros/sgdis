@@ -68,6 +68,32 @@ $(document).ready(function() {
             $("input[name=txtPtRefEndCurso]").removeClass("is-valid");
         }
     }
+    function limpa_formulário_cep_om(campo_end, campo_num, campo_est, campo_cid, campo_bairro, campo_comp) {
+        // Limpa valores do formulário de cep.
+        $(campo_end).val("");
+        $(campo_end).removeClass("is-invalid");
+        $(campo_end).removeClass("is-valid");
+
+        $(campo_num).val("");
+        $(campo_num).removeClass("is-invalid");
+        $(campo_num).removeClass("is-valid");
+
+        $(campo_est).val("");
+        $(campo_est).removeClass("is-invalid");
+        $(campo_est).removeClass("is-valid");
+
+        $(campo_cid).val("");
+        $(campo_cid).removeClass("is-invalid");
+        $(campo_cid).removeClass("is-valid");
+
+        $(campo_bairro).val("");
+        $(campo_bairro).removeClass("is-invalid");
+        $(campo_bairro).removeClass("is-valid");
+
+        $(campo_comp).val("");
+        $(campo_comp).removeClass("is-invalid");
+        $(campo_comp).removeClass("is-valid");
+    }
 
     //Quando o campo cep perde o foco.
     $("#txtCepEndResid").change(function() {
@@ -229,6 +255,105 @@ $(document).ready(function() {
         else {
             //cep sem valor, limpa formulário.
             limpa_formulário_cep();
+        }
+    });
+    
+    //Quando o campo cep perde o foco.
+    $("#txtEndCepOM").change(function() {
+        //Nova variável "cep" somente com dígitos.
+        var cep = $(this).val().replace(/\D/g, '');
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+                //Preenche os campos com "..." enquanto consulta webservice.
+                $("#txtEndNomeOM").val("...");
+                $("#txtEndEstadoOM").val("...");
+                $("#txtEndCidadeOM").val("...");
+                $("#txtEndBairroOM").val("...");
+                $("#txtEndCompOM").val("...");
+                //Consulta o webservice viacep.com.br/
+                $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+                    if (!("erro" in dados)) {
+                        //Atualiza os campos com os valores da consulta
+                        if(dados.logradouro != ""){
+                            $("#txtEndNomeOM").val(dados.logradouro);
+                            $("#txtEndNomeOM").removeClass("is-invalid");
+                            $("#txtEndNomeOM").addClass("is-valid");
+                        }
+                        else{
+                            $("#txtEndNomeOM").val('');
+                            $("#txtEndNomeOM").removeClass("is-invalid");
+                            $("#txtEndNomeOM").removeClass("is-valid");
+                        }
+
+                        if(dados.uf != ""){
+                            $("#txtEndEstadoOM").val(dados.uf);
+                            $("#txtEndEstadoOM").removeClass("is-invalid");
+                            $("#txtEndEstadoOM").addClass("is-valid");
+                        }
+                        else{
+                            $("#txtEndEstadoOM").val('');
+                            $("#txtEndEstadoOM").removeClass("is-invalid");
+                            $("#txtEndEstadoOM").removeClass("is-valid");
+                        }
+
+                        if(dados.localidade != ""){
+                            $("#txtEndCidadeOM").val(dados.localidade);
+                            $("#txtEndCidadeOM").removeClass("is-invalid");
+                            $("#txtEndCidadeOM").addClass("is-valid");
+                        }
+                        else{
+                            $("#txtEndCidadeOM").val('');
+                            $("#txtEndCidadeOM").removeClass("is-invalid");
+                            $("#txtEndCidadeOM").removeClass("is-valid");
+                        }                            
+
+                        if(dados.bairro != ""){
+                            $("#txtEndBairroOM").val(dados.bairro);
+                            $("#txtEndBairroOM").removeClass("is-invalid");
+                            $("#txtEndBairroOM").addClass("is-valid");
+                        }
+                        else{
+                            $("#txtEndBairroOM").val('');
+                            $("#txtEndBairroOM").removeClass("is-invalid");
+                            $("#txtEndBairroOM").removeClass("is-valid");
+                        }                            
+
+                        if(dados.complemento != ""){
+                           $("#txtEndCompOM").val(dados.complemento);
+                            $("#txtEndCompOM").removeClass("is-invalid");
+                            $("#txtEndCompOM").addClass("is-valid");
+                        }
+                        else{
+                            $("#txtEndCompOM").val('');
+                            $("#txtEndCompOM").removeClass("is-invalid");
+                            $("#txtEndCompOM").removeClass("is-valid");
+                            $("#txtEndCompOM").prop("readonly", false);
+                        }
+                    }
+                    else {
+                        //CEP pesquisado não foi encontrado.
+                        limpa_formulário_cep_om("#txtEndNomeOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txEndBairroOM", "#txtEndCompOM");
+                        $("#txtEndCepOM").removeClass("is-valid");
+                        $("#txtEndCepOM").addClass("is-invalid");
+                        $(".invalid-cep").html("CEP não encontrado!");
+                    }
+                });
+            }
+            else {
+                //cep é inválido.
+                limpa_formulário_cep_om("#txtEndNomeOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txEndBairroOM", "#txtEndCompOM");
+                $("#txtEndCepOM").removeClass("is-valid");
+                $("#txtEndCepOM").addClass("is-invalid");
+                $(".invalid-cep").html("CEP Inválido!");;
+            }
+        }
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep_om("#txtEndNomeOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txEndBairroOM", "#txtEndCompOM");
         }
     });
 
