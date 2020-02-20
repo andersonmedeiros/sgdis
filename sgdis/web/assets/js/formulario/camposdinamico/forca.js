@@ -337,6 +337,108 @@ function limpa_select(select, msg){
     $(select).removeClass("is-valid");
 }
 
+//Acionamento form Serviços na Amazônia
+var qtdeSvAmz = document.querySelectorAll('#fieldsetSvAmz .form-row').length + 1;
+
+$("#txtSvAmz").change(function() {    
+    if($("#txtSvAmz").val() === "s"){
+        $("#divSvAmz").css("display", "block");        
+    }
+    else if($("#txtSvAmz").val() === "n" || $("#txtSvAmz").val() === "0"){
+        $("#divSvAmz").css("display", "none");
+        $("#fieldsetSvAmz .fieldset-interno").remove();
+        qtdeSvAmz = 1;
+    }
+});
+                                                                           
+                                                
+                                            
+
+$("#btnAddSvAmz").click(function(){      
+    $("#fieldsetSvAmz").append("<div id=linha"+qtdeSvAmz+" class=\"linha fieldset-interno\">"+
+                                "   <div class=form-row>"+
+                                "       <div class=\"form-group col-md-6\">"+
+                                            "<label for=txtForcaOMSvAmz"+qtdeSvAmz+">Força: <span class=campo-obrigatorio>*</span></label>"+
+                                            "<select class=form-control id=txtForcaOMSvAmz"+qtdeSvAmz+" name=txtForcaOMSvAmz></select>"+
+                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                        "</div>"+ 
+                                        "<div class=\"form-group col-md-6\">"+
+                                            "<label for=txtEstadoForcaOMSvAmz"+qtdeSvAmz+">Estado: <span class=campo-obrigatorio>*</span></label>"+
+                                            "<select class=form-control id=txtEstadoForcaOMSvAmz"+qtdeSvAmz+" name=txtEstadoForcaOMSvAmz></select>"+
+                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                        "</div>"+
+                                    "</div>"+
+                                "    <div class=form-row>"+    
+                                "        <div class=\"form-group col-md-8\">"+
+                                "            <label for=txtOMNomeSvAmz"+qtdeSvAmz+">OM: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"text\" class=\"form-control\" id=txtOMNomeSvAmz"+qtdeSvAmz+" name=\"txtOMNomeSvAmz\" placeholder=\"Ex.: Centro de Instrução de Guerra na Selva\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "        </div>"+
+                                "        <div class=\"form-group col-md-4\">"+
+                                "            <label for=txtOMAbrevSvAmz"+qtdeSvAmz+">Abreviatura: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"text\" class=\"form-control\" id=txtOMAbrevSvAmz"+qtdeSvAmz+" name=\"txtOMAbrevSvAmz\" placeholder=\"Ex.: CIGS\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "        </div>"+  
+                                "    </div>"+  
+                                "    <div class=form-row>"+
+                                "        <div class=\"form-group col-md-6\">"+
+                                "            <label for=txtDInOMSvAmz"+qtdeSvAmz+">De: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"date\" class=\"form-control\" id=txtDInOMSvAmz"+qtdeSvAmz+" name=\"txtDInOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback invalid-dataInicio\">Campo Obrigatório!</div>"+
+                                "        </div>"+
+                                "        <div class=\"form-group col-md-6\">"+
+                                "            <label for=txtDFimOMSvAmz"+qtdeSvAmz+">Até: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"date\" class=\"form-control\" id=txtDFimOMSvAmz"+qtdeSvAmz+" name=\"txtDFimOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback invalid-dataFim\">Campo Obrigatório!</div>"+
+                                "        </div>"+  
+                                "    </div>"+  
+                                "    <div class=form-row>"+
+                                "        <div class=\"form-group col-md-4\">"+
+                                "            <label for=txtFunc1OMSvAmz"+qtdeSvAmz+">Função 1: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"text\" class=\"form-control\" id=txtFunc1OMSvAmz"+qtdeSvAmz+" name=\"txtFunc1OMSvAmz\" placeholder=\"Ex.: Cmt Pel\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "        </div>"+
+                                "        <div class=\"form-group col-md-4\">"+
+                                "            <label for=txtFunc2OMSvAmz"+qtdeSvAmz+">Função 2: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"text\" class=\"form-control\" id=txtFunc2OMSvAmz"+qtdeSvAmz+" name=\"txtFunc2OMSvAmz\" placeholder=\"Ex.: Cmt Cia\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "        </div>"+  
+                                "        <div class=\"form-group col-md-4\">"+
+                                "            <label for=txtFunc3OMSvAmz"+qtdeSvAmz+">Função 3: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"text\" class=\"form-control\" id=txtFunc3OMSvAmz"+qtdeSvAmz+" name=\"txtFunc3OMSvAmz\" placeholder=\"Ex.: Enc Mat\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "        </div>"+  
+                                "    </div>"+  
+                                "</div>");
+                        
+                        carregar_forcas("select[name=txtForcaOMSvAmz]");
+                        $("select[name=txtForcaOMSvAmz]").change(function(){
+                            alert("aqui");
+                            var sigla_forca = $(this).val();
+                            if(sigla_forca != null){
+                                carregar_estados("txtEstadoForcaOMSvAmz", sigla_forca);                
+                            }
+                        });
+    /*functionValidInputTReal("#txtOMNomeSvAmz"+qtdeSvAmz);
+    functionValidInputTReal("#txtOMAbrevSvAmz"+qtdeSvAmz);
+    functionValidDInOMSvAmzTReal("#txtDInOMSvAmz"+qtdeSvAmz);
+    functionValidDFimOMSvAmzTReal("#txtDInOMSvAmz"+qtdeSvAmz, "#txtDFimOMSvAmz"+qtdeSvAmz);
+    functionValidInputTReal("#txtFunc1OMSvAmz"+qtdeSvAmz);
+    functionValidInputTReal("#txtFunc2OMSvAmz"+qtdeSvAmz);
+    functionValidInputTReal("#txtFunc3OMSvAmz"+qtdeSvAmz);*/
+    
+    qtdeSvAmz++;
+});
+
 //Função para carregar dinamicamente as forças e os respectivos estados
 function carregar_forca(id, sigla_forca){
     if((id == "txtForca") && (sigla_forca == null)){
@@ -344,8 +446,14 @@ function carregar_forca(id, sigla_forca){
         $("#txtForca").append("<option value=0>Selecione uma Força...</option>");
         $("#txtForca").removeClass("is-invalid");
         $("#txtForca").removeClass("is-valid");        
+        
+        $("select[name=txtForcaOMSvAmz]").html("");
+        $("select[name=txtForcaOMSvAmz]").append("<option value=0>Selecione uma Força...</option>");
+        $("select[name=txtForcaOMSvAmz]").removeClass("is-invalid");
+        $("select[name=txtForcaOMSvAmz]").removeClass("is-valid");        
         for(var i=0; i<dados_forca.forca.length; i++){
             $("#txtForca").append("<option value="+"'"+dados_forca.forca[i].sigla+"'"+">"+dados_forca.forca[i].nome+"</option>");
+            $("select[name=txtForcaOMSvAmz]").append("<option value="+"'"+dados_forca.forca[i].sigla+"'"+">"+dados_forca.forca[i].nome+"</option>");
         }
     }else{
         for(var i=0; dados_forca.forca.length; i++){
@@ -360,6 +468,16 @@ function carregar_forca(id, sigla_forca){
             }
         }
     }
+};
+function carregar_forcas(select){
+        $(select).html("");
+        $(select).append("<option value=0>Selecione uma Força...</option>");
+        $(select).removeClass("is-invalid");
+        $(select).removeClass("is-valid");                
+        for(var i=0; i<dados_forca.forca.length; i++){
+            $(select).append("<option value="+"'"+dados_forca.forca[i].sigla+"'"+">"+dados_forca.forca[i].nome+"</option>");
+        }
+    
 };
 
 //Função para carregar dinamicamente om referente ao estado
@@ -391,6 +509,20 @@ function carregar_estado(id, sigla_forca){
                 $("#txtEstadoForca").removeClass("is-valid");
             for(var j=0; j<dados_forca.forca[i].postoGraduacao.length; j++){
                 $("#txtEstadoForca").append("<option value="+"'"+dados_forca.forca[i].estados[j].sigla+"'"+">"+dados_forca.forca[i].estados[j].nome+"</option>");
+            }   
+        }            
+    }
+};
+//Função para carregar dinamicamente estados referente a força
+function carregar_estados(select, sigla_forca){    
+    for(var i=0; dados_forca.forca.length; i++){
+        if(dados_forca.forca[i].sigla == sigla_forca){
+                $(select).html("");
+                $(select).append("<option value=0>Selecione um Estado...</option>");
+                $(select).removeClass("is-invalid");
+                $(select).removeClass("is-valid");
+            for(var j=0; j<dados_forca.forca[i].postoGraduacao.length; j++){
+                $(select).append("<option value="+"'"+dados_forca.forca[i].estados[j].sigla+"'"+">"+dados_forca.forca[i].estados[j].nome+"</option>");
             }   
         }            
     }

@@ -939,7 +939,7 @@ $("#btnAddEstagio").click(function(){
     qtdeEstagios++;
 });
 
-//Acionamento form Serviços na Amazônia
+/*//Acionamento form Serviços na Amazônia
 var qtdeSvAmz = document.querySelectorAll('#fieldsetSvAmz .form-row').length + 1;
 
 $("#txtSvAmz").change(function() {    
@@ -952,10 +952,27 @@ $("#txtSvAmz").change(function() {
         qtdeSvAmz = 1;
     }
 });
+                                                                           
+                                                
+                                            
 
 $("#btnAddSvAmz").click(function(){      
     $("#fieldsetSvAmz").append("<div id=linha"+qtdeSvAmz+" class=\"linha fieldset-interno\">"+
-                                "    <div class=form-row>"+
+                                "   <div class=form-row>"+
+                                "       <div class=\"form-group col-md-6\">"+
+                                            "<label for=txtForcaOMSvAmz"+qtdeSvAmz+">Força: <span class=campo-obrigatorio>*</span></label>"+
+                                            "<select class=form-control id=txtForcaOMSvAmz"+qtdeSvAmz+" name=txtForcaOMSvAmz></select>"+
+                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                        "</div>"+ 
+                                        "<div class=\"form-group col-md-6\">"+
+                                            "<label for=txtEstadoForcaOMSvAmz"+qtdeSvAmz+">Estado: <span class=campo-obrigatorio>*</span></label>"+
+                                            "<select class=form-control id=txtEstadoForcaOMSvAmz"+qtdeSvAmz+" name=txtEstadoForcaOMSvAmz></select>"+
+                                            "<div class=\"valid-feedback\">Selva!</div>"+
+                                            "<div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                        "</div>"+
+                                    "</div>"+
+                                "    <div class=form-row>"+    
                                 "        <div class=\"form-group col-md-8\">"+
                                 "            <label for=txtOMNomeSvAmz"+qtdeSvAmz+">OM: <span class=\"campo-obrigatorio\">*</span></label>"+
                                 "            <input type=\"text\" class=\"form-control\" id=txtOMNomeSvAmz"+qtdeSvAmz+" name=\"txtOMNomeSvAmz\" placeholder=\"Ex.: Centro de Instrução de Guerra na Selva\">"+
@@ -1004,7 +1021,7 @@ $("#btnAddSvAmz").click(function(){
                                 "        </div>"+  
                                 "    </div>"+  
                                 "</div>");
-    functionValidInputTReal("#txtOMNomeSvAmz"+qtdeSvAmz);
+    /*functionValidInputTReal("#txtOMNomeSvAmz"+qtdeSvAmz);
     functionValidInputTReal("#txtOMAbrevSvAmz"+qtdeSvAmz);
     functionValidDInOMSvAmzTReal("#txtDInOMSvAmz"+qtdeSvAmz);
     functionValidDFimOMSvAmzTReal("#txtDInOMSvAmz"+qtdeSvAmz, "#txtDFimOMSvAmz"+qtdeSvAmz);
@@ -1013,7 +1030,7 @@ $("#btnAddSvAmz").click(function(){
     functionValidInputTReal("#txtFunc3OMSvAmz"+qtdeSvAmz);
     
     qtdeSvAmz++;
-});
+});*/
 
 //Acionamento form Tentativas em realizar o curso
 $("#txtTentC").change(function() {    
