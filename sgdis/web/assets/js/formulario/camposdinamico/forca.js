@@ -337,8 +337,35 @@ function limpa_select(select, msg){
     $(select).removeClass("is-valid");
 }
 
+var functioncarregar_forcas = function(select){
+    
+        $(select).html("");
+        $(select).append("<option value=0>Selecione uma Força...</option>");
+        $(select).removeClass("is-invalid");
+        $(select).removeClass("is-valid");                
+        for(var i=0; i<dados_forca.forca.length; i++){
+            $(select).append("<option value="+"'"+dados_forca.forca[i].sigla+"'"+">"+dados_forca.forca[i].nome+"</option>");
+        }
+    
+};
+                                                                           
+//Função para carregar dinamicamente estados referente a força
+var functioncarregar_estados = function(select, sigla_forca){    
+    for(var i=0; dados_forca.forca.length; i++){
+        if(dados_forca.forca[i].sigla == sigla_forca){
+                $(select).html("");
+                $(select).append("<option value=0>Selecione um Estado...</option>");
+                $(select).removeClass("is-invalid");
+                $(select).removeClass("is-valid");
+            for(var j=0; j<dados_forca.forca[i].postoGraduacao.length; j++){
+                $(select).append("<option value="+"'"+dados_forca.forca[i].estados[j].sigla+"'"+">"+dados_forca.forca[i].estados[j].nome+"</option>");
+            }   
+        }            
+    }
+};
+
 //Acionamento form Serviços na Amazônia
-var qtdeSvAmz = document.querySelectorAll('#fieldsetSvAmz .form-row').length + 1;
+var qtdeSvAmz = document.querySelectorAll('#fieldsetSvAmz .linha').length + 1;
 
 $("#txtSvAmz").change(function() {    
     if($("#txtSvAmz").val() === "s"){
@@ -346,11 +373,11 @@ $("#txtSvAmz").change(function() {
     }
     else if($("#txtSvAmz").val() === "n" || $("#txtSvAmz").val() === "0"){
         $("#divSvAmz").css("display", "none");
-        $("#fieldsetSvAmz .fieldset-interno").remove();
+        $("#fieldsetSvAmz .linha").remove();
         qtdeSvAmz = 1;
     }
 });
-                                                                           
+
                                                 
                                             
 
@@ -420,12 +447,13 @@ $("#btnAddSvAmz").click(function(){
                                 "    </div>"+  
                                 "</div>");
                         
-                        carregar_forcas("select[name=txtForcaOMSvAmz]");
+                        functioncarregar_forcas("#txtForcaOMSvAmz"+qtdeSvAmz);
                         $("select[name=txtForcaOMSvAmz]").change(function(){
-                            alert("aqui");
                             var sigla_forca = $(this).val();
+                            var id = $("div .linha").index();
+                            console.log(id);
                             if(sigla_forca != null){
-                                carregar_estados("txtEstadoForcaOMSvAmz", sigla_forca);                
+                                functioncarregar_estados("#txtEstadoForcaOMSvAmz"+(id+1), sigla_forca);                
                             }
                         });
     /*functionValidInputTReal("#txtOMNomeSvAmz"+qtdeSvAmz);
@@ -469,16 +497,7 @@ function carregar_forca(id, sigla_forca){
         }
     }
 };
-function carregar_forcas(select){
-        $(select).html("");
-        $(select).append("<option value=0>Selecione uma Força...</option>");
-        $(select).removeClass("is-invalid");
-        $(select).removeClass("is-valid");                
-        for(var i=0; i<dados_forca.forca.length; i++){
-            $(select).append("<option value="+"'"+dados_forca.forca[i].sigla+"'"+">"+dados_forca.forca[i].nome+"</option>");
-        }
-    
-};
+
 
 //Função para carregar dinamicamente om referente ao estado
 function carregar_estado_om(id, sigla_forca, estado_om){    
@@ -513,20 +532,7 @@ function carregar_estado(id, sigla_forca){
         }            
     }
 };
-//Função para carregar dinamicamente estados referente a força
-function carregar_estados(select, sigla_forca){    
-    for(var i=0; dados_forca.forca.length; i++){
-        if(dados_forca.forca[i].sigla == sigla_forca){
-                $(select).html("");
-                $(select).append("<option value=0>Selecione um Estado...</option>");
-                $(select).removeClass("is-invalid");
-                $(select).removeClass("is-valid");
-            for(var j=0; j<dados_forca.forca[i].postoGraduacao.length; j++){
-                $(select).append("<option value="+"'"+dados_forca.forca[i].estados[j].sigla+"'"+">"+dados_forca.forca[i].estados[j].nome+"</option>");
-            }   
-        }            
-    }
-};
+
 
 
 //Função para carregar dinamicamente postos/graduações
