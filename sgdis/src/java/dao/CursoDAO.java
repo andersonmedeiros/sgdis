@@ -12,50 +12,48 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
- * @author andersondepaula
+ * @author depaula
  */
 public class CursoDAO {
     //Tabela
-    String tabela = "Curso";
+    static String tabela = "Curso";
     
     //Atributos
-    String id = "id";
-    String nome = "nome";
-    String sigla = "sigla";
-    String idcategoria = "idCategoria";
-    String portaria = "portaria";
-    String descricao = "descricao";
+    static String id = "id";
+    static String nome = "nome";
+    static String sigla = "sigla";
+    static String portaria = "portaria";
+    static String descricao = "descricao";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + idcategoria + "," + portaria + "," + descricao +")"
+    private final static String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + portaria + "," + descricao +")"
                                     + " VALUES(?,?,?,?,?,?);";
     
     //Update SQL
-    private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + sigla + "=?, " + idcategoria + "=?, " + portaria + "=?, " + descricao + "=? " +
+    private final static String UPDATE = "UPDATE " + tabela +
+                                  " SET " + nome + "=?, " + sigla + "=?, " + portaria + "=?, " + descricao + "=? " +
                                   "WHERE " + id + "=?;";
     
     //Delete SQL
-    private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
+    private final static String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
-    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
-    private final String GETCursoByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
-    private final String GETCursosByCAT = "SELECT * FROM " + tabela + " WHERE " + idcategoria + "=?;";
-    private final String GETCURSOS = "SELECT * FROM "+ tabela +";";
+    private final static String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
+    private final static String GETCursoByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
+    private final static String GETCURSOS = "SELECT * FROM "+ tabela +";";
     
     
-    Connection conn = null;
-    PreparedStatement pstm = null;
-    ResultSet rs = null;
+    static Connection conn = null;
+    static PreparedStatement pstm = null;
+    static ResultSet rs = null;
     
     //Próximo ID a ser inserido
-    public int proxID(){
+    public static int proxID(){
         int ultimo_id = 0;
-        
         try{
             conn = ConnectionFactory.getConnection();
             
@@ -74,7 +72,7 @@ public class CursoDAO {
     }
     
     //Insert SQL
-    public void insert(Curso curso) {
+    public static void insert(Curso curso) {
         if (curso != null) {
             try {
                 conn = ConnectionFactory.getConnection();
@@ -84,9 +82,8 @@ public class CursoDAO {
                 pstm.setInt(1, curso.getId());
                 pstm.setString(2, curso.getNome());
                 pstm.setString(3, curso.getSigla());
-                pstm.setInt(4, curso.getIdCategoria());  
-                pstm.setString(5, curso.getPortaria());
-                pstm.setString(6, curso.getDescricao());
+                pstm.setString(4, curso.getPortaria());
+                pstm.setString(5, curso.getDescricao());
                                               
                 pstm.execute();
                 
@@ -101,7 +98,7 @@ public class CursoDAO {
     }
     
     //Update SQL
-    public void update(Curso curso) {
+    public static void update(Curso curso) {
         if (curso != null) {
             try {
                 conn = ConnectionFactory.getConnection();
@@ -109,10 +106,9 @@ public class CursoDAO {
                 
                 pstm.setString(1, curso.getNome());
                 pstm.setString(2, curso.getSigla());
-                pstm.setInt(3, curso.getIdCategoria());
-                pstm.setString(4, curso.getPortaria());
-                pstm.setString(5, curso.getDescricao());
-                pstm.setInt(6, curso.getId());
+                pstm.setString(3, curso.getPortaria());
+                pstm.setString(4, curso.getDescricao());
+                pstm.setInt(5, curso.getId());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -126,7 +122,7 @@ public class CursoDAO {
     }
     
     //Delete SQL
-    public void delete(int id) {
+    public static void delete(int id) {
         if (id != 0) {
             try {
                 conn = ConnectionFactory.getConnection();
@@ -145,7 +141,7 @@ public class CursoDAO {
     }
     
     //Curso by ID
-    public Curso getCurso(int id){
+    public static Curso getCurso(int id){
         Curso curso = new Curso();
         try {
             conn = ConnectionFactory.getConnection();
@@ -157,7 +153,6 @@ public class CursoDAO {
                 curso.setId(rs.getInt("id"));
                 curso.setNome(rs.getString(nome));
                 curso.setSigla(rs.getString(sigla));
-                curso.setIdCategoria(rs.getInt(idcategoria));
                 curso.setPortaria(rs.getString(portaria));
                 curso.setDescricao(rs.getString(descricao));
             }
@@ -169,11 +164,8 @@ public class CursoDAO {
     }
     
     //Lista com todos os cursos
-    public ArrayList<Curso> getCursos(){
-        conn = null;
-        pstm = null;
-        ResultSet rs = null;
-        ArrayList<Curso> cursos = new ArrayList<>();
+    public static  ArrayList<Curso> getCursos(){
+         ArrayList<Curso> cursos = new ArrayList<>();
         
         try {
             conn = ConnectionFactory.getConnection();
@@ -183,44 +175,11 @@ public class CursoDAO {
             while (rs.next()) {
                 Curso curso = new Curso();
                 
-                curso.setId(rs.getInt(id));
-                curso.setNome(rs.getString(nome));
-                curso.setSigla(rs.getString(sigla));
-                curso.setIdCategoria(rs.getInt(idcategoria));
-                curso.setPortaria(rs.getString(portaria));
-                curso.setDescricao(rs.getString(descricao));
-                
-                cursos.add(curso);
-            }
-            ConnectionFactory.fechaConexao(conn, pstm, rs);
-        } catch (SQLException e) {
-            throw new RuntimeException(e.getMessage());           
-        }
-        return cursos;
-    }
-    
-    //Lista com todos os cursos by categoria
-    public ArrayList<Curso> getCursosByCategoria(int idCat){
-        conn = null;
-        pstm = null;
-        ResultSet rs = null;
-        ArrayList<Curso> cursos = new ArrayList<>();
-        
-        try {
-            conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCursosByCAT);
-            pstm.setInt(1, idCat);
-           
-            rs = pstm.executeQuery();
-            while (rs.next()) {
-                Curso curso = new Curso();
-                
-                curso.setId(rs.getInt(id));
-                curso.setNome(rs.getString(nome));
-                curso.setSigla(rs.getString(sigla));
-                curso.setIdCategoria(rs.getInt(idcategoria));
-                curso.setPortaria(rs.getString(portaria));
-                curso.setDescricao(rs.getString(descricao));
+                curso.setId(rs.getInt("id"));
+                curso.setNome(rs.getString("nome"));
+                curso.setSigla(rs.getString("sigla"));
+                curso.setPortaria(rs.getString("portaria"));
+                curso.setDescricao(rs.getString("descricao"));
                 
                 cursos.add(curso);
             }
@@ -231,4 +190,3 @@ public class CursoDAO {
         return cursos;
     }
 }
-
