@@ -11,7 +11,7 @@ package bean;
  */
 public class Turma {
     int id, nTurma, idCurso, idCategoria;
-    String dataInicio, dataFim;
+    String ano, dataInicio, dataFim;
 
     public int getId() {
         return id;
@@ -45,6 +45,14 @@ public class Turma {
         this.idCategoria = idCategoria;
     }
 
+    public String getAno() {
+        return ano;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+            
     public String getDataInicio() {
         return dataInicio;
     }
