@@ -4,6 +4,8 @@
     Author     : depaula
 --%>
 
+<%@page import="bean.Turma"%>
+<%@page import="dao.TurmaDAO"%>
 <%@page import="bean.Curso"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.CursoDAO"%>
@@ -116,40 +118,40 @@
                         <th scope="col">TURNO</th>
                         <th scope="col">INÍCIO</th>
                         <th scope="col">TÉRMINO</th>
+                        <th scope="col">AÇÕES</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
+                        CategoriaDAO catDAO = new CategoriaDAO();
                         CursoDAO cursoDAO = new CursoDAO();
-                        ArrayList<Curso> cursos = new ArrayList<>();
+                        TurmaDAO turmaDAO = new TurmaDAO();
+                        ArrayList<Turma> turmas = new ArrayList<>();
                         
-                        cursos = cursoDAO.getCursos();
+                        turmas = turmaDAO.getTurmas();
                         
-                        if(cursos.size() == 0){
+                        if(turmas.size() == 0){
                             out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
                             out.println("       Nenhum curso cadastrado.<br>Adicione um novo curso!");
                             out.println("</div>");
                         }else{
-                            for(int i=0;i<cursos.size();i++){
+                            for(int i=0;i<turmas.size();i++){
                                 out.println("<tr>");
-                                out.println("   <th scope=\"row\">"+ cursos.get(i).getId() +"</th>");
-                                out.println("   <td>"+ cursos.get(i).getNome() +"</td>");
-                                out.println("   <td>"+ cursos.get(i).getSigla()+"</td>");
-                                out.println("   <td>"+ cursos.get(i).getIdCategoria()+"</td>");
-                                out.println("   <td>"+ cursos.get(i).getPortaria()+"</td>");
+                                out.println("   <th scope=\"row\">"+ turmas.get(i).getId() +"</th>");
+                                out.println("   <td>"+ cursoDAO.getCurso(turmas.get(i).getIdCurso()).getSigla() + " "+ catDAO.getCategoria(turmas.get(i).getIdCategoria()).getNome() +"</td>");
+                                out.println("   <td>"+ turmas.get(i).getAno()+ "/"+ turmas.get(i).getnTurma() +"</td>");
+                                out.println("   <td>"+ turmas.get(i).getDataInicio()+"</td>");
+                                out.println("   <td>"+ turmas.get(i).getDataFim()+"</td>");
                                 out.println("   <td>");
                                 out.println("       <div class=form-row>");
                                 out.println("           <div class=\"form-group mr-2\">");
-                                out.println("               <form name=\"formExcluir\" method=\"POST\" action=\"controller.curso/Excluir\">");
-                                out.println("                   <input type=\"hidden\" class=\"form-control\" name=\"curso_id_excluir\" id=\"curso_id_excluir\" readonly=\"readonly\" value=\""+cursos.get(i).getId()+"\"/>");
-                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnExcluir\" class=\"btn btn-danger\" onclick=\"return confirm('Tem certeza que deseja excluir o registro?');\">Excluir</button>");
+                                out.println("               <form name=\"formExcluir\" method=\"POST\" action=\"controller.turma/Excluir\">");
+                                out.println("                   <input type=\"hidden\" class=\"form-control\" name=\"turma_id_excluir\" id=\"turma_id_excluir\" readonly=\"readonly\" value=\""+turmas.get(i).getId()+"\"/>");
+                                out.println("                   <button id="+ turmas.get(i).getId() +" type=\"submit\" name=\"btnExcluir\" class=\"btn btn-danger\" onclick=\"return confirm('Tem certeza que deseja excluir o registro?');\">Excluir</button>");
                                 out.println("               </form>");
                                 out.println("           </div>");
                                 out.println("           <div class=\"form-group mr-2\">");                  
-                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Alterar</button>");
-                                out.println("           </div>");
-                                out.println("           <div class=form-group>");                  
-                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnGrade\" class=\"btn btn-dark\" data-toggle=\"modal\" data-target=\"#modalFormGradeCurso\" onclick=\"grade_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+");\">Grade</button>");
+                                out.println("                   <button id="+ turmas.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+turmas.get(i).getId()+"'"+","+"'"+turmas.get(i).getAno()+"'"+","+"'"+turmas.get(i).getDataInicio()+"'"+","+"'"+turmas.get(i).getDataFim()+"'"+","+"'"+turmas.get(i).getIdCurso()+"'"+","+"'"+turmas.get(i).getIdCategoria()+"'"+");\">Alterar</button>");
                                 out.println("           </div>");
                                 out.println("       </div>");
                                 out.println("   </td>");
@@ -161,64 +163,54 @@
             </table>
             
             <!-- Botão para acionar modal -->
-            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modalFormCadCurso">Adicionar novo curso</button>
+            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modalFormAddTurma">Abrir nova turma</button>
 
             <!-- Modal Cadastro-->
-            <div class="modal fade" id="modalFormCadCurso" tabindex="-1" role="dialog" aria-labelledby="modalFormCadCurso" aria-hidden="true">
+            <div class="modal fade" id="modalFormAddTurma" tabindex="-1" role="dialog" aria-labelledby="modalFormAddTurma" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title title" id="modalFormCadCurso">Novo Curso</h5>
+                            <h5 class="modal-title title" id="modalFormAddTurma">Nova Turma</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             
-                            <form class="container-fluid" action="controller.turma/" method="POST" name="formCadastrar">
+                            <form class="container-fluid" action="controller.turma/Cadastrar" method="POST" name="formAddTurma">
                                 <div class="form-row">
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-6">
                                         <label for="txtAno">Ano: </label>
                                         <input type="text" class="form-control" id="txtAno" name="txtAno" placeholder="Ano">
                                     </div>                                   
                                 </div>
-                                
-                                <div class="form-group col-md-4">
-                                    <label for="txtUltDataPracaAl">Última Data de Praça: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="date" class="form-control" id="txtUltDataPracaAl" name="txtUltDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
-                                </div>
-
                                 <div class="form-row">
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-6">
+                                        <label for="txtDataInicio">Início: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="date" class="form-control" id="txtDataInicio" name="txtDataInicio" placeholder="Ex.: DD/MM/AAAA">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
+                                    </div>                                   
+                                    <div class="form-group col-md-6">
+                                        <label for="txtDataFim">Término: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="date" class="form-control" id="txtDataFim" name="txtDataFim" placeholder="Ex.: DD/MM/AAAA">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
+                                    </div>                                   
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="txtCurso">Curso: </label>
+                                        <select class="form-control" id="txtCurso" name="txtCurso">
+                                            <option value="0" selected>Selecione um Curso...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
                                         <label for="txtCategoria">Categoria: </label>
                                         <select class="form-control" id="txtCategoria" name="txtCategoria">
                                             <option value="0" selected>Selecione uma Categoria...</option>
-                                            <%
-                                                CategoriaDAO catDAO = new CategoriaDAO();
-
-                                                int qtdeCategoria = catDAO.getCategorias().size();
-                                                
-                                                if(qtdeCategoria != 0){
-                                                    for(int i=0;i<qtdeCategoria;i++){
-                                                        out.println("<option value='"+catDAO.getCategorias().get(i).getId()+"'>"+catDAO.getCategorias().get(i).getNome()+ " - " + catDAO.getCategorias().get(i).getDescricao() +"</option>");
-                                                    } 
-                                                }
-                                            %>
                                         </select>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-8">
-                                        <label for="txtPortaria">Portaria: </label>
-                                        <input type="text" class="form-control" id="txtPortaria" name="txtPortaria" placeholder="Portaria">
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="txtDescricao">Descrição: </label>
-                                        <textarea class="form-control" id="txtDescricao" name="txtDescricao" rows="3" placeholder="Descrição"></textarea>
                                     </div>
                                 </div>
                                 <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
@@ -233,63 +225,51 @@
             </div>
             
             <!-- Modal Atualizar-->
-            <div class="modal fade" id="modalFormAttCurso" tabindex="-1" role="dialog" aria-labelledby="modalFormAttCurso" aria-hidden="true">
+            <div class="modal fade" id="modalFormAttTurma" tabindex="-1" role="dialog" aria-labelledby="modalFormAttTurma" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title title" id="modalFormAttCurso">Novo Curso</h5>
+                            <h5 class="modal-title title" id="modalFormAttTurma">Atualizar Turma</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            
-                            <form class="container-fluid" action="controller.curso/Atualizar" method="POST" name="formAtualizar">
+                            <form class="container-fluid" action="controller.turma/Atualizar" method="POST" name="formAttTurma">
                                 <input type="hidden" class="form-control" id="txtIdAtt" name="txtIdAtt">
                                 <div class="form-row">
-                                    <div class="form-group col-md-8">
-                                        <label for="txtNome">Nome: </label>
-                                        <input type="text" class="form-control" id="txtNomeAtt" name="txtNomeAtt" placeholder="Nome">
-                                    </div>
-
-                                    <div class="form-group col-md-4">
-                                        <label for="txtSigla">Sigla: </label>
-                                        <input type="text" class="form-control" id="txtSiglaAtt" name="txtSiglaAtt" placeholder="Sigla">
-                                    </div>                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="txtAnoAtt">Ano: </label>
+                                        <input type="text" class="form-control" id="txtAnoAtt" name="txtAnoAtt" placeholder="Ano">
+                                    </div>                                   
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="txtDataInicioAtt">Início: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="date" class="form-control" id="txtDataInicioAtt" name="txtDataInicioAtt" placeholder="Ex.: DD/MM/AAAA">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
+                                    </div>                                   
+                                    <div class="form-group col-md-6">
+                                        <label for="txtDataFimAtt">Término: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="date" class="form-control" id="txtDataFimAtt" name="txtDataFimAtt" placeholder="Ex.: DD/MM/AAAA">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
+                                    </div>                                   
                                 </div>
                                 
-                                <div class="form-group col-md-4">
-                                    <label for="txtUltDataPracaAl">Última Data de Praça: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="date" class="form-control" id="txtUltDataPracaAl" name="txtUltDataPracaAl" placeholder="Ex.: DD/MM/AAAA">
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
-                                </div>
-
                                 <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="txtCategoria">Categoria: </label>
-                                        <select class="form-control" id="txtCategoriaAtt" name="txtCategoriaAtt">
-                                            <option value="0" selected>Selecione uma Categoria...</option>
-                                            <%                                                
-                                                if(qtdeCategoria != 0){
-                                                    for(int i=0;i<qtdeCategoria;i++){
-                                                        out.println("<option value='"+catDAO.getCategorias().get(i).getId()+"'>"+catDAO.getCategorias().get(i).getNome()+ " - " + catDAO.getCategorias().get(i).getDescricao() +"</option>");
-                                                    } 
-                                                }
-                                            %>
+                                    <div class="form-group col-md-6">
+                                        <label for="txtCursoAtt">Curso: </label>
+                                        <select class="form-control" id="txtCursoAtt" name="txtCursoAtt">
+                                            <option value="0" selected>Selecione um Curso...</option>
                                         </select>
                                     </div>
-                                    
-                                    <div class="form-group col-md-9">
-                                        <label for="txtPortaria">Portaria: </label>
-                                        <input type="text" class="form-control" id="txtPortariaAtt" name="txtPortariaAtt" placeholder="Portaria">
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="txtDescricaoAtt">Descrição: </label>
-                                        <textarea class="form-control" id="txtDescricaoAtt" name="txtDescricaoAtt" rows="3" placeholder="Descrição"></textarea>
+                                    <div class="form-group col-md-6">
+                                        <label for="txtCategoriaAtt">Categoria: </label>
+                                        <select class="form-control" id="txtCategoriaAtt" name="txtCategoriaAtt">
+                                            <option value="0" selected>Selecione uma Categoria...</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
@@ -301,58 +281,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-                                        
-            <!-- Modal Grade Curso-->
-            <div class="modal fade" id="modalFormGradeCurso" tabindex="-1" role="dialog" aria-labelledby="modalFormGradeCurso" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title title" id="modalFormGradeCurso">Nova Grade</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">                            
-                            <form class="container-fluid" action="controller.gradeCurricular/CadastrarGrade" method="POST" name="formCadastrarGrade">
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label for="txtIdCursoGrade">Curso: </label>
-                                        <input type="text" class="form-control" id="txtIdCursoGrade" name="txtIdCursoGrade" placeholder="Nome" readonly>
-                                    </div>
-
-                                    <div class="form-group col-md-4">
-                                        <label for="txtSiglaGrade">Sigla: </label>
-                                        <input type="text" class="form-control" id="txtSiglaGrade" name="txtSiglaGrade" placeholder="Sigla" readonly>
-                                    </div>                                     
-                                
-                                    <div class="form-group col-md-4">
-                                        <label for="txtCategoriaGrade ">Categoria: </label>
-                                        <input type="text" class="form-control" id="txtCategoriaGrade" name="txtCategoriaGrade" placeholder="Grade" readonly>                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group col-md-10">
-                                        <label for="txtDescricaoGrade">Descrição: </label>
-                                        <input type="text" class="form-control" id="txtDescricaoGrade" name="txtDescricaoGrade" placeholder="Descricao">
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="txtAnoGrade">Ano: </label>
-                                        <input type="text" class="form-control" id="txtAnoGrade" name="txtAnoGrade" placeholder="Ano">
-                                    </div>
-                                </div>
-                                        
-                                <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
-                                <button type="submit" name="btnSalvar" class="btn btn-success">Salvar</button>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>  
         </section>
         
         <footer class="container-fluid bg-success text-center fixed-bottom">
