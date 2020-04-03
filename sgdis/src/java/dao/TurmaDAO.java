@@ -5,7 +5,6 @@
  */
 package dao;
 
-import bean.Assunto;
 import bean.Turma;
 import connection.ConnectionFactory;
 import java.sql.Connection;
@@ -13,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -26,18 +24,19 @@ public class TurmaDAO {
     //Atributos
     String id = "id";
     String ano = "ano";
-    String turma = "turma";
+    String nturma = "turma";
     String datainicio = "datainicio";
     String datafim = "datafim";
     String idCurso = "idCurso";
     String idCategoria = "idCategoria";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + ano + "," + turma + "," + datainicio + "," + datafim + "," + idCurso + "," + idCategoria + ")"
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + ano + "," + nturma + "," + datainicio + "," + datafim + "," + idCurso + "," + idCategoria + ")"
                                     + " VALUES(?,?,?,?,?,?,?);";
         
     //Consultas SQL
     private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
+    private final String GETURMAS = "SELECT * FROM "+ tabela +";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
@@ -92,6 +91,38 @@ public class TurmaDAO {
         }
     }
     
+    //Lista com todas as turmas
+    public ArrayList<Turma> getModalidades(){
+        conn = null;
+        pstm = null;
+        rs = null;
+        ArrayList<Turma> turmas = new ArrayList<>();
+        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETURMAS);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Turma turma = new Turma();
+               
+               turma.setId(rs.getInt(id));
+               turma.setAno(rs.getString(ano));               
+               turma.setnTurma(rs.getInt(nturma));
+               turma.setDataInicio(rs.getString(datainicio));
+               turma.setDataFim(rs.getString(datafim));
+               turma.setIdCurso(rs.getInt(idCurso));
+               turma.setIdCategoria(rs.getInt(idCategoria));
+                
+               turmas.add(turma);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return turmas;
+    }
+    
     private final static String GETTURMAS = "select * " +
                                             "from Turma";
     
@@ -125,6 +156,8 @@ public class TurmaDAO {
         }
         return turmas;
     }
+    
+    
     
 }
 

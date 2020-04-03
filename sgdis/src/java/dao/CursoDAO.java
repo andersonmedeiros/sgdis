@@ -30,29 +30,29 @@ public class CursoDAO {
     static String descricao = "descricao";
     
     //Insert SQL
-    private final static String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + portaria + "," + descricao +")"
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + portaria + "," + descricao +")"
                                     + " VALUES(?,?,?,?,?,?);";
     
     //Update SQL
-    private final static String UPDATE = "UPDATE " + tabela +
+    private final String UPDATE = "UPDATE " + tabela +
                                   " SET " + nome + "=?, " + sigla + "=?, " + portaria + "=?, " + descricao + "=? " +
                                   "WHERE " + id + "=?;";
     
     //Delete SQL
-    private final static String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
+    private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
-    private final static String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
-    private final static String GETCursoByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
-    private final static String GETCURSOS = "SELECT * FROM "+ tabela +";";
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
+    private final String GETCursoByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
+    private final String GETCURSOS = "SELECT * FROM "+ tabela +";";
     
     
-    static Connection conn = null;
-    static PreparedStatement pstm = null;
-    static ResultSet rs = null;
+    Connection conn = null;
+    PreparedStatement pstm = null;
+    ResultSet rs = null;
     
     //Próximo ID a ser inserido
-    public static int proxID(){
+    public int proxID(){
         int ultimo_id = 0;
         try{
             conn = ConnectionFactory.getConnection();
@@ -72,7 +72,7 @@ public class CursoDAO {
     }
     
     //Insert SQL
-    public static void insert(Curso curso) {
+    public void insert(Curso curso) {
         if (curso != null) {
             try {
                 conn = ConnectionFactory.getConnection();
@@ -98,7 +98,7 @@ public class CursoDAO {
     }
     
     //Update SQL
-    public static void update(Curso curso) {
+    public void update(Curso curso) {
         if (curso != null) {
             try {
                 conn = ConnectionFactory.getConnection();
@@ -122,7 +122,7 @@ public class CursoDAO {
     }
     
     //Delete SQL
-    public static void delete(int id) {
+    public void delete(int id) {
         if (id != 0) {
             try {
                 conn = ConnectionFactory.getConnection();
@@ -141,7 +141,7 @@ public class CursoDAO {
     }
     
     //Curso by ID
-    public static Curso getCurso(int id){
+    public Curso getCurso(int id){
         Curso curso = new Curso();
         try {
             conn = ConnectionFactory.getConnection();
@@ -164,7 +164,7 @@ public class CursoDAO {
     }
     
     //Lista com todos os cursos
-    public static  ArrayList<Curso> getCursos(){
+    public ArrayList<Curso> getCursos(){
          ArrayList<Curso> cursos = new ArrayList<>();
         
         try {

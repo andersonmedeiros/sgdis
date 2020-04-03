@@ -56,11 +56,11 @@ public class FacadeAjax {
     */
     
     //Curso / Categorias
-    public  ArrayList getCursos() throws Throwable, Exception{
+    /*public  ArrayList getCursos() throws Throwable, Exception{
         ArrayList<Curso> listCursos = new ArrayList();
         listCursos = CursoDAO.getCursos();
         return listCursos;
-    }
+    }*/
     
     /*public List getCategoriasByCurso(int idCurso) throws Throwable, Exception{
         List<Categoria> listResult = new ArrayList();
