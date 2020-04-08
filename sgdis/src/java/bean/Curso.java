@@ -10,7 +10,7 @@ package bean;
  * @author andersondepaula
  */
 public class Curso {
-    int id, idCategoria;
+    int id;
     String nome, sigla, portaria, descricao;
 
     public int getId() {
@@ -21,14 +21,6 @@ public class Curso {
         this.id = id;
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-            
     public String getNome() {
         return nome;
     }
@@ -40,11 +32,11 @@ public class Curso {
     public String getSigla() {
         return sigla;
     }
-    
+
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
-    
+
     public String getPortaria() {
         return portaria;
     }
@@ -59,5 +51,7 @@ public class Curso {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }   
+    }
+
+    
 }

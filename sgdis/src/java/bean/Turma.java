@@ -5,13 +5,16 @@
  */
 package bean;
 
+import java.sql.Date;
+
 /**
  *
  * @author depaula
  */
 public class Turma {
     int id, nTurma, idCurso, idCategoria;
-    String ano, dataInicio, dataFim;
+    Short ano;
+    Date dataInicio, dataFim;
 
     public int getId() {
         return id;
@@ -45,27 +48,27 @@ public class Turma {
         this.idCategoria = idCategoria;
     }
 
-    public String getAno() {
+    public Short getAno() {
         return ano;
     }
 
-    public void setAno(String ano) {
+    public void setAno(Short ano) {
         this.ano = ano;
     }
-            
-    public String getDataInicio() {
+
+    public Date getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(String dataInicio) {
+    public void setDataInicio(Date dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public String getDataFim() {
+    public Date getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(String dataFim) {
+    public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
     
