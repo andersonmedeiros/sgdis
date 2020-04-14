@@ -4,6 +4,7 @@
     Author     : andersondepaula
 --%>
 
+<%@page import="dao.CursoHasCategoriaDAO"%>
 <%@page import="dao.CategoriaDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.Curso"%>
@@ -26,6 +27,9 @@
         
         <script src="../assets/js/modalAlterar.js"></script>     
         
+        <script type='text/javascript' src='../dwr/engine.js'></script>
+        <script type='text/javascript' src='../dwr/interface/FacadeAjax.js'></script>
+        <script type='text/javascript' src='../dwr/util.js'></script> 
     </head>
     <body>
         <header>
@@ -41,22 +45,22 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../restrito/cursos.jsp">Cursos</a>
                         </li>
-                        <li class="nav-item dropdown active">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 STE
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
-                                <a class="dropdown-item active" href="../restrito/curso.jsp">Curso</a>
-                                <div class="dropdown-divider"></div>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="../restrito/gradeCurricular.jsp">Grade Curricular</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 DivAl
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
-                                <a class="dropdown-item" href="../restrito/cadastroCandidato.jsp">Cadastrar Candidato</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item active" href="../restrito/curso.jsp">Curso</a>
+                                <a class="dropdown-item" href="../restrito/turma/turma.jsp">Turma</a>
+                                <a class="dropdown-item" href="../restrito/candidato/inicio.jsp">Cadastrar Candidato</a>
                             </div>
                         </li>
                     </ul>
@@ -124,8 +128,11 @@
                     <%
                         CursoDAO cursoDAO = new CursoDAO();
                         ArrayList<Curso> cursos = new ArrayList<>();
-                        
                         cursos = cursoDAO.getCursos();
+                        
+                        CursoHasCategoriaDAO cursoCategoriaDAO = new CursoHasCategoriaDAO();
+                        ArrayList<Integer> categoriasbycurso;
+                        
                         
                         if(cursos.size() == 0){
                             out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
@@ -137,7 +144,11 @@
                                 out.println("   <th scope=\"row\">"+ cursos.get(i).getId() +"</th>");
                                 out.println("   <td>"+ cursos.get(i).getNome() +"</td>");
                                 out.println("   <td>"+ cursos.get(i).getSigla()+"</td>");
-                                out.println("   <td>"+ cursos.get(i).getIdCategoria()+"</td>");
+                                categoriasbycurso = cursoCategoriaDAO.getCategoriasByCurso(cursos.get(i).getId());
+                                for(int j=0;j<categoriasbycurso.size();j++){
+                                    
+                                }
+                                //out.println("   <td>"+ cursos.get(i).getIdCategoria()+"</td>");
                                 out.println("   <td>"+ cursos.get(i).getPortaria()+"</td>");
                                 out.println("   <td>");
                                 out.println("       <div class=form-row>");
@@ -148,10 +159,10 @@
                                 out.println("               </form>");
                                 out.println("           </div>");
                                 out.println("           <div class=\"form-group mr-2\">");                  
-                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Alterar</button>");
+                                //out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getNome()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+","+"'"+cursos.get(i).getPortaria()+"'"+","+"'"+cursos.get(i).getDescricao()+"'"+");\">Alterar</button>");
                                 out.println("           </div>");
                                 out.println("           <div class=form-group>");                  
-                                out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnGrade\" class=\"btn btn-dark\" data-toggle=\"modal\" data-target=\"#modalFormGradeCurso\" onclick=\"grade_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+");\">Grade</button>");
+                                //out.println("                   <button id="+ cursos.get(i).getId() +" type=\"submit\" name=\"btnGrade\" class=\"btn btn-dark\" data-toggle=\"modal\" data-target=\"#modalFormGradeCurso\" onclick=\"grade_curso("+"'"+cursos.get(i).getId()+"'"+","+"'"+cursos.get(i).getSigla()+"'"+","+"'"+cursos.get(i).getIdCategoria()+"'"+");\">Grade</button>");
                                 out.println("           </div>");
                                 out.println("       </div>");
                                 out.println("   </td>");
@@ -163,7 +174,7 @@
             </table>
             
             <!-- Botão para acionar modal -->
-            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modalFormCadCurso">Adicionar novo curso</button>
+            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modalFormCadCurso">Novo Curso</button>
 
             <!-- Modal Cadastro-->
             <div class="modal fade" id="modalFormCadCurso" tabindex="-1" role="dialog" aria-labelledby="modalFormCadCurso" aria-hidden="true">
@@ -182,36 +193,31 @@
                                     <div class="form-group col-md-8">
                                         <label for="txtNome">Nome: </label>
                                         <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
 
                                     <div class="form-group col-md-4">
                                         <label for="txtSigla">Sigla: </label>
                                         <input type="text" class="form-control" id="txtSigla" name="txtSigla" placeholder="Sigla">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                    
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="txtCategoria">Categoria: </label>
-                                        <select class="form-control" id="txtCategoria" name="txtCategoria">
-                                            <option value="0" selected>Selecione uma Categoria...</option>
-                                            <%
-                                                CategoriaDAO catDAO = new CategoriaDAO();
-
-                                                int qtdeCategoria = catDAO.getCategorias().size();
-                                                
-                                                if(qtdeCategoria != 0){
-                                                    for(int i=0;i<qtdeCategoria;i++){
-                                                        out.println("<option value='"+catDAO.getCategorias().get(i).getId()+"'>"+catDAO.getCategorias().get(i).getNome()+ " - " + catDAO.getCategorias().get(i).getDescricao() +"</option>");
-                                                    } 
-                                                }
-                                            %>
-                                        </select>
+                                        <select class="form-control" id="txtCategoria" name="txtCategoria"><option value="0" selected>Selecione uma Categoria...</option></select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     
                                     <div class="form-group col-md-8">
                                         <label for="txtPortaria">Portaria: </label>
                                         <input type="text" class="form-control" id="txtPortaria" name="txtPortaria" placeholder="Portaria">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                 </div>
 
@@ -219,10 +225,12 @@
                                     <div class="form-group col-md-12">
                                         <label for="txtDescricao">Descrição: </label>
                                         <textarea class="form-control" id="txtDescricao" name="txtDescricao" rows="3" placeholder="Descrição"></textarea>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                 </div>
                                 <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
-                                <button type="submit" name="btnSalvar" class="btn btn-success">Salvar</button>
+                                <button type="submit" name="btnSalvarCadastro" class="btn btn-success">Salvar</button>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -250,11 +258,15 @@
                                     <div class="form-group col-md-8">
                                         <label for="txtNome">Nome: </label>
                                         <input type="text" class="form-control" id="txtNomeAtt" name="txtNomeAtt" placeholder="Nome">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
 
                                     <div class="form-group col-md-4">
                                         <label for="txtSigla">Sigla: </label>
                                         <input type="text" class="form-control" id="txtSiglaAtt" name="txtSiglaAtt" placeholder="Sigla">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                    
                                 </div>
 
@@ -263,14 +275,9 @@
                                         <label for="txtCategoria">Categoria: </label>
                                         <select class="form-control" id="txtCategoriaAtt" name="txtCategoriaAtt">
                                             <option value="0" selected>Selecione uma Categoria...</option>
-                                            <%                                                
-                                                if(qtdeCategoria != 0){
-                                                    for(int i=0;i<qtdeCategoria;i++){
-                                                        out.println("<option value='"+catDAO.getCategorias().get(i).getId()+"'>"+catDAO.getCategorias().get(i).getNome()+ " - " + catDAO.getCategorias().get(i).getDescricao() +"</option>");
-                                                    } 
-                                                }
-                                            %>
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     
                                     <div class="form-group col-md-9">
@@ -355,5 +362,10 @@
         <script src="../assets/node_modules/jquery/dist/jquery.js"></script>
         <script src="../assets/node_modules/popper.js/dist/popper.js"></script>
         <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        
+        <script src="../assets/js/dwr/curso/cadastro/campos-dinamicos.js"></script>
+        
+        <script src="../assets/js/formulario/validacao/curso/cadastro.js"></script>  
+        <script src="../assets/js/bootstrap-validate.js"></script>
     </body>
 </html>

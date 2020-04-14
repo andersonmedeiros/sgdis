@@ -49,8 +49,9 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 DivAl
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
-                                <a class="dropdown-item" href="../restrito/turma/turma.jsp">Cadastrar Turma</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../restrito/curso.jsp">Curso</a>
+                                <a class="dropdown-item" href="../restrito/turma/turma.jsp">Turma</a>
                                 <a class="dropdown-item" href="../restrito/candidato/inicio.jsp">Cadastrar Candidato</a>
                             </div>
                         </li>
