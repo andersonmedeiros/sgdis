@@ -181,4 +181,34 @@ public class CategoriaDAO {
         }
         return categorias;
     }
+    
+    private final static String GETCATEGORIASDWR = "select * " +
+                                                   "from Categoria ";
+    
+    public static ArrayList<Categoria> getCategoriasDWR(){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        ArrayList<Categoria> categorias = new ArrayList<>();
+        
+        try{
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETCATEGORIASDWR);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+               Categoria cat = new Categoria();
+               
+               cat.setId(rs.getInt("id"));
+               cat.setNome(rs.getString("nome"));
+               cat.setDescricao(rs.getString("descricao"));
+                
+               categorias.add(cat);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return categorias;
+    }
 }
