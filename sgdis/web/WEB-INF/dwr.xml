@@ -9,10 +9,10 @@
         <param name="class" value="java.util.Date"/>
     </create>
     <create creator="new" javascript="FacadeAjax">
-        <param name="class" value="facade.FacadeAjax" />
+        <param name="class" value="facade.FacadeAjax"/>
     </create>
     
-    
-    
+    <convert converter="bean" match="bean.Categoria"/>
+    <convert converter="bean" match="dao.CategoriaDAO"/>    
   </allow>
 </dwr>
