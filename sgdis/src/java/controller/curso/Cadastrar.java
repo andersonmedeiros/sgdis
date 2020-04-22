@@ -5,8 +5,8 @@
  */
 package controller.curso;
 
-import bean.Curso;
-import dao.CursoDAO;
+import model.bean.Curso;
+import model.dao.CursoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.bean.CursoHasCategoria;
+import model.dao.CursoHasCategoriaDAO;
 
 /**
  *
@@ -77,32 +79,45 @@ public class Cadastrar extends HttpServlet {
         HttpSession sessao = request.getSession();
         
         if(sessao.getAttribute("militarAutenticado") != null){
-            try{
-            CursoDAO cursoDAO = new CursoDAO();
+            try{                
+                String nome = request.getParameter("txtNome").toUpperCase();
+                String sigla = request.getParameter("txtSigla").toUpperCase();
+                int idCategoria = Integer.parseInt(request.getParameter("txtCategoria").toUpperCase());
+                String portaria = request.getParameter("txtPortaria").toUpperCase();
+                String descricao = request.getParameter("txtDescricao").toUpperCase();                
 
-            int id = cursoDAO.proxID();
-            String nome = request.getParameter("txtNome").toUpperCase();
-            String sigla = request.getParameter("txtSigla").toUpperCase();
-            int idCategoria = Integer.parseInt(request.getParameter("txtCategoria").toUpperCase());
-            String portaria = request.getParameter("txtPortaria").toUpperCase();
-            String descricao = request.getParameter("txtDescricao").toUpperCase();
-
-            Curso curso = new Curso();
-            curso.setId(id);
-            curso.setNome(nome);
-            curso.setSigla(sigla);
-            curso.setIdCategoria(idCategoria);
-            curso.setPortaria(portaria);
-            curso.setDescricao(descricao);
-            
-            cursoDAO.insert(curso);
+                CursoDAO cursoDAO = new CursoDAO();
+                CursoHasCategoriaDAO cursocategoriaDAO = new CursoHasCategoriaDAO();
+                
+                int idCursoExistente = cursoDAO.getIdCursoExistente(sigla);
+                if(idCursoExistente == 0){
+                    Curso curso = new Curso();
+                    int idCurso = cursoDAO.proxID();     
+                    curso.setId(idCurso);
+                    curso.setNome(nome);
+                    curso.setSigla(sigla);
+                    curso.setPortaria(portaria);
+                    curso.setDescricao(descricao);
+                    cursoDAO.insert(curso);
+                    
+                    CursoHasCategoria cursocategoria = new CursoHasCategoria();
+                    cursocategoria.setIdCurso(idCurso);
+                    cursocategoria.setIdCategoria(idCategoria);
+                    cursocategoriaDAO.insert(cursocategoria); 
+                }
+                else{
+                    CursoHasCategoria cursocategoria = new CursoHasCategoria();
+                    cursocategoria.setIdCurso(idCursoExistente);
+                    cursocategoria.setIdCategoria(idCategoria);
+                    cursocategoriaDAO.insert(cursocategoria);
+                }                              
             }catch(Exception ex){
                 //e=2: erro durante realização do cadastro
-                response.sendRedirect("/sgdis/restrito/curso.jsp?e=2");
+                response.sendRedirect("/sgdis/restrito/curso/curso.jsp?e=2");
                 throw new ServletException(ex);
             }
             //e=1: cadastro sucesso
-            response.sendRedirect("/sgdis/restrito/curso.jsp?e=1");
+            response.sendRedirect("/sgdis/restrito/curso/curso.jsp?e=1");
             /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
             despachante.forward(request, response);*/
         }

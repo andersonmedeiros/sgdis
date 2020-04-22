@@ -5,7 +5,7 @@
  */
 package controller.curso;
 
-import dao.CursoDAO;
+import model.dao.CursoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.dao.CursoHasCategoriaDAO;
 
 /**
  *
@@ -75,20 +76,21 @@ public class Excluir extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         
         HttpSession sessao = request.getSession();
-        CursoDAO cursoDAO = new CursoDAO();
+        CursoHasCategoriaDAO cursocategoriaDAO = new CursoHasCategoriaDAO();
         
         if(sessao.getAttribute("militarAutenticado") != null){
             try{
-                int id = Integer.parseInt(request.getParameter("curso_id_excluir"));
+                int idCurso = Integer.parseInt(request.getParameter("idCursoExcluir"));
+                int idCategoria = Integer.parseInt(request.getParameter("idCategoriaExcluir"));
 
-                cursoDAO.delete(id);
+                cursocategoriaDAO.delete(idCurso, idCategoria);
             }catch(Exception ex){
                 //e=3: erro durante exclusao
-                response.sendRedirect("/sgdis/restrito/curso.jsp?e=3");
+                response.sendRedirect("/sgdis/restrito/curso/curso.jsp?e=3");
                 throw new ServletException(ex);
             }
             //e=4: cadastro excluído
-            response.sendRedirect("/sgdis/restrito/curso.jsp?e=4");
+            response.sendRedirect("/sgdis/restrito/curso/curso.jsp?e=4");
         }else{
             //e=4: Sessão Encerrada
             response.sendRedirect("/sgdis/index.jsp?e=4");

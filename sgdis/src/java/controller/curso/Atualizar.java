@@ -5,8 +5,8 @@
  */
 package controller.curso;
 
-import bean.Curso;
-import dao.CursoDAO;
+import model.bean.Curso;
+import model.dao.CursoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.bean.CursoHasCategoria;
+import model.dao.CursoHasCategoriaDAO;
 
 /**
  *
@@ -79,31 +81,27 @@ public class Atualizar extends HttpServlet {
         
         if(sessao.getAttribute("militarAutenticado") != null){
             try{
-            CursoDAO cursoDAO = new CursoDAO();
+                int idCurso = Integer.parseInt(request.getParameter("txtIdAtt").toUpperCase());
+                String nome = request.getParameter("txtNomeAtt").toUpperCase();
+                String sigla = request.getParameter("txtSiglaAtt").toUpperCase();
+                String portaria = request.getParameter("txtPortariaAtt").toUpperCase();
+                String descricao = request.getParameter("txtDescricaoAtt").toUpperCase();
 
-            int id = Integer.parseInt(request.getParameter("txtIdAtt").toUpperCase());
-            String nome = request.getParameter("txtNomeAtt").toUpperCase();
-            String sigla = request.getParameter("txtSiglaAtt").toUpperCase();
-            int idCategoria = Integer.parseInt(request.getParameter("txtCategoriaAtt").toUpperCase());
-            String portaria = request.getParameter("txtPortariaAtt").toUpperCase();
-            String descricao = request.getParameter("txtDescricaoAtt").toUpperCase();
-
-            Curso curso = new Curso();
-            curso.setId(id);
-            curso.setNome(nome);
-            curso.setSigla(sigla);
-            curso.setIdCategoria(idCategoria);
-            curso.setPortaria(portaria);
-            curso.setDescricao(descricao);
-            
-            cursoDAO.update(curso);
+                CursoDAO cursoDAO = new CursoDAO();
+                Curso curso = new Curso();
+                curso.setId(idCurso);
+                curso.setNome(nome);
+                curso.setSigla(sigla);
+                curso.setPortaria(portaria);
+                curso.setDescricao(descricao);            
+                cursoDAO.update(curso);
             }catch(Exception ex){
                 //e=5: erro durante atualização do cadastro
-                response.sendRedirect("/sgdis/restrito/curso.jsp?e=5");
+                response.sendRedirect("/sgdis/restrito/curso/curso.jsp?e=5");
                 throw new ServletException(ex);
             }
             //e=6: atualização sucesso
-            response.sendRedirect("/sgdis/restrito/curso.jsp?e=6");
+            response.sendRedirect("/sgdis/restrito/curso/curso.jsp?e=6");
             /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
             despachante.forward(request, response);*/
         }
