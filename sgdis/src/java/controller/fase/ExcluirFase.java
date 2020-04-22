@@ -5,7 +5,7 @@
  */
 package controller.fase;
 
-import dao.CursoDAO;
+import model.dao.CursoDAO;
 import dao.FaseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;

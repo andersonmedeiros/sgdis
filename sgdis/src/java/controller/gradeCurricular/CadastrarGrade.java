@@ -5,9 +5,9 @@
  */
 package controller.gradeCurricular;
 
-import bean.Categoria;
+import model.bean.Categoria;
 import bean.GradeCurricular;
-import dao.CategoriaDAO;
+import model.dao.CategoriaDAO;
 import dao.GradeCurricularDAO;
 import java.io.IOException;
 import java.io.PrintWriter;

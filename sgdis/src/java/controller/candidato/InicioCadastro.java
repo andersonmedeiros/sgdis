@@ -5,8 +5,8 @@
  */
 package controller.candidato;
 
-import bean.Curso;
-import dao.CursoDAO;
+import model.bean.Curso;
+import model.dao.CursoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
