@@ -88,15 +88,15 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Cadastrar</servlet-name>
-        <url-pattern>/restrito/controller.curso/Cadastrar</url-pattern>
+        <url-pattern>/restrito/curso/controller.curso/Cadastrar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Atualizar</servlet-name>
-        <url-pattern>/restrito/controller.curso/Atualizar</url-pattern>
+        <url-pattern>/restrito/curso/controller.curso/Atualizar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Excluir</servlet-name>
-        <url-pattern>/restrito/controller.curso/Excluir</url-pattern>
+        <url-pattern>/restrito/curso/controller.curso/Excluir</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarFase</servlet-name>
