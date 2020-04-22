@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package model.dao;
 
-import bean.Curso;
+import model.bean.Curso;
 import connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.bean.Categoria;
 
 /**
  *
@@ -31,7 +32,7 @@ public class CursoDAO {
     
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + portaria + "," + descricao +")"
-                                    + " VALUES(?,?,?,?,?,?);";
+                                    + " VALUES(?,?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
@@ -45,6 +46,7 @@ public class CursoDAO {
     private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     private final String GETCursoByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
     private final String GETCURSOS = "SELECT * FROM "+ tabela +";";
+    private final String GETIDBYSIGLA = "SELECT " + id + " FROM "+ tabela + " WHERE "+ sigla + "=?;";
     
     
     Connection conn = null;
@@ -188,5 +190,54 @@ public class CursoDAO {
             throw new RuntimeException(e.getMessage());           
         }
         return cursos;
+    }
+    
+    //IdCurso by Sigla
+    public int getIdCursoExistente(String sigla){
+        int idCurso = 0;
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETIDBYSIGLA);
+            pstm.setString(1, sigla);
+            
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                idCurso = rs.getInt("id");
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return idCurso;
+    }
+    
+    private final static String GETCURSOBYIDDWR = "select * " +
+                                                   "from Curso " +
+                                                   "where id=?";
+    
+    public static Curso getCursoByIdDWR(int idCurso){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        Curso curso = new Curso();
+        
+        try{
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETCURSOBYIDDWR);
+            pstm.setInt(1, idCurso);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                curso.setId(rs.getInt("id"));
+                curso.setNome(rs.getString("nome"));
+                curso.setSigla(rs.getString("sigla"));
+                curso.setPortaria(rs.getString("portaria"));
+                curso.setDescricao(rs.getString("descricao"));
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return curso;
     }
 }

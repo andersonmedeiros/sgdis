@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bean;
+package model.bean;
 
 /**
  *
  * @author andersondepaula
  */
 public class Curso {
-    int id;
-    String nome, sigla, portaria, descricao;
+    private int id;
+    private String nome, sigla, portaria, descricao;
 
     public int getId() {
         return id;
