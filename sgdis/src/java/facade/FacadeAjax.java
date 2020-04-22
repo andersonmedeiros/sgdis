@@ -7,8 +7,10 @@ package facade;
 
 import java.util.ArrayList;
 
-import bean.Categoria;
-import dao.CategoriaDAO;
+import model.bean.Categoria;
+import model.bean.Curso;
+import model.dao.CategoriaDAO;
+import model.dao.CursoDAO;
 
 
 /**
@@ -22,4 +24,12 @@ public class FacadeAjax {
         listResult = CategoriaDAO.getCategoriasDWR();
         return listResult;
     }
+    //Curso;
+    public Curso getCurso(int idCurso) throws Throwable, Exception{
+        Curso cursoResult = new Curso();
+        cursoResult = CursoDAO.getCursoByIdDWR(idCurso);
+        return cursoResult;
+    }
+    
+    
 }
