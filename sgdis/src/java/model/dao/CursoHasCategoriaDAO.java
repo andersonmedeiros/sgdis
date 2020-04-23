@@ -170,4 +170,38 @@ public class CursoHasCategoriaDAO {
         }
         return cursocategoria;
     }
+    
+    private final static String GETCATEGORIASBYCURSODWR = "select cat.*\n" +
+                                                          "from Curso_has_Categoria as c_cat\n" +
+                                                          "inner join Curso as c on c.id = c_cat.idCurso\n" +
+                                                          "inner join Categoria as cat on cat.id = c_cat.idCategoria\n" +
+                                                          "where c.id = ?;";
+    
+    public static ArrayList<Categoria> getCategoriasByCursoDWR(int idCurso){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        
+        ArrayList<Categoria> categorias = new ArrayList<>();
+        
+        try{
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETCATEGORIASBYCURSODWR);
+            pstm.setInt(1, idCurso);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Categoria cat = new Categoria();
+                cat.setId(rs.getInt("cat.id"));
+                cat.setNome(rs.getString("cat.nome"));
+                cat.setDescricao(rs.getString("cat.descricao"));
+                
+                categorias.add(cat);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return categorias;
+    }
 }

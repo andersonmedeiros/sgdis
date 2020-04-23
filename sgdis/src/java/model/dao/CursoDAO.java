@@ -12,8 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import model.bean.Categoria;
 
 /**
  *
@@ -239,5 +237,36 @@ public class CursoDAO {
             throw new RuntimeException(e.getMessage());           
         }
         return curso;
+    }
+    
+    private final static String GETCURSOSDWR = "select * " +
+                                               "from Curso ";
+    
+    public static ArrayList<Curso> getCursosDWR(){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        
+        ArrayList<Curso> cursos = new ArrayList<>();
+        
+        try{
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETCURSOSDWR);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Curso curso = new Curso();
+                curso.setId(rs.getInt("id"));
+                curso.setNome(rs.getString("nome"));
+                curso.setSigla(rs.getString("sigla"));
+                curso.setPortaria(rs.getString("portaria"));
+                curso.setDescricao(rs.getString("descricao"));
+                cursos.add(curso);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return cursos;
     }
 }
