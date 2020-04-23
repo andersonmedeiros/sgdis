@@ -353,7 +353,7 @@
         <script src="../../assets/node_modules/popper.js/dist/popper.js"></script>
         <script src="../../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
         
-        <script src="../../assets/js/dwr/curso/cadastro/campos-dinamicos.js"></script>
+        <script src="../../assets/js/dwr/curso/campos-dinamicos.js"></script>
         
         <script src="../../assets/js/formulario/validacao/curso/funcoesImportantes.js"></script>
         <script src="../../assets/js/formulario/validacao/curso/cadastro.js"></script>
