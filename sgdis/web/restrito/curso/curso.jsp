@@ -183,13 +183,13 @@
                             <form class="container-fluid" action="controller.curso/Cadastrar" method="POST" name="formCadastrar">
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
-                                        <label for="txtNome">Nome: </label>
+                                        <label for="txtNome">Nome: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
                                         <div class="valid-feedback">Selva!</div>
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="txtSigla">Sigla: </label>
+                                        <label for="txtSigla">Sigla: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtSigla" name="txtSigla" placeholder="Sigla">
                                         <div class="valid-feedback">Selva!</div>
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
@@ -197,7 +197,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                        <label for="txtCategoria">Categoria: </label>
+                                        <label for="txtCategoria">Categoria: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtCategoria" name="txtCategoria">
                                             <option value="0" selected>Selecione uma Categoria...</option>
                                         </select>
@@ -205,7 +205,7 @@
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                    
                                     <div class="form-group col-md-8">
-                                        <label for="txtPortaria">Portaria: </label>
+                                        <label for="txtPortaria">Portaria: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtPortaria" name="txtPortaria" placeholder="Portaria">
                                         <div class="valid-feedback">Selva!</div>
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
@@ -213,7 +213,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="txtDescricao">Descrição: </label>
+                                        <label for="txtDescricao">Descrição: <span class="campo-obrigatorio">*</span></label>
                                         <textarea class="form-control" id="txtDescricao" name="txtDescricao" rows="3" placeholder="Descrição"></textarea>
                                         <div class="valid-feedback">Selva!</div>
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
@@ -245,13 +245,13 @@
                                 <input type="hidden" class="form-control" id="txtIdAtt" name="txtIdAtt">
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
-                                        <label for="txtNome">Nome: </label>
+                                        <label for="txtNome">Nome: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtNomeAtt" name="txtNomeAtt" placeholder="Nome">
                                         <div class="valid-feedback">Selva!</div>
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="txtSigla">Sigla: </label>
+                                        <label for="txtSigla">Sigla: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtSiglaAtt" name="txtSiglaAtt" placeholder="Sigla">
                                         <div class="valid-feedback">Selva!</div>
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
@@ -259,7 +259,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
-                                        <label for="txtCategoria">Categoria: </label>
+                                        <label for="txtCategoria">Categoria: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtCategoriaAtt" name="txtCategoriaAtt" disabled>
                                             <option value="0" selected>Selecione uma Categoria...</option>
                                         </select>
@@ -268,7 +268,7 @@
                                     </div>
                                     
                                     <div class="form-group col-md-9">
-                                        <label for="txtPortaria">Portaria: </label>
+                                        <label for="txtPortaria">Portaria: <span class="campo-obrigatorio">*</span></label>
                                         <input type="text" class="form-control" id="txtPortariaAtt" name="txtPortariaAtt" placeholder="Portaria">
                                         <div class="valid-feedback">Selva!</div>
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
@@ -276,7 +276,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="txtDescricaoAtt">Descrição: </label>
+                                        <label for="txtDescricaoAtt">Descrição: <span class="campo-obrigatorio">*</span></label>
                                         <textarea class="form-control" id="txtDescricaoAtt" name="txtDescricaoAtt" rows="3" placeholder="Descrição"></textarea>
                                         <div class="valid-feedback">Selva!</div>
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
