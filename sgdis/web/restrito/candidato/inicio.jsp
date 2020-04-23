@@ -4,8 +4,8 @@
     Author     : anderson
 --%>
 
-<%@page import="dao.CursoDAO"%>
-<%@page import="dao.CategoriaDAO"%>
+<%@page import="model.dao.CursoDAO"%>
+<%@page import="model.dao.CategoriaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
