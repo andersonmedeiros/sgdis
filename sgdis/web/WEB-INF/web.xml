@@ -9,7 +9,6 @@
             <param-value>true</param-value>
         </init-param>
     </servlet>
-    
     <filter>
         <filter-name>FiltroPaginas</filter-name>
         <filter-class>controller.FiltroPaginas</filter-class>
@@ -74,6 +73,10 @@
         <servlet-name>InicioCadastro</servlet-name>
         <servlet-class>controller.candidato.InicioCadastro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarTurma</servlet-name>
+        <servlet-class>controller.turma.CadastrarTurma</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dwr-invoker</servlet-name>
         <url-pattern>/dwr/*</url-pattern>
@@ -133,6 +136,10 @@
     <servlet-mapping>
         <servlet-name>InicioCadastro</servlet-name>
         <url-pattern>/restrito/candidato/controller.candidato/InicioCadastro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarTurma</servlet-name>
+        <url-pattern>/restrito/turma/controller.turma/CadastrarTurma</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
