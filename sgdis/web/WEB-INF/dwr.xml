@@ -16,5 +16,7 @@
     <convert converter="bean" match="model.dao.CursoDAO"/>    
     <convert converter="bean" match="model.bean.Categoria"/>
     <convert converter="bean" match="model.dao.CategoriaDAO"/>    
+    <convert converter="bean" match="model.bean.CursoHasCategoria"/>
+    <convert converter="bean" match="model.dao.CursoHasCategoriaDAO"/>    
   </allow>
 </dwr>

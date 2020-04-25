@@ -1,12 +1,11 @@
-FacadeAjax.getCursos(montaSelectCurso);
+FacadeAjax.getCursosDWR(montaSelectCurso);
 function montaSelectCurso(listBeans){
-    //var select = document.getElementById("#forca");
     dwr.util.removeAllOptions("txtCurso");
     dwr.util.addOptions("txtCurso", [{id: "0", nome: "Selecione um Curso..."}], "id", "nome");
     dwr.util.addOptions("txtCurso", listBeans, "id", "nome");
 }
 function montaSelectDependenteCurso(idCurso){
-    FacadeAjax.getCategoriasByCurso(idCurso, {
+    FacadeAjax.getCategoriasByCursoDWR(idCurso, {
        callback: function(list){
            dwr.util.removeAllOptions("txtCategoria");
            dwr.util.addOptions("txtCategoria", [{id: "0", nome: "Selecione uma Categoria..."}], "id", "nome");
