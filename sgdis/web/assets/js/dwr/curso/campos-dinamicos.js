@@ -12,10 +12,10 @@ function montaSelectCategoria(categorias){
     dwr.util.addOptions("txtCategoriaAtt", [{id: "0", nome: "Selecione uma Categoria..."}], "id", "nome");
     dwr.util.addOptions("txtCategoriaAtt", categorias, "id", "nome");
 }
-FacadeAjax.getCategorias(montaSelectCategoria);
+FacadeAjax.getCategoriasDWR(montaSelectCategoria);
 
 function alteraCurso(idCurso, idCategoria){
-    FacadeAjax.getCurso(idCurso, {
+    FacadeAjax.getCursoDWR(idCurso, {
         callback: function(curso){
             dwr.util.setValues({
                 txtIdAtt: curso.id,
