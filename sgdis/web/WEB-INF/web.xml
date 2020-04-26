@@ -9,6 +9,10 @@
             <param-value>true</param-value>
         </init-param>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>dwr-invoker</servlet-name>
+        <url-pattern>/dwr/*</url-pattern>
+    </servlet-mapping>
     <filter>
         <filter-name>FiltroPaginas</filter-name>
         <filter-class>controller.FiltroPaginas</filter-class>
@@ -36,6 +40,10 @@
     <servlet>
         <servlet-name>Excluir</servlet-name>
         <servlet-class>controller.curso.Excluir</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarTurma</servlet-name>
+        <servlet-class>controller.turma.CadastrarTurma</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarFase</servlet-name>
@@ -74,13 +82,9 @@
         <servlet-class>controller.candidato.InicioCadastro</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CadastrarTurma</servlet-name>
-        <servlet-class>controller.turma.CadastrarTurma</servlet-class>
+        <servlet-name>ExcluirTurma</servlet-name>
+        <servlet-class>controller.turma.ExcluirTurma</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>dwr-invoker</servlet-name>
-        <url-pattern>/dwr/*</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Autenticador</servlet-name>
         <url-pattern>/Autenticador</url-pattern>
@@ -100,6 +104,10 @@
     <servlet-mapping>
         <servlet-name>Excluir</servlet-name>
         <url-pattern>/restrito/curso/controller.curso/Excluir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarTurma</servlet-name>
+        <url-pattern>/restrito/turma/controller.turma/CadastrarTurma</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarFase</servlet-name>
@@ -138,8 +146,8 @@
         <url-pattern>/restrito/candidato/controller.candidato/InicioCadastro</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CadastrarTurma</servlet-name>
-        <url-pattern>/restrito/turma/controller.turma/CadastrarTurma</url-pattern>
+        <servlet-name>ExcluirTurma</servlet-name>
+        <url-pattern>/restrito/turma/controller.turma/ExcluirTurma</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
