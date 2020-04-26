@@ -14,6 +14,7 @@ import java.sql.Date;
 public class Turma {
     int id, ano, nTurma, idCurso, idCategoria;
     Date dataInicio, dataFim;
+    String turma;
 
     public int getId() {
         return id;
@@ -71,5 +72,11 @@ public class Turma {
         this.dataFim = dataFim;
     }
 
-    
+    public String getTurma() {
+        return turma;
+    }
+
+    public void setTurma(String turma) {
+        this.turma = turma;
+    }
 }

@@ -183,7 +183,7 @@ public class TurmaDAO {
     }
     
     //Lista com todas as turmas
-    public ArrayList<Turma> getModalidades(){
+    public ArrayList<Turma> getTurmas(){
         conn = null;
         pstm = null;
         rs = null;
@@ -204,6 +204,7 @@ public class TurmaDAO {
                turma.setDataFim(rs.getDate(datafim));
                turma.setIdCurso(rs.getInt(idCurso));
                turma.setIdCategoria(rs.getInt(idCategoria));
+               turma.setTurma(rs.getInt(ano) + "/" + rs.getInt(nturma));
                 
                turmas.add(turma);
             }
@@ -236,6 +237,7 @@ public class TurmaDAO {
                turma.setDataFim(rs.getDate(datafim));
                turma.setIdCurso(rs.getInt(idCurso));
                turma.setIdCategoria(rs.getInt(idCategoria));
+               turma.setTurma(rs.getInt(ano) + "/" + rs.getInt(nturma));
                 
                turmas.add(turma);
             }
@@ -246,10 +248,11 @@ public class TurmaDAO {
         return turmas;
     }
     
-    private final static String GETTURMAS = "SELECT * " +
-                                            "FROM Turma";
+    private final static String GETTURMASBYCURSOANDCATEGORIA = "SELECT * " +
+                                            "FROM Turma " +
+                                            "WHERE idCurso = ? AND idCategoria = ?";
     
-    public static ArrayList<Turma> getTurmas(){
+    public static ArrayList<Turma> getTurmasByCursoAndCategoriaDWR(int idCurso, int idCategoria){
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -257,7 +260,9 @@ public class TurmaDAO {
         
         try{
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETTURMAS);
+            pstm = conn.prepareStatement(GETTURMASBYCURSOANDCATEGORIA);
+            pstm.setInt(1, idCurso);
+            pstm.setInt(2, idCategoria);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
@@ -270,6 +275,7 @@ public class TurmaDAO {
                turma.setDataFim(rs.getDate("datafim"));
                turma.setIdCurso(rs.getInt("idCurso"));
                turma.setIdCategoria(rs.getInt("idCategoria"));
+               turma.setTurma(rs.getInt("ano") + "/" + rs.getInt("turma"));
                 
                turmas.add(turma);
             }
