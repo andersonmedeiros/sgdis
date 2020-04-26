@@ -2,7 +2,7 @@
 //FUNÇÕES
 //SELECT
 function limpaCampoInput(campo){
-    $(campo).val('0');    
+    $(campo).val('');    
     $(campo).removeClass("is-valid");
     $(campo).removeClass("is-invalid");
 }
