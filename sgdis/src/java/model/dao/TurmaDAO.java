@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package model.dao;
 
-import bean.Turma;
+import model.bean.Turma;
 import connection.ConnectionFactory;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,12 +32,32 @@ public class TurmaDAO {
     String idCategoria = "idCategoria";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + ano + "," + nturma + "," + datainicio + "," + datafim + "," + idCurso + "," + idCategoria + ")"
-                                    + " VALUES(?,?,?,?,?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + ano + "," + nturma + "," + datainicio + "," + datafim + "," + idCurso + "," + idCategoria + ") " +
+                                  "VALUES(?,?,?,?,?,?,?);";
+    
+    //Delete SQL
+    private final String DELETE = "DELETE FROM " + tabela + 
+                                  " WHERE " + id + "=?;";
         
     //Consultas SQL
-    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
-    private final String GETURMAS = "SELECT * FROM "+ tabela +";";
+    private final String GETUltimoID = "SELECT MAX(" + id + ") ultimo_id " + 
+                                       "FROM " + tabela + ";";
+    
+    private final String GETURMAS = "SELECT * " + 
+                                    "FROM "+ tabela +";";
+    
+    private final String GETQTDETURMABYCURSOANDANO = "SELECT COUNT(idCurso) ultnTurma " + 
+                                                     "FROM Turma " + 
+                                                     "WHERE idCurso = ? and ano = ?;";
+    
+    private final String GETEXISTETURMA = "SELECT COUNT(id) qtdeTurmas " + 
+                                          "FROM Turma " + 
+                                          "WHERE idCurso = ? AND idCategoria = ? AND dataInicio = ? AND dataFim = ?;";
+    
+    private final String GETTURMASABERTAS = "SELECT * " + 
+                                            "FROM Turma " + 
+                                            "WHERE date(sysdate()) < datafim " + 
+                                            "ORDER BY idCurso, idCategoria;";
     
     Connection conn = null;
     PreparedStatement pstm = null;
@@ -63,6 +84,57 @@ public class TurmaDAO {
         return (ultimo_id+1);
     }
     
+    //Próxima turma no curso
+    public int proxnTurma(int idCurso, int ano){
+        int ultima_turma = 0;
+        
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETQTDETURMABYCURSOANDANO);
+            pstm.setInt(1, idCurso);
+            pstm.setInt(2, ano);
+            
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultima_turma = rs.getInt("ultnTurma");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultima_turma+1);
+    }
+    
+    //Pesquisa se já existe uma turma no mesmo período
+    public boolean getExisteTurma(int idCurso, int idCategoria, Date dataInicio, Date dataFim){
+        boolean existeTurma = false;
+        
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETEXISTETURMA);
+            pstm.setInt(1, idCurso);
+            pstm.setInt(2, idCategoria);
+            pstm.setDate(3, dataInicio);
+            pstm.setDate(4, dataFim);
+            
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                if(rs.getInt("qtdeTurmas") > 0){
+                    existeTurma = true;
+                }
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return existeTurma;
+    }
+    
     //Insert SQL
     public void insert(Turma turma) {
         if (turma != null) {
@@ -72,10 +144,10 @@ public class TurmaDAO {
                 pstm = conn.prepareStatement(INSERT);
                 
                 pstm.setInt(1, turma.getId());
-                pstm.setString(2, turma.getAno());
+                pstm.setInt(2, turma.getAno());
                 pstm.setInt(3, turma.getnTurma());
-                pstm.setString(4, turma.getDataInicio());
-                pstm.setString(5, turma.getDataFim());
+                pstm.setDate(4, turma.getDataInicio());
+                pstm.setDate(5, turma.getDataFim());
                 pstm.setInt(6, turma.getIdCurso());
                 pstm.setInt(7, turma.getIdCategoria());
                                               
@@ -87,6 +159,25 @@ public class TurmaDAO {
                 throw new RuntimeException(e.getMessage());  
             }
         } else {
+            throw new RuntimeException();
+        }
+    }
+    
+    //Delete SQL
+    public void delete(int id) {
+        if (id != 0) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(DELETE);
+                pstm.setInt(1, id);
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
             throw new RuntimeException();
         }
     }
@@ -104,13 +195,13 @@ public class TurmaDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                Turma turma = new Turma();
+               Turma turma = new Turma();
                
                turma.setId(rs.getInt(id));
-               turma.setAno(rs.getString(ano));               
+               turma.setAno(rs.getInt(ano));               
                turma.setnTurma(rs.getInt(nturma));
-               turma.setDataInicio(rs.getString(datainicio));
-               turma.setDataFim(rs.getString(datafim));
+               turma.setDataInicio(rs.getDate(datainicio));
+               turma.setDataFim(rs.getDate(datafim));
                turma.setIdCurso(rs.getInt(idCurso));
                turma.setIdCategoria(rs.getInt(idCategoria));
                 
@@ -123,8 +214,40 @@ public class TurmaDAO {
         return turmas;
     }
     
-    private final static String GETTURMAS = "select * " +
-                                            "from Turma";
+    //Lista com todas as turmas abertas
+    public ArrayList<Turma> getTurmasAbertas(){
+        conn = null;
+        pstm = null;
+        rs = null;
+        ArrayList<Turma> turmas = new ArrayList<>();
+        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETTURMASABERTAS);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+               Turma turma = new Turma();
+               
+               turma.setId(rs.getInt(id));
+               turma.setAno(rs.getInt(ano));               
+               turma.setnTurma(rs.getInt(nturma));
+               turma.setDataInicio(rs.getDate(datainicio));
+               turma.setDataFim(rs.getDate(datafim));
+               turma.setIdCurso(rs.getInt(idCurso));
+               turma.setIdCategoria(rs.getInt(idCategoria));
+                
+               turmas.add(turma);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return turmas;
+    }
+    
+    private final static String GETTURMAS = "SELECT * " +
+                                            "FROM Turma";
     
     public static ArrayList<Turma> getTurmas(){
         Connection conn = null;
@@ -141,10 +264,10 @@ public class TurmaDAO {
                Turma turma = new Turma();
                
                turma.setId(rs.getInt("id"));
-               turma.setAno(rs.getString("ano"));               
+               turma.setAno(rs.getInt("ano"));               
                turma.setnTurma(rs.getInt("turma"));
-               turma.setDataInicio(rs.getString("datainicio"));
-               turma.setDataFim(rs.getString("datafim"));
+               turma.setDataInicio(rs.getDate("datainicio"));
+               turma.setDataFim(rs.getDate("datafim"));
                turma.setIdCurso(rs.getInt("idCurso"));
                turma.setIdCategoria(rs.getInt("idCategoria"));
                 
@@ -156,8 +279,4 @@ public class TurmaDAO {
         }
         return turmas;
     }
-    
-    
-    
 }
-

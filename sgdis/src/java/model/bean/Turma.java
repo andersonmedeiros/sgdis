@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bean;
+package model.bean;
 
 import java.sql.Date;
 
@@ -12,8 +12,7 @@ import java.sql.Date;
  * @author depaula
  */
 public class Turma {
-    int id, nTurma, idCurso, idCategoria;
-    Short ano;
+    int id, ano, nTurma, idCurso, idCategoria;
     Date dataInicio, dataFim;
 
     public int getId() {
@@ -22,6 +21,14 @@ public class Turma {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
     }
 
     public int getnTurma() {
@@ -48,14 +55,6 @@ public class Turma {
         this.idCategoria = idCategoria;
     }
 
-    public Short getAno() {
-        return ano;
-    }
-
-    public void setAno(Short ano) {
-        this.ano = ano;
-    }
-
     public Date getDataInicio() {
         return dataInicio;
     }
@@ -71,6 +70,6 @@ public class Turma {
     public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
-    
+
     
 }
