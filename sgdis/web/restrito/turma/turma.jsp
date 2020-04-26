@@ -4,12 +4,13 @@
     Author     : depaula
 --%>
 
-<%@page import="bean.Turma"%>
-<%@page import="dao.TurmaDAO"%>
-<%@page import="bean.Curso"%>
+<%@page import="model.bean.Turma"%>
+<%@page import="model.dao.TurmaDAO"%>
+<%@page import="model.bean.Curso"%>
+<%@page import="model.dao.CursoDAO"%>
+<%@page import="model.dao.CategoriaDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="dao.CursoDAO"%>
-<%@page import="dao.CategoriaDAO"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,11 @@
         
         <link rel="stylesheet" type="text/css" href="../../assets/node_modules/bootstrap/compiler/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="../../assets/css/estilo_universal.css">
-        <link rel="stylesheet" type="text/css" href="../../assets/css/estilo_cadastroCurso.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/css/estilo_cadastroCurso.css">         
+        
+        <script type='text/javascript' src='../../dwr/engine.js'></script>
+        <script type='text/javascript' src='../../dwr/interface/FacadeAjax.js'></script>
+        <script type='text/javascript' src='../../dwr/util.js'></script> 
     </head>
     <body>
         <header class="">
@@ -56,9 +61,9 @@
                                 DivAl
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="../restrito/curso.jsp">Curso</a>
-                                <a class="dropdown-item active" href="../restrito/turma/turma.jsp">Turma</a>
-                                <a class="dropdown-item" href="../restrito/candidato/inicio.jsp">Cadastrar Candidato</a>
+                                <a class="dropdown-item" href="../../restrito/curso/curso.jsp">Curso</a>
+                                <a class="dropdown-item active" href="../../restrito/turma/turma.jsp">Turma</a>
+                                <a class="dropdown-item" href="../../restrito/candidato/inicio.jsp">Cadastrar Candidato</a>
                             </div>
                         </li>
                     </ul>
@@ -76,37 +81,37 @@
 
                     if(retorno == 1){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Curso adicionado com sucesso!");
-                        out.println("</div>");
-                    }
-                    else if(retorno == 11){
-                        out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Grade Curricular adicionada com sucesso! <a href=\"../restrito/visualizarGradeCurricular.jsp\">Clique aqui</a> para montar a Grade Curricular");
+                        out.println("       Turma adicionada com sucesso!");
                         out.println("</div>");
                     }
                     else if(retorno == 2){
                         out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Erro durante a realização do cadastro.<br>Tente Novamente!");
+                        out.println("       Erro durante a realização da abertura de turma.<br>Tente Novamente!");
                         out.println("</div>");
                     }
                     else if(retorno == 3){
                         out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Erro durante a exclusão do cadastro.<br>Tente Novamente!");
+                        out.println("       Erro durante a exclusão da turma.<br>Tente Novamente!");
                         out.println("</div>");
                     }
                     else if(retorno == 4){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Curso excluído com sucesso!");
+                        out.println("       Turma excluída com sucesso!");
                         out.println("</div>");
                     }
                     else if(retorno == 5){
                         out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Erro durante a atualização do cadastro.<br>Tente Novamente!");
+                        out.println("       Erro durante a atualização da turma.<br>Tente Novamente!");
                         out.println("</div>");
                     }
                     else if(retorno == 6){
                         out.println("<div class=\"alert alert-success shadow-sm text-center\" role=\"alert\">");
-                        out.println("       Curso atualizado com sucesso!");
+                        out.println("       Turma atualizada com sucesso!");
+                        out.println("</div>");
+                    }
+                    else if(retorno == 7){
+                        out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
+                        out.println("       Erro! Já existe uma turma para o curso no mesmo período.<br>Tente Novamente!");
                         out.println("</div>");
                     }
                 }
@@ -114,7 +119,7 @@
             <table class="table">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">#</th>
                         <th scope="col">CURSO</th>
                         <th scope="col">TURNO</th>
                         <th scope="col">INÍCIO</th>
@@ -127,18 +132,18 @@
                         CategoriaDAO catDAO = new CategoriaDAO();
                         CursoDAO cursoDAO = new CursoDAO();
                         TurmaDAO turmaDAO = new TurmaDAO();
-                        ArrayList<Turma> turmas = new ArrayList<>();
                         
-                        turmas = turmaDAO.getTurmas();
+                        ArrayList<Turma> turmas = new ArrayList<>();                        
+                        turmas = turmaDAO.getTurmasAbertas();
                         
                         if(turmas.size() == 0){
                             out.println("<div class=\"alert alert-danger shadow-sm text-center\" role=\"alert\">");
-                            out.println("       Nenhum curso cadastrado.<br>Adicione um novo curso!");
+                            out.println("       Nenhuma turma aberta.<br>Adicione uma nova turma!");
                             out.println("</div>");
                         }else{
                             for(int i=0;i<turmas.size();i++){
                                 out.println("<tr>");
-                                out.println("   <th scope=\"row\">"+ turmas.get(i).getId() +"</th>");
+                                out.println("   <th scope=\"row\">"+ (i+1) +"</th>");
                                 out.println("   <td>"+ cursoDAO.getCurso(turmas.get(i).getIdCurso()).getSigla() + " "+ catDAO.getCategoria(turmas.get(i).getIdCategoria()).getNome() +"</td>");
                                 out.println("   <td>"+ turmas.get(i).getAno()+ "/"+ turmas.get(i).getnTurma() +"</td>");
                                 out.println("   <td>"+ turmas.get(i).getDataInicio()+"</td>");
@@ -146,14 +151,14 @@
                                 out.println("   <td>");
                                 out.println("       <div class=form-row>");
                                 out.println("           <div class=\"form-group mr-2\">");
-                                out.println("               <form name=\"formExcluir\" method=\"POST\" action=\"controller.turma/Excluir\">");
-                                out.println("                   <input type=\"hidden\" class=\"form-control\" name=\"turma_id_excluir\" id=\"turma_id_excluir\" readonly=\"readonly\" value=\""+turmas.get(i).getId()+"\"/>");
-                                out.println("                   <button id="+ turmas.get(i).getId() +" type=\"submit\" name=\"btnExcluir\" class=\"btn btn-danger\" onclick=\"return confirm('Tem certeza que deseja excluir o registro?');\">Excluir</button>");
+                                out.println("               <form name=\"formExcluir\" method=\"POST\" action=\"controller.turma/ExcluirTurma\">");
+                                out.println("                   <input type=\"hidden\" class=\"form-control\" name=\"idTurmaExcluir\" id=\"idTurmaExcluir\" readonly=\"readonly\" value=\""+turmas.get(i).getId()+"\"/>");
+                                out.println("                   <button id="+ turmas.get(i).getId() +" type=\"submit\" name=\"btnExcluirTurma\" class=\"btn btn-danger\" onclick=\"return confirm('Tem certeza que deseja excluir a turma?');\">Excluir</button>");
                                 out.println("               </form>");
                                 out.println("           </div>");
-                                out.println("           <div class=\"form-group mr-2\">");                  
+                                /*out.println("           <div class=\"form-group mr-2\">");                  
                                 out.println("                   <button id="+ turmas.get(i).getId() +" type=\"submit\" name=\"btnAlterar\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormAttCurso\" onclick=\"alterar_curso("+"'"+turmas.get(i).getId()+"'"+","+"'"+turmas.get(i).getAno()+"'"+","+"'"+turmas.get(i).getDataInicio()+"'"+","+"'"+turmas.get(i).getDataFim()+"'"+","+"'"+turmas.get(i).getIdCurso()+"'"+","+"'"+turmas.get(i).getIdCategoria()+"'"+");\">Alterar</button>");
-                                out.println("           </div>");
+                                out.println("           </div>");*/
                                 out.println("       </div>");
                                 out.println("   </td>");
                                 out.println("</tr>");
@@ -164,7 +169,7 @@
             </table>
             
             <!-- Botão para acionar modal -->
-            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modalFormAddTurma">Abrir nova turma</button>
+            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modalFormAddTurma">Nova Turma</button>
 
             <!-- Modal Cadastro-->
             <div class="modal fade" id="modalFormAddTurma" tabindex="-1" role="dialog" aria-labelledby="modalFormAddTurma" aria-hidden="true">
@@ -172,17 +177,21 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title title" id="modalFormAddTurma">Nova Turma</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <button type="button" name="btnFecharTurma" class="close" data-dismiss="modal" aria-label="Fechar">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             
-                            <form class="container-fluid" action="controller.turma/Cadastrar" method="POST" name="formAddTurma">
+                            <form class="container-fluid" action="controller.turma/CadastrarTurma" method="POST" name="formAddTurma">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="txtAno">Ano: </label>
-                                        <input type="text" class="form-control" id="txtAno" name="txtAno" placeholder="Ano">
+                                        <label for="txtAno">Ano: <span class="campo-obrigatorio">*</span></label>
+                                        <select class="form-control" id="txtAno" name="txtAno">
+                                            <option value="0" selected>Selecione um Ano...</option>
+                                        </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                   
                                 </div>
                                 <div class="form-row">
@@ -190,36 +199,40 @@
                                         <label for="txtDataInicio">Início: <span class="campo-obrigatorio">*</span></label>
                                         <input type="date" class="form-control" id="txtDataInicio" name="txtDataInicio" placeholder="Ex.: DD/MM/AAAA">
                                         <div class="valid-feedback">Selva!</div>
-                                        <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
+                                        <div class="invalid-feedback invalid-dataInicio">Campo Obrigatório!</div>
                                     </div>                                   
                                     <div class="form-group col-md-6">
                                         <label for="txtDataFim">Término: <span class="campo-obrigatorio">*</span></label>
                                         <input type="date" class="form-control" id="txtDataFim" name="txtDataFim" placeholder="Ex.: DD/MM/AAAA">
                                         <div class="valid-feedback">Selva!</div>
-                                        <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
+                                        <div class="invalid-feedback invalid-dataFim">Campo Obrigatório!</div>
                                     </div>                                   
                                 </div>
                                 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="txtCurso">Curso: </label>
+                                        <label for="txtCurso">Curso: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtCurso" name="txtCurso">
                                             <option value="0" selected>Selecione um Curso...</option>
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="txtCategoria">Categoria: </label>
+                                        <label for="txtCategoria">Categoria: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtCategoria" name="txtCategoria">
                                             <option value="0" selected>Selecione uma Categoria...</option>
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                 </div>
-                                <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
-                                <button type="submit" name="btnSalvar" class="btn btn-success">Salvar</button>
+                                <button type="button" name="btnLimparTurma" class="btn btn-warning">Limpar</button>
+                                <button type="submit" name="btnSalvarTurma" class="btn btn-success">Salvar</button>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                            <button type="button" name="btnFecharTurma" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>
@@ -231,17 +244,21 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title title" id="modalFormAttTurma">Atualizar Turma</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <button type="button" name="btnFecharTurma" class="close" data-dismiss="modal" aria-label="Fechar">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="container-fluid" action="controller.turma/Atualizar" method="POST" name="formAttTurma">
+                            <form class="container-fluid" action="controller.turma/AtualizarTurma" method="POST" name="formAttTurma">
                                 <input type="hidden" class="form-control" id="txtIdAtt" name="txtIdAtt">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="txtAnoAtt">Ano: </label>
-                                        <input type="text" class="form-control" id="txtAnoAtt" name="txtAnoAtt" placeholder="Ano">
+                                        <label for="txtAnoAtt">Ano: <span class="campo-obrigatorio">*</span></label>
+                                        <select class="form-control" id="txtAno" name="txtAno">
+                                            <option value="0" selected>Selecione um Ano...</option>
+                                        </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>                                   
                                 </div>
                                 <div class="form-row">
@@ -249,36 +266,40 @@
                                         <label for="txtDataInicioAtt">Início: <span class="campo-obrigatorio">*</span></label>
                                         <input type="date" class="form-control" id="txtDataInicioAtt" name="txtDataInicioAtt" placeholder="Ex.: DD/MM/AAAA">
                                         <div class="valid-feedback">Selva!</div>
-                                        <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
+                                        <div class="invalid-feedback invalid-dataInicio">Campo Obrigatório!</div>
                                     </div>                                   
                                     <div class="form-group col-md-6">
                                         <label for="txtDataFimAtt">Término: <span class="campo-obrigatorio">*</span></label>
                                         <input type="date" class="form-control" id="txtDataFimAtt" name="txtDataFimAtt" placeholder="Ex.: DD/MM/AAAA">
                                         <div class="valid-feedback">Selva!</div>
-                                        <div class="invalid-feedback invalid-dataPracaAl">Campo Obrigatório!</div>
+                                        <div class="invalid-feedback invalid-dataFim">Campo Obrigatório!</div>
                                     </div>                                   
                                 </div>
                                 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="txtCursoAtt">Curso: </label>
+                                        <label for="txtCursoAtt">Curso: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtCursoAtt" name="txtCursoAtt">
                                             <option value="0" selected>Selecione um Curso...</option>
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="txtCategoriaAtt">Categoria: </label>
+                                        <label for="txtCategoriaAtt">Categoria: <span class="campo-obrigatorio">*</span></label>
                                         <select class="form-control" id="txtCategoriaAtt" name="txtCategoriaAtt">
                                             <option value="0" selected>Selecione uma Categoria...</option>
                                         </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
                                 </div>
-                                <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
-                                <button type="submit" name="btnSalvar" class="btn btn-success">Salvar</button>
+                                <button type="button" name="btnLimparTurma" class="btn btn-warning">Limpar</button>
+                                <button type="submit" name="btnSalvarTurma" class="btn btn-success">Salvar</button>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                            <button type="button" name="btnFecharTurma" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>
@@ -293,5 +314,12 @@
         <script src="../../assets/node_modules/jquery/dist/jquery.js"></script>
         <script src="../../assets/node_modules/popper.js/dist/popper.js"></script>
         <script src="../../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        
+        <script src="../../assets/js/dwr/turma/camposDinamicos.js"></script>
+        
+        <script src="../../assets/js/formulario/validacao/turma/funcoesImportantes.js"></script>   
+        <script src="../../assets/js/formulario/validacao/turma/cadastro.js"></script>   
+        <script src="../../assets/js/bootstrap-validate.js"></script>   
+        
     </body>
 </html>
