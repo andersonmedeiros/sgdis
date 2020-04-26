@@ -63,7 +63,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="../../restrito/curso/curso.jsp">Curso</a>
                                 <a class="dropdown-item active" href="../../restrito/turma/turma.jsp">Turma</a>
-                                <a class="dropdown-item" href="../../restrito/candidato/inicio.jsp">Cadastrar Candidato</a>
+                                <a class="dropdown-item" href="../../restrito/candidato/precandidatura.jsp">Cadastrar Candidato</a>
                             </div>
                         </li>
                     </ul>
@@ -145,7 +145,7 @@
                                 out.println("<tr>");
                                 out.println("   <th scope=\"row\">"+ (i+1) +"</th>");
                                 out.println("   <td>"+ cursoDAO.getCurso(turmas.get(i).getIdCurso()).getSigla() + " "+ catDAO.getCategoria(turmas.get(i).getIdCategoria()).getNome() +"</td>");
-                                out.println("   <td>"+ turmas.get(i).getAno()+ "/"+ turmas.get(i).getnTurma() +"</td>");
+                                out.println("   <td>"+ turmas.get(i).getTurma() +"</td>");
                                 out.println("   <td>"+ turmas.get(i).getDataInicio()+"</td>");
                                 out.println("   <td>"+ turmas.get(i).getDataFim()+"</td>");
                                 out.println("   <td>");
