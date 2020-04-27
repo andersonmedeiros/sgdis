@@ -17,6 +17,10 @@
     <convert converter="bean" match="model.bean.Categoria"/>
     <convert converter="bean" match="model.dao.CategoriaDAO"/>    
     <convert converter="bean" match="model.bean.CursoHasCategoria"/>
-    <convert converter="bean" match="model.dao.CursoHasCategoriaDAO"/>    
+    <convert converter="bean" match="model.dao.CursoHasCategoriaDAO"/>
+    <convert converter="bean" match="model.bean.Turma"/>
+    <convert converter="bean" match="model.dao.TurmaDAO"/>
+    <convert converter="bean" match="model.bean.Tentativa"/>
+    <convert converter="bean" match="model.dao.TentativaDAO"/>
   </allow>
 </dwr>
