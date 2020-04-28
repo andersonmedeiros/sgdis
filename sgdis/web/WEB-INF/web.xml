@@ -13,6 +13,7 @@
         <servlet-name>dwr-invoker</servlet-name>
         <url-pattern>/dwr/*</url-pattern>
     </servlet-mapping>
+    
     <filter>
         <filter-name>FiltroPaginas</filter-name>
         <filter-class>controller.FiltroPaginas</filter-class>
@@ -21,30 +22,84 @@
         <filter-name>FiltroPaginas</filter-name>
         <url-pattern>/restrito/*</url-pattern>
     </filter-mapping>
+        
     <servlet>
         <servlet-name>Autenticador</servlet-name>
         <servlet-class>controller.Autenticador</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>Autenticador</servlet-name>
+        <url-pattern>/Autenticador</url-pattern>
+    </servlet-mapping>
+    
     <servlet>
         <servlet-name>Sair</servlet-name>
         <servlet-class>controller.Sair</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>Sair</servlet-name>
+        <url-pattern>/restrito/Sair</url-pattern>
+    </servlet-mapping>    
+    
     <servlet>
         <servlet-name>Cadastrar</servlet-name>
         <servlet-class>controller.curso.Cadastrar</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>Cadastrar</servlet-name>
+        <url-pattern>/restrito/curso/controller.curso/Cadastrar</url-pattern>
+    </servlet-mapping>
+    
     <servlet>
         <servlet-name>Atualizar</servlet-name>
         <servlet-class>controller.curso.Atualizar</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>Atualizar</servlet-name>
+        <url-pattern>/restrito/curso/controller.curso/Atualizar</url-pattern>
+    </servlet-mapping>
+    
     <servlet>
         <servlet-name>Excluir</servlet-name>
         <servlet-class>controller.curso.Excluir</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>Excluir</servlet-name>
+        <url-pattern>/restrito/curso/controller.curso/Excluir</url-pattern>
+    </servlet-mapping>
+    
     <servlet>
         <servlet-name>CadastrarTurma</servlet-name>
         <servlet-class>controller.turma.CadastrarTurma</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>CadastrarTurma</servlet-name>
+        <url-pattern>/restrito/turma/controller.turma/CadastrarTurma</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ExcluirTurma</servlet-name>
+        <servlet-class>controller.turma.ExcluirTurma</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExcluirTurma</servlet-name>
+        <url-pattern>/restrito/turma/controller.turma/ExcluirTurma</url-pattern>
+    </servlet-mapping>    
+    
+    <servlet>
+        <servlet-name>PreCandidatura</servlet-name>
+        <servlet-class>controller.candidato.PreCandidatura</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PreCandidatura</servlet-name>
+        <url-pattern>/restrito/candidato/controller.candidato/PreCandidatura</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    
+    
+    
     <servlet>
         <servlet-name>CadastrarFase</servlet-name>
         <servlet-class>controller.fase.CadastrarFase</servlet-class>
@@ -77,38 +132,12 @@
         <servlet-name>CadastrarAssunto</servlet-name>
         <servlet-class>controller.assunto.CadastrarAssunto</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>InicioCadastro</servlet-name>
-        <servlet-class>controller.candidato.InicioCadastro</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ExcluirTurma</servlet-name>
-        <servlet-class>controller.turma.ExcluirTurma</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Autenticador</servlet-name>
-        <url-pattern>/Autenticador</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Sair</servlet-name>
-        <url-pattern>/restrito/Sair</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Cadastrar</servlet-name>
-        <url-pattern>/restrito/curso/controller.curso/Cadastrar</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Atualizar</servlet-name>
-        <url-pattern>/restrito/curso/controller.curso/Atualizar</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Excluir</servlet-name>
-        <url-pattern>/restrito/curso/controller.curso/Excluir</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CadastrarTurma</servlet-name>
-        <url-pattern>/restrito/turma/controller.turma/CadastrarTurma</url-pattern>
-    </servlet-mapping>
+    
+    
+    
+    
+    
+    
     <servlet-mapping>
         <servlet-name>CadastrarFase</servlet-name>
         <url-pattern>/restrito/controller.fase/CadastrarFase</url-pattern>
@@ -141,14 +170,8 @@
         <servlet-name>CadastrarAssunto</servlet-name>
         <url-pattern>/restrito/controller.assunto/CadastrarAssunto</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>InicioCadastro</servlet-name>
-        <url-pattern>/restrito/candidato/controller.candidato/InicioCadastro</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ExcluirTurma</servlet-name>
-        <url-pattern>/restrito/turma/controller.turma/ExcluirTurma</url-pattern>
-    </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30
