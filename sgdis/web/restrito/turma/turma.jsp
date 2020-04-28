@@ -32,8 +32,7 @@
         <script type='text/javascript' src='../../dwr/util.js'></script> 
     </head>
     <body>
-        <header class="">
-            
+        <header class="">            
             <nav class="navbar navbar-expand-lg navbar-light bg-success">
                 <a class="navbar-brand" href="../../restrito/inicial.jsp">SGDIS <span class="sr-only">(Página atual)</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerSgdis" aria-controls="navbarTogglerSgdis" aria-expanded="false" aria-label="Alterna navegação">
@@ -307,8 +306,8 @@
         </section>
         
         <footer class="container-fluid bg-success text-center fixed-bottom">
-            <b>Anderson de Paula Andrade Medeiros</b><br>
-            <b class="text-center copy">&copy; 2019</b>
+            <b>Desenvolvido por Anderson de Paula Andrade Medeiros</b><br>
+            <b class="text-center copy">&copy;2019-2020</b>
         </footer>
         
         <script src="../../assets/node_modules/jquery/dist/jquery.js"></script>
