@@ -47,7 +47,7 @@ public class TurmaHasAlunoDAO {
                 pstm = conn.prepareStatement(INSERT);
                 
                 pstm.setInt(1, turmaAluno.getIdTurma());
-                pstm.setString(2, turmaAluno.getIdtAluno());
+                pstm.setString(2, turmaAluno.getIdentidadeAluno());
                 pstm.setInt(3, turmaAluno.getIdTentativa());
                                                               
                 pstm.execute();
