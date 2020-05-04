@@ -40,7 +40,7 @@ public class CategoriaDAO {
     
     //Consultas SQL
     private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
-    private final String GETCategoriaByID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
+    private final String GETCATEGORIABYID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
     private final String GETCATEGORIAS = "SELECT * FROM "+ tabela +";";
     
     Connection conn = null;
@@ -134,12 +134,12 @@ public class CategoriaDAO {
     }
     
     //Categoria by ID
-    public Categoria getCategoria(int id){
+    public Categoria getCategoriaById(int idCategoria){
         Categoria categoria = new Categoria();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCategoriaByID);
-            pstm.setInt(1, id);
+            pstm = conn.prepareStatement(GETCATEGORIABYID);
+            pstm.setInt(1, idCategoria);
             
             rs = pstm.executeQuery();
             while (rs.next()) {

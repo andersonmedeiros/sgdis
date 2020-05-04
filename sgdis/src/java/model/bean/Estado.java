@@ -10,8 +10,8 @@ package model.bean;
  * @author anderson
  */
 public class Estado {
-    int id;
-    String nome, sigla;
+    private int id;
+    private String nome, sigla;
 
     public int getId() {
         return id;

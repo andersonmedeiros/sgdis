@@ -10,24 +10,24 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import model.bean.Cidade;
 import model.bean.Estado;
 
 /**
  *
  * @author anderson
  */
-public class EstadoDAO {
+public class CidadeDAO {
     //Tabela
-    String tabela = "Estado";
+        String tabela = "Cidade";
     
     //Atributos
     String id = "id";
     String nome = "nome";
-    String sigla = "sigla";
+    String idEstado = "idEstado";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + ")" +
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + idEstado + ")" +
                                   " VALUES(?,?,?);";
         
     //Delete SQL
@@ -41,16 +41,16 @@ public class EstadoDAO {
     
     
     //Insert SQL
-    public void insert(Estado estado) {
-        if (estado != null) {
+    public void insert(Cidade cid) {
+        if (cid != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setInt(1, estado.getId());
-                pstm.setString(2, estado.getNome());
-                pstm.setString(3, estado.getSigla());
+                pstm.setInt(1, cid.getId());
+                pstm.setString(2, cid.getNome());
+                pstm.setInt(3, cid.getIdEstado());
                                                               
                 pstm.execute();
                 
@@ -84,58 +84,34 @@ public class EstadoDAO {
     }
     
     
-    private final String GETESTADO = "SELECT * " +
-                                     "FROM Estado " + 
+    private final String GETCIDADE = "SELECT * " +
+                                     "FROM Cidade " + 
                                      "WHERE id = ?";
     
-    public Estado getEstadoById(int idEstado){
-        Estado estado = new Estado();
+    public Cidade getCidadeById(int idCidade){
+        Cidade cid = new Cidade();
+        EstadoDAO estDAO = new EstadoDAO();
         
         try{
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETESTADO);
-            pstm.setInt(1, idEstado);
+            pstm = conn.prepareStatement(GETCIDADE);
+            pstm.setInt(1, idCidade);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               estado.setId(rs.getInt("id"));
-               estado.setNome(rs.getString("nome"));
-               estado.setSigla(rs.getString("sigla"));
-            }
-            ConnectionFactory.fechaConexao(conn, pstm, rs);
-        } catch (SQLException e) {
-            throw new RuntimeException(e.getMessage());           
-        }
-        return estado;
-    }
-    
-    private final static String GETESTADOS = "SELECT * " +
-                                             "FROM Estado";
-    
-    public static ArrayList<Estado> getEstados(){
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        ArrayList<Estado> estados = new ArrayList<>();
-        
-        try{
-            conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETESTADOS);
-           
-            rs = pstm.executeQuery();
-            while (rs.next()) {
-               Estado estado = new Estado();
-               
-               estado.setId(rs.getInt("id"));
-               estado.setNome(rs.getString("nome"));
-               estado.setSigla(rs.getString("sigla"));
+                Estado est = estDAO.getEstadoById(rs.getInt("idEstado"));
                 
-               estados.add(estado);
+                cid.setId(rs.getInt("id"));
+                cid.setNome(rs.getString("nome"));
+                
+                cid.setIdEstado(est.getId());
+                cid.setNomeEstado(est.getNome());
+                cid.setSiglaEstado(est.getSigla());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return estados;
+        return cid;
     }
 }
