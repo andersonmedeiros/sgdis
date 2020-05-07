@@ -56,7 +56,9 @@
                                 DivAl
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
-                                <a class="dropdown-item active" href="../../restrito/cadastroCandidato.jsp">Cadastrar Candidato</a>
+                                <a class="dropdown-item" href="../../restrito/curso/curso.jsp">Curso</a>
+                                <a class="dropdown-item" href="../../restrito/turma/turma.jsp">Turma</a>
+                                <a class="dropdown-item active" href="../../restrito/candidato/precandidatura.jsp">Cadastrar Candidato</a>
                             </div>
                         </li>
                     </ul>
@@ -68,7 +70,7 @@
         </header>
         
         <section class="container-fluid mr-auto ml-auto area">
-            <form id="formInicioCadCandidato" class="formCad col-md-10" method="post" action="controller.candidato/InicioCandidatura">
+            <form id="formPreCandidatura" class="formCad col-md-10" method="post" action="controller.candidato/PreCandidatura">
                 <fieldset>
                     <div class="fieldset-header">
                         <h5 class="fieldset-title">Pré-Candidatura: Dados Importantes </h5>
@@ -115,8 +117,11 @@
                             <h5 class="title-interno">Tentativas</h5>
                         </div>
                         <div class="fieldset-interno">
-                            <div class="title-table">
-                                <b>Quantidade de Tentativas: <span id="qtdeTentativas"></span></b>
+                            <div class="title-table form-row">                                
+                                <div class="form-group col-md-12">
+                                    <label>Quantidade de Tentativas:   </label>
+                                    <input class="form-control" type="text" name="txtQtdeTentativas" id="qtdeTentativas" readonly/>         
+                                </div>
                             </div>
                             <div class="table">
                                 <table class="table">
@@ -135,8 +140,7 @@
                             <div id="div-btn-inicio-cad" class="form-row"></div>
                         </div>
                     </div>                    
-                </fieldset>
-                
+                </fieldset>                
             </form>
                                 
             <fieldset id="formCadCandidato" class="col-md-10">
@@ -144,8 +148,12 @@
                     <h5 class="fieldset-title">Avisos</h5>
                 </div>
                 <div class="fieldset-body">
-                    sdfjhsdfsd
-                    sdfsjdfnsd
+                    avisos aqui:<br>
+                    .....<br>
+                    .....<br>
+                    .....<br>
+                    .....<br>
+                    .....<br>
                 </div>
             </fieldset>
         </section>
