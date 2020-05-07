@@ -7,9 +7,9 @@ var colunasTentativas = [
 
 function getTentativasByCandidatoAndCurso(idtCandidato, idCurso){
     FacadeAjax.getQtdeTentativasByCandidatoAndCursoDWR(idtCandidato, idCurso, {
-       callback:function(qtdeTentativas){
+        callback:function(qtdeTentativas){
             dwr.util.setValues({qtdeTentativas: qtdeTentativas});
-       }
+        }
     }); 
     
     FacadeAjax.getTentativasByCandidatoAndCursoDWR(idtCandidato, idCurso, {
