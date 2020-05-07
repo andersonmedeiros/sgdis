@@ -572,10 +572,10 @@ $("#btnAddVeiculo").click(function(){
                                   "      <label for=txtTipoVeiculoAl"+ qtdeVeiculos +">Tipo: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <select class=\"form-control\" id=txtTipoVeiculoAl"+ qtdeVeiculos +" name=\"txtTipoVeiculoAl\">"+
                                   "         <option value=\"0\" selected>Selecione o tipo...</option>"+
-                                  "         <option value=\"motocicleta\">Motocicleta</option>"+
-                                  "         <option value=\"automovel\">Automóvel</option>"+
-                                  "         <option value=\"microonibus\">Microônibus</option>"+
-                                  "         <option value=\"onibus\">Ônibus</option>"+
+                                  "         <option value=\"motocicleta\">MOTOCICLETA</option>"+
+                                  "         <option value=\"automovel\">AUTOMÓVEL</option>"+
+                                  "         <option value=\"microonibus\">MICROÔNIBUS</option>"+
+                                  "         <option value=\"onibus\">ÔNIBUS</option>"+
                                   "     </select>"+
                                   "     <div class=\"valid-feedback\">Selva!</div>"+
                                   "     <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
