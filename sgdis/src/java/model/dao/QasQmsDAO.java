@@ -11,24 +11,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.bean.Cidade;
-import model.bean.Estado;
+import model.bean.QasQms;
 
 /**
  *
  * @author anderson
  */
-public class CidadeDAO {
+public class QasQmsDAO {
     //Tabela
-        String tabela = "Cidade";
+    String tabela = "QasQms";
     
     //Atributos
     String id = "id";
     String nome = "nome";
-    String idEstado = "idEstado";
+    String abreviatura = "abreviatura";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + idEstado + ")" +
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + abreviatura + ")" +
                                   " VALUES(?,?,?);";
         
     //Delete SQL
@@ -42,16 +41,16 @@ public class CidadeDAO {
     
     
     //Insert SQL
-    public void insert(Cidade cid) {
-        if (cid != null) {
+    public void insert(QasQms qq) {
+        if (qq != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setInt(1, cid.getId());
-                pstm.setString(2, cid.getNome());
-                pstm.setInt(3, cid.getIdEstado());
+                pstm.setInt(1, qq.getId());
+                pstm.setString(2, qq.getNome());
+                pstm.setString(3, qq.getAbreviatura());
                                                               
                 pstm.execute();
                 
@@ -84,71 +83,57 @@ public class CidadeDAO {
         }
     }
     
-    
-    private final String GETCIDADE = "SELECT * " +
-                                     "FROM Cidade " + 
-                                     "WHERE id = ?";
-    
-    public Cidade getCidadeById(int idCidade){
-        Cidade cid = new Cidade();
-        EstadoDAO estDAO = new EstadoDAO();
-        
-        try{
+    private final String GETQASQMS = "SELECT * " +
+                                    "FROM QasQms " + 
+                                    "WHERE id = ?;";
+       
+    public QasQms getQasQmsById(int idQasQms){
+        QasQms qq = new QasQms();        
+        try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCIDADE);
-            pstm.setInt(1, idCidade);
+            pstm = conn.prepareStatement(GETQASQMS);
+            pstm.setInt(1, idQasQms);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                Estado est = estDAO.getEstadoById(rs.getInt("idEstado"));
-                
-                cid.setId(rs.getInt("id"));
-                cid.setNome(rs.getString("nome"));
-                
-                cid.setIdEstado(est.getId());
-                cid.setNomeEstado(est.getNome());
-                cid.setSiglaEstado(est.getSigla());
+                qq.setId(rs.getInt("id"));
+                qq.setNome(rs.getString("nome"));
+                qq.setAbreviatura(rs.getString("abreviatura"));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return cid;
+        return qq;
     }
     
-    private final static String GETCIDADESBYESTADODWR = "SELECT * " +
-                                                "FROM Cidade " +
-                                                "WHERE idEstado = ?;";
-    
-    public static ArrayList<Cidade> getCidadesByEstadoDWR(int idEstado){
+    private final static String GETQASQMSDWR = "SELECT * " +
+                                               "FROM QasQms";
+       
+    public static ArrayList<QasQms> getQasQmsDWR(){
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        EstadoDAO estadoDAO = new EstadoDAO();
-        ArrayList<Cidade> cidades = new ArrayList<>();
+        ArrayList<QasQms> qasqms = new ArrayList<>();
         
-        try{
+        try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCIDADESBYESTADODWR);
-            pstm.setInt(1, idEstado);
+            pstm = conn.prepareStatement(GETQASQMSDWR);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               Cidade cidade = new Cidade();
-               Estado estado = estadoDAO.getEstadoById(rs.getInt("idEstado"));
-               
-               cidade.setId(rs.getInt("id"));
-               cidade.setNome(rs.getString("nome"));
-               cidade.setIdEstado(estado.getId());
-               cidade.setNomeEstado(estado.getNome());
-               cidade.setSiglaEstado(estado.getSigla());
+                QasQms qq = new QasQms();
                 
-               cidades.add(cidade);
+                qq.setId(rs.getInt("id"));
+                qq.setNome(rs.getString("nome"));
+                qq.setAbreviatura(rs.getString("abreviatura"));
+                
+                qasqms.add(qq);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return cidades;
+        return qasqms;
     }
 }

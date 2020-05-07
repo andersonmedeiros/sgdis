@@ -109,10 +109,10 @@ public class EstadoDAO {
         return estado;
     }
     
-    private final static String GETESTADOS = "SELECT * " +
-                                             "FROM Estado";
+    private final static String GETESTADOSDWR = "SELECT * " +
+                                                "FROM Estado";
     
-    public static ArrayList<Estado> getEstados(){
+    public static ArrayList<Estado> getEstadosDWR(){
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -120,7 +120,7 @@ public class EstadoDAO {
         
         try{
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETESTADOS);
+            pstm = conn.prepareStatement(GETESTADOSDWR);
            
             rs = pstm.executeQuery();
             while (rs.next()) {

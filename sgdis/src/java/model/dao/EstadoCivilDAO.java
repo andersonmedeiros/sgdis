@@ -11,25 +11,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.bean.Cidade;
-import model.bean.Estado;
+import model.bean.EstadoCivil;
 
 /**
  *
  * @author anderson
  */
-public class CidadeDAO {
+public class EstadoCivilDAO {
     //Tabela
-        String tabela = "Cidade";
+    String tabela = "EstadoCivil";
     
     //Atributos
     String id = "id";
     String nome = "nome";
-    String idEstado = "idEstado";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + idEstado + ")" +
-                                  " VALUES(?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + ")" +
+                                  " VALUES(?,?);";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -42,16 +40,15 @@ public class CidadeDAO {
     
     
     //Insert SQL
-    public void insert(Cidade cid) {
-        if (cid != null) {
+    public void insert(EstadoCivil ec) {
+        if (ec != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setInt(1, cid.getId());
-                pstm.setString(2, cid.getNome());
-                pstm.setInt(3, cid.getIdEstado());
+                pstm.setInt(1, ec.getId());
+                pstm.setString(2, ec.getNome());
                                                               
                 pstm.execute();
                 
@@ -84,71 +81,55 @@ public class CidadeDAO {
         }
     }
     
-    
-    private final String GETCIDADE = "SELECT * " +
-                                     "FROM Cidade " + 
-                                     "WHERE id = ?";
-    
-    public Cidade getCidadeById(int idCidade){
-        Cidade cid = new Cidade();
-        EstadoDAO estDAO = new EstadoDAO();
-        
-        try{
+    private final String GETESTADOCIVILDWR = "SELECT * " +
+                                             "FROM EstadoCivil " + 
+                                             "WHERE id = ?;";
+       
+    public EstadoCivil getEstadoCivilById(int idEstadoCivil){
+        EstadoCivil ec = new EstadoCivil();        
+        try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCIDADE);
-            pstm.setInt(1, idCidade);
+            pstm = conn.prepareStatement(GETESTADOCIVILDWR);
+            pstm.setInt(1, idEstadoCivil);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                Estado est = estDAO.getEstadoById(rs.getInt("idEstado"));
-                
-                cid.setId(rs.getInt("id"));
-                cid.setNome(rs.getString("nome"));
-                
-                cid.setIdEstado(est.getId());
-                cid.setNomeEstado(est.getNome());
-                cid.setSiglaEstado(est.getSigla());
+                ec.setId(rs.getInt("id"));
+                ec.setNome(rs.getString("nome"));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return cid;
+        return ec;
     }
     
-    private final static String GETCIDADESBYESTADODWR = "SELECT * " +
-                                                "FROM Cidade " +
-                                                "WHERE idEstado = ?;";
-    
-    public static ArrayList<Cidade> getCidadesByEstadoDWR(int idEstado){
+    private final static String GETESTADOSCIVISDWR = "SELECT * " +
+                                                     "FROM EstadoCivil;";
+       
+    public static ArrayList<EstadoCivil> getEstadosCivisDWR(){
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        EstadoDAO estadoDAO = new EstadoDAO();
-        ArrayList<Cidade> cidades = new ArrayList<>();
+        ArrayList<EstadoCivil> ecs = new ArrayList<>();
         
-        try{
+        try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCIDADESBYESTADODWR);
-            pstm.setInt(1, idEstado);
+            pstm = conn.prepareStatement(GETESTADOSCIVISDWR);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               Cidade cidade = new Cidade();
-               Estado estado = estadoDAO.getEstadoById(rs.getInt("idEstado"));
-               
-               cidade.setId(rs.getInt("id"));
-               cidade.setNome(rs.getString("nome"));
-               cidade.setIdEstado(estado.getId());
-               cidade.setNomeEstado(estado.getNome());
-               cidade.setSiglaEstado(estado.getSigla());
+                EstadoCivil ec = new EstadoCivil();
                 
-               cidades.add(cidade);
+                ec.setId(rs.getInt("id"));
+                ec.setNome(rs.getString("nome"));
+                
+                ecs.add(ec);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return cidades;
+        return ecs;
     }
 }

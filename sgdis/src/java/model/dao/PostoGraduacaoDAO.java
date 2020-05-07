@@ -82,6 +82,52 @@ public class PostoGraduacaoDAO {
         return pg;
     }
     
+    private final static String GETPOSTOSGRADUACOESBYFORCAEXCETOCBSDDWR = "SELECT * " +
+                                                                          "FROM PostoGraduacao " + 
+                                                                          "WHERE idForca = ? AND circulohierarquico != 'CB_SD'";   
+    
+    
+    public static ArrayList<PostoGraduacao> getPGsByForcaExcetoCbSdDWR(int idForca){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        ForcaDAO forcaDAO = new ForcaDAO();
+        CategoriaDAO catDAO = new CategoriaDAO();
+        ArrayList<PostoGraduacao> pgs = new ArrayList<>();
+        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETPOSTOSGRADUACOESBYFORCAEXCETOCBSDDWR);
+            pstm.setInt(1, idForca);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                PostoGraduacao pg = new PostoGraduacao();
+                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
+                Categoria cat = catDAO.getCategoriaById(rs.getInt("idCategoria"));
+
+                pg.setId(rs.getInt("id"));
+                pg.setNome(rs.getString("nome"));
+                pg.setAbreviatura(rs.getString("abreviatura"));
+                pg.setCirculohierarquico(rs.getString("circulohierarquico"));
+
+                pg.setIdForca(forca.getId());
+                pg.setNomeForca(forca.getNome());
+                pg.setSiglaForca(forca.getSigla());
+
+                pg.setIdCategoria(cat.getId());
+                pg.setNomeCategoria(cat.getNome());
+                pg.setDescricaoCategoria(cat.getDescricao());
+
+                pgs.add(pg);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return pgs;
+    }
+    
     private final static String GETPOSTOSGRADUACOESBYFORCAEXCETOOFGENANDCBSDDWR = "SELECT * " +
                                                                                   "FROM PostoGraduacao " + 
                                                                                   "WHERE idForca = ? AND circulohierarquico != 'OFGEN' AND circulohierarquico != 'CB_SD'";   
