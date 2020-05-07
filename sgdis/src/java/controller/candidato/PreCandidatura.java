@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author depaula
  */
-public class InicioCadastro extends HttpServlet {
+public class PreCandidatura extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -75,25 +75,32 @@ public class InicioCadastro extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         HttpSession sessao = request.getSession();
-        String idt = "";
-        String curso = "";
-        String categoria = "";
+        int qtdeTentativas = 0;
+        String idtMilCandidato = "";
+        int idCurso = 0;
+        int idCategoria = 0;
+        int idTurma = 0;
+        
         if(sessao.getAttribute("militarAutenticado") != null){
             try{
-            idt = request.getParameter("txtIdtCandidato").replace(" ", "").replace("-", "").toUpperCase();
-            curso = request.getParameter("txtCurso").toUpperCase();
-            categoria = request.getParameter("txtCategoria").toUpperCase();
-           
-            
+                idtMilCandidato = request.getParameter("txtIdtCandidato").replace(" ", "").replace("-", "").toUpperCase();
+                idCurso = Integer.parseInt(request.getParameter("txtCurso"));
+                idCategoria = Integer.parseInt(request.getParameter("txtCategoria"));
+                idTurma = Integer.parseInt(request.getParameter("txtTurma"));
+
+                sessao.setAttribute("qtdeTentativas", qtdeTentativas);
+                sessao.setAttribute("idtMilCandidato", idtMilCandidato);
+                sessao.setAttribute("idCurso", idCurso);
+                sessao.setAttribute("idCategoria", idCategoria);
+                sessao.setAttribute("idTurma", idTurma);
+
             }catch(Exception ex){
                 //e=2: erro durante realização do cadastro
-                response.sendRedirect("/sgdis/restrito/curso.jsp?e=2");
+                response.sendRedirect("/sgdis/restrito/candidatura.jsp?e=2");
                 throw new ServletException(ex);
             }
             //e=1: cadastro sucesso
-            response.sendRedirect("/sgdis/restrito/candidato/cadastro.jsp?idt="+idt+"&c="+curso+"&cat="+categoria);
-            /*RequestDispatcher despachante = getServletContext().getRequestDispatcher("/restrito/cadastroCurso.jsp?e=1");
-            despachante.forward(request, response);*/
+            response.sendRedirect("/sgdis/restrito/candidato/candidatura.jsp?");
         }
         else{
             //e=4: Sessão Encerrada
