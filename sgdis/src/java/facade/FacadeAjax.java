@@ -6,23 +6,77 @@
 package facade;
 
 import java.util.ArrayList;
-
-import model.bean.Categoria;
-import model.bean.Curso;
-import model.bean.Tentativa;
-import model.bean.Turma;
-import model.dao.CategoriaDAO;
-import model.dao.CursoDAO;
-import model.dao.CursoHasCategoriaDAO;
-import model.dao.TentativaDAO;
-import model.dao.TurmaDAO;
-
-
+import model.bean.*;
+import model.dao.*;
 /**
  *
  * @author anderson
  */
 public class FacadeAjax {
+    //Forca, Estado, OM, PostoGraduacao, QasQms
+    public ArrayList<Forca> getForcasDWR() throws Throwable, Exception{
+        ArrayList<Forca> forcas = new ArrayList();
+        forcas = ForcaDAO.getForcasDWR();
+        return forcas;
+    }
+    public ArrayList<Estado> getEstadosByForcaDWR(int idForca) throws Throwable, Exception{
+        ArrayList<Estado> estados = new ArrayList();
+        estados = ForcaHasEstadoDAO.getEstadosByForcaDWR(idForca);
+        return estados;
+    }
+    public ArrayList<Om> getOmsByForcaAndEstadoDWR(int idForca, int idEstado) throws Throwable, Exception{
+        ArrayList<Om> oms = new ArrayList();
+        oms = OmDAO.getOmsByForcaAndEstadoDWR(idForca, idEstado);
+        return oms;
+    }
+    public ArrayList<PostoGraduacao> getPGsByForcaExcetoCbSdDWR(int idForca) throws Throwable, Exception{
+        ArrayList<PostoGraduacao> pgs = new ArrayList();
+        pgs = PostoGraduacaoDAO.getPGsByForcaExcetoCbSdDWR(idForca);
+        return pgs;
+    }
+    public ArrayList<PostoGraduacao> getPGsByForcaExcetoOfGenAndCbSdDWR(int idForca) throws Throwable, Exception{
+        ArrayList<PostoGraduacao> pgs = new ArrayList();
+        pgs = PostoGraduacaoDAO.getPGsByForcaExcetoOfGenAndCbSdDWR(idForca);
+        return pgs;
+    }
+    public ArrayList<PostoGraduacao> getPGsByForcaDWR(int idForca) throws Throwable, Exception{
+        ArrayList<PostoGraduacao> pgs = new ArrayList();
+        pgs = PostoGraduacaoDAO.getPGsByForcaDWR(idForca);
+        return pgs;
+    }
+    public ArrayList<PostoGraduacao> getPGsByForcaAndCatDWR(int idForca, int idCategoria) throws Throwable, Exception{
+        ArrayList<PostoGraduacao> pgs = new ArrayList();
+        pgs = PostoGraduacaoDAO.getPGsByForcaAndCatDWR(idForca, idCategoria);
+        return pgs;
+    }
+    public Om getOmByIdDWR(int idOM) throws Throwable, Exception{
+        Om om = OmDAO.getOmByIdDWR(idOM);
+        return om;
+    }
+    public ArrayList<QasQms> getQasQmsDWR() throws Throwable, Exception{
+        ArrayList<QasQms> qasqms = new ArrayList();
+        qasqms = QasQmsDAO.getQasQmsDWR();
+        return qasqms;
+    }
+    
+    //Estado, Cidade
+    public ArrayList<Estado> getEstadosDWR() throws Throwable, Exception{
+        ArrayList<Estado> estados = new ArrayList();
+        estados = EstadoDAO.getEstadosDWR();
+        return estados;
+    }public ArrayList<Cidade> getCidadesByEstadoDWR(int idEstado) throws Throwable, Exception{
+        ArrayList<Cidade> cidades = new ArrayList();
+        cidades = CidadeDAO.getCidadesByEstadoDWR(idEstado);
+        return cidades;
+    }
+    
+    //Estado Civil
+    public ArrayList<EstadoCivil> getEstadosCivisDWR() throws Throwable, Exception{
+        ArrayList<EstadoCivil> ecs = new ArrayList();
+        ecs = EstadoCivilDAO.getEstadosCivisDWR();
+        return ecs;
+    }
+    
     //Categoria
     public ArrayList<Categoria> getCategoriasDWR() throws Throwable, Exception{
         ArrayList<Categoria> categorias = new ArrayList();
@@ -65,5 +119,9 @@ public class FacadeAjax {
         return tentativas;
     }
     
-    
+    //Aluno
+    public Aluno getAlunoByIdentidadeDWR(String idtAluno) throws Throwable, Exception{
+        Aluno al = AlunoDAO.getAlunoByIdentidadeDWR(idtAluno);
+        return al;
+    }
 }
