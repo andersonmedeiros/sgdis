@@ -1,6 +1,7 @@
 //Ao carregar ou recarregar a página
 $(document).ready(function(){
     limpaCampoInput("input[name=txtIdtCandidato]");
+    limpaCampoInput("input[name=txtQtdeTentativas]");
     limpaCampoSelect("select[name=txtCurso]");
     limpaCampoSelect("select[name=txtCategoria]");
     limpaCampoSelect("select[name=txtTurma]");
