@@ -967,7 +967,7 @@
                         <div class="fieldset-interno">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtParentescoRef">Parentesco: <span class="campo-obrigatorio">*</span></label>
+                                    <label for="txtParentescoRef">Grau de Parentesco: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtParentescoRef" name="txtParentescoRef">
                                         <option value="0" selected>Selecione um Parentesco...</option>
                                     </select>
@@ -1025,7 +1025,7 @@
                         <div id="divRefConclusao" class="fieldset-interno fieldset-dependente" style="display: none;">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="txtParentescoRefConclusao">Parentesco: <span class="campo-obrigatorio">*</span></label>
+                                    <label for="txtParentescoRefConclusao">Grau de Parentesco: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtParentescoRefConclusao" name="txtParentescoRefConclusao">
                                         <option value="0" selected>Selecione um Parentesco...</option>
                                     </select>
