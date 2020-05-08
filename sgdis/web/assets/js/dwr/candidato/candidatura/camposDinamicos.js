@@ -120,6 +120,17 @@ function alimentaSelectComportamento(comportamentos){
 }
 FacadeAjax.getComportamentosDWR(alimentaSelectComportamento);
 
+function alimentaSelectGrauParentesco(grausparentesco){
+    dwr.util.removeAllOptions("txtParentescoRef");
+    dwr.util.addOptions("txtParentescoRef", [{id: "0", nome: "Selecione um Grau de Parentesco..."}], "id", "nome");
+    dwr.util.addOptions("txtParentescoRef", grausparentesco, "id", "nome");
+    
+    dwr.util.removeAllOptions("txtParentescoRefConclusao");
+    dwr.util.addOptions("txtParentescoRefConclusao", [{id: "0", nome: "Selecione um Grau de Parentesco..."}], "id", "nome");
+    dwr.util.addOptions("txtParentescoRefConclusao", grausparentesco, "id", "nome");
+}
+FacadeAjax.getGrausParentescoDWR(alimentaSelectGrauParentesco);
+
 $("select[name=txtForca]").change(function(){
     alimentaSelectDependenteForca(this.value);
 });

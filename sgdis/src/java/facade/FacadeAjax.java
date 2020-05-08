@@ -84,6 +84,13 @@ public class FacadeAjax {
         return escolas;
     }
     
+    //Grau de Parentesco
+    public ArrayList<GrauParentesco> getGrausParentescoDWR() throws Throwable, Exception{
+        ArrayList<GrauParentesco> grausparentesco = new ArrayList();
+        grausparentesco = GrauParentescoDAO.getGrausParentescoDWR();
+        return grausparentesco;
+    }
+    
     //Comportamentos
     public ArrayList<Comportamento> getComportamentosDWR() throws Throwable, Exception{
         ArrayList<Comportamento> comportamentos = new ArrayList();
