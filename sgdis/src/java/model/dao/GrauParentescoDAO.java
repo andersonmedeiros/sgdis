@@ -11,15 +11,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.bean.Comportamento;
+import model.bean.GrauParentesco;
 
 /**
  *
  * @author anderson
  */
-public class ComportamentoDAO {
+public class GrauParentescoDAO {
     //Tabela
-    String tabela = "Comportamento";
+    String tabela = "GrauParentesco";
     
     //Atributos
     String id = "id";
@@ -39,7 +39,7 @@ public class ComportamentoDAO {
     
     //Consultas SQL
     private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
-    private final String GETCOMPORTAMENTOBYID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
+    private final String GETGRAUPARENTESCOBYID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
     
     Connection conn = null;
     PreparedStatement pstm = null;
@@ -67,15 +67,15 @@ public class ComportamentoDAO {
     }
     
     //Insert SQL
-    public void insert(Comportamento comportamento) {
-        if (comportamento != null) {
+    public void insert(GrauParentesco grauparentesco) {
+        if (grauparentesco != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setInt(1, comportamento.getId());
-                pstm.setString(2, comportamento.getNome());
+                pstm.setInt(1, grauparentesco.getId());
+                pstm.setString(2, grauparentesco.getNome());
                                                               
                 pstm.execute();
                 
@@ -90,14 +90,14 @@ public class ComportamentoDAO {
     }
     
     //Update SQL
-    public void update(Comportamento comportamento) {
-        if (comportamento != null) {
+    public void update(GrauParentesco grauparentesco) {
+        if (grauparentesco != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(UPDATE);
                 
-                pstm.setString(1, comportamento.getNome());
-                pstm.setInt(2, comportamento.getId());
+                pstm.setString(1, grauparentesco.getNome());
+                pstm.setInt(2, grauparentesco.getId());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -129,52 +129,52 @@ public class ComportamentoDAO {
         }
     }
     
-    //Comportamento by ID
-    public Comportamento getComportamentoById(int idComportamento){
-        Comportamento comportamento = new Comportamento();
+    //Categoria by ID
+    public GrauParentesco getGrauParentescoById(int idGrauParentesco ){
+        GrauParentesco grauparentesco = new GrauParentesco();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCOMPORTAMENTOBYID);
-            pstm.setInt(1, idComportamento);
+            pstm = conn.prepareStatement(GETGRAUPARENTESCOBYID);
+            pstm.setInt(1, idGrauParentesco);
             
             rs = pstm.executeQuery();
             while (rs.next()) {
-                comportamento.setId(rs.getInt(id));
-                comportamento.setNome(rs.getString(nome));
+                grauparentesco.setId(rs.getInt(id));
+                grauparentesco.setNome(rs.getString(nome));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return comportamento;
+        return grauparentesco;
     }
         
-    private final static String GETCOMPORTAMENTOSDWR = "select * " +
-                                                       "from Comportamento;";
+    private final static String GETGRAUSPARENTESCODWR = "select * " +
+                                                        "from GrauParentesco;";
     
-    public static ArrayList<Comportamento> getComportamentosDWR(){
+    public static ArrayList<GrauParentesco> getGrausParentescoDWR(){
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        ArrayList<Comportamento> comportamentos = new ArrayList<>();
+        ArrayList<GrauParentesco> grauspatencesco = new ArrayList<>();
         
         try{
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCOMPORTAMENTOSDWR);
+            pstm = conn.prepareStatement(GETGRAUSPARENTESCODWR);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               Comportamento comportamento = new Comportamento();
+               GrauParentesco grauparentesco = new GrauParentesco();
                
-               comportamento.setId(rs.getInt("id"));
-               comportamento.setNome(rs.getString("nome"));
+               grauparentesco.setId(rs.getInt("id"));
+               grauparentesco.setNome(rs.getString("nome"));
                 
-               comportamentos.add(comportamento);
+               grauspatencesco.add(grauparentesco);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return comportamentos;
+        return grauspatencesco;
     }
 }
