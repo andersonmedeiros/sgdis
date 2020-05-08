@@ -788,7 +788,7 @@
                         </div>
                         <div class="fieldset-interno">
                             <div class="form-row">                                
-                                <div class="form-group col-md-7">
+                                <div class="form-group col-md-9">
                                     <label for="txtFormEscNome">Escola de Formação: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtFormEscNome" name="txtFormEscNome">
                                         <option value="0">Selecione uma Escola...</option>
@@ -797,12 +797,6 @@
                                     <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="txtFormEscAbrev">Abreviatura: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtFormEscAbrev" name="txtFormEscAbrev" placeholder="Ex.: ESA">
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
-                                </div>
-                                <div class="form-group col-md-2">
                                     <label for="txtFormTurma">Turma: <span class="campo-obrigatorio">*</span></label>
                                     <input type="text" class="form-control" id="txtFormTurma" name="txtFormTurma" placeholder="Ex.: 2018" maxlength="4">
                                     <div class="valid-feedback">Selva!</div>
