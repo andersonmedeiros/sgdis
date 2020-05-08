@@ -726,9 +726,7 @@
                             <div class="header-interno">
                                 <h5 class="title-interno">Quais?</h5>
                             </div>
-                            <div id="fieldsetAlergias" class="fieldset-interno">
-
-                            </div>
+                            <div id="fieldsetAlergias" class="fieldset-interno"></div>
                             <button type="button" id="btnAddAlergia" name="btnAddAlergia" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                         </div>
                         <div class="header-interno">
@@ -752,8 +750,7 @@
                             <div class="header-interno">
                                 <h5 class="title-interno">Quais?</h5>
                             </div>
-                            <div id="fieldsetMtoCt" class="fieldset-interno">
-                            </div>
+                            <div id="fieldsetMtoCt" class="fieldset-interno"></div>
                             <button type="button" id="btnAddMtoCt" name="btnAddMtoCt" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                         </div>
                         <div class="fieldset-interno">
@@ -774,7 +771,7 @@
                             <div class="header-interno">
                                 <h5 class="title-interno">Quais?</h5>
                             </div>
-                            <div id="fieldsetTermErgSupAli" class="fieldset-interno">"</div>
+                            <div id="fieldsetTermErgSupAli" class="fieldset-interno"></div>
                             <button type="button" id="btnAddTermErgSupAli" name="btnAddTermErgSupAli" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                         </div>
                     </div>

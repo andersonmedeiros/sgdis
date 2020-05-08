@@ -620,8 +620,6 @@ $("#btnAddVeiculo").click(function(){
     qtdeVeiculos++;
 });
 
-
-
 //Acionamento form Alergias
 var qtdeAlergias = document.querySelectorAll('#fieldsetAlergias .form-row').length + 1;
 
@@ -647,6 +645,7 @@ $("#btnAddAlergia").click(function(){
                                   "</div>");
                           
     functionValidInputTReal("#txtAlergia"+qtdeAlergias);
+    
     qtdeAlergias++;
 });
 
