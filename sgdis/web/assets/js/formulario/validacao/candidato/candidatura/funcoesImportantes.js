@@ -43,7 +43,7 @@ function limpaCampoSelect(campo){
 
 // Ao carregar ou recarregar a página
 // Funções
-// --> Início Comum a todas as etapas
+// --> Início Comum a mais de uma etapa
 // Select
 function validSelect(campo){
     if($(campo).val() != '0'){
@@ -59,7 +59,42 @@ function validInput(campo){
         $(campo).addClass("is-valid");
     }
 };
-// --> Fim Comum a todas as etapas
+
+//Email
+function validEmail(campo){
+    var filtro = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/;
+    var email = $(campo).val();
+    if(email == ''){
+    }
+    else if(filtro.test(email) == false){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-email").html("Email Inválido!");
+    }
+    else{     
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+
+// Fone celular
+function validFoneCel(campo){  
+    var foneCel = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+    if(foneCel == ''){
+    }
+    else if(foneCel == '00000000000' || foneCel == '11111111111' || foneCel == '22222222222' || foneCel == '33333333333' ||                 
+            foneCel == '44444444444' || foneCel == '55555555555' || foneCel == '66666666666' || foneCel == '77777777777' ||                 
+            foneCel == '88888888888' || foneCel == '99999999999'){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-foneCel").html("Fone Inválido!");
+    }
+    else{
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+// --> Fim Comum a mais de uma etapa
 
 // --> Início Etapa 1: OM ATUAL
 // Fone
@@ -366,41 +401,6 @@ function validTitEleitorSecaoAl(campo){
     }
 };
 
-//Email
-function validEmail(campo){
-    var filtro = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/;
-    var email = $(campo).val();
-    if(email == ''){
-    }
-    else if(filtro.test(email) == false){
-        $(campo).removeClass("is-valid");
-        $(campo).addClass("is-invalid");
-        $(".invalid-email").html("Email Inválido!");
-    }
-    else{     
-        $(campo).removeClass("is-invalid");
-        $(campo).addClass("is-valid");
-    }
-};
-
-// Fone celular
-function validFoneCel(campo){  
-    var foneCel = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
-    if(foneCel == ''){
-    }
-    else if(foneCel == '00000000000' || foneCel == '11111111111' || foneCel == '22222222222' || foneCel == '33333333333' ||                 
-            foneCel == '44444444444' || foneCel == '55555555555' || foneCel == '66666666666' || foneCel == '77777777777' ||                 
-            foneCel == '88888888888' || foneCel == '99999999999'){
-        $(campo).removeClass("is-valid");
-        $(campo).addClass("is-invalid");
-        $(".invalid-foneCel").html("Fone Inválido!");
-    }
-    else{
-        $(campo).removeClass("is-invalid");
-        $(campo).addClass("is-valid");
-    }
-};
-
 // Número CNH
 function validNumCNH(campo){
     var numCNH = $(campo).val().replace(" ","").replace(" ","").replace(" ","");
@@ -649,11 +649,65 @@ function validDataUltTAF(campoDataPraca, campoDataUltTAF){
 };
 // --> Fim Etapa 4: DADOS MILITARES
 
+// --> Início Etapa 5: DADOS FAMILIARES
+//CPF
+function validCPF(campo){
+    var cpf = $(campo).val().replace(".","").replace(".","").replace("-","");
+    
+    if(cpf == ''){
+        cpfOk = 0;
+    }
+    else if(cpf == '00000000000' || cpf == '11111111111' || cpf == '22222222222' || cpf == '33333333333' ||                 
+            cpf == '44444444444' || cpf == '55555555555' || cpf == '66666666666' || cpf == '77777777777' ||                 
+            cpf == '88888888888' || cpf == '99999999999'){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-cpf").html("CPF Inválido!");
+        cpfOk = 0;
+    }else{
+        // Valida 1o digito	
+        var add = 0;	
+        for (var i=0; i < 9; i ++)		
+            add += parseInt(cpf.charAt(i)) * (10 - i);	
+            var rev = 11 - (add % 11);	
+            if (rev == 10 || rev == 11)		
+                rev = 0;	
+            if (rev != parseInt(cpf.charAt(9))){
+                $(campo).removeClass("is-valid");
+                $(campo).addClass("is-invalid");
+                $(".invalid-cpf").html("CPF Inválido!");
+                cpfOk = 0;
+            }else{
+                $(campo).removeClass("is-invalid");
+                $(campo).addClass("is-valid");
+                cpfOk = 1;
+            }
+        // Valida 2o digito	
+        add = 0;	
+        for (var i = 0; i < 10; i ++)		
+            add += parseInt(cpf.charAt(i)) * (11 - i);	
+        rev = 11 - (add % 11);	
+        if (rev == 10 || rev == 11)	
+            rev = 0;	
+        if (rev != parseInt(cpf.charAt(10))){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cpf").html("CPF Inválido!");
+            cpfOk = 0;
+        }else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+            cpfOk = 1;
+        }    
+    } 
+};
+// --> Fim Etapa 5: DADOS FAMILIARES
+
 
 
 //Ao mudar o valor do campo
 //Funções
-// --> Início Comum a todas as etapas
+// --> Início Comum a mais de uma etapas
 //Select
 function validSelectTReal(campo){
     $(campo).change(function(){
@@ -696,7 +750,52 @@ function validInputNuloTReal(campo){
         }
     });
 };
-// --> Fim comum a todas as etapas
+
+// Email
+function validEmailTReal(campo){
+    $(campo).change(function(){
+        var filtro = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/;
+        var email = $(campo).val();
+        if(email == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-email").html("Campo Obrigatório!");
+        }        
+        else if(filtro.test(email)){
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+        else{            
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-email").html("Email Inválido!");
+        }
+    });
+};
+
+// Fone celular
+function validFoneCelTReal(campo){  
+    $(campo).change(function(){
+        var foneCel = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+        if(foneCel == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-foneCel").html("Campo Obrigatório!");
+        }
+        else if(foneCel == '00000000000' || foneCel == '11111111111' || foneCel == '22222222222' || foneCel == '33333333333' ||                 
+                foneCel == '44444444444' || foneCel == '55555555555' || foneCel == '66666666666' || foneCel == '77777777777' ||                 
+                foneCel == '88888888888' || foneCel == '99999999999'){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-foneCel").html("Fone Inválido!");
+        }
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });
+};
+// --> Fim comum a mais de uma etapas
 
 // --> Início Etapa 1: OM ATUAL
 // Fone
@@ -1046,51 +1145,6 @@ function validTitEleitorSecaoAlTReal(campo){
     });
 };
 
-// Email
-function validEmailTReal(campo){
-    $(campo).change(function(){
-        var filtro = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/;
-        var email = $(campo).val();
-        if(email == ''){
-            $(campo).removeClass("is-valid");
-            $(campo).addClass("is-invalid");
-            $(".invalid-email").html("Campo Obrigatório!");
-        }        
-        else if(filtro.test(email)){
-            $(campo).removeClass("is-invalid");
-            $(campo).addClass("is-valid");
-        }
-        else{            
-            $(campo).removeClass("is-valid");
-            $(campo).addClass("is-invalid");
-            $(".invalid-email").html("Email Inválido!");
-        }
-    });
-};
-
-// Fone celular
-function validFoneCelTReal(campo){  
-    $(campo).change(function(){
-        var foneCel = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
-        if(foneCel == ''){
-            $(campo).removeClass("is-valid");
-            $(campo).addClass("is-invalid");
-            $(".invalid-foneCel").html("Campo Obrigatório!");
-        }
-        else if(foneCel == '00000000000' || foneCel == '11111111111' || foneCel == '22222222222' || foneCel == '33333333333' ||                 
-                foneCel == '44444444444' || foneCel == '55555555555' || foneCel == '66666666666' || foneCel == '77777777777' ||                 
-                foneCel == '88888888888' || foneCel == '99999999999'){
-            $(campo).removeClass("is-valid");
-            $(campo).addClass("is-invalid");
-            $(".invalid-foneCel").html("Fone Inválido!");
-        }
-        else{
-            $(campo).removeClass("is-invalid");
-            $(campo).addClass("is-valid");
-        }
-    });
-};
-
 //Número CNH
 function validNumCNHTReal(campo){
     $(campo).change(function(){
@@ -1361,3 +1415,61 @@ function validDataUltTAFTReal(campoDataPraca, campoDataUltTAF){
     });
 };
 // --> Fim Etapa 4: DADOS MILITARES
+
+// --> Fim Etapa 4: DADOS FAMILIARES
+//CPF
+function validCPFTReal(campo){
+    $(campo).change(function(){
+        var cpf = $(campo).val().replace(".","").replace(".","").replace("-","");
+        if(cpf == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cpf").html("Campo Obrigatório!");
+            cpfOk = 0;
+        }
+        else if(cpf == '00000000000' || cpf == '11111111111' || cpf == '22222222222' || cpf == '33333333333' ||                 
+                cpf == '44444444444' || cpf == '55555555555' || cpf == '66666666666' || cpf == '77777777777' ||                 
+                cpf == '88888888888' || cpf == '99999999999'){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cpf").html("CPF Inválido!");
+            cpfOk = 0;
+        }else{
+            // Valida 1o digito	
+            var add = 0;	
+            for (var i=0; i < 9; i ++)		
+                add += parseInt(cpf.charAt(i)) * (10 - i);	
+                var rev = 11 - (add % 11);	
+                if (rev == 10 || rev == 11)		
+                    rev = 0;	
+                if (rev != parseInt(cpf.charAt(9))){
+                    $(campo).removeClass("is-valid");
+                    $(campo).addClass("is-invalid");
+                    $(".invalid-cpf").html("CPF Inválido!");
+                    cpfOk = 0;
+                }else{
+                    $(campo).removeClass("is-invalid");
+                    $(campo).addClass("is-valid");
+                    cpfOk = 1;
+                }
+            // Valida 2o digito	
+            add = 0;	
+            for (var i = 0; i < 10; i ++)		
+                add += parseInt(cpf.charAt(i)) * (11 - i);	
+            rev = 11 - (add % 11);	
+            if (rev == 10 || rev == 11)	
+                rev = 0;	
+            if (rev != parseInt(cpf.charAt(10))){
+                $(campo).removeClass("is-valid");
+                $(campo).addClass("is-invalid");
+                $(".invalid-cpf").html("CPF Inválido!");
+                cpfOk = 0;
+            }else{
+                $(campo).removeClass("is-invalid");
+                $(campo).addClass("is-valid");
+                cpfOk = 1;
+            }    
+        }        
+    });
+};
+// --> Fim Etapa 4: DADOS FAMILIARES
