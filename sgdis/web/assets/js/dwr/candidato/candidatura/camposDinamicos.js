@@ -28,8 +28,17 @@ function alimentaSelectDependenteForca(idForca){
             dwr.util.addOptions("txtPGradAl", [{id: "0", abreviatura: "Selecione um Posto/Graduação..."}], "id", "abreviatura");
             dwr.util.addOptions("txtPGradAl", postosgraduacoes, "id", "abreviatura");
         }
+    });  
+    
+    FacadeAjax.getEscolasFormacaoByForcaDWR(idForca, {
+        callback: function(escolas){
+            dwr.util.removeAllOptions("txtFormEscNome");
+            dwr.util.addOptions("txtFormEscNome", [{id: "0", nome: "Selecione um Escola..."}], "id", "nome");
+            dwr.util.addOptions("txtFormEscNome", escolas, "id", "nome");
+        }
     });
 }
+
 function alimentaSelectDependenteEstado(idForca, idEstado){
     FacadeAjax.getOmsByForcaAndEstadoDWR(idForca, idEstado, {
         callback: function(oms){
@@ -103,6 +112,13 @@ function alimentaSelectDependenteEstadoTitEleitor(idEstado){
         } 
     });
 }
+
+function alimentaSelectComportamento(comportamentos){
+    dwr.util.removeAllOptions("txtCptmAl");
+    dwr.util.addOptions("txtCptmAl", [{id: "0", nome: "Selecione um Comportamento..."}], "id", "nome");
+    dwr.util.addOptions("txtCptmAl", comportamentos, "id", "nome");
+}
+FacadeAjax.getComportamentosDWR(alimentaSelectComportamento);
 
 $("select[name=txtForca]").change(function(){
     alimentaSelectDependenteForca(this.value);

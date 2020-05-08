@@ -77,6 +77,20 @@ public class FacadeAjax {
         return ecs;
     }
     
+    //Escola Formação
+    public ArrayList<EscolaFormacao> getEscolasFormacaoByForcaDWR(int idForca) throws Throwable, Exception{
+        ArrayList<EscolaFormacao> escolas = new ArrayList();
+        escolas = EscolaFormacaoDAO.getEscolasFormacaoByForcaDWR(idForca);
+        return escolas;
+    }
+    
+    //Comportamentos
+    public ArrayList<Comportamento> getComportamentosDWR() throws Throwable, Exception{
+        ArrayList<Comportamento> comportamentos = new ArrayList();
+        comportamentos = ComportamentoDAO.getComportamentosDWR();
+        return comportamentos;
+    }
+    
     //Categoria
     public ArrayList<Categoria> getCategoriasDWR() throws Throwable, Exception{
         ArrayList<Categoria> categorias = new ArrayList();
