@@ -701,7 +701,27 @@ function validCPF(campo){
         }    
     } 
 };
-// --> Fim Etapa 5: DADOS FAMILIARES
+// --> Fim Etapa 5: DADOS 
+
+// --> Início Etapa 6: DADOS DE ENDEREÇO
+//CEP
+function validCEP(campo){  
+    var endCepOM = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+    if(endCepOM == ''){
+    }
+    else if(endCepOM == '00000000' || endCepOM == '11111111' || endCepOM == '22222222' || endCepOM == '33333333' ||                 
+            endCepOM == '44444444' || endCepOM == '55555555' || endCepOM == '66666666' || endCepOM == '77777777' ||                 
+            endCepOM == '88888888' || endCepOM == '99999999'){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-cep").html("CEP Inválido!");
+    }
+    else{
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+}; 
+// --> Fim Etapa 6: DADOS DE ENDEREÇO
 
 
 
@@ -1416,7 +1436,7 @@ function validDataUltTAFTReal(campoDataPraca, campoDataUltTAF){
 };
 // --> Fim Etapa 4: DADOS MILITARES
 
-// --> Fim Etapa 4: DADOS FAMILIARES
+// --> Fim Etapa 5: DADOS FAMILIARES
 //CPF
 function validCPFTReal(campo){
     $(campo).change(function(){
@@ -1472,4 +1492,29 @@ function validCPFTReal(campo){
         }        
     });
 };
-// --> Fim Etapa 4: DADOS FAMILIARES
+// --> Fim Etapa 5: DADOS FAMILIARES
+
+// --> Início Etapa 6: DADOS DE ENDEREÇO
+//CEP
+function validCEPTReal(campo){  
+    $(campo).change(function(){
+        var endCepOM = $(campo).val().replace("-","").replace("(","").replace(")","").replace(" ","");
+        if(endCepOM == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cep").html("Campo Obrigatório!");
+        }
+        else if(endCepOM == '00000000' || endCepOM == '11111111' || endCepOM == '22222222' || endCepOM == '33333333' ||                 
+                endCepOM == '44444444' || endCepOM == '55555555' || endCepOM == '66666666' || endCepOM == '77777777' ||                 
+                endCepOM == '88888888' || endCepOM == '99999999'){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-cep").html("CEP Inválido!");       
+        }
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });
+};
+// --> Fim Etapa 6: DADOS DE ENDEREÇO
