@@ -79,7 +79,45 @@ $(document).ready(function() {
             $("input[name=txtPtRefEndCurso]").val("");
             $("input[name=txtPtRefEndCurso]").removeClass("is-invalid");
             $("input[name=txtPtRefEndCurso]").removeClass("is-valid");
+            $("input[name=txtPtRefEndCurso]").prop("readonly", false);
         }
+    }
+    function limpa_formulário_cep_end_curso(campo_end, campo_num, campo_est, campo_cid, campo_bairro, campo_comp, campo_pt_ref) {
+        // Limpa valores do formulário de cep.
+        $(campo_end).val("");
+        $(campo_end).removeClass("is-invalid");
+        $(campo_end).removeClass("is-valid");
+        $(campo_end).prop("readonly", false);
+
+        $(campo_num).val("");
+        $(campo_num).removeClass("is-invalid");
+        $(campo_num).removeClass("is-valid");
+        $(campo_num).prop("readonly", false);
+
+        $(campo_est).val("");
+        $(campo_est).removeClass("is-invalid");
+        $(campo_est).removeClass("is-valid");
+        $(campo_est).prop("readonly", false);
+
+        $(campo_cid).val("");
+        $(campo_cid).removeClass("is-invalid");
+        $(campo_cid).removeClass("is-valid");
+        $(campo_cid).prop("readonly", false);
+
+        $(campo_bairro).val("");
+        $(campo_bairro).removeClass("is-invalid");
+        $(campo_bairro).removeClass("is-valid");
+        $(campo_bairro).prop("readonly", false);
+
+        $(campo_comp).val("");
+        $(campo_comp).removeClass("is-invalid");
+        $(campo_comp).removeClass("is-valid");
+        $(campo_comp).prop("readonly", false);
+        
+        $(campo_pt_ref).val("");
+        $(campo_pt_ref).removeClass("is-invalid");
+        $(campo_pt_ref).removeClass("is-valid");
+        $(campo_pt_ref).prop("readonly", false);
     }
     function limpa_formulário_cep_om(campo_end, campo_num, campo_est, campo_cid, campo_bairro, campo_comp) {
         // Limpa valores do formulário de cep.
@@ -293,6 +331,114 @@ $(document).ready(function() {
     });
     
     //Quando o campo cep perde o foco.
+    $("#txtCepEndCurso").change(function() {
+        //Nova variável "cep" somente com dígitos.
+        var cep = $(this).val().replace(/\D/g, '');
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+                //Preenche os campos com "..." enquanto consulta webservice.
+                $("#txtNomeEndCurso").val("...");
+                $("#txtEstadoEndCurso").val("...");
+                $("#txtCidadeEndCurso").val("...");
+                $("#txtBairroEndCurso").val("...");
+                $("#txtCompEndCurso").val("...");
+                //Consulta o webservice viacep.com.br/
+                $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+                    if (!("erro" in dados)) {
+                        //Atualiza os campos com os valores da consulta
+                        if(dados.logradouro != ""){
+                            $("#txtNomeEndCurso").val(dados.logradouro);
+                            $("#txtNomeEndCurso").removeClass("is-invalid");
+                            $("#txtNomeEndCurso").addClass("is-valid");
+                            $("#txtNomeEndCurso").prop("readonly", true);
+                        }
+                        else{
+                            $("#txtNomeEndCurso").val('');
+                            $("#txtNomeEndCurso").removeClass("is-invalid");
+                            $("#txtNomeEndCurso").removeClass("is-valid");
+                            $("#txtNomeEndCurso").prop("readonly", false);
+                        }
+
+                        if(dados.uf != ""){
+                            $("#txtEstadoEndCurso").val(dados.uf);
+                            $("#txtEstadoEndCurso").removeClass("is-invalid");
+                            $("#txtEstadoEndCurso").addClass("is-valid");
+                            $("#txtEstadoEndCurso").prop("readonly", true);
+                        }
+                        else{
+                            $("#txtEstadoEndCurso").val('');
+                            $("#txtEstadoEndCurso").removeClass("is-invalid");
+                            $("#txtEstadoEndCurso").removeClass("is-valid");
+                            $("#txtEstadoEndCurso").prop("readonly", false);
+                        }
+
+                        if(dados.localidade != ""){
+                            $("#txtCidadeEndCurso").val(dados.localidade);
+                            $("#txtCidadeEndCurso").removeClass("is-invalid");
+                            $("#txtCidadeEndCurso").addClass("is-valid");
+                            $("#txtCidadeEndCurso").prop("readonly", true);
+                        }
+                        else{
+                            $("#txtCidadeEndCurso").val('');
+                            $("#txtCidadeEndCurso").removeClass("is-invalid");
+                            $("#txtCidadeEndCurso").removeClass("is-valid");
+                            $("#txtCidadeEndCurso").prop("readonly", false);
+                        }                            
+
+                        if(dados.bairro != ""){
+                            $("#txtBairroEndCurso").val(dados.bairro);
+                            $("#txtBairroEndCurso").removeClass("is-invalid");
+                            $("#txtBairroEndCurso").addClass("is-valid");
+                            $("#txtBairroEndCurso").prop("readonly", true);
+                        }
+                        else{
+                            $("#txtBairroEndCurso").val('');
+                            $("#txtBairroEndCurso").removeClass("is-invalid");
+                            $("#txtBairroEndCurso").removeClass("is-valid");
+                            $("#txtBairroEndCurso").prop("readonly", false);
+                        }                            
+
+                        if(dados.complemento != ""){
+                           $("#txtCompEndCurso").val(dados.complemento);
+                            $("#txtCompEndCurso").removeClass("is-invalid");
+                            $("#txtCompEndCurso").addClass("is-valid");
+                            $("#txtCompEndCurso").prop("readonly", true);
+                        }
+                        else{
+                            $("#txtCompEndCurso").val('');
+                            $("#txtCompEndCurso").removeClass("is-invalid");
+                            $("#txtCompEndCurso").removeClass("is-valid");
+                            $("#txtCompEndCurso").prop("readonly", false);
+                        }
+                    }
+                    else {
+                        //CEP pesquisado não foi encontrado.
+                        limpa_formulário_cep_end_curso("#txtNomeEndCurso", "#txtNumEndCurso", "#txtEstadoEndCurso", "#txtCidadeEndCurso", "#txtBairroEndCurso", "#txtCompEndCurso", "#txtPtRefEndCurso");
+                        $("#txtCepEndCurso").removeClass("is-valid");
+                        $("#txtCepEndCurso").addClass("is-invalid");
+                        $(".invalid-cep").html("CEP não encontrado!");
+                    }
+                });
+            }
+            else {
+                //cep é inválido.
+                limpa_formulário_cep_end_curso("#txtNomeEndCurso", "#txtNumEndCurso", "#txtEstadoEndCurso", "#txtCidadeEndCurso", "#txtBairroEndCurso", "#txtCompEndCurso", "#txtPtRefEndCurso");
+                $("#txtCepEndCurso").removeClass("is-valid");
+                $("#txtCepEndCurso").addClass("is-invalid");
+                $(".invalid-cep").html("CEP Inválido!");;
+            }
+        }
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep_end_curso("#txtNomeEndCurso", "#txtNumEndCurso", "#txtEstadoEndCurso", "#txtCidadeEndCurso", "#txtBairroEndCurso", "#txtCompEndCurso", "#txtPtRefEndCurso");
+        }
+    });
+    
+    //Quando o campo cep perde o foco.
     $("#txtEndCepOM").change(function() {
         //Nova variável "cep" somente com dígitos.
         var cep = $(this).val().replace(/\D/g, '');
@@ -382,7 +528,7 @@ $(document).ready(function() {
                     }
                     else {
                         //CEP pesquisado não foi encontrado.
-                        limpa_formulário_cep_om("#txtEndNomeOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txEndBairroOM", "#txtEndCompOM");
+                        limpa_formulário_cep_om("#txtEndNomeOM", "#txtEndNumOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txtEndBairroOM", "#txtEndCompOM");
                         $("#txtEndCepOM").removeClass("is-valid");
                         $("#txtEndCepOM").addClass("is-invalid");
                         $(".invalid-cep").html("CEP não encontrado!");
@@ -391,7 +537,7 @@ $(document).ready(function() {
             }
             else {
                 //cep é inválido.
-                limpa_formulário_cep_om("#txtEndNomeOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txEndBairroOM", "#txtEndCompOM");
+                limpa_formulário_cep_om("#txtEndNomeOM", "#txtEndNumOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txtEndBairroOM", "#txtEndCompOM");
                 $("#txtEndCepOM").removeClass("is-valid");
                 $("#txtEndCepOM").addClass("is-invalid");
                 $(".invalid-cep").html("CEP Inválido!");;
@@ -399,7 +545,7 @@ $(document).ready(function() {
         }
         else {
             //cep sem valor, limpa formulário.
-            limpa_formulário_cep_om("#txtEndNomeOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txEndBairroOM", "#txtEndCompOM");
+            limpa_formulário_cep_om("#txtEndNomeOM", "#txtEndNumOM", "#txtEndEstadoOM", "#txtEndCidadeOM", "#txtEndBairroOM", "#txtEndCompOM");
         }
     });
 
@@ -495,6 +641,40 @@ $(document).ready(function() {
                 }
                 else{
                     $("#txtCompEndCurso").prop("readonly", false);
+                }
+            }
+            if($("#txtEndCurso").val() == "novo"){
+                if($("#txtCepEndCurso").val() != ""){                    
+                    if($("#txtNomeEndCurso").val() != ""){
+                        $("#txtNomeEndCurso").prop("readonly", true);
+                    }
+                    else{
+                        $("#txtNomeEndCurso").prop("readonly", false);
+                    }                    
+                    if($("#txtEstadoEndCurso").val() != ""){
+                        $("#txtEstadoEndCurso").prop("readonly", true);
+                    }
+                    else{
+                        $("#txtEstadoEndCurso").prop("readonly", false);
+                    }
+                    if($("#txtCidadeEndCurso").val() != ""){
+                        $("#txtCidadeEndCurso").prop("readonly", true);
+                    }
+                    else{
+                        $("#txtCidadeEndCurso").prop("readonly", false);
+                    }
+                    if($("#txtBairroEndCurso").val() != ""){
+                        $("#txtBairroEndCurso").prop("readonly", true);
+                    }
+                    else{
+                        $("#txtBairroEndCurso").prop("readonly", false);
+                    }
+                    if($("#txtCompEndCurso").val() != ""){
+                        $("#txtCompEndCurso").prop("readonly", true);
+                    }
+                    else{
+                        $("#txtCompEndCurso").prop("readonly", false);
+                    }
                 }
             }
         }
