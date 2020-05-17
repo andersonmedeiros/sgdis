@@ -112,6 +112,13 @@ public class FacadeAjax {
         return cursosmilitares;
     }
     
+    //Oms Região Amazônica
+    public ArrayList<Om> getOmsRegiaoNorteDWR(int idForca) throws Throwable, Exception{
+        ArrayList<Om> oms = new ArrayList();
+        oms = OmDAO.getOmsRegiaoNorteDWR(idForca);
+        return oms;
+    }
+    
     //Categoria
     public ArrayList<Categoria> getCategoriasDWR() throws Throwable, Exception{
         ArrayList<Categoria> categorias = new ArrayList();
