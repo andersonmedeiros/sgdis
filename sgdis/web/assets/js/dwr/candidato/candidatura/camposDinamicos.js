@@ -131,6 +131,28 @@ function alimentaSelectGrauParentesco(grausparentesco){
 }
 FacadeAjax.getGrausParentescoDWR(alimentaSelectGrauParentesco);
 
+function alimentaSelectCAperf(tipo, idCategoria, idForca){
+    if((tipo != 'n') && (tipo != '0')){
+        FacadeAjax.getCursosMilitaresByTipoAndCategoriaAndForcaDWR(tipo, idCategoria, idForca, {
+            callback: function(cursos){
+                dwr.util.removeAllOptions("txtCAperf");
+                dwr.util.addOptions("txtCAperf", [{id: "0", nome: "Selecione um Curso..."}], "id", "nome");
+                dwr.util.addOptions("txtCAperf", cursos, "id", "nome");
+            } 
+        });
+    }
+}
+
+function alimentaSelectCAltEstudos(tipo, idCategoria, idForca){
+    FacadeAjax.getCursosMilitaresByTipoAndCategoriaAndForcaDWR(tipo, idCategoria, idForca, {
+        callback: function(cursos){
+            dwr.util.removeAllOptions("txtCAltEstudos");
+            dwr.util.addOptions("txtCAltEstudos", [{id: "0", nome: "Selecione um Curso..."}], "id", "nome");
+            dwr.util.addOptions("txtCAltEstudos", cursos, "id", "nome");
+        } 
+    });
+}
+
 $("select[name=txtForca]").change(function(){
     alimentaSelectDependenteForca(this.value);
 });
@@ -146,6 +168,24 @@ $("select[name=txtNatEstAl]").change(function(){
 });
 $("select[name=txtTitEleitorEstAl]").change(function(){
     alimentaSelectDependenteEstadoTitEleitor(this.value);
+});
+$("select[name=txtPossuiCAperf]").change(function(){
+    var tipo = 1;
+    var idCategoria = $("input[name=txtCategoriaCandidatura]").val();
+    var idForca = $("select[name=txtForca]").val();
+    
+    if(this.value == 's'){
+        alimentaSelectCAperf(tipo, idCategoria, idForca);
+    }
+});
+$("select[name=txtPossuiCAltEstudos]").change(function(){
+    var tipo = 2;
+    var idCategoria = $("input[name=txtCategoriaCandidatura]").val();
+    var idForca = $("select[name=txtForca]").val();
+    
+    if(this.value == 's'){
+        alimentaSelectCAltEstudos(tipo, idCategoria, idForca);
+    }
 });
 
 /*function preencheFormulario(idtCandidato){

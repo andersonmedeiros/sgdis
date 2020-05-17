@@ -98,6 +98,20 @@ public class FacadeAjax {
         return comportamentos;
     }
     
+    //Idiomas
+    public ArrayList<Idioma> getIdiomasDWR() throws Throwable, Exception{
+        ArrayList<Idioma> idiomas = new ArrayList();
+        idiomas = IdiomaDAO.getIdiomasDWR();
+        return idiomas;
+    }
+    
+    //Cursos Militares
+    public ArrayList<CursoMilitar> getCursosMilitaresByTipoAndCategoriaAndForcaDWR(int tipo, int idCategoria, int idForca) throws Throwable, Exception{
+        ArrayList<CursoMilitar> cursosmilitares = new ArrayList();
+        cursosmilitares = CursoMilitarHasCategoriaHasForcaDAO.getCursosMilitaresByTipoAndCategoriaAndForcaDWR(tipo, idCategoria, idForca);
+        return cursosmilitares;
+    }
+    
     //Categoria
     public ArrayList<Categoria> getCategoriasDWR() throws Throwable, Exception{
         ArrayList<Categoria> categorias = new ArrayList();
