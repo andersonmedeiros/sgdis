@@ -72,33 +72,25 @@
             %>
             
             <!--<div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="txtNomeAl">Nome: <span class="campo-obrigatorio">*</span></label>
-                    <input type="text" class="form-control" id="txtNomeAl" name="txtNomeAl" placeholder="Ex.: Fulano">
+                <div class="form-group col-md-4">-->
+                    <!--<label for="txtCurso">Curso: <span class="campo-obrigatorio">*</span></label>-->
+                    <input type="hidden" class="form-control" id="txtCurso" name="txtCursoCandidatura" placeholder="Ex.: Curso de Operações na Selva" disabled=""  value="<%=sessao.getAttribute("idCurso") %>">
                     <div class="valid-feedback">Selva!</div>
                     <div class="invalid-feedback">Campo Obrigatório!</div>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="txtSobrenomeAl">Sobrenome: <span class="campo-obrigatorio">*</span></label>
-                    <input type="text" class="form-control" id="txtSobrenomeAl" name="txtSobrenomeAl" placeholder="Ex.: de Tal">
+                <!--</div>
+                <div class="form-group col-md-4">-->
+                    <!--<label for="txtCategoria">Categoria: <span class="campo-obrigatorio">*</span></label>-->
+                    <input type="hidden" class="form-control" id="txtCategoria" name="txtCategoriaCandidatura" placeholder="Ex.: A" value="<%=sessao.getAttribute("idCategoria") %>">
                     <div class="valid-feedback">Selva!</div>
                     <div class="invalid-feedback">Campo Obrigatório!</div>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="txtNomeGuerraAl">Nome de Guerra: <span class="campo-obrigatorio">*</span></label>
-                    <input type="text" class="form-control" id="txtNomeGuerraAl" name="txtNomeGuerraAl" placeholder="Ex.: De Tal">
+                <!--</div>
+                <div class="form-group col-md-4">-->
+                    <!--<label for="txtTurma">Turma: <span class="campo-obrigatorio">*</span></label>-->
+                    <input type="hidden" class="form-control" id="txtTurma" name="txtTurmaCandidatura" placeholder="Ex.: 2020/1" value="<%=sessao.getAttribute("idTurma") %>">
                     <div class="valid-feedback">Selva!</div>
                     <div class="invalid-feedback">Campo Obrigatório!</div>
-                </div>                
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="txtIdtMilAl">Identidade Militar: <span class="campo-obrigatorio">*</span></label>
-                    <input type="text" class="form-control idt-mil" id="txtIdtMilAl" name="txtIdtMilAl" placeholder="Ex. 000000000-0">
-                    <div class="valid-feedback">Selva!</div>
-                    <div class="invalid-feedback invalid-idtMilAl">Campo Obrigatório!</div>
-                </div>
-            </div>-->
+                <!--</div>                
+            <!--</div>-->
             
             <form id="formCadCandidato">
                 <ul id="progress">
@@ -1263,17 +1255,7 @@
                                 <div class="form-group col-md-8">
                                     <label for="txtCAperf">Curso: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtCAperf" name="txtCAperf">
-                                        <option value="0" selected>Selecione o curso...</option>");
-                                        if((categoria == 1) || (categoria == 2)){
-                                            out.println("<option value="esao">ESAO</option>");
-                                        }
-                                        else if(categoria == 3){
-                                            out.println("<option value="easa">EASA</option>");
-                                        }
-                                        else if(categoria == 4){
-                                            out.println("<option value="esao">ESAO</option>");
-                                            out.println("<option value="easa">EASA</option>");
-                                        }
+                                        <option value="0" selected>Selecione o curso...</option>
                                     </select>
                                     <div class="valid-feedback">Selva!</div>
                                     <div class="invalid-feedback">Campo Obrigatório!</div>
@@ -1308,20 +1290,7 @@
                                 <div class="form-group col-md-8">
                                     <label for="txtCAltEstudos">Curso: <span class="campo-obrigatorio">*</span></label>
                                     <select class="form-control" id="txtCAltEstudos" name="txtCAltEstudos">
-                                        <option value="0" selected>Selecione o curso...</option>");
-                                        if((categoria == 1) || (categoria == 2)){
-                                            out.println("<option value="eceme">ECEME</option>");
-                                            out.println("<option value="cgaem">CGAEM</option>");
-                                        }
-                                        else if(categoria == 3){
-                                            out.println("<option value="chqao">CHQAO</option>");
-                                        }
-                                        else if(categoria == 4){
-                                            out.println("<option value="eceme">ECEME</option>");
-                                            out.println("<option value="cgaem">CGAEM</option>");
-                                            out.println("<option value="chqao">CHQAO</option>");
-                                        }
-
+                                        <option value="0" selected>Selecione o curso...</option>
                                     </select>
                                     <div class="valid-feedback">Selva!</div>
                                     <div class="invalid-feedback">Campo Obrigatório!</div>

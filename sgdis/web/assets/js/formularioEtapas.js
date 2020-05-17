@@ -796,12 +796,31 @@ $("#txtHabIdiomas").change(function() {
     }
 });
 
+/*function alimentaSelectIdioma(idiomas){
+        alert("txtIdioma"+id + " " + idiomas[0].nome);
+        dwr.util.removeAllOptions("txtIdioma"+id);
+        dwr.util.addOptions("txtIdioma"+id, [{id: "0", nome: "Selecione um Idioma..."}], "id", "nome");
+        dwr.util.addOptions("txtIdioma"+id, idiomas, "id", "nome");
+    }*/
+    
+    function alimentaSelectIdioma(id){
+    FacadeAjax.getIdiomasDWR({
+        callback: function(idiomas){
+            dwr.util.removeAllOptions("txtIdioma"+id);
+            dwr.util.addOptions("txtIdioma"+id, [{id: "0", nome: "Selecione um Idioma..."}], "id", "nome");
+            dwr.util.addOptions("txtIdioma"+id, idiomas, "id", "nome");
+        } 
+    });
+}
+
 $("#btnAddIdioma").click(function(){           
     $("#linha" + qtdeIdiomas).remove();
     $("#fieldsetIdiomas").append("<div id=linha"+ qtdeIdiomas +" class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-8\">"+
                                   "      <label for=txtIdioma"+ qtdeIdiomas +">Idioma: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                  "      <input type=\"text\" class=\"form-control\" id=txtIdioma"+ qtdeIdiomas +" name=\"txtIdioma\" placeholder=\"Ex.: Espanhol\">"+
+                                  "      <select class=\"form-control\" id=txtIdioma" + qtdeIdiomas + " name=\"txtIdioma\">"+
+                                  "         <option value=\"0\" selected>Selecione um Idioma...</option>"+
+                                  "      </select>"+
                                   "      <div class=\"valid-feedback\">Selva!</div>"+
                                   "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
                                   "  </div>"+
@@ -813,7 +832,10 @@ $("#btnAddIdioma").click(function(){
                                   "  </div>"+
                                   "</div>");
     
-    functionValidInputTReal("#txtIdioma"+qtdeIdiomas);
+    
+    alimentaSelectIdioma(qtdeIdiomas);
+    
+    functionValidSelectTReal("#txtIdioma"+qtdeIdiomas);
     functionValidInputTReal("#txtIplIdioma"+qtdeIdiomas);
     
     qtdeIdiomas++;
@@ -919,7 +941,7 @@ $("#txtPossuiEstMil").change(function() {
 $("#btnAddEstagio").click(function(){      
     $("#fieldsetEstagios").append("<div id=linha"+ qtdeEstagios +" class=\"form-row\">"+
                                   "  <div class=\"form-group col-md-8\">"+
-                                  "      <label for=txtEstagio"+ qtdeEstagios +">Estagio: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                  "      <label for=txtEstagio"+ qtdeEstagios +">Estágio: <span class=\"campo-obrigatorio\">*</span></label>"+
                                   "      <input type=\"text\" class=\"form-control\" id=txtEstagio"+ qtdeEstagios +" name=\"txtEstagio\" placeholder=\"Ex.: Caatinga\">"+
                                   "      <div class=\"valid-feedback\">Selva!</div>"+
                                   "      <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
