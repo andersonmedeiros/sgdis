@@ -143,7 +143,7 @@
                             for(int i=0;i<turmas.size();i++){
                                 out.println("<tr>");
                                 out.println("   <th scope=\"row\">"+ (i+1) +"</th>");
-                                out.println("   <td>"+ cursoDAO.getCurso(turmas.get(i).getIdCurso()).getSigla() + " "+ catDAO.getCategoria(turmas.get(i).getIdCategoria()).getNome() +"</td>");
+                                out.println("   <td>"+ cursoDAO.getCurso(turmas.get(i).getIdCurso()).getSigla() + " "+ catDAO.getCategoriaById(turmas.get(i).getIdCategoria()).getNome() +"</td>");
                                 out.println("   <td>"+ turmas.get(i).getTurma() +"</td>");
                                 out.println("   <td>"+ turmas.get(i).getDataInicio()+"</td>");
                                 out.println("   <td>"+ turmas.get(i).getDataFim()+"</td>");
