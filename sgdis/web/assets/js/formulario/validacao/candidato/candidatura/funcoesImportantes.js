@@ -43,7 +43,7 @@ function limpaCampoSelect(campo){
 
 // Ao carregar ou recarregar a página
 // Funções
-// --> Início Comum a mais de uma etapa
+// --> Início comum a mais de uma etapa
 // Select
 function validSelect(campo){
     if($(campo).val() != '0'){
@@ -60,7 +60,7 @@ function validInput(campo){
     }
 };
 
-//Email
+// Email
 function validEmail(campo){
     var filtro = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/;
     var email = $(campo).val();
@@ -88,6 +88,22 @@ function validFoneCel(campo){
         $(campo).removeClass("is-valid");
         $(campo).addClass("is-invalid");
         $(".invalid-foneCel").html("Fone Inválido!");
+    }
+    else{
+        $(campo).removeClass("is-invalid");
+        $(campo).addClass("is-valid");
+    }
+};
+
+// Ano
+function validAno(campo){
+    var ano = $(campo).val();
+    if(ano == ''){
+    }
+    else if((ano != '') && (ano.length < 4)){
+        $(campo).removeClass("is-valid");
+        $(campo).addClass("is-invalid");
+        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
     }
     else{
         $(campo).removeClass("is-invalid");
@@ -464,22 +480,6 @@ function validSelectVeiculos(traraVeiculo){
 // --> Fim Etapa 2: DADOS INDIVIDUAIS
 
 // --> Início Etapa 4: DADOS MILITARES
-//Ano
-function validAno(campo){
-    var ano = $(campo).val();
-    if(ano == ''){
-    }
-    else if((ano != '') && (ano.length < 4)){
-        $(campo).removeClass("is-valid");
-        $(campo).addClass("is-invalid");
-        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
-    }
-    else{
-        $(campo).removeClass("is-invalid");
-        $(campo).addClass("is-valid");
-    }
-};
-
 //Data da última promoção
 function validDataUltProm(campoDataPraca, campoDataUltProm){ 
     var dataUltProm = $(campoDataUltProm).val();
@@ -808,6 +808,27 @@ function validFoneCelTReal(campo){
             $(campo).removeClass("is-valid");
             $(campo).addClass("is-invalid");
             $(".invalid-foneCel").html("Fone Inválido!");
+        }
+        else{
+            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-valid");
+        }
+    });
+};
+
+//Ano
+function validAnoTReal(campo){
+    $(campo).change(function(){
+        var ano = $(campo).val();
+        if(ano == ''){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-ano").html("Campo Obrigatório!");
+        }
+        else if((ano != '') && (ano.length < 4)){
+            $(campo).removeClass("is-valid");
+            $(campo).addClass("is-invalid");
+            $(".invalid-ano").html("O ano é formado 4 caracteres!");   
         }
         else{
             $(campo).removeClass("is-invalid");
@@ -1231,27 +1252,6 @@ function validDataValidadeCNHTReal(campo){
 // --> Fim Etapa 2: DADOS INDIVIDUAIS
 
 // --> Fim Etapa 4: DADOS MILITARES
-//Ano
-function validAnoTReal(campo){
-    $(campo).change(function(){
-        var ano = $(campo).val();
-        if(ano == ''){
-            $(campo).removeClass("is-valid");
-            $(campo).addClass("is-invalid");
-            $(".invalid-ano").html("Campo Obrigatório!");
-        }
-        else if((ano != '') && (ano.length < 4)){
-            $(campo).removeClass("is-valid");
-            $(campo).addClass("is-invalid");
-            $(".invalid-ano").html("O ano é formado 4 caracteres!");   
-        }
-        else{
-            $(campo).removeClass("is-invalid");
-            $(campo).addClass("is-valid");
-        }
-    });
-};
-
 //Data da última promoção
 function validDataUltPromTReal(campoDataPraca, campoDataUltProm){ 
     $(campoDataUltProm).change(function(){
