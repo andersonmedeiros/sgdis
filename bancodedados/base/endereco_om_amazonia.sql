@@ -80,7 +80,7 @@ INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES (
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('44', 'Hospital de Guarnição de São Gabriel da Cachoeira', 'H GU SGC', '250', '2', '3', '24');
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('25', '69104128', 'RUA EDUARDO RIBEIRO', 'JAUARI I', '247');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('45', '2ª Delegacia do Serviço Militar da 29ª CSM', '2ª DSM /29ª CSM', '2845', '2', '3', '25');
-INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('26', '69800000', 'BR 319 - KM 9 Zona Rural', 'Zona rural', '244');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('26', '69800000', 'BR 319', 'Zona Rural', 'KM 09', null, '244');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('46', '54º Batalhão de Infantaria de Selva', '54º BIS', 'S/N', '2', '3', '26');
 
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('27', '69640000', 'Avenida da Amizade', 'Centro', '274');
@@ -112,15 +112,15 @@ INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES (
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('57', '15ª Companhia de Polícia do Exército', '15ª CIA PE', '1104', '2', '14', '36');
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('37', '68743160', 'ALAMEDA CAPANEMA', 'ESTRELA', '2453');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('58', '1ª Delegacia do Serviço Militar da 28ª CSM', '1ª DSM/28ª CSM', '61', '2', '14', '37');
-INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('38', '68507570', 'RODOVIA TRANSAMAZÔNICA', 'NOVA MARABÁ', '2483');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('59', '1º Grupo de Artilharia de Campanha de Selva', '1º GAC SL', 'KM 07', '2', '14', '38');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('38', '68507570', 'RODOVIA TRANSAMAZÔNICA', 'NOVA MARABÁ', 'KM 07', null, '2483');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('59', '1º Grupo de Artilharia de Campanha de Selva', '1º GAC SL', 'S/N', '2', '14', '38');
 
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('39', '68509630', 'FOLHA 23 - QUADRA ESPECIAL', 'NOVA MARABÁ', '2483');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('60', '23ª Companhia de Comunicações de Selva', '23ª CIA COM SL', 'S/N', '2', '14', '39');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('61', 'Companhia de Comando da 23ª Brigada de Infantaria de Selva', 'CIA C 23ª BDA INF SL', 'S/N', '2', '14', '39');
 
-INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('40', '68501970', 'RODOVIA TRANSAMAZÔNICA', 'NOVA MARABÁ', '2483');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('62', '23º Batalhão Logístico de Selva', '23º B LOG SL', 'KM 09', '2', '14', '40');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('40', '68501970', 'RODOVIA TRANSAMAZÔNICA', 'NOVA MARABÁ', 'KM 09', null, '2483');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('62', '23º Batalhão Logístico de Selva', '23º B LOG SL', 'S/N', '2', '14', '40');
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('41', '68455000', 'Avenida dos Amazônidas', 'VILA PERMANENTE', '2554');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('63', '23º Esquadrão de Cavalaria de Selva', '23º ESQD C SL', 'S/N', '2', '14', '41');
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('42', '66035180', 'TRAVESSA 14 DE MARÇO', 'NAZARÉ', '2436');
@@ -143,8 +143,8 @@ INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES (
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('72', '4ª Delegacia do Serviço Militar da 28ª CSM', '4ª DSM/28ª CSM', '1881', '2', '14', '48');
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('49', '68376035', 'Rodovia Presidente Médice', 'ALBERTO SOARES', '2425');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('73', '51º Batalhão de Infantaria de Selva', '51º BIS', 'S/N', '2', '14', '49');
-INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('50', '68508970', 'Rodovia Transamazônica', 'NOVA MARABÁ', '2483');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('74', '52º Batalhão de Infantaria de Selva', '52º BIS', 'KM 08', '2', '14', '50');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('50', '68508970', 'Rodovia Transamazônica', 'NOVA MARABÁ', 'KM 08', null, '2483');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('74', '52º Batalhão de Infantaria de Selva', '52º BIS', 'S/N', '2', '14', '50');
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('51', '68181470', 'ESTRADA DO QUINQUAGÉSIMO TERCEIRO BIS', 'BOM JARDIM', '2475');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('75', '53º Batalhão de Infantaria de Selva', '53º BIS', 'S/N', '2', '14', '51');
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('52', '68511340', 'FOLHA 23 - QUADRA 40', 'NOVA MARABÁ', '2483');
@@ -153,8 +153,8 @@ INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES (
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('77', '7ª Delegacia do Serviço Militar da 28ª CSM', '7ª DSM/28ª CSM', '1382', '2', '14', '53');
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('54', '66035180', 'TRAVESSA 14 DE MARÇO', 'NAZARÉ', '2436');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('78', '8ª Delegacia do Serviço Militar da 28ª CSM', '8ª DSM/28ª CSM', '1998', '2', '14', '54');
-INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('55', '68033010', 'BR 163 - SERRA DE PIQUIATUBA', 'CIPOAL', '2530');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('79', '8º Batalhão de Engenharia de Construção', '8º BEC', 'KM 10', '2', '14', '55');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('55', '68033010', 'BR 163 - SERRA DE PIQUIATUBA', 'CIPOAL', 'KM 10', null, '2530');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('79', '8º Batalhão de Engenharia de Construção', '8º BEC', 'S/N', '2', '14', '55');
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('56', '66816000', 'RODOVIA ARTUR BERNARDES', 'BERNARDES', '2436');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('80', '8º Depósito de Suprimento', '8º D SUP', '8400', '2', '14', '56');
 
@@ -178,23 +178,10 @@ INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEsta
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('64', '68740030', 'TRAVESSA DOUTOR LAURO SODRÉ', 'MILAGRE', '2453');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('90', 'Tiro de Guerra de CASTANHAL', 'TG 08-005', 'S/N', '2', '14', '64');
 
--- EB: RORAIMA (ID: 22)
-INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('65', '69308515', 'AVENIIDA Marquês de Pombal', 'Setor Militar Marechal Rondon', '4400');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('91', '10º Grupo de Artilharia de Campanha de Selva', '10º GAC SL', 'S/N', '2', '22', '65');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('92', '1º Pelotão de Comunicações de Selva', '1º PEL COM SL', 'S/N', '2', '22', '65');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('93', '32º Pelotão de Polícia do Exército', '32º PEL PE', 'S/N', '2', '22', '65');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('94', 'Comando da 1ª Brigada de Infantaria de Selva', '1ª BDA INF SL', 'S/N', '2', '22', '65');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('95', 'COMPANHIA DE COMANDO da 1ª Brigada de Infantaria de Selva', 'CIA C 1ª BDA INF SL', 'S/N', '2', '22', '65');
+-- EB: RIO DE JANEIRO (ID: 19)
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('131', '27534970', 'RODOVIA PRESIDENTE DUTRA', 'CENTRO', 'KM 306', null, '3653');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('182', 'Academia Militar das Agulhas Negras', 'AMAN', 'S/N', '2', '19', '131');
 
-INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('66', '69308150', 'AVENIDA General Sampaio', 'TREZE DE SETEMBRO', '4400');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('96', '12º Esquadrão de Cavalaria Mecanizado', '12º ESQ C MEC', 'S/N', '2', '22', '66');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('97', '1º Batalhão Logístico de Selva', '1º B LOG SL', '1589', '2', '22', '66');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('98', 'Comando de Fronteira Roraima e 7º Batalhão de Infantaria de Selva', 'CMDO FRON RR/7º BIS', 'S/N', '2', '22', '66');
-
-INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('67', '69304350', 'AVENIDA MARIO HOMEM DE MELO', 'Mecejana', '4400');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('99', '6ª Delegacia do Serviço Militar da 29ª CSM', '6ª DSM/29ª CSM', '2301', '2', '22', '67');
-INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('68', '69304000', 'AVENIDA CAPITÃO ENE GARCEZ', 'Mecejana', '4400');
-INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('100', '6º Batalhão de Engenharia de Construção', '6ª BEC', '1037', '2', '22', '68');
 
 -- EB: RONDÔNIA (ID: 21)
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('69', '76804046', 'AVENIDA Pinheiro Machado', 'São Cristóvão', '4382');
@@ -227,6 +214,25 @@ INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES (
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('114', 'Tiro de Guerra de Colorado do Oeste', 'TG 12-001', '5187', '2', '21', '80');
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('81', '76980000', 'Av Vitória Régia', 'Jardim Primavera', '4397');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('115', 'Tiro de Guerra de Vilhena', 'TG 12-008', '1626', '2', '21', '81');
+
+-- EB: RORAIMA (ID: 22)
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('65', '69308515', 'AVENIIDA Marquês de Pombal', 'Setor Militar Marechal Rondon', '4400');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('91', '10º Grupo de Artilharia de Campanha de Selva', '10º GAC SL', 'S/N', '2', '22', '65');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('92', '1º Pelotão de Comunicações de Selva', '1º PEL COM SL', 'S/N', '2', '22', '65');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('93', '32º Pelotão de Polícia do Exército', '32º PEL PE', 'S/N', '2', '22', '65');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('94', 'Comando da 1ª Brigada de Infantaria de Selva', '1ª BDA INF SL', 'S/N', '2', '22', '65');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('95', 'COMPANHIA DE COMANDO da 1ª Brigada de Infantaria de Selva', 'CIA C 1ª BDA INF SL', 'S/N', '2', '22', '65');
+
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('66', '69308150', 'AVENIDA General Sampaio', 'TREZE DE SETEMBRO', '4400');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('96', '12º Esquadrão de Cavalaria Mecanizado', '12º ESQ C MEC', 'S/N', '2', '22', '66');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('97', '1º Batalhão Logístico de Selva', '1º B LOG SL', '1589', '2', '22', '66');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('98', 'Comando de Fronteira Roraima e 7º Batalhão de Infantaria de Selva', 'CMDO FRON RR/7º BIS', 'S/N', '2', '22', '66');
+
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('67', '69304350', 'AVENIDA MARIO HOMEM DE MELO', 'Mecejana', '4400');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('99', '6ª Delegacia do Serviço Militar da 29ª CSM', '6ª DSM/29ª CSM', '2301', '2', '22', '67');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('68', '69304000', 'AVENIDA CAPITÃO ENE GARCEZ', 'Mecejana', '4400');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('100', '6º Batalhão de Engenharia de Construção', '6ª BEC', '1037', '2', '22', '68');
+
 
 -- FORÇA AÉREA BRASILEIRA (ID: 3)
 -- FAB: ACRE (ID: 1)
@@ -352,12 +358,33 @@ INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEsta
 -- MB: PARÁ (ID: 14)
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('120', '66620200', 'Rua da Marinha', 'Marambaia', null, null, '2436');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('168', '2° Batalhão de Operações Ribeirinhas', '2°BtlOpRib', 'S/N', '3', '14', '120');
+
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('121', '66115000', 'RODOVIA Arthur Bernardes', 'Val de Cães', null, null, '2436');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('169', 'Base Naval de Val de Cães', 'BNVC', 'S/N', '3', '14', '121');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('170', 'Centro de Intendência da Marinha em Belém', 'CeIMBe', 'S/N', '3', '14', '121');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('171', 'Centro de Hidrografia e Navegação do Norte', 'CHN-4', 'S/N', '3', '14', '121');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('172', 'Comando do Grupamento de Patrulha Naval do Norte', 'ComGptPatNavN', 'S/N', '3', '14', '121');
+
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('122', '66816900', 'RODOVIA Arthur Bernardes', 'Pratinha', null, null, '2436');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('173', 'Centro de Instrução Almirante Braz de Aguiar', 'CIABA', 'S/N', '3', '14', '122');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('123', '66020150', 'Praça Carneiro da Rocha', 'Cidade Velha', null, null, '2436');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('174', 'Comando do 4º Distrito Naval', 'Com4ºDN', 'S/N', '3', '14', '123');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('124', '66010060', 'Rua Gaspar Vian', 'Reduto', null, null, '2436');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('175', 'Capitania dos Portos da Amazônia Oriental', 'CPAOR', 'S/N', '3', '14', '124');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('125', '66623590', 'Avenida Augusto Montenegro', 'Nova Marambaia', null, null, '2436');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('176', 'Estação Radiogoniométrica da Marinha em Belém', 'ERMBe', '1766', '3', '14', '125');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('126', '66010150', 'RUA Arsenal', 'Cidade Velha', null, null, '2436');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('177', 'Hospital Naval de Belém', 'HNBe', '200', '3', '14', '126');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('127', '68040000', 'AVENIDA Tapajós', 'Aldeia', null, null, '2530');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('178', 'Capitania Fluvial de Santarém', 'CFS', '1937', '3', '14', '127');
 
 -- MB: RONDÔNIA (ID: 21)
-
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('128', '78957000', 'AVENIDA 15 de novembro', 'Centro', null, null, '4366');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('179', 'Agência Fluvial de Guajará-Mirim', 'AgGMirim', '418', '3', '21', '128');
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('129', '76801056', 'Rua Henrique', 'Centro', null, null, '4382');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('180', 'Capitania Fluvial de Porto Velho', 'CFPV', '395', '3', '21', '129');
 
 -- MB: RORAIMA (ID: 22)
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('130', '69360000', 'Av. Dr. Zany', 'Centro', null, null, '4403');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('181', 'Agência Fluvial de Caracaraí', 'AgCaracaraí', 'S/N', '3', '21', '130');
 
