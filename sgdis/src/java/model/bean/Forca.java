@@ -12,6 +12,11 @@ package model.bean;
 public class Forca {
     int id;
     String nome, sigla;
+    private TipoForca tipoforca;
+
+    public Forca() {
+        tipoforca = new TipoForca();
+    }
 
     public int getId() {
         return id;
@@ -35,5 +40,21 @@ public class Forca {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+    
+    public int getIdTipoForca() {
+        return tipoforca.getId();
+    }
+
+    public void setIdTipoForca(int id) {
+        tipoforca.setId(id);
+    }
+
+    public String getNomeTipoForca() {
+        return tipoforca.getNome();
+    }
+
+    public void setNomeTipoForca(String nome) {
+        tipoforca.setNome(nome);
     }
 }

@@ -32,11 +32,10 @@ public class OmDAO {
     String idForca = "idForca";
     String idEstado = "idEstado";
     String idEndereco = "idEndereco";
-    String idComandante = "idComandante";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + abreviatura + "," + numendereco + "," + idForca + "," + idEstado + "," + idEndereco + "," + idComandante + ") " +
-                                  "VALUES(?,?,?,?,?,?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + abreviatura + "," + numendereco + "," + idForca + "," + idEstado + "," + idEndereco + ") " +
+                                  "VALUES(?,?,?,?,?,?,?);";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -49,7 +48,8 @@ public class OmDAO {
     
     private final static String GETOMBYFORCAANDESTADO = "SELECT * " +
                                                         "FROM OM " +
-                                                        "WHERE idForca = ? AND idEstado = ?";
+                                                        "WHERE idForca = ? AND idEstado = ? " + 
+                                                        "ORDER BY nome";
     
     public static ArrayList<Om> getOmsByForcaAndEstadoDWR(int idForca, int idEstado){
         Connection conn = null;
@@ -74,7 +74,6 @@ public class OmDAO {
                om.setIdForca(rs.getInt("idForca"));
                om.setIdEstadoCidadeEndereco(rs.getInt("idEstado"));
                om.setIdEndereco(rs.getInt("idEndereco"));
-               om.setIdCmt(rs.getInt("idComandante"));
                 
                oms.add(om);
             }
@@ -86,20 +85,19 @@ public class OmDAO {
     }
     
     private final static String GETOMSREGIAONORTE = "SELECT om.* " +
-                                                    "FROM OM as om " +
+                                                    "FROM OM AS om " +
                                                     "INNER JOIN Estado as e on om.idEstado = e.id " +
                                                     "INNER JOIN Regiao as r on e.idRegiao = r.id " +
-                                                    "WHERE idForca = ? AND r.id = 1;";
+                                                    "WHERE om.idForca = ? AND r.id = 1 " + 
+                                                    "ORDER BY om.nome";
     
     public static ArrayList<Om> getOmsRegiaoNorteDWR(int idForca){
         Connection conn = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        ArrayList<Om> oms = new ArrayList<>();
-        Om om = new Om();
+        ArrayList<Om> oms = new ArrayList<>();        
         ForcaDAO forcaDAO = new ForcaDAO();
         EnderecoDAO endDAO = new EnderecoDAO();
-        ComandanteDAO cmtDAO = new ComandanteDAO();
         
         try {
             conn = ConnectionFactory.getConnection();
@@ -110,7 +108,7 @@ public class OmDAO {
             while (rs.next()) {
                Forca forca = forcaDAO.getForcaById(rs.getInt("om.idForca"));
                Endereco end = endDAO.getEnderecoById(rs.getInt("om.idEndereco"));
-               Comandante cmt = cmtDAO.getComandanteById(rs.getInt("om.idComandante"));
+               Om om = new Om();
                
                om.setId(rs.getInt("om.id"));
                om.setNome(rs.getString("om.nome"));
@@ -133,21 +131,6 @@ public class OmDAO {
                om.setNomeEstadoCidadeEndereco(end.getNomeEstadoCidade());
                om.setSiglaEstadoCidadeEndereco(end.getSiglaEstadoCidade());
                 
-               om.setIdCmt(cmt.getId());
-               om.setNomeCmt(cmt.getNome());
-               om.setSobrenomeCmt(cmt.getSobrenome());
-               om.setNomeguerraCmt(cmt.getNomeguerra());               
-               om.setIdForcaPostoGraduacaoCmt(cmt.getIdForcaPostoGraduacao());
-               om.setNomeForcaPostoGraduacaoCmt(cmt.getNomeForcaPostoGraduacao());
-               om.setSiglaForcaPostoGraduacaoCmt(cmt.getSiglaForcaPostoGraduacao());               
-               om.setIdPostoGraduacaoCmt(cmt.getIdPostoGraduacao());
-               om.setNomePostoGraduacaoCmt(cmt.getNomePostoGraduacao());
-               om.setAbreviaturaPostoGraduacaoCmt(cmt.getAbreviaturaPostoGraduacao());
-               om.setCirculohierarquicoPostoGraduacaoCmt(cmt.getCirculohierarquicoPostoGraduacao());
-               om.setIdCategoriaPostoGraduacaoCmt(cmt.getIdCategoriaPostoGraduacao());
-               om.setNomeCategoriaPostoGraduacaoCmt(cmt.getNomeCategoriaPostoGraduacao());
-               om.setDescricaoCategoriaPostoGraduacaoCmt(cmt.getDescricaoCategoriaPostoGraduacao());
-                
                oms.add(om);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
@@ -168,7 +151,6 @@ public class OmDAO {
         Om om = new Om();
         ForcaDAO forcaDAO = new ForcaDAO();
         EnderecoDAO endDAO = new EnderecoDAO();
-        ComandanteDAO cmtDAO = new ComandanteDAO();
         
         try {
             conn = ConnectionFactory.getConnection();
@@ -179,7 +161,6 @@ public class OmDAO {
             while (rs.next()) {
                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
                Endereco end = endDAO.getEnderecoById(rs.getInt("idEndereco"));
-               Comandante cmt = cmtDAO.getComandanteById(rs.getInt("idComandante"));
                
                om.setId(rs.getInt("id"));
                om.setNome(rs.getString("nome"));
@@ -201,21 +182,6 @@ public class OmDAO {
                om.setIdEstadoCidadeEndereco(end.getIdEstadoCidade());
                om.setNomeEstadoCidadeEndereco(end.getNomeEstadoCidade());
                om.setSiglaEstadoCidadeEndereco(end.getSiglaEstadoCidade());
-                
-               om.setIdCmt(cmt.getId());
-               om.setNomeCmt(cmt.getNome());
-               om.setSobrenomeCmt(cmt.getSobrenome());
-               om.setNomeguerraCmt(cmt.getNomeguerra());               
-               om.setIdForcaPostoGraduacaoCmt(cmt.getIdForcaPostoGraduacao());
-               om.setNomeForcaPostoGraduacaoCmt(cmt.getNomeForcaPostoGraduacao());
-               om.setSiglaForcaPostoGraduacaoCmt(cmt.getSiglaForcaPostoGraduacao());               
-               om.setIdPostoGraduacaoCmt(cmt.getIdPostoGraduacao());
-               om.setNomePostoGraduacaoCmt(cmt.getNomePostoGraduacao());
-               om.setAbreviaturaPostoGraduacaoCmt(cmt.getAbreviaturaPostoGraduacao());
-               om.setCirculohierarquicoPostoGraduacaoCmt(cmt.getCirculohierarquicoPostoGraduacao());
-               om.setIdCategoriaPostoGraduacaoCmt(cmt.getIdCategoriaPostoGraduacao());
-               om.setNomeCategoriaPostoGraduacaoCmt(cmt.getNomeCategoriaPostoGraduacao());
-               om.setDescricaoCategoriaPostoGraduacaoCmt(cmt.getDescricaoCategoriaPostoGraduacao());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {

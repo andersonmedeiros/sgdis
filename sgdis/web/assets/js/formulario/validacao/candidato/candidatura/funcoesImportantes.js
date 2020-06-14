@@ -950,7 +950,7 @@ function validPreccpAlTReal(campo){
 
         if(preccpAl == ''){
             $(campo).removeClass("is-valid");
-            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-invalid");
         }
         else if(preccpAl == '000000000' || preccpAl == '111111111' || preccpAl == '222222222' || preccpAl == '333333333' ||                 
                 preccpAl == '444444444' || preccpAl == '555555555' || preccpAl == '666666666' || preccpAl == '777777777' ||                 
@@ -973,7 +973,7 @@ function validCPAlTReal(campo){
 
         if(cpAl == ''){
             $(campo).removeClass("is-valid");
-            $(campo).removeClass("is-invalid");
+            $(campo).addClass("is-invalid");
         }
         else if(cpAl == '000000' || cpAl == '111111' || cpAl == '222222' || cpAl == '333333' ||                 
                 cpAl == '444444' || cpAl == '555555' || cpAl == '666666' || cpAl == '777777' ||                 

@@ -11,17 +11,21 @@ $(document).ready(function(){
     limpaCampoSelect("select[name=txtEstadoForca]");
     limpaCampoSelect("select[name=txtNomeOM]");
     limpaCampoInput("input[name=txtFoneOM]");
-    limpaCampoInput("input[name=txtEndCepOM]");
+    /*limpaCampoInput("input[name=txtEndCepOM]");
     limpaCampoInput("input[name=txtEndNomeOM]");
     limpaCampoInput("input[name=txtEndNumOM]");
     limpaCampoInput("input[name=txtEndEstadoOM]");
     limpaCampoInput("input[name=txtEndCidadeOM]");
     limpaCampoInput("input[name=txtEndBairroOM]");
     limpaCampoInput("input[name=txtEndCompOM]");
-    limpaCampoInput("input[name=txtEndPtRefOM]");
+    limpaCampoInput("input[name=txtEndPtRefOM]");*/
     limpaCampoSelect("select[name=txtPGradCmtOM]");
     limpaCampoSelect("select[name=txtPGradChImtoOM]");
     limpaCampoSelect("select[name=txtPGradAl]");
+    
+    //Campo Select Força
+    validSelect("select[name=txtTipoForca]");
+    validSelectTReal("select[name=txtTipoForca]");
     
     //Campo Select Força
     validSelect("select[name=txtForca]");
@@ -470,6 +474,10 @@ $(document).ready(function(){
 // --> Fim Etapa 6: DADOS DE ENDEREÇO
 
 // --> Início Etapa 7: CURSOS/ESTÁGIO
+    //Campo Select EAS
+    validSelect("select[name=txtPossuiEAS]");
+    validSelectTReal("select[name=txtPossuiEAS]");
+    
     //Campo Select Idiomas    
     validSelect("select[name=txtHabIdiomas]");
     validSelectTReal("select[name=txtHabIdiomas]");
@@ -502,14 +510,14 @@ $(document).ready(function(){
         validAnoTReal("input[name=txtAnoCAltEstudos");
     
     //Campo Select Cursos Extensão ou Especialização
-    validSelect("select[name=txtPossuiCExtsEsp]");  
+    /*validSelect("select[name=txtPossuiCExtsEsp]");  
     validSelectTReal("select[name=txtPossuiCExtsEsp]");  
     acionamentoForm("select[name=txtPossuiCExtsEsp]", "#divCExtsEsp");
         
     //Campo Select Estágios Militares Operacionais
     validSelect("select[name=txtPossuiEstMil]");
     validSelectTReal("select[name=txtPossuiEstMil]");
-    acionamentoForm("select[name=txtPossuiEstMil]", "#divEstagios");
+    acionamentoForm("select[name=txtPossuiEstMil]", "#divEstagios");*/
 // --> Fim Etapa 7: CURSOS/ESTÁGIO
 
 // --> Início Etapa 8: PREPARAÇÃO
@@ -563,18 +571,27 @@ $(document).ready(function(){
 });
 
 // --> Início Etapa 1: OM ATUAL
+$("select[name=txtTipoForca]").change(function(){
+    limpaCampoSelect("select[name=txtForca]");
+    limpaCampoSelect("select[name=txtEstadoForca]");
+    limpaCampoSelect("select[name=txtNomeOM]");
+    limpaCampoInput("input[name=txtFoneOM]");
+    limpaCampoSelect("select[name=txtPGradCmtOM]");
+    limpaCampoSelect("select[name=txtPGradChImtoOM]");
+    limpaCampoSelect("select[name=txtPGradAl]");
+});
 $("select[name=txtForca]").change(function(){
     limpaCampoSelect("select[name=txtEstadoForca]");
     limpaCampoSelect("select[name=txtNomeOM]");
     limpaCampoInput("input[name=txtFoneOM]");
-    limpaCampoInput("input[name=txtEndCepOM]");
+    /*limpaCampoInput("input[name=txtEndCepOM]");
     limpaCampoInput("input[name=txtEndNomeOM]");
     limpaCampoInput("input[name=txtEndNumOM]");
     limpaCampoInput("input[name=txtEndEstadoOM]");
     limpaCampoInput("input[name=txtEndCidadeOM]");
     limpaCampoInput("input[name=txtEndBairroOM]");
     limpaCampoInput("input[name=txtEndCompOM]");
-    limpaCampoInput("input[name=txtEndPtRefOM]");
+    limpaCampoInput("input[name=txtEndPtRefOM]");*/
     limpaCampoSelect("select[name=txtPGradCmtOM]");
     limpaCampoSelect("select[name=txtPGradChImtoOM]");
     limpaCampoSelect("select[name=txtPGradAl]");
@@ -583,18 +600,18 @@ $("select[name=txtForca]").change(function(){
 $("select[name=txtEstadoForca]").change(function(){
     limpaCampoSelect("select[name=txtNomeOM]");
     limpaCampoInput("input[name=txtFoneOM]");
-    limpaCampoInput("input[name=txtEndCepOM]");
+    /*limpaCampoInput("input[name=txtEndCepOM]");
     limpaCampoInput("input[name=txtEndNomeOM]");
     limpaCampoInput("input[name=txtEndNumOM]");
     limpaCampoInput("input[name=txtEndEstadoOM]");
     limpaCampoInput("input[name=txtEndCidadeOM]");
     limpaCampoInput("input[name=txtEndBairroOM]");
     limpaCampoInput("input[name=txtEndCompOM]");
-    limpaCampoInput("input[name=txtEndPtRefOM]");
+    limpaCampoInput("input[name=txtEndPtRefOM]");*/
 });
 
 $("select[name=txtNomeOM]").change(function(){
-    limpaCampoInput("input[name=txtFoneOM]");
+    /*limpaCampoInput("input[name=txtFoneOM]");
     limpaCampoInput("input[name=txtEndCepOM]");
     limpaCampoInput("input[name=txtEndNomeOM]");
     limpaCampoInput("input[name=txtEndNumOM]");
@@ -602,7 +619,7 @@ $("select[name=txtNomeOM]").change(function(){
     limpaCampoInput("input[name=txtEndCidadeOM]");
     limpaCampoInput("input[name=txtEndBairroOM]");
     limpaCampoInput("input[name=txtEndCompOM]");
-    limpaCampoInput("input[name=txtEndPtRefOM]");
+    limpaCampoInput("input[name=txtEndPtRefOM]");*/
 });
 // <-- Fim Etapa 1: OM ATUAL
 
@@ -644,8 +661,13 @@ $(function(){
     // --> Início Etapa 1: OM ATUAL
     $("button[name=btnProximo2]").click(function(){
         var foneOM = $("input[name=txtFoneOM]").val().replace("-","").replace("(","").replace(")","").replace(" ","");
-        var endCepOM = $("input[name=txtEndCepOM]").val().replace("-","").replace("(","").replace(")","").replace(" ","");
-        if($("select[name=txtForca]").val() == '0'){
+        //var endCepOM = $("input[name=txtEndCepOM]").val().replace("-","").replace("(","").replace(")","").replace(" ","");
+        if($("select[name=txtTipoForca]").val() == '0'){
+            $("select[name=txtTipoForca]").removeClass("is-valid");
+            $("select[name=txtTipoForca]").addClass("is-invalid");
+            $("select[name=txtTipoForca]").focus();
+        }
+        else if($("select[name=txtForca]").val() == '0'){
             $("select[name=txtForca]").removeClass("is-valid");
             $("select[name=txtForca]").addClass("is-invalid");
             $("select[name=txtForca]").focus();
@@ -674,7 +696,7 @@ $(function(){
             $("input[name=txtFoneOM]").focus();
             $(".invalid-fone").html("Fone Inválido!");            
         }
-        else if(endCepOM == ''){
+        /*else if(endCepOM == ''){
             $("input[name=txtEndCepOM]").removeClass("is-valid");
             $("input[name=txtEndCepOM]").addClass("is-invalid");
             $("input[name=txtEndCepOM]").focus();
@@ -712,7 +734,7 @@ $(function(){
             $("select[name=txtEndBairroOM]").removeClass("is-valid");
             $("select[name=txtEndBairroOM]").addClass("is-invalid");
             $("select[name=txtEndBairroOM]").focus();
-        }
+        }*/
         else if($("select[name=txtPGradCmtOM]").val() == '0'){
             $("select[name=txtPGradCmtOM]").removeClass("is-valid");
             $("select[name=txtPGradCmtOM]").addClass("is-invalid");
@@ -931,364 +953,754 @@ $(function(){
                 cpfOk=1;
             }    
         }
-        else if(dataPracaAl == ''){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
-            $(".invalid-dataPracaAl").html("Campo Obrigatório!");
-        }       
-        else if((anoPracaAl == anoAtual) && (mesPracaAl == mesAtual) && (diaPracaAl > diaAtual)){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
-            $(".invalid-dataPracaAl").html("Data Inválida! Praça após data atual.");
-        }       
-        else if((anoPracaAl == anoNascAl) && (mesPracaAl == mesNascAl) && (diaPracaAl < diaNascAl)){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
-            $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
-        }       
-        else if((anoPracaAl == anoAtual) && (mesPracaAl > mesAtual)){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
-            $(".invalid-dataPracaAl").html("Data Inválida! Praça após data atual.");
-        }       
-        else if((anoPracaAl == anoNascAl) && (mesPracaAl < mesNascAl)){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
-            $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
-        }       
-        else if((anoPracaAl > anoAtual)){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
-            $(".invalid-dataPracaAl").html("Data Inválida! Praça após data atual.");
-        }       
-        else if((anoPracaAl < anoNascAl)){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
-            $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
-        }
-        else if((anoPracaAl - anoNascAl) < 18){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
-            $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
-        }   
-        else if(((anoPracaAl - anoNascAl) === 18) && (mesPracaAl < mesNascAl)){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
-            $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
-        }   
-        else if(((anoPracaAl - anoNascAl) === 18) && (mesPracaAl === mesNascAl) && (diaPracaAl < diaNascAl)){
-            $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
-            $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
-            $("input[name=txtUltDataPracaAl]").focus();
-            $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
-        }
-        else if($("select[name=txtNatEstAl]").val() == '0'){
-            $("select[name=txtNatEstAl]").removeClass("is-valid");
-            $("select[name=txtNatEstAl]").addClass("is-invalid");
-            $("select[name=txtNatEstAl]").focus();
-        }
-        else if($("select[name=txtNatCidAl]").val() == '0'){
-            $("select[name=txtNatCidAl]").removeClass("is-valid");
-            $("select[name=txtNatCidAl]").addClass("is-invalid");
-            $("select[name=txtNatCidAl]").focus();
-        }
-        else if($("select[name=txtEstCivilAl]").val() == '0'){
-            $("select[name=txtEstCivilAl]").removeClass("is-valid");
-            $("select[name=txtEstCivilAl]").addClass("is-invalid");
-            $("select[name=txtEstCivilAl]").focus();
-        }
-        else if($("select[name=txtSexoAl]").val() == '0'){
-            $("select[name=txtSexoAl]").removeClass("is-valid");
-            $("select[name=txtSexoAl]").addClass("is-invalid");
-            $("select[name=txtSexoAl]").focus();
-        }
-        else if($("select[name=txtTSAl]").val() == '0'){
-            $("select[name=txtTSAl]").removeClass("is-valid");
-            $("select[name=txtTSAl]").addClass("is-invalid");
-            $("select[name=txtTSAl]").focus();
-        }
-        else if($("select[name=txtFatorRHAl]").val() == '0'){
-            $("select[name=txtFatorRHAl]").removeClass("is-valid");
-            $("select[name=txtFatorRHAl]").addClass("is-invalid");
-            $("select[name=txtFatorRHAl]").focus();
-        }        
-        else if(titEleitorNumAl == ''){
-            $("input[name=txtTitEleitorNumAl]").removeClass("is-valid");
-            $("input[name=txtTitEleitorNumAl]").addClass("is-invalid");
-            $("input[name=txtTitEleitorNumAl]").focus();
-            $(".invalid-titEleitorNumAl").html("Campo Obrigatório!");
-        }
-        else if(titEleitorNumAl == '000000000000' || titEleitorNumAl == '111111111111' || titEleitorNumAl == '222222222222' || titEleitorNumAl == '333333333333' ||                 
-                titEleitorNumAl == '444444444444' || titEleitorNumAl == '555555555555' || titEleitorNumAl == '666666666666' || titEleitorNumAl == '777777777777' ||                 
-                titEleitorNumAl == '888888888888' || titEleitorNumAl == '999999999999'){
-            $("input[name=txtTitEleitorNumAl]").removeClass("is-valid");
-            $("input[name=txtTitEleitorNumAl]").addClass("is-invalid");
-            $("input[name=txtTitEleitorNumAl]").focus();
-            $(".invalid-titEleitorNumAl").html("Título de Eleitor Inválido!");   
-        }        
-        else if(titEleitorZonaAl == ''){
-            $("input[name=txtTitEleitorZonaAl]").removeClass("is-valid");
-            $("input[name=txtTitEleitorZonaAl]").addClass("is-invalid");
-            $("input[name=txtTitEleitorZonaAl]").focus();
-            $(".invalid-titEleitorZonaAl").html("Campo Obrigatório!");
-        }
-        else if((titEleitorZonaAl != '') && (titEleitorZonaAl.length < 3)){
-            $("input[name=txtTitEleitorZonaAl]").removeClass("is-valid");
-            $("input[name=txtTitEleitorZonaAl]").addClass("is-invalid");
-            $("input[name=txtTitEleitorZonaAl]").focus();
-            $(".invalid-titEleitorZonaAl").html("A Zona é formada por 3 caracteres!");   
-        }
-        else if(titEleitorSecaoAl == ''){
-            $("input[name=txtTitEleitorSecaoAl]").removeClass("is-valid");
-            $("input[name=txtTitEleitorSecaoAl]").addClass("is-invalid");
-            $("input[name=txtTitEleitorSecaoAl]").focus();
-            $(".invalid-titEleitorSecaoAl").html("Campo Obrigatório!");
-        }
-        else if((titEleitorSecaoAl != '') && (titEleitorSecaoAl.length < 4)){
-            $("input[name=txtTitEleitorSecaoAl]").removeClass("is-valid");
-            $("input[name=txtTitEleitorSecaoAl]").addClass("is-invalid");
-            $("input[name=txtTitEleitorSecaoAl]").focus();
-            $(".invalid-titEleitorSecaoAl").html("A Secao é formada por 4 caracteres!");   
-        }
-        else if($("select[name=txtTitEleitorEstAl]").val() == '0'){
-            $("select[name=txtTitEleitorEstAl]").removeClass("is-valid");
-            $("select[name=txtTitEleitorEstAl]").addClass("is-invalid");
-            $("select[name=txtTitEleitorEstAl]").focus();
-        }
-        else if($("select[name=txtTitEleitorCidAl]").val() == '0'){
-            $("select[name=txtTitEleitorCidAl]").removeClass("is-valid");
-            $("select[name=txtTitEleitorCidAl]").addClass("is-invalid");
-            $("select[name=txtTitEleitorCidAl]").focus();
-        }
-        else if($("input[name=txtBancoAl]").val() == ''){
-            $("input[name=txtBancoAl]").removeClass("is-valid");
-            $("input[name=txtBancoAl]").addClass("is-invalid");
-            $("input[name=txtBancoAl]").focus();
-        }
-        else if($("input[name=txtAgenciaAl]").val() == ''){
-            $("input[name=txtAgenciaAl]").removeClass("is-valid");
-            $("input[name=txtAgenciaAl]").addClass("is-invalid");
-            $("input[name=txtAgenciaAl]").focus();
-        }
-        else if($("input[name=txtDvAgenciaAl]").val() == ''){
-            $("input[name=txtDvAgenciaAl]").removeClass("is-valid");
-            $("input[name=txtDvAgenciaAl]").addClass("is-invalid");
-            $("input[name=txtDvAgenciaAl]").focus();
-        }
-        else if($("input[name=txtContaAl]").val() == ''){
-            $("input[name=txtContaAl]").removeClass("is-valid");
-            $("input[name=txtContaAl]").addClass("is-invalid");
-            $("input[name=txtContaAl]").focus();
-        }
-        else if($("input[name=txtDvContaAl]").val() == ''){
-            $("input[name=txtDvContaAl]").removeClass("is-valid");
-            $("input[name=txtDvContaAl]").addClass("is-invalid");
-            $("input[name=txtDvContaAl]").focus();
-        }
-        else if(emailAl == ''){
-            $("input[name=txtEmailAl]").removeClass("is-valid");
-            $("input[name=txtEmailAl]").addClass("is-invalid");
-            $("input[name=txtEmailAl]").focus();
-            $(".invalid-email").html("Campo Obrigatório!");
-        }        
-        else if(filtro.test(emailAl) == false){
-            $("input[name=txtEmailAl]").removeClass("is-valid");
-            $("input[name=txtEmailAl]").addClass("is-invalid");
-            $("input[name=txtEmailAl]").focus();
-            $(".invalid-email").html("Email Inválido!");
-        }
-        else if(foneCel == ''){
-            $("input[name=txtFoneAl]").removeClass("is-valid");
-            $("input[name=txtFoneAl]").addClass("is-invalid");
-            $("input[name=txtFoneAl]").focus();
-            $(".invalid-foneCel").html("Campo Obrigatório!");
-        }
-        else if(foneCel == '00000000000' || foneCel == '11111111111' || foneCel == '22222222222' || foneCel == '33333333333' ||                 
-                foneCel == '44444444444' || foneCel == '55555555555' || foneCel == '66666666666' || foneCel == '77777777777' ||                 
-                foneCel == '88888888888' || foneCel == '99999999999'){
-            $("input[name=txtFoneAl]").removeClass("is-valid");
-            $("input[name=txtFoneAl]").addClass("is-invalid");
-            $("input[name=txtFoneAl]").focus();
-            $(".invalid-foneCel").html("Fone Inválido!");
-        }
-        else if($("select[name=txtNumCoturnoAl]").val() == '0'){
-            $("select[name=txtNumCoturnoAl]").removeClass("is-valid");
-            $("select[name=txtNumCoturnoAl]").addClass("is-invalid");
-            $("select[name=txtNumCoturnoAl]").focus();
-        }
-        else if($("select[name=txtTamGandAl]").val() == '0'){
-            $("select[name=txtTamGandAl]").removeClass("is-valid");
-            $("select[name=txtTamGandAl]").addClass("is-invalid");
-            $("select[name=txtTamGandAl]").focus();
-        }
-        else if($("select[name=txtTamCalcaAl]").val() == '0'){
-            $("select[name=txtTamCalcaAl]").removeClass("is-valid");
-            $("select[name=txtTamCalcaAl]").addClass("is-invalid");
-            $("select[name=txtTamCalcaAl]").focus();
-        }
-        else if($("select[name=txtTamCamCmfAl]").val() == '0'){
-            $("select[name=txtTamCamCmfAl]").removeClass("is-valid");
-            $("select[name=txtTamCamCmfAl]").addClass("is-invalid");
-            $("select[name=txtTamCamCmfAl]").focus();
-        }
-        else if($("select[name=txtPossuiCNH]").val() == '0'){
-            $("select[name=txtPossuiCNH]").removeClass("is-valid");
-            $("select[name=txtPossuiCNH]").addClass("is-invalid");
-            $("select[name=txtPossuiCNH]").focus();
-        }
-        else if($("select[name=txtTraraVeiculo]").val() == '0'){
-            $("select[name=txtTraraVeiculo]").removeClass("is-valid");
-            $("select[name=txtTraraVeiculo]").addClass("is-invalid");
-            $("select[name=txtTraraVeiculo]").focus();
-        } 
-         
-        //Não possui CNH
-        else if($("select[name=txtPossuiCNH]").val() == 'n'){  
-            //Não possui Veículo
-            if($("select[name=txtTraraVeiculo]").val() == 'n'){
-                proximo($(this));
+        else if($("select[name=txtForca]").val() == 2){
+            var preccp = $("input[name=txtPreccpAl]").val().replace("-","").replace(" ","");
+            var cp = $("input[name=txtCPAl]").val().replace("-","").replace(" ","");
+            if(preccp == ''){
+                $("input[name=txtPreccpAl]").removeClass("is-valid");
+                $("input[name=txtPreccpAl]").addClass("is-invalid");
+                $("input[name=txtPreccpAl]").focus();
+                $(".invalid-preccpAl").html("Campo Obrigatório!");
             }
-            //Possui Veículo
-            else if($("select[name=txtTraraVeiculo]").val() == 's'){
-                for(var i=0;i<($("input[name=txtPlacaVeiculoAl").length);i++){
-                    if($("select[name=txtTipoVeiculoAl]").eq(i).val() == '0' ){
-                        $("select[name=txtTipoVeiculoAl]").eq(i).removeClass("is-valid");
-                        $("select[name=txtTipoVeiculoAl]").eq(i).addClass("is-invalid");
-                        $("select[name=txtTipoVeiculoAl]").eq(i).focus();
-                        break;
-                    }                    
-                    else if($("input[name=txtMarcaVeiculoAl]").eq(i).val() == ''){
-                        $("input[name=txtMarcaVeiculoAl]").eq(i).removeClass("is-valid");
-                        $("input[name=txtMarcaVeiculoAl]").eq(i).addClass("is-invalid");
-                        $("input[name=txtMarcaVeiculoAl]").eq(i).focus();
-                        break;
-                    }
-                    else if($("input[name=txtModeloVeiculoAl]").eq(i).val() == ''){
-                        $("input[name=txtModeloVeiculoAl]").eq(i).removeClass("is-valid");
-                        $("input[name=txtModeloVeiculoAl]").eq(i).addClass("is-invalid");
-                        $("input[name=txtModeloVeiculoAl]").eq(i).focus();
-                        break;
-                    }
-                    else if($("input[name=txtCorVeiculoAl]").eq(i).val() == ''){
-                        $("input[name=txtCorVeiculoAl]").eq(i).removeClass("is-valid");
-                        $("input[name=txtCorVeiculoAl]").eq(i).addClass("is-invalid");
-                        $("input[name=txtCorVeiculoAl]").eq(i).focus();
-                        break;
-                    }
-                    else if($("input[name=txtPlacaVeiculoAl]").eq(i).val() == ''){
-                        $("input[name=txtPlacaVeiculoAl]").eq(i).removeClass("is-valid");
-                        $("input[name=txtPlacaVeiculoAl]").eq(i).addClass("is-invalid");
-                        $("input[name=txtPlacaVeiculoAl]").eq(i).focus();
-                        break;
-                    }
-                    else if(($("input[name=txtPlacaVeiculoAl]").eq($("input[name=txtPlacaVeiculoAl]").length-1).val()) != ''){
-                        proximo($(this));
-                    }
-                }                       
+            else if(preccp == '000000000' || preccp == '111111111' || preccp == '222222222' || preccp == '333333333' ||                 
+                    preccp == '444444444' || preccp == '555555555' || preccp == '666666666' || preccp == '777777777' ||                 
+                    preccp == '888888888' || preccp == '999999999'){
+                $("input[name=txtPreccpAl]").removeClass("is-valid");
+                $("input[name=txtPreccpAl]").addClass("is-invalid");
+                $("input[name=txtPreccpAl]").focus();
+                $(".invalid-preccpAl").html("Prec-CP Inválida!");  
             }
-        }        
-        //Possui CNH
-       else if($("select[name=txtPossuiCNH]").val() == 's'){            
-            if(numCNH == ''){
-                $("input[name=txtCNHNumAl]").removeClass("is-valid");
-                $("input[name=txtCNHNumAl]").addClass("is-invalid");
-                $("input[name=txtCNHNumAl]").focus();
-                $(".invalid-numCNH").html("Campo Obrigatório!");
+            else if(cp == ''){
+                $("input[name=txtCPAlAl]").removeClass("is-valid");
+                $("input[name=txtCPAl]").addClass("is-invalid");
+                $("input[name=txtCPAl]").focus();
+                $(".invalid-cpAl").html("Campo Obrigatório!");
             }
-            else if(numCNH == '00000000000' || numCNH == '11111111111' || numCNH == '22222222222' || numCNH == '33333333333' ||                 
-                    numCNH == '44444444444' || numCNH == '55555555555' || numCNH == '66666666666' || numCNH == '77777777777' ||                 
-                    numCNH == '88888888888' || numCNH == '99999999999'){
-                $("input[name=txtCNHNumAl]").removeClass("is-valid");
-                $("input[name=txtCNHNumAl]").addClass("is-invalid");
-                $("input[name=txtCNHNumAl]").focus();
-                $(".invalid-numCNH").html("CNH Inválida!");   
+            else if(cp == '000000' || cp == '111111' || cp == '222222' || cp == '333333' ||                 
+                    cp == '444444' || cp == '555555' || cp == '666666' || cp == '777777' ||                 
+                    cp == '888888' || cp == '999999'){
+                $("input[name=txtCPAl]").removeClass("is-valid");
+                $("input[name=txtCPAl]").addClass("is-invalid");
+                $("input[name=txtCPAl]").focus();
+                $(".invalid-cpAl").html("CP Inválido!");  
             }
-            else if($("select[name=txtCNHCatgAl]").val() == '0'){
-                $("select[name=txtCNHCatgAl]").removeClass("is-valid");
-                $("select[name=txtCNHCatgAl]").addClass("is-invalid");
-                $("select[name=txtCNHCatgAl]").focus();
-            }
-            else if(dataValCNH == ''){
-                $("input[name=txtCNHDataValAl]").removeClass("is-valid");
-                $("input[name=txtCNHDataValAl]").addClass("is-invalid");
-                $("input[name=txtCNHDataValAl]").focus();
-                $(".invalid-dataValCNH").html("Campo Obrigatório!");
+            else if(dataPracaAl == ''){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Campo Obrigatório!");
             }       
-            else if((anoValCNH == anoAtual) && (mesValCNH == mesAtual) && (diaValCNH < diaAtual)){
-                $("input[name=txtCNHDataValAl]").removeClass("is-valid");
-                $("input[name=txtCNHDataValAl]").addClass("is-invalid");
-                $("input[name=txtCNHDataValAl]").focus();
-                $(".invalid-dataValCNH").html("CNH Vencida!");
+            else if((anoPracaAl == anoAtual) && (mesPracaAl == mesAtual) && (diaPracaAl > diaAtual)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça após data atual.");
             }       
-            else if((anoValCNH == anoAtual) && (mesValCNH < mesAtual)){
-                $("input[name=txtCNHDataValAl]").removeClass("is-valid");
-                $("input[name=txtCNHDataValAl]").addClass("is-invalid");
-                $("input[name=txtCNHDataValAl]").focus();
-                $(".invalid-dataValCNH").html("CNH Vencida!");
+            else if((anoPracaAl == anoNascAl) && (mesPracaAl == mesNascAl) && (diaPracaAl < diaNascAl)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
             }       
-            else if((anoValCNH < anoAtual)){
-                $("input[name=txtCNHDataValAl]").removeClass("is-valid");
-                $("input[name=txtCNHDataValAl]").addClass("is-invalid");
-                $("input[name=txtCNHDataValAl]").focus();
-                $(".invalid-dataValCNH").html("CNH Vencida!");
+            else if((anoPracaAl == anoAtual) && (mesPracaAl > mesAtual)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça após data atual.");
+            }       
+            else if((anoPracaAl == anoNascAl) && (mesPracaAl < mesNascAl)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
+            }       
+            else if((anoPracaAl > anoAtual)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça após data atual.");
+            }       
+            else if((anoPracaAl < anoNascAl)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
+            }
+            else if((anoPracaAl - anoNascAl) < 18){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+            }   
+            else if(((anoPracaAl - anoNascAl) === 18) && (mesPracaAl < mesNascAl)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+            }   
+            else if(((anoPracaAl - anoNascAl) === 18) && (mesPracaAl === mesNascAl) && (diaPracaAl < diaNascAl)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+            }
+            else if($("select[name=txtNatEstAl]").val() == '0'){
+                $("select[name=txtNatEstAl]").removeClass("is-valid");
+                $("select[name=txtNatEstAl]").addClass("is-invalid");
+                $("select[name=txtNatEstAl]").focus();
+            }
+            else if($("select[name=txtNatCidAl]").val() == '0'){
+                $("select[name=txtNatCidAl]").removeClass("is-valid");
+                $("select[name=txtNatCidAl]").addClass("is-invalid");
+                $("select[name=txtNatCidAl]").focus();
+            }
+            else if($("select[name=txtEstCivilAl]").val() == '0'){
+                $("select[name=txtEstCivilAl]").removeClass("is-valid");
+                $("select[name=txtEstCivilAl]").addClass("is-invalid");
+                $("select[name=txtEstCivilAl]").focus();
+            }
+            else if($("select[name=txtSexoAl]").val() == '0'){
+                $("select[name=txtSexoAl]").removeClass("is-valid");
+                $("select[name=txtSexoAl]").addClass("is-invalid");
+                $("select[name=txtSexoAl]").focus();
+            }
+            else if($("select[name=txtTSAl]").val() == '0'){
+                $("select[name=txtTSAl]").removeClass("is-valid");
+                $("select[name=txtTSAl]").addClass("is-invalid");
+                $("select[name=txtTSAl]").focus();
+            }
+            else if($("select[name=txtFatorRHAl]").val() == '0'){
+                $("select[name=txtFatorRHAl]").removeClass("is-valid");
+                $("select[name=txtFatorRHAl]").addClass("is-invalid");
+                $("select[name=txtFatorRHAl]").focus();
+            }        
+            else if(titEleitorNumAl == ''){
+                $("input[name=txtTitEleitorNumAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorNumAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorNumAl]").focus();
+                $(".invalid-titEleitorNumAl").html("Campo Obrigatório!");
+            }
+            else if(titEleitorNumAl == '000000000000' || titEleitorNumAl == '111111111111' || titEleitorNumAl == '222222222222' || titEleitorNumAl == '333333333333' ||                 
+                    titEleitorNumAl == '444444444444' || titEleitorNumAl == '555555555555' || titEleitorNumAl == '666666666666' || titEleitorNumAl == '777777777777' ||                 
+                    titEleitorNumAl == '888888888888' || titEleitorNumAl == '999999999999'){
+                $("input[name=txtTitEleitorNumAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorNumAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorNumAl]").focus();
+                $(".invalid-titEleitorNumAl").html("Título de Eleitor Inválido!");   
+            }        
+            else if(titEleitorZonaAl == ''){
+                $("input[name=txtTitEleitorZonaAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorZonaAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorZonaAl]").focus();
+                $(".invalid-titEleitorZonaAl").html("Campo Obrigatório!");
+            }
+            else if((titEleitorZonaAl != '') && (titEleitorZonaAl.length < 3)){
+                $("input[name=txtTitEleitorZonaAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorZonaAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorZonaAl]").focus();
+                $(".invalid-titEleitorZonaAl").html("A Zona é formada por 3 caracteres!");   
+            }
+            else if(titEleitorSecaoAl == ''){
+                $("input[name=txtTitEleitorSecaoAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorSecaoAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorSecaoAl]").focus();
+                $(".invalid-titEleitorSecaoAl").html("Campo Obrigatório!");
+            }
+            else if((titEleitorSecaoAl != '') && (titEleitorSecaoAl.length < 4)){
+                $("input[name=txtTitEleitorSecaoAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorSecaoAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorSecaoAl]").focus();
+                $(".invalid-titEleitorSecaoAl").html("A Secao é formada por 4 caracteres!");   
+            }
+            else if($("select[name=txtTitEleitorEstAl]").val() == '0'){
+                $("select[name=txtTitEleitorEstAl]").removeClass("is-valid");
+                $("select[name=txtTitEleitorEstAl]").addClass("is-invalid");
+                $("select[name=txtTitEleitorEstAl]").focus();
+            }
+            else if($("select[name=txtTitEleitorCidAl]").val() == '0'){
+                $("select[name=txtTitEleitorCidAl]").removeClass("is-valid");
+                $("select[name=txtTitEleitorCidAl]").addClass("is-invalid");
+                $("select[name=txtTitEleitorCidAl]").focus();
+            }
+            else if($("input[name=txtBancoAl]").val() == ''){
+                $("input[name=txtBancoAl]").removeClass("is-valid");
+                $("input[name=txtBancoAl]").addClass("is-invalid");
+                $("input[name=txtBancoAl]").focus();
+            }
+            else if($("input[name=txtAgenciaAl]").val() == ''){
+                $("input[name=txtAgenciaAl]").removeClass("is-valid");
+                $("input[name=txtAgenciaAl]").addClass("is-invalid");
+                $("input[name=txtAgenciaAl]").focus();
+            }
+            else if($("input[name=txtDvAgenciaAl]").val() == ''){
+                $("input[name=txtDvAgenciaAl]").removeClass("is-valid");
+                $("input[name=txtDvAgenciaAl]").addClass("is-invalid");
+                $("input[name=txtDvAgenciaAl]").focus();
+            }
+            else if($("input[name=txtContaAl]").val() == ''){
+                $("input[name=txtContaAl]").removeClass("is-valid");
+                $("input[name=txtContaAl]").addClass("is-invalid");
+                $("input[name=txtContaAl]").focus();
+            }
+            else if($("input[name=txtDvContaAl]").val() == ''){
+                $("input[name=txtDvContaAl]").removeClass("is-valid");
+                $("input[name=txtDvContaAl]").addClass("is-invalid");
+                $("input[name=txtDvContaAl]").focus();
+            }
+            else if(emailAl == ''){
+                $("input[name=txtEmailAl]").removeClass("is-valid");
+                $("input[name=txtEmailAl]").addClass("is-invalid");
+                $("input[name=txtEmailAl]").focus();
+                $(".invalid-email").html("Campo Obrigatório!");
+            }        
+            else if(filtro.test(emailAl) == false){
+                $("input[name=txtEmailAl]").removeClass("is-valid");
+                $("input[name=txtEmailAl]").addClass("is-invalid");
+                $("input[name=txtEmailAl]").focus();
+                $(".invalid-email").html("Email Inválido!");
+            }
+            else if(foneCel == ''){
+                $("input[name=txtFoneAl]").removeClass("is-valid");
+                $("input[name=txtFoneAl]").addClass("is-invalid");
+                $("input[name=txtFoneAl]").focus();
+                $(".invalid-foneCel").html("Campo Obrigatório!");
+            }
+            else if(foneCel == '00000000000' || foneCel == '11111111111' || foneCel == '22222222222' || foneCel == '33333333333' ||                 
+                    foneCel == '44444444444' || foneCel == '55555555555' || foneCel == '66666666666' || foneCel == '77777777777' ||                 
+                    foneCel == '88888888888' || foneCel == '99999999999'){
+                $("input[name=txtFoneAl]").removeClass("is-valid");
+                $("input[name=txtFoneAl]").addClass("is-invalid");
+                $("input[name=txtFoneAl]").focus();
+                $(".invalid-foneCel").html("Fone Inválido!");
+            }
+            else if($("select[name=txtNumCoturnoAl]").val() == '0'){
+                $("select[name=txtNumCoturnoAl]").removeClass("is-valid");
+                $("select[name=txtNumCoturnoAl]").addClass("is-invalid");
+                $("select[name=txtNumCoturnoAl]").focus();
+            }
+            else if($("select[name=txtTamGandAl]").val() == '0'){
+                $("select[name=txtTamGandAl]").removeClass("is-valid");
+                $("select[name=txtTamGandAl]").addClass("is-invalid");
+                $("select[name=txtTamGandAl]").focus();
+            }
+            else if($("select[name=txtTamCalcaAl]").val() == '0'){
+                $("select[name=txtTamCalcaAl]").removeClass("is-valid");
+                $("select[name=txtTamCalcaAl]").addClass("is-invalid");
+                $("select[name=txtTamCalcaAl]").focus();
+            }
+            else if($("select[name=txtTamCamCmfAl]").val() == '0'){
+                $("select[name=txtTamCamCmfAl]").removeClass("is-valid");
+                $("select[name=txtTamCamCmfAl]").addClass("is-invalid");
+                $("select[name=txtTamCamCmfAl]").focus();
+            }
+            else if($("select[name=txtPossuiCNH]").val() == '0'){
+                $("select[name=txtPossuiCNH]").removeClass("is-valid");
+                $("select[name=txtPossuiCNH]").addClass("is-invalid");
+                $("select[name=txtPossuiCNH]").focus();
+            }
+            else if($("select[name=txtTraraVeiculo]").val() == '0'){
+                $("select[name=txtTraraVeiculo]").removeClass("is-valid");
+                $("select[name=txtTraraVeiculo]").addClass("is-invalid");
+                $("select[name=txtTraraVeiculo]").focus();
             } 
-            //Não possui Veículo
-            else if($("select[name=txtTraraVeiculo]").val() == 'n'){
-                proximo($(this));
-            }
-            //Possui Veículo
-            else if($("select[name=txtTraraVeiculo]").val() == 's'){
-                for(var i=0;i<($("input[name=txtPlacaVeiculoAl").length);i++){
-                    if($("select[name=txtTipoVeiculoAl]").eq(i).val() == '0' ){
-                        $("select[name=txtTipoVeiculoAl]").eq(i).removeClass("is-valid");
-                        $("select[name=txtTipoVeiculoAl]").eq(i).addClass("is-invalid");
-                        $("select[name=txtTipoVeiculoAl]").eq(i).focus();
-                        break;
-                    }                    
-                    else if($("input[name=txtMarcaVeiculoAl]").eq(i).val() == ''){
-                        $("input[name=txtMarcaVeiculoAl]").eq(i).removeClass("is-valid");
-                        $("input[name=txtMarcaVeiculoAl]").eq(i).addClass("is-invalid");
-                        $("input[name=txtMarcaVeiculoAl]").eq(i).focus();
-                        break;
-                    }
-                    else if($("input[name=txtModeloVeiculoAl]").eq(i).val() == ''){
-                        $("input[name=txtModeloVeiculoAl]").eq(i).removeClass("is-valid");
-                        $("input[name=txtModeloVeiculoAl]").eq(i).addClass("is-invalid");
-                        $("input[name=txtModeloVeiculoAl]").eq(i).focus();
-                        break;
-                    }
-                    else if($("input[name=txtCorVeiculoAl]").eq(i).val() == ''){
-                        $("input[name=txtCorVeiculoAl]").eq(i).removeClass("is-valid");
-                        $("input[name=txtCorVeiculoAl]").eq(i).addClass("is-invalid");
-                        $("input[name=txtCorVeiculoAl]").eq(i).focus();
-                        break;
-                    }
-                    else if($("input[name=txtPlacaVeiculoAl]").eq(i).val() == ''){
-                        $("input[name=txtPlacaVeiculoAl]").eq(i).removeClass("is-valid");
-                        $("input[name=txtPlacaVeiculoAl]").eq(i).addClass("is-invalid");
-                        $("input[name=txtPlacaVeiculoAl]").eq(i).focus();
-                        break;
-                    }
-                    else if(($("input[name=txtPlacaVeiculoAl]").eq($("input[name=txtPlacaVeiculoAl]").length-1).val()) != ''){
-                        proximo($(this));
+
+            //Não possui CNH
+            else if($("select[name=txtPossuiCNH]").val() == 'n'){  
+                //Não possui Veículo
+                if($("select[name=txtTraraVeiculo]").val() == 'n'){
+                    proximo($(this));
+                }
+                //Possui Veículo
+                else if($("select[name=txtTraraVeiculo]").val() == 's'){
+                    for(var i=0;i<($("input[name=txtPlacaVeiculoAl").length);i++){
+                        if($("select[name=txtTipoVeiculoAl]").eq(i).val() == '0' ){
+                            $("select[name=txtTipoVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("select[name=txtTipoVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("select[name=txtTipoVeiculoAl]").eq(i).focus();
+                            break;
+                        }                    
+                        else if($("input[name=txtMarcaVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtModeloVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtModeloVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtModeloVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtModeloVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtCorVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtCorVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtCorVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtCorVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtPlacaVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtPlacaVeiculoAl]").eq($("input[name=txtPlacaVeiculoAl]").length-1).val()) != ''){
+                            proximo($(this));
+                        }
+                    }                       
+                }
+            }        
+            //Possui CNH
+           else if($("select[name=txtPossuiCNH]").val() == 's'){            
+                if(numCNH == ''){
+                    $("input[name=txtCNHNumAl]").removeClass("is-valid");
+                    $("input[name=txtCNHNumAl]").addClass("is-invalid");
+                    $("input[name=txtCNHNumAl]").focus();
+                    $(".invalid-numCNH").html("Campo Obrigatório!");
+                }
+                else if(numCNH == '00000000000' || numCNH == '11111111111' || numCNH == '22222222222' || numCNH == '33333333333' ||                 
+                        numCNH == '44444444444' || numCNH == '55555555555' || numCNH == '66666666666' || numCNH == '77777777777' ||                 
+                        numCNH == '88888888888' || numCNH == '99999999999'){
+                    $("input[name=txtCNHNumAl]").removeClass("is-valid");
+                    $("input[name=txtCNHNumAl]").addClass("is-invalid");
+                    $("input[name=txtCNHNumAl]").focus();
+                    $(".invalid-numCNH").html("CNH Inválida!");   
+                }
+                else if($("select[name=txtCNHCatgAl]").val() == '0'){
+                    $("select[name=txtCNHCatgAl]").removeClass("is-valid");
+                    $("select[name=txtCNHCatgAl]").addClass("is-invalid");
+                    $("select[name=txtCNHCatgAl]").focus();
+                }
+                else if(dataValCNH == ''){
+                    $("input[name=txtCNHDataValAl]").removeClass("is-valid");
+                    $("input[name=txtCNHDataValAl]").addClass("is-invalid");
+                    $("input[name=txtCNHDataValAl]").focus();
+                    $(".invalid-dataValCNH").html("Campo Obrigatório!");
+                }       
+                else if((anoValCNH == anoAtual) && (mesValCNH == mesAtual) && (diaValCNH < diaAtual)){
+                    $("input[name=txtCNHDataValAl]").removeClass("is-valid");
+                    $("input[name=txtCNHDataValAl]").addClass("is-invalid");
+                    $("input[name=txtCNHDataValAl]").focus();
+                    $(".invalid-dataValCNH").html("CNH Vencida!");
+                }       
+                else if((anoValCNH == anoAtual) && (mesValCNH < mesAtual)){
+                    $("input[name=txtCNHDataValAl]").removeClass("is-valid");
+                    $("input[name=txtCNHDataValAl]").addClass("is-invalid");
+                    $("input[name=txtCNHDataValAl]").focus();
+                    $(".invalid-dataValCNH").html("CNH Vencida!");
+                }       
+                else if((anoValCNH < anoAtual)){
+                    $("input[name=txtCNHDataValAl]").removeClass("is-valid");
+                    $("input[name=txtCNHDataValAl]").addClass("is-invalid");
+                    $("input[name=txtCNHDataValAl]").focus();
+                    $(".invalid-dataValCNH").html("CNH Vencida!");
+                } 
+                //Não possui Veículo
+                else if($("select[name=txtTraraVeiculo]").val() == 'n'){
+                    proximo($(this));
+                }
+                //Possui Veículo
+                else if($("select[name=txtTraraVeiculo]").val() == 's'){
+                    for(var i=0;i<($("input[name=txtPlacaVeiculoAl").length);i++){
+                        if($("select[name=txtTipoVeiculoAl]").eq(i).val() == '0' ){
+                            $("select[name=txtTipoVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("select[name=txtTipoVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("select[name=txtTipoVeiculoAl]").eq(i).focus();
+                            break;
+                        }                    
+                        else if($("input[name=txtMarcaVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtModeloVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtModeloVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtModeloVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtModeloVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtCorVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtCorVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtCorVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtCorVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtPlacaVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtPlacaVeiculoAl]").eq($("input[name=txtPlacaVeiculoAl]").length-1).val()) != ''){
+                            proximo($(this));
+                        }
                     }
                 }
             }
+            //Próxima Etapa
+            else{
+                proximo($(this));
+            }
+        }else{
+            if(dataPracaAl == ''){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Campo Obrigatório!");
+            }       
+            else if((anoPracaAl == anoAtual) && (mesPracaAl == mesAtual) && (diaPracaAl > diaAtual)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça após data atual.");
+            }       
+            else if((anoPracaAl == anoNascAl) && (mesPracaAl == mesNascAl) && (diaPracaAl < diaNascAl)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
+            }       
+            else if((anoPracaAl == anoAtual) && (mesPracaAl > mesAtual)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça após data atual.");
+            }       
+            else if((anoPracaAl == anoNascAl) && (mesPracaAl < mesNascAl)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
+            }       
+            else if((anoPracaAl > anoAtual)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça após data atual.");
+            }       
+            else if((anoPracaAl < anoNascAl)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("Data Inválida! Praça antes do nascimento.");
+            }
+            else if((anoPracaAl - anoNascAl) < 18){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+            }   
+            else if(((anoPracaAl - anoNascAl) === 18) && (mesPracaAl < mesNascAl)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+            }   
+            else if(((anoPracaAl - anoNascAl) === 18) && (mesPracaAl === mesNascAl) && (diaPracaAl < diaNascAl)){
+                $("input[name=txtUltDataPracaAl]").removeClass("is-valid");
+                $("input[name=txtUltDataPracaAl]").addClass("is-invalid");
+                $("input[name=txtUltDataPracaAl]").focus();
+                $(".invalid-dataPracaAl").html("O Militar deve ter uma idade mínima de 18 anos!!");
+            }
+            else if($("select[name=txtNatEstAl]").val() == '0'){
+                $("select[name=txtNatEstAl]").removeClass("is-valid");
+                $("select[name=txtNatEstAl]").addClass("is-invalid");
+                $("select[name=txtNatEstAl]").focus();
+            }
+            else if($("select[name=txtNatCidAl]").val() == '0'){
+                $("select[name=txtNatCidAl]").removeClass("is-valid");
+                $("select[name=txtNatCidAl]").addClass("is-invalid");
+                $("select[name=txtNatCidAl]").focus();
+            }
+            else if($("select[name=txtEstCivilAl]").val() == '0'){
+                $("select[name=txtEstCivilAl]").removeClass("is-valid");
+                $("select[name=txtEstCivilAl]").addClass("is-invalid");
+                $("select[name=txtEstCivilAl]").focus();
+            }
+            else if($("select[name=txtSexoAl]").val() == '0'){
+                $("select[name=txtSexoAl]").removeClass("is-valid");
+                $("select[name=txtSexoAl]").addClass("is-invalid");
+                $("select[name=txtSexoAl]").focus();
+            }
+            else if($("select[name=txtTSAl]").val() == '0'){
+                $("select[name=txtTSAl]").removeClass("is-valid");
+                $("select[name=txtTSAl]").addClass("is-invalid");
+                $("select[name=txtTSAl]").focus();
+            }
+            else if($("select[name=txtFatorRHAl]").val() == '0'){
+                $("select[name=txtFatorRHAl]").removeClass("is-valid");
+                $("select[name=txtFatorRHAl]").addClass("is-invalid");
+                $("select[name=txtFatorRHAl]").focus();
+            }        
+            else if(titEleitorNumAl == ''){
+                $("input[name=txtTitEleitorNumAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorNumAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorNumAl]").focus();
+                $(".invalid-titEleitorNumAl").html("Campo Obrigatório!");
+            }
+            else if(titEleitorNumAl == '000000000000' || titEleitorNumAl == '111111111111' || titEleitorNumAl == '222222222222' || titEleitorNumAl == '333333333333' ||                 
+                    titEleitorNumAl == '444444444444' || titEleitorNumAl == '555555555555' || titEleitorNumAl == '666666666666' || titEleitorNumAl == '777777777777' ||                 
+                    titEleitorNumAl == '888888888888' || titEleitorNumAl == '999999999999'){
+                $("input[name=txtTitEleitorNumAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorNumAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorNumAl]").focus();
+                $(".invalid-titEleitorNumAl").html("Título de Eleitor Inválido!");   
+            }        
+            else if(titEleitorZonaAl == ''){
+                $("input[name=txtTitEleitorZonaAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorZonaAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorZonaAl]").focus();
+                $(".invalid-titEleitorZonaAl").html("Campo Obrigatório!");
+            }
+            else if((titEleitorZonaAl != '') && (titEleitorZonaAl.length < 3)){
+                $("input[name=txtTitEleitorZonaAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorZonaAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorZonaAl]").focus();
+                $(".invalid-titEleitorZonaAl").html("A Zona é formada por 3 caracteres!");   
+            }
+            else if(titEleitorSecaoAl == ''){
+                $("input[name=txtTitEleitorSecaoAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorSecaoAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorSecaoAl]").focus();
+                $(".invalid-titEleitorSecaoAl").html("Campo Obrigatório!");
+            }
+            else if((titEleitorSecaoAl != '') && (titEleitorSecaoAl.length < 4)){
+                $("input[name=txtTitEleitorSecaoAl]").removeClass("is-valid");
+                $("input[name=txtTitEleitorSecaoAl]").addClass("is-invalid");
+                $("input[name=txtTitEleitorSecaoAl]").focus();
+                $(".invalid-titEleitorSecaoAl").html("A Secao é formada por 4 caracteres!");   
+            }
+            else if($("select[name=txtTitEleitorEstAl]").val() == '0'){
+                $("select[name=txtTitEleitorEstAl]").removeClass("is-valid");
+                $("select[name=txtTitEleitorEstAl]").addClass("is-invalid");
+                $("select[name=txtTitEleitorEstAl]").focus();
+            }
+            else if($("select[name=txtTitEleitorCidAl]").val() == '0'){
+                $("select[name=txtTitEleitorCidAl]").removeClass("is-valid");
+                $("select[name=txtTitEleitorCidAl]").addClass("is-invalid");
+                $("select[name=txtTitEleitorCidAl]").focus();
+            }
+            else if($("input[name=txtBancoAl]").val() == ''){
+                $("input[name=txtBancoAl]").removeClass("is-valid");
+                $("input[name=txtBancoAl]").addClass("is-invalid");
+                $("input[name=txtBancoAl]").focus();
+            }
+            else if($("input[name=txtAgenciaAl]").val() == ''){
+                $("input[name=txtAgenciaAl]").removeClass("is-valid");
+                $("input[name=txtAgenciaAl]").addClass("is-invalid");
+                $("input[name=txtAgenciaAl]").focus();
+            }
+            else if($("input[name=txtDvAgenciaAl]").val() == ''){
+                $("input[name=txtDvAgenciaAl]").removeClass("is-valid");
+                $("input[name=txtDvAgenciaAl]").addClass("is-invalid");
+                $("input[name=txtDvAgenciaAl]").focus();
+            }
+            else if($("input[name=txtContaAl]").val() == ''){
+                $("input[name=txtContaAl]").removeClass("is-valid");
+                $("input[name=txtContaAl]").addClass("is-invalid");
+                $("input[name=txtContaAl]").focus();
+            }
+            else if($("input[name=txtDvContaAl]").val() == ''){
+                $("input[name=txtDvContaAl]").removeClass("is-valid");
+                $("input[name=txtDvContaAl]").addClass("is-invalid");
+                $("input[name=txtDvContaAl]").focus();
+            }
+            else if(emailAl == ''){
+                $("input[name=txtEmailAl]").removeClass("is-valid");
+                $("input[name=txtEmailAl]").addClass("is-invalid");
+                $("input[name=txtEmailAl]").focus();
+                $(".invalid-email").html("Campo Obrigatório!");
+            }        
+            else if(filtro.test(emailAl) == false){
+                $("input[name=txtEmailAl]").removeClass("is-valid");
+                $("input[name=txtEmailAl]").addClass("is-invalid");
+                $("input[name=txtEmailAl]").focus();
+                $(".invalid-email").html("Email Inválido!");
+            }
+            else if(foneCel == ''){
+                $("input[name=txtFoneAl]").removeClass("is-valid");
+                $("input[name=txtFoneAl]").addClass("is-invalid");
+                $("input[name=txtFoneAl]").focus();
+                $(".invalid-foneCel").html("Campo Obrigatório!");
+            }
+            else if(foneCel == '00000000000' || foneCel == '11111111111' || foneCel == '22222222222' || foneCel == '33333333333' ||                 
+                    foneCel == '44444444444' || foneCel == '55555555555' || foneCel == '66666666666' || foneCel == '77777777777' ||                 
+                    foneCel == '88888888888' || foneCel == '99999999999'){
+                $("input[name=txtFoneAl]").removeClass("is-valid");
+                $("input[name=txtFoneAl]").addClass("is-invalid");
+                $("input[name=txtFoneAl]").focus();
+                $(".invalid-foneCel").html("Fone Inválido!");
+            }
+            else if($("select[name=txtNumCoturnoAl]").val() == '0'){
+                $("select[name=txtNumCoturnoAl]").removeClass("is-valid");
+                $("select[name=txtNumCoturnoAl]").addClass("is-invalid");
+                $("select[name=txtNumCoturnoAl]").focus();
+            }
+            else if($("select[name=txtTamGandAl]").val() == '0'){
+                $("select[name=txtTamGandAl]").removeClass("is-valid");
+                $("select[name=txtTamGandAl]").addClass("is-invalid");
+                $("select[name=txtTamGandAl]").focus();
+            }
+            else if($("select[name=txtTamCalcaAl]").val() == '0'){
+                $("select[name=txtTamCalcaAl]").removeClass("is-valid");
+                $("select[name=txtTamCalcaAl]").addClass("is-invalid");
+                $("select[name=txtTamCalcaAl]").focus();
+            }
+            else if($("select[name=txtTamCamCmfAl]").val() == '0'){
+                $("select[name=txtTamCamCmfAl]").removeClass("is-valid");
+                $("select[name=txtTamCamCmfAl]").addClass("is-invalid");
+                $("select[name=txtTamCamCmfAl]").focus();
+            }
+            else if($("select[name=txtPossuiCNH]").val() == '0'){
+                $("select[name=txtPossuiCNH]").removeClass("is-valid");
+                $("select[name=txtPossuiCNH]").addClass("is-invalid");
+                $("select[name=txtPossuiCNH]").focus();
+            }
+            else if($("select[name=txtTraraVeiculo]").val() == '0'){
+                $("select[name=txtTraraVeiculo]").removeClass("is-valid");
+                $("select[name=txtTraraVeiculo]").addClass("is-invalid");
+                $("select[name=txtTraraVeiculo]").focus();
+            } 
+
+            //Não possui CNH
+            else if($("select[name=txtPossuiCNH]").val() == 'n'){  
+                //Não possui Veículo
+                if($("select[name=txtTraraVeiculo]").val() == 'n'){
+                    proximo($(this));
+                }
+                //Possui Veículo
+                else if($("select[name=txtTraraVeiculo]").val() == 's'){
+                    for(var i=0;i<($("input[name=txtPlacaVeiculoAl").length);i++){
+                        if($("select[name=txtTipoVeiculoAl]").eq(i).val() == '0' ){
+                            $("select[name=txtTipoVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("select[name=txtTipoVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("select[name=txtTipoVeiculoAl]").eq(i).focus();
+                            break;
+                        }                    
+                        else if($("input[name=txtMarcaVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtModeloVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtModeloVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtModeloVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtModeloVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtCorVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtCorVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtCorVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtCorVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtPlacaVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtPlacaVeiculoAl]").eq($("input[name=txtPlacaVeiculoAl]").length-1).val()) != ''){
+                            proximo($(this));
+                        }
+                    }                       
+                }
+            }        
+            //Possui CNH
+           else if($("select[name=txtPossuiCNH]").val() == 's'){            
+                if(numCNH == ''){
+                    $("input[name=txtCNHNumAl]").removeClass("is-valid");
+                    $("input[name=txtCNHNumAl]").addClass("is-invalid");
+                    $("input[name=txtCNHNumAl]").focus();
+                    $(".invalid-numCNH").html("Campo Obrigatório!");
+                }
+                else if(numCNH == '00000000000' || numCNH == '11111111111' || numCNH == '22222222222' || numCNH == '33333333333' ||                 
+                        numCNH == '44444444444' || numCNH == '55555555555' || numCNH == '66666666666' || numCNH == '77777777777' ||                 
+                        numCNH == '88888888888' || numCNH == '99999999999'){
+                    $("input[name=txtCNHNumAl]").removeClass("is-valid");
+                    $("input[name=txtCNHNumAl]").addClass("is-invalid");
+                    $("input[name=txtCNHNumAl]").focus();
+                    $(".invalid-numCNH").html("CNH Inválida!");   
+                }
+                else if($("select[name=txtCNHCatgAl]").val() == '0'){
+                    $("select[name=txtCNHCatgAl]").removeClass("is-valid");
+                    $("select[name=txtCNHCatgAl]").addClass("is-invalid");
+                    $("select[name=txtCNHCatgAl]").focus();
+                }
+                else if(dataValCNH == ''){
+                    $("input[name=txtCNHDataValAl]").removeClass("is-valid");
+                    $("input[name=txtCNHDataValAl]").addClass("is-invalid");
+                    $("input[name=txtCNHDataValAl]").focus();
+                    $(".invalid-dataValCNH").html("Campo Obrigatório!");
+                }       
+                else if((anoValCNH == anoAtual) && (mesValCNH == mesAtual) && (diaValCNH < diaAtual)){
+                    $("input[name=txtCNHDataValAl]").removeClass("is-valid");
+                    $("input[name=txtCNHDataValAl]").addClass("is-invalid");
+                    $("input[name=txtCNHDataValAl]").focus();
+                    $(".invalid-dataValCNH").html("CNH Vencida!");
+                }       
+                else if((anoValCNH == anoAtual) && (mesValCNH < mesAtual)){
+                    $("input[name=txtCNHDataValAl]").removeClass("is-valid");
+                    $("input[name=txtCNHDataValAl]").addClass("is-invalid");
+                    $("input[name=txtCNHDataValAl]").focus();
+                    $(".invalid-dataValCNH").html("CNH Vencida!");
+                }       
+                else if((anoValCNH < anoAtual)){
+                    $("input[name=txtCNHDataValAl]").removeClass("is-valid");
+                    $("input[name=txtCNHDataValAl]").addClass("is-invalid");
+                    $("input[name=txtCNHDataValAl]").focus();
+                    $(".invalid-dataValCNH").html("CNH Vencida!");
+                } 
+                //Não possui Veículo
+                else if($("select[name=txtTraraVeiculo]").val() == 'n'){
+                    proximo($(this));
+                }
+                //Possui Veículo
+                else if($("select[name=txtTraraVeiculo]").val() == 's'){
+                    for(var i=0;i<($("input[name=txtPlacaVeiculoAl").length);i++){
+                        if($("select[name=txtTipoVeiculoAl]").eq(i).val() == '0' ){
+                            $("select[name=txtTipoVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("select[name=txtTipoVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("select[name=txtTipoVeiculoAl]").eq(i).focus();
+                            break;
+                        }                    
+                        else if($("input[name=txtMarcaVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtMarcaVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtModeloVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtModeloVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtModeloVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtModeloVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtCorVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtCorVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtCorVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtCorVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtPlacaVeiculoAl]").eq(i).val() == ''){
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).removeClass("is-valid");
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).addClass("is-invalid");
+                            $("input[name=txtPlacaVeiculoAl]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtPlacaVeiculoAl]").eq($("input[name=txtPlacaVeiculoAl]").length-1).val()) != ''){
+                            proximo($(this));
+                        }
+                    }
+                }
+            }
+            //Próxima Etapa
+            else{
+                proximo($(this));
+            }
         }
-        //Próxima Etapa
-        else{
-            proximo($(this));
-        }
-    });
+    });        
     // --> Fim Etapa 2: DADOS INDIVIDUAIS
     
     // --> Início Etapa 3: SAÚDE
@@ -1481,7 +1893,6 @@ $(function(){
                 proximo($(this));
             }
         }
-        
         else if(($("select[name=txtAlergico]").val() == 's') && ($("select[name=txtUsoMtoCt]").val() == 's') && ($("select[name=txtUsoTermErgSupAli]").val() == 's')){
             var prontoAlergico = 0;
             var prontoMtoCt = 0;
@@ -1541,8 +1952,6 @@ $(function(){
     
     // --> Início Etapa 4: DADOS MILITARES
     $("button[name=btnProximo5]").click(function(){        
-        var ano = $("input[name=txtFormTurma]").val();
-        
         var dataAtual = new Date();
         var diaAtual = dataAtual.getDate();
         var mesAtual = (dataAtual.getMonth() + 1);
@@ -1572,255 +1981,749 @@ $(function(){
         var mesUltTAF = dataUltTAFSplit[1];
         var anoUltTAF = dataUltTAFSplit[0];
         
-        if($("select[name=txtFormEscNome]").val() == '0'){
-            $("select[name=txtFormEscNome]").removeClass("is-valid");
-            $("select[name=txtFormEscNome]").addClass("is-invalid");
-            $("select[name=txtFormEscNome]").focus();
+        if($("select[name=txtTipoForca]").val() == '1'){
+            var ano = $("input[name=txtFormTurma]").val();
+            
+            if($("select[name=txtFormEscNome]").val() == '0'){
+                $("select[name=txtFormEscNome]").removeClass("is-valid");
+                $("select[name=txtFormEscNome]").addClass("is-invalid");
+                $("select[name=txtFormEscNome]").focus();
+            }
+            else if(ano == ''){
+                $("input[name=txtFormTurma]").removeClass("is-valid");
+                $("input[name=txtFormTurma]").addClass("is-invalid");
+                $("input[name=txtFormTurma]").focus();
+                $(".invalid-ano").html("Campo Obrigatório!");
+            }
+            else if((ano != '') && (ano.length < 4)){
+                $("input[name=txtFormTurma]").removeClass("is-valid");
+                $("input[name=txtFormTurma]").addClass("is-invalid");
+                $("input[name=txtFormTurma]").focus();
+                $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+            }
+            else if($("select[name=txtCptmAl]").val() == '0'){
+                $("select[name=txtCptmAl]").removeClass("is-valid");
+                $("select[name=txtCptmAl]").addClass("is-invalid");
+                $("select[name=txtCptmAl]").focus();
+            }
+            else if(dataUltProm == ''){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Campo Obrigatório!");
+            }       
+            else if((anoUltProm == anoAtual) && (mesUltProm == mesAtual) && (diaUltProm > diaAtual)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção após data atual.");
+            }       
+            else if((anoUltProm == anoPracaAl) && (mesUltProm == mesPracaAl) && (diaUltProm < diaPracaAl)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção antes da data de praça.");
+            }       
+            else if((anoUltProm == anoAtual) && (mesUltProm > mesAtual)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção após data atual.");
+            }       
+            else if((anoUltProm == anoPracaAl) && (mesUltProm < mesPracaAl)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção antes da data de praça.");
+            }       
+            else if((anoUltProm > anoAtual)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção após data atual.");
+            }       
+            else if((anoUltProm < anoPracaAl)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção antes da data de praça.");
+            }
+            else if($("select[name=txtQaProm]").val() == '0'){
+                $("select[name=txtQaProm]").removeClass("is-valid");
+                $("select[name=txtQaProm]").addClass("is-invalid");
+                $("select[name=txtQaProm]").focus();
+            }
+            else if($("select[name=txtQaProm]").val() == 's'){
+                if(dataQaQuando == ''){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Campo Obrigatório!");
+                }       
+                else if((anoQaQuando == anoAtual) && (mesQaQuando == mesAtual) && (diaQaQuando < diaAtual)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! Última promoção antes da data atual.");
+                }       
+                else if((anoQaQuando == anoUltProm) && (mesQaQuando == mesUltProm) && (diaQaQuando < diaUltProm)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! QA antes da última promoção.");
+                }       
+                else if((anoQaQuando == anoAtual) && (mesQaQuando < mesAtual)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! Última promoção antes da data atual.");
+                }       
+                else if((anoQaQuando == anoUltProm) && (mesQaQuando < mesUltProm)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! QA antes da última promoção.");
+                }       
+                else if((anoQaQuando < anoAtual)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! Última promoção antes da data atual.");
+                }       
+                else if((anoQaQuando < anoUltProm)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! QA antes da última promoção.");
+                }
+                else if(dataUltTAF == ''){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Campo Obrigatório!");
+                }       
+                else if((anoUltTAF == anoAtual) && (mesUltTAF == mesAtual) && (diaUltTAF > diaAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF == anoPracaAl) && (mesUltTAF == mesPracaAl) && (diaUltTAF < diaPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }       
+                else if((anoUltTAF == anoAtual) && (mesUltTAF > mesAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF == anoPracaAl) && (mesUltTAF < mesPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }       
+                else if((anoUltTAF > anoAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF < anoPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }
+                else if($("select[name=txtMencaoTAF]").val() == '0'){
+                    $("select[name=txtMencaoTAF]").removeClass("is-valid");
+                    $("select[name=txtMencaoTAF]").addClass("is-invalid");
+                    $("select[name=txtMencaoTAF]").focus();
+                }
+                else if($("input[name=txtFunc1]").val() == ''){
+                    $("input[name=txtFunc1]").removeClass("is-valid");
+                    $("input[name=txtFunc1]").addClass("is-invalid");
+                    $("input[name=txtFunc1]").focus();                
+                }
+                else if($("input[name=txtFunc2]").val() == ''){
+                    $("input[name=txtFunc2]").removeClass("is-valid");
+                    $("input[name=txtFunc2]").addClass("is-invalid");
+                    $("input[name=txtFunc2]").focus();                
+                }
+                else if($("input[name=txtFunc3]").val() == ''){
+                    $("input[name=txtFunc3]").removeClass("is-valid");
+                    $("input[name=txtFunc3]").addClass("is-invalid");
+                    $("input[name=txtFunc3]").focus();                
+                }
+                else if($("select[name=txtSvAmz]").val() == '0'){
+                    $("select[name=txtSvAmz]").removeClass("is-valid");
+                    $("select[name=txtSvAmz]").addClass("is-invalid");
+                    $("select[name=txtSvAmz]").focus();
+                }
+                else if($("select[name=txtSvAmz]").val() == 'n'){
+                    $("select[name=txtSvAmz]").removeClass("is-invalid");
+                    $("select[name=txtSvAmz]").addClass("is-valid");
+                    proximo($(this));
+                }
+                else if($("select[name=txtSvAmz]").val() == 's'){
+                    for(var i=0;i<($("select[name=txtOMNomeSvAmz").length);i++){                
+                        var dataInicio = $("input[name=txtDInOMSvAmz]").eq(i).val();
+                        var dataInicioSplit = dataInicio.split('-');        
+                        var diaInicio = dataInicioSplit[2];
+                        var mesInicio = dataInicioSplit[1];
+                        var anoInicio = dataInicioSplit[0];
+
+                        var dataFim = $("input[name=txtDFimOMSvAmz]").eq(i).val();
+                        var dataFimSplit = dataFim.split('-');        
+                        var diaFim = dataFimSplit[2];
+                        var mesFim = dataFimSplit[1];
+                        var anoFim = dataFimSplit[0];
+
+                        if($("select[name=txtOMNomeSvAmz]").eq(i).val() == '0' ){
+                            $("select[name=txtOMNomeSvAmz]").eq(i).removeClass("is-valid");
+                            $("select[name=txtOMNomeSvAmz]").eq(i).addClass("is-invalid");
+                            $("select[name=txtOMNomeSvAmz]").eq(i).focus();
+                            break;
+                        }    
+                        else if(dataInicio == ''){
+                            $("input[name=txtDInOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataInicio").html("Campo Obrigatório!");
+                            break;
+                        }       
+                        else if((anoInicio == anoAtual) && (mesInicio == mesAtual) && (diaInicio > diaAtual)){
+                            $("input[name=txtDInOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).eq(i).focus();
+                            $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+                            break;
+                        }       
+                        else if((anoInicio == anoAtual) && (mesInicio > mesAtual)){
+                            $("input[name=txtDInOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+                            break;
+                        }       
+                        else if((anoInicio > anoAtual)){
+                            $("input[name=txtDInOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+                            break;
+                        }
+                        else if(dataFim == ''){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Campo Obrigatório!");
+                            break;
+                        }       
+                        else if((anoFim == anoAtual) && (mesFim == mesAtual) && (diaFim > diaAtual)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+                            break;
+                        }       
+                        else if((anoFim == anoAtual) && (mesFim > mesAtual)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+                            break;
+                        }       
+                        else if((anoFim > anoAtual)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+                            break;
+                        }         
+                        else if((anoFim == anoInicio) && (mesFim == mesInicio) && (diaFim < diaInicio)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+                            break;
+                        }       
+                        else if((anoFim == anoInicio) && (mesFim < mesInicio)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+                            break;
+                        }       
+                        else if((anoFim < anoInicio)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+                            break;
+                        }
+                        else if($("input[name=txtFunc1OMSvAmz]").eq(i).val() == '' ){
+                            $("input[name=txtFunc1OMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtFunc1OMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtFunc1OMSvAmz]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtFunc2OMSvAmz]").eq(i).val() == '' ){
+                            $("input[name=txtFunc2OMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtFunc2OMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtFunc2OMSvAmz]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtFunc3OMSvAmz]").eq(i).val() == '' ){
+                            $("input[name=txtFunc3OMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtFunc3OMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtFunc3OMSvAmz]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtFunc3OMSvAmz]").eq($("input[name=txtFunc3OMSvAmz]").length-1).val()) != ''){
+                            proximo($(this));
+                        }
+                    }            
+                }
+                else{
+                    proximo($(this));
+                }
+            }
+            else if($("select[name=txtQaProm]").val() == 'n'){            
+                if(dataUltTAF == ''){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Campo Obrigatório!");
+                }       
+                else if((anoUltTAF == anoAtual) && (mesUltTAF == mesAtual) && (diaUltTAF > diaAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF == anoPracaAl) && (mesUltTAF == mesPracaAl) && (diaUltTAF < diaPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }       
+                else if((anoUltTAF == anoAtual) && (mesUltTAF > mesAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF == anoPracaAl) && (mesUltTAF < mesPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }       
+                else if((anoUltTAF > anoAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF < anoPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }
+                else if($("select[name=txtMencaoTAF]").val() == '0'){
+                    $("select[name=txtMencaoTAF]").removeClass("is-valid");
+                    $("select[name=txtMencaoTAF]").addClass("is-invalid");
+                    $("select[name=txtMencaoTAF]").focus();
+                }
+                else if($("input[name=txtFunc1]").val() == ''){
+                    $("input[name=txtFunc1]").removeClass("is-valid");
+                    $("input[name=txtFunc1]").addClass("is-invalid");
+                    $("input[name=txtFunc1]").focus();                
+                }
+                else if($("input[name=txtFunc2]").val() == ''){
+                    $("input[name=txtFunc2]").removeClass("is-valid");
+                    $("input[name=txtFunc2]").addClass("is-invalid");
+                    $("input[name=txtFunc2]").focus();                
+                }
+                else if($("input[name=txtFunc3]").val() == ''){
+                    $("input[name=txtFunc3]").removeClass("is-valid");
+                    $("input[name=txtFunc3]").addClass("is-invalid");
+                    $("input[name=txtFunc3]").focus();                
+                }
+                else if($("select[name=txtSvAmz]").val() == '0'){
+                    $("select[name=txtSvAmz]").removeClass("is-valid");
+                    $("select[name=txtSvAmz]").addClass("is-invalid");
+                    $("select[name=txtSvAmz]").focus();
+                }
+                else if($("select[name=txtSvAmz]").val() == 'n'){
+                    $("select[name=txtSvAmz]").removeClass("is-invalid");
+                    $("select[name=txtSvAmz]").addClass("is-valid");
+                    proximo($(this));
+                }
+                else if($("select[name=txtSvAmz]").val() == 's'){
+                    for(var i=0;i<($("select[name=txtOMNomeSvAmz").length);i++){                
+                        var dataInicio = $("input[name=txtDInOMSvAmz]").eq(i).val();
+                        var dataInicioSplit = dataInicio.split('-');        
+                        var diaInicio = dataInicioSplit[2];
+                        var mesInicio = dataInicioSplit[1];
+                        var anoInicio = dataInicioSplit[0];
+
+                        var dataFim = $("input[name=txtDFimOMSvAmz]").eq(i).val();
+                        var dataFimSplit = dataFim.split('-');        
+                        var diaFim = dataFimSplit[2];
+                        var mesFim = dataFimSplit[1];
+                        var anoFim = dataFimSplit[0];
+
+                        if($("select[name=txtOMNomeSvAmz]").eq(i).val() == '0' ){
+                            $("select[name=txtOMNomeSvAmz]").eq(i).removeClass("is-valid");
+                            $("select[name=txtOMNomeSvAmz]").eq(i).addClass("is-invalid");
+                            $("select[name=txtOMNomeSvAmz]").eq(i).focus();
+                            break;
+                        }    
+                        else if(dataInicio == ''){
+                            $("input[name=txtDInOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataInicio").html("Campo Obrigatório!");
+                            break;
+                        }       
+                        else if((anoInicio == anoAtual) && (mesInicio == mesAtual) && (diaInicio > diaAtual)){
+                            $("input[name=txtDInOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).eq(i).focus();
+                            $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+                            break;
+                        }       
+                        else if((anoInicio == anoAtual) && (mesInicio > mesAtual)){
+                            $("input[name=txtDInOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+                            break;
+                        }       
+                        else if((anoInicio > anoAtual)){
+                            $("input[name=txtDInOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDInOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataInicio").html("Data Inválida! Início após data atual.");
+                            break;
+                        }
+                        else if(dataFim == ''){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Campo Obrigatório!");
+                            break;
+                        }       
+                        else if((anoFim == anoAtual) && (mesFim == mesAtual) && (diaFim > diaAtual)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+                            break;
+                        }       
+                        else if((anoFim == anoAtual) && (mesFim > mesAtual)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+                            break;
+                        }       
+                        else if((anoFim > anoAtual)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim após data atual.");
+                            break;
+                        }         
+                        else if((anoFim == anoInicio) && (mesFim == mesInicio) && (diaFim < diaInicio)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+                            break;
+                        }       
+                        else if((anoFim == anoInicio) && (mesFim < mesInicio)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+                            break;
+                        }       
+                        else if((anoFim < anoInicio)){
+                            $("input[name=txtDFimOMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtDFimOMSvAmz]").eq(i).focus();
+                            $(".invalid-dataFim").html("Data Inválida! Fim antes da data de início.");
+                            break;
+                        }
+                        else if($("input[name=txtFunc1OMSvAmz]").eq(i).val() == '' ){
+                            $("input[name=txtFunc1OMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtFunc1OMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtFunc1OMSvAmz]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtFunc2OMSvAmz]").eq(i).val() == '' ){
+                            $("input[name=txtFunc2OMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtFunc2OMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtFunc2OMSvAmz]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtFunc3OMSvAmz]").eq(i).val() == '' ){
+                            $("input[name=txtFunc3OMSvAmz]").eq(i).removeClass("is-valid");
+                            $("input[name=txtFunc3OMSvAmz]").eq(i).addClass("is-invalid");
+                            $("input[name=txtFunc3OMSvAmz]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtFunc3OMSvAmz]").eq($("input[name=txtFunc3OMSvAmz]").length-1).val()) != ''){
+                            proximo($(this));
+                        }
+                    }            
+                }
+                else{
+                    proximo($(this));
+                }
+            }
         }
-        else if(ano == ''){
-            $("input[name=txtFormTurma]").removeClass("is-valid");
-            $("input[name=txtFormTurma]").addClass("is-invalid");
-            $("input[name=txtFormTurma]").focus();
-            $(".invalid-ano").html("Campo Obrigatório!");
+        else{
+            if($("select[name=txtCptmAl]").val() == '0'){
+                $("select[name=txtCptmAl]").removeClass("is-valid");
+                $("select[name=txtCptmAl]").addClass("is-invalid");
+                $("select[name=txtCptmAl]").focus();
+            }
+            else if(dataUltProm == ''){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Campo Obrigatório!");
+            }       
+            else if((anoUltProm == anoAtual) && (mesUltProm == mesAtual) && (diaUltProm > diaAtual)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção após data atual.");
+            }       
+            else if((anoUltProm == anoPracaAl) && (mesUltProm == mesPracaAl) && (diaUltProm < diaPracaAl)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção antes da data de praça.");
+            }       
+            else if((anoUltProm == anoAtual) && (mesUltProm > mesAtual)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção após data atual.");
+            }       
+            else if((anoUltProm == anoPracaAl) && (mesUltProm < mesPracaAl)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção antes da data de praça.");
+            }       
+            else if((anoUltProm > anoAtual)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção após data atual.");
+            }       
+            else if((anoUltProm < anoPracaAl)){
+                $("input[name=txtDataUltProm]").removeClass("is-valid");
+                $("input[name=txtDataUltProm]").addClass("is-invalid");
+                $("input[name=txtDataUltProm]").focus();
+                $(".invalid-dataUltProm").html("Data Inválida! Última promoção antes da data de praça.");
+            }
+            else if($("select[name=txtQaProm]").val() == '0'){
+                $("select[name=txtQaProm]").removeClass("is-valid");
+                $("select[name=txtQaProm]").addClass("is-invalid");
+                $("select[name=txtQaProm]").focus();
+            }
+            else if($("select[name=txtQaProm]").val() == 's'){
+                if(dataQaQuando == ''){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Campo Obrigatório!");
+                }       
+                else if((anoQaQuando == anoAtual) && (mesQaQuando == mesAtual) && (diaQaQuando < diaAtual)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! Última promoção antes da data atual.");
+                }       
+                else if((anoQaQuando == anoUltProm) && (mesQaQuando == mesUltProm) && (diaQaQuando < diaUltProm)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! QA antes da última promoção.");
+                }       
+                else if((anoQaQuando == anoAtual) && (mesQaQuando < mesAtual)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! Última promoção antes da data atual.");
+                }       
+                else if((anoQaQuando == anoUltProm) && (mesQaQuando < mesUltProm)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! QA antes da última promoção.");
+                }       
+                else if((anoQaQuando < anoAtual)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! Última promoção antes da data atual.");
+                }       
+                else if((anoQaQuando < anoUltProm)){
+                    $("input[name=txtQaQuandoProm]").removeClass("is-valid");
+                    $("input[name=txtQaQuandoProm]").addClass("is-invalid");
+                    $("input[name=txtQaQuandoProm]").focus();
+                    $(".invalid-dataQaQuando").html("Data Inválida! QA antes da última promoção.");
+                }
+                else if(dataUltTAF == ''){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Campo Obrigatório!");
+                }       
+                else if((anoUltTAF == anoAtual) && (mesUltTAF == mesAtual) && (diaUltTAF > diaAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF == anoPracaAl) && (mesUltTAF == mesPracaAl) && (diaUltTAF < diaPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }       
+                else if((anoUltTAF == anoAtual) && (mesUltTAF > mesAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF == anoPracaAl) && (mesUltTAF < mesPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }       
+                else if((anoUltTAF > anoAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF < anoPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }
+                else if($("select[name=txtMencaoTAF]").val() == '0'){
+                    $("select[name=txtMencaoTAF]").removeClass("is-valid");
+                    $("select[name=txtMencaoTAF]").addClass("is-invalid");
+                    $("select[name=txtMencaoTAF]").focus();
+                }
+                else if($("input[name=txtFunc1]").val() == ''){
+                    $("input[name=txtFunc1]").removeClass("is-valid");
+                    $("input[name=txtFunc1]").addClass("is-invalid");
+                    $("input[name=txtFunc1]").focus();                
+                }
+                else if($("input[name=txtFunc2]").val() == ''){
+                    $("input[name=txtFunc2]").removeClass("is-valid");
+                    $("input[name=txtFunc2]").addClass("is-invalid");
+                    $("input[name=txtFunc2]").focus();                
+                }
+                else if($("input[name=txtFunc3]").val() == ''){
+                    $("input[name=txtFunc3]").removeClass("is-valid");
+                    $("input[name=txtFunc3]").addClass("is-invalid");
+                    $("input[name=txtFunc3]").focus();                
+                }
+                else{
+                    proximo($(this));
+                }
+            }
+            else if($("select[name=txtQaProm]").val() == 'n'){            
+                if(dataUltTAF == ''){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Campo Obrigatório!");
+                }       
+                else if((anoUltTAF == anoAtual) && (mesUltTAF == mesAtual) && (diaUltTAF > diaAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF == anoPracaAl) && (mesUltTAF == mesPracaAl) && (diaUltTAF < diaPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }       
+                else if((anoUltTAF == anoAtual) && (mesUltTAF > mesAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF == anoPracaAl) && (mesUltTAF < mesPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }       
+                else if((anoUltTAF > anoAtual)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
+                }       
+                else if((anoUltTAF < anoPracaAl)){
+                    $("input[name=txtDataUltTAF]").removeClass("is-valid");
+                    $("input[name=txtDataUltTAF]").addClass("is-invalid");
+                    $("input[name=txtDataUltTAF]").focus();
+                    $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
+                }
+                else if($("select[name=txtMencaoTAF]").val() == '0'){
+                    $("select[name=txtMencaoTAF]").removeClass("is-valid");
+                    $("select[name=txtMencaoTAF]").addClass("is-invalid");
+                    $("select[name=txtMencaoTAF]").focus();
+                }
+                else if($("input[name=txtFunc1]").val() == ''){
+                    $("input[name=txtFunc1]").removeClass("is-valid");
+                    $("input[name=txtFunc1]").addClass("is-invalid");
+                    $("input[name=txtFunc1]").focus();                
+                }
+                else if($("input[name=txtFunc2]").val() == ''){
+                    $("input[name=txtFunc2]").removeClass("is-valid");
+                    $("input[name=txtFunc2]").addClass("is-invalid");
+                    $("input[name=txtFunc2]").focus();                
+                }
+                else if($("input[name=txtFunc3]").val() == ''){
+                    $("input[name=txtFunc3]").removeClass("is-valid");
+                    $("input[name=txtFunc3]").addClass("is-invalid");
+                    $("input[name=txtFunc3]").focus();                
+                }
+                else{
+                    proximo($(this));
+                }
+            }
         }
-        else if((ano != '') && (ano.length < 4)){
-            $("input[name=txtFormTurma]").removeClass("is-valid");
-            $("input[name=txtFormTurma]").addClass("is-invalid");
-            $("input[name=txtFormTurma]").focus();
-            $(".invalid-ano").html("O ano é formado 4 caracteres!");   
-        }
-        else if($("select[name=txtCptmAl]").val() == '0'){
-            $("select[name=txtCptmAl]").removeClass("is-valid");
-            $("select[name=txtCptmAl]").addClass("is-invalid");
-            $("select[name=txtCptmAl]").focus();
-        }
-        else if(dataUltProm == ''){
-            $("input[name=txtDataUltProm]").removeClass("is-valid");
-            $("input[name=txtDataUltProm]").addClass("is-invalid");
-            $("input[name=txtDataUltProm]").focus();
-            $(".invalid-dataUltProm").html("Campo Obrigatório!");
-        }       
-        else if((anoUltProm == anoAtual) && (mesUltProm == mesAtual) && (diaUltProm > diaAtual)){
-            $("input[name=txtDataUltProm]").removeClass("is-valid");
-            $("input[name=txtDataUltProm]").addClass("is-invalid");
-            $("input[name=txtDataUltProm]").focus();
-            $(".invalid-dataUltProm").html("Data Inválida! Última promoção após data atual.");
-        }       
-        else if((anoUltProm == anoPracaAl) && (mesUltProm == mesPracaAl) && (diaUltProm < diaPracaAl)){
-            $("input[name=txtDataUltProm]").removeClass("is-valid");
-            $("input[name=txtDataUltProm]").addClass("is-invalid");
-            $("input[name=txtDataUltProm]").focus();
-            $(".invalid-dataUltProm").html("Data Inválida! Última promoção antes da data de praça.");
-        }       
-        else if((anoUltProm == anoAtual) && (mesUltProm > mesAtual)){
-            $("input[name=txtDataUltProm]").removeClass("is-valid");
-            $("input[name=txtDataUltProm]").addClass("is-invalid");
-            $("input[name=txtDataUltProm]").focus();
-            $(".invalid-dataUltProm").html("Data Inválida! Última promoção após data atual.");
-        }       
-        else if((anoUltProm == anoPracaAl) && (mesUltProm < mesPracaAl)){
-            $("input[name=txtDataUltProm]").removeClass("is-valid");
-            $("input[name=txtDataUltProm]").addClass("is-invalid");
-            $("input[name=txtDataUltProm]").focus();
-            $(".invalid-dataUltProm").html("Data Inválida! Última promoção antes da data de praça.");
-        }       
-        else if((anoUltProm > anoAtual)){
-            $("input[name=txtDataUltProm]").removeClass("is-valid");
-            $("input[name=txtDataUltProm]").addClass("is-invalid");
-            $("input[name=txtDataUltProm]").focus();
-            $(".invalid-dataUltProm").html("Data Inválida! Última promoção após data atual.");
-        }       
-        else if((anoUltProm < anoPracaAl)){
-            $("input[name=txtDataUltProm]").removeClass("is-valid");
-            $("input[name=txtDataUltProm]").addClass("is-invalid");
-            $("input[name=txtDataUltProm]").focus();
-            $(".invalid-dataUltProm").html("Data Inválida! Última promoção antes da data de praça.");
-        }
-        else if($("select[name=txtQaProm]").val() == '0'){
-            $("select[name=txtQaProm]").removeClass("is-valid");
-            $("select[name=txtQaProm]").addClass("is-invalid");
-            $("select[name=txtQaProm]").focus();
-        }
-        else if($("select[name=txtQaProm]").val() == 's'){
-            if(dataQaQuando == ''){
-                $("input[name=txtQaQuandoProm]").removeClass("is-valid");
-                $("input[name=txtQaQuandoProm]").addClass("is-invalid");
-                $("input[name=txtQaQuandoProm]").focus();
-                $(".invalid-dataQaQuando").html("Campo Obrigatório!");
-            }       
-            else if((anoQaQuando == anoAtual) && (mesQaQuando == mesAtual) && (diaQaQuando < diaAtual)){
-                $("input[name=txtQaQuandoProm]").removeClass("is-valid");
-                $("input[name=txtQaQuandoProm]").addClass("is-invalid");
-                $("input[name=txtQaQuandoProm]").focus();
-                $(".invalid-dataQaQuando").html("Data Inválida! Última promoção antes da data atual.");
-            }       
-            else if((anoQaQuando == anoUltProm) && (mesQaQuando == mesUltProm) && (diaQaQuando < diaUltProm)){
-                $("input[name=txtQaQuandoProm]").removeClass("is-valid");
-                $("input[name=txtQaQuandoProm]").addClass("is-invalid");
-                $("input[name=txtQaQuandoProm]").focus();
-                $(".invalid-dataQaQuando").html("Data Inválida! QA antes da última promoção.");
-            }       
-            else if((anoQaQuando == anoAtual) && (mesQaQuando < mesAtual)){
-                $("input[name=txtQaQuandoProm]").removeClass("is-valid");
-                $("input[name=txtQaQuandoProm]").addClass("is-invalid");
-                $("input[name=txtQaQuandoProm]").focus();
-                $(".invalid-dataQaQuando").html("Data Inválida! Última promoção antes da data atual.");
-            }       
-            else if((anoQaQuando == anoUltProm) && (mesQaQuando < mesUltProm)){
-                $("input[name=txtQaQuandoProm]").removeClass("is-valid");
-                $("input[name=txtQaQuandoProm]").addClass("is-invalid");
-                $("input[name=txtQaQuandoProm]").focus();
-                $(".invalid-dataQaQuando").html("Data Inválida! QA antes da última promoção.");
-            }       
-            else if((anoQaQuando < anoAtual)){
-                $("input[name=txtQaQuandoProm]").removeClass("is-valid");
-                $("input[name=txtQaQuandoProm]").addClass("is-invalid");
-                $("input[name=txtQaQuandoProm]").focus();
-                $(".invalid-dataQaQuando").html("Data Inválida! Última promoção antes da data atual.");
-            }       
-            else if((anoQaQuando < anoUltProm)){
-                $("input[name=txtQaQuandoProm]").removeClass("is-valid");
-                $("input[name=txtQaQuandoProm]").addClass("is-invalid");
-                $("input[name=txtQaQuandoProm]").focus();
-                $(".invalid-dataQaQuando").html("Data Inválida! QA antes da última promoção.");
-            }
-            else if(dataUltTAF == ''){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Campo Obrigatório!");
-            }       
-            else if((anoUltTAF == anoAtual) && (mesUltTAF == mesAtual) && (diaUltTAF > diaAtual)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
-            }       
-            else if((anoUltTAF == anoPracaAl) && (mesUltTAF == mesPracaAl) && (diaUltTAF < diaPracaAl)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
-            }       
-            else if((anoUltTAF == anoAtual) && (mesUltTAF > mesAtual)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
-            }       
-            else if((anoUltTAF == anoPracaAl) && (mesUltTAF < mesPracaAl)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
-            }       
-            else if((anoUltTAF > anoAtual)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
-            }       
-            else if((anoUltTAF < anoPracaAl)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
-            }
-            else if($("select[name=txtMencaoTAF]").val() == '0'){
-                $("select[name=txtMencaoTAF]").removeClass("is-valid");
-                $("select[name=txtMencaoTAF]").addClass("is-invalid");
-                $("select[name=txtMencaoTAF]").focus();
-            }
-            else if($("input[name=txtFunc1]").val() == ''){
-                $("input[name=txtFunc1]").removeClass("is-valid");
-                $("input[name=txtFunc1]").addClass("is-invalid");
-                $("input[name=txtFunc1]").focus();                
-            }
-            else if($("input[name=txtFunc2]").val() == ''){
-                $("input[name=txtFunc2]").removeClass("is-valid");
-                $("input[name=txtFunc2]").addClass("is-invalid");
-                $("input[name=txtFunc2]").focus();                
-            }
-            else if($("input[name=txtFunc3]").val() == ''){
-                $("input[name=txtFunc3]").removeClass("is-valid");
-                $("input[name=txtFunc3]").addClass("is-invalid");
-                $("input[name=txtFunc3]").focus();                
-            }
-            else{
-                proximo($(this));
-            }
-        }
-        else if($("select[name=txtQaProm]").val() == 'n'){            
-            if(dataUltTAF == ''){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Campo Obrigatório!");
-            }       
-            else if((anoUltTAF == anoAtual) && (mesUltTAF == mesAtual) && (diaUltTAF > diaAtual)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
-            }       
-            else if((anoUltTAF == anoPracaAl) && (mesUltTAF == mesPracaAl) && (diaUltTAF < diaPracaAl)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
-            }       
-            else if((anoUltTAF == anoAtual) && (mesUltTAF > mesAtual)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
-            }       
-            else if((anoUltTAF == anoPracaAl) && (mesUltTAF < mesPracaAl)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
-            }       
-            else if((anoUltTAF > anoAtual)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF após data atual.");
-            }       
-            else if((anoUltTAF < anoPracaAl)){
-                $("input[name=txtDataUltTAF]").removeClass("is-valid");
-                $("input[name=txtDataUltTAF]").addClass("is-invalid");
-                $("input[name=txtDataUltTAF]").focus();
-                $(".invalid-dataUltTAF").html("Data Inválida! Último TAF antes da data de praça.");
-            }
-            else if($("select[name=txtMencaoTAF]").val() == '0'){
-                $("select[name=txtMencaoTAF]").removeClass("is-valid");
-                $("select[name=txtMencaoTAF]").addClass("is-invalid");
-                $("select[name=txtMencaoTAF]").focus();
-            }
-            else if($("input[name=txtFunc1]").val() == ''){
-                $("input[name=txtFunc1]").removeClass("is-valid");
-                $("input[name=txtFunc1]").addClass("is-invalid");
-                $("input[name=txtFunc1]").focus();                
-            }
-            else if($("input[name=txtFunc2]").val() == ''){
-                $("input[name=txtFunc2]").removeClass("is-valid");
-                $("input[name=txtFunc2]").addClass("is-invalid");
-                $("input[name=txtFunc2]").focus();                
-            }
-            else if($("input[name=txtFunc3]").val() == ''){
-                $("input[name=txtFunc3]").removeClass("is-valid");
-                $("input[name=txtFunc3]").addClass("is-invalid");
-                $("input[name=txtFunc3]").focus();                
-            }
-            else{
-                proximo($(this));
-            }
-        } 
     });
     // --> Fim Etapa 4: DADOS MILITARES
     
-    // --> Fim Etapa 5: DADOS MILITARES
+    // --> Fim Etapa 5: DADOS FAMILIARES
     $("button[name=btnProximo6]").click(function(){
         var filtro = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/; 
         var cpfConjuge = $("input[name=txtCpfConjuge]").val().replace(".","").replace(".","").replace("-","");
@@ -2316,7 +3219,7 @@ $(function(){
             }
         }
     });
-    // --> Fim Etapa 5: DADOS MILITARES
+    // --> Fim Etapa 5: DADOS FAMILIARES
     
     // --> Início Etapa 6: DADOS DE ENDEREÇO
     $("button[name=btnProximo7]").click(function(){        
@@ -2415,38 +3318,372 @@ $(function(){
     
     // --> Início Etapa 7: CURSOS/ESTÁGIO
     $("button[name=btnProximo8]").click(function(){
-        if($("select[name=txtHabIdiomas]").val() == '0'){
+        if($("select[name=txtPossuiEAS]").val() == '0'){
+            $("select[name=txtPossuiEAS]").removeClass("is-valid");
+            $("select[name=txtPossuiEAS]").addClass("is-invalid");
+            $("select[name=txtPossuiEAS]").focus();
+        }
+        else if($("select[name=txtHabIdiomas]").val() == '0'){
             $("select[name=txtHabIdiomas]").removeClass("is-valid");
             $("select[name=txtHabIdiomas]").addClass("is-invalid");
             $("select[name=txtHabIdiomas]").focus();
         }
-        else if($("select[name=txtPossuiCAperf]").val() == '0'){
-            $("select[name=txtPossuiCAperf]").removeClass("is-valid");
-            $("select[name=txtPossuiCAperf]").addClass("is-invalid");
-            $("select[name=txtPossuiCAperf]").focus();
+        else if($("select[name=txtTipoForca]").val() == '1'){
+            if($("select[name=txtForca]").val() == '2'){
+                if($("select[name=txtPossuiCAperf]").val() == '0'){
+                    $("select[name=txtPossuiCAperf]").removeClass("is-valid");
+                    $("select[name=txtPossuiCAperf]").addClass("is-invalid");
+                    $("select[name=txtPossuiCAperf]").focus();
+                }
+                else if($("select[name=txtPossuiCAltEstudos]").val() == '0'){
+                    $("select[name=txtPossuiCAltEstudos]").removeClass("is-valid");
+                    $("select[name=txtPossuiCAltEstudos]").addClass("is-invalid");
+                    $("select[name=txtPossuiCAltEstudos]").focus();
+                }
+                /*else if($("select[name=txtPossuiCExtsEsp]").val() == '0'){
+                    $("select[name=txtPossuiCExtsEsp]").removeClass("is-valid");
+                    $("select[name=txtPossuiCExtsEsp]").addClass("is-invalid");
+                    $("select[name=txtPossuiCExtsEsp]").focus();
+                }        
+                else if($("select[name=txtPossuiEstMil]").val() == '0'){
+                    $("select[name=txtPossuiEstMil]").removeClass("is-valid");
+                    $("select[name=txtPossuiEstMil]").addClass("is-invalid");
+                    $("select[name=txtPossuiEstMil]").focus();
+                }*/
+                else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')){
+                    proximo($(this));
+                }
+                else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')){
+                    for(var i=0;i<($("select[name=txtIdioma]").length);i++){
+                        if($("select[name=txtIdioma]").eq(i).val() == '0' ){
+                            $("select[name=txtIdioma]").eq(i).removeClass("is-valid");
+                            $("select[name=txtIdioma]").eq(i).addClass("is-invalid");
+                            $("select[name=txtIdioma]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtIplIdioma]").eq(i).val() == '' ){
+                            $("input[name=txtIplIdioma]").eq(i).removeClass("is-valid");
+                            $("input[name=txtIplIdioma]").eq(i).addClass("is-invalid");
+                            $("input[name=txtIplIdioma]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtIplIdioma]").eq($("input[name=txtIplIdioma]").length-1).val()) != ''){
+                            proximo($(this));
+                        }
+                    }
+                }
+                else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')){
+                    if($("select[name=txtCAperf]").val() == '0' ){
+                        $("select[name=txtCAperf]").removeClass("is-valid");
+                        $("select[name=txtCAperf]").addClass("is-invalid");
+                        $("select[name=txtCAperf]").focus();
+                    }            
+                    else if($("input[name=txtAnoCAperf]").val() == ''){
+                        $("input[name=txtAnoCAperf]").removeClass("is-valid");
+                        $("input[name=txtAnoCAperf]").addClass("is-invalid");
+                        $("input[name=txtAnoCAperf]").focus();
+                        $(".invalid-ano").html("Campo Obrigatório!");
+                    }
+                    else if(($("input[name=txtAnoCAperf]").val() != '') && ($("input[name=txtAnoCAperf]").val().length < 4)){
+                        $("input[name=txtAnoCAperf]").removeClass("is-valid");
+                        $("input[name=txtAnoCAperf]").addClass("is-invalid");
+                        $("input[name=txtAnoCAperf]").focus();
+                        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+                    }
+                    else{
+                        proximo($(this));
+                    }
+                }
+                else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')){
+                    if($("select[name=txtCAltEstudos]").val() == '0' ){
+                        $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                        $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                        $("select[name=txtCAltEstudos]").focus();
+                    }
+                    else if($("input[name=txtAnoCAltEstudos]").val() == ''){
+                        $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                        $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                        $("input[name=txtAnoCAltEstudos]").focus();
+                        $(".invalid-ano").html("Campo Obrigatório!");
+                    }
+                    else if(($("input[name=txtAnoCAltEstudos]").val() != '') && ($("input[name=txtAnoCAltEstudos]").val().length < 4)){
+                        $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                        $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                        $("input[name=txtAnoCAltEstudos]").focus();
+                        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+                    }
+                    else{
+                        proximo($(this));
+                    }
+                }
+                else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')){
+                    var prontoCAperf = 0;
+                    var prontoCAltEstudos = 0;
+                    if($("select[name=txtCAperf]").val() == '0' ){
+                        $("select[name=txtCAperf]").removeClass("is-valid");
+                        $("select[name=txtCAperf]").addClass("is-invalid");
+                        $("select[name=txtCAperf]").focus();
+                    }
+                    else if($("input[name=txtAnoCAperf]").val() == ''){
+                        $("input[name=txtAnoCAperf]").removeClass("is-valid");
+                        $("input[name=txtAnoCAperf]").addClass("is-invalid");
+                        $("input[name=txtAnoCAperf]").focus();
+                        $(".invalid-ano").html("Campo Obrigatório!");
+                    }
+                    else if(($("input[name=txtAnoCAperf]").val() != '') && ($("input[name=txtAnoCAperf]").val().length < 4)){
+                        $("input[name=txtAnoCAperf]").removeClass("is-valid");
+                        $("input[name=txtAnoCAperf]").addClass("is-invalid");
+                        $("input[name=txtAnoCAperf]").focus();
+                        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+                    }
+                    else{
+                        prontoCAperf = 1;
+                    }
+
+                    if($("select[name=txtCAltEstudos]").val() == '0' ){
+                        $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                        $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                        $("select[name=txtCAltEstudos]").focus();
+                    }
+                    else if($("input[name=txtAnoCAltEstudos]").val() == ''){
+                        $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                        $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                        $("input[name=txtAnoCAltEstudos]").focus();
+                        $(".invalid-ano").html("Campo Obrigatório!");
+                    }
+                    else if(($("input[name=txtAnoCAltEstudos]").val() != '') && ($("input[name=txtAnoCAltEstudos]").val().length < 4)){
+                        $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                        $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                        $("input[name=txtAnoCAltEstudos]").focus();
+                        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+                    }
+                    else{
+                        prontoCAltEstudos = 1;
+                    }
+
+                    if((prontoCAperf == 1) && (prontoCAltEstudos == 1)){
+                        proximo($(this));
+                    }
+                }
+                else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')){
+                    var prontoIdiomas = 0;
+                    var prontoCAltEstudos = 0;
+
+                    for(var i=0;i<($("select[name=txtIdioma]").length);i++){
+                        if($("select[name=txtIdioma]").eq(i).val() == '0' ){
+                            $("select[name=txtIdioma]").eq(i).removeClass("is-valid");
+                            $("select[name=txtIdioma]").eq(i).addClass("is-invalid");
+                            $("select[name=txtIdioma]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtIplIdioma]").eq(i).val() == '' ){
+                            $("input[name=txtIplIdioma]").eq(i).removeClass("is-valid");
+                            $("input[name=txtIplIdioma]").eq(i).addClass("is-invalid");
+                            $("input[name=txtIplIdioma]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtIplIdioma]").eq($("input[name=txtIplIdioma]").length-1).val()) != ''){
+                            prontoIdiomas = 1;
+                        }
+                    }
+
+                    if($("select[name=txtCAltEstudos]").val() == '0' ){
+                        $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                        $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                        $("select[name=txtCAltEstudos]").focus();
+                    }
+                    else if($("input[name=txtAnoCAltEstudos]").val() == ''){
+                        $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                        $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                        $("input[name=txtAnoCAltEstudos]").focus();
+                        $(".invalid-ano").html("Campo Obrigatório!");
+                    }
+                    else if(($("input[name=txtAnoCAltEstudos]").val() != '') && ($("input[name=txtAnoCAltEstudos]").val().length < 4)){
+                        $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                        $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                        $("input[name=txtAnoCAltEstudos]").focus();
+                        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+                    }
+                    else{
+                        prontoCAltEstudos = 1;
+                    }
+
+                    if((prontoIdiomas == 1) && (prontoCAltEstudos == 1)){
+                        proximo($(this));
+                    }
+                }
+                else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')){
+                    var prontoIdiomas = 0;
+                    var prontoCAperf = 0;
+
+                    for(var i=0;i<($("select[name=txtIdioma]").length);i++){
+                        if($("select[name=txtIdioma]").eq(i).val() == '0' ){
+                            $("select[name=txtIdioma]").eq(i).removeClass("is-valid");
+                            $("select[name=txtIdioma]").eq(i).addClass("is-invalid");
+                            $("select[name=txtIdioma]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtIplIdioma]").eq(i).val() == '' ){
+                            $("input[name=txtIplIdioma]").eq(i).removeClass("is-valid");
+                            $("input[name=txtIplIdioma]").eq(i).addClass("is-invalid");
+                            $("input[name=txtIplIdioma]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtIplIdioma]").eq($("input[name=txtIplIdioma]").length-1).val()) != ''){
+                            prontoIdiomas = 1;
+                        }
+                    }
+
+                    if($("select[name=txtCAperf]").val() == '0' ){
+                        $("select[name=txtCAperf]").removeClass("is-valid");
+                        $("select[name=txtCAperf]").addClass("is-invalid");
+                        $("select[name=txtCAperf]").focus();
+                    }
+                    else if($("input[name=txtAnoCAperf]").val() == ''){
+                        $("input[name=txtAnoCAperf]").removeClass("is-valid");
+                        $("input[name=txtAnoCAperf]").addClass("is-invalid");
+                        $("input[name=txtAnoCAperf]").focus();
+                        $(".invalid-ano").html("Campo Obrigatório!");
+                    }
+                    else if(($("input[name=txtAnoCAperf]").val() != '') && ($("input[name=txtAnoCAperf]").val().length < 4)){
+                        $("input[name=txtAnoCAperf]").removeClass("is-valid");
+                        $("input[name=txtAnoCAperf]").addClass("is-invalid");
+                        $("input[name=txtAnoCAperf]").focus();
+                        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+                    }
+                    else{
+                        prontoCAperf = 1;
+                    }
+
+                    if((prontoIdiomas == 1) && (prontoCAperf == 1)){
+                        proximo($(this));
+                    }
+                }
+                else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')){
+                    var prontoIdiomas = 0;
+                    var prontoCAperf = 0;
+                    var prontoCAltEstudos = 0;
+
+                    for(var i=0;i<($("select[name=txtIdioma]").length);i++){
+                        if($("select[name=txtIdioma]").eq(i).val() == '0' ){
+                            $("select[name=txtIdioma]").eq(i).removeClass("is-valid");
+                            $("select[name=txtIdioma]").eq(i).addClass("is-invalid");
+                            $("select[name=txtIdioma]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtIplIdioma]").eq(i).val() == '' ){
+                            $("input[name=txtIplIdioma]").eq(i).removeClass("is-valid");
+                            $("input[name=txtIplIdioma]").eq(i).addClass("is-invalid");
+                            $("input[name=txtIplIdioma]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtIplIdioma]").eq($("input[name=txtIplIdioma]").length-1).val()) != ''){
+                            prontoIdiomas = 1;
+                        }
+                    }
+
+                    if($("select[name=txtCAperf]").val() == '0' ){
+                        $("select[name=txtCAperf]").removeClass("is-valid");
+                        $("select[name=txtCAperf]").addClass("is-invalid");
+                        $("select[name=txtCAperf]").focus();
+                    }
+                    else if($("input[name=txtAnoCAperf]").val() == ''){
+                        $("input[name=txtAnoCAperf]").removeClass("is-valid");
+                        $("input[name=txtAnoCAperf]").addClass("is-invalid");
+                        $("input[name=txtAnoCAperf]").focus();
+                        $(".invalid-ano").html("Campo Obrigatório!");
+                    }
+                    else if(($("input[name=txtAnoCAperf]").val() != '') && ($("input[name=txtAnoCAperf]").val().length < 4)){
+                        $("input[name=txtAnoCAperf]").removeClass("is-valid");
+                        $("input[name=txtAnoCAperf]").addClass("is-invalid");
+                        $("input[name=txtAnoCAperf]").focus();
+                        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+                    }
+                    else{
+                        prontoCAperf = 1;
+                    }
+
+                    if($("select[name=txtCAltEstudos]").val() == '0' ){
+                        $("select[name=txtCAltEstudos]").removeClass("is-valid");
+                        $("select[name=txtCAltEstudos]").addClass("is-invalid");
+                        $("select[name=txtCAltEstudos]").focus();
+                    }
+                    else if($("input[name=txtAnoCAltEstudos]").val() == ''){
+                        $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                        $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                        $("input[name=txtAnoCAltEstudos]").focus();
+                        $(".invalid-ano").html("Campo Obrigatório!");
+                    }
+                    else if(($("input[name=txtAnoCAltEstudos]").val() != '') && ($("input[name=txtAnoCAltEstudos]").val().length < 4)){
+                        $("input[name=txtAnoCAltEstudos]").removeClass("is-valid");
+                        $("input[name=txtAnoCAltEstudos]").addClass("is-invalid");
+                        $("input[name=txtAnoCAltEstudos]").focus();
+                        $(".invalid-ano").html("O ano é formado 4 caracteres!");   
+                    }
+                    else{
+                        prontoCAltEstudos = 1;
+                    }
+
+                    if((prontoIdiomas == 1) && (prontoCAperf == 1) && (prontoCAltEstudos == 1)){
+                        proximo($(this));
+                    }
+                }        
+            }else{
+                if($("select[name=txtHabIdiomas]").val() == 'n'){
+                    proximo($(this));
+                }
+                else if($("select[name=txtHabIdiomas]").val() == 's'){
+                    for(var i=0;i<($("select[name=txtIdioma]").length);i++){
+                        if($("select[name=txtIdioma]").eq(i).val() == '0' ){
+                            $("select[name=txtIdioma]").eq(i).removeClass("is-valid");
+                            $("select[name=txtIdioma]").eq(i).addClass("is-invalid");
+                            $("select[name=txtIdioma]").eq(i).focus();
+                            break;
+                        }
+                        else if($("input[name=txtIplIdioma]").eq(i).val() == '' ){
+                            $("input[name=txtIplIdioma]").eq(i).removeClass("is-valid");
+                            $("input[name=txtIplIdioma]").eq(i).addClass("is-invalid");
+                            $("input[name=txtIplIdioma]").eq(i).focus();
+                            break;
+                        }
+                        else if(($("input[name=txtIplIdioma]").eq($("input[name=txtIplIdioma]").length-1).val()) != ''){
+                            proximo($(this));
+                        }
+                    }
+                }
+            }
         }
-        else if($("select[name=txtPossuiCAltEstudos]").val() == '0'){
-            $("select[name=txtPossuiCAltEstudos]").removeClass("is-valid");
-            $("select[name=txtPossuiCAltEstudos]").addClass("is-invalid");
-            $("select[name=txtPossuiCAltEstudos]").focus();
+        else if($("select[name=txtTipoForca]").val() == '2'){
+            if($("select[name=txtHabIdiomas]").val() == 'n'){
+                proximo($(this));
+            }
+            else if($("select[name=txtHabIdiomas]").val() == 's'){
+                for(var i=0;i<($("select[name=txtIdioma]").length);i++){
+                    if($("select[name=txtIdioma]").eq(i).val() == '0' ){
+                        $("select[name=txtIdioma]").eq(i).removeClass("is-valid");
+                        $("select[name=txtIdioma]").eq(i).addClass("is-invalid");
+                        $("select[name=txtIdioma]").eq(i).focus();
+                        break;
+                    }
+                    else if($("input[name=txtIplIdioma]").eq(i).val() == '' ){
+                        $("input[name=txtIplIdioma]").eq(i).removeClass("is-valid");
+                        $("input[name=txtIplIdioma]").eq(i).addClass("is-invalid");
+                        $("input[name=txtIplIdioma]").eq(i).focus();
+                        break;
+                    }
+                    else if(($("input[name=txtIplIdioma]").eq($("input[name=txtIplIdioma]").length-1).val()) != ''){
+                        proximo($(this));
+                    }
+                }
+            }
         }
-        else if($("select[name=txtPossuiCExtsEsp]").val() == '0'){
-            $("select[name=txtPossuiCExtsEsp]").removeClass("is-valid");
-            $("select[name=txtPossuiCExtsEsp]").addClass("is-invalid");
-            $("select[name=txtPossuiCExtsEsp]").focus();
-        }        
-        else if($("select[name=txtPossuiEstMil]").val() == '0'){
-            $("select[name=txtPossuiEstMil]").removeClass("is-valid");
-            $("select[name=txtPossuiEstMil]").addClass("is-invalid");
-            $("select[name=txtPossuiEstMil]").focus();
-        }
-        //1
-        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
+        /*//1
+        /*else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
                 && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
             proximo($(this));
         }
         //2
-        else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
+        /*else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
                 && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
             for(var i=0;i<($("select[name=txtIdioma]").length);i++){
                 if($("select[name=txtIdioma]").eq(i).val() == '0' ){
@@ -2467,7 +3704,7 @@ $(function(){
             }
         }
         //3
-        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
+        /*else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
                 && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
             if($("select[name=txtCAperf]").val() == '0' ){
                 $("select[name=txtCAperf]").removeClass("is-valid");
@@ -2491,7 +3728,7 @@ $(function(){
             }
         }        
         //4
-        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
+        /*else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
                 && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
             if($("select[name=txtCAltEstudos]").val() == '0' ){
                 $("select[name=txtCAltEstudos]").removeClass("is-valid");
@@ -3054,7 +4291,7 @@ $(function(){
             }
         }
         //14
-        else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
+        /*else if(($("select[name=txtHabIdiomas]").val() == 'n') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
                 && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
             var prontoCAperf = 0;
             var prontoCAltEstudos = 0;
@@ -3584,7 +4821,7 @@ $(function(){
         }
         
         //21
-        else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
+        /*else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 'n') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
                 && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
             var prontoIdiomas = 0;
             var prontoCAltEstudos = 0;
@@ -3900,7 +5137,7 @@ $(function(){
             }
         }
         //25
-        else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
+        /*else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 'n')
                 && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
             var prontoIdiomas = 0;
             var prontoCAperf = 0;
@@ -4216,7 +5453,7 @@ $(function(){
             }
         }
         //29
-        else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
+        /*else if(($("select[name=txtHabIdiomas]").val() == 's') && ($("select[name=txtPossuiCAperf]").val() == 's') && ($("select[name=txtPossuiCAltEstudos]").val() == 's')
                 && ($("select[name=txtPossuiCExtsEsp]").val() == 'n') && ($("select[name=txtPossuiEstMil]").val() == 'n')){
             var prontoIdiomas = 0;
             var prontoCAperf = 0;
@@ -4618,74 +5855,86 @@ $(function(){
             if((prontoIdiomas == 1) && (prontoCAperf == 1) && (prontoCAltEstudos == 1) && (prontoCExtsEsp == 1) && (prontoEstMil == 1)){
                 proximo($(this));
             }
-        }
+        }*/
     });
     // --> Fim Etapa 7: CURSOS/ESTÁGIO
     
     // --> Início Etapa 8: PREPARAÇÃO
-    $("button[name=btnProximo9]").click(function(){
+    //$("button[name=btnProximo9]").click(function(){
+    $("button[name=btnSalvar]").click(function(){
         if($("select[name=txtPrepFisica]").val() == '0'){
             $("select[name=txtPrepFisica]").removeClass("is-valid");
             $("select[name=txtPrepFisica]").addClass("is-invalid");
             $("select[name=txtPrepFisica]").focus();
+            return false;
         }
         else if($("select[name=txtApoioFam]").val() == '0'){
             $("select[name=txtApoioFam]").removeClass("is-valid");
             $("select[name=txtApoioFam]").addClass("is-invalid");
             $("select[name=txtApoioFam]").focus();
+            return false;
         }
         else if($("select[name=txtApoioOM]").val() == '0'){
             $("select[name=txtApoioOM]").removeClass("is-valid");
             $("select[name=txtApoioOM]").addClass("is-invalid");
             $("select[name=txtApoioOM]").focus();
+            return false;
         }
         else if($("select[name=txtCPrepCOS]").val() == '0'){
             $("select[name=txtCPrepCOS]").removeClass("is-valid");
             $("select[name=txtCPrepCOS]").addClass("is-invalid");
             $("select[name=txtCPrepCOS]").focus();
+            return false;
         }
         else if($("select[name=txtCPrepCOS]").val() == '0'){
             $("select[name=txtCPrepCOS]").removeClass("is-valid");
             $("select[name=txtCPrepCOS]").addClass("is-invalid");
             $("select[name=txtCPrepCOS]").focus();
+            return false;
         }
         else if($("select[name=txtProbRend]").val() == '0'){
             $("select[name=txtProbRend]").removeClass("is-valid");
             $("select[name=txtProbRend]").addClass("is-invalid");
             $("select[name=txtProbRend]").focus();
+            return false;
         }
         else if($("select[name=txtTempoPrep]").val() == '0'){
             $("select[name=txtTempoPrep]").removeClass("is-valid");
             $("select[name=txtTempoPrep]").addClass("is-invalid");
             $("select[name=txtTempoPrep]").focus();
+            return false;
         }
         else if($("select[name=txtDedicacaoDoutOPS]").val() == '0'){
             $("select[name=txtDedicacaoDoutOPS]").removeClass("is-valid");
             $("select[name=txtDedicacaoDoutOPS]").addClass("is-invalid");
             $("select[name=txtDedicacaoDoutOPS]").focus();
+            return false;
         }
         else if($("input[name=txtFatorMotivacao]").val() == ''){
             $("input[name=txtFatorMotivacao]").removeClass("is-valid");
             $("input[name=txtFatorMotivacao]").addClass("is-invalid");
             $("input[name=txtFatorMotivacao]").focus();
+            return false;
         }
         else if($("select[name=txtCsltSite]").val() == '0'){
             $("select[name=txtCsltSite]").removeClass("is-valid");
             $("select[name=txtCsltSite]").addClass("is-invalid");
             $("select[name=txtCsltSite]").focus();
+            return false;
         }
         else if($("select[name=txtCsltAmbVirtAl]").val() == '0'){
             $("select[name=txtCsltAmbVirtAl]").removeClass("is-valid");
             $("select[name=txtCsltAmbVirtAl]").addClass("is-invalid");
             $("select[name=txtCsltAmbVirtAl]").focus();
+            return false;
         }else{
-            proximo($(this));
+            return true;
         }
     });
     // --> Fim Etapa 8: PREPARAÇÃO
 
     // --> Início Etapa 9: VIVÊNCIA NA AMAZÔNIA
-    $("button[name=btnSalvar]").click(function(){
+    /*$("button[name=btnSalvar]").click(function(){
         var dataAtual = new Date();
         var diaAtual = dataAtual.getDate();
         var mesAtual = (dataAtual.getMonth() + 1);
@@ -4844,6 +6093,6 @@ $(function(){
                 }
             }            
         }   
-    });
+    });*/
     // --> Fim Etapa 9: VIVÊNCIA NA AMAZÔNIA
 });

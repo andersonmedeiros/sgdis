@@ -14,9 +14,23 @@ import model.dao.*;
  */
 public class FacadeAjax {
     //Forca, Estado, OM, PostoGraduacao, QasQms
+    public ArrayList<TipoForca> getTiposForcaDWR() throws Throwable, Exception{
+        ArrayList<TipoForca> tiposforca = new ArrayList();
+        tiposforca = TipoForcaDAO.getTiposForcaDWR();
+        return tiposforca;
+    }
     public ArrayList<Forca> getForcasDWR() throws Throwable, Exception{
         ArrayList<Forca> forcas = new ArrayList();
         forcas = ForcaDAO.getForcasDWR();
+        return forcas;
+    }
+    public Forca getForcaByIdDWR(int idForca) throws Throwable, Exception{
+        Forca forca = ForcaDAO.getForcaByIdDWR(idForca);
+        return forca;
+    }
+    public ArrayList<Forca> getForcasByIdTipoForcaDWR(int idTipoForca) throws Throwable, Exception{
+        ArrayList<Forca> forcas = new ArrayList();
+        forcas = ForcaDAO.getForcasByIdTipoForcaDWR(idTipoForca);
         return forcas;
     }
     public ArrayList<Estado> getEstadosByForcaDWR(int idForca) throws Throwable, Exception{
@@ -57,6 +71,12 @@ public class FacadeAjax {
         ArrayList<QasQms> qasqms = new ArrayList();
         qasqms = QasQmsDAO.getQasQmsDWR();
         return qasqms;
+    }    
+    //Oms Região Amazônica
+    public ArrayList<Om> getOmsRegiaoNorteDWR(int idForca) throws Throwable, Exception{
+        ArrayList<Om> oms = new ArrayList();
+        oms = OmDAO.getOmsRegiaoNorteDWR(idForca);
+        return oms;
     }
     
     //Estado, Cidade
@@ -112,12 +132,7 @@ public class FacadeAjax {
         return cursosmilitares;
     }
     
-    //Oms Região Amazônica
-    public ArrayList<Om> getOmsRegiaoNorteDWR(int idForca) throws Throwable, Exception{
-        ArrayList<Om> oms = new ArrayList();
-        oms = OmDAO.getOmsRegiaoNorteDWR(idForca);
-        return oms;
-    }
+    
     
     //Categoria
     public ArrayList<Categoria> getCategoriasDWR() throws Throwable, Exception{

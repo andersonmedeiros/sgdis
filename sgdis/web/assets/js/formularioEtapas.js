@@ -742,6 +742,102 @@ $("#txtQaProm").change(function() {
     }
 });
 
+//Acionamento form Serviços na Amazônia
+var qtdeSvAmz = document.querySelectorAll('#fieldsetSvAmz .form-row').length + 1;
+
+$("#txtSvAmz").change(function() {    
+    if($("#txtSvAmz").val() === "s"){
+        $("#divSvAmz").css("display", "block");        
+    }
+    else if($("#txtSvAmz").val() === "n" || $("#txtSvAmz").val() === "0"){
+        $("#divSvAmz").css("display", "none");
+        $("#fieldsetSvAmz .fieldset-interno").remove();
+        qtdeSvAmz = 1;
+    }
+});
+
+function alimentaSelectOMNomeSvAmz(id, idForca){
+    FacadeAjax.getOmsRegiaoNorteDWR(idForca, {
+        callback: function(oms){
+            dwr.util.removeAllOptions("txtOMNomeSvAmz"+id);
+            dwr.util.addOptions("txtOMNomeSvAmz"+id, [{id: "0", nome: "Selecione uma OM..."}], "id", "nome");
+            dwr.util.addOptions("txtOMNomeSvAmz"+id, oms, "id", "nome");
+        } 
+    });
+}                                                                         
+
+$("#btnAddSvAmz").click(function(){      
+    $("#fieldsetSvAmz").append("<div id=linha"+qtdeSvAmz+" class=\"linha fieldset-interno\">"+
+                               /* "   <div class=form-row>"+
+                                "       <div class=\"form-group col-md-6\">"+
+                                "           <label for=txtForcaOMSvAmz"+qtdeSvAmz+">Força: <span class=campo-obrigatorio>*</span></label>"+
+                                "           <select class=form-control id=txtForcaOMSvAmz"+qtdeSvAmz+" name=txtForcaOMSvAmz></select>"+
+                                "           <div class=\"valid-feedback\">Selva!</div>"+
+                                "           <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "       </div>"+ 
+                                "       <div class=\"form-group col-md-6\">"+
+                                "            <label for=txtEstadoForcaOMSvAmz"+qtdeSvAmz+">Estado: <span class=campo-obrigatorio>*</span></label>"+
+                                "            <select class=form-control id=txtEstadoForcaOMSvAmz"+qtdeSvAmz+" name=txtEstadoForcaOMSvAmz></select>"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "        </div>"+
+                                "    </div>"+*/
+                                "    <div class=form-row>"+    
+                                "        <div class=\"form-group col-md-12\">"+
+                                "            <label for=txtOMNomeSvAmz"+qtdeSvAmz+">OM: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <select class=\"form-control\" id=txtOMNomeSvAmz"+qtdeSvAmz+" name=\"txtOMNomeSvAmz\"></select>"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "        </div>"+        
+                                "    </div>"+  
+                                "    <div class=form-row>"+
+                                "        <div class=\"form-group col-md-6\">"+
+                                "            <label for=txtDInOMSvAmz"+qtdeSvAmz+">De: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"date\" class=\"form-control\" id=txtDInOMSvAmz"+qtdeSvAmz+" name=\"txtDInOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback invalid-dataInicio\">Campo Obrigatório!</div>"+
+                                "        </div>"+
+                                "        <div class=\"form-group col-md-6\">"+
+                                "            <label for=txtDFimOMSvAmz"+qtdeSvAmz+">Até: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"date\" class=\"form-control\" id=txtDFimOMSvAmz"+qtdeSvAmz+" name=\"txtDFimOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback invalid-dataFim\">Campo Obrigatório!</div>"+
+                                "        </div>"+  
+                                "    </div>"+  
+                                "    <div class=form-row>"+
+                                "        <div class=\"form-group col-md-4\">"+
+                                "            <label for=txtFunc1OMSvAmz"+qtdeSvAmz+">Função 1: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"text\" class=\"form-control\" id=txtFunc1OMSvAmz"+qtdeSvAmz+" name=\"txtFunc1OMSvAmz\" placeholder=\"Ex.: Cmt Pel\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "        </div>"+
+                                "        <div class=\"form-group col-md-4\">"+
+                                "            <label for=txtFunc2OMSvAmz"+qtdeSvAmz+">Função 2: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"text\" class=\"form-control\" id=txtFunc2OMSvAmz"+qtdeSvAmz+" name=\"txtFunc2OMSvAmz\" placeholder=\"Ex.: Cmt Cia\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "        </div>"+  
+                                "        <div class=\"form-group col-md-4\">"+
+                                "            <label for=txtFunc3OMSvAmz"+qtdeSvAmz+">Função 3: <span class=\"campo-obrigatorio\">*</span></label>"+
+                                "            <input type=\"text\" class=\"form-control\" id=txtFunc3OMSvAmz"+qtdeSvAmz+" name=\"txtFunc3OMSvAmz\" placeholder=\"Ex.: Enc Mat\">"+
+                                "            <div class=\"valid-feedback\">Selva!</div>"+
+                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
+                                "        </div>"+  
+                                "    </div>"+  
+                                "</div>");
+    
+    alimentaSelectOMNomeSvAmz(qtdeSvAmz, $("select[name=txtForca]").val());
+    
+    functionValidSelectTReal("#txtOMNomeSvAmz"+qtdeSvAmz);
+    functionValidDInOMSvAmzTReal("#txtDInOMSvAmz"+qtdeSvAmz);
+    functionValidDFimOMSvAmzTReal("#txtDInOMSvAmz"+qtdeSvAmz, "#txtDFimOMSvAmz"+qtdeSvAmz);
+    functionValidInputTReal("#txtFunc1OMSvAmz"+qtdeSvAmz);
+    functionValidInputTReal("#txtFunc2OMSvAmz"+qtdeSvAmz);
+    functionValidInputTReal("#txtFunc3OMSvAmz"+qtdeSvAmz);
+    
+    qtdeSvAmz++;
+});
+
 //Acionamento form Cônjuge
 $("#txtPossuiConjuge").change(function() {
     if($("#txtPossuiConjuge").val() === "s"){
@@ -951,102 +1047,6 @@ $("#btnAddEstagio").click(function(){
     functionValidInputTReal("#txtAnoEstagio"+qtdeEstagios);
     
     qtdeEstagios++;
-});
-
-//Acionamento form Serviços na Amazônia
-var qtdeSvAmz = document.querySelectorAll('#fieldsetSvAmz .form-row').length + 1;
-
-$("#txtSvAmz").change(function() {    
-    if($("#txtSvAmz").val() === "s"){
-        $("#divSvAmz").css("display", "block");        
-    }
-    else if($("#txtSvAmz").val() === "n" || $("#txtSvAmz").val() === "0"){
-        $("#divSvAmz").css("display", "none");
-        $("#fieldsetSvAmz .fieldset-interno").remove();
-        qtdeSvAmz = 1;
-    }
-});
-
-function alimentaSelectOMNomeSvAmz(id, idForca){
-    FacadeAjax.getOmsRegiaoNorteDWR(idForca, {
-        callback: function(oms){
-            dwr.util.removeAllOptions("txtOMNomeSvAmz"+id);
-            dwr.util.addOptions("txtOMNomeSvAmz"+id, [{id: "0", nome: "Selecione uma OM..."}], "id", "nome");
-            dwr.util.addOptions("txtOMNomeSvAmz"+id, oms, "id", "nome");
-        } 
-    });
-}                                                                         
-
-$("#btnAddSvAmz").click(function(){      
-    $("#fieldsetSvAmz").append("<div id=linha"+qtdeSvAmz+" class=\"linha fieldset-interno\">"+
-                               /* "   <div class=form-row>"+
-                                "       <div class=\"form-group col-md-6\">"+
-                                "           <label for=txtForcaOMSvAmz"+qtdeSvAmz+">Força: <span class=campo-obrigatorio>*</span></label>"+
-                                "           <select class=form-control id=txtForcaOMSvAmz"+qtdeSvAmz+" name=txtForcaOMSvAmz></select>"+
-                                "           <div class=\"valid-feedback\">Selva!</div>"+
-                                "           <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                "       </div>"+ 
-                                "       <div class=\"form-group col-md-6\">"+
-                                "            <label for=txtEstadoForcaOMSvAmz"+qtdeSvAmz+">Estado: <span class=campo-obrigatorio>*</span></label>"+
-                                "            <select class=form-control id=txtEstadoForcaOMSvAmz"+qtdeSvAmz+" name=txtEstadoForcaOMSvAmz></select>"+
-                                "            <div class=\"valid-feedback\">Selva!</div>"+
-                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                "        </div>"+
-                                "    </div>"+*/
-                                "    <div class=form-row>"+    
-                                "        <div class=\"form-group col-md-12\">"+
-                                "            <label for=txtOMNomeSvAmz"+qtdeSvAmz+">OM: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                "            <select class=\"form-control\" id=txtOMNomeSvAmz"+qtdeSvAmz+" name=\"txtOMNomeSvAmz\"></select>"+
-                                "            <div class=\"valid-feedback\">Selva!</div>"+
-                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                "        </div>"+        
-                                "    </div>"+  
-                                "    <div class=form-row>"+
-                                "        <div class=\"form-group col-md-6\">"+
-                                "            <label for=txtDInOMSvAmz"+qtdeSvAmz+">De: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                "            <input type=\"date\" class=\"form-control\" id=txtDInOMSvAmz"+qtdeSvAmz+" name=\"txtDInOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
-                                "            <div class=\"valid-feedback\">Selva!</div>"+
-                                "            <div class=\"invalid-feedback invalid-dataInicio\">Campo Obrigatório!</div>"+
-                                "        </div>"+
-                                "        <div class=\"form-group col-md-6\">"+
-                                "            <label for=txtDFimOMSvAmz"+qtdeSvAmz+">Até: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                "            <input type=\"date\" class=\"form-control\" id=txtDFimOMSvAmz"+qtdeSvAmz+" name=\"txtDFimOMSvAmz\" placeholder=\"Ex.: 00/00/0000\">"+
-                                "            <div class=\"valid-feedback\">Selva!</div>"+
-                                "            <div class=\"invalid-feedback invalid-dataFim\">Campo Obrigatório!</div>"+
-                                "        </div>"+  
-                                "    </div>"+  
-                                "    <div class=form-row>"+
-                                "        <div class=\"form-group col-md-4\">"+
-                                "            <label for=txtFunc1OMSvAmz"+qtdeSvAmz+">Função 1: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                "            <input type=\"text\" class=\"form-control\" id=txtFunc1OMSvAmz"+qtdeSvAmz+" name=\"txtFunc1OMSvAmz\" placeholder=\"Ex.: Cmt Pel\">"+
-                                "            <div class=\"valid-feedback\">Selva!</div>"+
-                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                "        </div>"+
-                                "        <div class=\"form-group col-md-4\">"+
-                                "            <label for=txtFunc2OMSvAmz"+qtdeSvAmz+">Função 2: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                "            <input type=\"text\" class=\"form-control\" id=txtFunc2OMSvAmz"+qtdeSvAmz+" name=\"txtFunc2OMSvAmz\" placeholder=\"Ex.: Cmt Cia\">"+
-                                "            <div class=\"valid-feedback\">Selva!</div>"+
-                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                "        </div>"+  
-                                "        <div class=\"form-group col-md-4\">"+
-                                "            <label for=txtFunc3OMSvAmz"+qtdeSvAmz+">Função 3: <span class=\"campo-obrigatorio\">*</span></label>"+
-                                "            <input type=\"text\" class=\"form-control\" id=txtFunc3OMSvAmz"+qtdeSvAmz+" name=\"txtFunc3OMSvAmz\" placeholder=\"Ex.: Enc Mat\">"+
-                                "            <div class=\"valid-feedback\">Selva!</div>"+
-                                "            <div class=\"invalid-feedback\">Campo Obrigatório!</div>"+
-                                "        </div>"+  
-                                "    </div>"+  
-                                "</div>");
-    
-    alimentaSelectOMNomeSvAmz(qtdeSvAmz, $("select[name=txtForca]").val());
-    
-    functionValidSelectTReal("#txtOMNomeSvAmz"+qtdeSvAmz);
-    functionValidDInOMSvAmzTReal("#txtDInOMSvAmz"+qtdeSvAmz);
-    functionValidDFimOMSvAmzTReal("#txtDInOMSvAmz"+qtdeSvAmz, "#txtDFimOMSvAmz"+qtdeSvAmz);
-    functionValidInputTReal("#txtFunc1OMSvAmz"+qtdeSvAmz);
-    functionValidInputTReal("#txtFunc2OMSvAmz"+qtdeSvAmz);
-    functionValidInputTReal("#txtFunc3OMSvAmz"+qtdeSvAmz);
-    
-    qtdeSvAmz++;
 });
 
 /*//Acionamento form Tentativas em realizar o curso

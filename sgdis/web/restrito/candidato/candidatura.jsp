@@ -93,24 +93,31 @@
             <!--</div>-->
             
             <form id="formCadCandidato">
-                <ul id="progress">
-                    <li class="ativo">OM Atual</li>
-                    <li>Dados Individuais</li>
-                    <li>Saúde</li>
-                    <li>Dados Militares</li>
-                    <li>Dados Familiares</li>
-                    <li>Dados de Endereço</li>
-                    <li>Cursos Estágios</li>
-                    <li>Preparação</li>
-                    <li>Vivência na Amazônia</li>
-                </ul>
+                    <ul id="progress">
+                        <li class="ativo">OM Atual</li>
+                        <li>Dados Individuais</li>
+                        <li>Saúde</li>
+                        <li>Dados Militares</li>
+                        <li>Dados Familiares</li>
+                        <li>Dados de Endereço</li>
+                        <li>Cursos Estágios</li>
+                        <li>Preparação</li>
+                    </ul>
                 <fieldset>
                     <div class="fieldset-header">
                         <h5 class="fieldset-title">Organização Militar Atual</h5>
                     </div>
                     <div class="fieldset-body">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
+                                <label for="txtTipoForca">Tipo de Força: <span class="campo-obrigatorio">*</span></label>
+                                <select class="form-control" id="txtTipoForca" name="txtTipoForca">
+                                    <option value="0" selected>Selecione um Tipo de Força...</option>");                                                        
+                                </select>
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback">Campo Obrigatório!</div>
+                            </div>                            
+                            <div class="form-group col-md-4">
                                 <label for="txtForca">Força: <span class="campo-obrigatorio">*</span></label>
                                 <select class="form-control" id="txtForca" name="txtForca">
                                     <option value="0" selected>Selecione uma Força...</option>");                                                        
@@ -118,7 +125,7 @@
                                 <div class="valid-feedback">Selva!</div>
                                 <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                            
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label for="txtEstadoForca">Estado: <span class="campo-obrigatorio">*</span></label>
                                 <select class="form-control" id="txtEstadoForca" name="txtEstadoForca">
                                 <option value="0">Selecione um Estado...</option>
@@ -143,7 +150,7 @@
                                 <div class="invalid-feedback invalid-fone">Campo Obrigatório!</div>
                             </div>
                         </div>
-                        <div class="header-interno">
+                        <!--<div class="header-interno">
                             <h5 class="title-interno">Endereço da OM</h5>
                         </div>
                         <div class="fieldset-interno">
@@ -201,7 +208,7 @@
                                     <div class="invalid-feedback">Campo Obrigatório!</div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="header-interno">
                             <h5 class="title-interno">Comandante</h5>
                         </div>
@@ -322,30 +329,30 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-3" id="div-idtmil">
                                 <label for="txtIdtMilAl">Identidade Militar: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control idt-mil" id="txtIdtMilAl" name="txtIdtMilAl" placeholder="Ex. 000000000-0">
                                 <div class="valid-feedback">Selva!</div>
                                 <div class="invalid-feedback invalid-idtMilAl">Campo Obrigatório!</div>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="txtPreccpAl">Prec-CP: </label>
-                                <input type="text" class="form-control" id="txtPreccpAl" name="txtPreccpAl" placeholder="Ex.: 000000000" maxlength="9">
-                                <div class="valid-feedback">Selva!</div>
-                                <div class="invalid-feedback invalid-preccpAl">Campo Obrigatório!</div>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="txtCPAl">CP: </label>
-                                <input type="text" class="form-control" id="txtCPAl" name="txtCPAl" placeholder="Ex.: 000000" maxlength="6">
-                                <div class="valid-feedback">Selva!</div>
-                                <div class="invalid-feedback invalid-cpAl">Campo Obrigatório!</div>
-                            </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-3" id="div-cpf">
                                 <label for="txtCpfAl">CPF: <span class="campo-obrigatorio">*</span></label>
                                 <input type="text" class="form-control cpf" id="txtCpfAl" name="txtCpfAl" placeholder="Ex.: 000.000.000-00">
                                 <div class="valid-feedback">Selva!</div>
                                 <div class="invalid-feedback invalid-cpf">Campo Obrigatório!</div>
                             </div>
+                            <div class="form-group col-md-3" id="div-preccp">
+                                <label for="txtPreccpAl">Prec-CP: <span class="campo-obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="txtPreccpAl" name="txtPreccpAl" placeholder="Ex.: 000000000" maxlength="9">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback invalid-preccpAl">Campo Obrigatório!</div>
+                            </div>
+                            <div class="form-group col-md-3" id="div-cp">
+                                <label for="txtCPAl">CP: <span class="campo-obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="txtCPAl" name="txtCPAl" placeholder="Ex.: 000000" maxlength="6">
+                                <div class="valid-feedback">Selva!</div>
+                                <div class="invalid-feedback invalid-cpAl">Campo Obrigatório!</div>
+                            </div>                            
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
@@ -770,31 +777,34 @@
                     <button type="button" name="btnVoltar" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo4" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
+                <!--Dados Militares-->
                 <fieldset>
                     <div class="fieldset-header">
                         <h5 class="fieldset-title">Dados Militares</h5>
                     </div>
                     <div class="fieldset-body">
-                        <div class="header-interno">
-                            <h5 class="title-interno">Formação</h5>
-                        </div>
-                        <div class="fieldset-interno">
-                            <div class="form-row">                                
-                                <div class="form-group col-md-9">
-                                    <label for="txtFormEscNome">Escola de Formação: <span class="campo-obrigatorio">*</span></label>
-                                    <select class="form-control" id="txtFormEscNome" name="txtFormEscNome">
-                                        <option value="0">Selecione uma Escola...</option>
-                                    </select>
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="txtFormTurma">Turma: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtFormTurma" name="txtFormTurma" placeholder="Ex.: 2018" maxlength="4">
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback invalid-ano">Campo Obrigatório!</div>
-                                </div> 
-                            </div>                          
+                        <div id="div-formacao">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Formação</h5>
+                            </div>
+                            <div class="fieldset-interno">
+                                <div class="form-row">                                
+                                    <div class="form-group col-md-9">
+                                        <label for="txtFormEscNome">Escola de Formação: <span class="campo-obrigatorio">*</span></label>
+                                        <select class="form-control" id="txtFormEscNome" name="txtFormEscNome">
+                                            <option value="0">Selecione uma Escola...</option>
+                                        </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="txtFormTurma">Turma: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="text" class="form-control" id="txtFormTurma" name="txtFormTurma" placeholder="Ex.: 2018" maxlength="4">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback invalid-ano">Campo Obrigatório!</div>
+                                    </div> 
+                                </div>                          
+                            </div>
                         </div>
                         <div class="header-interno">
                             <h5 class="title-interno">Comportamento</h5>
@@ -891,10 +901,37 @@
                                 </div>             
                             </div>
                         </div>
+                        <div id="div-vivenciaamazonia">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Unidades servidas na Amazônia</h5>
+                            </div>
+                            <div class="fieldset-interno">                            
+                                <div class="form-row">                       
+                                    <div class="form-group col-md-12">
+                                        <label for="txtSvAmz">Já serviu na Amazônia?<span class="campo-obrigatorio"> *</span></label>
+                                        <select class="form-control" id="txtSvAmz" name="txtSvAmz">
+                                            <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                            <option value="s">SIM</option>
+                                            <option value="n">NÃO</option>         
+                                        </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="divSvAmz" class="fieldset-interno fieldset-dependente" style="display: none;">
+                                <div class="header-interno">
+                                    <h5 class="title-interno">Quais OMs?</h5>
+                                </div>
+                                <div id="fieldsetSvAmz" class="fieldset-interno"></div>
+                                <button type="button" id="btnAddSvAmz" name="btnAddSvAmz" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
+                            </div>
+                        </div>
                     </div>
                     <button type="button" name="btnVoltar" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo5" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
+                <!--Dados Familiares-->
                 <fieldset>
                     <div class="fieldset-header">
                         <h4 class="fieldset-title">Dados Familiares</h4>
@@ -1062,6 +1099,7 @@
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo6" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
+                <!--Endereço-->
                 <fieldset>
                     <div class="fieldset-header">
                         <h4 class="fieldset-title">Endereço</h4>
@@ -1204,11 +1242,29 @@
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo7" class="btn btn-danger prox acao" value="Proximo">Próximo</button>                   
                 </fieldset>
+                <!--Idiomas, Cursos e Estágios-->
                 <fieldset>
                     <div class="fieldset-header">
                         <h5 class="fieldset-title">Idiomas, Cursos e Estágios</h5>
                     </div>
                     <div class="fieldset-body">
+                        <div class="header-interno">
+                            <h5 class="title-interno">Estágio de Adaptação a Selva</h5>
+                        </div>
+                        <div class="fieldset-interno">
+                            <div class="form-row">                                                    
+                                <div class="form-group col-md-12">
+                                    <label for="txtPossuiEAS">Possui Estágio de Adaptação a Selva (EAS)?</label><spam class="campo-obrigatorio"> *</spam>
+                                    <select class="form-control" id="txtPossuiEAS" name="txtPossuiEAS">
+                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                        <option value="s">SIM</option>
+                                        <option value="n">NÃO</option>
+                                    </select>
+                                    <div class="valid-feedback">Selva!</div>
+                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="header-interno">
                             <h5 class="title-interno">Idiomas</h5>
                         </div>
@@ -1233,77 +1289,81 @@
                             <div id="fieldsetIdiomas" class="fieldset-interno"></div>
                             <button type="button" id="btnAddIdioma" name="btnAddIdioma" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
                         </div>
-                        <div class="header-interno">
-                            <h5 class="title-interno">Curso de Aperferiçoamento</h5>
-                        </div>
-                        <div class="fieldset-interno">
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="txtPossuiCAperf">Possui curso de aperfeiçoamento?<span class="campo-obrigatorio"> *</span></label>
-                                    <select class="form-control" id="txtPossuiCAperf" name="txtPossuiCAperf">
-                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
-                                        <option value="s">SIM</option>
-                                        <option value="n">NÃO</option>
-                                    </select>
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                        <div id="div-cursoaperfeicoamento">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Curso de Aperferiçoamento</h5>
+                            </div>
+                            <div class="fieldset-interno">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="txtPossuiCAperf">Possui curso de aperfeiçoamento?<span class="campo-obrigatorio"> *</span></label>
+                                        <select class="form-control" id="txtPossuiCAperf" name="txtPossuiCAperf">
+                                            <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                            <option value="s">SIM</option>
+                                            <option value="n">NÃO</option>
+                                        </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="divCAperf" class="fieldset-interno fieldset-dependente" style="display: none;">
+                                <div class="form-row">
+                                    <div class="form-group col-md-8">
+                                        <label for="txtCAperf">Curso: <span class="campo-obrigatorio">*</span></label>
+                                        <select class="form-control" id="txtCAperf" name="txtCAperf">
+                                            <option value="0" selected>Selecione o curso...</option>
+                                        </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="txtAnoCAperf">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="text" class="form-control" id="txtAnoCAperf" name="txtAnoCAperf" placeholder="Ex.: 2018" maxlength="4">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback invalid-ano">Campo Obrigatório!</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="divCAperf" class="fieldset-interno fieldset-dependente" style="display: none;">
-                            <div class="form-row">
-                                <div class="form-group col-md-8">
-                                    <label for="txtCAperf">Curso: <span class="campo-obrigatorio">*</span></label>
-                                    <select class="form-control" id="txtCAperf" name="txtCAperf">
-                                        <option value="0" selected>Selecione o curso...</option>
-                                    </select>
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
+                        <div id="div-cursoaltosestudos">
+                            <div class="header-interno">
+                                <h5 class="title-interno">Curso de Altos Estudos</h5>
+                            </div>
+                            <div class="fieldset-interno">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="txtPossuiCAltEstudos">Possui cursos de altos estudos?<span class="campo-obrigatorio"> *</span></label>
+                                        <select class="form-control" id="txtPossuiCAltEstudos" name="txtPossuiCAltEstudos">
+                                            <option value="0" selected>Selecione SIM ou NÃO...</option>
+                                            <option value="s">SIM</option>
+                                            <option value="n">NÃO</option>
+                                        </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="txtAnoCAperf">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtAnoCAperf" name="txtAnoCAperf" placeholder="Ex.: 2018" maxlength="4">
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback invalid-ano">Campo Obrigatório!</div>
+                            </div>
+                            <div id="divCAltEstudos" class="fieldset-interno fieldset-dependente" style="display: none;">
+                                <div class="form-row">
+                                    <div class="form-group col-md-8">
+                                        <label for="txtCAltEstudos">Curso: <span class="campo-obrigatorio">*</span></label>
+                                        <select class="form-control" id="txtCAltEstudos" name="txtCAltEstudos">
+                                            <option value="0" selected>Selecione o curso...</option>
+                                        </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="txtAnoCAltEstudos">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="text" class="form-control" id="txtAnoCAltEstudos" name="txtAnoCAltEstudos" placeholder="Ex.: 2018" maxlength="4">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback invalid-ano">Campo Obrigatório!</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="header-interno">
-                            <h5 class="title-interno">Curso de Altos Estudos</h5>
-                        </div>
-                        <div class="fieldset-interno">
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="txtPossuiCAltEstudos">Possui cursos de altos estudos?<span class="campo-obrigatorio"> *</span></label>
-                                    <select class="form-control" id="txtPossuiCAltEstudos" name="txtPossuiCAltEstudos">
-                                        <option value="0" selected>Selecione SIM ou NÃO...</option>
-                                        <option value="s">SIM</option>
-                                        <option value="n">NÃO</option>
-                                    </select>
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="divCAltEstudos" class="fieldset-interno fieldset-dependente" style="display: none;">
-                            <div class="form-row">
-                                <div class="form-group col-md-8">
-                                    <label for="txtCAltEstudos">Curso: <span class="campo-obrigatorio">*</span></label>
-                                    <select class="form-control" id="txtCAltEstudos" name="txtCAltEstudos">
-                                        <option value="0" selected>Selecione o curso...</option>
-                                    </select>
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback">Campo Obrigatório!</div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="txtAnoCAltEstudos">Ano de Conclusão: <span class="campo-obrigatorio">*</span></label>
-                                    <input type="text" class="form-control" id="txtAnoCAltEstudos" name="txtAnoCAltEstudos" placeholder="Ex.: 2018" maxlength="4">
-                                    <div class="valid-feedback">Selva!</div>
-                                    <div class="invalid-feedback invalid-ano">Campo Obrigatório!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="header-interno">
+                        <!--<div class="header-interno">
                             <h5 class="title-interno">Curso de Extensão ou Especialização</h5>
                         </div>
                         <div class="fieldset-interno">                            
@@ -1327,8 +1387,8 @@
                             <div id="fieldsetCExtsEsp" class="fieldset-interno">
                             </div>
                             <button type="button" id="btnAddCExtsEsp" name="btnAddCExtsEsp" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
-                        </div>
-                        <div class="header-interno">
+                        </div>-->
+                        <!--<div class="header-interno">
                             <h5 class="title-interno">Estágios</h5>
                         </div>
                         <div class="fieldset-interno">
@@ -1352,12 +1412,13 @@
                             <div id="fieldsetEstagios" class="fieldset-interno">
                             </div>
                             <button type="button" id="btnAddEstagio" name="btnAddEstagio" class="btn btn-success" style="margin-left: 0; font-weight: bold; ">+</button>
-                        </div>
+                        </div>-->                        
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
                     <button type="button" name="btnProximo8" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
                 </fieldset>
-                <fieldset>
+                <!--Preparação-->
+                <fieldset> 
                     <div class="fieldset-header">
                         <h5 class="fieldset-title">Preparação</h5>
                     </div>
@@ -1475,9 +1536,11 @@
                         </div>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
-                    <button type="button" name="btnProximo9" class="btn btn-danger prox acao" value="Proximo">Próximo</button>
+                    <!--<button type="button" name="btnProximo9" class="btn btn-danger prox acao" value="Proximo">Próximo</button>-->
+                    <button type="submit" name="btnSalvar" class="btn btn-success acao">Salvar</button>
                 </fieldset>
-                <fieldset>
+                
+                <!--<fieldset id="fd-vivenciaamazonia">
                     <div class="fieldset-header">
                         <h5 class="fieldset-title">Vivência na Amazônia</h5>
                     </div>
@@ -1540,11 +1603,11 @@
                                     "<div id="fieldsetTentC" class="form-row col-md-12"></div>                            
                                 "</div>
                             "</div>
-                        "</div>*/-->
+                        "</div>
                     </div>
                     <button type="button" name="btnAnterior" class="btn btn-dark anterior acao">Anterior</button>
-                    <button type="submit" name="btnSalvar" class="btn btn-success acao">Salvar</button>        
-                </fieldset>
+                    <button type="submit" name="btnSalvar" class="btn btn-success acao">Salvar</button>   
+                </fieldset>-->
             </form>
         </section>
             

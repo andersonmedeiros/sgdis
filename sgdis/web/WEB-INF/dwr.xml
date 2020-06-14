@@ -12,6 +12,8 @@
         <param name="class" value="facade.FacadeAjax"/>
     </create>
     
+    <convert converter="bean" match="model.bean.TipoForca"/>
+    <convert converter="bean" match="model.dao.TipoForcaDAO"/>    
     <convert converter="bean" match="model.bean.Forca"/>
     <convert converter="bean" match="model.dao.ForcaDAO"/>    
     <convert converter="bean" match="model.bean.Estado"/>

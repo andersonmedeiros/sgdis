@@ -1,9 +1,42 @@
-function alimentaSelectForca(forcas){
+function limpaInput(campo){
+    $(campo).val('');
+    $(campo).removeClass("is-valid");
+    $(campo).removeClass("is-invalid");
+}
+
+function limpaSelect(campo){
+    $(campo).val('0');
+    $(campo).removeClass("is-valid");
+    $(campo).removeClass("is-invalid");
+}
+
+function limpaAlimentacaoSelect(campo, primeiroSelect){
+    dwr.util.removeAllOptions(campo);
+    dwr.util.addOptions(campo, [{id: "0", nome: primeiroSelect}], "id", "nome");
+}
+
+function alimentaSelectTipoForca(tiposforca){
+    dwr.util.removeAllOptions("txtTipoForca");
+    dwr.util.addOptions("txtTipoForca", [{id: "0", nome: "Selecione um Tipo de Força..."}], "id", "nome");
+    dwr.util.addOptions("txtTipoForca", tiposforca, "id", "nome");
+}
+FacadeAjax.getTiposForcaDWR(alimentaSelectTipoForca);
+
+function alimentaSelectDependenteTipoForca(idTipoForca){
+    FacadeAjax.getForcasByIdTipoForcaDWR(idTipoForca, {
+        callback: function(forcas){
+            dwr.util.removeAllOptions("txtForca");
+            dwr.util.addOptions("txtForca", [{id: "0", nome: "Selecione uma Força..."}], "id", "nome");
+            dwr.util.addOptions("txtForca", forcas, "id", "nome");
+        } 
+    });
+}
+/*function alimentaSelectForca(forcas){
     dwr.util.removeAllOptions("txtForca");
     dwr.util.addOptions("txtForca", [{id: "0", nome: "Selecione uma Força..."}], "id", "nome");
     dwr.util.addOptions("txtForca", forcas, "id", "nome");
 }
-FacadeAjax.getForcasDWR(alimentaSelectForca);
+FacadeAjax.getForcasDWR(alimentaSelectForca);*/
 
 function alimentaSelectDependenteForca(idForca){
     FacadeAjax.getEstadosByForcaDWR(idForca, {
@@ -28,15 +61,52 @@ function alimentaSelectDependenteForca(idForca){
             dwr.util.addOptions("txtPGradAl", [{id: "0", abreviatura: "Selecione um Posto/Graduação..."}], "id", "abreviatura");
             dwr.util.addOptions("txtPGradAl", postosgraduacoes, "id", "abreviatura");
         }
-    });  
-    
-    FacadeAjax.getEscolasFormacaoByForcaDWR(idForca, {
-        callback: function(escolas){
-            dwr.util.removeAllOptions("txtFormEscNome");
-            dwr.util.addOptions("txtFormEscNome", [{id: "0", nome: "Selecione um Escola..."}], "id", "nome");
-            dwr.util.addOptions("txtFormEscNome", escolas, "id", "nome");
-        }
     });
+    
+    if(idForca == 2){
+        $("#div-idtmil").removeClass("col-md-6");
+        $("#div-idtmil").addClass("col-md-3");
+        $("#div-cpf").removeClass("col-md-6");
+        $("#div-cpf").addClass("col-md-3");
+        
+        $("#div-preccp").css("display", "block");
+        $("#div-cp").css("display", "block");
+        $("#div-cursoaperfeicoamento").css("display", "block");
+        $("#div-cursoaltosestudos").css("display", "block");
+    }else{
+        $("#div-preccp").css("display", "none");
+        limpaInput("input[name=txtPreccpAl]");
+        
+        $("#div-cp").css("display", "none");
+        limpaInput("input[name=txtCPAl]");
+        
+        $("#div-cursoaperfeicoamento").css("display", "none");
+        limpaSelect("select[name=txtPossuiCAperf");
+        
+        $("#div-cursoaltosestudos").css("display", "none");
+        limpaSelect("select[name=txtPossuiCAltEstudos]");
+        
+        $("#div-idtmil").removeClass("col-md-3");
+        $("#div-idtmil").addClass("col-md-6");
+        $("#div-cpf").removeClass("col-md-3");
+        $("#div-cpf").addClass("col-md-6");
+    }
+    
+    if($("select[name=txtTipoForca]").val() == 1){
+        $("#div-formacao").css("display", "block");
+        FacadeAjax.getEscolasFormacaoByForcaDWR(idForca, {
+            callback: function(escolas){
+                dwr.util.removeAllOptions("txtFormEscNome");
+                dwr.util.addOptions("txtFormEscNome", [{id: "0", nome: "Selecione um Escola..."}], "id", "nome");
+                dwr.util.addOptions("txtFormEscNome", escolas, "id", "nome");
+            }
+        });
+    }else{
+        $("#div-formacao").css("display", "none");
+        limpaSelect("select[name=txtFormEscNome]");
+        limpaInput("input[name=txtFormTurma]");      
+    } 
+    
 }
 
 function alimentaSelectDependenteEstado(idForca, idEstado){
@@ -49,7 +119,7 @@ function alimentaSelectDependenteEstado(idForca, idEstado){
     });
 }
 
-function alimentaSelectDependenteOM(idOM){
+/*function alimentaSelectDependenteOM(idOM){
     FacadeAjax.getOmByIdDWR(idOM, {
         callback:function(om){
             dwr.util.setValues({txtEndCepOM: om.cepEndereco,
@@ -65,7 +135,7 @@ function alimentaSelectDependenteOM(idOM){
             }
         }
     });
-}
+}*/
 
 function alimentaSelectArma(armas){
     dwr.util.removeAllOptions("txtArmaAl");
@@ -153,16 +223,42 @@ function alimentaSelectCAltEstudos(tipo, idCategoria, idForca){
     });
 }
 
+$("select[name=txtTipoForca]").change(function(){
+    if(this.value == 1){
+        $("#div-vivenciaamazonia").css("display", "block");
+    }
+    else{
+        $("#div-vivenciaamazonia").css("display", "none");
+    }
+    limpaAlimentacaoSelect("txtForca", "Selecione uma Forca...");
+    limpaAlimentacaoSelect("txtEstadoForca", "Selecione um Estado...");
+    limpaAlimentacaoSelect("txtNomeOM", "Selecione uma OM...");
+    limpaAlimentacaoSelect("txtPGradCmtOM", "Selecione um Posto/Graduação...");
+    limpaAlimentacaoSelect("txtPGradChImtoOM", "Selecione um Posto/Graduação...");
+    limpaAlimentacaoSelect("txtPGradAl", "Selecione um Posto/Graduação...");
+    limpaSelect("select[name=txtSvAmz]");
+    
+    alimentaSelectDependenteTipoForca(this.value);    
+});
 $("select[name=txtForca]").change(function(){
+    limpaAlimentacaoSelect("txtEstadoForca", "Selecione um Estado...");
+    limpaAlimentacaoSelect("txtNomeOM", "Selecione uma OM...");
+    limpaAlimentacaoSelect("txtPGradCmtOM", "Selecione um Posto/Graduação...");
+    limpaAlimentacaoSelect("txtPGradChImtoOM", "Selecione um Posto/Graduação...");
+    limpaAlimentacaoSelect("txtPGradAl", "Selecione um Posto/Graduação...");
+    limpaSelect("select[name=txtSvAmz]");
+    
     alimentaSelectDependenteForca(this.value);
 });
 $("select[name=txtEstadoForca]").change(function(){
+    limpaAlimentacaoSelect("txtNomeOM", "Selecione uma OM...");
+    
     var idForca = $("select[name=txtForca]").val();
     alimentaSelectDependenteEstado(idForca, this.value);
 });
-$("select[name=txtNomeOM]").change(function(){
+/*$("select[name=txtNomeOM]").change(function(){
     alimentaSelectDependenteOM(this.value);
-});
+});*/
 $("select[name=txtNatEstAl]").change(function(){
     alimentaSelectDependenteEstadoNaturalidade(this.value);
 });

@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.bean.Forca;
+import model.bean.TipoForca;
 
 /**
  *
@@ -25,10 +26,11 @@ public class ForcaDAO {
     String id = "id";
     String nome = "nome";
     String sigla = "sigla";
+    String idTipoForca = "idTipoForca";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + ")" +
-                                  " VALUES(?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + idTipoForca + ")" +
+                                  " VALUES(?,?,?,?);";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -51,7 +53,8 @@ public class ForcaDAO {
                 pstm.setInt(1, forca.getId());
                 pstm.setString(2, forca.getNome());
                 pstm.setString(3, forca.getSigla());
-                                                              
+                pstm.setInt(4, forca.getIdTipoForca());
+                
                 pstm.execute();
                 
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -88,7 +91,8 @@ public class ForcaDAO {
                                     "WHERE id = ?;";
        
     public Forca getForcaById(int idForca){
-        Forca forca = new Forca();        
+        Forca forca = new Forca();     
+        TipoForcaDAO tipoforcaDAO = new TipoForcaDAO();
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETFORCA);
@@ -96,15 +100,87 @@ public class ForcaDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
+                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
                 forca.setId(rs.getInt("id"));
                 forca.setNome(rs.getString("nome"));
                 forca.setSigla(rs.getString("sigla"));
+                
+                forca.setIdTipoForca(tipoforca.getId());
+                forca.setNomeTipoForca(tipoforca.getNome());
+                
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
         return forca;
+    }
+    
+    private final static String GETFORCADWR = "SELECT * " +
+                                              "FROM Forca " + 
+                                              "WHERE id = ?;";
+       
+    public static Forca getForcaByIdDWR(int idForca){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        Forca forca = new Forca();    
+        TipoForcaDAO tipoforcaDAO = new TipoForcaDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETFORCADWR);
+            pstm.setInt(1, idForca);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
+                forca.setId(rs.getInt("id"));
+                forca.setNome(rs.getString("nome"));
+                forca.setSigla(rs.getString("sigla"));
+                
+                forca.setIdTipoForca(tipoforca.getId());
+                forca.setNomeTipoForca(tipoforca.getNome());
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return forca;
+    }
+    
+    private final static String GETFORCABYTIPOFORCADWR = "SELECT * " +
+                                                         "FROM Forca " + 
+                                                         "WHERE idTipoForca = ?;";
+       
+    public static ArrayList<Forca> getForcasByIdTipoForcaDWR(int idTipoForca){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        ArrayList<Forca> forcas = new ArrayList<>();
+        TipoForcaDAO tipoforcaDAO = new TipoForcaDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETFORCABYTIPOFORCADWR);
+            pstm.setInt(1, idTipoForca);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Forca forca = new Forca();
+                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
+                forca.setId(rs.getInt("id"));
+                forca.setNome(rs.getString("nome"));
+                forca.setSigla(rs.getString("sigla"));
+                
+                forca.setIdTipoForca(tipoforca.getId());
+                forca.setNomeTipoForca(tipoforca.getNome());
+                
+                forcas.add(forca);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return forcas;
     }
     
     private final static String GETFORCASDWR = "SELECT * " +
@@ -115,6 +191,7 @@ public class ForcaDAO {
         PreparedStatement pstm = null;
         ResultSet rs = null;
         ArrayList<Forca> forcas = new ArrayList<>();
+        TipoForcaDAO tipoforcaDAO = new TipoForcaDAO();
         
         try {
             conn = ConnectionFactory.getConnection();
@@ -123,10 +200,13 @@ public class ForcaDAO {
             rs = pstm.executeQuery();
             while (rs.next()) {
                 Forca forca = new Forca();
-                
+                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
                 forca.setId(rs.getInt("id"));
                 forca.setNome(rs.getString("nome"));
-                forca.setSigla(rs.getString("sigla"));                
+                forca.setSigla(rs.getString("sigla"));
+                
+                forca.setIdTipoForca(tipoforca.getId());
+                forca.setNomeTipoForca(tipoforca.getNome());                
                 
                 forcas.add(forca);
             }
