@@ -31,6 +31,11 @@ public class EscolaFormacaoDAO {
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + abreviatura + "," + idForca + ")" +
                                   " VALUES(?,?,?,?);";
+    
+    //Update SQL
+    private final String UPDATE = "UPDATE " + tabela +
+                                  " SET " + nome + "=?, " + abreviatura + "=?, " + idForca + "=?, " +
+                                  "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -63,6 +68,29 @@ public class EscolaFormacaoDAO {
                 throw new RuntimeException(e.getMessage());  
             }
         } else {
+            throw new RuntimeException();
+        }
+    }
+    
+    //Update SQL
+    public void update(EscolaFormacao escolaformacao) {
+        if (escolaformacao != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(UPDATE);                
+                
+                pstm.setString(1, escolaformacao.getNome());
+                pstm.setString(2, escolaformacao.getAbreviatura());
+                pstm.setInt(3, escolaformacao.getIdForca());
+                pstm.setInt(4, escolaformacao.getId());
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
             throw new RuntimeException();
         }
     }
