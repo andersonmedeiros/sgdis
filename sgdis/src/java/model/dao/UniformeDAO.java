@@ -120,7 +120,7 @@ public class UniformeDAO {
                                            "FROM " + tabela + " " +
                                            "WHERE id = ?;";
        
-    public Uniforme getTafById(int idUniforme){
+    public Uniforme getUniformeById(int idUniforme){
         Uniforme u = new Uniforme();        
         try {
             conn = ConnectionFactory.getConnection();
@@ -145,7 +145,7 @@ public class UniformeDAO {
     private final String GETUNIFORMES = "SELECT * " +
                                         "FROM " + tabela;
        
-    public ArrayList<Uniforme> getTafs(){
+    public ArrayList<Uniforme> getUniformes(){
         ArrayList<Uniforme> uniformes = new ArrayList<>();        
         try {
             conn = ConnectionFactory.getConnection();
