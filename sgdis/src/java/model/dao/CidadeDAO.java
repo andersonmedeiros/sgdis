@@ -20,7 +20,7 @@ import model.bean.Estado;
  */
 public class CidadeDAO {
     //Tabela
-        String tabela = "Cidade";
+    String tabela = "Cidade";
     
     //Atributos
     String id = "id";
@@ -30,6 +30,11 @@ public class CidadeDAO {
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + idEstado + ")" +
                                   " VALUES(?,?,?);";
+    
+    //Update SQL
+    private final String UPDATE = "UPDATE " + tabela +
+                                  " SET " + nome + "=?, " + idEstado + "=?, " +
+                                  "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -65,6 +70,28 @@ public class CidadeDAO {
         }
     }
     
+    //Update SQL
+    public void update(Cidade cid) {
+        if (cid != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(UPDATE);                
+                
+                pstm.setString(1, cid.getNome());
+                pstm.setInt(2, cid.getIdEstado());
+                pstm.setInt(3, cid.getId());
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
+            throw new RuntimeException();
+        }
+    }
+    
     //Delete SQL
     public void delete(int id) {
         if (id != 0){
@@ -84,8 +111,7 @@ public class CidadeDAO {
         }
     }
     
-    
-    private final String GETCIDADE = "SELECT * " +
+    private final String GETCIDADEBYID = "SELECT * " +
                                      "FROM Cidade " + 
                                      "WHERE id = ?";
     
@@ -95,19 +121,20 @@ public class CidadeDAO {
         
         try{
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCIDADE);
+            pstm = conn.prepareStatement(GETCIDADEBYID);
             pstm.setInt(1, idCidade);
            
             rs = pstm.executeQuery();
-            while (rs.next()) {
-                Estado est = estDAO.getEstadoById(rs.getInt("idEstado"));
-                
+            while (rs.next()) {  
                 cid.setId(rs.getInt("id"));
                 cid.setNome(rs.getString("nome"));
                 
+                Estado est = estDAO.getEstadoById(rs.getInt("idEstado"));
                 cid.setIdEstado(est.getId());
                 cid.setNomeEstado(est.getNome());
                 cid.setSiglaEstado(est.getSigla());
+                cid.setIdRegiaoEstado(est.getIdRegiao());
+                cid.setNomeRegiaoEstado(est.getNomeRegiao());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -116,9 +143,42 @@ public class CidadeDAO {
         return cid;
     }
     
+    private final String GETCIDADES = "SELECT * " +
+                                      "FROM " + tabela;
+       
+    public ArrayList<Cidade> getCidades(){
+        ArrayList<Cidade> cidades = new ArrayList<>(); 
+        EstadoDAO estadoDAO = new EstadoDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETCIDADES);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Cidade cidade = new Cidade();
+
+                cidade.setId(rs.getInt("id"));
+                cidade.setNome(rs.getString("nome"));
+
+                Estado estado = estadoDAO.getEstadoById(rs.getInt("idEstado"));
+                cidade.setIdEstado(estado.getId());
+                cidade.setNomeEstado(estado.getNome());
+                cidade.setSiglaEstado(estado.getSigla());
+                cidade.setIdRegiaoEstado(estado.getIdRegiao());
+                cidade.setNomeRegiaoEstado(estado.getNomeRegiao());
+
+                cidades.add(cidade);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return cidades;
+    }
+    
     private final static String GETCIDADESBYESTADODWR = "SELECT * " +
-                                                "FROM Cidade " +
-                                                "WHERE idEstado = ?;";
+                                                        "FROM Cidade " +
+                                                        "WHERE idEstado = ?;";
     
     public static ArrayList<Cidade> getCidadesByEstadoDWR(int idEstado){
         Connection conn = null;
@@ -134,16 +194,19 @@ public class CidadeDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               Cidade cidade = new Cidade();
-               Estado estado = estadoDAO.getEstadoById(rs.getInt("idEstado"));
-               
-               cidade.setId(rs.getInt("id"));
-               cidade.setNome(rs.getString("nome"));
-               cidade.setIdEstado(estado.getId());
-               cidade.setNomeEstado(estado.getNome());
-               cidade.setSiglaEstado(estado.getSigla());
-                
-               cidades.add(cidade);
+                Cidade cidade = new Cidade();
+
+                cidade.setId(rs.getInt("id"));
+                cidade.setNome(rs.getString("nome"));
+
+                Estado estado = estadoDAO.getEstadoById(rs.getInt("idEstado"));
+                cidade.setIdEstado(estado.getId());
+                cidade.setNomeEstado(estado.getNome());
+                cidade.setSiglaEstado(estado.getSigla());
+                cidade.setIdRegiaoEstado(estado.getIdRegiao());
+                cidade.setNomeRegiaoEstado(estado.getNomeRegiao());
+
+                cidades.add(cidade);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {

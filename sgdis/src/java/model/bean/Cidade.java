@@ -53,4 +53,20 @@ public class Cidade {
     public void setSiglaEstado(String siglaEstado) {
         estado.setSigla(siglaEstado);
     }
+    
+    public int getIdRegiaoEstado() {
+        return estado.getIdRegiao();
+    }
+
+    public void setIdRegiaoEstado(int id) {
+        estado.setIdRegiao(id);
+    }
+
+    public String getNomeRegiaoEstado() {
+        return estado.getNomeRegiao();
+    }
+
+    public void setNomeRegiaoEstado(String nome) {
+        estado.setNomeRegiao(nome);
+    }
 }
