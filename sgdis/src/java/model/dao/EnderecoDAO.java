@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.bean.Cidade;
 import model.bean.Endereco;
 
@@ -122,22 +123,20 @@ public class EnderecoDAO {
         }
     }
     
-    private final String GETENDERECO = "SELECT * " +
-                                       "FROM Endereco " + 
-                                       "WHERE id = ?";
+    private final String GETENDERECOBYID = "SELECT * " +
+                                           "FROM Endereco " + 
+                                           "WHERE id = ?";
        
     public Endereco getEnderecoById(int idEndereco){
         Endereco end = new Endereco();
         CidadeDAO cidDAO = new CidadeDAO();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETENDERECO);
+            pstm = conn.prepareStatement(GETENDERECOBYID);
             pstm.setInt(1, idEndereco);
            
             rs = pstm.executeQuery();
-            while (rs.next()) {
-                Cidade cid = cidDAO.getCidadeById(rs.getInt("idCidade"));
-                
+            while (rs.next()) {           
                 end.setId(rs.getInt("id"));
                 end.setCep(rs.getString("cep"));
                 end.setDescricao(rs.getString("descricao"));
@@ -145,11 +144,14 @@ public class EnderecoDAO {
                 end.setPontoreferencia(rs.getString("pontoreferencia"));
                 end.setBairro(rs.getString("bairro"));
                 
+                Cidade cid = cidDAO.getCidadeById(rs.getInt("idCidade"));
                 end.setIdCidade(cid.getId());
                 end.setNomeCidade(cid.getNome());
                 end.setIdEstadoCidade(cid.getIdEstado());
                 end.setNomeEstadoCidade(cid.getNomeEstado());
                 end.setSiglaEstadoCidade(cid.getSiglaEstado());
+                end.setIdRegiaoEstadoCidade(cid.getIdRegiaoEstado());
+                end.setNomeRegiaoEstadoCidade(cid.getNomeRegiaoEstado());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -158,4 +160,42 @@ public class EnderecoDAO {
         return end;
     }
     
+    private final String GETTAFS = "SELECT * " +
+                                   "FROM " + tabela;
+       
+    public ArrayList<Endereco> getCidades(){
+        ArrayList<Endereco> ends = new ArrayList<>(); 
+        CidadeDAO cidDAO = new CidadeDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETTAFS);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Endereco end = new Endereco();
+                
+                end.setId(rs.getInt("id"));
+                end.setCep(rs.getString("cep"));
+                end.setDescricao(rs.getString("descricao"));
+                end.setComplemento(rs.getString("complemento"));
+                end.setPontoreferencia(rs.getString("pontoreferencia"));
+                end.setBairro(rs.getString("bairro"));
+                
+                Cidade cid = cidDAO.getCidadeById(rs.getInt("idCidade"));
+                end.setIdCidade(cid.getId());
+                end.setNomeCidade(cid.getNome());
+                end.setIdEstadoCidade(cid.getIdEstado());
+                end.setNomeEstadoCidade(cid.getNomeEstado());
+                end.setSiglaEstadoCidade(cid.getSiglaEstado());
+                end.setIdRegiaoEstadoCidade(cid.getIdRegiaoEstado());
+                end.setNomeRegiaoEstadoCidade(cid.getNomeRegiaoEstado());
+                
+                ends.add(end);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return ends;
+    }
 }

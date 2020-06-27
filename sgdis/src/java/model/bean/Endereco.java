@@ -101,4 +101,20 @@ public class Endereco {
     public void setSiglaEstadoCidade(String siglaEstado) {
         cidade.setSiglaEstado(siglaEstado);
     }
+    
+    public int getIdRegiaoEstadoCidade() {
+        return cidade.getIdRegiaoEstado();
+    }
+
+    public void setIdRegiaoEstadoCidade(int id) {
+        cidade.setIdRegiaoEstado(id);
+    }
+
+    public String getNomeRegiaoEstadoCidade() {
+        return cidade.getNomeRegiaoEstado();
+    }
+
+    public void setNomeRegiaoEstadoCidade(String nome) {
+        cidade.setNomeRegiaoEstado(nome);
+    }
 }
