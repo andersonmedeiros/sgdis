@@ -151,7 +151,7 @@ public class ChefeImediatoDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                PostoGraduacao pg = pgDAO.getPostoGraduacao(rs.getInt("idPostoGraduacao"));
+                PostoGraduacao pg = pgDAO.getPostoGraduacaoById(rs.getInt("idPostoGraduacao"));
                 
                 chImto.setId(rs.getInt("id"));
                 chImto.setNome(rs.getString("nome"));
@@ -195,7 +195,7 @@ public class ChefeImediatoDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                PostoGraduacao pg = pgDAO.getPostoGraduacao(rs.getInt("idPostoGraduacao"));
+                PostoGraduacao pg = pgDAO.getPostoGraduacaoById(rs.getInt("idPostoGraduacao"));
                 
                 chImto.setId(rs.getInt("id"));
                 chImto.setNome(rs.getString("nome"));
