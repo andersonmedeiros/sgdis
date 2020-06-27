@@ -33,6 +33,11 @@ public class EnderecoDAO {
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + cep + "," + descricao + "," + complemento + "," + pontoreferencia + "," + bairro + "," + idCidade + ")" +
                                   " VALUES(?,?,?,?,?,?,?);";
+    
+    //Update SQL
+    private final String UPDATE = "UPDATE " + tabela +
+                                  " SET " + cep + "=?, " + descricao + "=?, " + complemento + "=?, " + pontoreferencia + "=?, " + bairro + "=?, " + idCidade + "=?, " +
+                                  "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -68,6 +73,32 @@ public class EnderecoDAO {
                 throw new RuntimeException(e.getMessage());  
             }
         } else {
+            throw new RuntimeException();
+        }
+    }
+    
+    //Update SQL
+    public void update(Endereco end) {
+        if (end != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(UPDATE);
+                
+                pstm.setString(1, end.getCep());
+                pstm.setString(2, end.getDescricao());
+                pstm.setString(3, end.getComplemento());
+                pstm.setString(4, end.getPontoreferencia());
+                pstm.setString(5, end.getBairro());
+                pstm.setInt(6, end.getIdCidade());
+                pstm.setInt(7, end.getId());
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
             throw new RuntimeException();
         }
     }
