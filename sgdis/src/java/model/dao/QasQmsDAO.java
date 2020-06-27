@@ -11,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.bean.Forca;
 import model.bean.QasQms;
+import model.bean.Taf;
 
 /**
  *
@@ -25,10 +27,16 @@ public class QasQmsDAO {
     String id = "id";
     String nome = "nome";
     String abreviatura = "abreviatura";
+    String idForca = "idForca";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + abreviatura + ")" +
-                                  " VALUES(?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + abreviatura + "," + idForca + ")" +
+                                  " VALUES(?,?,?,?);";
+    
+    //Update SQL
+    private final String UPDATE = "UPDATE " + tabela +
+                                  " SET " + nome + "=?, " + abreviatura + "=?, " + idForca + "=?, " +
+                                  "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -51,6 +59,7 @@ public class QasQmsDAO {
                 pstm.setInt(1, qq.getId());
                 pstm.setString(2, qq.getNome());
                 pstm.setString(3, qq.getAbreviatura());
+                pstm.setInt(4, qq.getIdForca());
                                                               
                 pstm.execute();
                 
@@ -60,6 +69,29 @@ public class QasQmsDAO {
                 throw new RuntimeException(e.getMessage());  
             }
         } else {
+            throw new RuntimeException();
+        }
+    }
+    
+    //Update SQL
+    public void update(QasQms qq) {
+        if (qq != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(UPDATE);                
+                
+                pstm.setString(1, qq.getNome());
+                pstm.setString(2, qq.getAbreviatura());
+                pstm.setInt(3, qq.getIdForca());
+                pstm.setInt(4, qq.getId());
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
             throw new RuntimeException();
         }
     }
@@ -83,15 +115,16 @@ public class QasQmsDAO {
         }
     }
     
-    private final String GETQASQMS = "SELECT * " +
+    private final String GETQASQMSBYID = "SELECT * " +
                                     "FROM QasQms " + 
                                     "WHERE id = ?;";
        
     public QasQms getQasQmsById(int idQasQms){
-        QasQms qq = new QasQms();        
+        QasQms qq = new QasQms();
+        ForcaDAO forcaDAO = new ForcaDAO();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETQASQMS);
+            pstm = conn.prepareStatement(GETQASQMSBYID);
             pstm.setInt(1, idQasQms);
            
             rs = pstm.executeQuery();
@@ -99,12 +132,49 @@ public class QasQmsDAO {
                 qq.setId(rs.getInt("id"));
                 qq.setNome(rs.getString("nome"));
                 qq.setAbreviatura(rs.getString("abreviatura"));
+                
+                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
+                qq.setIdForca(forca.getId());
+                qq.setNomeForca(forca.getNome());
+                qq.setSiglaForca(forca.getSigla());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
         return qq;
+    }
+    
+    private final String GETQASQMS = "SELECT * " +
+                                   "FROM " + tabela;
+    
+    public ArrayList<QasQms> getQasQms(){
+        ArrayList<QasQms> qasqms = new ArrayList<>();  
+        ForcaDAO forcaDAO = new ForcaDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETQASQMS);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                QasQms qq = new QasQms();
+                
+                qq.setId(rs.getInt("id"));
+                qq.setNome(rs.getString("nome"));
+                qq.setAbreviatura(rs.getString("abreviatura"));
+                
+                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
+                qq.setIdForca(forca.getId());
+                qq.setNomeForca(forca.getNome());
+                qq.setSiglaForca(forca.getSigla());
+                
+                qasqms.add(qq);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return qasqms;
     }
     
     private final static String GETQASQMSDWR = "SELECT * " +
@@ -115,18 +185,60 @@ public class QasQmsDAO {
         PreparedStatement pstm = null;
         ResultSet rs = null;
         ArrayList<QasQms> qasqms = new ArrayList<>();
-        
+        ForcaDAO forcaDAO = new ForcaDAO();
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETQASQMSDWR);
            
             rs = pstm.executeQuery();
-            while (rs.next()) {
+            while (rs.next()) {                
                 QasQms qq = new QasQms();
                 
                 qq.setId(rs.getInt("id"));
                 qq.setNome(rs.getString("nome"));
                 qq.setAbreviatura(rs.getString("abreviatura"));
+                
+                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
+                qq.setIdForca(forca.getId());
+                qq.setNomeForca(forca.getNome());
+                qq.setSiglaForca(forca.getSigla());
+                
+                qasqms.add(qq);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return qasqms;
+    }
+    
+    private final static String GETQASQMSBYFORCADWR = "SELECT * " +
+                                                      "FROM QasQms " +
+                                                      "WHERE idForca = ?";
+       
+    public static ArrayList<QasQms> getQasQmsByForcaDWR(int idForca){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        ArrayList<QasQms> qasqms = new ArrayList<>();
+        ForcaDAO forcaDAO = new ForcaDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETQASQMSBYFORCADWR);
+            pstm.setInt(1, idForca);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {                
+                QasQms qq = new QasQms();
+                
+                qq.setId(rs.getInt("id"));
+                qq.setNome(rs.getString("nome"));
+                qq.setAbreviatura(rs.getString("abreviatura"));
+                
+                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
+                qq.setIdForca(forca.getId());
+                qq.setNomeForca(forca.getNome());
+                qq.setSiglaForca(forca.getSigla());
                 
                 qasqms.add(qq);
             }

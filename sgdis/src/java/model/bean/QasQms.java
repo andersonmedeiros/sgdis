@@ -12,6 +12,7 @@ package model.bean;
 public class QasQms {
     private int id;
     private String nome, abreviatura;
+    private final Forca forca = new Forca();
 
     public int getId() {
         return id;
@@ -37,5 +38,27 @@ public class QasQms {
         this.abreviatura = abreviatura;
     }
     
-    
+    public int getIdForca() {
+        return forca.getId();
+    }
+
+    public void setIdForca(int id) {
+        forca.setId(id);
+    }
+
+    public String getNomeForca() {
+        return forca.getNome();
+    }
+
+    public void setNomeForca(String nome) {
+        forca.setNome(nome);
+    }
+
+    public String getSiglaForca() {
+        return forca.getSigla();
+    }
+
+    public void setSiglaForca(String sigla) {
+        forca.setSigla(sigla);
+    }
 }
