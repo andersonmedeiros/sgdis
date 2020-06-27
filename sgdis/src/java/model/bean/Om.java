@@ -199,4 +199,20 @@ public class Om {
     public void setSiglaEstadoCidadeEndereco(String siglaEstado) {
         end.setSiglaEstadoCidade(siglaEstado);
     }
+    
+    public int getIdRegiaoEstadoCidadeEndereco() {
+        return end.getIdRegiaoEstadoCidade();
+    }
+
+    public void setIdRegiaoEstadoCidadeEndereco(int id) {
+        end.setIdRegiaoEstadoCidade(id);
+    }
+
+    public String getNomeRegiaoEstadoCidadeEndereco() {
+        return end.getNomeRegiaoEstadoCidade();
+    }
+
+    public void setNomeRegiaoEstadoCidadeEndereco(String nome) {
+        end.setNomeRegiaoEstadoCidade(nome);
+    }
 }

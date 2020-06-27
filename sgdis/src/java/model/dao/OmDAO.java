@@ -166,6 +166,8 @@ public class OmDAO {
                 om.setIdEstadoCidadeEndereco(end.getIdEstadoCidade());
                 om.setNomeEstadoCidadeEndereco(end.getNomeEstadoCidade());
                 om.setSiglaEstadoCidadeEndereco(end.getSiglaEstadoCidade());
+                om.setIdRegiaoEstadoCidadeEndereco(end.getIdRegiaoEstadoCidade());
+                om.setNomeRegiaoEstadoCidadeEndereco(end.getNomeRegiaoEstadoCidade());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -219,6 +221,8 @@ public class OmDAO {
                 om.setIdEstadoCidadeEndereco(end.getIdEstadoCidade());
                 om.setNomeEstadoCidadeEndereco(end.getNomeEstadoCidade());
                 om.setSiglaEstadoCidadeEndereco(end.getSiglaEstadoCidade());
+                om.setIdRegiaoEstadoCidadeEndereco(end.getIdRegiaoEstadoCidade());
+                om.setNomeRegiaoEstadoCidadeEndereco(end.getNomeRegiaoEstadoCidade());
                 
                 oms.add(om);
             }
@@ -321,6 +325,8 @@ public class OmDAO {
                 om.setIdEstadoCidadeEndereco(end.getIdEstadoCidade());
                 om.setNomeEstadoCidadeEndereco(end.getNomeEstadoCidade());
                 om.setSiglaEstadoCidadeEndereco(end.getSiglaEstadoCidade());
+                om.setIdRegiaoEstadoCidadeEndereco(end.getIdRegiaoEstadoCidade());
+                om.setNomeRegiaoEstadoCidadeEndereco(end.getNomeRegiaoEstadoCidade());
 
                 oms.add(om);
             }
@@ -380,6 +386,8 @@ public class OmDAO {
                 om.setIdEstadoCidadeEndereco(end.getIdEstadoCidade());
                 om.setNomeEstadoCidadeEndereco(end.getNomeEstadoCidade());
                 om.setSiglaEstadoCidadeEndereco(end.getSiglaEstadoCidade());
+                om.setIdRegiaoEstadoCidadeEndereco(end.getIdRegiaoEstadoCidade());
+                om.setNomeRegiaoEstadoCidadeEndereco(end.getNomeRegiaoEstadoCidade());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
