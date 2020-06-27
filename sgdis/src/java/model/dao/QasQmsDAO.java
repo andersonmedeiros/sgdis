@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import model.bean.Forca;
 import model.bean.QasQms;
-import model.bean.Taf;
 
 /**
  *
@@ -137,6 +136,8 @@ public class QasQmsDAO {
                 qq.setIdForca(forca.getId());
                 qq.setNomeForca(forca.getNome());
                 qq.setSiglaForca(forca.getSigla());
+                qq.setIdTipoForca(forca.getIdTipoForca());
+                qq.setNomeTipoForca(forca.getNomeTipoForca());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -167,6 +168,8 @@ public class QasQmsDAO {
                 qq.setIdForca(forca.getId());
                 qq.setNomeForca(forca.getNome());
                 qq.setSiglaForca(forca.getSigla());
+                qq.setIdTipoForca(forca.getIdTipoForca());
+                qq.setNomeTipoForca(forca.getNomeTipoForca());
                 
                 qasqms.add(qq);
             }
@@ -202,6 +205,8 @@ public class QasQmsDAO {
                 qq.setIdForca(forca.getId());
                 qq.setNomeForca(forca.getNome());
                 qq.setSiglaForca(forca.getSigla());
+                qq.setIdTipoForca(forca.getIdTipoForca());
+                qq.setNomeTipoForca(forca.getNomeTipoForca());
                 
                 qasqms.add(qq);
             }
@@ -239,6 +244,8 @@ public class QasQmsDAO {
                 qq.setIdForca(forca.getId());
                 qq.setNomeForca(forca.getNome());
                 qq.setSiglaForca(forca.getSigla());
+                qq.setIdTipoForca(forca.getIdTipoForca());
+                qq.setNomeTipoForca(forca.getNomeTipoForca());
                 
                 qasqms.add(qq);
             }

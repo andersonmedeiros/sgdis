@@ -61,4 +61,20 @@ public class EscolaFormacao {
     public void setSiglaForca(String siglaForca) {
         forca.setSigla(siglaForca);
     }
+    
+    public int getIdTipoForca() {
+        return forca.getIdTipoForca();
+    }
+
+    public void setIdTipoForca(int id) {
+        forca.setIdTipoForca(id);
+    }
+
+    public String getNomeTipoForca() {
+        return forca.getNomeTipoForca();
+    }
+
+    public void setNomeTipoForca(String nome) {
+        forca.setNomeTipoForca(nome);
+    }
 }

@@ -102,6 +102,22 @@ public class ChefeImediato {
         pg.setSiglaForca(siglaForca);
     }
     
+    public int getIdTipoForcaPostoGraduacao() {
+        return pg.getIdTipoForca();
+    }
+
+    public void setIdTipoForcaPostoGraduacao(int id) {
+        pg.setIdTipoForca(id);
+    }
+
+    public String getNomeTipoForcaPostoGraduacao() {
+        return pg.getNomeTipoForca();
+    }
+
+    public void setNomeTipoForcaPostoGraduacao(String nome) {
+        pg.setNomeTipoForca(nome);
+    }
+    
     public int getIdCategoriaPostoGraduacao() {
         return pg.getIdCategoria();
     }

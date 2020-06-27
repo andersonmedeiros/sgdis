@@ -76,4 +76,20 @@ public class FormacaoOrigem {
     public void setSiglaForcaEscolaFormacao(String siglaForca) {
         escForm.setSiglaForca(siglaForca);
     }
+    
+    public int getIdTipoForcaEscolaFormacao() {
+        return escForm.getIdTipoForca();
+    }
+
+    public void setIdTipoForcaEscolaFormacao(int id) {
+        escForm.setIdTipoForca(id);
+    }
+
+    public String getNomeTipoForcaEscolaFormacao() {
+        return escForm.getNomeTipoForca();
+    }
+
+    public void setNomeTipoForcaEscolaFormacao(String nome) {
+        escForm.setNomeTipoForca(nome);
+    }
 }

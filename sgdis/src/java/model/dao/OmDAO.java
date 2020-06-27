@@ -146,6 +146,8 @@ public class OmDAO {
                 om.setIdForca(forca.getId());
                 om.setNomeForca(forca.getNome());
                 om.setSiglaForca(forca.getSigla());
+                om.setIdTipoForca(forca.getIdTipoForca());
+                om.setNomeTipoForca(forca.getNomeTipoForca());
 
                 Estado est = estDAO.getEstadoById(rs.getInt("idEstado"));
                 om.setIdEstado(est.getId());
@@ -201,6 +203,8 @@ public class OmDAO {
                 om.setIdForca(forca.getId());
                 om.setNomeForca(forca.getNome());
                 om.setSiglaForca(forca.getSigla());
+                om.setIdTipoForca(forca.getIdTipoForca());
+                om.setNomeTipoForca(forca.getNomeTipoForca());
 
                 Estado est = estDAO.getEstadoById(rs.getInt("idEstado"));
                 om.setIdEstado(est.getId());
@@ -305,6 +309,8 @@ public class OmDAO {
                 om.setIdForca(forca.getId());
                 om.setNomeForca(forca.getNome());
                 om.setSiglaForca(forca.getSigla());
+                om.setIdTipoForca(forca.getIdTipoForca());
+                om.setNomeTipoForca(forca.getNomeTipoForca());
 
                 Estado est = estDAO.getEstadoById(rs.getInt("om.idEstado"));
                 om.setIdEstado(est.getId());
@@ -366,6 +372,8 @@ public class OmDAO {
                 om.setIdForca(forca.getId());
                 om.setNomeForca(forca.getNome());
                 om.setSiglaForca(forca.getSigla());
+                om.setIdTipoForca(forca.getIdTipoForca());
+                om.setNomeTipoForca(forca.getNomeTipoForca());
 
                 Estado est = estDAO.getEstadoById(rs.getInt("om.idEstado"));
                 om.setIdEstado(est.getId());

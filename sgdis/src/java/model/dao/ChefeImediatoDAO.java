@@ -166,6 +166,8 @@ public class ChefeImediatoDAO {
                 chImto.setIdForcaPostoGraduacao(pg.getIdForca());
                 chImto.setNomeForcaPostoGraduacao(pg.getNomeForca());
                 chImto.setSiglaForcaPostoGraduacao(pg.getSiglaForca());
+                chImto.setIdTipoForcaPostoGraduacao(pg.getIdTipoForca());
+                chImto.setNomeTipoForcaPostoGraduacao(pg.getNomeTipoForca());
                 
                 chImto.setIdCategoriaPostoGraduacao(pg.getIdCategoria());
                 chImto.setNomeCategoriaPostoGraduacao(pg.getNomeCategoria());
@@ -210,6 +212,8 @@ public class ChefeImediatoDAO {
                 chImto.setIdForcaPostoGraduacao(pg.getIdForca());
                 chImto.setNomeForcaPostoGraduacao(pg.getNomeForca());
                 chImto.setSiglaForcaPostoGraduacao(pg.getSiglaForca());
+                chImto.setIdTipoForcaPostoGraduacao(pg.getIdTipoForca());
+                chImto.setNomeTipoForcaPostoGraduacao(pg.getNomeTipoForca());
                 
                 chImto.setIdCategoriaPostoGraduacao(pg.getIdCategoria());
                 chImto.setNomeCategoriaPostoGraduacao(pg.getNomeCategoria());

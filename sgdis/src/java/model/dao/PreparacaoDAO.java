@@ -35,7 +35,7 @@ public class PreparacaoDAO {
     
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + prepFisica + "," + apoioFamilia + "," + apoioOM + "," + cursoPreparacaoCOS + "," + problemaRedimento + "," + dedicacaoDoutrinaOPS + "," + fatorMotivador + "," + consultaSite + "," + csltAmbVirtualAl + ")" +
-                                  " VALUES(?,?,?);";
+                                  " VALUES(?,?,?,?,?,?,?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +

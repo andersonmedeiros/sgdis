@@ -146,6 +146,8 @@ public class PostoGraduacaoDAO {
                 pg.setIdForca(forca.getId());
                 pg.setNomeForca(forca.getNome());
                 pg.setSiglaForca(forca.getSigla());
+                pg.setIdTipoForca(forca.getIdTipoForca());
+                pg.setNomeTipoForca(forca.getNomeTipoForca());
 
                 pg.setIdCategoria(cat.getId());
                 pg.setNomeCategoria(cat.getNome());
@@ -190,6 +192,8 @@ public class PostoGraduacaoDAO {
                 pg.setIdForca(forca.getId());
                 pg.setNomeForca(forca.getNome());
                 pg.setSiglaForca(forca.getSigla());
+                pg.setIdTipoForca(forca.getIdTipoForca());
+                pg.setNomeTipoForca(forca.getNomeTipoForca());
 
                 pg.setIdCategoria(cat.getId());
                 pg.setNomeCategoria(cat.getNome());
@@ -236,6 +240,8 @@ public class PostoGraduacaoDAO {
                 pg.setIdForca(forca.getId());
                 pg.setNomeForca(forca.getNome());
                 pg.setSiglaForca(forca.getSigla());
+                pg.setIdTipoForca(forca.getIdTipoForca());
+                pg.setNomeTipoForca(forca.getNomeTipoForca());
 
                 pg.setIdCategoria(cat.getId());
                 pg.setNomeCategoria(cat.getNome());
@@ -281,6 +287,8 @@ public class PostoGraduacaoDAO {
                 pg.setIdForca(forca.getId());
                 pg.setNomeForca(forca.getNome());
                 pg.setSiglaForca(forca.getSigla());
+                pg.setIdTipoForca(forca.getIdTipoForca());
+                pg.setNomeTipoForca(forca.getNomeTipoForca());
 
                 pg.setIdCategoria(cat.getId());
                 pg.setNomeCategoria(cat.getNome());
@@ -328,6 +336,8 @@ public class PostoGraduacaoDAO {
                 pg.setIdForca(forca.getId());
                 pg.setNomeForca(forca.getNome());
                 pg.setSiglaForca(forca.getSigla());
+                pg.setIdTipoForca(forca.getIdTipoForca());
+                pg.setNomeTipoForca(forca.getNomeTipoForca());
 
                 pg.setIdCategoria(cat.getId());
                 pg.setNomeCategoria(cat.getNome());

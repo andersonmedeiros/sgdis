@@ -130,21 +130,56 @@ public class EscolaFormacaoDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
-               
                escolaformacao.setId(rs.getInt("id"));
                escolaformacao.setNome(rs.getString("nome"));
                escolaformacao.setAbreviatura(rs.getString("abreviatura"));
                
+               Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
                escolaformacao.setIdForca(forca.getId());
                escolaformacao.setNomeForca(forca.getNome());
                escolaformacao.setSiglaForca(forca.getSigla());
+               escolaformacao.setIdTipoForca(forca.getIdTipoForca());
+               escolaformacao.setNomeTipoForca(forca.getNomeTipoForca());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
         return escolaformacao;
+    }
+    
+    private final String GETTAFS = "SELECT * " +
+                                   "FROM " + tabela;
+       
+    public ArrayList<EscolaFormacao> getEscolasFormacao(){
+        ArrayList<EscolaFormacao> escolas = new ArrayList<>();
+        ForcaDAO forcaDAO = new ForcaDAO();        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETTAFS);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                EscolaFormacao escolaformacao = new EscolaFormacao();               
+               
+                escolaformacao.setId(rs.getInt("id"));
+                escolaformacao.setNome(rs.getString("nome"));
+                escolaformacao.setAbreviatura(rs.getString("abreviatura"));
+
+                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
+                escolaformacao.setIdForca(forca.getId());
+                escolaformacao.setNomeForca(forca.getNome());
+                escolaformacao.setSiglaForca(forca.getSigla());
+                escolaformacao.setIdTipoForca(forca.getIdTipoForca());
+                escolaformacao.setNomeTipoForca(forca.getNomeTipoForca());
+
+                escolas.add(escolaformacao);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return escolas;
     }
     
     private final static String GETESCOLASFORMACAOBYIDFORCADWR = "SELECT * " +
@@ -165,18 +200,20 @@ public class EscolaFormacaoDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               EscolaFormacao escolaformacao = new EscolaFormacao();
-               Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
-               
-               escolaformacao.setId(rs.getInt("id"));
-               escolaformacao.setNome(rs.getString("nome"));
-               escolaformacao.setAbreviatura(rs.getString("abreviatura"));
-               
-               escolaformacao.setIdForca(forca.getId());
-               escolaformacao.setNomeForca(forca.getNome());
-               escolaformacao.setSiglaForca(forca.getSigla());
-               
-               escolas.add(escolaformacao);
+                EscolaFormacao escolaformacao = new EscolaFormacao();               
+
+                escolaformacao.setId(rs.getInt("id"));
+                escolaformacao.setNome(rs.getString("nome"));
+                escolaformacao.setAbreviatura(rs.getString("abreviatura"));
+
+                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
+                escolaformacao.setIdForca(forca.getId());
+                escolaformacao.setNomeForca(forca.getNome());
+                escolaformacao.setSiglaForca(forca.getSigla());
+                escolaformacao.setIdTipoForca(forca.getIdTipoForca());
+                escolaformacao.setNomeTipoForca(forca.getNomeTipoForca());
+
+                escolas.add(escolaformacao);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {

@@ -166,6 +166,8 @@ public class ComandanteDAO {
                 cmt.setIdForcaPostoGraduacao(pg.getIdForca());
                 cmt.setNomeForcaPostoGraduacao(pg.getNomeForca());
                 cmt.setSiglaForcaPostoGraduacao(pg.getSiglaForca());
+                cmt.setIdTipoForcaPostoGraduacao(pg.getIdTipoForca());
+                cmt.setNomeTipoForcaPostoGraduacao(pg.getNomeTipoForca());
                 
                 cmt.setIdCategoriaPostoGraduacao(pg.getIdCategoria());
                 cmt.setNomeCategoriaPostoGraduacao(pg.getNomeCategoria());
@@ -210,6 +212,8 @@ public class ComandanteDAO {
                 cmt.setIdForcaPostoGraduacao(pg.getIdForca());
                 cmt.setNomeForcaPostoGraduacao(pg.getNomeForca());
                 cmt.setSiglaForcaPostoGraduacao(pg.getSiglaForca());
+                cmt.setIdTipoForcaPostoGraduacao(pg.getIdTipoForca());
+                cmt.setNomeTipoForcaPostoGraduacao(pg.getNomeTipoForca());
                 
                 cmt.setIdCategoriaPostoGraduacao(pg.getIdCategoria());
                 cmt.setNomeCategoriaPostoGraduacao(pg.getNomeCategoria());

@@ -124,17 +124,19 @@ public class FormacaoOrigemDAO {
             pstm.setInt(1, idFormacaoOrigem);
            
             rs = pstm.executeQuery();
-            while (rs.next()) {
-                EscolaFormacao escform = escformDAO.getEscolaFormacaoById(rs.getInt("idEscolaFormacao"));
+            while (rs.next()) {                
                 formorigem.setId(rs.getInt("id"));
                 formorigem.setTurma(rs.getInt("turma"));
                 
+                EscolaFormacao escform = escformDAO.getEscolaFormacaoById(rs.getInt("idEscolaFormacao"));
                 formorigem.setIdEscolaFormacao(escform.getId());
                 formorigem.setNomeEscolaFormacao(escform.getNome());
                 formorigem.setAbreviaturaEscolaFormacao(escform.getAbreviatura());
                 formorigem.setIdForcaEscolaFormacao(escform.getIdForca());
                 formorigem.setNomeForcaEscolaFormacao(escform.getNomeForca());
                 formorigem.setSiglaForcaEscolaFormacao(escform.getSiglaForca());
+                formorigem.setIdTipoForcaEscolaFormacao(escform.getIdTipoForca());
+                formorigem.setNomeTipoForcaEscolaFormacao(escform.getNomeTipoForca());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -147,7 +149,7 @@ public class FormacaoOrigemDAO {
                                               "FROM " + tabela;
        
     public ArrayList<FormacaoOrigem> getFormacoesOrigem(){
-        ArrayList<FormacaoOrigem> formsoigem = new ArrayList<>();  
+        ArrayList<FormacaoOrigem> formsorigem = new ArrayList<>();  
         EscolaFormacaoDAO escformDAO = new EscolaFormacaoDAO();
         try {
             conn = ConnectionFactory.getConnection();
@@ -157,23 +159,25 @@ public class FormacaoOrigemDAO {
             while (rs.next()) {
                 FormacaoOrigem formorigem = new FormacaoOrigem();
                 
-                EscolaFormacao escform = escformDAO.getEscolaFormacaoById(rs.getInt("idEscolaFormacao"));
                 formorigem.setId(rs.getInt("id"));
                 formorigem.setTurma(rs.getInt("turma"));
                 
+                EscolaFormacao escform = escformDAO.getEscolaFormacaoById(rs.getInt("idEscolaFormacao"));
                 formorigem.setIdEscolaFormacao(escform.getId());
                 formorigem.setNomeEscolaFormacao(escform.getNome());
                 formorigem.setAbreviaturaEscolaFormacao(escform.getAbreviatura());
                 formorigem.setIdForcaEscolaFormacao(escform.getIdForca());
                 formorigem.setNomeForcaEscolaFormacao(escform.getNomeForca());
                 formorigem.setSiglaForcaEscolaFormacao(escform.getSiglaForca());
+                formorigem.setIdTipoForcaEscolaFormacao(escform.getIdTipoForca());
+                formorigem.setNomeTipoForcaEscolaFormacao(escform.getNomeTipoForca());
                 
-                formsoigem.add(formorigem);
+                formsorigem.add(formorigem);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return formsoigem;
+        return formsorigem;
     }
 }

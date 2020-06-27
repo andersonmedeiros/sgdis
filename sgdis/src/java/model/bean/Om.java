@@ -72,6 +72,22 @@ public class Om {
         forca.setSigla(siglaForca);
     }
     
+    public int getIdTipoForca() {
+        return forca.getIdTipoForca();
+    }
+
+    public void setIdTipoForca(int id) {
+        forca.setIdTipoForca(id);
+    }
+
+    public String getNomeTipoForca() {
+        return forca.getNomeTipoForca();
+    }
+
+    public void setNomeTipoForca(String nome) {
+        forca.setNomeTipoForca(nome);
+    }
+    
     public int getIdEstado() {
         return est.getId();
     }
