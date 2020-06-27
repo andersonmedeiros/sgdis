@@ -12,11 +12,7 @@ package model.bean;
 public class Forca {
     int id;
     String nome, sigla;
-    private TipoForca tipoforca;
-
-    public Forca() {
-        tipoforca = new TipoForca();
-    }
+    private final TipoForca tipoforca = new TipoForca();
 
     public int getId() {
         return id;

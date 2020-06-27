@@ -31,6 +31,11 @@ public class ForcaDAO {
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + idTipoForca + ")" +
                                   " VALUES(?,?,?,?);";
+    
+    //Update SQL
+    private final String UPDATE = "UPDATE " + tabela +
+                                  " SET " + nome + "=?, " + sigla + "=?, " + idTipoForca + "=?, " +
+                                  "WHERE " + id + "=?;";    
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -67,6 +72,29 @@ public class ForcaDAO {
         }
     }
     
+    //Update SQL
+    public void update(Forca forca) {
+        if (forca != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(UPDATE);                
+                
+                pstm.setString(1, forca.getNome());
+                pstm.setString(2, forca.getSigla());
+                pstm.setInt(3, forca.getIdTipoForca());
+                pstm.setInt(4, forca.getId());
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
+            throw new RuntimeException();
+        }
+    }
+    
     //Delete SQL
     public void delete(int id) {
         if (id != 0){
@@ -86,25 +114,25 @@ public class ForcaDAO {
         }
     }
     
-    private final String GETFORCA = "SELECT * " +
-                                    "FROM Forca " + 
-                                    "WHERE id = ?;";
+    private final String GETFORCABYID = "SELECT * " +
+                                        "FROM Forca " + 
+                                        "WHERE id = ?;";
        
     public Forca getForcaById(int idForca){
         Forca forca = new Forca();     
         TipoForcaDAO tipoforcaDAO = new TipoForcaDAO();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETFORCA);
+            pstm = conn.prepareStatement(GETFORCABYID);
             pstm.setInt(1, idForca);
            
             rs = pstm.executeQuery();
-            while (rs.next()) {
-                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
+            while (rs.next()) {                
                 forca.setId(rs.getInt("id"));
                 forca.setNome(rs.getString("nome"));
                 forca.setSigla(rs.getString("sigla"));
                 
+                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
                 forca.setIdTipoForca(tipoforca.getId());
                 forca.setNomeTipoForca(tipoforca.getNome());
                 
@@ -116,7 +144,38 @@ public class ForcaDAO {
         return forca;
     }
     
-    private final static String GETFORCADWR = "SELECT * " +
+    private final String GETFORCAS = "SELECT * " +
+                                   "FROM " + tabela;
+       
+    public ArrayList<Forca> getForcas(){
+        ArrayList<Forca> forcas = new ArrayList<>(); 
+        TipoForcaDAO tipoforcaDAO = new TipoForcaDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETFORCAS);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Forca forca = new Forca();
+
+                forca.setId(rs.getInt("id"));
+                forca.setNome(rs.getString("nome"));
+                forca.setSigla(rs.getString("sigla"));
+
+                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
+                forca.setIdTipoForca(tipoforca.getId());
+                forca.setNomeTipoForca(tipoforca.getNome());
+
+                forcas.add(forca);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return forcas;
+    }
+    
+    private final static String GETFORCABYIDDWR = "SELECT * " +
                                               "FROM Forca " + 
                                               "WHERE id = ?;";
        
@@ -128,16 +187,16 @@ public class ForcaDAO {
         TipoForcaDAO tipoforcaDAO = new TipoForcaDAO();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETFORCADWR);
+            pstm = conn.prepareStatement(GETFORCABYIDDWR);
             pstm.setInt(1, idForca);
            
             rs = pstm.executeQuery();
-            while (rs.next()) {
-                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
+            while (rs.next()) {                
                 forca.setId(rs.getInt("id"));
                 forca.setNome(rs.getString("nome"));
                 forca.setSigla(rs.getString("sigla"));
                 
+                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
                 forca.setIdTipoForca(tipoforca.getId());
                 forca.setNomeTipoForca(tipoforca.getNome());
             }
@@ -166,14 +225,15 @@ public class ForcaDAO {
             rs = pstm.executeQuery();
             while (rs.next()) {
                 Forca forca = new Forca();
-                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
+
                 forca.setId(rs.getInt("id"));
                 forca.setNome(rs.getString("nome"));
                 forca.setSigla(rs.getString("sigla"));
-                
+
+                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
                 forca.setIdTipoForca(tipoforca.getId());
                 forca.setNomeTipoForca(tipoforca.getNome());
-                
+
                 forcas.add(forca);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
@@ -184,7 +244,7 @@ public class ForcaDAO {
     }
     
     private final static String GETFORCASDWR = "SELECT * " +
-                                            "FROM Forca";
+                                               "FROM Forca";
        
     public static ArrayList<Forca> getForcasDWR(){
         Connection conn = null;
@@ -200,11 +260,12 @@ public class ForcaDAO {
             rs = pstm.executeQuery();
             while (rs.next()) {
                 Forca forca = new Forca();
-                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
+                
                 forca.setId(rs.getInt("id"));
                 forca.setNome(rs.getString("nome"));
                 forca.setSigla(rs.getString("sigla"));
                 
+                TipoForca tipoforca = tipoforcaDAO.getTipoForcaById(rs.getInt("idTipoForca"));
                 forca.setIdTipoForca(tipoforca.getId());
                 forca.setNomeTipoForca(tipoforca.getNome());                
                 
