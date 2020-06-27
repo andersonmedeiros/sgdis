@@ -107,7 +107,7 @@ public class EstadoCivilDAO {
         }
     }
     
-    private final String GETESTADOCIVILDWR = "SELECT * " +
+    private final String GETESTADOCIVILBYID = "SELECT * " +
                                              "FROM EstadoCivil " + 
                                              "WHERE id = ?;";
        
@@ -115,7 +115,7 @@ public class EstadoCivilDAO {
         EstadoCivil ec = new EstadoCivil();        
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETESTADOCIVILDWR);
+            pstm = conn.prepareStatement(GETESTADOCIVILBYID);
             pstm.setInt(1, idEstadoCivil);
            
             rs = pstm.executeQuery();
@@ -128,6 +128,31 @@ public class EstadoCivilDAO {
             throw new RuntimeException(e.getMessage());           
         }
         return ec;
+    }
+    
+    private final String GETESTADOSCIVIS = "SELECT * " +
+                                           "FROM " + tabela;
+       
+    public ArrayList<EstadoCivil> getEstadosCivis(){
+        ArrayList<EstadoCivil> ecs = new ArrayList<>();        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETESTADOSCIVIS);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                EstadoCivil ec = new EstadoCivil();
+                
+                ec.setId(rs.getInt("id"));
+                ec.setNome(rs.getString("nome"));
+                
+                ecs.add(ec);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return ecs;
     }
     
     private final static String GETESTADOSCIVISDWR = "SELECT * " +
