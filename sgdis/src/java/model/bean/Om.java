@@ -13,6 +13,7 @@ public class Om {
     private int id;
     private String nome, abreviatura, numendereco;
     private final Forca forca = new Forca();
+    private final Estado est = new Estado();
     private final Endereco end = new Endereco();
 
     public int getId() {
@@ -69,6 +70,30 @@ public class Om {
 
     public void setSiglaForca(String siglaForca) {
         forca.setSigla(siglaForca);
+    }
+    
+    public int getIdEstado() {
+        return est.getId();
+    }
+
+    public void setIdEstado(int id) {
+        est.setId(id);
+    }
+
+    public String getNomeEstado() {
+        return est.getNome();
+    }
+
+    public void setNomeEstado(String nome) {
+        est.setNome(nome);
+    }
+
+    public String getSiglaEstado() {
+        return est.getSigla();
+    }
+
+    public void setSiglaEstado(String sigla) {
+        est.setSigla(sigla);
     }
     
     public int getIdEndereco() {
