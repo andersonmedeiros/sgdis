@@ -151,6 +151,8 @@ public class OmDAO {
                 om.setIdEstado(est.getId());
                 om.setNomeEstado(est.getNome());
                 om.setSiglaEstado(est.getSigla());
+                om.setIdRegiaoEstado(est.getIdRegiao());
+                om.setNomeRegiaoEstado(est.getNomeRegiao());
 
                 Endereco end = endDAO.getEnderecoById(rs.getInt("idEndereco"));
                 om.setIdEndereco(end.getId());
@@ -202,6 +204,8 @@ public class OmDAO {
                 om.setIdEstado(est.getId());
                 om.setNomeEstado(est.getNome());
                 om.setSiglaEstado(est.getSigla());
+                om.setIdRegiaoEstado(est.getIdRegiao());
+                om.setNomeRegiaoEstado(est.getNomeRegiao());
 
                 Endereco end = endDAO.getEnderecoById(rs.getInt("idEndereco"));
                 om.setIdEndereco(end.getId());
@@ -244,17 +248,17 @@ public class OmDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               Om om = new Om();
-               
-               om.setId(rs.getInt("id"));
-               om.setNome(rs.getString("nome"));
-               om.setAbreviatura(rs.getString("abreviatura"));
-               om.setNumendereco(rs.getString("numendereco"));
-               om.setIdForca(rs.getInt("idForca"));
-               om.setIdEstadoCidadeEndereco(rs.getInt("idEstado"));
-               om.setIdEndereco(rs.getInt("idEndereco"));
-                
-               oms.add(om);
+                Om om = new Om();
+
+                om.setId(rs.getInt("id"));
+                om.setNome(rs.getString("nome"));
+                om.setAbreviatura(rs.getString("abreviatura"));
+                om.setNumendereco(rs.getString("numendereco"));
+                om.setIdForca(rs.getInt("idForca"));
+                om.setIdEstadoCidadeEndereco(rs.getInt("idEstado"));
+                om.setIdEndereco(rs.getInt("idEndereco"));
+
+                oms.add(om);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -286,37 +290,39 @@ public class OmDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               Om om = new Om();
+                Om om = new Om();
+
+                om.setId(rs.getInt("om.id"));
+                om.setNome(rs.getString("om.nome"));
+                om.setAbreviatura(rs.getString("om.abreviatura"));
+                om.setNumendereco(rs.getString("om.numendereco"));
+
+                Forca forca = forcaDAO.getForcaById(rs.getInt("om.idForca"));
+                om.setIdForca(forca.getId());
+                om.setNomeForca(forca.getNome());
+                om.setSiglaForca(forca.getSigla());
+
+                Estado est = estDAO.getEstadoById(rs.getInt("om.idEstado"));
+                om.setIdEstado(est.getId());
+                om.setNomeEstado(est.getNome());
+                om.setSiglaEstado(est.getSigla());
+                om.setIdRegiaoEstado(est.getIdRegiao());
+                om.setNomeRegiaoEstado(est.getNomeRegiao());
                
-               om.setId(rs.getInt("om.id"));
-               om.setNome(rs.getString("om.nome"));
-               om.setAbreviatura(rs.getString("om.abreviatura"));
-               om.setNumendereco(rs.getString("om.numendereco"));
-               
-               Forca forca = forcaDAO.getForcaById(rs.getInt("om.idForca"));
-               om.setIdForca(forca.getId());
-               om.setNomeForca(forca.getNome());
-               om.setSiglaForca(forca.getSigla());
-               
-               Estado est = estDAO.getEstadoById(rs.getInt("om.idEstado"));
-               om.setIdEstado(est.getId());
-               om.setNomeEstado(est.getNome());
-               om.setSiglaEstado(est.getSigla());
-               
-               Endereco end = endDAO.getEnderecoById(rs.getInt("om.idEndereco"));
-               om.setIdEndereco(end.getId());
-               om.setCepEndereco(end.getCep());
-               om.setDescricaoEndereco(end.getDescricao());
-               om.setComplementoEndereco(end.getComplemento());
-               om.setPontoreferenciaEndereco(end.getPontoreferencia());
-               om.setBairroEndereco(end.getBairro());
-               om.setIdCidadeEndereco(end.getIdCidade());
-               om.setNomeCidadeEndereco(end.getNomeCidade());
-               om.setIdEstadoCidadeEndereco(end.getIdEstadoCidade());
-               om.setNomeEstadoCidadeEndereco(end.getNomeEstadoCidade());
-               om.setSiglaEstadoCidadeEndereco(end.getSiglaEstadoCidade());
-                
-               oms.add(om);
+                Endereco end = endDAO.getEnderecoById(rs.getInt("om.idEndereco"));
+                om.setIdEndereco(end.getId());
+                om.setCepEndereco(end.getCep());
+                om.setDescricaoEndereco(end.getDescricao());
+                om.setComplementoEndereco(end.getComplemento());
+                om.setPontoreferenciaEndereco(end.getPontoreferencia());
+                om.setBairroEndereco(end.getBairro());
+                om.setIdCidadeEndereco(end.getIdCidade());
+                om.setNomeCidadeEndereco(end.getNomeCidade());
+                om.setIdEstadoCidadeEndereco(end.getIdEstadoCidade());
+                om.setNomeEstadoCidadeEndereco(end.getNomeEstadoCidade());
+                om.setSiglaEstadoCidadeEndereco(end.getSiglaEstadoCidade());
+
+                oms.add(om);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -345,33 +351,35 @@ public class OmDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               om.setId(rs.getInt("id"));
-               om.setNome(rs.getString("nome"));
-               om.setAbreviatura(rs.getString("abreviatura"));
-               om.setNumendereco(rs.getString("numendereco"));
+                om.setId(rs.getInt("id"));
+                om.setNome(rs.getString("nome"));
+                om.setAbreviatura(rs.getString("abreviatura"));
+                om.setNumendereco(rs.getString("numendereco"));
+
+                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
+                om.setIdForca(forca.getId());
+                om.setNomeForca(forca.getNome());
+                om.setSiglaForca(forca.getSigla());
+
+                Estado est = estDAO.getEstadoById(rs.getInt("om.idEstado"));
+                om.setIdEstado(est.getId());
+                om.setNomeEstado(est.getNome());
+                om.setSiglaEstado(est.getSigla());
+                om.setIdRegiaoEstado(est.getIdRegiao());
+                om.setNomeRegiaoEstado(est.getNomeRegiao());
                
-               Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
-               om.setIdForca(forca.getId());
-               om.setNomeForca(forca.getNome());
-               om.setSiglaForca(forca.getSigla());
-               
-               Estado est = estDAO.getEstadoById(rs.getInt("om.idEstado"));
-               om.setIdEstado(est.getId());
-               om.setNomeEstado(est.getNome());
-               om.setSiglaEstado(est.getSigla());
-               
-               Endereco end = endDAO.getEnderecoById(rs.getInt("idEndereco"));
-               om.setIdEndereco(end.getId());
-               om.setCepEndereco(end.getCep());
-               om.setDescricaoEndereco(end.getDescricao());
-               om.setComplementoEndereco(end.getComplemento());
-               om.setPontoreferenciaEndereco(end.getPontoreferencia());
-               om.setBairroEndereco(end.getBairro());
-               om.setIdCidadeEndereco(end.getIdCidade());
-               om.setNomeCidadeEndereco(end.getNomeCidade());
-               om.setIdEstadoCidadeEndereco(end.getIdEstadoCidade());
-               om.setNomeEstadoCidadeEndereco(end.getNomeEstadoCidade());
-               om.setSiglaEstadoCidadeEndereco(end.getSiglaEstadoCidade());
+                Endereco end = endDAO.getEnderecoById(rs.getInt("idEndereco"));
+                om.setIdEndereco(end.getId());
+                om.setCepEndereco(end.getCep());
+                om.setDescricaoEndereco(end.getDescricao());
+                om.setComplementoEndereco(end.getComplemento());
+                om.setPontoreferenciaEndereco(end.getPontoreferencia());
+                om.setBairroEndereco(end.getBairro());
+                om.setIdCidadeEndereco(end.getIdCidade());
+                om.setNomeCidadeEndereco(end.getNomeCidade());
+                om.setIdEstadoCidadeEndereco(end.getIdEstadoCidade());
+                om.setNomeEstadoCidadeEndereco(end.getNomeEstadoCidade());
+                om.setSiglaEstadoCidadeEndereco(end.getSiglaEstadoCidade());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {

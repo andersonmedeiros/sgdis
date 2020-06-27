@@ -96,6 +96,22 @@ public class Om {
         est.setSigla(sigla);
     }
     
+    public int getIdRegiaoEstado() {
+        return est.getIdRegiao();
+    }
+
+    public void setIdRegiaoEstado(int id) {
+        est.setIdRegiao(id);
+    }
+
+    public String getNomeRegiaoEstado() {
+        return est.getNomeRegiao();
+    }
+
+    public void setNomeRegiaoEstado(String nome) {
+        est.setNomeRegiao(nome);
+    }
+    
     public int getIdEndereco() {
         return end.getId();
     }
