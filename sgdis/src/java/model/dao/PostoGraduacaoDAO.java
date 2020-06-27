@@ -34,6 +34,11 @@ public class PostoGraduacaoDAO {
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + abreviatura + "," + circulohierarquico + "," + idForca + "," + idCategoria + ") " +
                                   "VALUES(?,?,?,?,?,?);";
+    
+    //Update SQL
+    private final String UPDATE = "UPDATE " + tabela +
+                                  " SET " + nome + "=?, " + abreviatura + "=?, " + circulohierarquico + "=?, " + idForca + "=?, " + idCategoria + "=?, " +
+                                  "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -44,17 +49,88 @@ public class PostoGraduacaoDAO {
     PreparedStatement pstm = null;
     ResultSet rs = null;
     
-    private final String GETPOSTOGRADUACAO = "SELECT * " +
+    //Insert SQL
+    public void insert(PostoGraduacao pg) {
+        if (pg != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                
+                pstm = conn.prepareStatement(INSERT);
+                
+                pstm.setInt(1, pg.getId());
+                pstm.setString(2, pg.getNome());
+                pstm.setString(3, pg.getAbreviatura());
+                pstm.setString(4, pg.getCirculohierarquico());
+                pstm.setInt(5, pg.getIdForca());
+                pstm.setInt(6, pg.getIdCategoria());
+                                                              
+                pstm.execute();
+                
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {
+            throw new RuntimeException();
+        }
+    }
+    
+    //Update SQL
+    public void update(PostoGraduacao pg) {
+        if (pg != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(UPDATE);
+                                
+                pstm.setString(1, pg.getNome());
+                pstm.setString(2, pg.getAbreviatura());
+                pstm.setString(3, pg.getCirculohierarquico());
+                pstm.setInt(4, pg.getIdForca());
+                pstm.setInt(5, pg.getIdCategoria());
+                pstm.setInt(6, pg.getId());
+                
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
+            throw new RuntimeException();
+        }
+    }
+    
+    //Delete SQL
+    public void delete(int id) {
+        if (id != 0){
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(DELETE);
+                pstm.setInt(1, id);
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
+            throw new RuntimeException();
+        }
+    }
+    
+    private final String GETPOSTOGRADUACAOBYID = "SELECT * " +
                                              "FROM PostoGraduacao " + 
                                              "WHERE id = ?";
        
-    public PostoGraduacao getPostoGraduacao(int idPG){
+    public PostoGraduacao getPostoGraduacaoById(int idPG){
         PostoGraduacao pg = new PostoGraduacao();
         ForcaDAO forcaDAO = new ForcaDAO();
         CategoriaDAO catDAO = new CategoriaDAO();  
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETPOSTOGRADUACAO);
+            pstm = conn.prepareStatement(GETPOSTOGRADUACAOBYID);
             pstm.setInt(1, idPG);
            
             rs = pstm.executeQuery();
