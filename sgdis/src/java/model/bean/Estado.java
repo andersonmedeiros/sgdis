@@ -12,7 +12,8 @@ package model.bean;
 public class Estado {
     private int id;
     private String nome, sigla;
-
+    private final Regiao r = new Regiao();
+    
     public int getId() {
         return id;
     }
@@ -35,5 +36,21 @@ public class Estado {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+    
+    public int getIdRegiao() {
+        return r.getId();
+    }
+
+    public void setIdRegiao(int id) {
+        r.setId(id);
+    }
+
+    public String getNomeRegiao() {
+        return r.getNome();
+    }
+
+    public void setNomeRegiao(String nome) {
+        r.setNome(nome);
     }
 }

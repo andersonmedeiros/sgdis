@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.bean.Estado;
+import model.bean.Regiao;
 
 /**
  *
@@ -25,10 +26,16 @@ public class EstadoDAO {
     String id = "id";
     String nome = "nome";
     String sigla = "sigla";
+    String idRegiao = "idRegiao";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + ")" +
-                                  " VALUES(?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + sigla + "," + idRegiao + ")" +
+                                  " VALUES(?,?,?,?);";
+    
+    //Update SQL
+    private final String UPDATE = "UPDATE " + tabela +
+                                  " SET " + nome + "=?, " + sigla + "=?, " + idRegiao + "=?, " +
+                                  "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -51,6 +58,7 @@ public class EstadoDAO {
                 pstm.setInt(1, estado.getId());
                 pstm.setString(2, estado.getNome());
                 pstm.setString(3, estado.getSigla());
+                pstm.setInt(4, estado.getIdRegiao());
                                                               
                 pstm.execute();
                 
@@ -60,6 +68,29 @@ public class EstadoDAO {
                 throw new RuntimeException(e.getMessage());  
             }
         } else {
+            throw new RuntimeException();
+        }
+    }
+    
+    //Update SQL
+    public void update(Estado estado) {
+        if (estado != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(UPDATE);                
+                
+                pstm.setString(1, estado.getNome());
+                pstm.setString(2, estado.getSigla());
+                pstm.setInt(3, estado.getIdRegiao());
+                pstm.setInt(4, estado.getId());
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
             throw new RuntimeException();
         }
     }
@@ -84,16 +115,16 @@ public class EstadoDAO {
     }
     
     
-    private final String GETESTADO = "SELECT * " +
+    private final String GETESTADOBYID = "SELECT * " +
                                      "FROM Estado " + 
                                      "WHERE id = ?";
     
     public Estado getEstadoById(int idEstado){
         Estado estado = new Estado();
-        
+        RegiaoDAO rDAO = new RegiaoDAO();
         try{
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETESTADO);
+            pstm = conn.prepareStatement(GETESTADOBYID);
             pstm.setInt(1, idEstado);
            
             rs = pstm.executeQuery();
@@ -101,12 +132,47 @@ public class EstadoDAO {
                estado.setId(rs.getInt("id"));
                estado.setNome(rs.getString("nome"));
                estado.setSigla(rs.getString("sigla"));
+               
+               Regiao r = rDAO.getRegiaoById(rs.getInt("idRegiao"));
+               estado.setIdRegiao(r.getId());
+               estado.setNomeRegiao(r.getNome());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
         return estado;
+    }
+    
+    private final String GETESTADOS = "SELECT * " +
+                                   "FROM " + tabela;
+       
+    public ArrayList<Estado> getEstados(){
+        ArrayList<Estado> estados = new ArrayList<>();   
+        RegiaoDAO rDAO = new RegiaoDAO();     
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETESTADOS);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Estado estado = new Estado();
+
+                estado.setId(rs.getInt("id"));
+                estado.setNome(rs.getString("nome"));
+                estado.setSigla(rs.getString("sigla"));
+
+                Regiao r = rDAO.getRegiaoById(rs.getInt("idRegiao"));
+                estado.setIdRegiao(r.getId());
+                estado.setNomeRegiao(r.getNome());
+
+                estados.add(estado);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return estados;
     }
     
     private final static String GETESTADOSDWR = "SELECT * " +
@@ -117,20 +183,24 @@ public class EstadoDAO {
         PreparedStatement pstm = null;
         ResultSet rs = null;
         ArrayList<Estado> estados = new ArrayList<>();
-        
+        RegiaoDAO rDAO = new RegiaoDAO();
         try{
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETESTADOSDWR);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-               Estado estado = new Estado();
-               
-               estado.setId(rs.getInt("id"));
-               estado.setNome(rs.getString("nome"));
-               estado.setSigla(rs.getString("sigla"));
-                
-               estados.add(estado);
+                Estado estado = new Estado();
+
+                estado.setId(rs.getInt("id"));
+                estado.setNome(rs.getString("nome"));
+                estado.setSigla(rs.getString("sigla"));
+
+                Regiao r = rDAO.getRegiaoById(rs.getInt("idRegiao"));
+                estado.setIdRegiao(r.getId());
+                estado.setNomeRegiao(r.getNome());
+
+                estados.add(estado);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
