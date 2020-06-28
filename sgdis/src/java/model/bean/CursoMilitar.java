@@ -10,8 +10,8 @@ package model.bean;
  * @author anderson
  */
 public class CursoMilitar {
-    int id, tipo;
-    String nome;
+    private int id, tipo;
+    private String nome;
 
     public int getId() {
         return id;

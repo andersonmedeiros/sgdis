@@ -29,6 +29,11 @@ public class CursoMilitarDAO {
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + "," + tipo + ")" +
                                   " VALUES(?,?,?);";
+    
+    //Update SQL
+    private final String UPDATE = "UPDATE " + tabela +
+                                  " SET " + nome + "=?, " + tipo + "=?, " + 
+                                  "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -64,6 +69,28 @@ public class CursoMilitarDAO {
         }
     }
     
+    //Update SQL
+    public void update(CursoMilitar cursomilitar) {
+        if (cursomilitar != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(UPDATE);                             
+                                
+                pstm.setString(1, cursomilitar.getNome());
+                pstm.setInt(2, cursomilitar.getTipo());
+                pstm.setInt(3, cursomilitar.getId());
+                
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
+            throw new RuntimeException();
+        }
+    }
+    
     //Delete SQL
     public void delete(int id) {
         if (id != 0){
@@ -83,15 +110,15 @@ public class CursoMilitarDAO {
         }
     }
     
-    private final String GETCURSOMILITAR = "SELECT * " +
-                                           "FROM CursoMilitar " + 
-                                           "WHERE id = ?;";
+    private final String GETCURSOMILITARBYID = "SELECT * " +
+                                               "FROM CursoMilitar " + 
+                                               "WHERE id = ?;";
        
     public CursoMilitar getCursoMilitarById(int idCursoMilitar){
         CursoMilitar cursomilitar = new CursoMilitar();        
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCURSOMILITAR);
+            pstm = conn.prepareStatement(GETCURSOMILITARBYID);
             pstm.setInt(1, idCursoMilitar);
            
             rs = pstm.executeQuery();
@@ -105,6 +132,32 @@ public class CursoMilitarDAO {
             throw new RuntimeException(e.getMessage());           
         }
         return cursomilitar;
+    }
+    
+    private final String GETCURSOSMILITARES = "SELECT * " +
+                                              "FROM " + tabela;
+       
+    public ArrayList<CursoMilitar> getCursosMilitares(){
+        ArrayList<CursoMilitar> cursosmilitares = new ArrayList<>();        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETCURSOSMILITARES);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                CursoMilitar cursomilitar = new CursoMilitar();
+                
+                cursomilitar.setId(rs.getInt(id));
+                cursomilitar.setNome(rs.getString(nome));
+                cursomilitar.setTipo(rs.getInt(tipo));
+                
+                cursosmilitares.add(cursomilitar);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return cursosmilitares;
     }
     
     private final static String GETCURSOSMILITARESDWR = "SELECT * " +
