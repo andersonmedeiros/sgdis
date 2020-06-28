@@ -27,7 +27,7 @@ public class IdiomaDAO {
     
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome + ")"
-                                    + " VALUES(?,?,?);";
+                                    + " VALUES(?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
@@ -152,9 +152,6 @@ public class IdiomaDAO {
     
     //Lista com todas os Idiomas
     public ArrayList<Idioma> getIdiomas(){
-        conn = null;
-        pstm = null;
-        rs = null;
         ArrayList<Idioma> idiomas = new ArrayList<>();
         
         try {
