@@ -10,8 +10,8 @@ package model.bean;
  * @author anderson
  */
 public class Tentativa {
-    int id, situacao;
-    String mtvDeslg, faseDeslg, postoGraduacaoAluno, nomeOM, curso, turma;
+    int id;
+    String mtvDeslg, faseDeslg;
 
     public int getId() {
         return id;
@@ -19,14 +19,6 @@ public class Tentativa {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(int situacao) {
-        this.situacao = situacao;
     }
 
     public String getMtvDeslg() {
@@ -43,37 +35,5 @@ public class Tentativa {
 
     public void setFaseDeslg(String faseDeslg) {
         this.faseDeslg = faseDeslg;
-    }
-
-    public String getPostoGraduacaoAluno() {
-        return postoGraduacaoAluno;
-    }
-
-    public void setPostoGraduacaoAluno(String postoGraduacaoAluno) {
-        this.postoGraduacaoAluno = postoGraduacaoAluno;
-    }
-
-    public String getNomeOM() {
-        return nomeOM;
-    }
-
-    public void setNomeOM(String nomeOM) {
-        this.nomeOM = nomeOM;
-    }
-
-    public String getCurso() {
-        return curso;
-    }
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
-    public String getTurma() {
-        return turma;
-    }
-
-    public void setTurma(String turma) {
-        this.turma = turma;
     }
 }

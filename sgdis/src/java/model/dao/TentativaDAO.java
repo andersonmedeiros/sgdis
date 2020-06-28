@@ -23,27 +23,27 @@ public class TentativaDAO {
     
     //Atributos
     String id = "id";
-    String situacao = "situacao";
     String mtvDeslg = "mtvDeslg";
     String faseDeslg = "faseDeslg";
-    String pgAluno = "postoGraduacaoAluno";
-    String nomeOM = "nomeOM";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + situacao + "," + mtvDeslg + "," + faseDeslg + "," + pgAluno + "," + nomeOM + ") " +
-                                  "VALUES(?,?,?,?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + mtvDeslg + "," + faseDeslg + ") " +
+                                  "VALUES(?,?,?);";
+    
+    //Update SQL
+    private final String UPDATE = "UPDATE " + tabela +
+                                  " SET " + mtvDeslg + "=?, " + faseDeslg + "=?, " +
+                                  "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " " +
                                   "WHERE " + id + "=?;";
     
-    //Consultas SQL
-        
+    //Consultas SQL        
     
     Connection conn = null;
     PreparedStatement pstm = null;
-    ResultSet rs = null;
-    
+    ResultSet rs = null;    
     
     //Insert SQL
     public void insert(Tentativa tent) {
@@ -54,11 +54,8 @@ public class TentativaDAO {
                 pstm = conn.prepareStatement(INSERT);
                 
                 pstm.setInt(1, tent.getId());
-                pstm.setInt(2, tent.getSituacao());
-                pstm.setString(3, tent.getMtvDeslg());
-                pstm.setString(4, tent.getFaseDeslg());
-                pstm.setString(5, tent.getPostoGraduacaoAluno());
-                pstm.setString(6, tent.getNomeOM());
+                pstm.setString(2, tent.getMtvDeslg());
+                pstm.setString(3, tent.getFaseDeslg());
                                                               
                 pstm.execute();
                 
@@ -68,6 +65,28 @@ public class TentativaDAO {
                 throw new RuntimeException(e.getMessage());  
             }
         } else {
+            throw new RuntimeException();
+        }
+    }
+    
+    //Update SQL
+    public void update(Tentativa tent) {
+        if (tent != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(UPDATE);                                
+                
+                pstm.setString(1, tent.getMtvDeslg());
+                pstm.setString(2, tent.getFaseDeslg());
+                pstm.setInt(3, tent.getId());
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
             throw new RuntimeException();
         }
     }
@@ -90,6 +109,56 @@ public class TentativaDAO {
             throw new RuntimeException();
         }
     }  
+    
+    private final String GETTENTATIVABYID = "SELECT * " +
+                                            "FROM " + tabela + " " +
+                                            "WHERE id = ?;";
+       
+    public Tentativa getTentativaById(int idTentativa){
+        Tentativa tent = new Tentativa();        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETTENTATIVABYID);
+            pstm.setInt(1, idTentativa);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                tent.setId(rs.getInt("id"));
+               tent.setMtvDeslg(rs.getString("mtvDeslg"));
+               tent.setFaseDeslg(rs.getString("faseDeslg"));
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return tent;
+    }
+    
+    private final String GETTAFS = "SELECT * " +
+                                   "FROM " + tabela;
+       
+    public ArrayList<Tentativa> getTentativas(){
+        ArrayList<Tentativa> tentativas = new ArrayList<>();        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETTAFS);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Tentativa tent = new Tentativa();
+                
+                tent.setId(rs.getInt("id"));
+                tent.setMtvDeslg(rs.getString("mtvDeslg"));
+                tent.setFaseDeslg(rs.getString("faseDeslg"));
+                
+                tentativas.add(tent);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return tentativas;
+    }
     
     private final static String GETQTDETENTBYCANDIDATOANDCURSO = "SELECT COUNT(t_al.idTentativa) AS qtdeTentativas " +
                                                                  "FROM Turma_has_Aluno AS t_al " +
@@ -151,13 +220,8 @@ public class TentativaDAO {
                Tentativa tent = new Tentativa();
                
                tent.setId(rs.getInt("tent.id"));
-               tent.setSituacao(rs.getInt("tent.situacao"));
                tent.setMtvDeslg(rs.getString("tent.mtvDeslg"));
                tent.setFaseDeslg(rs.getString("tent.faseDeslg"));
-               tent.setPostoGraduacaoAluno(rs.getString("tent.postoGraduacaoAluno"));
-               tent.setNomeOM(rs.getString("tent.nomeOM"));
-               tent.setCurso(rs.getString("c.sigla") + " " + rs.getString("cat.nome"));
-               tent.setTurma(rs.getInt("t.ano") + "/" + rs.getInt("t.turma"));
                 
                tentativas.add(tent);
             }
