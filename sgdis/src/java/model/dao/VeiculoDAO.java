@@ -121,6 +121,69 @@ public class VeiculoDAO {
             throw new RuntimeException();
         }
     }
+    
+    private final String GETVEICULOBYID = "SELECT * " +
+                                        "FROM Veiculo " + 
+                                        "WHERE id = ?";
+       
+    public Veiculo getVeiculoById(int id){
+        Veiculo v = new Veiculo();
+        AlunoDAO alDAO = new AlunoDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETVEICULOBYID);
+            pstm.setInt(1, id);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                v.setId(rs.getInt("id"));
+                v.setTipo(rs.getString("tipo"));
+                v.setMarca(rs.getString("marca"));               
+                v.setModelo(rs.getString("modelo"));               
+                v.setCor(rs.getString("cor"));               
+                v.setPlaca(rs.getString("placa"));              
+                
+                Aluno al = alDAO.getAlunoByIdentidade(rs.getString("idtAluno"));
+                v.setIdentidadeAluno(al.getIdentidade());
+                v.setSituacaoAluno(al.getSituacao());
+                v.setIdPostoGraduacaoAluno(al.getIdPostoGraduacao());
+                v.setIdQasQmsAluno(al.getIdQasQms());
+                v.setIdCmtAluno(al.getIdCmt());
+                v.setDataNascimentoAluno(al.getDataNascimento());
+                v.setNomeAluno(al.getNome());
+                v.setSobrenomeAluno(al.getSobrenome());
+                v.setNomeguerraAluno(al.getNomeguerra());
+                v.setPreccpAluno(al.getPreccp());
+                v.setCpAluno(al.getCp());
+                v.setCpfAluno(al.getCpf());
+                v.setUltDataPracaAluno(al.getUltDataPraca());
+                v.setIdNatCidadeAluno(al.getIdNatCidade());
+                v.setIdEstadoCivilAluno(al.getIdEstadoCivil());
+                v.setTsAluno(al.getTs());
+                v.setFtrhAluno(al.getFtrh());
+                v.setPaiAluno(al.getPai());
+                v.setMaeAluno(al.getMae());
+                v.setEmailAluno(al.getEmail());
+                v.setFumanteAluno(al.getFumante());
+                v.setIdOMAluno(al.getIdOM());
+                v.setIdComportamentoAluno(al.getIdComportamento());
+                v.setIdChImtoAluno(al.getIdChImto());
+                v.setIdFormOrigemAluno(al.getIdFormOrigem());
+                v.setSexoAluno(al.getSexo());
+                v.setUltfuncao1Aluno(al.getUltfuncao1());
+                v.setUltfuncao2Aluno(al.getUltfuncao2());
+                v.setUltfuncao3Aluno(al.getUltfuncao3());
+                v.setIdTafAluno(al.getIdTaf());
+                v.setIdPromocaoAluno(al.getIdPromocao());
+                v.setIdPreparacaoAluno(al.getIdPreparacao());
+                v.setIdUniformeAluno(al.getIdUniforme());
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return v;
+    }
         
     private final String GETVEICULOSBYIDTALUNO = "SELECT * " +
                                             "FROM Veiculo " + 
