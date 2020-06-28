@@ -12,10 +12,12 @@ import java.sql.Date;
  * @author depaula
  */
 public class Turma {
-    int id, ano, nTurma, idCurso, idCategoria;
-    Date dataInicio, dataFim;
-    String turma;
-
+    private int id, ano, nTurma;
+    private Date dataInicio, dataFim;
+    private String turma;
+    private final Curso curso = new Curso();
+    private final Categoria cat = new Categoria();
+    
     public int getId() {
         return id;
     }
@@ -38,22 +40,6 @@ public class Turma {
 
     public void setnTurma(int nTurma) {
         this.nTurma = nTurma;
-    }
-
-    public int getIdCurso() {
-        return idCurso;
-    }
-
-    public void setIdCurso(int idCurso) {
-        this.idCurso = idCurso;
-    }
-
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
     }
 
     public Date getDataInicio() {
@@ -79,4 +65,68 @@ public class Turma {
     public void setTurma(String turma) {
         this.turma = turma;
     }
+    
+    public int getIdCurso() {
+        return curso.getId();
+    }
+
+    public void setIdCurso(int id) {
+        curso.setId(id);
+    }
+
+    public String getNomeCurso() {
+        return curso.getNome();
+    }
+
+    public void setNomeCurso(String nome) {
+        curso.setNome(nome);
+    }
+
+    public String getSiglaCurso() {
+        return curso.getSigla();
+    }
+
+    public void setSiglaCurso(String sigla) {
+        curso.setSigla(sigla);
+    }
+
+    public String getPortariaCurso() {
+        return curso.getPortaria();
+    }
+
+    public void setPortariaCurso(String portaria) {
+        curso.setPortaria(portaria);
+    }
+
+    public String getDescricaoCurso() {
+        return curso.getDescricao();
+    }
+
+    public void setDescricaoCurso(String descricao) {
+        curso.setDescricao(descricao);
+    }
+    
+    public int getIdCategoria() {
+        return cat.getId();
+    }
+
+    public void setIdCategoria(int id) {
+        cat.setId(id);
+    }
+
+    public String getNomeCategoria() {
+        return cat.getNome();
+    }
+
+    public void setNomeCategoria(String nome) {
+        cat.setNome(nome);
+    }
+
+    public String getDescricaoCategoria() {
+        return cat.getDescricao();
+    }
+
+    public void setDescricaoCategoria(String descricao) {
+        cat.setDescricao(descricao);
+    }    
 }

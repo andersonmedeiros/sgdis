@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.bean.Categoria;
+import model.bean.Curso;
 
 /**
  *
@@ -184,11 +186,9 @@ public class TurmaDAO {
     
     //Lista com todas as turmas
     public ArrayList<Turma> getTurmas(){
-        conn = null;
-        pstm = null;
-        rs = null;
         ArrayList<Turma> turmas = new ArrayList<>();
-        
+        CursoDAO cursoDAO = new CursoDAO();
+        CategoriaDAO catDAO = new CategoriaDAO();
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETURMAS);
@@ -202,8 +202,19 @@ public class TurmaDAO {
                turma.setnTurma(rs.getInt(nturma));
                turma.setDataInicio(rs.getDate(datainicio));
                turma.setDataFim(rs.getDate(datafim));
-               turma.setIdCurso(rs.getInt(idCurso));
-               turma.setIdCategoria(rs.getInt(idCategoria));
+               
+               Curso curso = cursoDAO.getCurso(rs.getInt(idCurso));
+               turma.setIdCurso(curso.getId());
+               turma.setNomeCurso(curso.getNome());
+               turma.setSiglaCurso(curso.getSigla());
+               turma.setPortariaCurso(curso.getPortaria());
+               turma.setDescricaoCurso(curso.getDescricao());
+               
+               Categoria cat = catDAO.getCategoriaById(rs.getInt(idCategoria));
+               turma.setIdCategoria(cat.getId());
+               turma.setNomeCategoria(cat.getNome());
+               turma.setDescricaoCategoria(cat.getDescricao());
+               
                turma.setTurma(rs.getInt(ano) + "/" + rs.getInt(nturma));
                 
                turmas.add(turma);
@@ -217,11 +228,9 @@ public class TurmaDAO {
     
     //Lista com todas as turmas abertas
     public ArrayList<Turma> getTurmasAbertas(){
-        conn = null;
-        pstm = null;
-        rs = null;
         ArrayList<Turma> turmas = new ArrayList<>();
-        
+        CursoDAO cursoDAO = new CursoDAO();
+        CategoriaDAO catDAO = new CategoriaDAO();
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETTURMASABERTAS);
@@ -235,8 +244,19 @@ public class TurmaDAO {
                turma.setnTurma(rs.getInt(nturma));
                turma.setDataInicio(rs.getDate(datainicio));
                turma.setDataFim(rs.getDate(datafim));
-               turma.setIdCurso(rs.getInt(idCurso));
-               turma.setIdCategoria(rs.getInt(idCategoria));
+               
+               Curso curso = cursoDAO.getCurso(rs.getInt(idCurso));
+               turma.setIdCurso(curso.getId());
+               turma.setNomeCurso(curso.getNome());
+               turma.setSiglaCurso(curso.getSigla());
+               turma.setPortariaCurso(curso.getPortaria());
+               turma.setDescricaoCurso(curso.getDescricao());
+               
+               Categoria cat = catDAO.getCategoriaById(rs.getInt(idCategoria));
+               turma.setIdCategoria(cat.getId());
+               turma.setNomeCategoria(cat.getNome());
+               turma.setDescricaoCategoria(cat.getDescricao());
+               
                turma.setTurma(rs.getInt(ano) + "/" + rs.getInt(nturma));
                 
                turmas.add(turma);
@@ -257,7 +277,8 @@ public class TurmaDAO {
         PreparedStatement pstm = null;
         ResultSet rs = null;
         ArrayList<Turma> turmas = new ArrayList<>();
-        
+        CursoDAO cursoDAO = new CursoDAO();
+        CategoriaDAO catDAO = new CategoriaDAO();
         try{
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETTURMASBYCURSOANDCATEGORIA);
@@ -270,12 +291,23 @@ public class TurmaDAO {
                
                turma.setId(rs.getInt("id"));
                turma.setAno(rs.getInt("ano"));               
-               turma.setnTurma(rs.getInt("turma"));
+               turma.setnTurma(rs.getInt("nturma"));
                turma.setDataInicio(rs.getDate("datainicio"));
                turma.setDataFim(rs.getDate("datafim"));
-               turma.setIdCurso(rs.getInt("idCurso"));
-               turma.setIdCategoria(rs.getInt("idCategoria"));
-               turma.setTurma(rs.getInt("ano") + "/" + rs.getInt("turma"));
+               
+               Curso curso = cursoDAO.getCurso(rs.getInt("idCurso"));
+               turma.setIdCurso(curso.getId());
+               turma.setNomeCurso(curso.getNome());
+               turma.setSiglaCurso(curso.getSigla());
+               turma.setPortariaCurso(curso.getPortaria());
+               turma.setDescricaoCurso(curso.getDescricao());
+               
+               Categoria cat = catDAO.getCategoriaById(rs.getInt("idCategoria"));
+               turma.setIdCategoria(cat.getId());
+               turma.setNomeCategoria(cat.getNome());
+               turma.setDescricaoCategoria(cat.getDescricao());
+               
+               turma.setTurma(rs.getInt("ano") + "/" + rs.getInt("nturma"));
                 
                turmas.add(turma);
             }
