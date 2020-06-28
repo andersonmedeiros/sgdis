@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.bean.Forca;
 import model.bean.TipoForca;
 
 /**
@@ -28,7 +27,12 @@ public class TipoForcaDAO {
     
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + nome +  ")" +
-                                  " VALUES(?,?,);";
+                                  " VALUES(?,?);";
+    
+    //Update SQL
+    private final String UPDATE = "UPDATE " + tabela +
+                                  " SET " + nome + "=?, " +
+                                  "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
@@ -61,6 +65,27 @@ public class TipoForcaDAO {
         }
     }
     
+    //Update SQL
+    public void update(TipoForca tipoforca) {
+        if (tipoforca != null) {
+            try {
+                conn = ConnectionFactory.getConnection();
+                pstm = conn.prepareStatement(UPDATE);
+                                
+                pstm.setString(1, tipoforca.getNome());
+                pstm.setInt(2, tipoforca.getId());
+            
+                pstm.execute();
+                ConnectionFactory.fechaConexao(conn, pstm);
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e.getMessage());  
+            }
+        } else {            
+            throw new RuntimeException();
+        }
+    }
+    
     //Delete SQL
     public void delete(int id) {
         if (id != 0){
@@ -80,15 +105,15 @@ public class TipoForcaDAO {
         }
     }
     
-    private final String GETTIPOFORCA = "SELECT * " +
-                                    "FROM Tipo_Forca " + 
-                                    "WHERE id = ?;";
+    private final String GETTIPOFORCABYID = "SELECT * " +
+                                            "FROM Tipo_Forca " + 
+                                            "WHERE id = ?;";
        
     public TipoForca getTipoForcaById(int idTipoForca){
         TipoForca tipoforca = new TipoForca();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETTIPOFORCA);
+            pstm = conn.prepareStatement(GETTIPOFORCABYID);
             pstm.setInt(1, idTipoForca);
            
             rs = pstm.executeQuery();
@@ -103,15 +128,40 @@ public class TipoForcaDAO {
         return tipoforca;
     }
     
-    private final static String GETTIPOFORCADWR = "SELECT * " +
-                                              "FROM Tipo_Forca " + 
-                                              "WHERE id = ?;";
+    private final String GETTIPOSFORCA = "SELECT * " +
+                                         "FROM " + tabela;
+       
+    public ArrayList<TipoForca> getTiposForca(){
+        ArrayList<TipoForca> tiposforca = new ArrayList<>();        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETTIPOSFORCA);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                TipoForca tipoforca = new TipoForca();
+                
+                tipoforca.setId(rs.getInt("id"));
+                tipoforca.setNome(rs.getString("nome"));
+                
+                tiposforca.add(tipoforca);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return tiposforca;
+    }
+    
+    private final static String GETTIPOFORCABYIDDWR = "SELECT * " +
+                                                      "FROM Tipo_Forca " + 
+                                                      "WHERE id = ?;";
        
     public TipoForca getTipoForcaByIdDWR(int idTipoForca){
         TipoForca tipoforca = new TipoForca();    
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETTIPOFORCADWR);
+            pstm = conn.prepareStatement(GETTIPOFORCABYIDDWR);
             pstm.setInt(1, idTipoForca);
            
             rs = pstm.executeQuery();
