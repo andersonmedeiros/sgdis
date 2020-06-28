@@ -38,6 +38,22 @@ public class ForcaHasEstado {
         forca.setSigla(sigla);
     }
     
+    public int getIdTipoForca() {
+        return forca.getId();
+    }
+
+    public void setIdTipoForca(int id) {
+        forca.setId(id);
+    }
+
+    public String getNomeTipoForca() {
+        return forca.getNome();
+    }
+
+    public void setNomeTipoForca(String nome) {
+        forca.setNome(nome);
+    }
+    
     //Estado
     public int getIdEstado() {
         return estado.getId();
@@ -63,4 +79,19 @@ public class ForcaHasEstado {
         estado.setSigla(sigla);
     }
     
+    public int getIdRegiao() {
+        return estado.getId();
+    }
+
+    public void setIdRegiao(int id) {
+        estado.setId(id);
+    }
+
+    public String getNomeRegiao() {
+        return estado.getNome();
+    }
+
+    public void setNomeRegiao(String nome) {
+        estado.setNome(nome);
+    }
 }
