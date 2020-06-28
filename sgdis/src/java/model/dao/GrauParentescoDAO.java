@@ -148,6 +148,31 @@ public class GrauParentescoDAO {
         }
         return grauparentesco;
     }
+    
+    private final String GETGRAUSPARENTESCO = "SELECT * " +
+                                              "FROM " + tabela;
+       
+    public ArrayList<GrauParentesco> getGrausParentesco(){
+        ArrayList<GrauParentesco> graus = new ArrayList<>();  
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETGRAUSPARENTESCO);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                GrauParentesco grauparentesco = new GrauParentesco();
+                
+                grauparentesco.setId(rs.getInt(id));
+                grauparentesco.setNome(rs.getString(nome));
+                
+                graus.add(grauparentesco);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return graus;
+    }
         
     private final static String GETGRAUSPARENTESCODWR = "select * " +
                                                         "from GrauParentesco;";
