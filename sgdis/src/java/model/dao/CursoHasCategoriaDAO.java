@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.bean.Curso;
 
 /**
  *
@@ -152,6 +153,8 @@ public class CursoHasCategoriaDAO {
         pstm = null;
         rs = null;
         CursoHasCategoria cursocategoria = new CursoHasCategoria();
+        CursoDAO cursoDAO = new CursoDAO();
+        CategoriaDAO catDAO = new CategoriaDAO();
         
         try {
             conn = ConnectionFactory.getConnection();
@@ -161,8 +164,17 @@ public class CursoHasCategoriaDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                cursocategoria.setIdCurso(rs.getInt("idCurso"));
-                cursocategoria.setIdCategoria(rs.getInt("idCategoria"));
+                Curso curso = cursoDAO.getCurso(rs.getInt("idCurso"));
+                cursocategoria.setIdCurso(curso.getId());
+                cursocategoria.setNomeCurso(curso.getNome());
+                cursocategoria.setSiglaCurso(curso.getSigla());
+                cursocategoria.setPortariaCurso(curso.getPortaria());
+                cursocategoria.setDescricaoCurso(curso.getDescricao());
+                
+                Categoria cat = catDAO.getCategoriaById(rs.getInt("idCategoria"));
+                cursocategoria.setIdCategoria(cat.getId());
+                cursocategoria.setNomeCategoria(cat.getNome());
+                cursocategoria.setDescricaoCategoria(cat.getDescricao());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -192,6 +204,7 @@ public class CursoHasCategoriaDAO {
             rs = pstm.executeQuery();
             while (rs.next()) {
                 Categoria cat = new Categoria();
+                
                 cat.setId(rs.getInt("cat.id"));
                 cat.setNome(rs.getString("cat.nome"));
                 cat.setDescricao(rs.getString("cat.descricao"));
