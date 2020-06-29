@@ -64,7 +64,7 @@ public class TurmaHasAlunoDAO {
     
     //Delete SQL
     public void delete(int idTurma, String idtAluno, int idTentativa) {
-        if (idTurma != 0 && idtAluno !=  "" && idTentativa != 0) {
+        if (idTurma != 0 && idtAluno !=  null && idTentativa != 0) {
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(DELETE);

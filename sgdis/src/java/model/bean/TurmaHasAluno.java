@@ -59,22 +59,6 @@ public class TurmaHasAluno {
         turma.setDataFim(dataFim);
     }
     
-    public int getIdCursoTurma(){
-        return turma.getIdCurso();
-    }    
-    
-    public void setIdCursoTurma(int idCurso){
-        turma.setIdCurso(idCurso);
-    }
-    
-    public int getIdCategoriaTurma(){
-        return turma.getIdCategoria();
-    }
-    
-    public void setIdCategoriaTurma(int idCategoria){
-        turma.setIdCategoria(idCategoria);
-    }
-    
     public String getTurma(){
         return turma.getTurma();
     }
@@ -83,6 +67,69 @@ public class TurmaHasAluno {
         turma.setTurma(nometurma);
     }
     
+    public int getIdCursoTurma() {
+        return turma.getIdCurso();
+    }
+
+    public void setIdCursoTurma(int id) {
+        turma.setIdCurso(id);
+    }
+
+    public String getNomeCursoTurma() {
+        return turma.getNomeCurso();
+    }
+
+    public void setNomeCursoTurma(String nome) {
+        turma.setNomeCurso(nome);
+    }
+
+    public String getSiglaCursoTurma() {
+        return turma.getSiglaCurso();
+    }
+
+    public void setSiglaCursoTurma(String sigla) {
+        turma.setSiglaCurso(sigla);
+    }
+
+    public String getPortariaCursoTurma() {
+        return turma.getPortariaCurso();
+    }
+
+    public void setPortariaCursoTurma(String portaria) {
+        turma.setPortariaCurso(portaria);
+    }
+
+    public String getDescricaoCursoTurma() {
+        return turma.getDescricaoCurso();
+    }
+
+    public void setDescricaoCursoTurma(String descricao) {
+        turma.setDescricaoCurso(descricao);
+    }
+    
+    public int getIdCategoriaTurma() {
+        return turma.getIdCategoria();
+    }
+
+    public void setIdCategoriaTurma(int id) {
+        turma.setIdCategoria(id);
+    }
+
+    public String getNomeCategoriaTurma() {
+        return turma.getNomeCategoria();
+    }
+
+    public void setNomeCategoriaTurma(String nome) {
+        turma.setNomeCategoria(nome);
+    }
+
+    public String getDescricaoCategoriaTurma() {
+        return turma.getDescricaoCategoria();
+    }
+
+    public void setDescricaoCategoriaTurma(String descricao) {
+        turma.setDescricaoCategoria(descricao);
+    }    
     
     public int getIdTentativa() {
         return tent.getId();
@@ -90,14 +137,6 @@ public class TurmaHasAluno {
 
     public void setIdTentativa(int idTentativa){
         tent.setId(idTentativa);
-    }
-    
-    public int getSituacaoTentativa() {
-        return tent.getSituacao();
-    }
-
-    public void setSituacaoTentativa(int situacao) {
-        tent.setSituacao(situacao);
     }
 
     public String getMtvDeslgTentativa() {
@@ -114,40 +153,7 @@ public class TurmaHasAluno {
 
     public void setFaseDeslgTentativa(String faseDeslg) {
         tent.setFaseDeslg(faseDeslg);
-    }
-
-    public String getPostoGraduacaoAlunoTentativa() {
-        return tent.getPostoGraduacaoAluno();
-    }
-
-    public void setPostoGraduacaoAlunoTentativa(String postoGraduacaoAluno) {
-        tent.setPostoGraduacaoAluno(postoGraduacaoAluno);
-    }
-
-    public String getNomeOMTentativa() {
-        return tent.getNomeOM();
-    }
-
-    public void setNomeOMTentativa(String nomeOM) {
-        tent.setNomeOM(nomeOM);
-    }
-
-    public String getCursoTentativa() {
-        return tent.getCurso();
-    }
-
-    public void setCurso(String curso) {
-        tent.setCurso(curso);
-    }
-
-    public String getTurmaTentativa() {
-        return tent.getTurma();
-    }
-
-    public void setTurmaTentativa(String turma) {
-        tent.setTurma(turma);
-    }
-    
+    }    
 
     public String getIdentidadeAluno() {
         return al.getIdentidade();
@@ -205,12 +211,20 @@ public class TurmaHasAluno {
         al.setCpf(cpf);
     }
 
-    public String getTsAluno() {
+    public String getTs() {
         return al.getTs();
     }
 
     public void setTsAluno(String ts) {
         al.setTs(ts);
+    }
+
+    public int getFtrhAluno() {
+        return al.getFtrh();
+    }
+
+    public void setFtrhAluno(int ftrh) {
+        al.setFtrh(ftrh);
     }
 
     public String getPaiAluno() {
@@ -237,124 +251,52 @@ public class TurmaHasAluno {
         al.setEmail(email);
     }
 
-    public String getFuncao1Aluno() {
-        return al.getFuncao1();
-    }
-
-    public void setFuncao1Aluno(String funcao1) {
-        al.setFuncao1(funcao1);
-    }
-
-    public String getFuncao2Aluno() {
-        return al.getFuncao2();
-    }
-
-    public void setFuncao2Aluno(String funcao2) {
-        al.setFuncao2(funcao2);
-    }
-
-    public String getFuncao3Aluno() {
-        return al.getFuncao3();
-    }
-
-    public void setFuncao3Aluno(String funcao3) {
-        al.setFuncao3(funcao3);
-    }
-
-    public char getFtrhAluno() {
-        return al.getFtrh();
-    }
-
-    public void setFtrhAluno(char ftrh) {
-        al.setFtrh(ftrh);
-    }
-
-    public char getFumanteAluno() {
+    public int getFumanteAluno() {
         return al.getFumante();
     }
 
-    public void setFumanteAluno(char fumante) {
+    public void setFumanteAluno(int fumante) {
         al.setFumante(fumante);
     }
 
-    public char getSexoAluno() {
+    public String getSexoAluno() {
         return al.getSexo();
     }
 
-    public void setSexoAluno(char sexo) {
+    public void setSexoAluno(String sexo) {
         al.setSexo(sexo);
     }
 
-    public char getStatusAluno() {
-        return al.getStatus();
+    public String getUltfuncao1Aluno() {
+        return al.getUltfuncao1();
     }
 
-    public void setStatusAluno(char status) {
-        al.setStatus(status);
+    public void setUltfuncao1Aluno(String ultfuncao1) {
+        al.setUltfuncao1(ultfuncao1);
     }
 
-    public int getIdPostoGraduacaoAluno() {
-        return al.getIdPostoGraduacao();
+    public String getUltfuncao2Aluno() {
+        return al.getUltfuncao2();
     }
 
-    public void setIdPostoGraduacaoAluno(int idPostoGraduacao) {
-        al.setIdPostoGraduacao(idPostoGraduacao);
+    public void setUltfuncao2Aluno(String ultfuncao2) {
+        al.setUltfuncao2(ultfuncao2);
     }
 
-    public int getIdQasQmsAluno() {
-        return al.getIdQasQms();
+    public String getUltfuncao3Aluno() {
+        return al.getUltfuncao3();
     }
 
-    public void setIdQasQmsAluno(int idQasQms) {
-        al.setIdQasQms(idQasQms);
+    public void setUltfuncao3Aluno(String ultfuncao3) {
+        al.setUltfuncao3(ultfuncao3);
     }
 
-    public int getIdNaturalidadeCidadeAluno() {
-        return al.getIdNaturalidadeCidade();
+    public int getSituacaoAluno() {
+        return al.getSituacao();
     }
 
-    public void setIdNaturalidadeCidadeAluno(int idNaturalidadeCidade) {
-        al.setIdNaturalidadeCidade(idNaturalidadeCidade);
-    }
-
-    public int getIdEstadoCivilAluno() {
-        return al.getIdEstadoCivil();
-    }
-
-    public void setIdEstadoCivilAluno(int idEstadoCivil) {
-        al.setIdEstadoCivil(idEstadoCivil);
-    }
-
-    public int getIdOMAluno() {
-        return al.getIdOM();
-    }
-
-    public void setIdOMAluno(int idOM) {
-        al.setIdOM(idOM);
-    }
-
-    public int getIdComportamentoAluno() {
-        return al.getIdComportamento();
-    }
-
-    public void setIdComportamentoAluno(int idComportamento) {
-        al.setIdComportamento(idComportamento);
-    }
-
-    public int getIdChImediatoAluno() {
-        return al.getIdChImediato();
-    }
-
-    public void setIdChImediatoAluno(int idChImediato) {
-        al.setIdChImediato(idChImediato);
-    }
-
-    public int getIdFormacaoOrigemAluno() {
-        return al.getIdFormacaoOrigem();
-    }
-
-    public void setIdFormacaoOrigemAluno(int idFormacaoOrigem) {
-        al.setIdFormacaoOrigem(idFormacaoOrigem);
+    public void setSituacaoAluno(int situacao) {
+        al.setSituacao(situacao);
     }
 
     public Date getDataNascimentoAluno() {
@@ -371,5 +313,109 @@ public class TurmaHasAluno {
 
     public void setUltDataPracaAluno(Date ultDataPraca) {
         al.setUltDataPraca(ultDataPraca);
-    }   
+    }
+
+    public int getIdPostoGraduacaoAluno() {
+        return al.getIdPostoGraduacao();
+    }
+
+    public void setIdPostoGraduacaoAluno(int idPostoGraduacao) {
+        al.setIdPostoGraduacao(idPostoGraduacao);
+    }
+    
+    public int getIdQasQmsAluno() {
+        return al.getIdQasQms();
+    }
+
+    public void setIdQasQmsAluno(int id) {
+        al.setIdQasQms(id);
+    }
+    
+    public int getIdCmtAluno() {
+        return al.getIdCmt();
+    }
+
+    public void setIdCmtAluno(int id) {
+        al.setIdCmt(id);
+    }
+    
+    public int getIdNatCidadeAluno() {
+        return al.getIdNatCidade();
+    }
+
+    public void setIdNatCidadeAluno(int id) {
+        al.setIdNatCidade(id);
+    }
+    
+    public int getIdEstadoCivilAluno() {
+        return al.getIdEstadoCivil();
+    }
+
+    public void setIdEstadoCivilAluno(int id) {
+        al.setIdEstadoCivil(id);
+    }
+    
+    public int getIdOMAluno() {
+        return al.getIdOM();
+    }
+
+    public void setIdOMAluno(int id) {
+        al.setIdOM(id);
+    }
+    
+    public int getIdComportamentoAluno() {
+        return al.getIdComportamento();
+    }
+
+    public void setIdComportamentoAluno(int id) {
+        al.setIdComportamento(id);
+    }
+    
+    public int getIdChImtoAluno() {
+        return al.getIdChImto();
+    }
+
+    public void setIdChImtoAluno(int id) {
+        al.setIdChImto(id);
+    }
+    
+    public int getIdFormOrigemAluno() {
+        return al.getIdFormOrigem();
+    }
+
+    public void setIdFormOrigemAluno(int id) {
+        al.setIdFormOrigem(id);
+    }
+    
+    public int getIdTafAluno() {
+        return al.getIdTaf();
+    }
+
+    public void setIdTafAluno(int id) {
+        al.setIdTaf(id);
+    }
+    
+    public int getIdPromocaoAluno() {
+        return al.getIdPromocao();
+    }
+
+    public void setIdPromocaoAluno(int id) {
+        al.setIdPromocao(id);
+    }
+    
+    public int getIdPreparacaoAlno() {
+        return al.getIdPreparacao();
+    }
+
+    public void setIdPreparacaoAluno(int id) {
+        al.setIdPreparacao(id);
+    }
+    
+    public int getIdUniformeAluno() {
+        return al.getIdUniforme();
+    }
+
+    public void setIdUniformeAluno(int id) {
+        al.setIdUniforme(id);
+    }
 }
