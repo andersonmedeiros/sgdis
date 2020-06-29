@@ -10,13 +10,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.bean.Aluno_has_Alergia;
+import model.bean.AlunoHasAlergia;
 
 /**
  *
  * @author anderson
  */
-public class Aluno_has_AlergiaDAO {
+public class AlunoHasAlergiaDAO {
     //Tabela
     String tabela = "Aluno_has_Alergia";
     
@@ -39,7 +39,7 @@ public class Aluno_has_AlergiaDAO {
     
     
     //Insert SQL
-    public void insert(Aluno_has_Alergia alunoalergia) {
+    public void insert(AlunoHasAlergia alunoalergia) {
         if (alunoalergia != null) {
             try {
                 conn = ConnectionFactory.getConnection();

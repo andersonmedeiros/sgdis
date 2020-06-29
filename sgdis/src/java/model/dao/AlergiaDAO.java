@@ -11,13 +11,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.bean.Alegria;
+import model.bean.Alergia;
 
 /**
  *
  * @author anderson
  */
-public class AlegriaDAO {
+public class AlergiaDAO {
     //Tabela
     String tabela = "Alegria";
     
@@ -45,7 +45,7 @@ public class AlegriaDAO {
     
     
     //Insert SQL
-    public void insert(Alegria alegria) {
+    public void insert(Alergia alegria) {
         if (alegria != null) {
             try {
                 conn = ConnectionFactory.getConnection();
@@ -68,7 +68,7 @@ public class AlegriaDAO {
     }
     
     //Update SQL
-    public void update(Alegria alegria) {
+    public void update(Alergia alegria) {
         if (alegria != null) {
             try {
                 conn = ConnectionFactory.getConnection();
@@ -111,8 +111,8 @@ public class AlegriaDAO {
                                           "FROM " + tabela + " " +
                                           "WHERE id = ?;";
        
-    public Alegria getAlegriaById(int idAlegria){
-        Alegria alegria = new Alegria();        
+    public Alergia getAlegriaById(int idAlegria){
+        Alergia alegria = new Alergia();        
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETALEGRIABYID);
@@ -133,15 +133,15 @@ public class AlegriaDAO {
     private final String GETALEGRIAS = "SELECT * " +
                                    "FROM " + tabela;
        
-    public ArrayList<Alegria> getAlegrias(){
-        ArrayList<Alegria> alegrias = new ArrayList<>();        
+    public ArrayList<Alergia> getAlegrias(){
+        ArrayList<Alergia> alegrias = new ArrayList<>();        
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETALEGRIAS);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                Alegria alegria = new Alegria();
+                Alergia alegria = new Alergia();
                 
                 alegria.setId(rs.getInt("id"));
                 alegria.setNome(rs.getString("nome"));

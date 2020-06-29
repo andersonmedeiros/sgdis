@@ -9,7 +9,7 @@ package model.bean;
  *
  * @author anderson
  */
-public class Alegria {
+public class Alergia {
     private int id;
     private String nome;
 

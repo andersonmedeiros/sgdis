@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author anderson
  */
-public class Aluno_has_Alergia {
+public class AlunoHasAlergia {
     private final Aluno al = new Aluno();
     private final Alergia alergia = new Alergia();
     

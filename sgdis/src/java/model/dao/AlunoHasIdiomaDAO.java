@@ -10,13 +10,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.bean.Aluno_has_Idioma;
+import model.bean.AlunoHasIdioma;
 
 /**
  *
  * @author anderson
  */
-public class Aluno_has_IdiomaDAO {
+public class AlunoHasIdiomaDAO {
     //Tabela
     String tabela = "Aluno_has_Idioma";
     
@@ -40,7 +40,7 @@ public class Aluno_has_IdiomaDAO {
     
     
     //Insert SQL
-    public void insert(Aluno_has_Idioma alunoidioma) {
+    public void insert(AlunoHasIdioma alunoidioma) {
         if (alunoidioma != null) {
             try {
                 conn = ConnectionFactory.getConnection();

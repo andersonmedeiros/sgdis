@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author anderson
  */
-public class Aluno_has_Idioma {
+public class AlunoHasIdioma {
     private final Aluno al = new Aluno();
     private final Idioma idioma = new Idioma();
     private String ipl;
