@@ -103,7 +103,7 @@ public class Conjuge {
         al.setCpf(cpf);
     }
 
-    public String getTs() {
+    public String getTsAluno() {
         return al.getTs();
     }
 

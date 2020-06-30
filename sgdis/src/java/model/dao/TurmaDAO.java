@@ -291,7 +291,7 @@ public class TurmaDAO {
                
                turma.setId(rs.getInt("id"));
                turma.setAno(rs.getInt("ano"));               
-               turma.setnTurma(rs.getInt("nturma"));
+               turma.setnTurma(rs.getInt("turma"));
                turma.setDataInicio(rs.getDate("datainicio"));
                turma.setDataFim(rs.getDate("datafim"));
                
@@ -307,7 +307,7 @@ public class TurmaDAO {
                turma.setNomeCategoria(cat.getNome());
                turma.setDescricaoCategoria(cat.getDescricao());
                
-               turma.setTurma(rs.getInt("ano") + "/" + rs.getInt("nturma"));
+               turma.setTurma(rs.getInt("ano") + "/" + rs.getInt("turma"));
                 
                turmas.add(turma);
             }

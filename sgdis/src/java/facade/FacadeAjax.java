@@ -67,9 +67,9 @@ public class FacadeAjax {
         Om om = OmDAO.getOmByIdDWR(idOM);
         return om;
     }
-    public ArrayList<QasQms> getQasQmsDWR() throws Throwable, Exception{
+    public ArrayList<QasQms> getQasQmsByForcaDWR(int idForca) throws Throwable, Exception{
         ArrayList<QasQms> qasqms = new ArrayList();
-        qasqms = QasQmsDAO.getQasQmsDWR();
+        qasqms = QasQmsDAO.getQasQmsByForcaDWR(idForca);
         return qasqms;
     }    
     //Oms Região Amazônica
