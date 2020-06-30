@@ -41,25 +41,45 @@ public class UniformeDAO {
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
     
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
-    public void insert(Uniforme u) {
-        if (u != null) {
+    public void insert(Uniforme un) {
+        if (un != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setInt(1, u.getId());
-                pstm.setInt(2, u.getTamCoturno());
-                pstm.setString(3, u.getTamGandola());
-                pstm.setString(4, u.getTamCalca());
-                pstm.setString(5, u.getTamCamisaCamuflada());
+                pstm.setInt(1, un.getId());
+                pstm.setInt(2, un.getTamCoturno());
+                pstm.setString(3, un.getTamGandola());
+                pstm.setString(4, un.getTamCalca());
+                pstm.setString(5, un.getTamCamisaCamuflada());
                                                               
                 pstm.execute();
                 
@@ -74,17 +94,17 @@ public class UniformeDAO {
     }
     
     //Update SQL
-    public void update(Uniforme u) {
-        if (u != null) {
+    public void update(Uniforme un) {
+        if (un != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(UPDATE);                
                 
-                pstm.setInt(1, u.getTamCoturno());
-                pstm.setString(2, u.getTamGandola());
-                pstm.setString(3, u.getTamCalca());
-                pstm.setString(4, u.getTamCamisaCamuflada());
-                pstm.setInt(5, u.getId());
+                pstm.setInt(1, un.getTamCoturno());
+                pstm.setString(2, un.getTamGandola());
+                pstm.setString(3, un.getTamCalca());
+                pstm.setString(4, un.getTamCamisaCamuflada());
+                pstm.setInt(5, un.getId());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -121,7 +141,7 @@ public class UniformeDAO {
                                            "WHERE id = ?;";
        
     public Uniforme getUniformeById(int idUniforme){
-        Uniforme u = new Uniforme();        
+        Uniforme un = new Uniforme();        
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETUNIFORMEBYID);
@@ -129,17 +149,48 @@ public class UniformeDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                u.setId(rs.getInt("id"));
-                u.setTamCoturno(rs.getInt("tamcoturno"));
-                u.setTamGandola(rs.getString("tamgandola"));
-                u.setTamCalca(rs.getString("tamcalca"));
-                u.setTamCamisaCamuflada(rs.getString("tamcamisacamuflada"));
+                un.setId(rs.getInt("id"));
+                un.setTamCoturno(rs.getInt("tamcoturno"));
+                un.setTamGandola(rs.getString("tamgandola"));
+                un.setTamCalca(rs.getString("tamcalca"));
+                un.setTamCamisaCamuflada(rs.getString("tamcamisacamuflada"));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return u;
+        return un;
+    }
+    
+    private final String GETCHIMTOEXISTENTE = "SELECT * " + 
+                                           " FROM " + tabela + 
+                                           " WHERE " + tamcoturno + "=? AND " + tamgandola + "=? AND " + tamcalca + "=? AND " + tamcamisacamuflada +"=? "+";";
+
+    public Uniforme getUniformeExistente(int tamcoturno, String tamgandola, String tamcalca, String tamcamcmf){
+        Uniforme un = new Uniforme();   
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETCHIMTOEXISTENTE);
+            pstm.setInt(1, tamcoturno);
+            pstm.setString(2, tamgandola);
+            pstm.setString(3, tamcalca);
+            pstm.setString(4, tamcamcmf);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {                
+                un.setId(rs.getInt("id"));
+                un.setTamCoturno(rs.getInt("tamcoturno"));
+                un.setTamGandola(rs.getString("tamgandola"));
+                un.setTamCalca(rs.getString("tamcalca"));
+                un.setTamCamisaCamuflada(rs.getString("tamcamisacamuflada"));
+                
+                return un;
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return null;
     }
     
     private final String GETUNIFORMES = "SELECT * " +
@@ -153,15 +204,15 @@ public class UniformeDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                Uniforme u = new Uniforme();
+                Uniforme un = new Uniforme();
                 
-                u.setId(rs.getInt("id"));
-                u.setTamCoturno(rs.getInt("tamcoturno"));
-                u.setTamGandola(rs.getString("tamgandola"));
-                u.setTamCalca(rs.getString("tamcalca"));
-                u.setTamCamisaCamuflada(rs.getString("tamcamisacamuflada"));
+                un.setId(rs.getInt("id"));
+                un.setTamCoturno(rs.getInt("tamcoturno"));
+                un.setTamGandola(rs.getString("tamgandola"));
+                un.setTamCalca(rs.getString("tamcalca"));
+                un.setTamCamisaCamuflada(rs.getString("tamcamisacamuflada"));
                 
-                uniformes.add(u);
+                uniformes.add(un);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -169,4 +220,5 @@ public class UniformeDAO {
         }
         return uniformes;
     }
+    
 }
