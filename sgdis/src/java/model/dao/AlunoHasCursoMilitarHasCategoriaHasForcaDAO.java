@@ -29,7 +29,7 @@ public class AlunoHasCursoMilitarHasCategoriaHasForcaDAO {
     
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + idtAluno + "," + idCursoMilitar + "," + idCategoria + "," + idForca + "," + anoconclusao + ")" +
-                                  " VALUES(?,?,?);";
+                                  " VALUES(?,?,?,?,?);";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + idtAluno + "=? AND " + idCursoMilitar + "=? AND " + idCategoria + "=? AND " + idForca + "=? AND " + anoconclusao + "=?;";
