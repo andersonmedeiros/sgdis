@@ -47,7 +47,7 @@ public class TurmaHasAluno {
         return turma.getDataInicio();
     }
     
-    public void setDateInicioTurma(Date dataInicio){
+    public void setDataInicioTurma(Date dataInicio){
         turma.setDataInicio(dataInicio);
     }
     
@@ -55,7 +55,7 @@ public class TurmaHasAluno {
         return turma.getDataFim();
     }
     
-    public void setDateFimTurma(Date dataFim){
+    public void setDataFimTurma(Date dataFim){
         turma.setDataFim(dataFim);
     }
     
@@ -323,6 +323,14 @@ public class TurmaHasAluno {
         al.setIdPostoGraduacao(idPostoGraduacao);
     }
     
+    public String getAbreviaturaPostoGraduacaoAluno() {
+        return al.getAbreviaturaPostoGraduacao();
+    }
+
+    public void setAbreviaturaPostoGraduacaoAluno(String abreviaturaPostoGraduacao) {
+        al.setAbreviaturaPostoGraduacao(abreviaturaPostoGraduacao);
+    }
+    
     public int getIdQasQmsAluno() {
         return al.getIdQasQms();
     }
@@ -379,14 +387,6 @@ public class TurmaHasAluno {
         al.setIdChImto(id);
     }
     
-    public int getIdFormOrigemAluno() {
-        return al.getIdFormOrigem();
-    }
-
-    public void setIdFormOrigemAluno(int id) {
-        al.setIdFormOrigem(id);
-    }
-    
     public int getIdTafAluno() {
         return al.getIdTaf();
     }
@@ -417,5 +417,13 @@ public class TurmaHasAluno {
 
     public void setIdUniformeAluno(int id) {
         al.setIdUniforme(id);
+    }
+    
+    public int getEasAluno() {
+        return al.getEas();
+    }
+
+    public void setEasAluno(int eas) {
+        al.setEas(eas);
     }
 }

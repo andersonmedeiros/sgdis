@@ -34,7 +34,7 @@ public class CnhDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + categoria + "=?, " + datavalidade + "=?, " + idtAluno + "=?, " +
+                                  " SET " + categoria + "=?, " + datavalidade + "=?, " + idtAluno + "=? " +
                                   "WHERE " + numero + "=?;";
         
     //Delete SQL
@@ -156,7 +156,6 @@ public class CnhDAO {
                 cnh.setIdOMAluno(al.getIdOM());
                 cnh.setIdComportamentoAluno(al.getIdComportamento());
                 cnh.setIdChImtoAluno(al.getIdChImto());
-                cnh.setIdFormOrigemAluno(al.getIdFormOrigem());
                 cnh.setSexoAluno(al.getSexo());
                 cnh.setUltfuncao1Aluno(al.getUltfuncao1());
                 cnh.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -165,6 +164,7 @@ public class CnhDAO {
                 cnh.setIdPromocaoAluno(al.getIdPromocao());
                 cnh.setIdPreparacaoAluno(al.getIdPreparacao());
                 cnh.setIdUniformeAluno(al.getIdUniforme());
+                cnh.setEasAluno(al.getEas());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -216,7 +216,6 @@ public class CnhDAO {
                 cnh.setIdOMAluno(al.getIdOM());
                 cnh.setIdComportamentoAluno(al.getIdComportamento());
                 cnh.setIdChImtoAluno(al.getIdChImto());
-                cnh.setIdFormOrigemAluno(al.getIdFormOrigem());
                 cnh.setSexoAluno(al.getSexo());
                 cnh.setUltfuncao1Aluno(al.getUltfuncao1());
                 cnh.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -225,6 +224,7 @@ public class CnhDAO {
                 cnh.setIdPromocaoAluno(al.getIdPromocao());
                 cnh.setIdPreparacaoAluno(al.getIdPreparacao());
                 cnh.setIdUniformeAluno(al.getIdUniforme());
+                cnh.setEasAluno(al.getEas());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -276,7 +276,6 @@ public class CnhDAO {
                 cnh.setIdOMAluno(al.getIdOM());
                 cnh.setIdComportamentoAluno(al.getIdComportamento());
                 cnh.setIdChImtoAluno(al.getIdChImto());
-                cnh.setIdFormOrigemAluno(al.getIdFormOrigem());
                 cnh.setSexoAluno(al.getSexo());
                 cnh.setUltfuncao1Aluno(al.getUltfuncao1());
                 cnh.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -285,6 +284,7 @@ public class CnhDAO {
                 cnh.setIdPromocaoAluno(al.getIdPromocao());
                 cnh.setIdPreparacaoAluno(al.getIdPreparacao());
                 cnh.setIdUniformeAluno(al.getIdUniforme());
+                cnh.setEasAluno(al.getEas());
                 
                 cnhs.add(cnh);
             }

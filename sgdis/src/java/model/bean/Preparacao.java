@@ -10,7 +10,7 @@ package model.bean;
  * @author anderson
  */
 public class Preparacao {
-    int id, apoioFamilia, apoioOM, cursoPreparacaoCOS, problemaRedimento, dedicacaoDoutrinaOPS, consultaSite, csltAmbVirtualAl;
+    int id, apoioFamilia, apoioOM, cursoPreparacaoCOS, problemaRedimento, tempoPrep, dedicacaoDoutrinaOPS, consultaSite, csltAmbVirtualAl;
     String prepFisica, fatorMotivador;
 
     public int getId() {
@@ -52,6 +52,16 @@ public class Preparacao {
     public void setProblemaRedimento(int problemaRedimento) {
         this.problemaRedimento = problemaRedimento;
     }
+
+    public int getTempoPrep() {
+        return tempoPrep;
+    }
+
+    public void setTempoPrep(int tempoPrep) {
+        this.tempoPrep = tempoPrep;
+    }
+    
+    
 
     public int getDedicacaoDoutrinaOPS() {
         return dedicacaoDoutrinaOPS;

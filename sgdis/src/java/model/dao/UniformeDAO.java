@@ -34,7 +34,7 @@ public class UniformeDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + tamcoturno + "=?, " + tamgandola + "=?, " + tamcalca + "=?, " + tamcamisacamuflada + "=?, " +
+                                  " SET " + tamcoturno + "=?, " + tamgandola + "=?, " + tamcalca + "=?, " + tamcamisacamuflada + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
@@ -164,7 +164,7 @@ public class UniformeDAO {
     
     private final String GETCHIMTOEXISTENTE = "SELECT * " + 
                                            " FROM " + tabela + 
-                                           " WHERE " + tamcoturno + "=? AND " + tamgandola + "=? AND " + tamcalca + "=? AND " + tamcamisacamuflada +"=? "+";";
+                                           " WHERE " + tamcoturno + "=? AND " + tamgandola + "=? AND " + tamcalca + "=? AND " + tamcamisacamuflada +"=?;";
 
     public Uniforme getUniformeExistente(int tamcoturno, String tamgandola, String tamcalca, String tamcamcmf){
         Uniforme un = new Uniforme();   

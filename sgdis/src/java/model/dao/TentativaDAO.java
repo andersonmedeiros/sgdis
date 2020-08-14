@@ -32,7 +32,7 @@ public class TentativaDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + mtvDeslg + "=?, " + faseDeslg + "=?, " +
+                                  " SET " + mtvDeslg + "=?, " + faseDeslg + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
@@ -40,10 +40,31 @@ public class TentativaDAO {
                                   "WHERE " + id + "=?;";
     
     //Consultas SQL        
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
-    ResultSet rs = null;    
+    ResultSet rs = null;
+    
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
     public void insert(Tentativa tent) {
@@ -160,12 +181,14 @@ public class TentativaDAO {
         return tentativas;
     }
     
-    private final static String GETQTDETENTBYCANDIDATOANDCURSO = "SELECT COUNT(t_al.idTentativa) AS qtdeTentativas " +
-                                                                 "FROM Turma_has_Aluno AS t_al " +
-                                                                 "INNER JOIN Turma AS t ON t.id = t_al.idTurma " +
-                                                                 "INNER JOIN Tentativa AS tent ON tent.id = t_al.idTentativa " +
-                                                                 "INNER JOIN Curso AS c ON c.id = t.idCurso " +
-                                                                 "WHERE t_al.idtAluno = ? AND t.idCurso = ?;";
+    private final static String GETQTDETENTBYCANDIDATOANDCURSO = "SELECT COUNT(ha.identidade) AS qtdeTentativas " +
+                                                                    "FROM HistoricoAluno as ha " +
+                                                                    "INNER JOIN Turma_has_Aluno as tha on ha.idTentativa = tha.idTentativa " +
+                                                                    "INNER JOIN Tentativa as tent on ha.idTentativa = tent.id " +
+                                                                    "INNER JOIN Turma as t on tha.idTurma = t.id " +
+                                                                    "INNER JOIN Curso as c on t.idCurso = c.id " +
+                                                                    "INNER JOIN Categoria AS cat ON cat.id = t.idCategoria " +
+                                                                    "WHERE ha.identidade = ? AND t.idCurso = ?;";
     
     //Quantidade de tentativas por candidato
     public static int getQtdeTentativasByCandidatoAndCurso(String idtCandidato, int idCurso){
@@ -195,12 +218,13 @@ public class TentativaDAO {
     }
     
     private final static String GETTENTATIVASBYCANDIDATOANDCURSO = "SELECT c.sigla, cat.nome, t.ano, t.turma, tent.* " +
-                                                               "FROM Turma_has_Aluno AS t_al " +
-                                                               "INNER JOIN Turma AS t ON t.id = t_al.idTurma " +
-                                                               "INNER JOIN Tentativa AS tent ON tent.id = t_al.idTentativa " +
-                                                               "INNER JOIN Curso AS c ON c.id = t.idCurso " +
-                                                               "INNER JOIN Categoria AS cat ON cat.id = t.idCategoria " +
-                                                               "WHERE t_al.idtAluno = ? AND t.idCurso = ?;";
+                                                                    "FROM HistoricoAluno as ha " +
+                                                                    "INNER JOIN Turma_has_Aluno as tha on ha.idTentativa = tha.idTentativa " +
+                                                                    "INNER JOIN Tentativa as tent on ha.idTentativa = tent.id " +
+                                                                    "INNER JOIN Turma as t on tha.idTurma = t.id " +
+                                                                    "INNER JOIN Curso as c on t.idCurso = c.id " +
+                                                                    "INNER JOIN Categoria AS cat ON cat.id = t.idCategoria " +
+                                                                    "WHERE ha.identidade = ? AND t.idCurso = ?;";
     
     //Lista com as tentativas do candidato em um determinado curso
     public static ArrayList<Tentativa> getTentativasByCandidatoAndCursoDWR(String idtAluno, int idCurso){
@@ -222,6 +246,8 @@ public class TentativaDAO {
                tent.setId(rs.getInt("tent.id"));
                tent.setMtvDeslg(rs.getString("tent.mtvDeslg"));
                tent.setFaseDeslg(rs.getString("tent.faseDeslg"));
+               tent.setSiglaCursoCat(rs.getString("c.sigla") + " " + rs.getString("cat.nome"));
+               tent.setTurma(rs.getInt("t.ano") + "/" + rs.getString("t.turma"));
                 
                tentativas.add(tent);
             }

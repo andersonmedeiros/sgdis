@@ -32,7 +32,7 @@ public class CursoMilitarDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + tipo + "=?, " + 
+                                  " SET " + nome + "=?, " + tipo + "=? " + 
                                   "WHERE " + id + "=?;";
         
     //Delete SQL

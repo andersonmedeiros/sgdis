@@ -32,7 +32,7 @@ public class CategoriaDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + descricao + "=?, " +
+                                  " SET " + nome + "=?, " + descricao + "=? " +
                                   "WHERE " + id + "=?;";
     
     //Delete SQL
@@ -41,7 +41,7 @@ public class CategoriaDAO {
     //Consultas SQL
     private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     private final String GETCATEGORIABYID = "SELECT * FROM " + tabela + " WHERE " + id + "=?;";
-    private final String GETCATEGORIAS = "SELECT * FROM "+ tabela +";";
+    private final String GETCATEGORIAS = "SELECT * FROM " + tabela +";";
     
     Connection conn = null;
     PreparedStatement pstm = null;

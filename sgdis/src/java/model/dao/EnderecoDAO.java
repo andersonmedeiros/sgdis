@@ -37,18 +37,38 @@ public class EnderecoDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + cep + "=?, " + descricao + "=?, " + complemento + "=?, " + pontoreferencia + "=?, " + bairro + "=?, " + idCidade + "=?, " +
+                                  " SET " + cep + "=?, " + descricao + "=?, " + complemento + "=?, " + pontoreferencia + "=?, " + bairro + "=?, " + idCidade + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
     
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
     public void insert(Endereco end) {
@@ -160,7 +180,51 @@ public class EnderecoDAO {
         return end;
     }
     
-    private final String GETTAFS = "SELECT * " +
+    private final String GETENDERECOEXISTENTE = "SELECT * " + 
+                                                " FROM " + tabela + 
+                                                " WHERE " + cep + "=? AND " + descricao + "=? AND " + complemento + "=? OR " + complemento + " IS NULL AND "  + pontoreferencia + "=? OR " + pontoreferencia + " IS NULL AND " + bairro + "=? AND " + idCidade + "=?;";
+
+    public Endereco getEnderecoExistente(String cep, String descricao, String complemento, String pontoreferencia, String bairro, int idCidade){
+        Endereco end = new Endereco();   
+        CidadeDAO cidDAO = new CidadeDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETENDERECOEXISTENTE);
+            pstm.setString(1, cep);
+            pstm.setString(2, descricao);
+            pstm.setString(3, complemento);
+            pstm.setString(4, pontoreferencia);
+            pstm.setString(5, bairro);
+            pstm.setInt(6, idCidade);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {                
+                end.setId(rs.getInt("id"));
+                end.setCep(rs.getString("cep"));
+                end.setDescricao(rs.getString("descricao"));
+                end.setComplemento(rs.getString("complemento"));
+                end.setPontoreferencia(rs.getString("pontoreferencia"));
+                end.setBairro(rs.getString("bairro"));
+                
+                Cidade cid = cidDAO.getCidadeById(rs.getInt("idCidade"));
+                end.setIdCidade(cid.getId());
+                end.setNomeCidade(cid.getNome());
+                end.setIdEstadoCidade(cid.getIdEstado());
+                end.setNomeEstadoCidade(cid.getNomeEstado());
+                end.setSiglaEstadoCidade(cid.getSiglaEstado());
+                end.setIdRegiaoEstadoCidade(cid.getIdRegiaoEstado());
+                end.setNomeRegiaoEstadoCidade(cid.getNomeRegiaoEstado());
+                
+                return end;
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return null;
+    }
+    
+    private final String GETENDERECOS = "SELECT * " +
                                    "FROM " + tabela;
        
     public ArrayList<Endereco> getCidades(){
@@ -168,7 +232,7 @@ public class EnderecoDAO {
         CidadeDAO cidDAO = new CidadeDAO();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETTAFS);
+            pstm = conn.prepareStatement(GETENDERECOS);
            
             rs = pstm.executeQuery();
             while (rs.next()) {

@@ -50,7 +50,8 @@ public class AlunoHasEnderecoDAO {
                 
                 pstm.setString(1, alunoendereco.getIdentidadeAluno());
                 pstm.setInt(2, alunoendereco.getIdEndereco());
-                pstm.setInt(3, alunoendereco.getTipo());
+                pstm.setString(3, alunoendereco.getNumendereco());
+                pstm.setInt(4, alunoendereco.getTipo());
                                                               
                 pstm.execute();
                 
@@ -65,14 +66,15 @@ public class AlunoHasEnderecoDAO {
     }
             
     //Delete SQL
-    public void delete(String idtAluno, int idEndereco, int tipo) {
-        if (idtAluno != null && idEndereco != 0 && tipo != 0){
+    public void delete(String idtAluno, int idEndereco, String numend, int tipo) {
+        if (idtAluno != null && idEndereco != 0 && numend != null && tipo != 0){
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(DELETE);
                 pstm.setString(1, idtAluno);
-                pstm.setInt(2, idEndereco);
-                pstm.setInt(3, tipo);
+                pstm.setInt(2, idEndereco);                
+                pstm.setString(3, numend);
+                pstm.setInt(4, tipo);
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);

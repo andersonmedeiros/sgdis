@@ -7,6 +7,7 @@ package model.dao;
 
 import connection.ConnectionFactory;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,18 +33,38 @@ public class TafDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + dataulttaf + "=?, " + mencao + "=?, " +
+                                  " SET " + dataulttaf + "=?, " + mencao + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
     
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
     public void insert(Taf taf) {
@@ -132,6 +153,33 @@ public class TafDAO {
             throw new RuntimeException(e.getMessage());           
         }
         return taf;
+    }
+    
+    private final String GETTAFEXISTENTE = "SELECT * " + 
+                                           " FROM " + tabela + 
+                                           " WHERE " + dataulttaf + "=? AND " + mencao + "=?;";
+
+    public Taf getTafExistente(Date dataUltTaf, String mencao){
+        Taf taf = new Taf();   
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETTAFEXISTENTE);
+            pstm.setDate(1, dataUltTaf);
+            pstm.setString(2, mencao);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {                
+                taf.setId(rs.getInt("id"));
+                taf.setDataUltTaf(rs.getDate("dataulttaf"));
+                taf.setMencao(rs.getString("mencao"));
+                
+                return taf;
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return null;
     }
     
     private final String GETTAFS = "SELECT * " +

@@ -34,7 +34,7 @@ public class ComandanteDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + sobrenome + "=?, " + nomeguerra + "=?, " + idPostoGraduacao + "=?, " +
+                                  " SET " + nome + "=?, " + sobrenome + "=?, " + nomeguerra + "=?, " + idPostoGraduacao + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
@@ -182,7 +182,7 @@ public class ComandanteDAO {
     
     private final String GETCMTEXISTENTE = "SELECT * " + 
                                            " FROM " + tabela + 
-                                           " WHERE " + nome + "=? AND " + sobrenome + "=? AND " + nomeguerra + "=? AND " + idPostoGraduacao +"=? "+";";
+                                           " WHERE " + nome + "=? AND " + sobrenome + "=? AND " + nomeguerra + "=? AND " + idPostoGraduacao +"=?;";
 
     public Comandante getComandanteExistente(String nome, String sobrenome, String nomeguerra, int idPGrad){
         Comandante cmt = new Comandante();   

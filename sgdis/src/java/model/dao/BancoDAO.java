@@ -37,17 +37,38 @@ public class BancoDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + banco + "=?, " + agencia + "=?, " + dvagencia + "=?, " + conta + "=?, " + dvconta + "=?, " + idtAluno + "=?, " +
+                                  " SET " + banco + "=?, " + agencia + "=?, " + dvagencia + "=?, " + conta + "=?, " + dvconta + "=?, " + idtAluno + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
+    
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
     public void insert(Banco b) {
@@ -168,7 +189,6 @@ public class BancoDAO {
                 b.setIdOMAluno(al.getIdOM());
                 b.setIdComportamentoAluno(al.getIdComportamento());
                 b.setIdChImtoAluno(al.getIdChImto());
-                b.setIdFormOrigemAluno(al.getIdFormOrigem());
                 b.setSexoAluno(al.getSexo());
                 b.setUltfuncao1Aluno(al.getUltfuncao1());
                 b.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -177,6 +197,7 @@ public class BancoDAO {
                 b.setIdPromocaoAluno(al.getIdPromocao());
                 b.setIdPreparacaoAluno(al.getIdPreparacao());
                 b.setIdUniformeAluno(al.getIdUniforme());
+                b.setEasAluno(al.getEas());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -231,7 +252,6 @@ public class BancoDAO {
                 b.setIdOMAluno(al.getIdOM());
                 b.setIdComportamentoAluno(al.getIdComportamento());
                 b.setIdChImtoAluno(al.getIdChImto());
-                b.setIdFormOrigemAluno(al.getIdFormOrigem());
                 b.setSexoAluno(al.getSexo());
                 b.setUltfuncao1Aluno(al.getUltfuncao1());
                 b.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -240,6 +260,7 @@ public class BancoDAO {
                 b.setIdPromocaoAluno(al.getIdPromocao());
                 b.setIdPreparacaoAluno(al.getIdPreparacao());
                 b.setIdUniformeAluno(al.getIdUniforme());
+                b.setEasAluno(al.getEas());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -294,7 +315,6 @@ public class BancoDAO {
                 b.setIdOMAluno(al.getIdOM());
                 b.setIdComportamentoAluno(al.getIdComportamento());
                 b.setIdChImtoAluno(al.getIdChImto());
-                b.setIdFormOrigemAluno(al.getIdFormOrigem());
                 b.setSexoAluno(al.getSexo());
                 b.setUltfuncao1Aluno(al.getUltfuncao1());
                 b.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -303,6 +323,7 @@ public class BancoDAO {
                 b.setIdPromocaoAluno(al.getIdPromocao());
                 b.setIdPreparacaoAluno(al.getIdPreparacao());
                 b.setIdUniformeAluno(al.getIdUniforme());
+                b.setEasAluno(al.getEas());
                 
                 bs.add(b);
             }

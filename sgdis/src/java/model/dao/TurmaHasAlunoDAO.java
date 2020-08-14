@@ -10,7 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.bean.TurmaHasAluno;
+import java.util.ArrayList;
+import model.bean.*;
 
 /**
  *
@@ -81,6 +82,32 @@ public class TurmaHasAlunoDAO {
         } else {            
             throw new RuntimeException();
         }
+    }
+    
+    private final static String GETALUNOSBYTURMADWR = "SELECT idtAluno FROM Turma_has_Aluno WHERE idTurma = ?;";
+    
+    public static ArrayList<Aluno> getAlunosByTurmaDWR(int idTurma){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        ArrayList<Aluno> alunos = new ArrayList<>();
+        AlunoDAO alDAO = new AlunoDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETALUNOSBYTURMADWR);
+            pstm.setInt(1, idTurma);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Aluno al = alDAO.getAlunoByIdentidade(rs.getString("idtAluno"));
+                
+                alunos.add(al);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return alunos;
     }
     
 }

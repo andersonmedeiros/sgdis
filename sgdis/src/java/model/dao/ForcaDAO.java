@@ -34,7 +34,7 @@ public class ForcaDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + sigla + "=?, " + idTipoForca + "=?, " +
+                                  " SET " + nome + "=?, " + sigla + "=?, " + idTipoForca + "=? " +
                                   "WHERE " + id + "=?;";    
         
     //Delete SQL

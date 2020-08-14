@@ -37,7 +37,7 @@ public class PostoGraduacaoDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + abreviatura + "=?, " + circulohierarquico + "=?, " + idForca + "=?, " + idCategoria + "=?, " +
+                                  " SET " + nome + "=?, " + abreviatura + "=?, " + circulohierarquico + "=?, " + idForca + "=?, " + idCategoria + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
@@ -135,20 +135,19 @@ public class PostoGraduacaoDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
-                Categoria cat = catDAO.getCategoriaById(rs.getInt("idCategoria"));
-
                 pg.setId(rs.getInt("id"));
                 pg.setNome(rs.getString("nome"));
                 pg.setAbreviatura(rs.getString("abreviatura"));
                 pg.setCirculohierarquico(rs.getString("circulohierarquico"));
-
+                
+                Forca forca = forcaDAO.getForcaById(rs.getInt("idForca"));
                 pg.setIdForca(forca.getId());
                 pg.setNomeForca(forca.getNome());
                 pg.setSiglaForca(forca.getSigla());
                 pg.setIdTipoForca(forca.getIdTipoForca());
                 pg.setNomeTipoForca(forca.getNomeTipoForca());
-
+                
+                Categoria cat = catDAO.getCategoriaById(rs.getInt("idCategoria"));
                 pg.setIdCategoria(cat.getId());
                 pg.setNomeCategoria(cat.getNome());
                 pg.setDescricaoCategoria(cat.getDescricao());

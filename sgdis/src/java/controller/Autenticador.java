@@ -5,8 +5,8 @@
  */
 package controller;
 
-import bean.Militar;
-import dao.MilitarDAO;
+import model.bean.Militar;
+import model.dao.MilitarDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -94,28 +94,28 @@ public class Autenticador extends HttpServlet {
             
             //Consultas no banco de dados para validação dos dados de acesso     
             Militar milAutenticado = milDAO.autenticacao(mil);
-            boolean valida_login = milDAO.validarLogin(identidade);
-            boolean valida_senha = milDAO.validarSenha(senha);
-            boolean valida_login_senha = milDAO.validarLoginSenha(identidade, senha);
+            boolean validaLogin = milDAO.validarLogin(identidade);
+            boolean validaSenha = milDAO.validarSenha(senha);
+            boolean validaLoginSenha = milDAO.validarLoginSenha(identidade, senha);
             
             //e=1: login inválido
-            if(valida_login == false && valida_senha == true){
+            if(validaLogin == false && validaSenha == true){
                 response.sendRedirect("/sgdis/index.jsp?e=1");
             }
             //e=2: senha inválida
-            else if(valida_login == true && valida_senha == false){
+            else if(validaLogin == true && validaSenha == false){
                 response.sendRedirect("/sgdis/index.jsp?e=2");
             }
             //e=3: login e senha inválidos
-            else if(valida_login == false && valida_senha == false){
+            else if(validaLogin == false && validaSenha == false){
                 response.sendRedirect("/sgdis/index.jsp?e=3");
-            }else if(milAutenticado != null && valida_login_senha == true){
+            }else if(milAutenticado != null && validaLoginSenha == true){
                 HttpSession sessao = request.getSession();
                 sessao.setAttribute("militarAutenticado", milAutenticado);
-                
-                if(milAutenticado.getId_grp_acesso_sgdis() == 1){
+                response.sendRedirect("/sgdis/restrito/inicial.jsp");
+                /*if(milAutenticado.getId_grp_acesso_sgdis() == 1){
                     response.sendRedirect("/sgdis/restrito/inicial.jsp?g=1");
-                }
+                }*/
             }
         }
     }

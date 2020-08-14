@@ -31,18 +31,38 @@ public class MedicacaoDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " +
+                                  " SET " + nome + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
     
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
     public void insert(Medicacao medicacao) {
@@ -128,6 +148,31 @@ public class MedicacaoDAO {
             throw new RuntimeException(e.getMessage());           
         }
         return medicacao;
+    }
+    
+    private final String GETMEDICACAOEXISTENTE = "SELECT * " + 
+                                                " FROM " + tabela + 
+                                                " WHERE " + nome + "=?;";
+
+    public Medicacao getMedicacaoExistente(String nomeMedicacao){
+        Medicacao medicacao = new Medicacao();   
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETMEDICACAOEXISTENTE);
+            pstm.setString(1, nomeMedicacao);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {                
+                medicacao.setId(rs.getInt("id"));
+                medicacao.setNome(rs.getString("nome"));
+                
+                return medicacao;
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return null;
     }
     
     private final String GETMEDICACOES = "SELECT * " +

@@ -33,7 +33,7 @@ public class CidadeDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + idEstado + "=?, " +
+                                  " SET " + nome + "=?, " + idEstado + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL

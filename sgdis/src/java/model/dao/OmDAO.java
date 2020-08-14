@@ -19,7 +19,7 @@ import model.bean.*;
  */
 public class OmDAO {
     //Tabela
-    String tabela = "Estado";
+    String tabela = "OM";
     
     //Atributos
     String id = "id";
@@ -36,7 +36,7 @@ public class OmDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + abreviatura + "=?, " + numendereco + "=?, " + idForca + "=?, " + idEstado + "=?, " + idEndereco + "=?, " + 
+                                  " SET " + nome + "=?, " + abreviatura + "=?, " + numendereco + "=?, " + idForca + "=?, " + idEstado + "=?, " + idEndereco + "=? " + 
                                   "WHERE " + id + "=?;";
         
     //Delete SQL

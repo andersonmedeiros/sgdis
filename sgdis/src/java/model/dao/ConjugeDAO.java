@@ -23,6 +23,7 @@ public class ConjugeDAO {
     String tabela = "Conjuge";
     
     //Atributos
+    String id = "id";
     String cpf = "cpf";
     String nome = "nome";
     String sobrenome = "sobrenome";
@@ -30,22 +31,43 @@ public class ConjugeDAO {
     String idtAluno = "idtAluno";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + cpf + "," + nome + "," + sobrenome +  "," + email + "," + idtAluno + ")" +
-                                  " VALUES(?,?,?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + cpf + "," + nome + "," + sobrenome +  "," + email + "," + idtAluno + ")" +
+                                  " VALUES(?,?,?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + sobrenome + "=?, " + email + "=?, " + idtAluno + "=?, " +
-                                  "WHERE " + cpf + "=?;";
+                                  " SET " + cpf + "=?, " + nome + "=?, " + sobrenome + "=?, " + email + "=?, " + idtAluno + "=? " +
+                                  "WHERE " + id + "=?;";
         
     //Delete SQL
-    private final String DELETE = "DELETE FROM " + tabela + " WHERE " + cpf + "=?;";
+    private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
+    
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
     public void insert(Conjuge conjuge) {
@@ -55,11 +77,12 @@ public class ConjugeDAO {
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setString(1, conjuge.getCpf());
-                pstm.setString(2, conjuge.getNome());
-                pstm.setString(3, conjuge.getSobrenome());
-                pstm.setString(4, conjuge.getEmail());
-                pstm.setString(5, conjuge.getIdentidadeAluno());
+                pstm.setInt(1, conjuge.getId());
+                pstm.setString(2, conjuge.getCpf());
+                pstm.setString(3, conjuge.getNome());
+                pstm.setString(4, conjuge.getSobrenome());
+                pstm.setString(5, conjuge.getEmail());
+                pstm.setString(6, conjuge.getIdentidadeAluno());
                 
                 pstm.execute();
                 
@@ -80,11 +103,12 @@ public class ConjugeDAO {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(UPDATE);                   
                                 
-                pstm.setString(1, conjuge.getNome());
-                pstm.setString(2, conjuge.getSobrenome());
-                pstm.setString(3, conjuge.getEmail());
-                pstm.setString(4, conjuge.getIdentidadeAluno());
-                pstm.setString(5, conjuge.getCpf());
+                pstm.setString(1, conjuge.getCpf());
+                pstm.setString(2, conjuge.getNome());
+                pstm.setString(3, conjuge.getSobrenome());
+                pstm.setString(4, conjuge.getEmail());
+                pstm.setString(5, conjuge.getIdentidadeAluno());                
+                pstm.setInt(6, conjuge.getId());
                 
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -98,12 +122,12 @@ public class ConjugeDAO {
     }
     
     //Delete SQL
-    public void delete(String cpf) {
+    public void delete(int id) {
         if (cpf != null){
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(DELETE);
-                pstm.setString(1, cpf);
+                pstm.setInt(1, id);
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -116,20 +140,21 @@ public class ConjugeDAO {
         }
     }
     
-    private final String GETCONJUGEBYCPF = "SELECT * " +
+    private final String GETCONJUGEBYID = "SELECT * " +
                                            "FROM Conjuge " + 
-                                           "WHERE cpf = ?";
+                                           "WHERE id = ?";
        
-    public Conjuge getConjugeByCpf(String cpfConjuge){
+    public Conjuge getConjugeById(int idConjuge){
         Conjuge conjuge = new Conjuge();
         AlunoDAO alDAO = new AlunoDAO();
         try {
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETCONJUGEBYCPF);
-            pstm.setString(1, cpfConjuge);
+            pstm = conn.prepareStatement(GETCONJUGEBYID);
+            pstm.setInt(1, idConjuge);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
+                conjuge.setId(rs.getInt("id"));
                 conjuge.setCpf(rs.getString("cpf"));
                 conjuge.setNome(rs.getString("nome"));
                 conjuge.setSobrenome(rs.getString("sobrenome"));
@@ -160,7 +185,6 @@ public class ConjugeDAO {
                 conjuge.setIdOMAluno(al.getIdOM());
                 conjuge.setIdComportamentoAluno(al.getIdComportamento());
                 conjuge.setIdChImtoAluno(al.getIdChImto());
-                conjuge.setIdFormOrigemAluno(al.getIdFormOrigem());
                 conjuge.setSexoAluno(al.getSexo());
                 conjuge.setUltfuncao1Aluno(al.getUltfuncao1());
                 conjuge.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -169,6 +193,69 @@ public class ConjugeDAO {
                 conjuge.setIdPromocaoAluno(al.getIdPromocao());
                 conjuge.setIdPreparacaoAluno(al.getIdPreparacao());
                 conjuge.setIdUniformeAluno(al.getIdUniforme());
+                conjuge.setEasAluno(al.getEas());
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return conjuge;
+    }
+    
+    private final String GETCONJUGEBYCPF = "SELECT * " +
+                                           "FROM Conjuge " + 
+                                           "WHERE cpf = ?";
+       
+    public Conjuge getConjugeByCpf(String cpfConjuge){
+        Conjuge conjuge = new Conjuge();
+        AlunoDAO alDAO = new AlunoDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETCONJUGEBYCPF);
+            pstm.setString(1, cpfConjuge);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                conjuge.setId(rs.getInt("id"));
+                conjuge.setCpf(rs.getString("cpf"));
+                conjuge.setNome(rs.getString("nome"));
+                conjuge.setSobrenome(rs.getString("sobrenome"));
+                conjuge.setEmail(rs.getString("email"));            
+                
+                Aluno al = alDAO.getAlunoByIdentidade(rs.getString("idtAluno"));
+                conjuge.setIdentidadeAluno(al.getIdentidade());
+                conjuge.setSituacaoAluno(al.getSituacao());
+                conjuge.setIdPostoGraduacaoAluno(al.getIdPostoGraduacao());
+                conjuge.setIdQasQmsAluno(al.getIdQasQms());
+                conjuge.setIdCmtAluno(al.getIdCmt());
+                conjuge.setDataNascimentoAluno(al.getDataNascimento());
+                conjuge.setNomeAluno(al.getNome());
+                conjuge.setSobrenomeAluno(al.getSobrenome());
+                conjuge.setNomeguerraAluno(al.getNomeguerra());
+                conjuge.setPreccpAluno(al.getPreccp());
+                conjuge.setCpAluno(al.getCp());
+                conjuge.setCpfAluno(al.getCpf());
+                conjuge.setUltDataPracaAluno(al.getUltDataPraca());
+                conjuge.setIdNatCidadeAluno(al.getIdNatCidade());
+                conjuge.setIdEstadoCivilAluno(al.getIdEstadoCivil());
+                conjuge.setTsAluno(al.getTs());
+                conjuge.setFtrhAluno(al.getFtrh());
+                conjuge.setPaiAluno(al.getPai());
+                conjuge.setMaeAluno(al.getMae());
+                conjuge.setEmailAluno(al.getEmail());
+                conjuge.setFumanteAluno(al.getFumante());
+                conjuge.setIdOMAluno(al.getIdOM());
+                conjuge.setIdComportamentoAluno(al.getIdComportamento());
+                conjuge.setIdChImtoAluno(al.getIdChImto());
+                conjuge.setSexoAluno(al.getSexo());
+                conjuge.setUltfuncao1Aluno(al.getUltfuncao1());
+                conjuge.setUltfuncao2Aluno(al.getUltfuncao2());
+                conjuge.setUltfuncao3Aluno(al.getUltfuncao3());
+                conjuge.setIdTafAluno(al.getIdTaf());
+                conjuge.setIdPromocaoAluno(al.getIdPromocao());
+                conjuge.setIdPreparacaoAluno(al.getIdPreparacao());
+                conjuge.setIdUniformeAluno(al.getIdUniforme());
+                conjuge.setEasAluno(al.getEas());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -191,6 +278,7 @@ public class ConjugeDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
+                conjuge.setId(rs.getInt("id"));
                 conjuge.setCpf(rs.getString("cpf"));
                 conjuge.setNome(rs.getString("nome"));
                 conjuge.setSobrenome(rs.getString("sobrenome"));
@@ -221,7 +309,6 @@ public class ConjugeDAO {
                 conjuge.setIdOMAluno(al.getIdOM());
                 conjuge.setIdComportamentoAluno(al.getIdComportamento());
                 conjuge.setIdChImtoAluno(al.getIdChImto());
-                conjuge.setIdFormOrigemAluno(al.getIdFormOrigem());
                 conjuge.setSexoAluno(al.getSexo());
                 conjuge.setUltfuncao1Aluno(al.getUltfuncao1());
                 conjuge.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -230,6 +317,7 @@ public class ConjugeDAO {
                 conjuge.setIdPromocaoAluno(al.getIdPromocao());
                 conjuge.setIdPreparacaoAluno(al.getIdPreparacao());
                 conjuge.setIdUniformeAluno(al.getIdUniforme());
+                conjuge.setEasAluno(al.getEas());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -252,6 +340,7 @@ public class ConjugeDAO {
             while (rs.next()) {
                 Conjuge conjuge = new Conjuge();
                 
+                conjuge.setId(rs.getInt("id"));
                 conjuge.setCpf(rs.getString("cpf"));
                 conjuge.setNome(rs.getString("nome"));
                 conjuge.setSobrenome(rs.getString("sobrenome"));
@@ -282,7 +371,6 @@ public class ConjugeDAO {
                 conjuge.setIdOMAluno(al.getIdOM());
                 conjuge.setIdComportamentoAluno(al.getIdComportamento());
                 conjuge.setIdChImtoAluno(al.getIdChImto());
-                conjuge.setIdFormOrigemAluno(al.getIdFormOrigem());
                 conjuge.setSexoAluno(al.getSexo());
                 conjuge.setUltfuncao1Aluno(al.getUltfuncao1());
                 conjuge.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -291,6 +379,7 @@ public class ConjugeDAO {
                 conjuge.setIdPromocaoAluno(al.getIdPromocao());
                 conjuge.setIdPreparacaoAluno(al.getIdPreparacao());
                 conjuge.setIdUniformeAluno(al.getIdUniforme());
+                conjuge.setEasAluno(al.getEas());
                 
                 conjuges.add(conjuge);
             }

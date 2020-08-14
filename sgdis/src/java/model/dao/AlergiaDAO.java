@@ -19,7 +19,7 @@ import model.bean.Alergia;
  */
 public class AlergiaDAO {
     //Tabela
-    String tabela = "Alegria";
+    String tabela = "Alergia";
     
     //Atributos
     String id = "id";
@@ -31,29 +31,49 @@ public class AlergiaDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " +
+                                  " SET " + nome + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
     
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
-    public void insert(Alergia alegria) {
-        if (alegria != null) {
+    public void insert(Alergia alergia) {
+        if (alergia != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setInt(1, alegria.getId());
-                pstm.setString(2, alegria.getNome());
+                pstm.setInt(1, alergia.getId());
+                pstm.setString(2, alergia.getNome());
                                                               
                 pstm.execute();
                 
@@ -68,14 +88,14 @@ public class AlergiaDAO {
     }
     
     //Update SQL
-    public void update(Alergia alegria) {
-        if (alegria != null) {
+    public void update(Alergia alergia) {
+        if (alergia != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(UPDATE);
                                 
-                pstm.setString(1, alegria.getNome());
-                pstm.setInt(2, alegria.getId());
+                pstm.setString(1, alergia.getNome());
+                pstm.setInt(2, alergia.getId());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -111,47 +131,72 @@ public class AlergiaDAO {
                                           "FROM " + tabela + " " +
                                           "WHERE id = ?;";
        
-    public Alergia getAlegriaById(int idAlegria){
-        Alergia alegria = new Alergia();        
+    public Alergia getAlergiaById(int idAlergia){
+        Alergia alergia = new Alergia();        
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETALEGRIABYID);
-            pstm.setInt(1, idAlegria);
+            pstm.setInt(1, idAlergia);
            
             rs = pstm.executeQuery();
             while (rs.next()) {                
-                alegria.setId(rs.getInt("id"));
-                alegria.setNome(rs.getString("nome"));
+                alergia.setId(rs.getInt("id"));
+                alergia.setNome(rs.getString("nome"));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return alegria;
+        return alergia;
+    }
+    
+    private final String GETALERGIAEXISTENTE = "SELECT * " + 
+                                                " FROM " + tabela + 
+                                                " WHERE " + nome + "=?;";
+
+    public Alergia getAlergiaExistente(String nomeAlergia){
+        Alergia alergia = new Alergia();   
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETALERGIAEXISTENTE);
+            pstm.setString(1, nomeAlergia);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {                
+                alergia.setId(rs.getInt("id"));
+                alergia.setNome(rs.getString("nome"));
+                
+                return alergia;
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return null;
     }
     
     private final String GETALEGRIAS = "SELECT * " +
                                    "FROM " + tabela;
        
-    public ArrayList<Alergia> getAlegrias(){
-        ArrayList<Alergia> alegrias = new ArrayList<>();        
+    public ArrayList<Alergia> getAlergias(){
+        ArrayList<Alergia> alergias = new ArrayList<>();        
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETALEGRIAS);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                Alergia alegria = new Alergia();
+                Alergia alergia = new Alergia();
                 
-                alegria.setId(rs.getInt("id"));
-                alegria.setNome(rs.getString("nome"));
+                alergia.setId(rs.getInt("id"));
+                alergia.setNome(rs.getString("nome"));
                 
-                alegrias.add(alegria);
+                alergias.add(alergia);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return alegrias;
+        return alergias;
     }
 }

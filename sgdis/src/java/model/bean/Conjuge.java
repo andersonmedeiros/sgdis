@@ -12,9 +12,18 @@ import java.sql.Date;
  * @author anderson
  */
 public class Conjuge {
+    private int id;
     private String cpf, nome, sobrenome, email;
     private final Aluno al = new Aluno();
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+        
     public String getCpf() {
         return cpf;
     }
@@ -270,15 +279,7 @@ public class Conjuge {
     public void setIdChImtoAluno(int id) {
         al.setIdChImto(id);
     }
-    
-    public int getIdFormOrigemAluno() {
-        return al.getIdFormOrigem();
-    }
-
-    public void setIdFormOrigemAluno(int id) {
-        al.setIdFormOrigem(id);
-    }
-    
+        
     public int getIdTafAluno() {
         return al.getIdTaf();
     }
@@ -310,4 +311,12 @@ public class Conjuge {
     public void setIdUniformeAluno(int id) {
         al.setIdUniforme(id);
     }
+    
+    public int getEasAluno() {
+        return al.getEas();
+    }
+
+    public void setEasAluno(int eas) {
+        al.setEas(eas);
+    } 
 }

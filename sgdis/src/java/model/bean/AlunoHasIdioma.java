@@ -247,15 +247,7 @@ public class AlunoHasIdioma {
     public void setIdChImtoAluno(int id) {
         al.setIdChImto(id);
     }
-    
-    public int getIdFormOrigemAluno() {
-        return al.getIdFormOrigem();
-    }
-
-    public void setIdFormOrigemAluno(int id) {
-        al.setIdFormOrigem(id);
-    }
-    
+        
     public int getIdTafAluno() {
         return al.getIdTaf();
     }
@@ -286,6 +278,14 @@ public class AlunoHasIdioma {
 
     public void setIdUniformeAluno(int id) {
         al.setIdUniforme(id);
+    }
+    
+    public int getEasAluno() {
+        return al.getEas();
+    }
+
+    public void setEasAluno(int eas) {
+        al.setEas(eas);
     }
     
     public int getIdIdioma() {

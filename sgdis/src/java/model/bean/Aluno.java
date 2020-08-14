@@ -12,8 +12,8 @@ import java.sql.Date;
  * @author anderson
  */
 public class Aluno {
-    String identidade, nome, sobrenome, nomeguerra, preccp, cp, cpf, ts, pai, mae, email, sexo, ultfuncao1, ultfuncao2, ultfuncao3;
-    int situacao, ftrh, fumante;
+    String identidade, nome, sobrenome, nomeguerra, preccp, cp, cpf, ts, pai, mae, email, sexo, ultfuncao1, ultfuncao2, ultfuncao3, abrevPGrad;
+    int situacao, ftrh, fumante, eas;
     Date dataNascimento, ultDataPraca;
     
     private final PostoGraduacao pg = new PostoGraduacao();
@@ -24,7 +24,6 @@ public class Aluno {
     private final Om om = new Om();
     private final Comportamento comportamento = new Comportamento();
     private final ChefeImediato chimto = new ChefeImediato();
-    private final FormacaoOrigem formOrigem = new FormacaoOrigem();
     private final Taf taf = new Taf();
     private final Promocao promocao = new Promocao();
     private final Preparacao preparacao = new Preparacao();
@@ -190,6 +189,14 @@ public class Aluno {
         this.ultDataPraca = ultDataPraca;
     }
 
+    public int getEas() {
+        return eas;
+    }
+
+    public void setEas(int eas) {
+        this.eas = eas;
+    } 
+
     public int getIdPostoGraduacao() {
         return pg.getId();
     }
@@ -213,6 +220,16 @@ public class Aluno {
     public void setAbreviaturaPostoGraduacao(String abreviaturaPostoGraduacao) {
         pg.setAbreviatura(abreviaturaPostoGraduacao);
     }
+
+    /*public String getAbrevPGrad() {
+        return abrevPGrad;
+    }
+
+    public void setAbrevPGrad(String abrevPGrad) {
+        this.abrevPGrad = abrevPGrad;
+    }*/
+    
+    
 
     public String getCirculohierarquicoPostoGraduacao() {
         return pg.getCirculohierarquico();
@@ -908,86 +925,6 @@ public class Aluno {
 
     public void setDescricaoCategoriaPostoGraduacaoChImto(String descricaoCategoria) {
         chimto.setDescricaoCategoriaPostoGraduacao(descricaoCategoria);
-    }
-    
-    public int getIdFormOrigem() {
-        return formOrigem.getId();
-    }
-
-    public void setIdFormOrigem(int id) {
-        formOrigem.setId(id);
-    }
-
-    public int getTurmaFormOrigem() {
-        return formOrigem.getTurma();
-    }
-
-    public void setTurmaFormOrigem(int turma) {
-        formOrigem.setTurma(turma);
-    }
-
-    public int getIdEscolaFormacaoFormOrigem() {
-        return formOrigem.getIdEscolaFormacao();
-    }
-
-    public void setIdEscolaFormacaoFormOrigem(int id) {
-        formOrigem.setIdEscolaFormacao(id);
-    }
-
-    public String getNomeEscolaFormacaoFormOrigem() {
-        return formOrigem.getNomeEscolaFormacao();
-    }
-
-    public void setNomeEscolaFormacaoFormOrigem(String nome) {
-        formOrigem.setNomeEscolaFormacao(nome);
-    }
-
-    public String getAbreviaturaEscolaFormacaoFormOrigem() {
-        return formOrigem.getAbreviaturaEscolaFormacao();
-    }
-
-    public void setAbreviaturaEscolaFormacaoFormOrigem(String abreviatura) {
-        formOrigem.setAbreviaturaEscolaFormacao(abreviatura);
-    }
-    
-    public int getIdForcaEscolaFormacaoFormOrigem() {
-        return formOrigem.getIdForcaEscolaFormacao();
-    }
-
-    public void setIdForcaEscolaFormacaoFormOrigem(int idForca) {
-        formOrigem.setIdForcaEscolaFormacao(idForca);
-    }
-
-    public String getNomeForcaEscolaFormacaoFormOrigem() {
-        return formOrigem.getNomeForcaEscolaFormacao();
-    }
-
-    public void setNomeForcaEscolaFormacaoFormOrigem(String nomeForca) {
-        formOrigem.setNomeForcaEscolaFormacao(nomeForca);
-    }
-
-    public String getSiglaForcaEscolaFormacaoFormOrigem() {
-        return formOrigem.getSiglaForcaEscolaFormacao();
-    }
-
-    public void setSiglaForcaEscolaFormacaoFormOrigem(String siglaForca) {
-        formOrigem.setSiglaForcaEscolaFormacao(siglaForca);
-    }
-    
-    public int getIdTipoForcaEscolaFormacaoFormOrigem() {
-        return formOrigem.getIdTipoForcaEscolaFormacao();
-    }
-
-    public void setIdTipoForcaEscolaFormacaoFormOrigem(int id) {
-        formOrigem.setIdTipoForcaEscolaFormacao(id);
-    }
-
-    public String getNomeTipoForcaEscolaFormacaoFormOrigem() {
-        return formOrigem.getNomeTipoForcaEscolaFormacao();
-    }
-
-    public void setNomeTipoForcaEscolaFormacaoFormOrigem(String nome) {
-        formOrigem.setNomeTipoForcaEscolaFormacao(nome);
     }
     
     public int getIdTaf() {

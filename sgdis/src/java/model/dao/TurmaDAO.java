@@ -268,7 +268,7 @@ public class TurmaDAO {
         return turmas;
     }
     
-    private final static String GETTURMASBYCURSOANDCATEGORIA = "SELECT * " +
+    private final static String GETTURMASBYCURSOANDCATEGORIADWR = "SELECT * " +
                                             "FROM Turma " +
                                             "WHERE idCurso = ? AND idCategoria = ?";
     
@@ -281,7 +281,57 @@ public class TurmaDAO {
         CategoriaDAO catDAO = new CategoriaDAO();
         try{
             conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETTURMASBYCURSOANDCATEGORIA);
+            pstm = conn.prepareStatement(GETTURMASBYCURSOANDCATEGORIADWR);
+            pstm.setInt(1, idCurso);
+            pstm.setInt(2, idCategoria);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+               Turma turma = new Turma();
+               
+               turma.setId(rs.getInt("id"));
+               turma.setAno(rs.getInt("ano"));               
+               turma.setnTurma(rs.getInt("turma"));
+               turma.setDataInicio(rs.getDate("datainicio"));
+               turma.setDataFim(rs.getDate("datafim"));
+               
+               Curso curso = cursoDAO.getCurso(rs.getInt("idCurso"));
+               turma.setIdCurso(curso.getId());
+               turma.setNomeCurso(curso.getNome());
+               turma.setSiglaCurso(curso.getSigla());
+               turma.setPortariaCurso(curso.getPortaria());
+               turma.setDescricaoCurso(curso.getDescricao());
+               
+               Categoria cat = catDAO.getCategoriaById(rs.getInt("idCategoria"));
+               turma.setIdCategoria(cat.getId());
+               turma.setNomeCategoria(cat.getNome());
+               turma.setDescricaoCategoria(cat.getDescricao());
+               
+               turma.setTurma(rs.getInt("ano") + "/" + rs.getInt("turma"));
+                
+               turmas.add(turma);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return turmas;
+    }
+    private final static String GETTURMASABERTASBYCURSOANDCATEGORIADWR = "SELECT * " +
+                                            "FROM Turma " +
+                                            "WHERE idCurso = ? AND idCategoria = ? AND date(sysdate()) < datafim " + 
+                                            "ORDER BY idCurso, idCategoria;";
+    
+    public static ArrayList<Turma> getTurmasAbertasByCursoAndCategoriaDWR(int idCurso, int idCategoria){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        ArrayList<Turma> turmas = new ArrayList<>();
+        CursoDAO cursoDAO = new CursoDAO();
+        CategoriaDAO catDAO = new CategoriaDAO();
+        try{
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETTURMASABERTASBYCURSOANDCATEGORIADWR);
             pstm.setInt(1, idCurso);
             pstm.setInt(2, idCategoria);
            

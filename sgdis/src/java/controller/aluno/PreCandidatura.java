@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.candidato;
+package controller.aluno;
 
 import model.bean.Curso;
 import model.dao.CursoDAO;
@@ -80,6 +80,7 @@ public class PreCandidatura extends HttpServlet {
         int idCurso = 0;
         int idCategoria = 0;
         int idTurma = 0;
+        //int idTeste = 0;
         
         if(sessao.getAttribute("militarAutenticado") != null){
             try{
@@ -87,20 +88,22 @@ public class PreCandidatura extends HttpServlet {
                 idCurso = Integer.parseInt(request.getParameter("txtCurso"));
                 idCategoria = Integer.parseInt(request.getParameter("txtCategoria"));
                 idTurma = Integer.parseInt(request.getParameter("txtTurma"));
+                //idTeste = Integer.parseInt(request.getParameter("txtTeste"));
 
                 sessao.setAttribute("qtdeTentativas", qtdeTentativas);
                 sessao.setAttribute("idtMilCandidato", idtMilCandidato);
                 sessao.setAttribute("idCurso", idCurso);
                 sessao.setAttribute("idCategoria", idCategoria);
                 sessao.setAttribute("idTurma", idTurma);
+                //sessao.setAttribute("idTeste", idTeste);
 
             }catch(Exception ex){
                 //e=2: erro durante realização do cadastro
-                response.sendRedirect("/sgdis/restrito/candidatura.jsp?e=2");
+                response.sendRedirect("/sgdis/restrito/precandidatura.jsp?e=2");
                 throw new ServletException(ex);
             }
             //e=1: cadastro sucesso
-            response.sendRedirect("/sgdis/restrito/candidato/candidatura.jsp?");
+            response.sendRedirect("/sgdis/restrito/candidato/candidatura.jsp");
         }
         else{
             //e=4: Sessão Encerrada

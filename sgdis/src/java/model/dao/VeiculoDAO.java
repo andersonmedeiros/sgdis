@@ -37,17 +37,38 @@ public class VeiculoDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + tipo + "=?, " + marca + "=?, " + modelo + "=?, " + cor + "=?, " + placa + "=?, " + idtAluno + "=?, " +
+                                  " SET " + tipo + "=?, " + marca + "=?, " + modelo + "=?, " + cor + "=?, " + placa + "=?, " + idtAluno + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
+    
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
     public void insert(Veiculo v) {
@@ -168,7 +189,6 @@ public class VeiculoDAO {
                 v.setIdOMAluno(al.getIdOM());
                 v.setIdComportamentoAluno(al.getIdComportamento());
                 v.setIdChImtoAluno(al.getIdChImto());
-                v.setIdFormOrigemAluno(al.getIdFormOrigem());
                 v.setSexoAluno(al.getSexo());
                 v.setUltfuncao1Aluno(al.getUltfuncao1());
                 v.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -177,6 +197,7 @@ public class VeiculoDAO {
                 v.setIdPromocaoAluno(al.getIdPromocao());
                 v.setIdPreparacaoAluno(al.getIdPreparacao());
                 v.setIdUniformeAluno(al.getIdUniforme());
+                v.setEasAluno(al.getEas());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -233,7 +254,6 @@ public class VeiculoDAO {
                 v.setIdOMAluno(al.getIdOM());
                 v.setIdComportamentoAluno(al.getIdComportamento());
                 v.setIdChImtoAluno(al.getIdChImto());
-                v.setIdFormOrigemAluno(al.getIdFormOrigem());
                 v.setSexoAluno(al.getSexo());
                 v.setUltfuncao1Aluno(al.getUltfuncao1());
                 v.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -242,6 +262,7 @@ public class VeiculoDAO {
                 v.setIdPromocaoAluno(al.getIdPromocao());
                 v.setIdPreparacaoAluno(al.getIdPreparacao());
                 v.setIdUniformeAluno(al.getIdUniforme());
+                v.setEasAluno(al.getEas());
                 
                 veiculos.add(v);
             }
@@ -298,7 +319,6 @@ public class VeiculoDAO {
                 v.setIdOMAluno(al.getIdOM());
                 v.setIdComportamentoAluno(al.getIdComportamento());
                 v.setIdChImtoAluno(al.getIdChImto());
-                v.setIdFormOrigemAluno(al.getIdFormOrigem());
                 v.setSexoAluno(al.getSexo());
                 v.setUltfuncao1Aluno(al.getUltfuncao1());
                 v.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -307,6 +327,7 @@ public class VeiculoDAO {
                 v.setIdPromocaoAluno(al.getIdPromocao());
                 v.setIdPreparacaoAluno(al.getIdPreparacao());
                 v.setIdUniformeAluno(al.getIdUniforme());
+                v.setEasAluno(al.getEas());
                 
                 veiculos.add(v);
             }

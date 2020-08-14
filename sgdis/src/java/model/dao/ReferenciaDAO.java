@@ -27,15 +27,15 @@ public class ReferenciaDAO {
     String nome = "nome";
     String sobrenome = "sobrenome";
     String email = "email";
-    String idtAluno = "idtAluno";
+    String idGrauParentesco = "idGrauParentesco";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + cpf + "," + nome + "," + sobrenome +  "," + email +  "," + idtAluno + ")" +
-                                  " VALUES(?,?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + cpf + "," + nome + "," + sobrenome +  "," + email +  "," + idGrauParentesco + ")" +
+                                  " VALUES(?,?,?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + sobrenome + "=?, " + email + "=?, " + idtAluno + "=?, " +
+                                  " SET " + nome + "=?, " + sobrenome + "=?, " + email + "=?, " + idGrauParentesco + "=? " +
                                   "WHERE " + cpf + "=?;";
         
     //Delete SQL
@@ -148,15 +148,15 @@ public class ReferenciaDAO {
     
     private final String GETREFERENCIABYIDTALUNO = "SELECT * " +
                                                    "FROM Referencia " + 
-                                                   "WHERE idtAluno = ?";
+                                                   "WHERE idGrauParentesco = ?";
        
-    public Referencia getReferenciaByIdtAluno(String idtAluno){
+    public Referencia getReferenciaByIdtAluno(String idGrauParentesco){
         Referencia ref = new Referencia();
         GrauParentescoDAO gpDAO = new GrauParentescoDAO();
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETREFERENCIABYIDTALUNO);
-            pstm.setString(1, idtAluno);
+            pstm.setString(1, idGrauParentesco);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
@@ -174,6 +174,38 @@ public class ReferenciaDAO {
             throw new RuntimeException(e.getMessage());           
         }
         return ref;
+    }
+    
+    private final String GETREFERENCIAEXISTENTE = "SELECT * " + 
+                                                " FROM " + tabela + 
+                                                " WHERE " + cpf + "=?;";
+
+    public Referencia getReferenciaExistente(String cpf){
+        Referencia ref = new Referencia();   
+        GrauParentescoDAO gpDAO = new GrauParentescoDAO();
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETREFERENCIAEXISTENTE);
+            pstm.setString(1, cpf);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {                
+                ref.setCpf(rs.getString("cpf"));
+                ref.setNome(rs.getString("nome"));
+                ref.setSobrenome(rs.getString("sobrenome"));
+                ref.setEmail(rs.getString("email"));
+                
+                GrauParentesco gp = gpDAO.getGrauParentescoById(rs.getInt("idGrauParentesco"));
+                ref.setIdGrauParentesco(gp.getId());
+                ref.setNomeGrauParentesco(gp.getNome());
+                
+                return ref;
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return null;
     }
     
     private final String GETCNHS = "SELECT * " +

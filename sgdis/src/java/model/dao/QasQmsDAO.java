@@ -34,7 +34,7 @@ public class QasQmsDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " + abreviatura + "=?, " + idForca + "=?, " +
+                                  " SET " + nome + "=?, " + abreviatura + "=?, " + idForca + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL

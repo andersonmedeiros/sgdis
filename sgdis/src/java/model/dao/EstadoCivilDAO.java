@@ -31,7 +31,7 @@ public class EstadoCivilDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + nome + "=?, " +
+                                  " SET " + nome + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL

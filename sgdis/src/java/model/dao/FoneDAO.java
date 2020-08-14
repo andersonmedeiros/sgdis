@@ -23,37 +23,56 @@ public class FoneDAO {
     
     //Atributos
     String id = "id";
-    String ddd = "ddd";
     String numero = "numero";
     String idtAluno = "idtAluno";
     String idOM = "idOM";
     String cpfReferencia = "cpfReferencia";
-    String cpfConjuge = "cpfConjuge";
+    String idConjuge = "idConjuge";
     
     //Insert SQL
-    private final String INSERTFONEALUNO = "INSERT INTO " + tabela + "(" + id + "," + ddd + "," + numero + "," + idtAluno + ")" +
-                                           " VALUES(?,?,?,?);";
-    private final String INSERTFONEOM = "INSERT INTO " + tabela + "(" + id + "," + ddd + "," + numero + "," + idOM + ")" +
-                                        " VALUES(?,?,?,?);";
-    private final String INSERTFONEREFERENCIA = "INSERT INTO " + tabela + "(" + id + "," + ddd + "," + numero + "," + cpfReferencia + ")" +
-                                                " VALUES(?,?,?,?);";
-    private final String INSERTFONECONJUGE = "INSERT INTO " + tabela + "(" + id + "," + ddd + "," + numero + "," + cpfConjuge + ")" +
-                                             " VALUES(?,?,?,?);";
+    private final String INSERTFONEALUNO = "INSERT INTO " + tabela + "(" + id + "," + numero + "," + idtAluno + ")" +
+                                           " VALUES(?,?,?);";
+    private final String INSERTFONEOM = "INSERT INTO " + tabela + "(" + id + "," + numero + "," + idOM + ")" +
+                                        " VALUES(?,?,?);";
+    private final String INSERTFONEREFERENCIA = "INSERT INTO " + tabela + "(" + id + "," + numero + "," + cpfReferencia + ")" +
+                                                " VALUES(?,?,?);";
+    private final String INSERTFONECONJUGE = "INSERT INTO " + tabela + "(" + id + "," + numero + "," + idConjuge + ")" +
+                                             " VALUES(?,?,?);";
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + ddd + "=?, " + numero + "=?, " +
+                                  " SET " + numero + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
     
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
     public void insertFoneAluno(Fone fone) {
@@ -64,9 +83,8 @@ public class FoneDAO {
                 pstm = conn.prepareStatement(INSERTFONEALUNO);
                 
                 pstm.setInt(1, fone.getId());
-                pstm.setString(2, fone.getDdd());
-                pstm.setString(3, fone.getNumero());
-                pstm.setString(4, fone.getIdentidadeAluno());
+                pstm.setString(2, fone.getNumero());
+                pstm.setString(3, fone.getIdentidadeAluno());
                                                               
                 pstm.execute();
                 
@@ -87,9 +105,8 @@ public class FoneDAO {
                 pstm = conn.prepareStatement(INSERTFONEOM);
                 
                 pstm.setInt(1, fone.getId());
-                pstm.setString(2, fone.getDdd());
-                pstm.setString(3, fone.getNumero());
-                pstm.setInt(4, fone.getIdOM());
+                pstm.setString(2, fone.getNumero());
+                pstm.setInt(3, fone.getIdOM());
                                                               
                 pstm.execute();
                 
@@ -110,9 +127,8 @@ public class FoneDAO {
                 pstm = conn.prepareStatement(INSERTFONEREFERENCIA);
                 
                 pstm.setInt(1, fone.getId());
-                pstm.setString(2, fone.getDdd());
-                pstm.setString(3, fone.getNumero());
-                pstm.setString(4, fone.getCpfReferencia());
+                pstm.setString(2, fone.getNumero());
+                pstm.setString(3, fone.getCpfReferencia());
                                                               
                 pstm.execute();
                 
@@ -133,9 +149,8 @@ public class FoneDAO {
                 pstm = conn.prepareStatement(INSERTFONECONJUGE);
                 
                 pstm.setInt(1, fone.getId());
-                pstm.setString(2, fone.getDdd());
-                pstm.setString(3, fone.getNumero());
-                pstm.setString(4, fone.getCpfConjuge());
+                pstm.setString(2, fone.getNumero());
+                pstm.setInt(3, fone.getIdConjuge());
                                                               
                 pstm.execute();
                 
@@ -150,15 +165,14 @@ public class FoneDAO {
     }
     
     //Update SQL
-    public void updateFoneAluno(Fone fone) {
+    public void update(Fone fone) {
         if (fone != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(UPDATE);
                 
-                pstm.setString(1, fone.getDdd());
-                pstm.setString(2, fone.getNumero());
-                pstm.setInt(3, fone.getId());
+                pstm.setString(1, fone.getNumero());
+                pstm.setInt(2, fone.getId());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -204,12 +218,38 @@ public class FoneDAO {
             rs = pstm.executeQuery();
             while (rs.next()) {
                 fone.setId(rs.getInt("id"));
-                fone.setDdd(rs.getString("ddd"));
                 fone.setNumero(rs.getString("numero"));
                 fone.setIdentidadeAluno(rs.getString("idtAluno"));
                 fone.setIdOM(rs.getInt("idOM"));
                 fone.setCpfReferencia(rs.getString("cpfReferencia"));
-                fone.setCpfConjuge(rs.getString("cpfConjuge"));
+                fone.setIdConjuge(rs.getInt("idConjuge"));
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return fone;
+    }
+    
+    private final String GETFONEBYCPFREF = "SELECT * " +
+                                        "FROM " + tabela + " " +
+                                        "WHERE cpfReferencia = ?;";
+    
+    public Fone getFoneByCpfReferencia(String cpfReferencia){
+        Fone fone = new Fone();        
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETFONEBYCPFREF);
+            pstm.setString(1, cpfReferencia);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                fone.setId(rs.getInt("id"));
+                fone.setNumero(rs.getString("numero"));
+                fone.setIdentidadeAluno(rs.getString("idtAluno"));
+                fone.setIdOM(rs.getInt("idOM"));
+                fone.setCpfReferencia(rs.getString("cpfReferencia"));
+                fone.setIdConjuge(rs.getInt("idConjuge"));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -232,12 +272,11 @@ public class FoneDAO {
                 Fone fone = new Fone();
                 
                 fone.setId(rs.getInt("id"));
-                fone.setDdd(rs.getString("ddd"));
                 fone.setNumero(rs.getString("numero"));
                 fone.setIdentidadeAluno(rs.getString("idtAluno"));
                 fone.setIdOM(rs.getInt("idOM"));
                 fone.setCpfReferencia(rs.getString("cpfReferencia"));
-                fone.setCpfConjuge(rs.getString("cpfConjuge"));
+                fone.setIdConjuge(rs.getInt("idConjuge"));
                 
                 fones.add(fone);
             }

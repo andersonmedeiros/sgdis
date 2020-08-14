@@ -46,7 +46,6 @@ public class AlunoDAO {
     String idOM = "idOM";
     String idComportamento = "idComportamento";
     String idChImediato = "idChImediato";
-    String idFormacaoOrigem = "idFormacaoOrigem";
     String sexo = "sexo";
     String ultfuncao1 = "ultfuncao1";
     String ultfuncao2 = "ultfuncao2";
@@ -55,14 +54,15 @@ public class AlunoDAO {
     String idPromocao = "idPromocao";
     String idPreparacao = "idPreparacao";
     String idUniforme = "idUniforme";
+    String eas = "eas";
     
     //Insert SQL
     private final String INSERT = "INSERT INTO " + tabela + "(" + idt + "," + situacao + "," + idPostoGraduacao + "," + idQasQms + "," + idComandante + "," +
                                                                 datanascimento + "," + nome + "," + sobrenome + "," + nomeguerra + "," + preccp + "," + cp + "," + 
                                                                 cpf + "," + ultdatapraca + "," + idNaturalidadeCidade + "," + idEstadoCivil + "," + ts + "," + ftrh + "," +
                                                                 pai + "," + mae + "," + email + "," + fumante + "," + idOM + "," + idComportamento + "," + idChImediato + "," +
-                                                                idFormacaoOrigem + "," + sexo + "," + ultfuncao1 + "," + ultfuncao2 + "," + ultfuncao3 + "," + idTAF + "," + 
-                                                                idPromocao + "," + idPreparacao + "," + idUniforme + ")" +
+                                                                sexo + "," + ultfuncao1 + "," + ultfuncao2 + "," + ultfuncao3 + "," + idTAF + "," + 
+                                                                idPromocao + "," + idPreparacao + "," + idUniforme + "," + eas + ")" +
                                   " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
     
     //Update SQL
@@ -70,9 +70,9 @@ public class AlunoDAO {
                                   " SET " + situacao + "=?, " + idPostoGraduacao + "=?, " + idQasQms + "=?, " + idComandante + "=?, " + datanascimento + "=?, " + 
                                             nome + "=?, " + sobrenome + "=?, " + nomeguerra + "=?, " + preccp + "=?, " + cp + "=?, " + cpf + "=?, " + ultdatapraca + "=?, " +
                                             idNaturalidadeCidade + "=?, " + idEstadoCivil + "=?, " + ts + "=?, " + ftrh + "=?, " + pai + "=?, " + mae + "=?, " + email + "=?, " +
-                                            fumante + "=?, " + idOM + "=?, " + idComportamento + "=?, " + idChImediato + "=?, " + idFormacaoOrigem + "=?, " + sexo + "=?, " + 
+                                            fumante + "=?, " + idOM + "=?, " + idComportamento + "=?, " + idChImediato + "=?, " + sexo + "=?, " + 
                                             ultfuncao1 + "=?, " + ultfuncao2 + "=?, " + ultfuncao3 + "=?, " + idTAF + "=?, " + idPromocao + "=?, " + idPreparacao + "=?, " + 
-                                            idUniforme + "=?, " +  
+                                            idUniforme + "=?, " + eas + "=? " + 
                                   "WHERE " + idt + "=?;";
         
     //Delete SQL
@@ -117,15 +117,15 @@ public class AlunoDAO {
                 pstm.setInt(22, al.getIdOM());
                 pstm.setInt(23, al.getIdComportamento());
                 pstm.setInt(24, al.getIdChImto());
-                pstm.setInt(25, al.getIdFormOrigem());
-                pstm.setString(26, al.getSexo());
-                pstm.setString(27, al.getUltfuncao1());
-                pstm.setString(28, al.getUltfuncao2());
-                pstm.setString(29, al.getUltfuncao3());
-                pstm.setInt(30, al.getIdTaf());
-                pstm.setInt(31, al.getIdPromocao());
-                pstm.setInt(32, al.getIdPreparacao());
-                pstm.setInt(33, al.getIdUniforme());                
+                pstm.setString(25, al.getSexo());
+                pstm.setString(26, al.getUltfuncao1());
+                pstm.setString(27, al.getUltfuncao2());
+                pstm.setString(28, al.getUltfuncao3());
+                pstm.setInt(29, al.getIdTaf());
+                pstm.setInt(30, al.getIdPromocao());
+                pstm.setInt(31, al.getIdPreparacao());
+                pstm.setInt(32, al.getIdUniforme());                
+                pstm.setInt(33, al.getEas());                
                                                               
                 pstm.execute();
                 
@@ -169,15 +169,15 @@ public class AlunoDAO {
                 pstm.setInt(21, al.getIdOM());
                 pstm.setInt(22, al.getIdComportamento());
                 pstm.setInt(23, al.getIdChImto());
-                pstm.setInt(24, al.getIdFormOrigem());
-                pstm.setString(25, al.getSexo());
-                pstm.setString(26, al.getUltfuncao1());
-                pstm.setString(27, al.getUltfuncao2());
-                pstm.setString(28, al.getUltfuncao3());
-                pstm.setInt(29, al.getIdTaf());
-                pstm.setInt(30, al.getIdPromocao());
-                pstm.setInt(31, al.getIdPreparacao());
-                pstm.setInt(32, al.getIdUniforme());
+                pstm.setString(24, al.getSexo());
+                pstm.setString(25, al.getUltfuncao1());
+                pstm.setString(26, al.getUltfuncao2());
+                pstm.setString(27, al.getUltfuncao3());
+                pstm.setInt(28, al.getIdTaf());
+                pstm.setInt(29, al.getIdPromocao());
+                pstm.setInt(30, al.getIdPreparacao());
+                pstm.setInt(31, al.getIdUniforme());
+                pstm.setInt(32, al.getEas());
                 pstm.setString(33, al.getIdentidade());
             
                 pstm.execute();
@@ -212,9 +212,9 @@ public class AlunoDAO {
     
     private final String GETALUNOBYIDT = "SELECT * " +
                                          "FROM " + tabela + " " +
-                                         "WHERE idt = ?;";
+                                         "WHERE identidade = ?;";
        
-    public Aluno getAlunoById(String idtAl){
+    public Aluno getAlunoByIdentidade(String idtAl){
         Aluno al = new Aluno();
 
         PostoGraduacaoDAO pgDAO = new PostoGraduacaoDAO();
@@ -225,7 +225,6 @@ public class AlunoDAO {
         OmDAO omDAO = new OmDAO();
         ComportamentoDAO cptmDAO = new ComportamentoDAO();
         ChefeImediatoDAO chimtoDAO = new ChefeImediatoDAO();
-        FormacaoOrigemDAO formorigemDAO = new FormacaoOrigemDAO();
         TafDAO tafDAO = new TafDAO();
         PromocaoDAO promDAO = new PromocaoDAO();
         PreparacaoDAO prepDAO = new PreparacaoDAO();
@@ -264,8 +263,8 @@ public class AlunoDAO {
                 al.setSiglaForcaQasQms(qq.getSiglaForca());
                 al.setIdTipoForcaQasQms(qq.getIdTipoForca());
                 al.setNomeTipoForcaQasQms(qq.getNomeTipoForca());
-                
                 Comandante cmt = cmtDAO.getComandanteById(rs.getInt("idComandante"));
+                
                 al.setIdCmt(cmt.getId());
                 al.setNomeCmt(cmt.getNome());
                 al.setSobrenomeCmt(cmt.getSobrenome());
@@ -310,7 +309,7 @@ public class AlunoDAO {
                 al.setPai(rs.getString("pai"));
                 al.setMae(rs.getString("mae"));
                 al.setEmail(rs.getString("email"));
-                al.setFumante(rs.getInt("fumante"));
+                al.setFumante(rs.getInt("fumante"));                
                 
                 Om om = omDAO.getOmById(rs.getInt("idOM"));
                 al.setIdOM(om.getId());
@@ -363,18 +362,6 @@ public class AlunoDAO {
                 al.setNomeCategoriaPostoGraduacaoChImto(chimto.getNomeCategoriaPostoGraduacao());
                 al.setDescricaoCategoriaPostoGraduacaoChImto(chimto.getDescricaoCategoriaPostoGraduacao());
                 
-                FormacaoOrigem formorigem = formorigemDAO.getFormacaoOrigemById(rs.getInt("idFormacaoOrigem"));
-                al.setIdFormOrigem(formorigem.getId());
-                al.setTurmaFormOrigem(formorigem.getTurma());
-                al.setIdEscolaFormacaoFormOrigem(formorigem.getIdEscolaFormacao());
-                al.setNomeEscolaFormacaoFormOrigem(formorigem.getNomeEscolaFormacao());
-                al.setAbreviaturaEscolaFormacaoFormOrigem(formorigem.getAbreviaturaEscolaFormacao());
-                al.setIdForcaEscolaFormacaoFormOrigem(formorigem.getIdForcaEscolaFormacao());
-                al.setNomeForcaEscolaFormacaoFormOrigem(formorigem.getNomeForcaEscolaFormacao());
-                al.setSiglaForcaEscolaFormacaoFormOrigem(formorigem.getSiglaForcaEscolaFormacao());
-                al.setIdTipoForcaEscolaFormacaoFormOrigem(formorigem.getIdTipoForcaEscolaFormacao());
-                al.setNomeForcaEscolaFormacaoFormOrigem(formorigem.getNomeForcaEscolaFormacao());
-                
                 al.setSexo(rs.getString("sexo"));
                 al.setUltfuncao1(rs.getString("ultfuncao1"));
                 al.setUltfuncao2(rs.getString("ultfuncao2"));
@@ -409,6 +396,8 @@ public class AlunoDAO {
                 al.setTamGandolaUniforme(un.getTamGandola());
                 al.setTamCalcaUniforme(un.getTamCalca());
                 al.setTamCamisaCamufladaUniforme(un.getTamCamisaCamuflada());
+                
+                al.setEas(rs.getInt("eas"));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -430,7 +419,6 @@ public class AlunoDAO {
         OmDAO omDAO = new OmDAO();
         ComportamentoDAO cptmDAO = new ComportamentoDAO();
         ChefeImediatoDAO chimtoDAO = new ChefeImediatoDAO();
-        FormacaoOrigemDAO formorigemDAO = new FormacaoOrigemDAO();
         TafDAO tafDAO = new TafDAO();
         PromocaoDAO promDAO = new PromocaoDAO();
         PreparacaoDAO prepDAO = new PreparacaoDAO();
@@ -451,6 +439,7 @@ public class AlunoDAO {
                 al.setIdPostoGraduacao(pg.getId());
                 al.setNomePostoGraduacao(pg.getNome());
                 al.setAbreviaturaPostoGraduacao(pg.getAbreviatura());
+                //al.setAbrevPGrad(pg.getAbreviatura());
                 al.setCirculohierarquicoPostoGraduacao(pg.getCirculohierarquico());                
                 al.setIdForcaPostoGraduacao(pg.getIdForca());
                 al.setNomeForcaPostoGraduacao(pg.getNomeForca());
@@ -569,17 +558,209 @@ public class AlunoDAO {
                 al.setNomeCategoriaPostoGraduacaoChImto(chimto.getNomeCategoriaPostoGraduacao());
                 al.setDescricaoCategoriaPostoGraduacaoChImto(chimto.getDescricaoCategoriaPostoGraduacao());
                 
-                FormacaoOrigem formorigem = formorigemDAO.getFormacaoOrigemById(rs.getInt("idFormacaoOrigem"));
-                al.setIdFormOrigem(formorigem.getId());
-                al.setTurmaFormOrigem(formorigem.getTurma());
-                al.setIdEscolaFormacaoFormOrigem(formorigem.getIdEscolaFormacao());
-                al.setNomeEscolaFormacaoFormOrigem(formorigem.getNomeEscolaFormacao());
-                al.setAbreviaturaEscolaFormacaoFormOrigem(formorigem.getAbreviaturaEscolaFormacao());
-                al.setIdForcaEscolaFormacaoFormOrigem(formorigem.getIdForcaEscolaFormacao());
-                al.setNomeForcaEscolaFormacaoFormOrigem(formorigem.getNomeForcaEscolaFormacao());
-                al.setSiglaForcaEscolaFormacaoFormOrigem(formorigem.getSiglaForcaEscolaFormacao());
-                al.setIdTipoForcaEscolaFormacaoFormOrigem(formorigem.getIdTipoForcaEscolaFormacao());
-                al.setNomeForcaEscolaFormacaoFormOrigem(formorigem.getNomeForcaEscolaFormacao());
+                al.setSexo(rs.getString("sexo"));
+                al.setUltfuncao1(rs.getString("ultfuncao1"));
+                al.setUltfuncao2(rs.getString("ultfuncao2"));
+                al.setUltfuncao3(rs.getString("ultfuncao3"));
+                
+                Taf taf = tafDAO.getTafById(rs.getInt("idTAF"));
+                al.setIdTaf(taf.getId());
+                al.setDataUltTaf(taf.getDataUltTaf());
+                al.setMencaoTaf(taf.getMencao());
+                
+                Promocao prom = promDAO.getPromocaoById(rs.getInt("idPromocao"));
+                al.setIdPromocao(prom.getId());
+                al.setDataultpromocao(prom.getDataultpromocao());
+                al.setQapromocao(prom.getQapromocao());
+                al.setDataqapromocao(prom.getDataqapromocao());
+                
+                Preparacao prep = prepDAO.getPreparacaoById(rs.getInt("idPreparacao"));
+                al.setIdPreparacao(prep.getId());
+                al.setPrepFisicaPreparacao(prep.getPrepFisica());
+                al.setApoioFamiliaPreparacao(prep.getApoioFamilia());
+                al.setApoioOMPreparacao(prep.getApoioOM());
+                al.setCursoPreparacaoCOSPreparacao(prep.getCursoPreparacaoCOS());
+                al.setProblemaRedimentoPreparacao(prep.getProblemaRedimento());
+                al.setDedicacaoDoutrinaOPSPreparacao(prep.getDedicacaoDoutrinaOPS());
+                al.setFatorMotivadorPreparacao(prep.getFatorMotivador());
+                al.setConsultaSitePreparacao(prep.getConsultaSite());
+                al.setCsltAmbVirtualAlPreparacao(prep.getCsltAmbVirtualAl());
+                
+                Uniforme un = unDAO.getUniformeById(rs.getInt("idUniforme"));
+                al.setIdUniforme(un.getId());
+                al.setTamCoturnoUniforme(un.getTamCoturno());
+                al.setTamGandolaUniforme(un.getTamGandola());
+                al.setTamCalcaUniforme(un.getTamCalca());
+                al.setTamCamisaCamufladaUniforme(un.getTamCamisaCamuflada());
+                
+                al.setEas(rs.getInt("eas"));
+                
+                alunos.add(al);
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return alunos;
+    }
+    
+    
+    
+    private final static String GETALUNODWR = "select * " +
+                                              "from Aluno " +
+                                              "where identidade = ?";
+    
+    public static Aluno getAlunoByIdentidadeDWR(String identidade){
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        
+        Aluno al = new Aluno();
+
+        PostoGraduacaoDAO pgDAO = new PostoGraduacaoDAO();
+        QasQmsDAO qqDAO = new QasQmsDAO();
+        ComandanteDAO cmtDAO = new ComandanteDAO();
+        CidadeDAO natcidDAO = new CidadeDAO();
+        EstadoCivilDAO ecDAO = new EstadoCivilDAO();
+        OmDAO omDAO = new OmDAO();
+        ComportamentoDAO cptmDAO = new ComportamentoDAO();
+        ChefeImediatoDAO chimtoDAO = new ChefeImediatoDAO();
+        TafDAO tafDAO = new TafDAO();
+        PromocaoDAO promDAO = new PromocaoDAO();
+        PreparacaoDAO prepDAO = new PreparacaoDAO();
+        UniformeDAO unDAO = new UniformeDAO();
+        
+        try{
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETALUNODWR);
+            pstm.setString(1, identidade);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+               al.setIdentidade(rs.getString("identidade"));
+                al.setSituacao(rs.getInt("situacao"));
+                
+                PostoGraduacao pg = pgDAO.getPostoGraduacaoById(rs.getInt("idPostoGraduacao"));
+                al.setIdPostoGraduacao(pg.getId());
+                al.setNomePostoGraduacao(pg.getNome());
+                al.setAbreviaturaPostoGraduacao(pg.getAbreviatura());
+                al.setCirculohierarquicoPostoGraduacao(pg.getCirculohierarquico());                
+                al.setIdForcaPostoGraduacao(pg.getIdForca());
+                al.setNomeForcaPostoGraduacao(pg.getNomeForca());
+                al.setSiglaForcaPostoGraduacao(pg.getSiglaForca());
+                al.setIdTipoForcaPostoGraduacao(pg.getIdTipoForca());
+                al.setNomeTipoForcaPostoGraduacao(pg.getNomeTipoForca());
+                al.setIdCategoriaPostoGraduacao(pg.getIdCategoria());
+                al.setNomeCategoriaPostoGraduacao(pg.getNomeCategoria());
+                al.setDescricaoCategoriaPostoGraduacao(pg.getDescricaoCategoria());
+                
+                QasQms qq = qqDAO.getQasQmsById(rs.getInt("idQasQms"));
+                al.setIdQasQms(qq.getId());
+                al.setNomeQasQms(qq.getNome());
+                al.setAbreviaturaQasQms(qq.getAbreviatura());
+                al.setIdForcaQasQms(qq.getIdForca());
+                al.setNomeForcaQasQms(qq.getNomeForca());
+                al.setSiglaForcaQasQms(qq.getSiglaForca());
+                al.setIdTipoForcaQasQms(qq.getIdTipoForca());
+                al.setNomeTipoForcaQasQms(qq.getNomeTipoForca());
+                Comandante cmt = cmtDAO.getComandanteById(rs.getInt("idComandante"));
+                
+                al.setIdCmt(cmt.getId());
+                al.setNomeCmt(cmt.getNome());
+                al.setSobrenomeCmt(cmt.getSobrenome());
+                al.setNomeguerraCmt(cmt.getNomeguerra());
+                al.setIdPostoGraduacaoCmt(cmt.getIdPostoGraduacao());
+                al.setNomePostoGraduacaoCmt(cmt.getNomePostoGraduacao());
+                al.setAbreviaturaPostoGraduacaoCmt(cmt.getAbreviaturaPostoGraduacao());
+                al.setCirculohierarquicoPostoGraduacaoCmt(cmt.getCirculohierarquicoPostoGraduacao());                
+                al.setIdForcaPostoGraduacaoCmt(cmt.getIdForcaPostoGraduacao());
+                al.setNomeForcaPostoGraduacaoCmt(cmt.getNomeForcaPostoGraduacao());
+                al.setSiglaForcaPostoGraduacaoCmt(cmt.getSiglaForcaPostoGraduacao());
+                al.setIdTipoForcaPostoGraduacaoCmt(cmt.getIdTipoForcaPostoGraduacao());
+                al.setNomeTipoForcaPostoGraduacaoCmt(cmt.getNomeTipoForcaPostoGraduacao());
+                al.setIdCategoriaPostoGraduacaoCmt(cmt.getIdCategoriaPostoGraduacao());
+                al.setNomeCategoriaPostoGraduacaoCmt(cmt.getNomeCategoriaPostoGraduacao());
+                al.setDescricaoCategoriaPostoGraduacaoCmt(cmt.getDescricaoCategoriaPostoGraduacao());
+                
+                al.setDataNascimento(rs.getDate("datanascimento"));
+                al.setNome(rs.getString("nome"));
+                al.setSobrenome(rs.getString("sobrenome"));
+                al.setNomeguerra(rs.getString("nomeguerra"));
+                al.setPreccp(rs.getString("preccp"));
+                al.setCp(rs.getString("cp"));
+                al.setCpf(rs.getString("cpf"));
+                al.setUltDataPraca(rs.getDate("ultdatapraca"));
+                
+                Cidade natcid = natcidDAO.getCidadeById(rs.getInt("idNaturalidadeCidade"));
+                al.setIdNatCidade(natcid.getId());
+                al.setNomeNatCidade(natcid.getNome());
+                al.setIdEstadoNatCidade(natcid.getIdEstado());
+                al.setNomeEstadoNatCidade(natcid.getNomeEstado());
+                al.setSiglaEstadoNatCidade(natcid.getSiglaEstado());
+                al.setIdRegiaoEstadoNatCidade(natcid.getIdRegiaoEstado());
+                al.setNomeRegiaoEstadoNatCidade(natcid.getNomeRegiaoEstado());
+                
+                EstadoCivil ec = ecDAO.getEstadoCivilById(rs.getInt("idEstadoCivil"));
+                al.setIdEstadoCivil(ec.getId());
+                al.setNomeEstadoCivil(ec.getNome());
+                
+                al.setTs(rs.getString("ts"));
+                al.setFtrh(rs.getInt("ftrh"));
+                al.setPai(rs.getString("pai"));
+                al.setMae(rs.getString("mae"));
+                al.setEmail(rs.getString("email"));
+                al.setFumante(rs.getInt("fumante"));
+                
+                Om om = omDAO.getOmById(rs.getInt("idOM"));
+                al.setIdOM(om.getId());
+                al.setNomeOM(om.getNome());
+                al.setAbreviaturaOM(om.getAbreviatura());
+                al.setNumenderecoOM(om.getNumendereco());
+                al.setIdForcaOM(om.getIdForca());
+                al.setNomeForcaOM(om.getNomeForca());
+                al.setSiglaForcaOM(om.getSiglaForca());
+                al.setIdTipoForcaOM(om.getIdTipoForca());
+                al.setNomeTipoForcaOM(om.getNomeTipoForca());
+                al.setIdEstadoOM(om.getIdEstado());
+                al.setNomeEstadoOM(om.getNomeEstado());
+                al.setSiglaEstadoOM(om.getSiglaEstado());
+                al.setIdRegiaoEstadoOM(om.getIdRegiaoEstado());
+                al.setNomeRegiaoEstadoOM(om.getNomeRegiaoEstado());
+                al.setIdEnderecoOM(om.getIdEndereco());
+                al.setCepEnderecoOM(om.getCepEndereco());
+                al.setDescricaoEnderecoOM(om.getDescricaoEndereco());
+                al.setComplementoEnderecoOM(om.getComplementoEndereco());
+                al.setPontoreferenciaEnderecoOM(om.getPontoreferenciaEndereco());
+                al.setBairroEnderecoOM(om.getBairroEndereco());
+                al.setIdCidadeEnderecoOM(om.getIdCidadeEndereco());
+                al.setNomeCidadeEnderecoOM(om.getNomeCidadeEndereco());
+                al.setIdEstadoCidadeEnderecoOM(om.getIdEstadoCidadeEndereco());
+                al.setNomeEstadoCidadeEnderecoOM(om.getNomeEstadoCidadeEndereco());
+                al.setSiglaEstadoCidadeEnderecoOM(om.getSiglaEstadoCidadeEndereco());
+                al.setIdRegiaoEstadoCidadeEnderecoOM(om.getIdRegiaoEstadoCidadeEndereco());
+                al.setNomeRegiaoEstadoCidadeEnderecoOM(om.getNomeRegiaoEstadoCidadeEndereco());
+                
+                Comportamento cptm = cptmDAO.getComportamentoById(rs.getInt("idComportamento"));
+                al.setIdComportamento(cptm.getId());
+                al.setNomeComportamento(cptm.getNome());
+                
+                ChefeImediato chimto = chimtoDAO.getChefeImediatoById(rs.getInt("idChImediato"));
+                al.setIdChImto(chimto.getId());
+                al.setNomeChImto(chimto.getNome());
+                al.setSobrenomeChImto(chimto.getSobrenome());
+                al.setNomeguerraChImto(chimto.getNomeguerra());
+                al.setIdPostoGraduacaoChImto(chimto.getIdPostoGraduacao());
+                al.setNomePostoGraduacaoChImto(chimto.getNomePostoGraduacao());
+                al.setAbreviaturaPostoGraduacaoChImto(chimto.getAbreviaturaPostoGraduacao());
+                al.setCirculohierarquicoPostoGraduacaoChImto(chimto.getCirculohierarquicoPostoGraduacao());
+                al.setIdForcaPostoGraduacaoChImto(chimto.getIdForcaPostoGraduacao());
+                al.setNomeForcaPostoGraduacaoChImto(chimto.getNomeForcaPostoGraduacao());
+                al.setSiglaForcaPostoGraduacaoChImto(chimto.getSiglaForcaPostoGraduacao());
+                al.setIdTipoForcaPostoGraduacaoChImto(chimto.getIdTipoForcaPostoGraduacao());
+                al.setNomeTipoForcaPostoGraduacaoChImto(chimto.getNomeTipoForcaPostoGraduacao());
+                al.setIdCategoriaPostoGraduacaoChImto(chimto.getIdCategoriaPostoGraduacao());
+                al.setNomeCategoriaPostoGraduacaoChImto(chimto.getNomeCategoriaPostoGraduacao());
+                al.setDescricaoCategoriaPostoGraduacaoChImto(chimto.getDescricaoCategoriaPostoGraduacao());
                 
                 al.setSexo(rs.getString("sexo"));
                 al.setUltfuncao1(rs.getString("ultfuncao1"));
@@ -616,38 +797,7 @@ public class AlunoDAO {
                 al.setTamCalcaUniforme(un.getTamCalca());
                 al.setTamCamisaCamufladaUniforme(un.getTamCamisaCamuflada());
                 
-                alunos.add(al);
-            }
-            ConnectionFactory.fechaConexao(conn, pstm, rs);
-        } catch (SQLException e) {
-            throw new RuntimeException(e.getMessage());           
-        }
-        return alunos;
-    }
-    
-    
-    
-    private final static String GETALUNODWR = "select identidade, nome, sobrenome, nomeguerra " +
-                                              "from Aluno " +
-                                              "where identidade = ?";
-    
-    public static Aluno getAlunoByIdentidadeDWR(String identidade){
-        Connection conn = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        Aluno al = new Aluno();
-        
-        try{
-            conn = ConnectionFactory.getConnection();
-            pstm = conn.prepareStatement(GETALUNODWR);
-            pstm.setString(1, identidade);
-           
-            rs = pstm.executeQuery();
-            while (rs.next()) {
-               al.setIdentidade(rs.getString("identidade"));
-               al.setNome(rs.getString("nome"));
-               al.setSobrenome(rs.getString("sobrenome"));
-               al.setNomeguerra(rs.getString("nomeguerra"));
+                al.setEas(rs.getInt("eas"));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {

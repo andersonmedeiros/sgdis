@@ -17,7 +17,7 @@ public class Fone {
     private final Referencia ref = new Referencia();
     private final Conjuge conjuge = new Conjuge();    
     private int id;
-    private String ddd, numero;
+    private String numero;
 
     public int getId() {
         return id;
@@ -25,14 +25,6 @@ public class Fone {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getDdd() {
-        return ddd;
-    }
-
-    public void setDdd(String ddd) {
-        this.ddd = ddd;
     }
 
     public String getNumero() {
@@ -267,14 +259,6 @@ public class Fone {
         al.setIdChImto(id);
     }
     
-    public int getIdFormOrigemAluno() {
-        return al.getIdFormOrigem();
-    }
-
-    public void setIdFormOrigemAluno(int id) {
-        al.setIdFormOrigem(id);
-    }
-    
     public int getIdTafAluno() {
         return al.getIdTaf();
     }
@@ -305,6 +289,14 @@ public class Fone {
 
     public void setIdUniformeAluno(int id) {
         al.setIdUniforme(id);
+    }
+    
+    public int getEasAluno() {
+        return al.getEas();
+    }
+
+    public void setEasAluno(int eas) {
+        al.setEas(eas);
     }
     
     public String getCpfReferencia() {
@@ -571,6 +563,14 @@ public class Fone {
         om.setNomeRegiaoEstadoCidadeEndereco(nome);
     }
     
+    public int getIdConjuge() {
+        return conjuge.getId();
+    }
+
+    public void setIdConjuge(int id) {
+        conjuge.setId(id);
+    }
+    
     public String getCpfConjuge() {
         return conjuge.getCpf();
     }
@@ -825,14 +825,6 @@ public class Fone {
 
     public void setIdChImtoAlunoConjuge(int id) {
         conjuge.setIdChImtoAluno(id);
-    }
-    
-    public int getIdFormOrigemAlunoConjuge() {
-        return conjuge.getIdFormOrigemAluno();
-    }
-
-    public void setIdFormOrigemAlunoConjuge(int id) {
-        conjuge.setIdFormOrigemAluno(id);
     }
     
     public int getIdTafAlunoConjuge() {

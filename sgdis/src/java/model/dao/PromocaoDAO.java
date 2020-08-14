@@ -7,6 +7,7 @@ package model.dao;
 
 import connection.ConnectionFactory;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,31 +34,51 @@ public class PromocaoDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + dataultpromocao + "=?, " + qapromocao + "=?, " + dataqapromocao + "=?, " +
+                                  " SET " + dataultpromocao + "=?, " + qapromocao + "=?, " + dataqapromocao + "=? " +
                                   "WHERE " + id + "=?;";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " WHERE " + id + "=?;";
     
     //Consultas SQL
+    private final String GETUltimoID = "SELECT MAX(" + id + ") as ultimo_id FROM " + tabela + ";";
     
     Connection conn = null;
     PreparedStatement pstm = null;
     ResultSet rs = null;
     
+    //Próximo ID a ser inserido
+    public int proxID(){
+        int ultimo_id = 0;
+        try{
+            conn = ConnectionFactory.getConnection();
+            
+            pstm = conn.prepareStatement(GETUltimoID);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                
+                ultimo_id = rs.getInt("ultimo_id");
+            }
+           
+            ConnectionFactory.fechaConexao(conn, pstm);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return (ultimo_id+1);
+    }
     
     //Insert SQL
-    public void insert(Promocao promo) {
-        if (promo != null) {
+    public void insert(Promocao prom) {
+        if (prom != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 
                 pstm = conn.prepareStatement(INSERT);
                 
-                pstm.setInt(1, promo.getId());
-                pstm.setDate(2, promo.getDataultpromocao());
-                pstm.setString(3, promo.getQapromocao());
-                pstm.setDate(4, promo.getDataqapromocao());
+                pstm.setInt(1, prom.getId());
+                pstm.setDate(2, prom.getDataultpromocao());
+                pstm.setString(3, prom.getQapromocao());
+                pstm.setDate(4, prom.getDataqapromocao());
                                                               
                 pstm.execute();
                 
@@ -72,16 +93,16 @@ public class PromocaoDAO {
     }
     
     //Update SQL
-    public void update(Promocao promo) {
-        if (promo != null) {
+    public void update(Promocao prom) {
+        if (prom != null) {
             try {
                 conn = ConnectionFactory.getConnection();
                 pstm = conn.prepareStatement(UPDATE);
                 
-                pstm.setDate(1, promo.getDataultpromocao());
-                pstm.setString(2, promo.getQapromocao());
-                pstm.setDate(3, promo.getDataqapromocao());
-                pstm.setInt(4, promo.getId());
+                pstm.setDate(1, prom.getDataultpromocao());
+                pstm.setString(2, prom.getQapromocao());
+                pstm.setDate(3, prom.getDataqapromocao());
+                pstm.setInt(4, prom.getId());
             
                 pstm.execute();
                 ConnectionFactory.fechaConexao(conn, pstm);
@@ -118,7 +139,7 @@ public class PromocaoDAO {
                                       "WHERE id = ?;";
        
     public Promocao getPromocaoById(int idPromocao){
-        Promocao promo = new Promocao();        
+        Promocao prom = new Promocao();        
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETTAFBYID);
@@ -126,42 +147,71 @@ public class PromocaoDAO {
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                promo.setId(rs.getInt("id"));
-                promo.setDataultpromocao(rs.getDate("dataultpromocao"));
-                promo.setQapromocao(rs.getString("qapromocao"));
-                promo.setDataqapromocao(rs.getDate("dataqapromocao"));
+                prom.setId(rs.getInt("id"));
+                prom.setDataultpromocao(rs.getDate("dataultpromocao"));
+                prom.setQapromocao(rs.getString("qapromocao"));
+                prom.setDataqapromocao(rs.getDate("dataqapromocao"));
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return promo;
+        return prom;
+    }
+    
+    private final String GETPROMOCAOEXISTENTE = "SELECT * " + 
+                                                " FROM " + tabela + 
+                                                " WHERE " + dataultpromocao + "=? AND " + qapromocao + "=? AND " + dataqapromocao + "=?;";
+
+    public Promocao getPromocaoExistente(Date dataultprom, String qaprom, Date dataqaprom){
+        Promocao prom = new Promocao();   
+        try {
+            conn = ConnectionFactory.getConnection();
+            pstm = conn.prepareStatement(GETPROMOCAOEXISTENTE);
+            pstm.setDate(1, dataultprom);
+            pstm.setString(2, qaprom);
+            pstm.setDate(3, dataqaprom);
+           
+            rs = pstm.executeQuery();
+            while (rs.next()) {                
+                prom.setId(rs.getInt("id"));
+                prom.setDataultpromocao(rs.getDate("dataultpromocao"));
+                prom.setQapromocao(rs.getString("qapromocao"));
+                prom.setDataqapromocao(rs.getDate("dataqapromocao"));
+                
+                return prom;
+            }
+            ConnectionFactory.fechaConexao(conn, pstm, rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());           
+        }
+        return null;
     }
     
     private final String GETTAFS = "SELECT * " +
                                    "FROM " + tabela;
        
     public ArrayList<Promocao> getPromocoes(){
-        ArrayList<Promocao> promocoes = new ArrayList<>();        
+        ArrayList<Promocao> promcoes = new ArrayList<>();        
         try {
             conn = ConnectionFactory.getConnection();
             pstm = conn.prepareStatement(GETTAFS);
            
             rs = pstm.executeQuery();
             while (rs.next()) {
-                Promocao promo = new Promocao();
+                Promocao prom = new Promocao();
                 
-                promo.setId(rs.getInt("id"));
-                promo.setDataultpromocao(rs.getDate("dataultpromocao"));
-                promo.setQapromocao(rs.getString("qapromocao"));
-                promo.setDataqapromocao(rs.getDate("dataqapromocao"));
+                prom.setId(rs.getInt("id"));
+                prom.setDataultpromocao(rs.getDate("dataultpromocao"));
+                prom.setQapromocao(rs.getString("qapromocao"));
+                prom.setDataqapromocao(rs.getDate("dataqapromocao"));
                 
-                promocoes.add(promo);
+                promcoes.add(prom);
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());           
         }
-        return promocoes;
+        return promcoes;
     }
 }

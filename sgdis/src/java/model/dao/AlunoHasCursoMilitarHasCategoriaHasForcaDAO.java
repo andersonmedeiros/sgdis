@@ -53,7 +53,7 @@ public class AlunoHasCursoMilitarHasCategoriaHasForcaDAO {
                 pstm.setInt(2, alunocursomilitar.getIdCursoMilitar());
                 pstm.setInt(3, alunocursomilitar.getIdCategoria());
                 pstm.setInt(4, alunocursomilitar.getIdForca());
-                pstm.setInt(3, alunocursomilitar.getAnoconclusao());
+                pstm.setInt(5, alunocursomilitar.getAnoconclusao());
                                                               
                 pstm.execute();
                 

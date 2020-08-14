@@ -36,7 +36,7 @@ public class TituloEleitorDAO {
     
     //Update SQL
     private final String UPDATE = "UPDATE " + tabela +
-                                  " SET " + zona + "=?, " + secao + "=?, " + idCidade + "=?, " + idtAluno + "=?, " +
+                                  " SET " + zona + "=?, " + secao + "=?, " + idCidade + "=?, " + idtAluno + "=? " +
                                   "WHERE " + registro + "=?;";
         
     //Delete SQL
@@ -170,7 +170,6 @@ public class TituloEleitorDAO {
                 titEleitor.setIdOMAluno(al.getIdOM());
                 titEleitor.setIdComportamentoAluno(al.getIdComportamento());
                 titEleitor.setIdChImtoAluno(al.getIdChImto());
-                titEleitor.setIdFormOrigemAluno(al.getIdFormOrigem());
                 titEleitor.setSexoAluno(al.getSexo());
                 titEleitor.setUltfuncao1Aluno(al.getUltfuncao1());
                 titEleitor.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -179,6 +178,7 @@ public class TituloEleitorDAO {
                 titEleitor.setIdPromocaoAluno(al.getIdPromocao());
                 titEleitor.setIdPreparacaoAluno(al.getIdPreparacao());
                 titEleitor.setIdUniformeAluno(al.getIdUniforme());
+                titEleitor.setEasAluno(al.getEas());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -240,7 +240,6 @@ public class TituloEleitorDAO {
                 titEleitor.setIdOMAluno(al.getIdOM());
                 titEleitor.setIdComportamentoAluno(al.getIdComportamento());
                 titEleitor.setIdChImtoAluno(al.getIdChImto());
-                titEleitor.setIdFormOrigemAluno(al.getIdFormOrigem());
                 titEleitor.setSexoAluno(al.getSexo());
                 titEleitor.setUltfuncao1Aluno(al.getUltfuncao1());
                 titEleitor.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -249,6 +248,7 @@ public class TituloEleitorDAO {
                 titEleitor.setIdPromocaoAluno(al.getIdPromocao());
                 titEleitor.setIdPreparacaoAluno(al.getIdPreparacao());
                 titEleitor.setIdUniformeAluno(al.getIdUniforme());
+                titEleitor.setEasAluno(al.getEas());
             }
             ConnectionFactory.fechaConexao(conn, pstm, rs);
         } catch (SQLException e) {
@@ -310,7 +310,6 @@ public class TituloEleitorDAO {
                 titEleitor.setIdOMAluno(al.getIdOM());
                 titEleitor.setIdComportamentoAluno(al.getIdComportamento());
                 titEleitor.setIdChImtoAluno(al.getIdChImto());
-                titEleitor.setIdFormOrigemAluno(al.getIdFormOrigem());
                 titEleitor.setSexoAluno(al.getSexo());
                 titEleitor.setUltfuncao1Aluno(al.getUltfuncao1());
                 titEleitor.setUltfuncao2Aluno(al.getUltfuncao2());
@@ -319,6 +318,7 @@ public class TituloEleitorDAO {
                 titEleitor.setIdPromocaoAluno(al.getIdPromocao());
                 titEleitor.setIdPreparacaoAluno(al.getIdPreparacao());
                 titEleitor.setIdUniformeAluno(al.getIdUniforme());
+                titEleitor.setEasAluno(al.getEas());
                 
                 titulos.add(titEleitor);
             }

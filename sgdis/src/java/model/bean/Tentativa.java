@@ -11,7 +11,7 @@ package model.bean;
  */
 public class Tentativa {
     int id;
-    String mtvDeslg, faseDeslg;
+    String mtvDeslg, faseDeslg, siglaCursoCat, turma;
 
     public int getId() {
         return id;
@@ -36,4 +36,22 @@ public class Tentativa {
     public void setFaseDeslg(String faseDeslg) {
         this.faseDeslg = faseDeslg;
     }
+
+    public String getSiglaCursoCat() {
+        return siglaCursoCat;
+    }
+
+    public void setSiglaCursoCat(String siglaCursoCat) {
+        this.siglaCursoCat = siglaCursoCat;
+    }
+
+    public String getTurma() {
+        return turma;
+    }
+
+    public void setTurma(String turma) {
+        this.turma = turma;
+    }
+    
+    
 }
