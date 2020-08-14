@@ -37,12 +37,12 @@ section{
     background-color: rgba(40,167,59,0.6);
 }
 
-.formCad{    
+.form{    
     margin: 50px auto;
     position: relative;
 }
 
-.formCad fieldset{
+.form fieldset{
     background: white;
     border: 0 none;
     border-radius: 5px;
@@ -58,4 +58,64 @@ section{
 .campo-obrigatorio{
     font-weight: bold;
     color: #dc0000;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    height: 100%;
+    /*background: linear-gradient(rgba(38, 128, 101, 0.9), rgba(52, 177, 140, 0.9))*/
+}
+label{
+     font-weight: bold;
+     color: #000000;
+}
+
+.fieldset-header, .fieldset-footer{
+    text-align: justify;
+    padding: 1rem;
+    color: #000000;
+    background: rgba(18,94,18,0.6)
+}
+
+.fieldset-title{
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.fieldset-body{
+    padding: 1rem;
+}
+
+.fieldset-interno{
+    border-top: 2px solid #125e12;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.fieldset-dependente{
+    border: none;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.header-interno{
+    background: rgba(18,94,18,0.3);
+}
+
+.title-interno{    
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: justify;
+    font-weight: bold;
+    color: #000000;
 }

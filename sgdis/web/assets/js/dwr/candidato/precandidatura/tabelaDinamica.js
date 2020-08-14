@@ -1,5 +1,5 @@
 var colunasTentativas = [
-    function(tentativas){ return tentativas.curso;},
+    function(tentativas){ return tentativas.siglaCursoCat;},
     function(tentativas){ return tentativas.turma;},
     function(tentativas){ return tentativas.mtvDeslg;},
     function(tentativas){ return tentativas.faseDeslg;}

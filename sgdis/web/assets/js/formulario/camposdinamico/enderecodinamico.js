@@ -16,12 +16,12 @@ $(document).ready(function() {
         $("#txtNumEndResid").removeClass("is-valid");
         $("#txtNumEndResid").prop("readonly", false);
 
-        $("#txtEstadoEndResid").val("");
+        $("#txtEstadoEndResid").val("0");
         $("#txtEstadoEndResid").removeClass("is-invalid");
         $("#txtEstadoEndResid").removeClass("is-valid");
         $("#txtEstadoEndResid").prop("readonly", false);
 
-        $("#txtCidadeEndResid").val("");
+        $("#txtCidadeEndResid").val("0");
         $("#txtCidadeEndResid").removeClass("is-invalid");
         $("#txtCidadeEndResid").removeClass("is-valid");
         $("#txtCidadeEndResid").prop("readonly", false);
@@ -56,15 +56,15 @@ $(document).ready(function() {
             $("input[name=txtNumEndCurso]").removeClass("is-valid");
             $("input[name=txtNumEndCurso]").prop("readonly", false);
 
-            $("input[name=txtEstadoEndCurso]").val("");
-            $("input[name=txtEstadoEndCurso]").removeClass("is-invalid");
-            $("input[name=txtEstadoEndCurso]").removeClass("is-valid");
-            $("input[name=txtEstadoEndCurso]").prop("readonly", false);
+            $("select[name=txtEstadoEndCurso]").val("0");
+            $("select[name=txtEstadoEndCurso]").removeClass("is-invalid");
+            $("select[name=txtEstadoEndCurso]").removeClass("is-valid");
+            $("select[name=txtEstadoEndCurso]").prop("readonly", false);
 
-            $("input[name=txtCidadeEndCurso]").val("");
-            $("input[name=txtCidadeEndCurso]").removeClass("is-invalid");
-            $("input[name=txtCidadeEndCurso]").removeClass("is-valid");
-            $("input[name=txtCidadeEndCurso]").prop("readonly", false);
+            $("select[name=txtCidadeEndCurso]").val("0");
+            $("select[name=txtCidadeEndCurso]").removeClass("is-invalid");
+            $("select[name=txtCidadeEndCurso]").removeClass("is-valid");
+            $("select[name=txtCidadeEndCurso]").prop("readonly", false);
 
             $("input[name=txtBairroEndCurso]").val("");
             $("input[name=txtBairroEndCurso]").removeClass("is-invalid");
@@ -94,12 +94,12 @@ $(document).ready(function() {
         $(campo_num).removeClass("is-valid");
         $(campo_num).prop("readonly", false);
 
-        $(campo_est).val("");
+        $(campo_est).val("0");
         $(campo_est).removeClass("is-invalid");
         $(campo_est).removeClass("is-valid");
         $(campo_est).prop("readonly", false);
 
-        $(campo_cid).val("");
+        $(campo_cid).val("0");
         $(campo_cid).removeClass("is-invalid");
         $(campo_cid).removeClass("is-valid");
         $(campo_cid).prop("readonly", false);
@@ -129,11 +129,11 @@ $(document).ready(function() {
         $(campo_num).removeClass("is-invalid");
         $(campo_num).removeClass("is-valid");
 
-        $(campo_est).val("");
+        $(campo_est).val("0");
         $(campo_est).removeClass("is-invalid");
         $(campo_est).removeClass("is-valid");
 
-        $(campo_cid).val("");
+        $(campo_cid).val("0");
         $(campo_cid).removeClass("is-invalid");
         $(campo_cid).removeClass("is-valid");
 
@@ -158,8 +158,8 @@ $(document).ready(function() {
             if(validacep.test(cep)) {
                 //Preenche os campos com "..." enquanto consulta webservice.
                 $("#txtNomeEndResid").val("...");
-                $("#txtEstadoEndResid").val("...");
-                $("#txtCidadeEndResid").val("...");
+                //$("#txtEstadoEndResid").val("...");
+                //$("#txtCidadeEndResid").val("...");
                 $("#txtBairroEndResid").val("...");
                 $("#txtCompEndResid").val("...");
                 //Consulta o webservice viacep.com.br/
@@ -199,7 +199,7 @@ $(document).ready(function() {
                             }
                         }
 
-                        if(dados.uf != ""){
+                        /*if(dados.uf != ""){
                             $("#txtEstadoEndResid").val(dados.uf);
                             $("#txtEstadoEndResid").removeClass("is-invalid");
                             $("#txtEstadoEndResid").addClass("is-valid");
@@ -251,7 +251,7 @@ $(document).ready(function() {
                                 $("#txtCidadeEndCurso").removeClass("is-valid");
                                 $("#txtCidadeEndCurso").prop("readonly", false);
                             }
-                        }                            
+                        }    */                        
 
                         if(dados.bairro != ""){
                             $("#txtBairroEndResid").val(dados.bairro);
@@ -342,8 +342,8 @@ $(document).ready(function() {
             if(validacep.test(cep)) {
                 //Preenche os campos com "..." enquanto consulta webservice.
                 $("#txtNomeEndCurso").val("...");
-                $("#txtEstadoEndCurso").val("...");
-                $("#txtCidadeEndCurso").val("...");
+                //$("#txtEstadoEndCurso").val("...");
+                //$("#txtCidadeEndCurso").val("...");
                 $("#txtBairroEndCurso").val("...");
                 $("#txtCompEndCurso").val("...");
                 //Consulta o webservice viacep.com.br/
@@ -363,7 +363,7 @@ $(document).ready(function() {
                             $("#txtNomeEndCurso").prop("readonly", false);
                         }
 
-                        if(dados.uf != ""){
+                        /*if(dados.uf != ""){
                             $("#txtEstadoEndCurso").val(dados.uf);
                             $("#txtEstadoEndCurso").removeClass("is-invalid");
                             $("#txtEstadoEndCurso").addClass("is-valid");
@@ -387,7 +387,7 @@ $(document).ready(function() {
                             $("#txtCidadeEndCurso").removeClass("is-invalid");
                             $("#txtCidadeEndCurso").removeClass("is-valid");
                             $("#txtCidadeEndCurso").prop("readonly", false);
-                        }                            
+                        }           */                 
 
                         if(dados.bairro != ""){
                             $("#txtBairroEndCurso").val(dados.bairro);
@@ -450,8 +450,8 @@ $(document).ready(function() {
             if(validacep.test(cep)) {
                 //Preenche os campos com "..." enquanto consulta webservice.
                 $("#txtEndNomeOM").val("...");
-                $("#txtEndEstadoOM").val("...");
-                $("#txtEndCidadeOM").val("...");
+                //$("#txtEndEstadoOM").val("...");
+                //$("#txtEndCidadeOM").val("...");
                 $("#txtEndBairroOM").val("...");
                 $("#txtEndCompOM").val("...");
                 //Consulta o webservice viacep.com.br/
@@ -474,7 +474,7 @@ $(document).ready(function() {
                             $("#txtEndNomeOM").prop("readonly", false);
                         }
 
-                        if(dados.uf != ""){
+                        /*if(dados.uf != ""){
                             $("#txtEndEstadoOM").val(dados.uf);
                             $("#txtEndEstadoOM").removeClass("is-invalid");
                             $("#txtEndEstadoOM").addClass("is-valid");
@@ -498,7 +498,7 @@ $(document).ready(function() {
                             $("#txtEndCidadeOM").removeClass("is-invalid");
                             $("#txtEndCidadeOM").removeClass("is-valid");
                             $("#txtEndCidadeOM").prop("readonly", false);
-                        }                            
+                        }   */                         
 
                         if(dados.bairro != ""){
                             $("#txtEndBairroOM").val(dados.bairro);
@@ -575,13 +575,13 @@ $(document).ready(function() {
             else{
                 $("#txtNomeEndResid").prop("readonly", false);
             }
-            if($("#txtEstadoEndResid").val() != ""){
+            if($("#txtEstadoEndResid").val() != "0"){
                 $("#txtEstadoEndResid").prop("readonly", true);
             }
             else{
                 $("#txtEstadoEndResid").prop("readonly", false);
             }
-            if($("#txtCidadeEndResid").val() != ""){
+            if($("#txtCidadeEndResid").val() != "0"){
                 $("#txtCidadeEndResid").prop("readonly", true);
             }
             else{
@@ -618,13 +618,13 @@ $(document).ready(function() {
                 else{
                     $("#txtNumEndCurso").prop("readonly", false);
                 }
-                if($("#txtEstadoEndCurso").val() != ""){
+                if($("#txtEstadoEndCurso").val() != "0"){
                     $("#txtEstadoEndCurso").prop("readonly", true);
                 }
                 else{
                     $("#txtEstadoEndCurso").prop("readonly", false);
                 }
-                if($("#txtCidadeEndCurso").val() != ""){
+                if($("#txtCidadeEndCurso").val() != "0"){
                     $("#txtCidadeEndCurso").prop("readonly", true);
                 }
                 else{
@@ -651,13 +651,13 @@ $(document).ready(function() {
                     else{
                         $("#txtNomeEndCurso").prop("readonly", false);
                     }                    
-                    if($("#txtEstadoEndCurso").val() != ""){
+                    if($("#txtEstadoEndCurso").val() != "0"){
                         $("#txtEstadoEndCurso").prop("readonly", true);
                     }
                     else{
                         $("#txtEstadoEndCurso").prop("readonly", false);
                     }
-                    if($("#txtCidadeEndCurso").val() != ""){
+                    if($("#txtCidadeEndCurso").val() != "0"){
                         $("#txtCidadeEndCurso").prop("readonly", true);
                     }
                     else{

@@ -65,6 +65,14 @@
                                 <a class="dropdown-item" href="../../restrito/candidato/precandidatura.jsp">Cadastrar Candidato</a>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Psico
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
+                                <a class="dropdown-item" href="../../restrito/avaliacao/psico.jsp">Avaliação Psicológica</a>
+                            </div>
+                        </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0" name="formSair" action="Sair" method="POST">                        
                         <button class="btn btn-danger my-2 my-sm-0" type="submit">Sair</button>
@@ -198,13 +206,13 @@
                                         <label for="txtDataInicio">Início: <span class="campo-obrigatorio">*</span></label>
                                         <input type="date" class="form-control" id="txtDataInicio" name="txtDataInicio" placeholder="Ex.: DD/MM/AAAA">
                                         <div class="valid-feedback">Selva!</div>
-                                        <div class="invalid-feedback invalid-dataInicio">Campo Obrigatório!</div>
+                                        <div class="invalid-feedback invalid-dataInicioTurma">Campo Obrigatório!</div>
                                     </div>                                   
                                     <div class="form-group col-md-6">
                                         <label for="txtDataFim">Término: <span class="campo-obrigatorio">*</span></label>
                                         <input type="date" class="form-control" id="txtDataFim" name="txtDataFim" placeholder="Ex.: DD/MM/AAAA">
                                         <div class="valid-feedback">Selva!</div>
-                                        <div class="invalid-feedback invalid-dataFim">Campo Obrigatório!</div>
+                                        <div class="invalid-feedback invalid-dataFimTurma">Campo Obrigatório!</div>
                                     </div>                                   
                                 </div>
                                 
@@ -265,13 +273,13 @@
                                         <label for="txtDataInicioAtt">Início: <span class="campo-obrigatorio">*</span></label>
                                         <input type="date" class="form-control" id="txtDataInicioAtt" name="txtDataInicioAtt" placeholder="Ex.: DD/MM/AAAA">
                                         <div class="valid-feedback">Selva!</div>
-                                        <div class="invalid-feedback invalid-dataInicio">Campo Obrigatório!</div>
+                                        <div class="invalid-feedback invalid-dataInicioTurma">Campo Obrigatório!</div>
                                     </div>                                   
                                     <div class="form-group col-md-6">
                                         <label for="txtDataFimAtt">Término: <span class="campo-obrigatorio">*</span></label>
                                         <input type="date" class="form-control" id="txtDataFimAtt" name="txtDataFimAtt" placeholder="Ex.: DD/MM/AAAA">
                                         <div class="valid-feedback">Selva!</div>
-                                        <div class="invalid-feedback invalid-dataFim">Campo Obrigatório!</div>
+                                        <div class="invalid-feedback invalid-dataFimTurma">Campo Obrigatório!</div>
                                     </div>                                   
                                 </div>
                                 

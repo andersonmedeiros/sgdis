@@ -14,6 +14,7 @@ $(document).ready(function(){
         $(".cpf").mask("999.999.999-99");
         $(".idt-mil").mask("999999999-9");
         $(".titulo-eleitor").mask("9999 9999 9999");
+        $(".tempo").mask("99 h {5}9 min 99 seg");
         //$(".agencia-banco").mask("9999-9");
         //$(".conta-banco").mask("99999999999-9");
         /*$(".cep").mask("99999-999");

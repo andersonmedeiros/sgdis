@@ -55,6 +55,14 @@
                                 <a class="dropdown-item active" href="../../restrito/cadastroCandidato.jsp">Cadastrar Candidato</a>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Psico
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                
+                                <a class="dropdown-item active" href="../../restrito/avaliacao/psico.jsp">Avaliação Psicológica</a>
+                            </div>
+                        </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0" name="formSair" action="Sair" method="POST">                        
                         <button class="btn btn-danger my-2 my-sm-0" type="submit">Sair</button>

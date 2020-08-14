@@ -54,5 +54,13 @@
     <convert converter="bean" match="model.dao.CursoMilitarDAO"/>
     <convert converter="bean" match="model.bean.CursoMilitarHasCategoriaHasForca"/>
     <convert converter="bean" match="model.dao.CursoMilitarHasCategoriaHasForcaDAO"/>
+    <convert converter="bean" match="model.bean.AvlPsico"/>
+    <convert converter="bean" match="model.dao.AvlPsicoDAO"/>
+    <convert converter="bean" match="model.bean.Militar"/>
+    <convert converter="bean" match="model.dao.MilitarDAO"/>
+    <convert converter="bean" match="model.bean.Tcm"/>
+    <convert converter="bean" match="model.dao.TcmDAO"/>
+    <convert converter="bean" match="model.bean.Eaf"/>
+    <convert converter="bean" match="model.dao.EafDAO"/>
   </allow>
 </dwr>

@@ -30,6 +30,14 @@ function alimentaSelectDependenteTipoForca(idTipoForca){
             dwr.util.addOptions("txtForca", forcas, "id", "nome");
         } 
     });
+    
+    if(idTipoForca == 2){
+        $("#div-idtmil").removeClass("col-md-6");
+        $("#div-idtmil").addClass("col-md-3");
+        
+        $("#div-cpf").removeClass("col-md-4");
+        $("#div-cpf").addClass("col-md-12");
+    }
 }
 /*function alimentaSelectForca(forcas){
     dwr.util.removeAllOptions("txtForca");
@@ -61,16 +69,29 @@ function alimentaSelectDependenteForca(idForca){
             dwr.util.addOptions("txtPGradAl", [{id: "0", abreviatura: "Selecione um Posto/Graduação..."}], "id", "abreviatura");
             dwr.util.addOptions("txtPGradAl", postosgraduacoes, "id", "abreviatura");
         }
-    });
+    });    
+    
+    FacadeAjax.getQasQmsByForcaDWR(idForca, {
+        callback: function(armas){
+            dwr.util.removeAllOptions("txtArmaAl");
+            dwr.util.addOptions("txtArmaAl", [{id: "0", nome: "Selecione uma Arma..."}], "id", "nome");
+            dwr.util.addOptions("txtArmaAl", armas, "id", "nome");
+        }
+    });      
     
     if(idForca == 2){
         $("#div-idtmil").removeClass("col-md-6");
         $("#div-idtmil").addClass("col-md-3");
+        
+        $("#div-cpf").removeClass("col-md-12");
+        $("#div-cpf").addClass("col-md-4");
+        
         $("#div-cpf").removeClass("col-md-6");
-        $("#div-cpf").addClass("col-md-3");
+        $("#div-cpf").addClass("col-md-4");
         
         $("#div-preccp").css("display", "block");
         $("#div-cp").css("display", "block");
+        
         $("#div-cursoaperfeicoamento").css("display", "block");
         $("#div-cursoaltosestudos").css("display", "block");
     }else{
@@ -86,10 +107,17 @@ function alimentaSelectDependenteForca(idForca){
         $("#div-cursoaltosestudos").css("display", "none");
         limpaSelect("select[name=txtPossuiCAltEstudos]");
         
-        $("#div-idtmil").removeClass("col-md-3");
-        $("#div-idtmil").addClass("col-md-6");
+        $("#div-idtmil").removeClass("col-md-6");
+        $("#div-idtmil").addClass("col-md-3");
+        
         $("#div-cpf").removeClass("col-md-3");
-        $("#div-cpf").addClass("col-md-6");
+        $("#div-cpf").addClass("col-md-12");
+        
+        $("#div-cpf").removeClass("col-md-6");
+        $("#div-cpf").addClass("col-md-12");
+        
+        $("#div-cpf").removeClass("col-md-12");
+        $("#div-cpf").addClass("col-md-12");
     }
     
     if($("select[name=txtTipoForca]").val() == 1){
@@ -136,13 +164,6 @@ function alimentaSelectDependenteEstado(idForca, idEstado){
         }
     });
 }*/
-
-function alimentaSelectArma(armas){
-    dwr.util.removeAllOptions("txtArmaAl");
-    dwr.util.addOptions("txtArmaAl", [{id: "0", nome: "Selecione uma Arma..."}], "id", "nome");
-    dwr.util.addOptions("txtArmaAl", armas, "id", "nome");
-}
-FacadeAjax.getQasQmsDWR(alimentaSelectArma);
 
 function alimentaSelectEstadoNaturalidade(estados){
     dwr.util.removeAllOptions("txtNatEstAl");
@@ -200,6 +221,38 @@ function alimentaSelectGrauParentesco(grausparentesco){
     dwr.util.addOptions("txtParentescoRefConclusao", grausparentesco, "id", "nome");
 }
 FacadeAjax.getGrausParentescoDWR(alimentaSelectGrauParentesco);
+
+function alimentaSelectEstadoEndResid(estados){
+    dwr.util.removeAllOptions("txtEstadoEndResid");
+    dwr.util.addOptions("txtEstadoEndResid", [{id: "0", nome: "Selecione um Estado..."}], "id", "nome");
+    dwr.util.addOptions("txtEstadoEndResid", estados, "id", "nome");
+}
+FacadeAjax.getEstadosDWR(alimentaSelectEstadoEndResid);
+function alimentaSelectDependenteEstadoEndResid(idEstado){
+    FacadeAjax.getCidadesByEstadoDWR(idEstado, {
+        callback: function(cidades){
+            dwr.util.removeAllOptions("txtCidadeEndResid");
+            dwr.util.addOptions("txtCidadeEndResid", [{id: "0", nome: "Selecione uma Cidade..."}], "id", "nome");
+            dwr.util.addOptions("txtCidadeEndResid", cidades, "id", "nome");
+        } 
+    });
+}
+
+function alimentaSelectEstadoEndCurso(estados){
+    dwr.util.removeAllOptions("txtEstadoEndCurso");
+    dwr.util.addOptions("txtEstadoEndCurso", [{id: "0", nome: "Selecione um Estado..."}], "id", "nome");
+    dwr.util.addOptions("txtEstadoEndCurso", estados, "id", "nome");
+}
+FacadeAjax.getEstadosDWR(alimentaSelectEstadoEndCurso);
+function alimentaSelectDependenteEstadoEndCurso(idEstado){
+    FacadeAjax.getCidadesByEstadoDWR(idEstado, {
+        callback: function(cidades){
+            dwr.util.removeAllOptions("txtCidadeEndCurso");
+            dwr.util.addOptions("txtCidadeEndCurso", [{id: "0", nome: "Selecione uma Cidade..."}], "id", "nome");
+            dwr.util.addOptions("txtCidadeEndCurso", cidades, "id", "nome");
+        } 
+    });
+}
 
 function alimentaSelectCAperf(tipo, idCategoria, idForca){
     if((tipo != 'n') && (tipo != '0')){
@@ -282,6 +335,12 @@ $("select[name=txtPossuiCAltEstudos]").change(function(){
     if(this.value == 's'){
         alimentaSelectCAltEstudos(tipo, idCategoria, idForca);
     }
+});
+$("select[name=txtEstadoEndResid]").change(function(){
+    alimentaSelectDependenteEstadoEndResid(this.value);
+});
+$("select[name=txtEstadoEndCurso]").change(function(){
+    alimentaSelectDependenteEstadoEndCurso(this.value);
 });
 
 /*function preencheFormulario(idtCandidato){
