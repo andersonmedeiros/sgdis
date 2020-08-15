@@ -212,6 +212,12 @@ public class FacadeAjax {
         return eafs;
     }
     
+    public ArrayList<InspecaoSaude> getISAlunosByTurmaDWR(int idTurma) throws Throwable, Exception{
+        ArrayList<InspecaoSaude> iss = new ArrayList<>();
+        iss = InspecaoSaudeDAO.getISAlunosByTurmaDWR(idTurma);
+        return iss;
+    }
+    
     public String getSituacaoAvlPsicoByAlunoAndTurmaDWR(String idtAluno, int idTurma){
         return AvlPsicoDAO.getSituacaoAvlPsicoByAlunoAndTurmaDWR(idtAluno, idTurma);
     }

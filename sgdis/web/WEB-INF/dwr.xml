@@ -62,5 +62,7 @@
     <convert converter="bean" match="model.dao.TcmDAO"/>
     <convert converter="bean" match="model.bean.Eaf"/>
     <convert converter="bean" match="model.dao.EafDAO"/>
+    <convert converter="bean" match="model.bean.InspecaoSaude"/>
+    <convert converter="bean" match="model.dao.InspecaoSaudeDAO"/>
   </allow>
 </dwr>

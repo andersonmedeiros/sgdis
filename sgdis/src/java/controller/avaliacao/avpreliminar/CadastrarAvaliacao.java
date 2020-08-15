@@ -95,6 +95,18 @@ public class CadastrarAvaliacao extends HttpServlet {
                 
                     avlpsicoDAO.insert(avlpsico);
                 }
+                else if(request.getParameter("txtIS") != null){
+                    InspecaoSaudeDAO isDAO = new InspecaoSaudeDAO();    
+
+                    InspecaoSaude is = new InspecaoSaude();  
+                    is.setId(isDAO.proxID());
+                    is.setSituacao(Integer.parseInt(request.getParameter("txtSitIS")));
+                    is.setIdTurma(Integer.parseInt(request.getParameter("txtIdTurmaIS")));
+                    is.setIdentidadeAluno(String.valueOf(request.getParameter("txtIdentidadeAlIS")));
+                    is.setIdentidadeMilitar(militarLogado.getIdentidade());
+                
+                    isDAO.insert(is);
+                }
                 else if(request.getParameter("txtAvlTCM") != null){
                     TcmDAO tcmDAO = new TcmDAO();
                     
