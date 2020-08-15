@@ -145,5 +145,16 @@ function eafTent2(identidade, situacao){
     $("#div-eaf-tent2-"+situacao).css("display", "block");
 }       
         
-    //}
-//});
+function is(identidade){
+    FacadeAjax.getAlunoByIdentidadeDWR(identidade, {
+        callback: function(aluno){
+            dwr.util.setValues({
+                txtIdTurmaIS: $("select[name=txtTurma]").val(),
+                txtIS: $("select[name=txtAvaliacao]").val(),
+                txtIdentidadeAlIS: aluno.identidade,
+                txtPGradAlIS: aluno.abreviaturaPostoGraduacao,
+                txtNomeGuerraAlIS: aluno.nomeguerra
+            });
+        }
+    });
+}  

@@ -66,7 +66,7 @@ $("button[name=btnPesquisar]").click(function(){
         }
         //Inspeção de Saúde
         else if($("select[name=txtAvaliacao]").val() == 2){
-            getAvlPsicoAlunosByTurma(idTurma);  
+            getISAlunosByTurma(idTurma);  
         }
         //Teste de Conhecimento Militar
         else if($("select[name=txtAvaliacao]").val() == 3){

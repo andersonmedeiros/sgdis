@@ -138,3 +138,35 @@ function getEafAlunosByTurma(idTurma){
         }
     });
 }
+
+var colunasCandidatosIS = [
+    function(eafs){ return eafs.identidadeAluno;},
+    function(eafs){ return eafs.abreviaturaPostoGraduacaoAluno + " " + eafs.nomeguerraAluno;},
+    function(eafs){ 
+        if(eafs.situacao == ''){return "<b>NÃO REALIZADO</b>";}
+        else if(eafs.situacao == 1){
+            return "<b style=\"color: #125e12;\">APTO</b>";
+        }
+        else if(eafs.situacao == 2){
+            return "<b style=\"color: red;\">INAPTO</b>";
+        }      
+    },
+    function(eafs){ 
+        if(eafs.situacao == ''){
+            return "<button type=\"button\" id="+eafs.identidadeAluno+" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#modalFormIS\" value=\"IS\" onclick=\"is("+"'"+eafs.identidadeAluno+"'"+");\">Lançar</button>";
+        }else if(eafs.situacao == 1){
+            return "<b>AVALIADO!</b>";
+        }else if(eafs.situacao == 2){
+            return "<b>AVALIADO!</b>";
+        }
+    }
+];
+
+function getISAlunosByTurma(idTurma){
+    FacadeAjax.getISAlunosByTurmaDWR(idTurma, {
+        callback:function(eafs){ 
+            dwr.util.removeAllRows("candidatos");
+            dwr.util.addRows("candidatos", eafs, colunasCandidatosIS, { escapeHtml: false });            
+        }
+    });
+}

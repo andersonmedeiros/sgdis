@@ -1,6 +1,7 @@
 
 //Ao carregar ou recarregar a página
 $(document).ready(function(){      
+    //--
     //Avaliação Psicológica
     limpaCampoSelect("select[name=txtSitAvlPsico]");
     limpaCampoInput("input[name=txtRtoAvlPsico]");
@@ -25,6 +26,7 @@ $(document).ready(function(){
     validInput("input[name=txtRtoAvlPsico]");
     validInputTReal("input[name=txtRtoAvlPsico]");
     
+    //--
     //Teste de Conhecimento Militar
     limpaCampoInput("input[name=txtTCMT]");
     limpaCampoInput("input[name=txtTCMP]");
@@ -49,6 +51,27 @@ $(document).ready(function(){
     validInput("input[name=txtTCMP]");
     validInputTReal("input[name=txtTCMP]");
     
+    //--
+    //Inspeção de Saúde
+    limpaCampoSelect("select[name=txtSitIS]");
+    
+    //Campo Input Identidade
+    validIdentidadeAl("input[name=txtIdentidadeAlIS]");
+    validIdentidadeAlTReal("input[name=txtIdentidadeAlIS]");
+
+    //Campo Input Posto/Graduação
+    validInput("input[name=txtPGradAlIS]");
+    validInputTReal("input[name=txtPGradAlIS]");
+
+    //Campo Input Nome Guerra
+    validInput("input[name=txtNomeGuerraAlIS]");
+    validInputTReal("input[name=txtNomeGuerraAlIS]");
+    
+    //Campo Select Situação
+    validSelect("select[name=txtSitIS]");
+    validSelectTReal("select[name=txtSitIS]");
+    
+    //--
     //Exame de Aptidão de Física
     //Primeira Tentativa
     limpaCampoSelect("select[name=txtSexoEafTent1]");
@@ -690,4 +713,36 @@ $("button[name=btnSalvarEafTent2]").click(function(){
             }
         }
     }
+});
+
+$("button[name=btnSalvarIS]").click(function(){
+    var identidadeAl = $("input[name=txtIdentidadeAlIS]").val().replace("-", "");   
+    if(identidadeAl == ''){
+        $("input[name=txtIdentidadeAlIS]").removeClass("is-valid");
+        $("input[name=txtIdentidadeAlIS]").addClass("is-invalid");
+        $("input[name=txtIdentidadeAlIS]").focus();
+        $(".invalid-identidadeAl").html("Campo Obrigatório!");
+        return false;
+    }
+    else if(identidadeAl == '0000000000' || identidadeAl == '1111111111' || identidadeAl == '2222222222' || identidadeAl == '3333333333' ||                 
+            identidadeAl == '4444444444' || identidadeAl == '5555555555' || identidadeAl == '6666666666' || identidadeAl == '7777777777' ||                 
+            identidadeAl == '8888888888' || identidadeAl == '9999999999'){
+        $("input[name=txtIdentidadeAlIS]").removeClass("is-valid");
+        $("input[name=txtIdentidadeAlIS]").addClass("is-invalid");
+
+        $(".invalid-identidadeAl").html("Identidade Militar Inválida!");
+        $("input[name=txtIdentidadeAlIS]").focus();
+        return false;
+    }
+    else if($("select[name=txtSitIS]").val() == '0'){
+        $("select[name=txtSitIS]").removeClass("is-valid");
+        $("select[name=txtSitIS]").addClass("is-invalid");
+        $("select[name=txtSitIS]").focus();
+        return false;
+    }
+    else{      
+        return true;
+    }
+        
+    
 });

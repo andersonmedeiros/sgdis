@@ -289,6 +289,65 @@
                 </div>
             </div>
             
+            <!-- Modal IS-->
+            <div class="modal fade" id="modalFormIS" tabindex="-1" role="dialog" aria-labelledby="modalFormIS" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title title" id="modalFormIS">Inspeção de Saúde</h5>
+                            <button type="button" name="btnFecharIS" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">                            
+                            <form class="container-fluid" name="formIS" method="post" action="controller.avaliacao.avpreliminar/CadastrarAvaliacao">      
+                                <input type="hidden" id="txtIdTurmaIS" name="txtIdTurmaIS" readonly>
+                                <input type="hidden" id="txtIS" name="txtIS" readonly>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="txtIdentidadeAlIS">Identidade Militar: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="text" class="form-control" id="txtIdentidadeAlIS" name="txtIdentidadeAlIS" placeholder="Ex.: 1200000000" readonly="">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback invalid-identidadeAl">Campo Obrigatório!</div>
+                                    </div>                                   
+                                    <div class="form-group col-md-4">
+                                        <label for="txtPGradAlIS">Posto/Graduação: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="text" class="form-control" id="txtPGradAlIS" name="txtPGradAlIS" placeholder="Ex.: 1º TEN" readonly="">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>                                   
+                                    <div class="form-group col-md-4">
+                                        <label for="txtNomeGuerraAlIS">Nome de Guerra: <span class="campo-obrigatorio">*</span></label>
+                                        <input type="text" class="form-control" id="txtNomeGuerraAlIS" name="txtNomeGuerraAlIS" placeholder="Ex.: DE TAL" readonly="">
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>                                   
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="txtSitIS">Situação: <span class="campo-obrigatorio">*</span></label>
+                                        <select class="form-control" id="txtSitIS" name="txtSitIS">
+                                            <option value="0" selected>Selecione uma Situação...</option>
+                                            <option value="1">APTO</option>
+                                            <option value="2">INAPTO</option>
+                                        </select>
+                                        <div class="valid-feedback">Selva!</div>
+                                        <div class="invalid-feedback">Campo Obrigatório!</div>
+                                    </div>               
+                                </div>
+                                
+                                <button type="button" name="btnLimparIS" class="btn btn-warning">Limpar</button>
+                                <button type="submit" name="btnSalvarIS" class="btn btn-success">Salvar</button>
+                                
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" name="btnFecharIS" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Modal TCM-->
             <div class="modal fade" id="modalFormTCM" tabindex="-1" role="dialog" aria-labelledby="modalFormTCM" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
@@ -339,8 +398,7 @@
                                         <div class="valid-feedback">Selva!</div>
                                         <div class="invalid-feedback">Campo Obrigatório!</div>
                                     </div>
-                                </div>
-                            
+                                </div>                            
                                 
                                 <button type="button" name="btnLimparTCM" class="btn btn-warning">Limpar</button>
                                 <button type="submit" name="btnSalvarTCM" class="btn btn-success">Salvar</button>
