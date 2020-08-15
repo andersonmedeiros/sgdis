@@ -40,12 +40,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerSgdis">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">          
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../restrito/cursos.jsp">Cursos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../restrito/avaliacao/avpreliminar.jsp">Avaliações Preliminares</a>
-                        </li>
                         <%
                             HttpSession sessao = request.getSession();
                             Militar militarLogado = (Militar) sessao.getAttribute("militarAutenticado");
@@ -66,61 +60,48 @@
                                                     "</div>"+                                                    
                                                 "</li>"
                                                 );
-                                }
-                            }
-                        %>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Avaliações
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <%
-                                    for(GrupoAcesso ga : grpsacesso){                                        
-                                        if(ga.getId() == 2){
-                                            out.println("<a class=\"dropdown-item\" href=\"../../restrito/curso.jsp\">Teste de Conhecimento Militar</a>");
-                                        }
-                                        else if(ga.getId() == 3){                                            
-                                            out.println("<a class=\"dropdown-item\" href=\"../../restrito/curso.jsp\">Exame de Aptidão Física</a>");
-                                        }
-                                        else if(ga.getId() == 4){
-                                            out.println("<a class=\"dropdown-item\" href=\"../../restrito/avaliacao/psico.jsp\">Avaliação Psicológica</a>");
-                                        }
-                                    }
-                                %>
-                            </div>
-                        </li>
-                        <%
-
-                            for(GrupoAcesso ga : grpsacesso){
-                                if(ga.getId() == 2){
+                                }                            
+                                else if(ga.getId() == 2){
                                     out.println(
+                                                "<li class=\"nav-item\">"+
+                                                    "<a class=\"nav-link active\" href=\"../../restrito/avaliacao/avpreliminar.jsp\">Avaliações Preliminares</a>"+
+                                                "</li>"+
                                                 "<li class=\"nav-item dropdown\">"+
                                                     "<a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">"+
                                                         "STE"+
                                                     "</a>"+
                                                     "<div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">"+                                
-                                                        "<a class=\"dropdown-item\" href=\"../restrito/curso.jsp\">Curso</a>"+
+                                                        "<a class=\"dropdown-item\" href=\"../../restrito/curso.jsp\">Curso</a>"+
                                                         "<div class=\"dropdown-divider\"></div>"+
-                                                        "<a class=\"dropdown-item\" href=\"../restrito/gradeCurricular.jsp\">Grade Curricular</a>"+
+                                                        "<a class=\"dropdown-item\" href=\"../../restrito/gradeCurricular.jsp\">Grade Curricular</a>"+
                                                     "</div>"+
-                                                "</li>");                                        
-                                                    
+                                                "</li>");      
                                 }
                                 else if(ga.getId() == 3){
                                     out.println(
+                                                "<li class=\"nav-item\">"+
+                                                    "<a class=\"nav-link active\" href=\"../../restrito/avaliacao/avpreliminar.jsp\">Avaliações Preliminares</a>"+
+                                                "</li>"+
                                                 "<li class=\"nav-item dropdown\">"+
                                                     "<a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">"+
                                                         "DivAl"+
                                                     "</a>"+
                                                     "<div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">"+
-                                                        "<a class=\"dropdown-item\" href=\"../restrito/curso/curso.jsp\">Curso</a>"+
-                                                        "<a class=\"dropdown-item\" href=\"../restrito/turma/turma.jsp\">Turma</a>"+
-                                                        "<a class=\"dropdown-item\" href=\"../restrito/candidato/precandidatura.jsp\">Cadastrar Candidato</a>"+
+                                                        "<a class=\"dropdown-item\" href=\"../../restrito/curso/curso.jsp\">Curso</a>"+
+                                                        "<a class=\"dropdown-item\" href=\"../../restrito/turma/turma.jsp\">Turma</a>"+
+                                                        "<a class=\"dropdown-item\" href=\"../../restrito/candidato/precandidatura.jsp\">Cadastrar Candidato</a>"+
                                                     "</div>"+
                                                 "</li>");                        
                                 }
                                 else if(ga.getId() == 4){
-                                    out.println();
+                                    out.println("<li class=\"nav-item\">"+
+                                                    "<a class=\"nav-link active\" href=\"../../restrito/avaliacao/avpreliminar.jsp\">Avaliações Preliminares</a>"+
+                                                "</li>");
+                                }
+                                else if(ga.getId() == 5){
+                                    out.println("<li class=\"nav-item\">"+
+                                                    "<a class=\"nav-link active\" href=\"../../restrito/avaliacao/avpreliminar.jsp\">Avaliações Preliminares</a>"+
+                                                "</li>");
                                 }
                             }
                         %>   
@@ -188,11 +169,23 @@
                             <div class="form-group col-md-12">
                                 <label for="txtAvaliacao">Avaliação: <span class="campo-obrigatorio">*</span></label>
                                 <select class="form-control" id="txtAvaliacao" name="txtAvaliacao">
-                                    <option value="0" selected>Selecione uma Avaliação...</option>                                    
-                                    <option value="1">AVALIAÇÃO PSICOLÓGICA</option>                                    
-                                    <option value="2">INSPEÇÃO DE SAÚDE</option>                                    
-                                    <option value="3">TESTE DE CONHECIMENTO MILITAR</option>                                    
-                                    <option value="4">EXAME DE APTIDÃO FÍSICA</option>                                    
+                                    <option value="0" selected>Selecione uma Avaliação...</option>
+                                    <%
+                                        for(GrupoAcesso ga : grpsacesso){
+                                            if(ga.getId() == 2){
+                                                out.println("<option value=\"3\">TESTE DE CONHECIMENTO MILITAR</option>");
+                                            }
+                                            else if(ga.getId() == 3){
+                                                out.println("<option value=\"4\">EXAME DE APTIDÃO FÍSICA</option>");
+                                            }
+                                            else if(ga.getId() == 4){
+                                                out.println("<option value=\"1\">AVALIAÇÃO PSICOLÓGICA</option>");
+                                            }
+                                            else if(ga.getId() == 5){
+                                                out.println("<option value=\"2\">INSPEÇÃO DE SAÚDE</option>");
+                                            }
+                                        }
+                                    %>                                                              
                                 </select>
                                 <div class="valid-feedback">Selva!</div>
                                 <div class="invalid-feedback">Campo Obrigatório!</div>

@@ -27,13 +27,6 @@
     </head>
     <body>
         <header>
-            <%
-                HttpSession sessao = request.getSession();
-                Militar militarLogado = (Militar) sessao.getAttribute("militarAutenticado");
-
-                MilitarHasGrupoAcessoDAO milgrpacessoDAO = new MilitarHasGrupoAcessoDAO();
-                ArrayList<GrupoAcesso> grpsacesso = milgrpacessoDAO.getGruposAcesso(militarLogado.getIdentidade());
-            %>
             <nav class="navbar navbar-expand-lg navbar-light bg-success">
                 <a class="navbar-brand active" href="../restrito/inicial.jsp"><img src="../assets/img/logo_sgdis.png" width="30px" height="35px"><span class="sr-only">SGDis</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerSgdis" aria-controls="navbarTogglerSgdis" aria-expanded="false" aria-label="Alterna navegação">
@@ -41,13 +34,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerSgdis">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">          
-                        <li class="nav-item">
-                            <a class="nav-link" href="../restrito/cursos.jsp">Cursos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../restrito/avaliacao/avpreliminar.jsp">Avaliações Preliminares</a>
-                        </li>
                         <%
+                            HttpSession sessao = request.getSession();
+                            Militar militarLogado = (Militar) sessao.getAttribute("militarAutenticado");
+                            MilitarHasGrupoAcessoDAO milgrpacessoDAO = new MilitarHasGrupoAcessoDAO();
+                            ArrayList<GrupoAcesso> grpsacesso = milgrpacessoDAO.getGruposAcesso(militarLogado.getIdentidade());
                             for(GrupoAcesso ga : grpsacesso){
                                 if(ga.getId() == 1){
                                     out.println(
@@ -63,37 +54,12 @@
                                                     "</div>"+                                                    
                                                 "</li>"
                                                 );
-                                }
-                            }
-                        %>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Avaliações
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <%
-                                    for(GrupoAcesso ga : grpsacesso){                                        
-                                        if(ga.getId() == 2){
-                                            out.println("<a class=\"dropdown-item\" href=\"../restrito/avaliacao/tcm.jsp\">Teste de Conhecimento Militar</a>");
-                                        }
-                                        else if(ga.getId() == 3){                                            
-                                            out.println("<a class=\"dropdown-item\" href=\"../restrito/avaliacao/eaf.jsp\">Exame de Aptidão Física</a>");
-                                        }
-                                        else if(ga.getId() == 4){
-                                            out.println("<a class=\"dropdown-item\" href=\"../restrito/avaliacao/psico.jsp\">Avaliação Psicológica</a>");
-                                        }
-                                        else if(ga.getId() == 5){
-                                            out.println("<a class=\"dropdown-item\" href=\"../restrito/avaliacao/is.jsp\">Inspeção de Saúde</a>");
-                                        }
-                                    }
-                                %>
-                            </div>
-                        </li>
-                        <%
-
-                            for(GrupoAcesso ga : grpsacesso){
-                                if(ga.getId() == 2){
+                                }                            
+                                else if(ga.getId() == 2){
                                     out.println(
+                                                "<li class=\"nav-item\">"+
+                                                    "<a class=\"nav-link\" href=\"../restrito/avaliacao/avpreliminar.jsp\">Avaliações Preliminares</a>"+
+                                                "</li>"+
                                                 "<li class=\"nav-item dropdown\">"+
                                                     "<a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">"+
                                                         "STE"+
@@ -108,6 +74,9 @@
                                 }
                                 else if(ga.getId() == 3){
                                     out.println(
+                                                "<li class=\"nav-item\">"+
+                                                    "<a class=\"nav-link\" href=\"../restrito/avaliacao/avpreliminar.jsp\">Avaliações Preliminares</a>"+
+                                                "</li>"+
                                                 "<li class=\"nav-item dropdown\">"+
                                                     "<a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">"+
                                                         "DivAl"+
@@ -120,7 +89,14 @@
                                                 "</li>");                        
                                 }
                                 else if(ga.getId() == 4){
-                                    out.println();
+                                    out.println("<li class=\"nav-item\">"+
+                                                    "<a class=\"nav-link\" href=\"../restrito/avaliacao/avpreliminar.jsp\">Avaliações Preliminares</a>"+
+                                                "</li>");
+                                }
+                                else if(ga.getId() == 5){
+                                    out.println("<li class=\"nav-item\">"+
+                                                    "<a class=\"nav-link\" href=\"../restrito/avaliacao/avpreliminar.jsp\">Avaliações Preliminares</a>"+
+                                                "</li>");
                                 }
                             }
                         %>   
