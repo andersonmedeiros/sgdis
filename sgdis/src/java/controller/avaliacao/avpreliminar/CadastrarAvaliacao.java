@@ -114,6 +114,17 @@ public class CadastrarAvaliacao extends HttpServlet {
                     tcm.setId(tcmDAO.proxID());
                     tcm.setTcmt(Float.parseFloat(request.getParameter("txtTCMT")));
                     tcm.setTcmp(Float.parseFloat(request.getParameter("txtTCMP")));
+                    
+                    if(tcm.getTcmt() < 5 || tcm.getTcmp() < 5){
+                        tcm.setSituacao(2); //INAPTO
+                    }
+                    else if(tcm.getTcmt() < 5 && tcm.getTcmp() < 5){
+                        tcm.setSituacao(2); //INAPTO
+                    } 
+                    else{
+                        tcm.setSituacao(1); //APTO
+                    }
+                    
                     tcm.setIdTurma(Integer.parseInt(request.getParameter("txtIdTurmaTCM")));
                     tcm.setIdentidadeAluno(String.valueOf(request.getParameter("txtIdentidadeAlTCM")));
                     tcm.setIdentidadeMilitar(militarLogado.getIdentidade());
@@ -121,6 +132,7 @@ public class CadastrarAvaliacao extends HttpServlet {
                     System.out.println("id: " + tcm.getId());
                     System.out.println("tcmt: " + tcm.getTcmt());
                     System.out.println("tcmp: " + tcm.getTcmp());
+                    System.out.println("situacao: " + tcm.getSituacao());
                     System.out.println("idturma: " + tcm.getIdTurma());
                     System.out.println("idtal: " + tcm.getIdentidadeAluno());
                     System.out.println("idtmilav: " + tcm.getIdentidadeMilitar());
