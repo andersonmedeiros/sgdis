@@ -33,7 +33,7 @@ $("select[name=txtCategoria]").change(function(){
 });
 
 //Obrigatoriedade
-$("button[name=btnPesquisar]").click(function(){
+$("button[name=btnGerarRelatorioAvlPreliminar]").click(function(){
     if($("select[name=txtCurso]").val() == '0'){
         $("select[name=txtCurso]").removeClass("is-valid");
         $("select[name=txtCurso]").addClass("is-invalid");
@@ -59,22 +59,6 @@ $("button[name=btnPesquisar]").click(function(){
         return false;
     }
     else{        
-        var idTurma = $("#txtTurma").val();
-        //Avaliação Psicológica
-        if($("select[name=txtAvaliacao]").val() == 1){
-            getAvlPsicoAlunosByTurma(idTurma);  
-        }
-        //Inspeção de Saúde
-        else if($("select[name=txtAvaliacao]").val() == 2){
-            getISAlunosByTurma(idTurma);  
-        }
-        //Teste de Conhecimento Militar
-        else if($("select[name=txtAvaliacao]").val() == 3){
-            getTcmsAlunosByTurma(idTurma);  
-        }
-        //Exame de Aptidão Física
-        else if($("select[name=txtAvaliacao]").val() == 4){
-            getEafAlunosByTurma(idTurma);  
-        }
+        return true;
     }
 });

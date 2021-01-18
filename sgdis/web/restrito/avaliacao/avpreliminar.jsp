@@ -133,7 +133,7 @@
                 %>
             </div>
             
-            <form id="formPesqAlunosTurma" class="form formCad">
+            <form id="formPesqAlunosTurma" class="form formCad" action="controller.relatorio/GerarRelatorioAvlPreliminar" method="POST" target="_blank">
                 <fieldset>
                     <div class="fieldset-header">
                         <h5 class="fieldset-title">Avaliação</h5>
@@ -198,7 +198,11 @@
                             <h5 class="title-interno"></h5>
                         </div>
                         <div class="fieldset-interno">
-                            
+                                 <center>
+                                    <div id="div-btn-pdf" class="col-md-12 mb-3" style="display: none;">
+                                        <button type="submit" class="btn btn-success">Gerar PDF</button>
+                                    </div>
+                                </center>
                                 <table id="avl" class="table">
                                     <thead class="thead-light text">
                                         <tr>                                 

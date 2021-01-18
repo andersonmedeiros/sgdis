@@ -56,6 +56,7 @@ function getAvlPsicoAlunosByTurma(idTurma){
             dwr.util.addRows("candidatos", avls, colunasCandidatosAvlPsico, { escapeHtml: false });            
         }
     });
+    $("#div-btn-pdf").css("display", "block");
 }
 
 var colunasCandidatosTCM = [
@@ -89,6 +90,7 @@ function getTcmsAlunosByTurma(idTurma){
             dwr.util.addRows("candidatos", tcms, colunasCandidatosTCM, { escapeHtml: false });            
         }
     });
+    $("#div-btn-pdf").css("display", "block");
 }
 
 var colunasCandidatosEaf = [
@@ -137,6 +139,7 @@ function getEafAlunosByTurma(idTurma){
             dwr.util.addRows("candidatos", eafs, colunasCandidatosEaf, { escapeHtml: false });            
         }
     });
+    $("#div-btn-pdf").css("display", "block");
 }
 
 var colunasCandidatosIS = [
@@ -169,4 +172,5 @@ function getISAlunosByTurma(idTurma){
             dwr.util.addRows("candidatos", eafs, colunasCandidatosIS, { escapeHtml: false });            
         }
     });
+    $("#div-btn-pdf").css("display", "block");
 }
