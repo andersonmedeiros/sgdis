@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_tcm" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f793000-0425-444a-922a-b386ba5a0c56">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BDSGDis"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[SELECT c.nome curso, c.sigla siglaCurso, cat.nome nomeCategoria, t.ano anoTurma, t.turma turma, 
+alu.identidade idtAlu, pgAlu.abreviatura pGradAlu, alu.nome nomeAlu, alu.sobrenome sobrenomeAlu, alu.nomeguerra guerraAlu,
+TCM.tcmt, TCM.tcmp, IF(TCM.situacao=1, "APTO", IF(TCM.situacao=2,"INAPTO", "-")) sitTCM, mil.nomeguerra guerraAva, pgAva.abreviatura pGradAva
+FROM TCM
+INNER JOIN Aluno alu on TCM.idtAluno = alu.identidade
+INNER JOIN PostoGraduacao pgAlu on alu.idPostoGraduacao = pgAlu.id
+INNER JOIN Militar mil on TCM.idtMilitarAvaliador = mil.identidade
+INNER JOIN PostoGraduacao pgAva on mil.idPostoGraduacao = pgAva.id
+INNER JOIN Turma t on TCM.idTurma = t.id
+INNER JOIN Curso c on t.idCurso = c.id
+INNER JOIN Categoria cat on t.idCategoria = cat.id]]>
+	</queryString>
+	<field name="curso" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="curso"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Curso"/>
+	</field>
+	<field name="siglaCurso" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sigla"/>
+		<property name="com.jaspersoft.studio.field.label" value="siglaCurso"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Curso"/>
+	</field>
+	<field name="nomeCategoria" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomeCategoria"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Categoria"/>
+	</field>
+	<field name="anoTurma" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ano"/>
+		<property name="com.jaspersoft.studio.field.label" value="anoTurma"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Turma"/>
+	</field>
+	<field name="turma" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="turma"/>
+		<property name="com.jaspersoft.studio.field.label" value="turma"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Turma"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idtAlu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="identidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="idtAlu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Aluno"/>
+	</field>
+	<field name="pGradAlu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="abreviatura"/>
+		<property name="com.jaspersoft.studio.field.label" value="pGradAlu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PostoGraduacao"/>
+	</field>
+	<field name="nomeAlu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomeAlu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Aluno"/>
+	</field>
+	<field name="sobrenomeAlu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sobrenome"/>
+		<property name="com.jaspersoft.studio.field.label" value="sobrenomeAlu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Aluno"/>
+	</field>
+	<field name="guerraAlu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomeguerra"/>
+		<property name="com.jaspersoft.studio.field.label" value="guerraAlu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Aluno"/>
+	</field>
+	<field name="tcmt" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.name" value="tcmt"/>
+		<property name="com.jaspersoft.studio.field.label" value="tcmt"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TCM"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tcmp" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.name" value="tcmp"/>
+		<property name="com.jaspersoft.studio.field.label" value="tcmp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TCM"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sitTCM" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sitTCM"/>
+		<property name="com.jaspersoft.studio.field.label" value="sitTCM"/>
+	</field>
+	<field name="guerraAva" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomeguerra"/>
+		<property name="com.jaspersoft.studio.field.label" value="guerraAva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Militar"/>
+	</field>
+	<field name="pGradAva" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="abreviatura"/>
+		<property name="com.jaspersoft.studio.field.label" value="pGradAva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PostoGraduacao"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="210" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="0" y="55" width="555" height="65" uuid="10e9860d-a72a-4a2d-83fb-5ce873a854b8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTÉRIO DA DEFESA
+EXÉRCITO BRASILEIRO
+COMANDO MILITAR DA AMAZÔNIA
+CENTRO DE INSTRUÇÃO DE GUERRA NA SELVA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="555" height="20" uuid="cca589f1-fbac-4b3d-89f1-57fc4d8da3bc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="SansSerif" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(Centro Coronel Jorge Teixeira/1999)]]></text>
+			</staticText>
+			<image>
+				<reportElement x="253" y="0" width="50" height="50" uuid="fabdaada-6113-4850-82c6-e0e1388d8747">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["/home/anderson/Documentos/gitHub/sgdis/sgdis/web/relatorio/brasao.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="180" width="555" height="20" uuid="f9bfec9c-39ef-4738-a659-f90d153ccfbd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FICHA DE INFORMAÇÃO DO CANDIDATO (FIC)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="140" width="555" height="20" uuid="18dda1fc-5496-48e0-b2c8-48c4692c66dd">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{curso} + " (" + $F{siglaCurso} + ")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="160" width="555" height="20" uuid="425ed6d1-1136-4732-85c6-49a125f529ce">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{siglaCurso} + " " + $F{nomeCategoria} + " " + $F{anoTurma} + "/" +$F{turma}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement x="0" y="0" width="555" height="20" uuid="9aadd8c9-6693-49fe-953c-289b5ceabcce">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="355" y="0" width="168" height="20" uuid="8120c232-abbf-420f-be21-769853dd274f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="523" y="0" width="32" height="20" uuid="90a2d8dc-bff2-45f2-a61a-3b44666e44a5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
