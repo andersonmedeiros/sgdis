@@ -26,13 +26,14 @@ public class TcmDAO {
     String id = "id";
     String tcmt = "tcmt";
     String tcmp = "tcmp";
+    String situacao = "situacao";
     String idTurma = "idTurma";
     String idtAluno = "idtAluno";
     String idtMilitarAvaliador = "idtMilitarAvaliador";
     
     //Insert SQL
-    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + tcmt + "," + tcmp + "," + idTurma + "," + idtAluno + "," + idtMilitarAvaliador + ") " +
-                                  "VALUES(?,?,?,?,?,?);";
+    private final String INSERT = "INSERT INTO " + tabela + "(" + id + "," + tcmt + "," + tcmp + "," + situacao + "," + idTurma + "," + idtAluno + "," + idtMilitarAvaliador + ") " +
+                                  "VALUES(?,?,?,?,?,?,?);";
         
     //Delete SQL
     private final String DELETE = "DELETE FROM " + tabela + " " +
@@ -77,9 +78,10 @@ public class TcmDAO {
                 pstm.setInt(1, tcm.getId());
                 pstm.setFloat(2, tcm.getTcmt());
                 pstm.setFloat(3, tcm.getTcmp());
-                pstm.setInt(4, tcm.getIdTurma());
-                pstm.setString(5, tcm.getIdentidadeAluno());
-                pstm.setString(6, tcm.getIdentidadeMilitar());
+                pstm.setInt(4, tcm.getSituacao());
+                pstm.setInt(5, tcm.getIdTurma());
+                pstm.setString(6, tcm.getIdentidadeAluno());
+                pstm.setString(7, tcm.getIdentidadeMilitar());
                                                               
                 pstm.execute();
                 
@@ -134,6 +136,7 @@ public class TcmDAO {
                 tcm.setId(rs.getInt("tcm.id"));
                 tcm.setTcmt(rs.getFloat("tcm.tcmt"));
                 tcm.setTcmp(rs.getFloat("tcm.tcmp"));
+                tcm.setSituacao(rs.getInt("tcm.situacao"));
                 
                 Aluno al = alDAO.getAlunoByIdentidade(rs.getString("tha.idtAluno"));
                 tcm.setIdentidadeAluno(al.getIdentidade());

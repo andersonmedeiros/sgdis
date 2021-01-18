@@ -12,8 +12,8 @@ import java.sql.Date;
  * @author anderson
  */
 public class Tcm {
-    int id;
-    float tcmt, tcmp;    
+    private int id, situacao;
+    private float tcmt, tcmp;    
     private final TurmaHasAluno turmaaluno = new TurmaHasAluno();
     private final Militar milAvaliador = new Militar();
 
@@ -25,6 +25,14 @@ public class Tcm {
         this.id = id;
     }
 
+    public int getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(int situacao) {
+        this.situacao = situacao;
+    }
+    
     public float getTcmt() {
         return tcmt;
     }
