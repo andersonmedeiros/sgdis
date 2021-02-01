@@ -29,6 +29,10 @@
         <servlet-name>CadastrarAvaliacao</servlet-name>
         <servlet-class>controller.avaliacao.avpreliminar.CadastrarAvaliacao</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GerarRelatorioAvlPreliminar</servlet-name>
+        <servlet-class>controller.relatorio.GerarRelatorioAvlPreliminar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dwr-invoker</servlet-name>
         <url-pattern>/dwr/*</url-pattern>
@@ -217,6 +221,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarAvaliacao</servlet-name>
         <url-pattern>/restrito/avaliacao/controller.avaliacao.avpreliminar/CadastrarAvaliacao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GerarRelatorioAvlPreliminar</servlet-name>
+        <url-pattern>/restrito/avaliacao/controller.relatorio/GerarRelatorioAvlPreliminar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

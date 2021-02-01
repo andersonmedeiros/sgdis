@@ -1532,7 +1532,7 @@
                                     <option value="MB">MB</option>
                                     <option value="E">E</option>
                                 </select>
-                                <div class="valid-feedback">Selva!</div>
+                                <diOv class="valid-feedback">Selva!</div>
                                 <div class="invalid-feedback">Campo Obrigatório!</div>
                             </div>                              
                             <div class="form-group col-md-12">

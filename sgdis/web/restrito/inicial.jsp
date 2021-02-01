@@ -24,6 +24,10 @@
         <link rel="stylesheet" type="text/css" href="../assets/node_modules/bootstrap/compiler/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/estilo_universal.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/estilo_cadastroCurso.css">
+        
+        <script type='text/javascript' src='../dwr/engine.js'></script>
+        <script type='text/javascript' src='../dwr/interface/FacadeAjax.js'></script>
+        <script type='text/javascript' src='../dwr/util.js'></script> 
     </head>
     <body>
         <header>
@@ -69,6 +73,15 @@
                                                         "<div class=\"dropdown-divider\"></div>"+
                                                         "<a class=\"dropdown-item\" href=\"../restrito/gradeCurricular.jsp\">Grade Curricular</a>"+
                                                     "</div>"+
+                                                "</li>"+                                       
+                                                "<li class=\"nav-item dropdown\">"+
+                                                    "<a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">"+
+                                                        "Relatórios"+
+                                                    "</a>"+
+                                                    "<div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">"+                                
+                                                        "<a class=\"dropdown-item\" data-toggle=\"modal\" data-target=\"#modalFormGRelaAvlPreliminar\">Avaliação Preliminar</a>"+
+                                                        
+                                                    "</div>"+
                                                 "</li>");                                        
                                                     
                                 }
@@ -105,6 +118,69 @@
                         <button class="btn btn-danger my-2 my-sm-0" type="submit">Sair</button>
                     </form>
                 </div>
+                
+                <!-- Modal Atualizar-->
+                <div class="modal fade" id="modalFormGRelaAvlPreliminar" tabindex="-1" role="dialog" aria-labelledby="modalFormGRelaAvlPreliminar" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title title" id="modalFormGRelaAvlPreliminar">Novo Curso</h5>
+                                <button type="button" name="btnFecharFormGRelaAvlPreliminar" class="close" data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">                            
+                                <form class="container-fluid" action="controller.relatorio/GerarRelatorioAvlPreliminar" method="POST" name="formGRelaAvlPreliminar">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="txtCurso">Curso: <span class="campo-obrigatorio">*</span></label>
+                                            <select class="form-control" id="txtCurso" name="txtCurso">
+                                                <option value="0" selected>Selecione um Curso...</option>                                    
+                                            </select>
+                                            <div class="valid-feedback">Selva!</div>
+                                            <div class="invalid-feedback">Campo Obrigatório!</div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="txtCategoria">Categoria: <span class="campo-obrigatorio">*</span></label>
+                                            <select class="form-control" id="txtCategoria" name="txtCategoria">
+                                                <option value="0" selected>Selecione uma Categoria...</option>                                    
+                                            </select>
+                                            <div class="valid-feedback">Selva!</div>
+                                            <div class="invalid-feedback">Campo Obrigatório!</div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="txtTurma">Turma: <span class="campo-obrigatorio">*</span></label>
+                                            <select class="form-control" id="txtTurma" name="txtTurma">
+                                                <option value="0" selected>Selecione uma Turma...</option>                                    
+                                            </select>
+                                            <div class="valid-feedback">Selva!</div>
+                                            <div class="invalid-feedback">Campo Obrigatório!</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="txtAvaliacao">Avaliação: <span class="campo-obrigatorio">*</span></label>
+                                            <select class="form-control" id="txtAvaliacao" name="txtAvaliacao">
+                                                <option value="0" selected>Selecione uma Avaliação...</option>
+                                                <option value="3">TESTE DE CONHECIMENTO MILITAR</option>                                                     
+                                                <option value="4">EXAME DE APTIDÃO FÍSICA</option>
+                                                <option value="1">AVALIAÇÃO PSICOLÓGICA</option>
+                                                <option value="2">INSPEÇÃO DE SAÚDE</option>                                                      
+                                            </select>
+                                            <div class="valid-feedback">Selva!</div>
+                                            <div class="invalid-feedback">Campo Obrigatório!</div>
+                                        </div>
+                                    </div>
+                                    <button type="button" name="btnLimpar" class="btn btn-warning">Limpar</button>
+                                    <button type="submit" name="btnGerarRelatorioAvlPreliminar" class="btn btn-success">Gerar Relatório</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" name="btnFechar" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </header>
         
@@ -120,5 +196,12 @@
         <script src="../assets/node_modules/jquery/dist/jquery.js"></script>
         <script src="../assets/node_modules/popper.js/dist/popper.js"></script>
         <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        
+        <script src="../assets/js/dwr/avaliacao/avpreliminar/camposDinamicos.js"></script>
+        
+        
+        <script src="../assets/js/formulario/validacao/relatorio/avpreliminar/funcoesImportantes.js"></script>
+        <script src="../assets/js/formulario/validacao/relatorio/avpreliminar/avaliacao.js"></script>
+        <script src="../assets/js/formulario/validacao/relatorio/avpreliminar/pesqalunobyturma.js"></script>
     </body>
 </html>

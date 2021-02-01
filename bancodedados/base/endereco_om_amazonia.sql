@@ -233,6 +233,10 @@ INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEsta
 INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `idCidade`) VALUES ('68', '69304000', 'AVENIDA CAPITÃO ENE GARCEZ', 'Mecejana', '4400');
 INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('100', '6º Batalhão de Engenharia de Construção', '6ª BEC', '1037', '2', '22', '68');
 
+-- EB: TOCANTINS (ID: 27)
+INSERT INTO `Endereco` (`id`, `cep`, `descricao`, `bairro`, `complemento`, `pontoreferencia`, `idCidade`) VALUES ('131', '27534970', 'RODOVIA PRESIDENTE DUTRA', 'CENTRO', 'KM 306', null, '3653');
+INSERT INTO `OM` (`id`, `nome`, `abreviatura`, `numendereco`, `idForca`, `idEstado`, `idEndereco`) VALUES ('182', 'Academia Militar das Agulhas Negras', 'AMAN', 'S/N', '2', '19', '131');
+
 
 -- FORÇA AÉREA BRASILEIRA (ID: 3)
 -- FAB: ACRE (ID: 1)
