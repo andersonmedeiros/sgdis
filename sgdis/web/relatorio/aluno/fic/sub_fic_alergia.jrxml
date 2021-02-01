@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_tcm" pageWidth="555" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5f793000-0425-444a-922a-b386ba5a0c56">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BDSGDis"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[SELECT al.nome alNome
+FROM Aluno_has_Alergia al_alergia
+INNER JOIN Alergia al ON al.id = al_alergia.idAlergia
+INNER JOIN Aluno alu ON alu.identidade = al_alergia.idtAluno
+WHERE alu.identidade = '1212454512';]]>
+	</queryString>
+	<field name="alNome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="alNome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Alergia"/>
+	</field>
+	<variable name="alQtd" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{alNome}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField textAdjust="ScaleFont">
+				<reportElement x="0" y="0" width="555" height="20" uuid="438e66a5-d9cf-4aca-865d-2726846851bb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" ALERGIA " + $V{alQtd} + ": " + $F{alNome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_fic_referenciadois" pageWidth="555" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5f793000-0425-444a-922a-b386ba5a0c56">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BDSGDis"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[SELECT ref.nome refNome, ref.sobrenome refSobrenome, ref.email refEmail, grparentesco.nome refGrauParentesco,
+foneRef.numero refFone
+FROM Aluno_has_Referencia alu_ref
+INNER JOIN Referencia ref ON ref.cpf = alu_ref.cpfReferencia
+INNER JOIN GrauParentesco grparentesco ON grparentesco.id = ref.idGrauParentesco
+INNER JOIN Fone foneRef ON foneRef.cpfReferencia = alu_ref.cpfReferencia
+WHERE alu_ref.idtAluno = '1114448899' AND alu_ref.tipo = 2;]]>
+	</queryString>
+	<field name="refNome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="refNome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Referencia"/>
+	</field>
+	<field name="refSobrenome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sobrenome"/>
+		<property name="com.jaspersoft.studio.field.label" value="refSobrenome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Referencia"/>
+	</field>
+	<field name="refEmail" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="refEmail"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Referencia"/>
+	</field>
+	<field name="refGrauParentesco" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="refGrauParentesco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="GrauParentesco"/>
+	</field>
+	<field name="refFone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="numero"/>
+		<property name="com.jaspersoft.studio.field.label" value="refFone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Fone"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="40">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="20" width="53" height="20" uuid="a150b15f-e6ba-46fb-911d-8a1e8c989865">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ EMAIL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="53" height="20" uuid="c271f591-3fcd-4cf9-81a5-366f8c0cfd72">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ NOME:]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="53" y="0" width="257" height="20" uuid="d2e7a73f-5538-4461-adad-bf45ada61b67">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $F{refNome} + " " + $F{refSobrenome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="445" y="0" width="110" height="20" uuid="d2ee4f0f-7a5f-48b5-8513-66a2cf40be96">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $F{refGrauParentesco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="310" y="20" width="51" height="20" uuid="486f552b-b2a3-43eb-b1e6-e0abe913c92b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ FONE: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="53" y="20" width="257" height="20" uuid="4814dd23-7eeb-44c3-83fd-0395699f10f1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $F{refEmail}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="310" y="0" width="135" height="20" uuid="f4f8c42f-bcea-48f3-ba45-2469387ecda0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ GRAU PARENTESCO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="361" y="20" width="194" height="20" uuid="4618f95f-04e5-42b6-84f3-97dbfe04d15b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" (" + $F{refFone}.substring( 0, 2 ) + ") " + $F{refFone}.substring( 2, 7 )  + "-" +  $F{refFone}.substring( 7, 11 )]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

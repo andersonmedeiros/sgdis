@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fic_veiculo" pageWidth="555" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5f793000-0425-444a-922a-b386ba5a0c56">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BDSGDis"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[SELECT * 
+FROM sgdis.Banco
+WHERE idtAluno = '1207153378';]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Banco"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="banco" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="banco"/>
+		<property name="com.jaspersoft.studio.field.label" value="banco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Banco"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="agencia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="agencia"/>
+		<property name="com.jaspersoft.studio.field.label" value="agencia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Banco"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dvagencia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dvagencia"/>
+		<property name="com.jaspersoft.studio.field.label" value="dvagencia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Banco"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="conta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="conta"/>
+		<property name="com.jaspersoft.studio.field.label" value="conta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Banco"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dvconta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dvconta"/>
+		<property name="com.jaspersoft.studio.field.label" value="dvconta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Banco"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idtAluno" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="idtAluno"/>
+		<property name="com.jaspersoft.studio.field.label" value="idtAluno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Banco"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="20">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="d03256d8-95d5-4dfe-9b81-2882a3cecc0a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ DADOS BANCÁRIOS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField textAdjust="ScaleFont">
+				<reportElement x="65" y="0" width="140" height="20" uuid="b25662a7-93dd-4999-b8fa-e468b9d3c597">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $F{banco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="205" y="0" width="75" height="20" uuid="bfd25adb-4e88-47ae-97aa-7467f85881a1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ AGÊNCIA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="60" height="20" uuid="7cdac781-496e-42c9-805b-84fbe043b26a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ CONTA:]]></text>
+			</staticText>
+			<textField textAdjust="ScaleFont">
+				<reportElement x="440" y="0" width="115" height="20" uuid="bd9b2f60-1b34-4d2c-9cdd-f3ac762bb51e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $F{conta} + "-" + $F{dvconta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="65" height="20" uuid="26f9bf4e-c33f-4cf0-8b07-feca98a78500">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ BANCO:]]></text>
+			</staticText>
+			<textField textAdjust="ScaleFont">
+				<reportElement x="280" y="0" width="100" height="20" uuid="547dd412-93b8-43b2-a294-359dd73c68f0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $F{agencia} + "-" + $F{dvagencia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
